@@ -104,6 +104,11 @@
 
 <a class="skip-link" href="#main">Skip to content</a>
 
+<div class="preview-banner" role="status">
+  <span class="badge">Preview</span>
+  <span>This is a draft of the public site. <strong>Numbers, leaderboard rankings, dataset entries, model scores, and the waveform demo are placeholder values</strong> until the competition launches.</span>
+</div>
+
 <div class="bs-root landing">
 
   <!-- ============================== Sidebar ============================== -->
@@ -159,7 +164,7 @@
         <span class="vb-cd-num">47</span><span class="vb-cd-unit">days</span>
         <span class="vb-cd-num">12</span><span class="vb-cd-unit">hr</span>
       </div>
-      <div class="vb-status"><span class="dot"></span>all systems normal · 8.2k ★</div>
+      <div class="vb-status"><span class="dot"></span>preview build · star on GitHub</div>
     </div>
   </aside>
 
@@ -224,9 +229,9 @@
           <pre><div class="line"><span class="ln"> 1</span><code><span class="c1"># 1. Install the benchmark</span></code></div><div class="line"><span class="ln"> 2</span><code><span class="kw">$</span> pip install <span class="str">neuralbench</span> eegdash braindecode</code></div><div class="line"><span class="ln"> 3</span><code> </code></div><div class="line"><span class="ln"> 4</span><code><span class="c1"># 2. Download a task</span></code></div><div class="line"><span class="ln"> 5</span><code><span class="kw">$</span> neuralbench eeg audiovisual_stimulus <span class="op">--download</span></code></div><div class="line"><span class="ln"> 6</span><code> </code></div><div class="line"><span class="ln"> 7</span><code><span class="c1"># 3. Run the full grid</span></code></div><div class="line"><span class="ln"> 8</span><code><span class="kw">$</span> neuralbench eeg audiovisual_stimulus <span class="op">-m</span> <span class="str">eegnet</span></code></div><div class="line"><span class="ln"> 9</span><code><span class="c2">  ↳ NeuralBench-EEG-Core v1.0 · 94 datasets · 36 tasks</span></code></div></pre>
         </figure>
 
-        <div class="vb-hero-eeg" aria-label="Live EEG demo">
+        <div class="vb-hero-eeg" aria-label="EEG demo signal — placeholder">
           <div class="bs-card-head">
-            <span class="bs-kicker">Live · subject 014 · α band</span>
+            <span class="bs-kicker">Demo signal · α-band placeholder</span>
             <span style="font-size: 10px; color: var(--bs-faint); font-family: var(--bs-fontmono);">500 Hz</span>
           </div>
           <div class="bs-eeg-host" data-eeg-host data-channels="6" data-speed="0.6" style="margin-top: 10px;"></div>
@@ -235,7 +240,7 @@
     </section>
 
     <!-- ============================== Stats banner ============================== -->
-    <section class="vb-stats" id="stats" aria-label="Benchmark stats">
+    <section class="vb-stats" id="stats" aria-label="Benchmark stats — placeholder values" data-placeholder="true">
       <div class="vb-stat">
         <strong data-count-to="94">94</strong>
         <span class="bs-kicker">datasets</span>
@@ -268,7 +273,7 @@
     <section class="vb-section" id="tracks" aria-labelledby="tracks-heading">
       <div class="vb-section-head">
         <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Three tracks, one pipeline</span>
+          <span class="bs-eyebrow"><span class="dot"></span> Three tracks, one pipeline <span class="placeholder-badge">draft</span></span>
           <h2 id="tracks-heading">From cognition to clinic to foundation transfer.</h2>
           <p>Each track shares the same evaluation harness, BIDS-first datasets, and reproducibility audit. Submit to one — or stack against all three.</p>
         </div>
@@ -417,7 +422,7 @@
           <span class="phase-tag">Phase 02 <span class="badge">UPCOMING</span></span>
           <h3>Final submissions</h3>
           <span class="phase-date">Sep 1 — Oct 31, 2026</span>
-          <p class="phase-desc">Hidden test set goes live. Daily submission caps enforced. Each team submits a 2-page methods note alongside their best model.</p>
+          <p class="phase-desc">Hidden test set opens. Daily submission caps enforced. Each team submits a 2-page methods note alongside their best model.</p>
           <div class="phase-meta">
             <div class="row"><span>Hidden test</span><span>Held-out split</span></div>
             <div class="row"><span>Daily cap</span><span>5 / team / day</span></div>
@@ -454,8 +459,8 @@
     <section class="vb-section vb-section-cream" id="leaderboard" aria-labelledby="leader-heading">
       <div class="vb-section-head">
         <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Live leaderboard · NeuralBench-EEG-Core v1.0</span>
-          <h2 id="leader-heading">184 teams. One ranking. Updated every 15 minutes.</h2>
+          <span class="bs-eyebrow"><span class="dot"></span> Leaderboard preview <span class="placeholder-badge">placeholder data</span></span>
+          <h2 id="leader-heading">One ranking, updated every 15 minutes during the final phase.</h2>
         </div>
         <div class="vb-section-side">
           <div class="vb-leader-tabs" role="tablist" aria-label="Filter leaderboard by track">
@@ -536,7 +541,7 @@
     <section class="vb-section" id="datasets" aria-labelledby="datasets-heading">
       <div class="vb-section-head">
         <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Datasets · BIDS-first via EEGDash</span>
+          <span class="bs-eyebrow"><span class="dot"></span> Datasets · BIDS-first via EEGDash <span class="placeholder-badge">placeholder data</span></span>
           <h2 id="datasets-heading">500+ public datasets, one unified interface.</h2>
           <p>Search standardized metadata, run reproducible pipelines, export model-ready features in minutes.</p>
         </div>
@@ -648,7 +653,7 @@
     <section class="vb-section vb-section-cream" id="models" aria-labelledby="models-heading">
       <div class="vb-section-head">
         <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Architectures · braindecode model zoo</span>
+          <span class="bs-eyebrow"><span class="dot"></span> Architectures · braindecode model zoo <span class="placeholder-badge">placeholder F1</span></span>
           <h2 id="models-heading">Side-by-side, on the same data, with the same protocol.</h2>
         </div>
       </div>

@@ -1,6 +1,68 @@
 /* Biosignal 2026 — landing layout (Variation B: NeuroAI Docs).
    Sticky sidebar + main column on desktop, single-column flow on mobile. */
 
+.preview-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: linear-gradient(90deg, rgba(217, 119, 87, 0.14), rgba(217, 119, 87, 0.08) 60%, rgba(217, 119, 87, 0.14));
+  border-bottom: 1px solid rgba(217, 119, 87, 0.28);
+  color: #6f3a23;
+  font-family: var(--bs-fontmono);
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  text-align: center;
+  position: relative;
+  z-index: 40;
+}
+
+.preview-banner .badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--bs-clay);
+  color: white;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 9.5px;
+  text-transform: uppercase;
+}
+
+.preview-banner strong {
+  color: #6f3a23;
+  font-weight: 600;
+}
+
+.placeholder-badge {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(217, 119, 87, 0.12);
+  color: #b34a3a;
+  font-family: var(--bs-fontmono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
+.placeholder-note {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--bs-fontmono);
+  font-size: 11px;
+  color: var(--bs-clay);
+  letter-spacing: 0.4px;
+}
+
+@media (max-width: 600px) {
+  .preview-banner { font-size: 10.5px; padding: 8px 12px; line-height: 1.3; }
+}
+
 .landing {
   display: grid;
   grid-template-columns: 260px minmax(0, 1fr);
@@ -1114,8 +1176,9 @@
 }
 
 .bs-eeg-channel .strip svg {
-  width: 200%;
-  height: 100%;
+  /* width and height are set as attributes by eeg.js based on measured strip
+     pixel width — width is exactly 2x the strip width so the duplicated path
+     tiles seamlessly and translateX(-50%) advances by one strip width. */
   display: block;
   animation: bs-eeg-scroll calc(var(--bs-eeg-speed, 16s) / var(--bs-anim-speed)) linear infinite;
 }
