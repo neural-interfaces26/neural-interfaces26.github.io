@@ -1,0 +1,60 @@
+/* Biosignal 2026 — design tokens.
+   Scoped to :root and the .bs-root surface, ported from the prototype's
+   tokens.css and styles.css. */
+
+:root {
+  /* Type families */
+  --bs-fontsans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --bs-fontserif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --bs-fontmono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  /* Surface */
+  --bs-bg: #ffffff;
+  --bs-surface: #fbfbf9;
+  --bs-surface-soft: linear-gradient(180deg, #fbfbf9 0%, #f1f1ee 100%);
+
+  /* Text */
+  --bs-text: #1f232b;
+  --bs-muted: #494e53;
+  --bs-faint: #7a8288;
+
+  /* Lines + cards */
+  --bs-line: rgba(83, 88, 98, 0.34);
+  --bs-line-strong: rgba(43, 48, 58, 0.82);
+  --bs-card: #ffffff;
+  --bs-card-border: #ebecee;
+
+  /* Brand / accent */
+  --bs-link: #224b8d;
+  --bs-link-hover: #1a3869;
+  --bs-accent: #4d86f7;
+  --bs-accent-2: #00369f;
+  --bs-clay: #d97757;
+  --bs-success: #2a8c4e;
+
+  /* Code surface */
+  --bs-code-bg: #0e1320;
+  --bs-code-bg-soft: #151b2e;
+  --bs-code-line: #1a2034;
+  --bs-code-fg: #d6dcec;
+  --bs-code-faint: #6b7493;
+  --bs-code-kw: #7aa5ff;
+  --bs-code-str: #c0d49e;
+  --bs-code-cls: #f6c177;
+  --bs-code-op: #ea8aa1;
+  --bs-code-c1: #6b7493;
+  --bs-code-c2: #4d86f7;
+
+  /* Radii */
+  --bs-radius-sm: 4px;
+  --bs-radius-md: 10px;
+  --bs-radius-card: 14px;
+  --bs-radius-pill: 999px;
+
+  /* Shadow */
+  --bs-shadow-card: inset 0 1px 0 rgba(255, 255, 255, 0.72), 0 20px 38px rgba(31, 35, 43, 0.07);
+  --bs-shadow-code: 0 12px 32px rgba(14, 19, 32, 0.18);
+
+  /* Motion */
+  --bs-anim-speed: 1;
+}

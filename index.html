@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0e1320" />
+
+<title>The Neural Interface Foundation Challenge — NeurIPS 2026, Sydney</title>
+<meta name="description" content="A unified, open-source benchmark for AI models of brain activity. Four tracks across EEG, EMG, sleep, and cognitive decoding. NeurIPS 2026 open competition, Sydney." />
+
+<meta property="og:title" content="The Neural Interface Foundation Challenge — NeurIPS 2026" />
+<meta property="og:description" content="One pipeline. Every brain dataset that matters. NeurIPS 2026 open competition, Sydney." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&amp;display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/css/tokens.css" />
+<link rel="stylesheet" href="assets/css/base.css" />
+<link rel="stylesheet" href="assets/css/landing.css" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e1320'/%3E%3Cg stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5'/%3E%3Cpath d='M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24'/%3E%3C/g%3E%3C/svg%3E" />
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="bs-root landing">
+
+  <!-- ============================== Sidebar ============================== -->
+  <aside class="vb-sidebar" id="vb-sidebar" aria-label="Documentation navigation">
+    <a class="vb-brand" href="#top">
+      <span class="glyph">
+        <svg viewBox="0 0 32 32" width="20" height="20" aria-hidden="true">
+          <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <path d="M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5" />
+            <path d="M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24" />
+          </g>
+        </svg>
+      </span>
+      <span>
+        <span class="title">Foundation Challenge</span>
+        <span class="sub">NeurIPS 2026 · v1.0</span>
+      </span>
+    </a>
+
+    <nav class="vb-nav" aria-label="Documentation sections">
+      <div class="vb-nav-section">
+        <div class="vb-nav-head">Get started</div>
+        <a href="#top" class="active">Overview</a>
+        <a href="#quickstart">Quickstart</a>
+        <a href="#stats">At a glance</a>
+      </div>
+      <div class="vb-nav-section">
+        <div class="vb-nav-head">Challenge</div>
+        <a href="#tracks">Tracks</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#datasets">Datasets</a>
+        <a href="#models">Models</a>
+      </div>
+      <div class="vb-nav-section">
+        <div class="vb-nav-head">About</div>
+        <a href="organizers.html">Organizers</a>
+        <a href="#sponsors">Sponsors</a>
+        <a href="#cta">Register</a>
+      </div>
+      <div class="vb-nav-section">
+        <div class="vb-nav-head">API reference</div>
+        <a href="https://github.com/nifc-2026/neuralbench" target="_blank" rel="noreferrer noopener">neuralbench</a>
+        <a href="https://eegdash.org/" target="_blank" rel="noreferrer noopener">eegdash</a>
+        <a href="https://braindecode.org/" target="_blank" rel="noreferrer noopener">braindecode</a>
+        <a href="https://moabb.neurotechx.com/" target="_blank" rel="noreferrer noopener">moabb</a>
+      </div>
+    </nav>
+
+    <div class="vb-foot">
+      <div class="bs-kicker">Warm-up opens</div>
+      <div class="vb-countdown" aria-label="47 days, 12 hours until warm-up phase opens">
+        <span class="vb-cd-num">47</span><span class="vb-cd-unit">days</span>
+        <span class="vb-cd-num">12</span><span class="vb-cd-unit">hr</span>
+      </div>
+      <div class="vb-status"><span class="dot"></span>all systems normal · 8.2k ★</div>
+    </div>
+  </aside>
+
+  <div class="sidebar-scrim" id="sidebar-scrim" aria-hidden="true"></div>
+
+  <!-- ============================== Main ============================== -->
+  <main class="vb-main" id="main">
+
+    <!-- Topbar -->
+    <div class="vb-top" id="top">
+      <button class="vb-mobile-burger" id="mobile-burger" aria-label="Open navigation" aria-controls="vb-sidebar" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+          <path d="M2 4h14M2 9h14M2 14h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+        </svg>
+      </button>
+      <div class="vb-bread">
+        <a href="#top">docs</a>
+        <span class="sep">/</span>
+        <a href="#top">foundation-challenge</a>
+        <span class="sep">/</span>
+        <strong>overview</strong>
+      </div>
+      <div class="vb-top-cta">
+        <span class="bs-pill desktop-only"><span class="kbd">⌘</span> K · search</span>
+        <a class="bs-pill desktop-only" href="organizers.html">Organizers</a>
+        <a class="bs-pill desktop-only" href="https://github.com/nifc-2026" target="_blank" rel="noreferrer noopener">GitHub</a>
+        <a class="bs-pill solid" href="#cta">Register</a>
+      </div>
+    </div>
+
+    <!-- ============================== Hero ============================== -->
+    <section class="vb-hero" id="quickstart" aria-labelledby="hero-heading">
+      <div class="vb-hero-text">
+        <span class="bs-eyebrow"><span class="dot"></span> NeurIPS 2026 · open competition</span>
+        <h1 id="hero-heading">The Neural Interface Foundation Challenge.</h1>
+        <p>
+          <strong>The Neural Interface Foundation Challenge</strong> is a unified, open-source benchmark for AI models of brain activity.
+          94 datasets, 36 EEG tasks, 14 architectures — all behind a standardized BIDS-first interface.
+          Pretrain once. Evaluate everywhere. Reproduce by construction.
+        </p>
+        <div class="bs-hero-cta">
+          <a class="bs-btn primary" href="#cta">Register your team →</a>
+          <a class="bs-btn ghost" href="https://arxiv.org/abs/2506.19141" target="_blank" rel="noreferrer noopener">Read the white paper</a>
+        </div>
+        <div class="vb-tags" aria-label="Modalities and stack">
+          <span class="bs-pill">EEG</span>
+          <span class="bs-pill">MEG</span>
+          <span class="bs-pill">fMRI</span>
+          <span class="bs-pill">BIDS-first</span>
+          <span class="bs-pill">PyTorch</span>
+          <span class="bs-pill">MIT licensed</span>
+        </div>
+      </div>
+
+      <div class="vb-hero-side">
+        <figure class="bs-code" aria-label="Install snippet">
+          <figcaption class="bs-code-head">
+            <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span class="bs-kicker">bash · pip · neuralbench</span>
+            <button class="copy" type="button" data-copy>copy</button>
+          </figcaption>
+          <pre><div class="line"><span class="ln"> 1</span><code><span class="c1"># 1. Install the benchmark</span></code></div><div class="line"><span class="ln"> 2</span><code><span class="kw">$</span> pip install <span class="str">neuralbench</span> eegdash braindecode</code></div><div class="line"><span class="ln"> 3</span><code> </code></div><div class="line"><span class="ln"> 4</span><code><span class="c1"># 2. Download a task</span></code></div><div class="line"><span class="ln"> 5</span><code><span class="kw">$</span> neuralbench eeg audiovisual_stimulus <span class="op">--download</span></code></div><div class="line"><span class="ln"> 6</span><code> </code></div><div class="line"><span class="ln"> 7</span><code><span class="c1"># 3. Run the full grid</span></code></div><div class="line"><span class="ln"> 8</span><code><span class="kw">$</span> neuralbench eeg audiovisual_stimulus <span class="op">-m</span> <span class="str">eegnet</span></code></div><div class="line"><span class="ln"> 9</span><code><span class="c2">  ↳ NeuralBench-EEG-Core v1.0 · 94 datasets · 36 tasks</span></code></div></pre>
+        </figure>
+
+        <div class="vb-hero-eeg" aria-label="Live EEG demo">
+          <div class="bs-card-head">
+            <span class="bs-kicker">Live · subject 014 · α band</span>
+            <span style="font-size: 10px; color: var(--bs-faint); font-family: var(--bs-fontmono);">500 Hz</span>
+          </div>
+          <div class="bs-eeg-host" data-eeg-host data-channels="6" data-speed="0.6" style="margin-top: 10px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== Stats banner ============================== -->
+    <section class="vb-stats" id="stats" aria-label="Benchmark stats">
+      <div class="vb-stat">
+        <strong data-count-to="94">94</strong>
+        <span class="bs-kicker">datasets</span>
+        <span class="vb-stat-delta">+3 this wk</span>
+      </div>
+      <div class="vb-stat">
+        <strong data-count-to="36">36</strong>
+        <span class="bs-kicker">EEG tasks</span>
+      </div>
+      <div class="vb-stat">
+        <strong data-count-to="14">14</strong>
+        <span class="bs-kicker">architectures</span>
+      </div>
+      <div class="vb-stat">
+        <strong data-count-to="12340" data-count-suffix=" h">12,340 h</strong>
+        <span class="bs-kicker">of recording</span>
+      </div>
+      <div class="vb-stat">
+        <strong data-count-to="3412">3,412</strong>
+        <span class="bs-kicker">subjects</span>
+      </div>
+      <div class="vb-stat">
+        <strong data-count-to="184">184</strong>
+        <span class="bs-kicker">teams</span>
+        <span class="vb-stat-delta">↑ 12</span>
+      </div>
+    </section>
+
+    <!-- ============================== Tracks ============================== -->
+    <section class="vb-section" id="tracks" aria-labelledby="tracks-heading">
+      <div class="vb-section-head">
+        <div>
+          <span class="bs-eyebrow"><span class="dot"></span> Three tracks, one pipeline</span>
+          <h2 id="tracks-heading">From cognition to clinic to foundation transfer.</h2>
+          <p>Each track shares the same evaluation harness, BIDS-first datasets, and reproducibility audit. Submit to one — or stack against all three.</p>
+        </div>
+        <div class="vb-section-side">
+          <div class="vb-tracks-meta">
+            <div><span class="bs-kicker">Submissions open</span><strong>Jun 23 — Oct 31, 2026</strong></div>
+            <div><span class="bs-kicker">Final results</span><strong>NeurIPS · Sydney</strong></div>
+            <div><span class="bs-kicker">Prize pool</span><strong>$XXX,XXX USD</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vb-tracks">
+
+        <article class="vb-track">
+          <div class="track-head">
+            <span class="bs-kicker">Track 01</span>
+            <span class="bs-badge">OPEN</span>
+          </div>
+          <h3>Cognitive decoding</h3>
+          <p>Predict task labels — motor imagery, P300, SSVEP, audiovisual stimulus, mental arithmetic — from raw EEG across heterogeneous montages and acquisition systems.</p>
+          <div class="vb-track-paradigms">
+            <span class="bs-pill">Motor imagery</span>
+            <span class="bs-pill">P300</span>
+            <span class="bs-pill">SSVEP</span>
+            <span class="bs-pill">AV stim</span>
+            <span class="bs-pill">Arithmetic</span>
+          </div>
+          <div class="track-stats">
+            <div><span class="bs-kicker">Tasks</span><strong>14</strong></div>
+            <div><span class="bs-kicker">Open subjects</span><strong>2,144</strong></div>
+            <div><span class="bs-kicker">Baseline F1</span><strong>0.61</strong></div>
+          </div>
+          <div class="vb-track-lead">
+            <div>
+              <span class="bs-kicker">Current leader</span>
+              <span class="lead-name">eeg-conformer-XL · Tübingen</span>
+            </div>
+            <strong class="lead-score">87.4</strong>
+          </div>
+          <div class="vb-track-cta">
+            <a href="#cta" class="bs-btn primary sm">Submit to this track →</a>
+            <a href="#datasets" class="track-link">Browse datasets</a>
+          </div>
+        </article>
+
+        <article class="vb-track">
+          <div class="track-head">
+            <span class="bs-kicker">Track 02</span>
+            <span class="bs-badge">OPEN</span>
+          </div>
+          <h3>Clinical phenotyping</h3>
+          <p>Sleep staging, seizure detection, depression and Parkinson's phenotyping. Generalize across sites, devices, and clinical populations under strict no-leakage protocols.</p>
+          <div class="vb-track-paradigms">
+            <span class="bs-pill">Sleep stage</span>
+            <span class="bs-pill">Seizure</span>
+            <span class="bs-pill">Depression</span>
+            <span class="bs-pill">Parkinson's</span>
+            <span class="bs-pill">TBI</span>
+          </div>
+          <div class="track-stats">
+            <div><span class="bs-kicker">Pathologies</span><strong>11</strong></div>
+            <div><span class="bs-kicker">Subjects</span><strong>892</strong></div>
+            <div><span class="bs-kicker">Sites</span><strong>17</strong></div>
+          </div>
+          <div class="vb-track-lead">
+            <div>
+              <span class="bs-kicker">Current leader</span>
+              <span class="lead-name">BIOT-large · Yale + ETH</span>
+            </div>
+            <strong class="lead-score">82.1</strong>
+          </div>
+          <div class="vb-track-cta">
+            <a href="#cta" class="bs-btn primary sm">Submit to this track →</a>
+            <a href="#datasets" class="track-link">Browse datasets</a>
+          </div>
+        </article>
+
+        <article class="vb-track featured">
+          <div class="track-head">
+            <span class="bs-kicker">Track 03 · headline</span>
+            <span class="bs-badge">OPEN</span>
+          </div>
+          <h3>Foundation transfer</h3>
+          <p>Pretrain once on 12,340 hours of public EEG; evaluate on the full 36-task downstream battery. Frozen and finetuned regimes scored separately.</p>
+          <div class="vb-track-paradigms">
+            <span class="bs-pill">Frozen probe</span>
+            <span class="bs-pill">Finetune</span>
+            <span class="bs-pill">LoRA</span>
+            <span class="bs-pill">Few-shot</span>
+            <span class="bs-pill">Zero-shot</span>
+          </div>
+          <div class="track-stats">
+            <div><span class="bs-kicker">Tasks</span><strong>36</strong></div>
+            <div><span class="bs-kicker">Pretrain h</span><strong>12,340</strong></div>
+            <div><span class="bs-kicker">Models</span><strong>14</strong></div>
+          </div>
+          <div class="vb-track-lead">
+            <div>
+              <span class="bs-kicker">Current leader</span>
+              <span class="lead-name">LaBraM-foundation · Tsinghua</span>
+            </div>
+            <strong class="lead-score">84.9</strong>
+          </div>
+          <div class="vb-track-cta">
+            <a href="#cta" class="bs-btn primary sm">Submit to this track →</a>
+            <a href="#datasets" class="track-link">Browse datasets</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============================== Timeline ============================== -->
+    <section class="vb-section" id="timeline" aria-labelledby="timeline-heading">
+      <div class="vb-section-head">
+        <div>
+          <span class="bs-eyebrow"><span class="dot"></span> Phases · Jun — Dec 2026</span>
+          <h2 id="timeline-heading">From warm-up to NeurIPS finals.</h2>
+          <p>One warm-up window, one final submission window, one hidden test freeze, one weekend in Sydney. The schedule follows the NeurIPS 2026 competition guidelines: launch in June, complete by end of October, present at the December workshop.</p>
+        </div>
+        <div class="vb-section-side">
+          <div class="vb-tracks-meta">
+            <div><span class="bs-kicker">All times</span><strong>Anywhere on Earth (AoE)</strong></div>
+            <div><span class="bs-kicker">Daily cap (final phase)</span><strong>5 submissions / team / day</strong></div>
+            <div><span class="bs-kicker">Workshop</span><strong>NeurIPS · Dec 11–12, 2026</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <ol class="vb-timeline" aria-label="Competition phases">
+        <li class="phase-card active">
+          <span class="phase-rail" aria-hidden="true"></span>
+          <span class="phase-tag">Phase 01 <span class="badge">NEXT</span></span>
+          <h3>Warm-up</h3>
+          <span class="phase-date">Jun 23 — Aug 31, 2026</span>
+          <p class="phase-desc">Public validation set, unlimited submissions, baseline models released. Get your pipeline running end-to-end before the hidden test opens.</p>
+          <div class="phase-meta">
+            <div class="row"><span>Validation set</span><span>Public release</span></div>
+            <div class="row"><span>Submissions</span><span>Unlimited</span></div>
+          </div>
+        </li>
+
+        <li class="phase-card upcoming">
+          <span class="phase-rail" aria-hidden="true"></span>
+          <span class="phase-tag">Phase 02 <span class="badge">UPCOMING</span></span>
+          <h3>Final submissions</h3>
+          <span class="phase-date">Sep 1 — Oct 31, 2026</span>
+          <p class="phase-desc">Hidden test set goes live. Daily submission caps enforced. Each team submits a 2-page methods note alongside their best model.</p>
+          <div class="phase-meta">
+            <div class="row"><span>Hidden test</span><span>Held-out split</span></div>
+            <div class="row"><span>Daily cap</span><span>5 / team / day</span></div>
+          </div>
+        </li>
+
+        <li class="phase-card upcoming">
+          <span class="phase-rail" aria-hidden="true"></span>
+          <span class="phase-tag">Phase 03 <span class="badge">UPCOMING</span></span>
+          <h3>Test freeze</h3>
+          <span class="phase-date">Nov 1, 2026 · 23:59 AoE</span>
+          <p class="phase-desc">Submissions close. Reproducibility audit on the top 10 entries per track. Final rankings released two weeks later.</p>
+          <div class="phase-meta">
+            <div class="row"><span>Audit window</span><span>Nov 1 — 15, 2026</span></div>
+            <div class="row"><span>Final ranking</span><span>Nov 16, 2026</span></div>
+          </div>
+        </li>
+
+        <li class="phase-card upcoming">
+          <span class="phase-rail" aria-hidden="true"></span>
+          <span class="phase-tag">Phase 04 <span class="badge">UPCOMING</span></span>
+          <h3>NeurIPS finals</h3>
+          <span class="phase-date">Dec 11 — 12, 2026</span>
+          <p class="phase-desc">Track winners present in Sydney at the NeurIPS Competition Track. Awards, lessons-learned keynote, and the v2.0 roadmap. Travel grants for top-3 per track.</p>
+          <div class="phase-meta">
+            <div class="row"><span>Venue</span><span>Sydney · ICC</span></div>
+            <div class="row"><span>Prize pool</span><span>$XXX,XXX USD</span></div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============================== Leaderboard ============================== -->
+    <section class="vb-section vb-section-cream" id="leaderboard" aria-labelledby="leader-heading">
+      <div class="vb-section-head">
+        <div>
+          <span class="bs-eyebrow"><span class="dot"></span> Live leaderboard · NeuralBench-EEG-Core v1.0</span>
+          <h2 id="leader-heading">184 teams. One ranking. Updated every 15 minutes.</h2>
+        </div>
+        <div class="vb-section-side">
+          <div class="vb-leader-tabs" role="tablist" aria-label="Filter leaderboard by track">
+            <button class="bs-pill solid" type="button" role="tab" aria-selected="true">All tracks</button>
+            <button class="bs-pill" type="button" role="tab" aria-selected="false">Track 01</button>
+            <button class="bs-pill" type="button" role="tab" aria-selected="false">Track 02</button>
+            <button class="bs-pill" type="button" role="tab" aria-selected="false">Track 03</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="vb-leader" role="table" aria-label="Top submissions">
+        <div class="vb-leader-row head" role="row">
+          <span role="columnheader">#</span>
+          <span role="columnheader">Submission</span>
+          <span role="columnheader">Track</span>
+          <span role="columnheader">F1</span>
+          <span role="columnheader">Δ</span>
+        </div>
+        <div class="vb-leader-row hl" role="row">
+          <span class="rk" role="cell">#01</span>
+          <span class="nm" role="cell">eeg-conformer-XL · Tübingen</span>
+          <span class="tk" role="cell">T1</span>
+          <span class="sc" role="cell">87.4</span>
+          <span class="dl" role="cell">↑ 2</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#02</span>
+          <span class="nm" role="cell">BIOT-large · Yale + ETH</span>
+          <span class="tk" role="cell">T3</span>
+          <span class="sc" role="cell">86.1</span>
+          <span class="dl" role="cell">↑ 1</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#03</span>
+          <span class="nm" role="cell">LaBraM-foundation · Tsinghua</span>
+          <span class="tk" role="cell">T3</span>
+          <span class="sc" role="cell">84.9</span>
+          <span class="dl" role="cell">–</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#04</span>
+          <span class="nm" role="cell">EEGNeX-finetuned · Inria-Saclay</span>
+          <span class="tk" role="cell">T1</span>
+          <span class="sc" role="cell">83.2</span>
+          <span class="dl" role="cell">↓ 2</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#05</span>
+          <span class="nm" role="cell">CBraMod-base · Meta FAIR</span>
+          <span class="tk" role="cell">T3</span>
+          <span class="sc" role="cell">82.7</span>
+          <span class="dl" role="cell">↑ 4</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#06</span>
+          <span class="nm" role="cell">BIOT-clinical · Yale + ETH</span>
+          <span class="tk" role="cell">T2</span>
+          <span class="sc" role="cell">82.1</span>
+          <span class="dl" role="cell">↑ 1</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#07</span>
+          <span class="nm" role="cell">REVE-pretrained · Lausanne</span>
+          <span class="tk" role="cell">T3</span>
+          <span class="sc" role="cell">81.4</span>
+          <span class="dl" role="cell">–</span>
+        </div>
+      </div>
+
+      <div class="ds-foot">
+        <span class="bs-kicker">Next refresh in 8 min · 184 teams · 1,247 submissions</span>
+        <a href="#leaderboard" class="track-link">Open full leaderboard →</a>
+      </div>
+    </section>
+
+    <!-- ============================== Datasets ============================== -->
+    <section class="vb-section" id="datasets" aria-labelledby="datasets-heading">
+      <div class="vb-section-head">
+        <div>
+          <span class="bs-eyebrow"><span class="dot"></span> Datasets · BIDS-first via EEGDash</span>
+          <h2 id="datasets-heading">500+ public datasets, one unified interface.</h2>
+          <p>Search standardized metadata, run reproducible pipelines, export model-ready features in minutes.</p>
+        </div>
+        <div class="vb-section-side">
+          <figure class="bs-code" aria-label="EEGDash usage">
+            <figcaption class="bs-code-head">
+              <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
+              <span class="bs-kicker">python · eegdash</span>
+              <button class="copy" type="button" data-copy>copy</button>
+            </figcaption>
+            <pre><div class="line"><span class="ln"> 1</span><code><span class="kw">from</span> eegdash <span class="kw">import</span> <span class="cls">EEGDashDataset</span></code></div><div class="line"><span class="ln"> 2</span><code> </code></div><div class="line"><span class="ln"> 3</span><code>dataset = <span class="cls">EEGDashDataset</span>(</code></div><div class="line"><span class="ln"> 4</span><code>    cache_dir=<span class="str">"./data"</span>,</code></div><div class="line"><span class="ln"> 5</span><code>    dataset=<span class="str">"ds002718"</span>,</code></div><div class="line"><span class="ln"> 6</span><code>    subject=[<span class="str">"012"</span>, <span class="str">"013"</span>],</code></div><div class="line"><span class="ln"> 7</span><code>)</code></div><div class="line"><span class="ln"> 8</span><code><span class="c1"># 47 recordings · BIDS · streamed</span></code></div></pre>
+          </figure>
+        </div>
+      </div>
+
+      <div class="ds-table-wrap">
+        <div class="ds-table" role="table" aria-label="Dataset directory">
+          <div class="ds-row head" role="row">
+            <span role="columnheader">ID</span>
+            <span role="columnheader">Name</span>
+            <span role="columnheader">Mod.</span>
+            <span role="columnheader">Subj</span>
+            <span role="columnheader">Hours</span>
+            <span role="columnheader">Ch.</span>
+            <span role="columnheader">SR</span>
+            <span role="columnheader">Coverage</span>
+          </div>
+
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">ds002718</span>
+            <span class="nm" role="cell">Wakeman &amp; Henson · Faces</span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">19</span>
+            <span class="num" role="cell">32h</span>
+            <span class="num" role="cell">70</span>
+            <span class="num" role="cell">1100 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 49%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">ds005811</span>
+            <span class="nm" role="cell">NOD-EEG · Object recognition</span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">19</span>
+            <span class="num" role="cell">24h</span>
+            <span class="num" role="cell">64</span>
+            <span class="num" role="cell">500 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 49%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">ds005810</span>
+            <span class="nm" role="cell">NOD-MEG · Naturalistic vision</span>
+            <span class="mod mod-meg" role="cell">MEG</span>
+            <span class="num" role="cell">31</span>
+            <span class="num" role="cell">26h</span>
+            <span class="num" role="cell">306</span>
+            <span class="num" role="cell">1200 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 61%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">ds006104</span>
+            <span class="nm" role="cell">Speech decoding · TMS</span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">24</span>
+            <span class="num" role="cell">11h</span>
+            <span class="num" role="cell">64</span>
+            <span class="num" role="cell">500 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 54%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">ds001787</span>
+            <span class="nm" role="cell">Meditation · attention</span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">24</span>
+            <span class="num" role="cell">18h</span>
+            <span class="num" role="cell">128</span>
+            <span class="num" role="cell">256 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 54%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">ds003816</span>
+            <span class="nm" role="cell">LKM · affect modulation</span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">48</span>
+            <span class="num" role="cell">42h</span>
+            <span class="num" role="cell">128</span>
+            <span class="num" role="cell">1000 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 78%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">ds005574</span>
+            <span class="nm" role="cell">Podcast · ECoG narrative</span>
+            <span class="mod mod-ieeg" role="cell">iEEG</span>
+            <span class="num" role="cell">9</span>
+            <span class="num" role="cell">9h</span>
+            <span class="num" role="cell">138</span>
+            <span class="num" role="cell">2048 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 39%;"></span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-foot">
+        <span class="bs-kicker">Showing 7 of 94 · NeuralBench-EEG-Core v1.0</span>
+        <a href="#datasets" class="track-link">Browse all datasets →</a>
+      </div>
+    </section>
+
+    <!-- ============================== Models ============================== -->
+    <section class="vb-section vb-section-cream" id="models" aria-labelledby="models-heading">
+      <div class="vb-section-head">
+        <div>
+          <span class="bs-eyebrow"><span class="dot"></span> Architectures · braindecode model zoo</span>
+          <h2 id="models-heading">Side-by-side, on the same data, with the same protocol.</h2>
+        </div>
+      </div>
+
+      <div class="vb-models">
+
+        <article class="model-card">
+          <div class="model-head">
+            <span class="bs-kicker">task-specific</span>
+            <div class="model-matrix" data-matrix-seed="3" aria-hidden="true"></div>
+          </div>
+          <h4>EEGNeX</h4>
+          <div class="model-spec">Compact CNN</div>
+          <div class="model-stats">
+            <div><span class="bs-kicker">F1</span><strong>83.2</strong></div>
+            <div><span class="bs-kicker">Params</span><strong>0.4M</strong></div>
+          </div>
+          <div class="model-bar"><div class="fill" style="width: 83.2%;"></div></div>
+        </article>
+
+        <article class="model-card">
+          <div class="model-head">
+            <span class="bs-kicker">task-specific</span>
+            <div class="model-matrix" data-matrix-seed="4" aria-hidden="true"></div>
+          </div>
+          <h4>EEGConformer</h4>
+          <div class="model-spec">CNN + Transformer</div>
+          <div class="model-stats">
+            <div><span class="bs-kicker">F1</span><strong>84.1</strong></div>
+            <div><span class="bs-kicker">Params</span><strong>1.2M</strong></div>
+          </div>
+          <div class="model-bar"><div class="fill" style="width: 84.1%;"></div></div>
+        </article>
+
+        <article class="model-card">
+          <div class="model-head">
+            <span class="bs-kicker">foundation</span>
+            <div class="model-matrix" data-matrix-seed="5" aria-hidden="true"></div>
+          </div>
+          <h4>BIOT</h4>
+          <div class="model-spec">Transformer · pretrained</div>
+          <div class="model-stats">
+            <div><span class="bs-kicker">F1</span><strong>86.1</strong></div>
+            <div><span class="bs-kicker">Params</span><strong>24M</strong></div>
+          </div>
+          <div class="model-bar"><div class="fill" style="width: 86.1%;"></div></div>
+        </article>
+
+        <article class="model-card">
+          <div class="model-head">
+            <span class="bs-kicker">foundation</span>
+            <div class="model-matrix" data-matrix-seed="6" aria-hidden="true"></div>
+          </div>
+          <h4>LaBraM</h4>
+          <div class="model-spec">Large brain model</div>
+          <div class="model-stats">
+            <div><span class="bs-kicker">F1</span><strong>84.9</strong></div>
+            <div><span class="bs-kicker">Params</span><strong>47M</strong></div>
+          </div>
+          <div class="model-bar"><div class="fill" style="width: 84.9%;"></div></div>
+        </article>
+
+        <article class="model-card">
+          <div class="model-head">
+            <span class="bs-kicker">foundation</span>
+            <div class="model-matrix" data-matrix-seed="7" aria-hidden="true"></div>
+          </div>
+          <h4>CBraMod</h4>
+          <div class="model-spec">Criss-cross transformer</div>
+          <div class="model-stats">
+            <div><span class="bs-kicker">F1</span><strong>82.7</strong></div>
+            <div><span class="bs-kicker">Params</span><strong>38M</strong></div>
+          </div>
+          <div class="model-bar"><div class="fill" style="width: 82.7%;"></div></div>
+        </article>
+
+        <article class="model-card">
+          <div class="model-head">
+            <span class="bs-kicker">foundation</span>
+            <div class="model-matrix" data-matrix-seed="8" aria-hidden="true"></div>
+          </div>
+          <h4>REVE</h4>
+          <div class="model-spec">4D positional encoding</div>
+          <div class="model-stats">
+            <div><span class="bs-kicker">F1</span><strong>81.4</strong></div>
+            <div><span class="bs-kicker">Params</span><strong>52M</strong></div>
+          </div>
+          <div class="model-bar"><div class="fill" style="width: 81.4%;"></div></div>
+        </article>
+
+        <article class="model-card">
+          <div class="model-head">
+            <span class="bs-kicker">foundation</span>
+            <div class="model-matrix" data-matrix-seed="9" aria-hidden="true"></div>
+          </div>
+          <h4>SignalJEPA</h4>
+          <div class="model-spec">Self-supervised JEPA</div>
+          <div class="model-stats">
+            <div><span class="bs-kicker">F1</span><strong>80.8</strong></div>
+            <div><span class="bs-kicker">Params</span><strong>31M</strong></div>
+          </div>
+          <div class="model-bar"><div class="fill" style="width: 80.8%;"></div></div>
+        </article>
+
+        <article class="model-card">
+          <div class="model-head">
+            <span class="bs-kicker">foundation</span>
+            <div class="model-matrix" data-matrix-seed="10" aria-hidden="true"></div>
+          </div>
+          <h4>EEGPT</h4>
+          <div class="model-spec">Pretrained universal</div>
+          <div class="model-stats">
+            <div><span class="bs-kicker">F1</span><strong>79.5</strong></div>
+            <div><span class="bs-kicker">Params</span><strong>88M</strong></div>
+          </div>
+          <div class="model-bar"><div class="fill" style="width: 79.5%;"></div></div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============================== Sponsors ============================== -->
+    <section class="vb-sponsors" id="sponsors" aria-labelledby="sponsors-heading">
+      <div class="vb-sponsors-grid">
+        <div class="vb-sponsors-side">
+          <span class="bs-eyebrow"><span class="dot"></span> Backed by</span>
+          <h3 id="sponsors-heading">Sponsors &amp; organizing institutions</h3>
+          <p>Compute, datasets, prizes, and engineering hours from 14 institutions across 5 countries. Yneuro hosts the platform; AWS provides the GPU cloud. Each track has its own sponsor: Alljoined for EEG-to-IMG, Meta FAIR Brain &amp; AI for BCI decoding, InteraXon for sleep onset, and Meta Reality Labs for EMG-to-control.</p>
+          <a class="bs-btn ghost" href="organizers.html">Meet the team →</a>
+        </div>
+        <div>
+          <div style="margin-bottom: 14px;">
+            <span class="bs-kicker" style="display:block; margin-bottom: 8px;">Compute partner</span>
+            <div class="org-list">
+              <span class="org-mark sponsor"><span class="dot"></span> AWS · compute</span>
+            </div>
+          </div>
+          <div style="margin-bottom: 14px;">
+            <span class="bs-kicker" style="display:block; margin-bottom: 8px;">Track sponsors</span>
+            <div class="org-list">
+              <span class="org-mark sponsor"><span class="dot"></span> Alljoined · Track 01 EEG-to-IMG</span>
+              <span class="org-mark sponsor"><span class="dot"></span> Meta FAIR · Brain &amp; AI · Track 02 BCI</span>
+              <span class="org-mark sponsor"><span class="dot"></span> InteraXon · Track 03 Sleep onset</span>
+              <span class="org-mark sponsor"><span class="dot"></span> Meta Reality Labs · Track 04 EMG</span>
+            </div>
+          </div>
+          <div>
+            <span class="bs-kicker" style="display:block; margin-bottom: 8px;">Organizing institutions</span>
+            <div class="org-list">
+              <span class="org-mark"><span class="dot"></span> Yneuro</span>
+              <span class="org-mark"><span class="dot"></span> UCSD · SCCN</span>
+              <span class="org-mark"><span class="dot"></span> Imperial College</span>
+              <span class="org-mark"><span class="dot"></span> Donders Institute</span>
+              <span class="org-mark"><span class="dot"></span> Inria · Bordeaux</span>
+              <span class="org-mark"><span class="dot"></span> Inria · TAU</span>
+              <span class="org-mark"><span class="dot"></span> Inria · NERV</span>
+              <span class="org-mark"><span class="dot"></span> ISAE-SUPAERO</span>
+              <span class="org-mark"><span class="dot"></span> Paris-Saclay</span>
+              <span class="org-mark"><span class="dot"></span> LaBRI · Bordeaux</span>
+              <span class="org-mark"><span class="dot"></span> Paris Brain Institute</span>
+              <span class="org-mark"><span class="dot"></span> CNRS</span>
+              <span class="org-mark"><span class="dot"></span> Salk Institute</span>
+              <span class="org-mark"><span class="dot"></span> ChaLearn</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CTA ============================== -->
+    <section class="vb-section vb-cta" id="cta" aria-labelledby="cta-heading">
+      <div>
+        <span class="bs-eyebrow"><span class="dot"></span> Warm-up opens Jun 23, 2026</span>
+        <h2 id="cta-heading">Build with us. Benchmark with us. Publish with us.</h2>
+        <p>The challenge is open-source, MIT-licensed, and community-driven. Add a task, add a dataset, add a model — every contribution makes the benchmark stronger.</p>
+        <div class="bs-hero-cta">
+          <a class="bs-btn primary" href="https://github.com/nifc-2026" target="_blank" rel="noreferrer noopener">Register your team →</a>
+          <a class="bs-btn ghost" href="https://github.com/nifc-2026/neuralbench" target="_blank" rel="noreferrer noopener">Contribute on GitHub</a>
+        </div>
+      </div>
+      <figure class="bs-code" aria-label="Contributor snippet">
+        <figcaption class="bs-code-head">
+          <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="bs-kicker">bash · contribute</span>
+          <button class="copy" type="button" data-copy>copy</button>
+        </figcaption>
+        <pre><div class="line"><span class="ln"> 1</span><code><span class="kw">$</span> git clone https://github.com/nifc-2026/neuralbench</code></div><div class="line"><span class="ln"> 2</span><code><span class="kw">$</span> cd neuralbench</code></div><div class="line"><span class="ln"> 3</span><code><span class="kw">$</span> pip install -e <span class="str">".[dev]"</span></code></div><div class="line"><span class="ln"> 4</span><code> </code></div><div class="line"><span class="ln"> 5</span><code><span class="c1"># Add your task</span></code></div><div class="line"><span class="ln"> 6</span><code><span class="kw">$</span> python scripts/register_task.py <span class="op">--modality</span> eeg</code></div></pre>
+      </figure>
+    </section>
+
+    <!-- ============================== Footer ============================== -->
+    <footer class="vb-footer">
+      <div class="vb-footer-row">
+        <a class="vb-brand" href="#top" style="border-bottom: none; padding: 0; text-decoration: none;">
+          <span class="glyph">
+            <svg viewBox="0 0 32 32" width="20" height="20" aria-hidden="true">
+              <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                <path d="M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5" />
+                <path d="M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24" />
+              </g>
+            </svg>
+          </span>
+          <span>
+            <span class="title">Foundation Challenge</span>
+            <span class="sub">NeurIPS 2026 · Sydney</span>
+          </span>
+        </a>
+        <div class="vb-footer-links">
+          <a href="organizers.html">Organizers</a>
+          <a href="#timeline">Timeline</a>
+          <a href="#leaderboard">Leaderboard</a>
+          <a href="#sponsors">Sponsors</a>
+          <a href="https://github.com/nifc-2026" target="_blank" rel="noreferrer noopener">GitHub</a>
+        </div>
+      </div>
+      <div class="vb-footer-row">
+        <span class="vb-footer-meta">
+          © 2026 Neural Interface Foundation Challenge · MIT licensed · Continues the work of the <a href="https://eeg2025.github.io/" target="_blank" rel="noreferrer noopener" style="color: inherit; text-decoration: underline;">EEG 2025 Challenge</a>
+        </span>
+        <span class="vb-footer-meta">
+          Organized by Yneuro · UCSD · Imperial · Meta FAIR · Donders · Alljoined · Inria Bordeaux · ISAE-SUPAERO · InteraXon · Meta Reality Labs · Paris-Saclay · CNRS · Salk · ChaLearn
+        </span>
+      </div>
+    </footer>
+
+  </main>
+</div>
+
+<script src="assets/js/eeg.js" defer></script>
+<script src="assets/js/ui.js" defer></script>
+
+</body>
+</html>

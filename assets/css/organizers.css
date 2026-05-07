@@ -1,0 +1,255 @@
+/* Biosignal 2026 — organizers page styles. */
+
+.org-section {
+  padding: 56px 32px;
+  border-bottom: 1px solid var(--bs-card-border);
+}
+
+.org-section + .org-section { padding-top: 64px; }
+
+.org-section-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 32px;
+}
+
+.org-section-head h2 {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.018em;
+  line-height: 1.08;
+  margin: 14px 0 10px;
+  text-wrap: balance;
+}
+
+.org-section-head p {
+  font-size: 15px;
+  color: var(--bs-muted);
+  margin: 0;
+  line-height: 1.55;
+  max-width: 56ch;
+}
+
+.org-section-side {
+  font-family: var(--bs-fontmono);
+  font-size: 11px;
+  color: var(--bs-faint);
+  letter-spacing: 0.6px;
+  text-align: right;
+  align-self: end;
+}
+
+.org-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.org-grid.tight {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.org-grid.tight .org-card { padding: 18px; }
+.org-grid.tight .org-card .name { font-size: 14px; }
+.org-grid.tight .org-card .role { font-size: 9.5px; }
+.org-grid.tight .org-card .bio { font-size: 12.5px; line-height: 1.5; }
+.org-grid.tight .org-card .head { gap: 12px; }
+.org-grid.tight .org-card .avatar { width: 44px; height: 44px; font-size: 14px; }
+.org-grid.tight .org-card .affil { padding-top: 10px; gap: 4px; }
+.org-grid.tight .org-card .affil .bs-pill { font-size: 9.5px; padding: 2px 7px; }
+
+.org-card {
+  background: white;
+  border: 1px solid var(--bs-card-border);
+  border-radius: var(--bs-radius-card);
+  padding: 22px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.org-card:hover {
+  border-color: var(--bs-line-strong);
+}
+
+.org-card .head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.org-card .avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--bs-link) 0%, var(--bs-accent) 100%);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: var(--bs-fontsans);
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(34, 75, 141, 0.18);
+  overflow: hidden;
+  position: relative;
+}
+
+.org-card .avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 999px;
+}
+
+.org-card.lead .avatar img {
+  /* Lead avatar gets a clay-tinted ring even when image-backed */
+  box-shadow: inset 0 0 0 1.5px rgba(217, 119, 87, 0.5);
+}
+
+.org-card .name-wrap { display: grid; gap: 1px; min-width: 0; }
+
+.org-card .name {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--bs-text);
+  line-height: 1.2;
+}
+
+.org-card .role {
+  font-family: var(--bs-fontmono);
+  font-size: 10px;
+  color: var(--bs-faint);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.org-card .bio {
+  font-size: 13px;
+  color: var(--bs-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.org-card .affil {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--bs-card-border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.org-card .affil .bs-pill {
+  padding: 3px 8px;
+  font-size: 10px;
+  background: rgba(34, 75, 141, 0.06);
+  border-color: rgba(34, 75, 141, 0.15);
+  color: var(--bs-link);
+}
+
+/* Featured (lead) card variant — used for Bruno + lead row to match site lead in Variation B */
+.org-card.lead {
+  background: linear-gradient(180deg, var(--bs-code-bg) 0%, var(--bs-code-bg-soft) 100%);
+  color: var(--bs-code-fg);
+  border-color: var(--bs-code-line);
+}
+
+.org-card.lead .name { color: white; }
+.org-card.lead .role { color: var(--bs-clay); }
+.org-card.lead .bio { color: #b9bcc8; }
+.org-card.lead .affil { border-top-color: rgba(255, 255, 255, 0.08); }
+
+.org-card.lead .affil .bs-pill {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--bs-code-fg);
+}
+
+.org-card.lead .avatar {
+  background: linear-gradient(135deg, var(--bs-clay) 0%, #c25a40 100%);
+  box-shadow: 0 2px 6px rgba(217, 119, 87, 0.32);
+}
+
+/* Hero specific to organizers page */
+.org-hero {
+  padding: 56px 32px 48px;
+  border-bottom: 1px solid var(--bs-card-border);
+}
+
+.org-hero h1 {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.022em;
+  margin: 16px 0 16px;
+  max-width: 22ch;
+  text-wrap: balance;
+}
+
+.org-hero p {
+  font-size: 16px;
+  color: var(--bs-muted);
+  max-width: 60ch;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.org-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 32px;
+  border-top: 1px solid var(--bs-card-border);
+  border-bottom: 1px solid var(--bs-card-border);
+}
+
+.org-hero-stats > div {
+  padding: 18px 20px;
+  border-right: 1px solid var(--bs-card-border);
+  display: grid;
+  gap: 4px;
+}
+
+.org-hero-stats > div:last-child { border-right: none; }
+
+.org-hero-stats strong {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-family: var(--bs-fontmono);
+}
+
+.org-hero-stats .bs-kicker { font-size: 9px; }
+
+@media (max-width: 1280px) {
+  .org-grid.tight { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 1100px) {
+  .org-grid,
+  .org-grid.tight { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .org-section { padding: 48px 24px; }
+  .org-section-head { grid-template-columns: 1fr; gap: 14px; }
+  .org-section-side { text-align: left; }
+  .org-hero { padding: 48px 24px 40px; }
+  .org-hero h1 { font-size: 36px; }
+  .org-hero-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .org-hero-stats > div:nth-child(2n) { border-right: none; }
+  .org-hero-stats > div:nth-child(n+3) { border-top: 1px solid var(--bs-card-border); }
+}
+
+@media (max-width: 900px) {
+  .org-grid,
+  .org-grid.tight { grid-template-columns: 1fr; }
+  .org-section { padding: 32px 18px; }
+  .org-hero { padding: 32px 18px; }
+  .org-hero h1 { font-size: 30px; }
+}
