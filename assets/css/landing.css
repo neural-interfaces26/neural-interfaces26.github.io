@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 10px;
   padding: 8px 16px;
   background: linear-gradient(90deg, rgba(217, 119, 87, 0.14), rgba(217, 119, 87, 0.08) 60%, rgba(217, 119, 87, 0.14));
@@ -60,7 +61,27 @@
 }
 
 @media (max-width: 600px) {
-  .preview-banner { font-size: 10.5px; padding: 8px 12px; line-height: 1.3; }
+  .preview-banner {
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 10.5px;
+    padding: 8px 12px;
+    line-height: 1.3;
+    text-align: left;
+  }
+
+  .preview-banner .badge {
+    flex: 0 0 auto;
+  }
+
+  .preview-banner span:not(.badge) {
+    min-width: 0;
+    flex: 1 1 180px;
+  }
+
+  .placeholder-badge {
+    margin: 3px 0 0;
+  }
 }
 
 .landing {
@@ -68,6 +89,7 @@
   grid-template-columns: 260px minmax(0, 1fr);
   background: var(--bs-bg);
   min-height: 100vh;
+  min-width: 0;
 }
 
 /* Scrim is only used when the mobile sidebar is open. It must stay out of the
@@ -196,7 +218,7 @@
   font-size: 22px;
   font-weight: 700;
   color: var(--bs-link);
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 
 .vb-cd-unit {
@@ -228,7 +250,17 @@
 /* ============================================================
    Main column
    ============================================================ */
-.vb-main { display: grid; gap: 0; min-width: 0; }
+.vb-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  width: 100%;
+  min-width: 0;
+}
+
+.vb-main > * {
+  min-width: 0;
+}
 
 .vb-top {
   display: flex;
@@ -321,7 +353,7 @@
   font-size: 48px;
   font-weight: 700;
   line-height: 1.04;
-  letter-spacing: -0.022em;
+  letter-spacing: 0;
   margin: 18px 0 18px;
   text-wrap: balance;
 }
@@ -356,7 +388,12 @@
   font-size: 11px;
 }
 
-.vb-hero-side { display: grid; gap: 16px; align-content: start; }
+.vb-hero-side {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+  min-width: 0;
+}
 
 .vb-hero-eeg {
   background: var(--bs-surface);
@@ -369,6 +406,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
+  min-width: 0;
 }
 
 /* ============================================================
@@ -393,7 +432,7 @@
 .vb-stat strong {
   font-size: 24px;
   font-weight: 700;
-  letter-spacing: -0.012em;
+  letter-spacing: 0;
   font-family: var(--bs-fontmono);
 }
 
@@ -428,7 +467,7 @@
 .vb-section-head h2 {
   font-size: 36px;
   line-height: 1.06;
-  letter-spacing: -0.018em;
+  letter-spacing: 0;
   margin: 14px 0 12px;
   font-weight: 700;
   text-wrap: balance;
@@ -443,7 +482,11 @@
 
 .vb-section-head .bs-eyebrow { margin-bottom: 0; }
 
-.vb-section-side { display: grid; gap: 12px; }
+.vb-section-side {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
 
 /* ============================================================
    Tracks
@@ -467,9 +510,11 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+  min-width: 0;
 }
 
 .vb-track {
+  min-width: 0;
   padding: 26px;
   border-radius: var(--bs-radius-card);
   background: white;
@@ -483,12 +528,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
+  min-width: 0;
 }
 
 .vb-track h3 {
   font-size: 22px;
   margin: 4px 0 0;
-  letter-spacing: -0.012em;
+  letter-spacing: 0;
   font-weight: 700;
   line-height: 1.15;
 }
@@ -532,12 +579,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
+  min-width: 0;
   padding: 12px 14px;
   margin-top: 4px;
   background: var(--bs-code-bg);
   color: var(--bs-code-fg);
   border-radius: var(--bs-radius-md);
   font-family: var(--bs-fontmono);
+}
+
+.vb-track-lead > div {
+  min-width: 0;
 }
 
 .vb-track-lead .bs-kicker {
@@ -547,15 +600,19 @@
 }
 
 .vb-track-lead .lead-name {
+  display: block;
   font-size: 12px;
   color: var(--bs-code-fg);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .vb-track-lead .lead-score {
   font-size: 22px;
   font-weight: 700;
   color: var(--bs-clay);
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   font-family: var(--bs-fontmono);
 }
 
@@ -705,7 +762,7 @@
 .phase-card h3 {
   font-size: 18px;
   font-weight: 700;
-  letter-spacing: -0.012em;
+  letter-spacing: 0;
   margin: 0;
   line-height: 1.2;
 }
@@ -739,6 +796,7 @@
   display: flex;
   justify-content: space-between;
   gap: 8px;
+  min-width: 0;
 }
 
 /* ============================================================
@@ -768,6 +826,10 @@
   border-bottom: 1px solid var(--bs-card-border);
   font-size: 13px;
   transition: background 0.15s;
+}
+
+.vb-leader-row > span {
+  min-width: 0;
 }
 
 .vb-leader-row:last-child { border-bottom: none; }
@@ -854,6 +916,10 @@
   border-bottom: 1px solid var(--bs-card-border);
   font-size: 13px;
   transition: background 0.15s;
+}
+
+.ds-row > span {
+  min-width: 0;
 }
 
 .ds-row:last-child { border-bottom: none; }
@@ -947,7 +1013,7 @@
 .model-card h4 {
   font-size: 18px;
   margin: 12px 0 4px;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   font-weight: 700;
 }
 
@@ -960,6 +1026,7 @@
 .model-stats {
   display: flex;
   gap: 18px;
+  flex-wrap: wrap;
   margin-top: 14px;
   padding-top: 12px;
   border-top: 1px solid var(--bs-card-border);
@@ -1021,7 +1088,7 @@
 .vb-sponsors-side h3 {
   font-size: 18px;
   margin: 8px 0 8px;
-  letter-spacing: -0.012em;
+  letter-spacing: 0;
   font-weight: 700;
   line-height: 1.25;
 }
@@ -1053,6 +1120,10 @@
   font-family: var(--bs-fontmono);
   letter-spacing: 0.4px;
   transition: all 0.2s ease;
+  max-width: 100%;
+  min-width: 0;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .org-mark:hover {
@@ -1092,7 +1163,7 @@
 .vb-cta h2 {
   font-size: 40px;
   line-height: 1.05;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   margin: 16px 0 16px;
   font-weight: 700;
 }
@@ -1211,12 +1282,18 @@
 }
 
 @media (max-width: 900px) {
+  .vb-main {
+    overflow-x: hidden;
+  }
+
   .landing { grid-template-columns: 1fr; }
 
   .vb-sidebar {
     position: fixed;
-    inset: 0 30% 0 0;
-    height: 100vh;
+    inset: 0 auto 0 0;
+    width: min(84vw, 320px);
+    max-width: calc(100vw - 44px);
+    height: 100dvh;
     z-index: 30;
     transform: translateX(-100%);
     transition: transform 0.25s ease;
@@ -1229,6 +1306,14 @@
   .vb-top-cta .desktop-only { display: none; }
   .vb-top { padding: 12px 18px; gap: 12px; }
   .vb-bread { font-size: 11px; gap: 6px; flex: 1; min-width: 0; overflow: hidden; }
+  .vb-bread a,
+  .vb-bread .sep { display: none; }
+  .vb-bread strong {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
   .vb-hero {
     grid-template-columns: 1fr;
@@ -1237,6 +1322,11 @@
   }
   .vb-hero-text h1 { font-size: 32px; }
   .vb-hero-text p { font-size: 14px; }
+
+  .bs-card-head {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
 
   .vb-stats { grid-template-columns: repeat(2, 1fr); }
   .vb-stat { padding: 18px 16px; }
@@ -1262,7 +1352,11 @@
   }
   .vb-leader-row.head { padding: 10px 14px; }
 
-  .ds-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .ds-table-wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
   .ds-row { grid-template-columns: 80px 200px 50px 50px 60px 50px 70px 120px; min-width: 720px; }
 
   .vb-models { grid-template-columns: 1fr; }
@@ -1281,6 +1375,27 @@
 }
 
 @media (max-width: 480px) {
+  .vb-top {
+    padding: 10px 12px;
+  }
+
+  .vb-top-cta .bs-pill.solid {
+    padding: 7px 10px;
+    font-size: 11px;
+  }
+
+  .vb-hero {
+    padding: 28px 14px 36px;
+  }
+
+  .vb-section {
+    padding: 40px 14px;
+  }
+
+  .vb-section-head h2 {
+    font-size: 24px;
+  }
+
   .vb-stats { grid-template-columns: 1fr; }
   .vb-stat { border-right: none; border-bottom: 1px solid var(--bs-card-border); padding: 16px 18px; }
   .vb-stat:last-child { border-bottom: none; }
@@ -1290,5 +1405,37 @@
   .vb-track-cta .bs-btn { justify-content: center; }
   .vb-track-cta .track-link { text-align: center; }
 
-  .bs-hero-cta .bs-btn { flex: 1; justify-content: center; }
+  .vb-track {
+    padding: 18px;
+  }
+
+  .bs-hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .bs-hero-cta .bs-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .vb-leader-row {
+    grid-template-columns: 32px minmax(0, 1fr) 42px 48px;
+  }
+
+  .vb-leader-row > span:nth-child(5) {
+    display: none;
+  }
+
+  .vb-sponsors {
+    padding: 40px 14px;
+  }
+
+  .org-mark {
+    width: 100%;
+  }
+
+  .vb-cta {
+    padding: 44px 14px;
+  }
 }

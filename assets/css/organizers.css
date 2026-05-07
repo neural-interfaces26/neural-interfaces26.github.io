@@ -18,7 +18,7 @@
 .org-section-head h2 {
   font-size: 32px;
   font-weight: 700;
-  letter-spacing: -0.018em;
+  letter-spacing: 0;
   line-height: 1.08;
   margin: 14px 0 10px;
   text-wrap: balance;
@@ -93,7 +93,7 @@
   font-size: 16px;
   font-weight: 700;
   font-family: var(--bs-fontsans);
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   flex-shrink: 0;
   box-shadow: 0 2px 6px rgba(34, 75, 141, 0.18);
   overflow: hidden;
@@ -118,7 +118,7 @@
 .org-card .name {
   font-size: 15px;
   font-weight: 700;
-  letter-spacing: -0.005em;
+  letter-spacing: 0;
   color: var(--bs-text);
   line-height: 1.2;
 }
@@ -188,7 +188,7 @@
   font-size: 44px;
   font-weight: 700;
   line-height: 1.04;
-  letter-spacing: -0.022em;
+  letter-spacing: 0;
   margin: 16px 0 16px;
   max-width: 22ch;
   text-wrap: balance;
@@ -223,7 +223,7 @@
 .org-hero-stats strong {
   font-size: 22px;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   font-family: var(--bs-fontmono);
 }
 
@@ -252,4 +252,41 @@
   .org-section { padding: 32px 18px; }
   .org-hero { padding: 32px 18px; }
   .org-hero h1 { font-size: 30px; }
+}
+
+@media (max-width: 480px) {
+  .org-section {
+    padding: 36px 14px;
+  }
+
+  .org-section-head h2 {
+    font-size: 24px;
+  }
+
+  .org-grid.tight .org-card,
+  .org-card {
+    padding: 16px;
+  }
+
+  .org-card .head {
+    align-items: flex-start;
+  }
+
+  .org-hero {
+    padding: 28px 14px 32px;
+  }
+
+  .org-hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .org-hero-stats > div {
+    border-right: none;
+    border-top: 1px solid var(--bs-card-border);
+    padding: 16px 18px;
+  }
+
+  .org-hero-stats > div:first-child {
+    border-top: none;
+  }
 }
