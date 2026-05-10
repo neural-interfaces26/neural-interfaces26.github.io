@@ -109,8 +109,8 @@
 }
 
 .org-card.lead .avatar img {
-  /* Lead avatar gets a clay-tinted ring even when image-backed */
-  box-shadow: inset 0 0 0 1.5px rgba(217, 119, 87, 0.5);
+  /* Lead avatar gets a blue-tinted ring even when image-backed */
+  box-shadow: inset 0 0 0 1.5px rgba(34, 75, 141, 0.5);
 }
 
 .org-card .name-wrap { display: grid; gap: 1px; min-width: 0; }
@@ -145,6 +145,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+  align-items: center;
 }
 
 .org-card .affil .bs-pill {
@@ -155,6 +156,18 @@
   color: var(--bs-link);
 }
 
+.org-card .affil img {
+  height: 16px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.org-card .affil img:hover {
+  opacity: 1;
+}
+
 /* Featured (lead) card variant — used for Bruno + lead row to match site lead in Variation B */
 .org-card.lead {
   background: linear-gradient(180deg, var(--bs-code-bg) 0%, var(--bs-code-bg-soft) 100%);
@@ -163,7 +176,7 @@
 }
 
 .org-card.lead .name { color: white; }
-.org-card.lead .role { color: var(--bs-clay); }
+.org-card.lead .role { color: var(--bs-accent); }
 .org-card.lead .bio { color: #b9bcc8; }
 .org-card.lead .affil { border-top-color: rgba(255, 255, 255, 0.08); }
 
@@ -174,8 +187,8 @@
 }
 
 .org-card.lead .avatar {
-  background: linear-gradient(135deg, var(--bs-clay) 0%, #c25a40 100%);
-  box-shadow: 0 2px 6px rgba(217, 119, 87, 0.32);
+  background: linear-gradient(135deg, var(--bs-link) 0%, var(--bs-accent) 100%);
+  box-shadow: 0 2px 6px rgba(34, 75, 141, 0.32);
 }
 
 /* Hero specific to organizers page */

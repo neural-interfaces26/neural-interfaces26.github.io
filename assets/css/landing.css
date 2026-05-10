@@ -8,9 +8,9 @@
   flex-wrap: wrap;
   gap: 10px;
   padding: 8px 16px;
-  background: linear-gradient(90deg, rgba(217, 119, 87, 0.14), rgba(217, 119, 87, 0.08) 60%, rgba(217, 119, 87, 0.14));
-  border-bottom: 1px solid rgba(217, 119, 87, 0.28);
-  color: #6f3a23;
+  background: linear-gradient(90deg, rgba(34, 75, 141, 0.08), rgba(34, 75, 141, 0.04) 60%, rgba(34, 75, 141, 0.08));
+  border-bottom: 1px solid rgba(34, 75, 141, 0.18);
+  color: #1a3869;
   font-family: var(--bs-fontmono);
   font-size: 11px;
   letter-spacing: 0.6px;
@@ -23,7 +23,7 @@
   display: inline-block;
   padding: 2px 8px;
   border-radius: 999px;
-  background: var(--bs-clay);
+  background: var(--bs-link);
   color: white;
   font-weight: 700;
   letter-spacing: 1px;
@@ -40,8 +40,8 @@
   display: inline-block;
   padding: 2px 7px;
   border-radius: 4px;
-  background: rgba(217, 119, 87, 0.12);
-  color: #b34a3a;
+  background: rgba(34, 75, 141, 0.08);
+  color: var(--bs-link);
   font-family: var(--bs-fontmono);
   font-size: 9.5px;
   font-weight: 700;
@@ -56,7 +56,7 @@
   margin-top: 8px;
   font-family: var(--bs-fontmono);
   font-size: 11px;
-  color: var(--bs-clay);
+  color: var(--bs-faint);
   letter-spacing: 0.4px;
 }
 
@@ -611,7 +611,7 @@
 .vb-track-lead .lead-score {
   font-size: 22px;
   font-weight: 700;
-  color: var(--bs-clay);
+  color: var(--bs-accent);
   letter-spacing: 0;
   font-family: var(--bs-fontmono);
 }
@@ -648,7 +648,7 @@
 .vb-track.featured h3 { color: white; }
 .vb-track.featured p { color: #b9bcc8; }
 .vb-track.featured .bs-kicker { color: var(--bs-code-faint); }
-.vb-track.featured .track-head .bs-kicker { color: var(--bs-clay); }
+.vb-track.featured .track-head .bs-kicker { color: var(--bs-accent); }
 .vb-track.featured .track-stats { border-top-color: rgba(255, 255, 255, 0.08); }
 .vb-track.featured .track-stats strong { color: white; }
 
@@ -664,18 +664,18 @@
 }
 
 .vb-track.featured .vb-track-lead { background: rgba(255, 255, 255, 0.04); }
-.vb-track.featured .vb-track-lead .lead-score { color: var(--bs-clay); }
+.vb-track.featured .vb-track-lead .lead-score { color: var(--bs-accent); }
 
 .vb-track.featured .bs-badge {
-  background: rgba(217, 119, 87, 0.15);
-  color: var(--bs-clay);
+  background: rgba(77, 134, 247, 0.15);
+  color: var(--bs-accent);
 }
 
 .vb-track.featured .vb-track-cta {
   border-top-color: rgba(255, 255, 255, 0.08);
 }
 
-.vb-track.featured .track-link { color: var(--bs-clay); }
+.vb-track.featured .track-link { color: var(--bs-accent); }
 
 /* ============================================================
    Timeline (phase strip)
@@ -722,8 +722,8 @@
 .phase-card.done .phase-rail::after { background: var(--bs-link); }
 
 .phase-card.active .phase-rail::after {
-  background: var(--bs-clay);
-  box-shadow: 0 0 0 3px rgba(217, 119, 87, 0.22);
+  background: var(--bs-accent);
+  box-shadow: 0 0 0 3px rgba(77, 134, 247, 0.22);
   animation: bs-pulse calc(2.4s / var(--bs-anim-speed)) ease-in-out infinite;
 }
 
@@ -756,7 +756,7 @@
   color: var(--bs-muted);
 }
 
-.phase-card.active .phase-tag .badge { background: rgba(217, 119, 87, 0.16); color: var(--bs-clay); }
+.phase-card.active .phase-tag .badge { background: rgba(77, 134, 247, 0.16); color: var(--bs-accent); }
 .phase-card.done .phase-tag .badge { background: rgba(42, 140, 78, 0.14); color: var(--bs-success); }
 
 .phase-card h3 {
@@ -846,10 +846,10 @@
 }
 
 .vb-leader-row.hl {
-  background: linear-gradient(90deg, rgba(217, 119, 87, 0.08), transparent);
+  background: linear-gradient(90deg, rgba(34, 75, 141, 0.08), transparent);
 }
 
-.vb-leader-row.hl .nm { color: #b34a3a; }
+.vb-leader-row.hl .nm { color: var(--bs-link); }
 
 .vb-leader-row .rk {
   font-family: var(--bs-fontmono);
@@ -1100,7 +1100,36 @@
   line-height: 1.5;
 }
 
-.vb-sponsors-grid .org-list {
+.vb-logo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 32px;
+  margin-top: 12px;
+}
+
+.vb-logo-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: auto;
+  min-width: 60px;
+  transition: opacity 0.2s ease;
+}
+
+.vb-logo-mark:hover {
+  opacity: 0.8;
+}
+
+.vb-logo-mark img {
+  max-height: 100%;
+  width: auto;
+  object-contain: contain;
+}
+
+/* Fallback for when logos are missing or just text is preferred */
+.org-list {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -1147,7 +1176,7 @@
   font-size: 13px;
 }
 
-.org-mark.sponsor .dot { background: var(--bs-clay); }
+.org-mark.sponsor .dot { background: var(--bs-accent); }
 
 /* ============================================================
    CTA
