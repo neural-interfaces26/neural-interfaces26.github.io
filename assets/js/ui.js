@@ -1,4 +1,4 @@
-/* Biosignal 2026 — page interactions:
+/* EEG/EMG Foundation Challenge 2026 — page interactions:
    - Animated count-up on [data-count-to] when in viewport
    - Copy-to-clipboard on [data-copy] inside .bs-code blocks
    - Mobile sidebar toggle (#mobile-burger / .vb-sidebar)

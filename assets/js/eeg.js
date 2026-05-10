@@ -1,4 +1,4 @@
-/* The Neural Interface Foundation Challenge — EEG SVG generators (vanilla port
+/* EEG/EMG Foundation Challenge 2026 — EEG SVG generators (vanilla port
    of primitives.jsx). Hydrates [data-eeg-host] containers with multi-channel
    scrolling EEG SVGs and [data-matrix-seed] containers with a small
    spectrogram-like grid. */
