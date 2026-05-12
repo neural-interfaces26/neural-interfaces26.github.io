@@ -1124,8 +1124,9 @@
 
 .vb-logo-mark img {
   max-height: 100%;
+  max-width: 140px;
   width: auto;
-  object-contain: contain;
+  object-fit: contain;
 }
 
 /* Fallback for when logos are missing or just text is preferred */
