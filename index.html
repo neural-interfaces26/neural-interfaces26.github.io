@@ -6,14 +6,14 @@
 <meta name="theme-color" content="#0e1320" />
 
 <title>EEG/EMG Foundation Challenge 2026 | Neural Interfaces for Generalizable Decoding</title>
-<meta name="description" content="Open-source EEG/EMG decoding benchmark for NeurIPS 2026 in Sydney. Neural Interfaces for Generalizable Decoding across EEG, EMG, sleep, and BCI tracks. Submissions Jun 23 — Oct 31, 2026." />
+<meta name="description" content="Open-source EEG/EMG decoding benchmark for NeurIPS 2026 in Sydney. Neural Interfaces for Generalizable Decoding across EEG, EMG, sleep, and BCI tracks. Submissions Jul 1 — Aug 31, 2026." />
 
 <link rel="canonical" href="https://neuralinterface26.github.io/" />
 <meta name="author" content="Bruno Aristimunha and the EEG/EMG Foundation Challenge organising team" />
 <meta name="keywords" content="NeurIPS 2026, EEG benchmark, brain-computer interface, BCI competition, EMG decoding, sleep onset, EEG-to-image, foundation models, Braindecode, MOABB" />
 
 <meta property="og:title" content="EEG/EMG Foundation Challenge 2026 | Neural Interfaces for Generalizable Decoding" />
-<meta property="og:description" content="Open-source neural-interface benchmark. Four tracks: EEG-to-IMG, BCI decoding, sleep onset, EMG-to-control. Submissions Jun 23 — Oct 31, 2026." />
+<meta property="og:description" content="Open-source neural-interface benchmark. Five tracks: EEG-to-IMG, BCI decoding, sleep onset, EMG-to-Text, and Foundation Transfer. Submissions Jul 1 — Aug 31, 2026." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://neuralinterface26.github.io/" />
 <meta property="og:site_name" content="EEG/EMG Foundation Challenge" />
@@ -25,7 +25,7 @@
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="EEG/EMG Foundation Challenge 2026 | Neural Interfaces for Generalizable Decoding" />
-<meta name="twitter:description" content="Open-source EEG/EMG decoding benchmark for NeurIPS 2026 Sydney. Submissions Jun 23 — Oct 31, 2026." />
+<meta name="twitter:description" content="Open-source EEG/EMG decoding benchmark for NeurIPS 2026 Sydney. Submissions Jul 1 — Aug 31, 2026." />
 <meta name="twitter:image" content="https://neuralinterface26.github.io/assets/img/og-card.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -44,8 +44,8 @@
   "@type": "Event",
   "name": "EEG/EMG Foundation Challenge 2026 | Neural Interfaces for Generalizable Decoding",
   "alternateName": "Neural Interfaces for Generalizable Decoding",
-  "description": "An open-source benchmark for generalizable EEG/EMG decoding, run as a NeurIPS 2026 competition. Four tracks across EEG-to-image, BCI decoding, sleep-onset detection, and EMG-to-control.",
-  "startDate": "2026-06-23",
+  "description": "An open-source benchmark for generalizable EEG/EMG decoding, run as a NeurIPS 2026 competition. Five tracks across EEG-to-IMG, BCI decoding, sleep onset, EMG-to-Text, and Foundation Transfer.",
+  "startDate": "2026-07-01",
   "endDate": "2026-12-12",
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
@@ -211,8 +211,8 @@
         </div>
         <div class="vb-tags" aria-label="Modalities and stack">
           <span class="bs-pill">EEG</span>
-          <span class="bs-pill">MEG</span>
-          <span class="bs-pill">fMRI</span>
+          <span class="bs-pill">EMG</span>
+          <span class="bs-pill">Sleep</span>
           <span class="bs-pill">BIDS-first</span>
           <span class="bs-pill">PyTorch</span>
           <span class="bs-pill">MIT licensed</span>
@@ -226,7 +226,7 @@
             <span class="bs-kicker">bash · pip · neuralbench</span>
             <button class="copy" type="button" data-copy>copy</button>
           </figcaption>
-          <pre><div class="line"><span class="ln"> 1</span><code><span class="c1"># 1. Install the benchmark</span></code></div><div class="line"><span class="ln"> 2</span><code><span class="kw">$</span> pip install <span class="str">neuralbench</span> eegdash braindecode</code></div><div class="line"><span class="ln"> 3</span><code> </code></div><div class="line"><span class="ln"> 4</span><code><span class="c1"># 2. Download a task</span></code></div><div class="line"><span class="ln"> 5</span><code><span class="kw">$</span> neuralbench eeg audiovisual_stimulus <span class="op">--download</span></code></div><div class="line"><span class="ln"> 6</span><code> </code></div><div class="line"><span class="ln"> 7</span><code><span class="c1"># 3. Run the full grid</span></code></div><div class="line"><span class="ln"> 8</span><code><span class="kw">$</span> neuralbench eeg audiovisual_stimulus <span class="op">-m</span> <span class="str">eegnet</span></code></div><div class="line"><span class="ln"> 9</span><code><span class="c2">  ↳ NeuralBench-EEG-Core v1.0 · 94 datasets · 36 tasks</span></code></div></pre>
+          <pre><div class="line"><span class="ln"> 1</span><code><span class="c1"># 1. Install the benchmark</span></code></div><div class="line"><span class="ln"> 2</span><code><span class="kw">$</span> pip install <span class="str">neuralbench</span> eegdash braindecode</code></div><div class="line"><span class="ln"> 3</span><code> </code></div><div class="line"><span class="ln"> 4</span><code><span class="c1"># 2. Download a task</span></code></div><div class="line"><span class="ln"> 5</span><code><span class="kw">$</span> neuralbench eeg eeg_to_image <span class="op">--download</span></code></div><div class="line"><span class="ln"> 6</span><code> </code></div><div class="line"><span class="ln"> 7</span><code><span class="c1"># 3. Run the full grid</span></code></div><div class="line"><span class="ln"> 8</span><code><span class="kw">$</span> neuralbench eeg eeg_to_image <span class="op">-m</span> <span class="str">eegnet</span></code></div><div class="line"><span class="ln"> 9</span><code><span class="c2">  ↳ NeuralBench-EEG-Core v1.0 · 94 datasets · 36 tasks</span></code></div></pre>
         </figure>
 
         <div class="vb-hero-eeg" aria-label="EEG demo signal — placeholder">
@@ -293,26 +293,25 @@
             <span class="bs-kicker">Track 01</span>
             <span class="bs-badge">OPEN</span>
           </div>
-          <h3>Cognitive decoding</h3>
-          <p>Predict task labels — motor imagery, P300, SSVEP, audiovisual stimulus, mental arithmetic — from raw EEG across heterogeneous montages and acquisition systems.</p>
+          <h3>EEG-to-IMG</h3>
+          <p>Evoked visual retrieval: rank held-out candidate images from EEG epochs recorded during visual stimulation. Targets are frozen DINOv2-giant embeddings.</p>
           <div class="vb-track-paradigms">
-            <span class="bs-pill">Motor imagery</span>
-            <span class="bs-pill">P300</span>
-            <span class="bs-pill">SSVEP</span>
-            <span class="bs-pill">AV stim</span>
-            <span class="bs-pill">Arithmetic</span>
+            <span class="bs-pill">Visual retrieval</span>
+            <span class="bs-pill">DINOv2</span>
+            <span class="bs-pill">RSVP</span>
+            <span class="bs-pill">Object viewing</span>
           </div>
           <div class="track-stats">
-            <div><span class="bs-kicker">Tasks</span><strong>14</strong></div>
-            <div><span class="bs-kicker">Open subjects</span><strong>2,144</strong></div>
-            <div><span class="bs-kicker">Baseline F1</span><strong>0.61</strong></div>
+            <div><span class="bs-kicker">Trials</span><strong>1.6M+</strong></div>
+            <div><span class="bs-kicker">Subjects</span><strong>80+</strong></div>
+            <div><span class="bs-kicker">Metric</span><strong>Top-5 Acc</strong></div>
           </div>
           <div class="vb-track-lead">
             <div>
               <span class="bs-kicker">Current leader</span>
-              <span class="lead-name">eeg-conformer-XL · Tübingen</span>
+              <span class="lead-name">REVE-pretrained · Lausanne</span>
             </div>
-            <strong class="lead-score">87.4</strong>
+            <strong class="lead-score">84.7</strong>
           </div>
           <div class="vb-track-cta">
             <a href="#cta" class="bs-btn primary sm">Submit to this track →</a>
@@ -325,19 +324,110 @@
             <span class="bs-kicker">Track 02</span>
             <span class="bs-badge">OPEN</span>
           </div>
-          <h3>Clinical phenotyping</h3>
-          <p>Sleep staging, seizure detection, depression and Parkinson's phenotyping. Generalize across sites, devices, and clinical populations under strict no-leakage protocols.</p>
+          <h3>BCI decoding</h3>
+          <p>Calibration-stable command decoding across sessions and contexts. Generalize motor imagery, calculation, and word association tasks to later sessions without recalibration.</p>
           <div class="vb-track-paradigms">
-            <span class="bs-pill">Sleep stage</span>
-            <span class="bs-pill">Seizure</span>
-            <span class="bs-pill">Depression</span>
-            <span class="bs-pill">Parkinson's</span>
-            <span class="bs-pill">TBI</span>
+            <span class="bs-pill">Motor imagery</span>
+            <span class="bs-pill">Mental math</span>
+            <span class="bs-pill">Word association</span>
+            <span class="bs-pill">Session drift</span>
           </div>
           <div class="track-stats">
-            <div><span class="bs-kicker">Pathologies</span><strong>11</strong></div>
-            <div><span class="bs-kicker">Subjects</span><strong>892</strong></div>
-            <div><span class="bs-kicker">Sites</span><strong>17</strong></div>
+            <div><span class="bs-kicker">Sessions</span><strong>120+</strong></div>
+            <div><span class="bs-kicker">Subjects</span><strong>20</strong></div>
+            <div><span class="bs-kicker">Metric</span><strong>Bal. Acc</strong></div>
+          </div>
+          <div class="vb-track-lead">
+            <div>
+              <span class="bs-kicker">Current leader</span>
+              <span class="lead-name">EEGNet-baseline · Inria</span>
+            </div>
+            <strong class="lead-score">58.6</strong>
+          </div>
+          <div class="vb-track-cta">
+            <a href="#cta" class="bs-btn primary sm">Submit to this track →</a>
+            <a href="#datasets" class="track-link">Browse datasets</a>
+          </div>
+        </article>
+
+        <article class="vb-track">
+          <div class="track-head">
+            <span class="bs-kicker">Track 03</span>
+            <span class="bs-badge">OPEN</span>
+          </div>
+          <h3>Sleep onset</h3>
+          <p>Estimate the latency from recording start to stable sleep onset (N2 event) using consumer-grade wearable EEG. Staging is secondary to precise timing.</p>
+          <div class="vb-track-paradigms">
+            <span class="bs-pill">Sleep onset</span>
+            <span class="bs-pill">Wearable EEG</span>
+            <span class="bs-pill">Muse</span>
+            <span class="bs-pill">Home monitoring</span>
+          </div>
+          <div class="track-stats">
+            <div><span class="bs-kicker">Sleepers</span><strong>1,000+</strong></div>
+            <div><span class="bs-kicker">Metric</span><strong>MAE (s)</strong></div>
+          </div>
+          <div class="vb-track-lead">
+            <div>
+              <span class="bs-kicker">Current leader</span>
+              <span class="lead-name">LaBraM-sleep · Tsinghua</span>
+            </div>
+            <strong class="lead-score">134.9</strong>
+          </div>
+          <div class="vb-track-cta">
+            <a href="#cta" class="bs-btn primary sm">Submit to this track →</a>
+            <a href="#datasets" class="track-link">Browse datasets</a>
+          </div>
+        </article>
+
+        <article class="vb-track">
+          <div class="track-head">
+            <span class="bs-kicker">Track 04</span>
+            <span class="bs-badge">OPEN</span>
+          </div>
+          <h3>EMG-to-Text</h3>
+          <p>Decode typed keystrokes from wristband surface EMG. Sequence transduction across 100+ users, addressing anatomy, typing strategy, and sensor re-placement.</p>
+          <div class="vb-track-paradigms">
+            <span class="bs-pill">EMG typing</span>
+            <span class="bs-pill">Sequence transduction</span>
+            <span class="bs-pill">Wristbands</span>
+            <span class="bs-pill">QWERTY</span>
+          </div>
+          <div class="track-stats">
+            <div><span class="bs-kicker">Users</span><strong>108</strong></div>
+            <div><span class="bs-kicker">Keystrokes</span><strong>5M+</strong></div>
+            <div><span class="bs-kicker">Metric</span><strong>CER (%)</strong></div>
+          </div>
+          <div class="vb-track-lead">
+            <div>
+              <span class="bs-kicker">Current leader</span>
+              <span class="lead-name">EMG2QwertyNet · Meta</span>
+            </div>
+            <strong class="lead-score">25.1</strong>
+          </div>
+          <div class="vb-track-cta">
+            <a href="#cta" class="bs-btn primary sm">Submit to this track →</a>
+            <a href="#datasets" class="track-link">Browse datasets</a>
+          </div>
+        </article>
+
+        <article class="vb-track featured">
+          <div class="track-head">
+            <span class="bs-kicker">Track 05 · headline</span>
+            <span class="bs-badge">OPEN</span>
+          </div>
+          <h3>Foundation transfer</h3>
+          <p>The ultimate test of shift-robust representations: use a single shared EEG encoder across the Image, BCI, and Sleep tracks. Evaluates reusable cross-task learning.</p>
+          <div class="vb-track-paradigms">
+            <span class="bs-pill">Frozen probe</span>
+            <span class="bs-pill">Finetune</span>
+            <span class="bs-pill">Shared encoder</span>
+            <span class="bs-pill">Cross-task</span>
+          </div>
+          <div class="track-stats">
+            <div><span class="bs-kicker">Tasks</span><strong>3</strong></div>
+            <div><span class="bs-kicker">Hours</span><strong>10,000+</strong></div>
+            <div><span class="bs-kicker">Models</span><strong>12</strong></div>
           </div>
           <div class="vb-track-lead">
             <div>
@@ -351,49 +441,13 @@
             <a href="#datasets" class="track-link">Browse datasets</a>
           </div>
         </article>
-
-        <article class="vb-track featured">
-          <div class="track-head">
-            <span class="bs-kicker">Track 03 · headline</span>
-            <span class="bs-badge">OPEN</span>
-          </div>
-          <h3>Foundation transfer</h3>
-          <p>Pretrain once on 12,340 hours of public EEG; evaluate on the full 36-task downstream battery. Frozen and finetuned regimes scored separately.</p>
-          <div class="vb-track-paradigms">
-            <span class="bs-pill">Frozen probe</span>
-            <span class="bs-pill">Finetune</span>
-            <span class="bs-pill">LoRA</span>
-            <span class="bs-pill">Few-shot</span>
-            <span class="bs-pill">Zero-shot</span>
-          </div>
-          <div class="track-stats">
-            <div><span class="bs-kicker">Tasks</span><strong>36</strong></div>
-            <div><span class="bs-kicker">Pretrain h</span><strong>12,340</strong></div>
-            <div><span class="bs-kicker">Models</span><strong>14</strong></div>
-          </div>
-          <div class="vb-track-lead">
-            <div>
-              <span class="bs-kicker">Current leader</span>
-              <span class="lead-name">LaBraM-foundation · Tsinghua</span>
-            </div>
-            <strong class="lead-score">84.9</strong>
-          </div>
-          <div class="vb-track-cta">
-            <a href="#cta" class="bs-btn primary sm">Submit to this track →</a>
-            <a href="#datasets" class="track-link">Browse datasets</a>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
     <!-- ============================== Timeline ============================== -->
     <section class="vb-section" id="timeline" aria-labelledby="timeline-heading">
       <div class="vb-section-head">
         <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Phases · Jun — Dec 2026</span>
+          <span class="bs-eyebrow"><span class="dot"></span> Phases · Jul — Dec 2026</span>
           <h2 id="timeline-heading">From warm-up to NeurIPS finals.</h2>
-          <p>One warm-up window, one final submission window, one hidden test freeze, one weekend in Sydney. The schedule follows the NeurIPS 2026 competition guidelines: launch in June, complete by end of October, present at the December workshop.</p>
+          <p>One warm-up window, one final submission window, one hidden test freeze, one weekend in Sydney. The schedule follows the NeurIPS 2026 competition guidelines: launch in July, complete by end of October, present at the December workshop.</p>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">
@@ -409,7 +463,7 @@
           <span class="phase-rail" aria-hidden="true"></span>
           <span class="phase-tag">Phase 01 <span class="badge">NEXT</span></span>
           <h3>Warm-up</h3>
-          <span class="phase-date">Jun 23 — Aug 31, 2026</span>
+          <span class="phase-date">Jul 1 — Jul 31, 2026</span>
           <p class="phase-desc">Public validation set, unlimited submissions, baseline models released. Get your pipeline running end-to-end before the hidden test opens.</p>
           <div class="phase-meta">
             <div class="row"><span>Validation set</span><span>Public release</span></div>
@@ -421,7 +475,7 @@
           <span class="phase-rail" aria-hidden="true"></span>
           <span class="phase-tag">Phase 02 <span class="badge">UPCOMING</span></span>
           <h3>Final submissions</h3>
-          <span class="phase-date">Sep 1 — Oct 31, 2026</span>
+          <span class="phase-date">Aug 1 — Aug 31, 2026</span>
           <p class="phase-desc">Hidden test set opens. Daily submission caps enforced. Each team submits a 2-page methods note alongside their best model.</p>
           <div class="phase-meta">
             <div class="row"><span>Hidden test</span><span>Held-out split</span></div>
@@ -432,12 +486,12 @@
         <li class="phase-card upcoming">
           <span class="phase-rail" aria-hidden="true"></span>
           <span class="phase-tag">Phase 03 <span class="badge">UPCOMING</span></span>
-          <h3>Test freeze</h3>
-          <span class="phase-date">Nov 1, 2026 · 23:59 AoE</span>
-          <p class="phase-desc">Submissions close. Reproducibility audit on the top 10 entries per track. Final rankings released two weeks later.</p>
+          <h3>Audit & Ranking</h3>
+          <span class="phase-date">Sep 1 — Oct 31, 2026</span>
+          <p class="phase-desc">Submissions close on Sep 1. Reproducibility audit on the top-ranked entries. Final rankings released on Nov 1.</p>
           <div class="phase-meta">
-            <div class="row"><span>Audit window</span><span>Nov 1 — 15, 2026</span></div>
-            <div class="row"><span>Final ranking</span><span>Nov 16, 2026</span></div>
+            <div class="row"><span>Audit window</span><span>Sep 1 — Oct 31, 2026</span></div>
+            <div class="row"><span>Final ranking</span><span>Nov 1, 2026</span></div>
           </div>
         </li>
 
@@ -449,13 +503,10 @@
           <p class="phase-desc">Track winners present in Sydney at the NeurIPS Competition Track. Awards, lessons-learned keynote, and the v2.0 roadmap. Travel grants for top-3 per track.</p>
           <div class="phase-meta">
             <div class="row"><span>Venue</span><span>Sydney · ICC</span></div>
-            <div class="row"><span>Prize pool</span><span>$XXX,XXX USD</span></div>
+            <div class="row"><span>Prize pool</span><span>,XXX USD</span></div>
           </div>
         </li>
       </ol>
-    </section>
-
-    <!-- ============================== Leaderboard ============================== -->
     <section class="vb-section vb-section-cream" id="leaderboard" aria-labelledby="leader-heading">
       <div class="vb-section-head">
         <div>
@@ -477,56 +528,56 @@
           <span role="columnheader">#</span>
           <span role="columnheader">Submission</span>
           <span role="columnheader">Track</span>
-          <span role="columnheader">F1</span>
+          <span role="columnheader">Score</span>
           <span role="columnheader">Δ</span>
         </div>
         <div class="vb-leader-row hl" role="row">
           <span class="rk" role="cell">#01</span>
-          <span class="nm" role="cell">eeg-conformer-XL · Tübingen</span>
+          <span class="nm" role="cell">REVE-pretrained · Lausanne</span>
           <span class="tk" role="cell">T1</span>
-          <span class="sc" role="cell">87.4</span>
-          <span class="dl" role="cell">↑ 2</span>
+          <span class="sc" role="cell">84.7</span>
+          <span class="dl" role="cell">–</span>
         </div>
         <div class="vb-leader-row" role="row">
           <span class="rk" role="cell">#02</span>
-          <span class="nm" role="cell">BIOT-large · Yale + ETH</span>
-          <span class="tk" role="cell">T3</span>
-          <span class="sc" role="cell">86.1</span>
-          <span class="dl" role="cell">↑ 1</span>
+          <span class="nm" role="cell">REVE-BCI · Lausanne</span>
+          <span class="tk" role="cell">T2</span>
+          <span class="sc" role="cell">68.0</span>
+          <span class="dl" role="cell">–</span>
         </div>
         <div class="vb-leader-row" role="row">
           <span class="rk" role="cell">#03</span>
-          <span class="nm" role="cell">LaBraM-foundation · Tsinghua</span>
-          <span class="tk" role="cell">T3</span>
-          <span class="sc" role="cell">84.9</span>
+          <span class="nm" role="cell">EMG2QwertyNet · Meta</span>
+          <span class="tk" role="cell">T4</span>
+          <span class="sc" role="cell">25.1</span>
           <span class="dl" role="cell">–</span>
         </div>
         <div class="vb-leader-row" role="row">
           <span class="rk" role="cell">#04</span>
-          <span class="nm" role="cell">EEGNeX-finetuned · Inria-Saclay</span>
-          <span class="tk" role="cell">T1</span>
-          <span class="sc" role="cell">83.2</span>
-          <span class="dl" role="cell">↓ 2</span>
+          <span class="nm" role="cell">EEGNet-baseline · Inria</span>
+          <span class="tk" role="cell">T2</span>
+          <span class="sc" role="cell">58.6</span>
+          <span class="dl" role="cell">–</span>
         </div>
         <div class="vb-leader-row" role="row">
           <span class="rk" role="cell">#05</span>
-          <span class="nm" role="cell">CBraMod-base · Meta FAIR</span>
+          <span class="nm" role="cell">REVE-sleep · Lausanne</span>
           <span class="tk" role="cell">T3</span>
-          <span class="sc" role="cell">82.7</span>
-          <span class="dl" role="cell">↑ 4</span>
+          <span class="sc" role="cell">134.9</span>
+          <span class="dl" role="cell">–</span>
         </div>
         <div class="vb-leader-row" role="row">
           <span class="rk" role="cell">#06</span>
-          <span class="nm" role="cell">BIOT-clinical · Yale + ETH</span>
-          <span class="tk" role="cell">T2</span>
-          <span class="sc" role="cell">82.1</span>
-          <span class="dl" role="cell">↑ 1</span>
+          <span class="nm" role="cell">EEGNet-sleep · Inria</span>
+          <span class="tk" role="cell">T3</span>
+          <span class="sc" role="cell">143.3</span>
+          <span class="dl" role="cell">–</span>
         </div>
         <div class="vb-leader-row" role="row">
           <span class="rk" role="cell">#07</span>
-          <span class="nm" role="cell">REVE-pretrained · Lausanne</span>
-          <span class="tk" role="cell">T3</span>
-          <span class="sc" role="cell">81.4</span>
+          <span class="nm" role="cell">EEGNet-visual · Inria</span>
+          <span class="tk" role="cell">T1</span>
+          <span class="sc" role="cell">28.1</span>
           <span class="dl" role="cell">–</span>
         </div>
       </div>
@@ -571,74 +622,54 @@
           </div>
 
           <div class="ds-row" role="row">
-            <span class="id" role="cell">ds002718</span>
-            <span class="nm" role="cell">Wakeman &amp; Henson · Faces</span>
+            <span class="id" role="cell">ds004245</span>
+            <span class="nm" role="cell">THINGS-EEG · Object viewing</span>
             <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">19</span>
-            <span class="num" role="cell">32h</span>
-            <span class="num" role="cell">70</span>
-            <span class="num" role="cell">1100 Hz</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 49%;"></span></span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="id" role="cell">ds005811</span>
-            <span class="nm" role="cell">NOD-EEG · Object recognition</span>
-            <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">19</span>
-            <span class="num" role="cell">24h</span>
+            <span class="num" role="cell">60</span>
+            <span class="num" role="cell">40h+</span>
             <span class="num" role="cell">64</span>
-            <span class="num" role="cell">500 Hz</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 49%;"></span></span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="id" role="cell">ds005810</span>
-            <span class="nm" role="cell">NOD-MEG · Naturalistic vision</span>
-            <span class="mod mod-meg" role="cell">MEG</span>
-            <span class="num" role="cell">31</span>
-            <span class="num" role="cell">26h</span>
-            <span class="num" role="cell">306</span>
-            <span class="num" role="cell">1200 Hz</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 61%;"></span></span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="id" role="cell">ds006104</span>
-            <span class="nm" role="cell">Speech decoding · TMS</span>
-            <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">24</span>
-            <span class="num" role="cell">11h</span>
-            <span class="num" role="cell">64</span>
-            <span class="num" role="cell">500 Hz</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 54%;"></span></span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="id" role="cell">ds001787</span>
-            <span class="nm" role="cell">Meditation · attention</span>
-            <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">24</span>
-            <span class="num" role="cell">18h</span>
-            <span class="num" role="cell">128</span>
-            <span class="num" role="cell">256 Hz</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 54%;"></span></span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="id" role="cell">ds003816</span>
-            <span class="nm" role="cell">LKM · affect modulation</span>
-            <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">48</span>
-            <span class="num" role="cell">42h</span>
-            <span class="num" role="cell">128</span>
             <span class="num" role="cell">1000 Hz</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 78%;"></span></span>
+            <span class="bar" role="cell"><span class="fill" style="width: 80%;"></span></span>
           </div>
           <div class="ds-row" role="row">
-            <span class="id" role="cell">ds005574</span>
-            <span class="nm" role="cell">Podcast · ECoG narrative</span>
-            <span class="mod mod-ieeg" role="cell">iEEG</span>
-            <span class="num" role="cell">9</span>
-            <span class="num" role="cell">9h</span>
-            <span class="num" role="cell">138</span>
-            <span class="num" role="cell">2048 Hz</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 39%;"></span></span>
+            <span class="id" role="cell">alljoined-1.6</span>
+            <span class="nm" role="cell">Alljoined-1.6M · Natural images</span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">20</span>
+            <span class="num" role="cell">160h</span>
+            <span class="num" role="cell">32</span>
+            <span class="num" role="cell">250 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 90%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">bci-graz</span>
+            <span class="nm" role="cell">Graz/BrainHero · BCI command</span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">20</span>
+            <span class="num" role="cell">24h</span>
+            <span class="num" role="cell">43</span>
+            <span class="num" role="cell">512 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 70%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">muse-sleep</span>
+            <span class="nm" role="cell">Muse Sleep-Onset · Wearable</span>
+            <span class="mod mod-sleep" role="cell">Sleep</span>
+            <span class="num" role="cell">1000</span>
+            <span class="num" role="cell">8000h</span>
+            <span class="num" role="cell">4</span>
+            <span class="num" role="cell">256 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 95%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">emg2qwerty</span>
+            <span class="nm" role="cell">emg2qwerty · EMG typing</span>
+            <span class="mod mod-emg" role="cell">EMG</span>
+            <span class="num" role="cell">108</span>
+            <span class="num" role="cell">346h</span>
+            <span class="num" role="cell">32</span>
+            <span class="num" role="cell">2000 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 85%;"></span></span>
           </div>
         </div>
       </div>
@@ -781,7 +812,7 @@
         <div class="vb-sponsors-side">
           <span class="bs-eyebrow"><span class="dot"></span> Backed by</span>
           <h2 id="sponsors-heading">Sponsors &amp; organizing institutions</h2>
-          <p>Compute, datasets, prizes, and engineering hours from 14 institutions across 5 countries. Yneuro hosts the platform; AWS provides the GPU cloud. Each track has its own sponsor: Alljoined for EEG-to-IMG, Meta FAIR Brain &amp; AI for BCI decoding, InteraXon for sleep onset, and Meta Reality Labs for EMG-to-control.</p>
+          <p>Compute, datasets, prizes, and engineering hours from 14 institutions across 5 countries. Yneuro hosts the platform; AWS provides the GPU cloud. Each track has its own sponsor: Alljoined for EEG-to-IMG, Meta FAIR Brain &amp; AI for BCI decoding, InteraXon for sleep onset, and Meta Reality Labs for EMG-to-Text.</p>
           <a class="bs-btn ghost" href="organizers.html">Meet the team →</a>
         </div>
         <div>
