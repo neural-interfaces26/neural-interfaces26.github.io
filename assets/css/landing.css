@@ -528,6 +528,29 @@
   grid-column: 1 / -1;
 }
 
+@media (min-width: 901px) {
+  .vb-track.full-width {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    grid-template-rows: auto auto 1fr auto auto;
+    grid-template-areas:
+      "head stats"
+      "title stats"
+      "desc lead"
+      "tags lead"
+      "cta cta";
+    column-gap: 40px;
+    row-gap: 12px;
+  }
+  .vb-track.full-width .track-head { grid-area: head; }
+  .vb-track.full-width h3 { grid-area: title; margin-top: 0; }
+  .vb-track.full-width p { grid-area: desc; }
+  .vb-track.full-width .vb-track-paradigms { grid-area: tags; align-self: end; }
+  .vb-track.full-width .track-stats { grid-area: stats; border-top: none; padding-top: 0; }
+  .vb-track.full-width .vb-track-lead { grid-area: lead; align-self: start; margin-top: 0; }
+  .vb-track.full-width .vb-track-cta { grid-area: cta; border-top: 1px solid var(--bs-card-border); padding-top: 16px; margin-top: 4px; }
+}
+
 .vb-track .track-head {
   display: flex;
   justify-content: space-between;
