@@ -728,9 +728,14 @@
   position: absolute;
   top: -6px;
   left: 20px;
-  right: 20px;
+  right: -34px;
+  z-index: 1;
   height: 2px;
   background: var(--bs-card-border);
+}
+
+.phase-card:last-child .phase-rail {
+  right: 20px;
 }
 
 .phase-card .phase-rail::after {
@@ -1334,6 +1339,7 @@
   .vb-stat:nth-child(n+4) { border-top: 1px solid var(--bs-card-border); }
   .vb-models { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .vb-timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .phase-card:nth-child(2n) .phase-rail { right: 20px; }
   .vb-sponsors-grid { grid-template-columns: 1fr; gap: 28px; }
   .vb-sponsors { padding: 48px 24px; }
 }
