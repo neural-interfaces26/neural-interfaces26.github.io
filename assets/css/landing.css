@@ -1158,6 +1158,16 @@
   transition: opacity 0.2s ease;
 }
 
+/* Bump wordmark-only or visually small logos so they read at parity with
+   logos that have thicker glyphs or stacked two-line marks. */
+.vb-logo-mark--lg {
+  height: 56px;
+}
+
+.vb-logo-mark--xl {
+  height: 64px;
+}
+
 .vb-logo-mark:hover {
   opacity: 0.8;
 }
@@ -1167,6 +1177,11 @@
   max-width: 140px;
   width: auto;
   object-fit: contain;
+}
+
+.vb-logo-mark--lg img,
+.vb-logo-mark--xl img {
+  max-width: 180px;
 }
 
 /* Fallback for when logos are missing or just text is preferred */
