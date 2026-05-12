@@ -132,27 +132,41 @@
     if (!Number.isFinite(target)) return;
     const daysEl = root.querySelector('[data-cd-days]');
     const hoursEl = root.querySelector('[data-cd-hours]');
-    const unitDays = root.querySelector('.vb-cd-unit');
+    const minsEl = root.querySelector('[data-cd-mins]');
+    const secsEl = root.querySelector('[data-cd-secs]');
+    const daysUnitEl = root.querySelector('[data-cd-days-unit]');
+    const pad = (n) => String(n).padStart(2, '0');
 
+    let intervalId = null;
     const tick = () => {
       const diff = target - Date.now();
       if (diff <= 0) {
         if (daysEl) daysEl.textContent = '0';
-        if (hoursEl) hoursEl.textContent = '0';
+        if (hoursEl) hoursEl.textContent = '00';
+        if (minsEl) minsEl.textContent = '00';
+        if (secsEl) secsEl.textContent = '00';
         root.setAttribute('aria-label', 'Warm-up phase is open');
+        if (intervalId) clearInterval(intervalId);
         return false;
       }
-      const totalHours = Math.floor(diff / 3600000);
-      const days = Math.floor(totalHours / 24);
-      const hours = totalHours % 24;
+      const totalSecs = Math.floor(diff / 1000);
+      const days = Math.floor(totalSecs / 86400);
+      const hours = Math.floor((totalSecs % 86400) / 3600);
+      const mins = Math.floor((totalSecs % 3600) / 60);
+      const secs = totalSecs % 60;
       if (daysEl) daysEl.textContent = String(days);
-      if (hoursEl) hoursEl.textContent = String(hours);
-      if (unitDays) unitDays.textContent = days === 1 ? 'day' : 'days';
-      root.setAttribute('aria-label', `${days} days, ${hours} hours until warm-up phase opens`);
+      if (hoursEl) hoursEl.textContent = pad(hours);
+      if (minsEl) minsEl.textContent = pad(mins);
+      if (secsEl) secsEl.textContent = pad(secs);
+      if (daysUnitEl) daysUnitEl.textContent = days === 1 ? 'day' : 'days';
+      root.setAttribute(
+        'aria-label',
+        `${days} days, ${hours} hours, ${mins} minutes, ${secs} seconds until warm-up phase opens`,
+      );
       return true;
     };
 
-    if (tick()) setInterval(tick, 60000);
+    if (tick()) intervalId = setInterval(tick, 1000);
   }
 
   /* ---------- Leaderboard tabs ---------- */

@@ -208,9 +208,17 @@
 
 .vb-countdown {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
-  gap: 4px;
+  gap: 10px;
   margin: 8px 0 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.vb-cd-group {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
 }
 
 .vb-cd-num {
@@ -219,13 +227,13 @@
   font-weight: 700;
   color: var(--bs-link);
   letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
 }
 
 .vb-cd-unit {
   font-family: var(--bs-fontmono);
   font-size: 10px;
   color: var(--bs-faint);
-  margin-right: 4px;
 }
 
 .vb-status {
