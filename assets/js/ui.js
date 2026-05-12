@@ -124,6 +124,37 @@
     mq.addEventListener('change', (e) => { if (e.matches) close(); });
   }
 
+  /* ---------- Countdown to warm-up ---------- */
+  function initCountdown() {
+    const root = document.querySelector('[data-countdown-to]');
+    if (!root) return;
+    const target = new Date(root.dataset.countdownTo).getTime();
+    if (!Number.isFinite(target)) return;
+    const daysEl = root.querySelector('[data-cd-days]');
+    const hoursEl = root.querySelector('[data-cd-hours]');
+    const unitDays = root.querySelector('.vb-cd-unit');
+
+    const tick = () => {
+      const diff = target - Date.now();
+      if (diff <= 0) {
+        if (daysEl) daysEl.textContent = '0';
+        if (hoursEl) hoursEl.textContent = '0';
+        root.setAttribute('aria-label', 'Warm-up phase is open');
+        return false;
+      }
+      const totalHours = Math.floor(diff / 3600000);
+      const days = Math.floor(totalHours / 24);
+      const hours = totalHours % 24;
+      if (daysEl) daysEl.textContent = String(days);
+      if (hoursEl) hoursEl.textContent = String(hours);
+      if (unitDays) unitDays.textContent = days === 1 ? 'day' : 'days';
+      root.setAttribute('aria-label', `${days} days, ${hours} hours until warm-up phase opens`);
+      return true;
+    };
+
+    if (tick()) setInterval(tick, 60000);
+  }
+
   /* ---------- Leaderboard tabs ---------- */
   function initLeaderboardTabs() {
     const tabs = document.querySelectorAll('.vb-leader-tabs [role="tab"]');
@@ -144,6 +175,7 @@
     initCounters();
     initCopyButtons();
     initMobileNav();
+    initCountdown();
     initLeaderboardTabs();
   }
 
