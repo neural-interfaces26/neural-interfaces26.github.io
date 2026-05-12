@@ -524,6 +524,10 @@
   gap: 14px;
 }
 
+.vb-track.full-width {
+  grid-column: 1 / -1;
+}
+
 .vb-track .track-head {
   display: flex;
   justify-content: space-between;
