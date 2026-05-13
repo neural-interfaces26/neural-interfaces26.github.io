@@ -663,13 +663,14 @@
 
       <div class="formal-block">
         <h3>Error bars and significance</h3>
-        <p>For two teams \(a\) and \(c\), each of \(B = 10{,}000\) stratified bootstrap resamples gives a paired difference between their orientation-aligned scores; the two-sided tail probability is what the leaderboard uses to flag "statistically indistinguishable" neighbours. \(h_t(\cdot)\) maps every metric to a higher-is-better orientation (identity for Top-5 and balanced accuracy; negation for MAE and CER).</p>
+        <p>Higher-is-better tracks (EEG-to-IMG, BCI) maximise the primary metric; lower-is-better tracks (sleep onset, EMG-to-text) minimise the error. For pairwise significance <em>within each track</em>, each of \(B = 10{,}000\) paired bootstrap draws yields a difference between two teams' scores. Let \(\mathcal{S}^{(b)}_{\mathrm{team}_1}\) and \(\mathcal{S}^{(b)}_{\mathrm{team}_2}\) denote the two teams' scores at draw \(b\), with \(\Pr_b[\cdot]\) the empirical probability over those draws.</p>
         \[
-        \Delta^{(b)}_{a,c,t} = h_t\!\left(\mathcal{S}^{(b)}_{a,t}\right) - h_t\!\left(\mathcal{S}^{(b)}_{c,t}\right)
+        \Delta^{(b)}_{\mathrm{team}_1, \mathrm{team}_2} = \mathcal{S}^{(b)}_{\mathrm{team}_1} - \mathcal{S}^{(b)}_{\mathrm{team}_2}
         \]
         \[
-        p_{\mathrm{boot}} = 2\min\!\left(\Pr_b\!\left[\Delta^{(b)}_{a,c,t}\le 0\right],\; \Pr_b\!\left[\Delta^{(b)}_{a,c,t}\ge 0\right]\right)
+        p_{\mathrm{boot}} = 2\min\!\left(\Pr_b\!\left[\Delta^{(b)}_{\mathrm{team}_1, \mathrm{team}_2}\le 0\right],\; \Pr_b\!\left[\Delta^{(b)}_{\mathrm{team}_1, \mathrm{team}_2}\ge 0\right]\right)
         \]
+        <p>\(p_{\mathrm{boot}}\) is Holm-adjusted across the family of prize-relevant comparisons to control the family-wise error rate in the post-competition analysis. The public leaderboard ranks by point estimate and flags neighbours with unadjusted \(p_{\mathrm{boot}} > 0.05\) (equivalently, paired CI of \(\Delta\) contains zero) as statistically indistinguishable. Top-1, top-3, and top-5 rank stability (the bootstrap probability that a team holds those positions) accompanies each rank.</p>
       </div>
 
       <div class="formal-block">
