@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0e1320" />
+
+<title>Start-kit & Baselines · EEG/EMG Foundation Challenge 2026</title>
+<meta name="description" content="Install the benchmark, train a baseline, and submit your first model to the EEG/EMG Foundation Challenge 2026 in under fifteen minutes. Reproducible BIDS-first pipelines, baseline scores, and a step-by-step submission walkthrough." />
+
+<link rel="canonical" href="https://neuralinterface26.github.io/startkit.html" />
+<meta name="author" content="Bruno Aristimunha and the EEG/EMG Foundation Challenge organising team" />
+<meta name="keywords" content="EEG baseline, start-kit, neuralbench, eegdash, braindecode, NeurIPS 2026 challenge submission" />
+
+<meta property="og:title" content="Start-kit & Baselines — EEG/EMG Foundation Challenge 2026" />
+<meta property="og:description" content="Install, train, and submit. The official start-kit for the NeurIPS 2026 EEG/EMG Foundation Challenge." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://neuralinterface26.github.io/startkit.html" />
+<meta property="og:site_name" content="EEG/EMG Foundation Challenge" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://neuralinterface26.github.io/assets/img/og-card.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="EEG/EMG Foundation Challenge 2026 | Neural Interfaces for Generalizable Decoding." />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Start-kit & Baselines · EEG/EMG Foundation Challenge 2026" />
+<meta name="twitter:description" content="Train a baseline and submit your first model in fifteen minutes." />
+<meta name="twitter:image" content="https://neuralinterface26.github.io/assets/img/og-card.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&amp;display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/css/tokens.css" />
+<link rel="stylesheet" href="assets/css/base.css" />
+<link rel="stylesheet" href="assets/css/landing.css" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e1320'/%3E%3Cg stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5'/%3E%3Cpath d='M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24'/%3E%3C/g%3E%3C/svg%3E" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Start-kit & Baselines — EEG/EMG Foundation Challenge 2026",
+  "url": "https://neuralinterface26.github.io/startkit.html",
+  "description": "Install the benchmark, train a baseline, and submit your first model to the NeurIPS 2026 EEG/EMG Foundation Challenge.",
+  "author": { "@type": "Person", "name": "Bruno Aristimunha" },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "EEG/EMG Foundation Challenge",
+    "url": "https://neuralinterface26.github.io/"
+  },
+  "about": {
+    "@type": "Event",
+    "name": "EEG/EMG Foundation Challenge 2026",
+    "url": "https://neuralinterface26.github.io/"
+  }
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="preview-banner" role="status">
+  <span class="badge">Preview</span>
+  <span>This is a draft of the public start-kit. <strong>Baseline numbers and dataset entries are placeholder values</strong> until the warm-up split opens on Jul 1, 2026.</span>
+</div>
+
+<div class="bs-root landing">
+
+  <!-- ============================== Sidebar ============================== -->
+  <aside class="vb-sidebar" id="vb-sidebar" aria-label="Documentation navigation">
+    <a class="vb-brand" href="index.html">
+      <span class="glyph">
+        <svg viewBox="0 0 32 32" width="20" height="20" aria-hidden="true">
+          <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <path d="M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5" />
+            <path d="M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24" />
+          </g>
+        </svg>
+      </span>
+      <span>
+        <span class="title">EEG/EMG Foundation</span>
+        <span class="sub">Generalizable Decoding</span>
+      </span>
+    </a>
+
+    <nav class="vb-nav" aria-label="Documentation sections">
+      <div class="vb-nav-section">
+        <div class="vb-nav-head">Get started</div>
+        <a href="index.html#top">Overview</a>
+        <a href="startkit.html" class="active">Start-kit &amp; baselines</a>
+        <a href="index.html#stats">At a glance</a>
+      </div>
+      <div class="vb-nav-section">
+        <div class="vb-nav-head">Challenge</div>
+        <a href="index.html#tracks">Tracks</a>
+        <a href="index.html#timeline">Timeline</a>
+        <a href="leaderboard.html">Leaderboard</a>
+        <a href="awards.html">Awards &amp; prizes</a>
+        <a href="index.html#datasets">Datasets</a>
+        <a href="index.html#models">Models</a>
+      </div>
+      <div class="vb-nav-section">
+        <div class="vb-nav-head">About</div>
+        <a href="organizers.html">Organizers</a>
+        <a href="index.html#sponsors">Sponsors</a>
+        <a href="index.html#cta">Register</a>
+      </div>
+      <div class="vb-nav-section">
+        <div class="vb-nav-head">API reference</div>
+        <a href="https://github.com/neural-interfaces26/neuralbench" target="_blank" rel="noreferrer noopener">neuralbench</a>
+        <a href="https://eegdash.org/" target="_blank" rel="noreferrer noopener">eegdash</a>
+        <a href="https://braindecode.org/" target="_blank" rel="noreferrer noopener">braindecode</a>
+        <a href="https://moabb.neurotechx.com/" target="_blank" rel="noreferrer noopener">moabb</a>
+      </div>
+    </nav>
+
+    <div class="vb-foot">
+      <div class="bs-kicker">Warm-up opens</div>
+      <div class="vb-countdown" data-countdown-to="2026-07-01T00:00:00Z" aria-live="polite">
+        <span class="vb-cd-group"><span class="vb-cd-num" data-cd-days>—</span><span class="vb-cd-unit" data-cd-days-unit>days</span></span>
+        <span class="vb-cd-group"><span class="vb-cd-num" data-cd-hours>—</span><span class="vb-cd-unit">hr</span></span>
+        <span class="vb-cd-group"><span class="vb-cd-num" data-cd-mins>—</span><span class="vb-cd-unit">min</span></span>
+        <span class="vb-cd-group"><span class="vb-cd-num" data-cd-secs>—</span><span class="vb-cd-unit">sec</span></span>
+      </div>
+      <div class="vb-status"><span class="dot"></span>preview build · star on GitHub</div>
+    </div>
+  </aside>
+
+  <div class="sidebar-scrim" id="sidebar-scrim" aria-hidden="true"></div>
+
+  <!-- ============================== Main ============================== -->
+  <main class="vb-main" id="main">
+
+    <!-- Topbar -->
+    <div class="vb-top" id="top">
+      <button class="vb-mobile-burger" id="mobile-burger" aria-label="Open navigation" aria-controls="vb-sidebar" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+          <path d="M2 4h14M2 9h14M2 14h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+        </svg>
+      </button>
+      <div class="vb-bread">
+        <a href="index.html">docs</a>
+        <span class="sep">/</span>
+        <a href="index.html">eeg-emg-foundation-challenge</a>
+        <span class="sep">/</span>
+        <a href="startkit.html">get-started</a>
+        <span class="sep">/</span>
+        <strong>start-kit</strong>
+      </div>
+      <div class="vb-top-cta">
+        <span class="bs-pill desktop-only"><span class="kbd">⌘</span> K · search</span>
+        <a class="bs-pill desktop-only" href="https://github.com/neural-interfaces26/neuralbench" target="_blank" rel="noreferrer noopener">GitHub</a>
+        <a class="bs-pill solid" href="index.html#cta">Register</a>
+      </div>
+    </div>
+
+    <!-- ============================== Hero ============================== -->
+    <section class="vb-hero" id="quickstart" aria-labelledby="kit-heading">
+      <div class="vb-hero-text">
+        <span class="bs-eyebrow"><span class="dot"></span> Get started · 15 minutes from clone to leaderboard</span>
+        <h1 id="kit-heading">Start-kit &amp; baselines.</h1>
+        <p>
+          One <code>pip install</code>, one <code>neuralbench</code> command, one submission file. The start-kit ships the same evaluation harness the organizers use, every baseline reported on the leaderboard, and a deterministic toy split you can iterate on before the warm-up opens.
+        </p>
+        <div class="bs-hero-cta">
+          <a class="bs-btn primary" href="https://github.com/neural-interfaces26/neuralbench" target="_blank" rel="noreferrer noopener">Clone the start-kit →</a>
+          <a class="bs-btn ghost" href="#submit">Skip to submission</a>
+        </div>
+        <div class="vb-tags" aria-label="Stack">
+          <span class="bs-pill">Python ≥ 3.10</span>
+          <span class="bs-pill">PyTorch ≥ 2.2</span>
+          <span class="bs-pill">CUDA optional</span>
+          <span class="bs-pill">BIDS-first</span>
+          <span class="bs-pill">MIT licensed</span>
+        </div>
+      </div>
+
+      <div class="vb-hero-side">
+        <figure class="bs-code" aria-label="One-line install">
+          <figcaption class="bs-code-head">
+            <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span class="bs-kicker">bash · install + smoke-test</span>
+            <button class="copy" type="button" data-copy>copy</button>
+          </figcaption>
+          <pre><div class="line"><span class="ln"> 1</span><code><span class="c1"># 1. Install the start-kit</span></code></div><div class="line"><span class="ln"> 2</span><code><span class="kw">$</span> pip install <span class="str">neuralbench[full]</span></code></div><div class="line"><span class="ln"> 3</span><code> </code></div><div class="line"><span class="ln"> 4</span><code><span class="c1"># 2. Run the toy split end-to-end</span></code></div><div class="line"><span class="ln"> 5</span><code><span class="kw">$</span> neuralbench demo <span class="op">--track</span> bci <span class="op">--model</span> eegnet</code></div><div class="line"><span class="ln"> 6</span><code><span class="c2">  ↳ trained · scored · submission.parquet written</span></code></div></pre>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============================== Steps ============================== -->
+    <section class="vb-section" id="steps" aria-labelledby="steps-heading">
+      <div class="vb-section-head">
+        <div>
+          <span class="bs-eyebrow"><span class="dot"></span> Five steps · clone → submit</span>
+          <h2 id="steps-heading">From a fresh clone to a leaderboard entry.</h2>
+          <p>The path is identical for every track. Change the track flag, swap the model, and the rest of the pipeline stays the same.</p>
+        </div>
+        <div class="vb-section-side">
+          <div class="vb-tracks-meta">
+            <div><span class="bs-kicker">First clone to first submission</span><strong>~ 15 minutes (toy split)</strong></div>
+            <div><span class="bs-kicker">Full warm-up training run</span><strong>2 – 6 GPU-hours</strong></div>
+            <div><span class="bs-kicker">Minimum hardware</span><strong>CPU works · 8 GB GPU recommended</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <ol class="vb-timeline" aria-label="Start-kit steps">
+        <li class="phase-card done">
+          <span class="phase-rail" aria-hidden="true"></span>
+          <span class="phase-tag">Step 01 <span class="badge">INSTALL</span></span>
+          <h3>Install neuralbench.</h3>
+          <span class="phase-date">~ 60 seconds · pip</span>
+          <p class="phase-desc"><code>pip install neuralbench[full]</code> pulls in eegdash, braindecode, MNE, and the evaluator. Use <code>[lite]</code> if you only want the data loaders without the model zoo.</p>
+          <div class="phase-meta">
+            <div class="row"><span>Python</span><span>≥ 3.10</span></div>
+            <div class="row"><span>PyTorch</span><span>≥ 2.2 (CUDA optional)</span></div>
+            <div class="row"><span>Disk</span><span>~ 4 GB for [full] extras</span></div>
+          </div>
+        </li>
+
+        <li class="phase-card done">
+          <span class="phase-rail" aria-hidden="true"></span>
+          <span class="phase-tag">Step 02 <span class="badge">DATA</span></span>
+          <h3>Pull a track's warm-up split.</h3>
+          <span class="phase-date">~ 5 minutes · streamed BIDS</span>
+          <p class="phase-desc">EEGDash streams the BIDS layout — only the recordings you reference are downloaded. The warm-up split for every track lives under <code>~/.cache/eegdash/</code> after the first call.</p>
+          <div class="phase-meta">
+            <div class="row"><span>Track 1 (EEG-to-IMG)</span><span>14 GB</span></div>
+            <div class="row"><span>Track 2 (BCI)</span><span>2.3 GB</span></div>
+            <div class="row"><span>Track 3 (Sleep)</span><span>11 GB</span></div>
+            <div class="row"><span>Track 4 (EMG)</span><span>9 GB</span></div>
+          </div>
+        </li>
+
+        <li class="phase-card active">
+          <span class="phase-rail" aria-hidden="true"></span>
+          <span class="phase-tag">Step 03 <span class="badge">TRAIN</span></span>
+          <h3>Train a baseline.</h3>
+          <span class="phase-date">2 – 6 GPU-hours · warm-up split</span>
+          <p class="phase-desc">Every track ships at least one baseline you can train with a single <code>neuralbench train</code> call. Configs are plain YAML — copy one, edit the model, keep the same data + scoring blocks.</p>
+          <div class="phase-meta">
+            <div class="row"><span>Default model</span><span>EEGNet · 0.4 M params</span></div>
+            <div class="row"><span>Optimizer</span><span>AdamW · cosine schedule</span></div>
+            <div class="row"><span>Seed</span><span>Fixed by config</span></div>
+          </div>
+        </li>
+
+        <li class="phase-card upcoming">
+          <span class="phase-rail" aria-hidden="true"></span>
+          <span class="phase-tag">Step 04 <span class="badge">SCORE</span></span>
+          <h3>Score against the held-out split.</h3>
+          <span class="phase-date">~ 1 minute · local</span>
+          <p class="phase-desc">The evaluator is the exact code we run on Codabench. Run it locally first — <code>neuralbench score</code> writes a <code>submission.parquet</code> with predictions, hyperparameters, and the git SHA of your model code for the audit phase.</p>
+          <div class="phase-meta">
+            <div class="row"><span>Metric (T1)</span><span>Top-5 retrieval accuracy</span></div>
+            <div class="row"><span>Metric (T2)</span><span>Balanced accuracy</span></div>
+            <div class="row"><span>Metric (T3)</span><span>MAE on onset (s)</span></div>
+            <div class="row"><span>Metric (T4)</span><span>Character error rate</span></div>
+          </div>
+        </li>
+
+        <li class="phase-card upcoming">
+          <span class="phase-rail" aria-hidden="true"></span>
+          <span class="phase-tag">Step 05 <span class="badge">SUBMIT</span></span>
+          <h3>Upload to Codabench.</h3>
+          <span class="phase-date">~ 30 seconds · web UI or API</span>
+          <p class="phase-desc">Drop the <code>submission.parquet</code> on the Codabench page for your track. Five submissions per team per day during the sealed phase. Final ranking is the best of your last five submissions.</p>
+          <div class="phase-meta">
+            <div class="row"><span>Platform</span><span>Codabench</span></div>
+            <div class="row"><span>Daily cap (final phase)</span><span>5 / team / day</span></div>
+            <div class="row"><span>Audit at top-of-leaderboard</span><span>Reproducibility check</span></div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============================== Code: full walkthrough ============================== -->
+    <section class="vb-section vb-section-cream" id="walkthrough" aria-labelledby="walkthrough-heading">
+      <div class="vb-section-head">
+        <div>
+          <span class="bs-eyebrow"><span class="dot"></span> End-to-end Python · BCI track</span>
+          <h2 id="walkthrough-heading">A baseline from scratch, in twenty lines.</h2>
+          <p>The same pattern works for every track: load with EEGDash, train with Braindecode, score with NeuralBench. Swap the dataset id and the model — the rest of the pipeline stays the same.</p>
+        </div>
+      </div>
+
+      <div class="vb-tracks" style="grid-template-columns: 1fr 1fr;">
+        <figure class="bs-code" aria-label="Training script">
+          <figcaption class="bs-code-head">
+            <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span class="bs-kicker">python · train_baseline.py</span>
+            <button class="copy" type="button" data-copy>copy</button>
+          </figcaption>
+          <pre><div class="line"><span class="ln"> 1</span><code><span class="kw">from</span> eegdash <span class="kw">import</span> <span class="cls">EEGDashDataset</span></code></div><div class="line"><span class="ln"> 2</span><code><span class="kw">from</span> braindecode.models <span class="kw">import</span> <span class="cls">EEGNetv4</span></code></div><div class="line"><span class="ln"> 3</span><code><span class="kw">from</span> neuralbench <span class="kw">import</span> <span class="cls">Trainer</span>, <span class="cls">Evaluator</span></code></div><div class="line"><span class="ln"> 4</span><code> </code></div><div class="line"><span class="ln"> 5</span><code>ds = <span class="cls">EEGDashDataset</span>(track=<span class="str">"bci"</span>, split=<span class="str">"warmup"</span>)</code></div><div class="line"><span class="ln"> 6</span><code>train, val = ds.split(by=<span class="str">"subject"</span>, ratio=<span class="str">"4:1"</span>)</code></div><div class="line"><span class="ln"> 7</span><code> </code></div><div class="line"><span class="ln"> 8</span><code>model = <span class="cls">EEGNetv4</span>(</code></div><div class="line"><span class="ln"> 9</span><code>    n_chans=ds.n_chans,</code></div><div class="line"><span class="ln">10</span><code>    n_classes=ds.n_classes,</code></div><div class="line"><span class="ln">11</span><code>    input_window=<span class="op">2.0</span>,</code></div><div class="line"><span class="ln">12</span><code>)</code></div><div class="line"><span class="ln">13</span><code> </code></div><div class="line"><span class="ln">14</span><code>trainer = <span class="cls">Trainer</span>(model, epochs=<span class="op">100</span>, lr=<span class="op">1e-3</span>)</code></div><div class="line"><span class="ln">15</span><code>trainer.fit(train, val)</code></div><div class="line"><span class="ln">16</span><code> </code></div><div class="line"><span class="ln">17</span><code><span class="c1"># Identical scoring to Codabench</span></code></div><div class="line"><span class="ln">18</span><code>sub = <span class="cls">Evaluator</span>(<span class="str">"bci"</span>).predict(model, ds.test)</code></div><div class="line"><span class="ln">19</span><code>sub.to_parquet(<span class="str">"submission.parquet"</span>)</code></div></pre>
+        </figure>
+
+        <figure class="bs-code" aria-label="CLI runbook">
+          <figcaption class="bs-code-head">
+            <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span class="bs-kicker">bash · same flow, no Python file</span>
+            <button class="copy" type="button" data-copy>copy</button>
+          </figcaption>
+          <pre><div class="line"><span class="ln"> 1</span><code><span class="c1"># Pull the BCI warm-up split</span></code></div><div class="line"><span class="ln"> 2</span><code><span class="kw">$</span> neuralbench data bci <span class="op">--split</span> warmup</code></div><div class="line"><span class="ln"> 3</span><code> </code></div><div class="line"><span class="ln"> 4</span><code><span class="c1"># Train the EEGNet baseline</span></code></div><div class="line"><span class="ln"> 5</span><code><span class="kw">$</span> neuralbench train bci <span class="op">-m</span> <span class="str">eegnet</span> <span class="op">--epochs</span> 100</code></div><div class="line"><span class="ln"> 6</span><code> </code></div><div class="line"><span class="ln"> 7</span><code><span class="c1"># Score and write submission file</span></code></div><div class="line"><span class="ln"> 8</span><code><span class="kw">$</span> neuralbench score bci <span class="op">--out</span> submission.parquet</code></div><div class="line"><span class="ln"> 9</span><code><span class="c2">  ↳ bal. acc 0.586 · 20 subjects · 120 sessions</span></code></div><div class="line"><span class="ln">10</span><code> </code></div><div class="line"><span class="ln">11</span><code><span class="c1"># Reproduce a previous run from its config</span></code></div><div class="line"><span class="ln">12</span><code><span class="kw">$</span> neuralbench replay configs/bci/eegnet.yaml</code></div></pre>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============================== Baselines ============================== -->
+    <section class="vb-section" id="baselines" aria-labelledby="baselines-heading">
+      <div class="vb-section-head">
+        <div>
+          <span class="bs-eyebrow"><span class="dot"></span> Baselines · what to beat <span class="placeholder-badge">placeholder scores</span></span>
+          <h2 id="baselines-heading">Each track ships at least one trained baseline.</h2>
+          <p>Numbers below are the warm-up split — the public split you'll use for development. The sealed test set is held out by the organizers and only opens Aug 1, 2026.</p>
+        </div>
+        <div class="vb-section-side">
+          <div class="vb-tracks-meta">
+            <div><span class="bs-kicker">Baselines released</span><strong>Jul 1, 2026 (warm-up)</strong></div>
+            <div><span class="bs-kicker">Hosted weights</span><strong>HuggingFace · neural-interfaces26</strong></div>
+            <div><span class="bs-kicker">License</span><strong>MIT</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-table-wrap">
+        <div class="ds-table" role="table" aria-label="Per-track baselines">
+          <div class="ds-row head" role="row">
+            <span role="columnheader">Track</span>
+            <span role="columnheader">Baseline model</span>
+            <span role="columnheader">Family</span>
+            <span role="columnheader">Params</span>
+            <span role="columnheader">Train (GPU-h)</span>
+            <span role="columnheader">Warm-up score</span>
+            <span role="columnheader">Code</span>
+            <span role="columnheader">Headroom</span>
+          </div>
+
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">T1 · EEG-to-IMG</span>
+            <span class="nm" role="cell">EEGNet + DINOv2 head</span>
+            <span class="mod mod-eeg" role="cell">CNN</span>
+            <span class="num" role="cell">0.4 M</span>
+            <span class="num" role="cell">2.1</span>
+            <span class="num" role="cell">Top-5 28.1</span>
+            <span class="num" role="cell">configs/img/eegnet.yaml</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 35%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">T1 · EEG-to-IMG</span>
+            <span class="nm" role="cell">REVE (frozen)</span>
+            <span class="mod mod-eeg" role="cell">Foundation</span>
+            <span class="num" role="cell">52 M</span>
+            <span class="num" role="cell">0.6 (probe only)</span>
+            <span class="num" role="cell">Top-5 71.4</span>
+            <span class="num" role="cell">configs/img/reve_frozen.yaml</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 78%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">T2 · BCI</span>
+            <span class="nm" role="cell">EEGNet-baseline</span>
+            <span class="mod mod-eeg" role="cell">CNN</span>
+            <span class="num" role="cell">0.4 M</span>
+            <span class="num" role="cell">0.9</span>
+            <span class="num" role="cell">Bal. Acc 58.6</span>
+            <span class="num" role="cell">configs/bci/eegnet.yaml</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 55%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">T2 · BCI</span>
+            <span class="nm" role="cell">EEGConformer</span>
+            <span class="mod mod-eeg" role="cell">Hybrid</span>
+            <span class="num" role="cell">1.2 M</span>
+            <span class="num" role="cell">1.8</span>
+            <span class="num" role="cell">Bal. Acc 62.4</span>
+            <span class="num" role="cell">configs/bci/conformer.yaml</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 65%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">T3 · Sleep</span>
+            <span class="nm" role="cell">EEGNet-sleep</span>
+            <span class="mod mod-sleep" role="cell">Sleep</span>
+            <span class="num" role="cell">0.4 M</span>
+            <span class="num" role="cell">3.4</span>
+            <span class="num" role="cell">MAE 143.3 s</span>
+            <span class="num" role="cell">configs/sleep/eegnet.yaml</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 45%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">T3 · Sleep</span>
+            <span class="nm" role="cell">LaBraM (linear probe)</span>
+            <span class="mod mod-sleep" role="cell">Foundation</span>
+            <span class="num" role="cell">47 M</span>
+            <span class="num" role="cell">0.4 (probe only)</span>
+            <span class="num" role="cell">MAE 134.9 s</span>
+            <span class="num" role="cell">configs/sleep/labram_probe.yaml</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 60%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">T4 · EMG</span>
+            <span class="nm" role="cell">EMG2QwertyNet</span>
+            <span class="mod mod-emg" role="cell">EMG</span>
+            <span class="num" role="cell">2.7 M</span>
+            <span class="num" role="cell">4.6</span>
+            <span class="num" role="cell">CER 25.1%</span>
+            <span class="num" role="cell">configs/emg/qwerty.yaml</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 72%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">T5 · Foundation</span>
+            <span class="nm" role="cell">BIOT-large (shared encoder)</span>
+            <span class="mod mod-eeg" role="cell">Foundation</span>
+            <span class="num" role="cell">24 M</span>
+            <span class="num" role="cell">2.0 (per head)</span>
+            <span class="num" role="cell">Mean rank 82.1</span>
+            <span class="num" role="cell">configs/foundation/biot.yaml</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 70%;"></span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-foot">
+        <span class="bs-kicker">Headroom bar = baseline vs. best-known prior-work number on a comparable split</span>
+        <a href="leaderboard.html" class="track-link">See live leaderboard →</a>
+      </div>
+    </section>
+
+    <!-- ============================== Submission ============================== -->
+    <section class="vb-section vb-section-cream" id="submit" aria-labelledby="submit-heading">
+      <div class="vb-section-head">
+        <div>
+          <span class="bs-eyebrow"><span class="dot"></span> Submission format · same for every track</span>
+          <h2 id="submit-heading">A single Parquet file. No Docker. No build step.</h2>
+          <p>You don't upload code during the public phase — you upload predictions. Top entries are pulled for a reproducibility audit at test-freeze: we re-run your <code>neuralbench replay</code> against the sealed split. The submission file's schema is fixed and validated client-side before upload.</p>
+        </div>
+        <div class="vb-section-side">
+          <div class="vb-tracks-meta">
+            <div><span class="bs-kicker">Format</span><strong>Apache Parquet · snappy</strong></div>
+            <div><span class="bs-kicker">Max size</span><strong>200 MB / submission</strong></div>
+            <div><span class="bs-kicker">Daily cap (final phase)</span><strong>5 / team / day</strong></div>
+            <div><span class="bs-kicker">Final score</span><strong>Best of last 5 submissions</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-table-wrap">
+        <div class="ds-table" role="table" aria-label="Submission schema">
+          <div class="ds-row head" role="row">
+            <span role="columnheader">Column</span>
+            <span role="columnheader">Type</span>
+            <span role="columnheader">Per track</span>
+            <span role="columnheader">Required</span>
+            <span role="columnheader">Notes</span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">trial_id</span>
+            <span class="nm" role="cell">string</span>
+            <span class="num" role="cell">all</span>
+            <span class="num" role="cell">yes</span>
+            <span class="num" role="cell">Matches sealed-split index</span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">prediction</span>
+            <span class="nm" role="cell">float[] / int / str</span>
+            <span class="num" role="cell">all</span>
+            <span class="num" role="cell">yes</span>
+            <span class="num" role="cell">Embedding for T1, label for T2, seconds for T3, text for T4</span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">confidence</span>
+            <span class="nm" role="cell">float</span>
+            <span class="num" role="cell">T1, T2</span>
+            <span class="num" role="cell">optional</span>
+            <span class="num" role="cell">Used for tie-breaking on equal accuracy</span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">model_sha</span>
+            <span class="nm" role="cell">string (40 hex)</span>
+            <span class="num" role="cell">all</span>
+            <span class="num" role="cell">yes</span>
+            <span class="num" role="cell">Git SHA of your model code · used for audit</span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">hparams</span>
+            <span class="nm" role="cell">JSON string</span>
+            <span class="num" role="cell">all</span>
+            <span class="num" role="cell">yes</span>
+            <span class="num" role="cell">Auto-filled by <code>neuralbench score</code></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-foot">
+        <span class="bs-kicker">Validate locally: <code>neuralbench check submission.parquet</code></span>
+        <a href="https://github.com/neural-interfaces26/neuralbench/blob/main/docs/submission.md" class="track-link" target="_blank" rel="noreferrer noopener">Schema spec on GitHub →</a>
+      </div>
+    </section>
+
+    <!-- ============================== Compute & policy ============================== -->
+    <section class="vb-section" id="policy" aria-labelledby="policy-heading">
+      <div class="vb-section-head">
+        <div>
+          <span class="bs-eyebrow"><span class="dot"></span> Rules of the road</span>
+          <h2 id="policy-heading">Compute, external data, and what counts as "your model".</h2>
+        </div>
+      </div>
+
+      <div class="vb-tracks">
+        <article class="vb-track">
+          <div class="track-head">
+            <span class="bs-kicker">Compute</span>
+            <span class="bs-badge">ALLOWED</span>
+          </div>
+          <h3>Train on whatever you have.</h3>
+          <p>There is no compute cap during training. The sealed-test inference budget is the only constraint — your scoring container must finish a full test pass in under 60 minutes on a single A100. AWS gives finalists complimentary instance hours; details land in the awards page.</p>
+          <div class="track-stats">
+            <div><span class="bs-kicker">Inference budget</span><strong>60 min · A100</strong></div>
+            <div><span class="bs-kicker">No cap</span><strong>on training</strong></div>
+          </div>
+        </article>
+
+        <article class="vb-track">
+          <div class="track-head">
+            <span class="bs-kicker">External data</span>
+            <span class="bs-badge">ALLOWED</span>
+          </div>
+          <h3>Pretrain on anything public.</h3>
+          <p>Public, redistributable datasets are fair game. Closed datasets and the sealed test split are not. Declare every external corpus you used in the 2-page methods note that ships with your final submission — the audit cross-checks this against your <code>neuralbench replay</code>.</p>
+          <div class="track-stats">
+            <div><span class="bs-kicker">OK</span><strong>OpenNeuro · MOABB · public BIDS</strong></div>
+            <div><span class="bs-kicker">Not OK</span><strong>Sealed test · private clinical</strong></div>
+          </div>
+        </article>
+
+        <article class="vb-track">
+          <div class="track-head">
+            <span class="bs-kicker">Reproducibility</span>
+            <span class="bs-badge">AUDITED</span>
+          </div>
+          <h3>The top-of-board has to replay.</h3>
+          <p>Top-3 per track go through a reproducibility audit on Oct 1, 2026. We re-run your training pipeline from the committed config, then score the resulting weights against the sealed test split. If the score is within tolerance of your submission, you stay on the board. If not, you drop.</p>
+          <div class="track-stats">
+            <div><span class="bs-kicker">Tolerance</span><strong>±2 σ on metric</strong></div>
+            <div><span class="bs-kicker">Audit lead</span><strong>Arnaud Delorme (EEGLAB)</strong></div>
+          </div>
+        </article>
+
+        <article class="vb-track">
+          <div class="track-head">
+            <span class="bs-kicker">Foundation track</span>
+            <span class="bs-badge">CONSTRAINT</span>
+          </div>
+          <h3>One encoder, three tracks.</h3>
+          <p>Track 5 requires a single shared EEG encoder reused across the EEG-to-IMG, BCI, and Sleep tracks. Heads can be track-specific. Encoders fine-tuned on the sealed test set or trained per-track separately are rejected at audit.</p>
+          <div class="track-stats">
+            <div><span class="bs-kicker">Encoder</span><strong>Shared · frozen or fine-tuned</strong></div>
+            <div><span class="bs-kicker">Heads</span><strong>Per-track allowed</strong></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================== CTA ============================== -->
+    <section class="vb-section vb-cta" id="cta" aria-labelledby="cta-heading">
+      <div>
+        <span class="bs-eyebrow"><span class="dot"></span> Warm-up opens Jul 1, 2026</span>
+        <h2 id="cta-heading">Ready to run your first baseline?</h2>
+        <p>Clone the start-kit, run the toy split, and you're on the leaderboard in fifteen minutes. Everything is MIT-licensed — fork freely, but please cite the white paper and the 2025 challenge that this work continues.</p>
+        <div class="bs-hero-cta">
+          <a class="bs-btn primary" href="https://github.com/neural-interfaces26/neuralbench" target="_blank" rel="noreferrer noopener">Clone the start-kit →</a>
+          <a class="bs-btn ghost" href="https://arxiv.org/abs/2506.19141" target="_blank" rel="noreferrer noopener">Read the white paper</a>
+        </div>
+      </div>
+      <figure class="bs-code" aria-label="Clone snippet">
+        <figcaption class="bs-code-head">
+          <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="bs-kicker">bash · clone &amp; smoke-test</span>
+          <button class="copy" type="button" data-copy>copy</button>
+        </figcaption>
+        <pre><div class="line"><span class="ln"> 1</span><code><span class="kw">$</span> git clone https://github.com/neural-interfaces26/neuralbench</code></div><div class="line"><span class="ln"> 2</span><code><span class="kw">$</span> cd neuralbench</code></div><div class="line"><span class="ln"> 3</span><code><span class="kw">$</span> pip install -e <span class="str">".[full]"</span></code></div><div class="line"><span class="ln"> 4</span><code> </code></div><div class="line"><span class="ln"> 5</span><code><span class="c1"># 30-second sanity check</span></code></div><div class="line"><span class="ln"> 6</span><code><span class="kw">$</span> neuralbench demo <span class="op">--track</span> bci <span class="op">--toy</span></code></div></pre>
+      </figure>
+    </section>
+
+    <!-- ============================== Footer ============================== -->
+    <footer class="vb-footer">
+      <div class="vb-footer-row">
+        <a class="vb-brand" href="index.html" style="border-bottom: none; padding: 0; text-decoration: none;">
+          <span class="glyph">
+            <svg viewBox="0 0 32 32" width="20" height="20" aria-hidden="true">
+              <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                <path d="M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5" />
+                <path d="M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24" />
+              </g>
+            </svg>
+          </span>
+          <span>
+            <span class="title">EEG/EMG Foundation</span>
+            <span class="sub">NeurIPS 2026 · Sydney</span>
+          </span>
+        </a>
+        <div class="vb-footer-links">
+          <a href="startkit.html">Start-kit</a>
+          <a href="leaderboard.html">Leaderboard</a>
+          <a href="awards.html">Awards</a>
+          <a href="organizers.html">Organizers</a>
+          <a href="index.html#sponsors">Sponsors</a>
+          <a href="https://github.com/neural-interfaces26/neural-interfaces26.github.io" target="_blank" rel="noreferrer noopener">GitHub</a>
+        </div>
+      </div>
+      <div class="vb-footer-row">
+        <span class="vb-footer-meta">
+          © 2026 EEG/EMG Foundation Challenge · MIT licensed · Continues the work of the <a href="https://eeg2025.github.io/" target="_blank" rel="noreferrer noopener" style="color: inherit; text-decoration: underline;">EEG 2025 Challenge</a>
+        </span>
+        <span class="vb-footer-meta">
+          Organized by Yneuro · UCSD · Imperial · Meta FAIR · Donders · Alljoined · Inria Bordeaux · ISAE-SUPAERO · InteraXon · Meta Reality Labs · Paris-Saclay · CNRS · Salk · ChaLearn
+        </span>
+      </div>
+    </footer>
+
+  </main>
+</div>
+
+<script src="assets/js/ui.js?v=20260513" defer></script>
+
+</body>
+</html>

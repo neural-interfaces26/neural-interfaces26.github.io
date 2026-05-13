@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0e1320" />
+
+<title>Leaderboard · EEG/EMG Foundation Challenge 2026</title>
+<meta name="description" content="Live per-track leaderboard for the NeurIPS 2026 EEG/EMG Foundation Challenge. Top submissions across EEG-to-IMG, BCI decoding, sleep onset, EMG-to-Text, and Foundation Transfer." />
+
+<link rel="canonical" href="https://neuralinterface26.github.io/leaderboard.html" />
+<meta name="author" content="Bruno Aristimunha and the EEG/EMG Foundation Challenge organising team" />
+<meta name="keywords" content="EEG leaderboard, NeurIPS 2026 EEG challenge results, BCI decoding scores, EMG2qwerty leaderboard, sleep onset benchmark" />
+
+<meta property="og:title" content="Leaderboard — EEG/EMG Foundation Challenge 2026" />
+<meta property="og:description" content="Live per-track rankings for the NeurIPS 2026 EEG/EMG Foundation Challenge." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://neuralinterface26.github.io/leaderboard.html" />
+<meta property="og:site_name" content="EEG/EMG Foundation Challenge" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://neuralinterface26.github.io/assets/img/og-card.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="EEG/EMG Foundation Challenge 2026 | Neural Interfaces for Generalizable Decoding." />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Leaderboard · EEG/EMG Foundation Challenge 2026" />
+<meta name="twitter:description" content="Live per-track rankings across five EEG/EMG tracks for NeurIPS 2026 Sydney." />
+<meta name="twitter:image" content="https://neuralinterface26.github.io/assets/img/og-card.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&amp;display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/css/tokens.css" />
+<link rel="stylesheet" href="assets/css/base.css" />
+<link rel="stylesheet" href="assets/css/landing.css" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e1320'/%3E%3Cg stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5'/%3E%3Cpath d='M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24'/%3E%3C/g%3E%3C/svg%3E" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Leaderboard — EEG/EMG Foundation Challenge 2026",
+  "url": "https://neuralinterface26.github.io/leaderboard.html",
+  "description": "Live per-track leaderboard for the NeurIPS 2026 EEG/EMG Foundation Challenge.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "EEG/EMG Foundation Challenge",
+    "url": "https://neuralinterface26.github.io/"
+  }
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="preview-banner" role="status">
+  <span class="badge">Preview</span>
+  <span>This leaderboard is in <strong>preview mode</strong>. Rows shown below are illustrative — real submissions begin Jul 1, 2026 (warm-up) and Aug 1, 2026 (sealed final phase).</span>
+</div>
+
+<div class="bs-root landing">
+
+  <!-- ============================== Sidebar ============================== -->
+  <aside class="vb-sidebar" id="vb-sidebar" aria-label="Documentation navigation">
+    <a class="vb-brand" href="index.html">
+      <span class="glyph">
+        <svg viewBox="0 0 32 32" width="20" height="20" aria-hidden="true">
+          <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <path d="M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5" />
+            <path d="M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24" />
+          </g>
+        </svg>
+      </span>
+      <span>
+        <span class="title">EEG/EMG Foundation</span>
+        <span class="sub">Generalizable Decoding</span>
+      </span>
+    </a>
+
+    <nav class="vb-nav" aria-label="Documentation sections">
+      <div class="vb-nav-section">
+        <div class="vb-nav-head">Get started</div>
+        <a href="index.html#top">Overview</a>
+        <a href="startkit.html">Start-kit &amp; baselines</a>
+        <a href="index.html#stats">At a glance</a>
+      </div>
+      <div class="vb-nav-section">
+        <div class="vb-nav-head">Challenge</div>
+        <a href="index.html#tracks">Tracks</a>
+        <a href="index.html#timeline">Timeline</a>
+        <a href="leaderboard.html" class="active">Leaderboard</a>
+        <a href="awards.html">Awards &amp; prizes</a>
+        <a href="index.html#datasets">Datasets</a>
+        <a href="index.html#models">Models</a>
+      </div>
+      <div class="vb-nav-section">
+        <div class="vb-nav-head">About</div>
+        <a href="organizers.html">Organizers</a>
+        <a href="index.html#sponsors">Sponsors</a>
+        <a href="index.html#cta">Register</a>
+      </div>
+      <div class="vb-nav-section">
+        <div class="vb-nav-head">API reference</div>
+        <a href="https://github.com/neural-interfaces26/neuralbench" target="_blank" rel="noreferrer noopener">neuralbench</a>
+        <a href="https://eegdash.org/" target="_blank" rel="noreferrer noopener">eegdash</a>
+        <a href="https://braindecode.org/" target="_blank" rel="noreferrer noopener">braindecode</a>
+        <a href="https://moabb.neurotechx.com/" target="_blank" rel="noreferrer noopener">moabb</a>
+      </div>
+    </nav>
+
+    <div class="vb-foot">
+      <div class="bs-kicker">Warm-up opens</div>
+      <div class="vb-countdown" data-countdown-to="2026-07-01T00:00:00Z" aria-live="polite">
+        <span class="vb-cd-group"><span class="vb-cd-num" data-cd-days>—</span><span class="vb-cd-unit" data-cd-days-unit>days</span></span>
+        <span class="vb-cd-group"><span class="vb-cd-num" data-cd-hours>—</span><span class="vb-cd-unit">hr</span></span>
+        <span class="vb-cd-group"><span class="vb-cd-num" data-cd-mins>—</span><span class="vb-cd-unit">min</span></span>
+        <span class="vb-cd-group"><span class="vb-cd-num" data-cd-secs>—</span><span class="vb-cd-unit">sec</span></span>
+      </div>
+      <div class="vb-status"><span class="dot"></span>preview build · star on GitHub</div>
+    </div>
+  </aside>
+
+  <div class="sidebar-scrim" id="sidebar-scrim" aria-hidden="true"></div>
+
+  <!-- ============================== Main ============================== -->
+  <main class="vb-main" id="main">
+
+    <!-- Topbar -->
+    <div class="vb-top" id="top">
+      <button class="vb-mobile-burger" id="mobile-burger" aria-label="Open navigation" aria-controls="vb-sidebar" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+          <path d="M2 4h14M2 9h14M2 14h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+        </svg>
+      </button>
+      <div class="vb-bread">
+        <a href="index.html">docs</a>
+        <span class="sep">/</span>
+        <a href="index.html">eeg-emg-foundation-challenge</a>
+        <span class="sep">/</span>
+        <a href="leaderboard.html">challenge</a>
+        <span class="sep">/</span>
+        <strong>leaderboard</strong>
+      </div>
+      <div class="vb-top-cta">
+        <span class="bs-pill desktop-only"><span class="kbd">⌘</span> K · search</span>
+        <a class="bs-pill desktop-only" href="startkit.html">Start-kit</a>
+        <a class="bs-pill solid" href="index.html#cta">Register</a>
+      </div>
+    </div>
+
+    <!-- ============================== Hero ============================== -->
+    <section class="vb-hero" aria-labelledby="lb-heading">
+      <div class="vb-hero-text">
+        <span class="bs-eyebrow"><span class="dot"></span> Public leaderboard · live during final phase</span>
+        <h1 id="lb-heading">Leaderboard.</h1>
+        <p>
+          One ranking per track. Refreshed every 15 minutes during the sealed phase. Top-3 per track go through a reproducibility audit at test-freeze — only audited entries appear in the final NeurIPS rankings.
+        </p>
+        <div class="bs-hero-cta">
+          <a class="bs-btn primary" href="startkit.html">Get on the board →</a>
+          <a class="bs-btn ghost" href="#methodology">Scoring methodology</a>
+        </div>
+        <div class="vb-tags" aria-label="Status">
+          <span class="bs-pill">Warm-up: Jul 1 — Jul 31</span>
+          <span class="bs-pill">Sealed: Aug 1 — Sep 1</span>
+          <span class="bs-pill">Audit: Oct 1</span>
+          <span class="bs-pill">Final: Nov 1</span>
+        </div>
+      </div>
+
+      <div class="vb-hero-side">
+        <div class="vb-hero-eeg" aria-label="Submission stats">
+          <div class="bs-card-head">
+            <span class="bs-kicker">Submissions snapshot · placeholder</span>
+            <span style="font-size: 10px; color: var(--bs-faint); font-family: var(--bs-fontmono);">refresh · 15 min</span>
+          </div>
+          <div class="vb-stats" style="grid-template-columns: repeat(3, 1fr); margin-top: 12px; border: none; padding: 0; background: transparent;">
+            <div class="vb-stat">
+              <strong data-count-to="184">184</strong>
+              <span class="bs-kicker">teams</span>
+            </div>
+            <div class="vb-stat">
+              <strong data-count-to="1247">1,247</strong>
+              <span class="bs-kicker">submissions</span>
+            </div>
+            <div class="vb-stat">
+              <strong data-count-to="5">5</strong>
+              <span class="bs-kicker">tracks</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== Track 01 ============================== -->
+    <section class="vb-section" id="track-1" aria-labelledby="t1-heading">
+      <div class="vb-section-head">
+        <div>
+          <span class="bs-eyebrow"><span class="dot"></span> Track 01 · EEG-to-IMG <span class="placeholder-badge">placeholder rows</span></span>
+          <h2 id="t1-heading">Evoked visual retrieval — top-5 accuracy.</h2>
+          <p>Rank held-out candidate images from EEG epochs. Targets are frozen DINOv2-giant embeddings. Higher is better.</p>
+        </div>
+        <div class="vb-section-side">
+          <div class="vb-tracks-meta">
+            <div><span class="bs-kicker">Metric</span><strong>Top-5 retrieval accuracy</strong></div>
+            <div><span class="bs-kicker">Tie-break</span><strong>Top-1 accuracy</strong></div>
+            <div><span class="bs-kicker">Sponsor</span><strong>Alljoined</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vb-leader" role="table" aria-label="Track 1 top submissions">
+        <div class="vb-leader-row head" role="row">
+          <span role="columnheader">#</span>
+          <span role="columnheader">Submission</span>
+          <span role="columnheader">Affiliation</span>
+          <span role="columnheader">Top-5</span>
+          <span role="columnheader">Δ</span>
+        </div>
+        <div class="vb-leader-row hl" role="row">
+          <span class="rk" role="cell">#01</span>
+          <span class="nm" role="cell">REVE-pretrained</span>
+          <span class="tk" role="cell">EPFL · Lausanne</span>
+          <span class="sc" role="cell">84.7</span>
+          <span class="dl" role="cell">—</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#02</span>
+          <span class="nm" role="cell">BIOT-large (probe)</span>
+          <span class="tk" role="cell">Yale + ETH Zurich</span>
+          <span class="sc" role="cell">79.3</span>
+          <span class="dl" role="cell">−5.4</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#03</span>
+          <span class="nm" role="cell">LaBraM-img</span>
+          <span class="tk" role="cell">Tsinghua</span>
+          <span class="sc" role="cell">75.1</span>
+          <span class="dl" role="cell">−9.6</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#04</span>
+          <span class="nm" role="cell">REVE (frozen, baseline)</span>
+          <span class="tk" role="cell">Organizers</span>
+          <span class="sc" role="cell">71.4</span>
+          <span class="dl" role="cell">−13.3</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#05</span>
+          <span class="nm" role="cell">EEGConformer-img</span>
+          <span class="tk" role="cell">Donders</span>
+          <span class="sc" role="cell">52.8</span>
+          <span class="dl" role="cell">−31.9</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#06</span>
+          <span class="nm" role="cell">EEGNet-visual (baseline)</span>
+          <span class="tk" role="cell">Organizers</span>
+          <span class="sc" role="cell">28.1</span>
+          <span class="dl" role="cell">−56.6</span>
+        </div>
+      </div>
+
+      <div class="ds-foot">
+        <span class="bs-kicker">N = 6 of 47 submissions · last update 14 min ago</span>
+        <a href="#methodology" class="track-link">How scoring works ↓</a>
+      </div>
+    </section>
+
+    <!-- ============================== Track 02 ============================== -->
+    <section class="vb-section vb-section-cream" id="track-2" aria-labelledby="t2-heading">
+      <div class="vb-section-head">
+        <div>
+          <span class="bs-eyebrow"><span class="dot"></span> Track 02 · BCI decoding <span class="placeholder-badge">placeholder rows</span></span>
+          <h2 id="t2-heading">Calibration-stable command decoding.</h2>
+          <p>Generalize motor imagery, mental math, and word association labels to later sessions without recalibration. Higher is better.</p>
+        </div>
+        <div class="vb-section-side">
+          <div class="vb-tracks-meta">
+            <div><span class="bs-kicker">Metric</span><strong>Balanced accuracy</strong></div>
+            <div><span class="bs-kicker">Tie-break</span><strong>Mean per-class F1</strong></div>
+            <div><span class="bs-kicker">Sponsor</span><strong>Meta FAIR Brain &amp; AI</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vb-leader" role="table" aria-label="Track 2 top submissions">
+        <div class="vb-leader-row head" role="row">
+          <span role="columnheader">#</span>
+          <span role="columnheader">Submission</span>
+          <span role="columnheader">Affiliation</span>
+          <span role="columnheader">Bal. Acc</span>
+          <span role="columnheader">Δ</span>
+        </div>
+        <div class="vb-leader-row hl" role="row">
+          <span class="rk" role="cell">#01</span>
+          <span class="nm" role="cell">REVE-BCI</span>
+          <span class="tk" role="cell">EPFL · Lausanne</span>
+          <span class="sc" role="cell">68.0</span>
+          <span class="dl" role="cell">—</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#02</span>
+          <span class="nm" role="cell">BIOT-bci</span>
+          <span class="tk" role="cell">Yale + ETH Zurich</span>
+          <span class="sc" role="cell">65.7</span>
+          <span class="dl" role="cell">−2.3</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#03</span>
+          <span class="nm" role="cell">EEGConformer</span>
+          <span class="tk" role="cell">Donders</span>
+          <span class="sc" role="cell">62.4</span>
+          <span class="dl" role="cell">−5.6</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#04</span>
+          <span class="nm" role="cell">SignalJEPA-bci</span>
+          <span class="tk" role="cell">ETH Zurich</span>
+          <span class="sc" role="cell">60.1</span>
+          <span class="dl" role="cell">−7.9</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#05</span>
+          <span class="nm" role="cell">EEGNet-baseline</span>
+          <span class="tk" role="cell">Inria Bordeaux</span>
+          <span class="sc" role="cell">58.6</span>
+          <span class="dl" role="cell">−9.4</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#06</span>
+          <span class="nm" role="cell">FBCSP-LDA (classical)</span>
+          <span class="tk" role="cell">Organizers · MOABB</span>
+          <span class="sc" role="cell">54.2</span>
+          <span class="dl" role="cell">−13.8</span>
+        </div>
+      </div>
+
+      <div class="ds-foot">
+        <span class="bs-kicker">N = 6 of 318 submissions · last update 9 min ago</span>
+        <a href="#methodology" class="track-link">How scoring works ↓</a>
+      </div>
+    </section>
+
+    <!-- ============================== Track 03 ============================== -->
+    <section class="vb-section" id="track-3" aria-labelledby="t3-heading">
+      <div class="vb-section-head">
+        <div>
+          <span class="bs-eyebrow"><span class="dot"></span> Track 03 · Sleep onset <span class="placeholder-badge">placeholder rows</span></span>
+          <h2 id="t3-heading">Latency to stable N2 — wearable EEG.</h2>
+          <p>Estimate seconds from recording start to stable sleep onset on consumer-grade EEG. Lower is better.</p>
+        </div>
+        <div class="vb-section-side">
+          <div class="vb-tracks-meta">
+            <div><span class="bs-kicker">Metric</span><strong>Mean absolute error (s)</strong></div>
+            <div><span class="bs-kicker">Tie-break</span><strong>Median absolute error</strong></div>
+            <div><span class="bs-kicker">Sponsor</span><strong>InteraXon</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vb-leader" role="table" aria-label="Track 3 top submissions">
+        <div class="vb-leader-row head" role="row">
+          <span role="columnheader">#</span>
+          <span role="columnheader">Submission</span>
+          <span role="columnheader">Affiliation</span>
+          <span role="columnheader">MAE (s)</span>
+          <span role="columnheader">Δ</span>
+        </div>
+        <div class="vb-leader-row hl" role="row">
+          <span class="rk" role="cell">#01</span>
+          <span class="nm" role="cell">LaBraM-sleep</span>
+          <span class="tk" role="cell">Tsinghua</span>
+          <span class="sc" role="cell">134.9</span>
+          <span class="dl" role="cell">—</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#02</span>
+          <span class="nm" role="cell">REVE-sleep</span>
+          <span class="tk" role="cell">EPFL · Lausanne</span>
+          <span class="sc" role="cell">138.7</span>
+          <span class="dl" role="cell">+3.8</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#03</span>
+          <span class="nm" role="cell">U-Sleep (transfer)</span>
+          <span class="tk" role="cell">Copenhagen</span>
+          <span class="sc" role="cell">141.4</span>
+          <span class="dl" role="cell">+6.5</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#04</span>
+          <span class="nm" role="cell">EEGNet-sleep (baseline)</span>
+          <span class="tk" role="cell">Inria</span>
+          <span class="sc" role="cell">143.3</span>
+          <span class="dl" role="cell">+8.4</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#05</span>
+          <span class="nm" role="cell">BIOT-sleep</span>
+          <span class="tk" role="cell">Yale</span>
+          <span class="sc" role="cell">147.1</span>
+          <span class="dl" role="cell">+12.2</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#06</span>
+          <span class="nm" role="cell">YASA-rule (classical)</span>
+          <span class="tk" role="cell">Organizers</span>
+          <span class="sc" role="cell">192.4</span>
+          <span class="dl" role="cell">+57.5</span>
+        </div>
+      </div>
+
+      <div class="ds-foot">
+        <span class="bs-kicker">N = 6 of 91 submissions · last update 11 min ago</span>
+        <a href="#methodology" class="track-link">How scoring works ↓</a>
+      </div>
+    </section>
+
+    <!-- ============================== Track 04 ============================== -->
+    <section class="vb-section vb-section-cream" id="track-4" aria-labelledby="t4-heading">
+      <div class="vb-section-head">
+        <div>
+          <span class="bs-eyebrow"><span class="dot"></span> Track 04 · EMG-to-Text <span class="placeholder-badge">placeholder rows</span></span>
+          <h2 id="t4-heading">Wristband EMG to typed text.</h2>
+          <p>Decode typed keystrokes from surface EMG across users, anatomy, and re-placement. Lower is better.</p>
+        </div>
+        <div class="vb-section-side">
+          <div class="vb-tracks-meta">
+            <div><span class="bs-kicker">Metric</span><strong>Character error rate (%)</strong></div>
+            <div><span class="bs-kicker">Tie-break</span><strong>Word error rate</strong></div>
+            <div><span class="bs-kicker">Sponsor</span><strong>Meta Reality Labs</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vb-leader" role="table" aria-label="Track 4 top submissions">
+        <div class="vb-leader-row head" role="row">
+          <span role="columnheader">#</span>
+          <span role="columnheader">Submission</span>
+          <span role="columnheader">Affiliation</span>
+          <span role="columnheader">CER (%)</span>
+          <span role="columnheader">Δ</span>
+        </div>
+        <div class="vb-leader-row hl" role="row">
+          <span class="rk" role="cell">#01</span>
+          <span class="nm" role="cell">EMG2QwertyNet-v2</span>
+          <span class="tk" role="cell">Meta Reality Labs</span>
+          <span class="sc" role="cell">22.4</span>
+          <span class="dl" role="cell">—</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#02</span>
+          <span class="nm" role="cell">EMG2QwertyNet (baseline)</span>
+          <span class="tk" role="cell">Organizers</span>
+          <span class="sc" role="cell">25.1</span>
+          <span class="dl" role="cell">+2.7</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#03</span>
+          <span class="nm" role="cell">EMG-Conformer</span>
+          <span class="tk" role="cell">Imperial College</span>
+          <span class="sc" role="cell">26.8</span>
+          <span class="dl" role="cell">+4.4</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#04</span>
+          <span class="nm" role="cell">wav2vec-EMG</span>
+          <span class="tk" role="cell">CMU</span>
+          <span class="sc" role="cell">31.9</span>
+          <span class="dl" role="cell">+9.5</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#05</span>
+          <span class="nm" role="cell">CNN-CTC (baseline)</span>
+          <span class="tk" role="cell">Organizers</span>
+          <span class="sc" role="cell">38.4</span>
+          <span class="dl" role="cell">+16.0</span>
+        </div>
+      </div>
+
+      <div class="ds-foot">
+        <span class="bs-kicker">N = 5 of 64 submissions · last update 6 min ago</span>
+        <a href="#methodology" class="track-link">How scoring works ↓</a>
+      </div>
+    </section>
+
+    <!-- ============================== Track 05 ============================== -->
+    <section class="vb-section" id="track-5" aria-labelledby="t5-heading">
+      <div class="vb-section-head">
+        <div>
+          <span class="bs-eyebrow"><span class="dot"></span> Track 05 · Foundation transfer <span class="placeholder-badge">placeholder rows</span></span>
+          <h2 id="t5-heading">One shared EEG encoder across three tracks.</h2>
+          <p>Rank shared encoders by their per-track score averaged across EEG-to-IMG, BCI, and Sleep. Normalized so 100 = perfect on every track. Higher is better.</p>
+        </div>
+        <div class="vb-section-side">
+          <div class="vb-tracks-meta">
+            <div><span class="bs-kicker">Metric</span><strong>Mean rank score (0–100)</strong></div>
+            <div><span class="bs-kicker">Constraint</span><strong>Single shared encoder</strong></div>
+            <div><span class="bs-kicker">Audit</span><strong>Weights identity check</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vb-leader" role="table" aria-label="Track 5 top submissions">
+        <div class="vb-leader-row head" role="row">
+          <span role="columnheader">#</span>
+          <span role="columnheader">Encoder</span>
+          <span role="columnheader">Affiliation</span>
+          <span role="columnheader">Mean rank</span>
+          <span role="columnheader">Δ</span>
+        </div>
+        <div class="vb-leader-row hl" role="row">
+          <span class="rk" role="cell">#01</span>
+          <span class="nm" role="cell">BIOT-large (shared)</span>
+          <span class="tk" role="cell">Yale + ETH Zurich</span>
+          <span class="sc" role="cell">82.1</span>
+          <span class="dl" role="cell">—</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#02</span>
+          <span class="nm" role="cell">REVE</span>
+          <span class="tk" role="cell">EPFL · Lausanne</span>
+          <span class="sc" role="cell">79.8</span>
+          <span class="dl" role="cell">−2.3</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#03</span>
+          <span class="nm" role="cell">LaBraM</span>
+          <span class="tk" role="cell">Tsinghua</span>
+          <span class="sc" role="cell">76.5</span>
+          <span class="dl" role="cell">−5.6</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#04</span>
+          <span class="nm" role="cell">SignalJEPA</span>
+          <span class="tk" role="cell">ETH Zurich</span>
+          <span class="sc" role="cell">71.2</span>
+          <span class="dl" role="cell">−10.9</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#05</span>
+          <span class="nm" role="cell">CBraMod</span>
+          <span class="tk" role="cell">Beijing IAR</span>
+          <span class="sc" role="cell">68.9</span>
+          <span class="dl" role="cell">−13.2</span>
+        </div>
+        <div class="vb-leader-row" role="row">
+          <span class="rk" role="cell">#06</span>
+          <span class="nm" role="cell">EEGPT</span>
+          <span class="tk" role="cell">SJTU</span>
+          <span class="sc" role="cell">66.1</span>
+          <span class="dl" role="cell">−16.0</span>
+        </div>
+      </div>
+
+      <div class="ds-foot">
+        <span class="bs-kicker">N = 6 of 23 submissions · last update 18 min ago</span>
+        <a href="#methodology" class="track-link">How scoring works ↓</a>
+      </div>
+    </section>
+
+    <!-- ============================== Methodology ============================== -->
+    <section class="vb-section vb-section-cream" id="methodology" aria-labelledby="meth-heading">
+      <div class="vb-section-head">
+        <div>
+          <span class="bs-eyebrow"><span class="dot"></span> Scoring &amp; refresh policy</span>
+          <h2 id="meth-heading">How a submission becomes a number on this page.</h2>
+          <p>The scoring code is open-source and identical between local <code>neuralbench score</code> and the Codabench server. The only thing the server adds is the sealed test split.</p>
+        </div>
+      </div>
+
+      <div class="vb-tracks">
+        <article class="vb-track">
+          <div class="track-head">
+            <span class="bs-kicker">Refresh cadence</span>
+            <span class="bs-badge">15 min</span>
+          </div>
+          <h3>Live during the final phase.</h3>
+          <p>Codabench evaluates each upload immediately. The leaderboard page on this site is regenerated every 15 minutes — there can be a short lag between submission and what you see here.</p>
+          <div class="track-stats">
+            <div><span class="bs-kicker">Final phase</span><strong>Aug 1 — Sep 1, 2026</strong></div>
+            <div><span class="bs-kicker">Daily cap</span><strong>5 / team / day</strong></div>
+          </div>
+        </article>
+
+        <article class="vb-track">
+          <div class="track-head">
+            <span class="bs-kicker">Aggregation</span>
+            <span class="bs-badge">BEST-OF-5</span>
+          </div>
+          <h3>Final score = best of last five.</h3>
+          <p>The public board shows your best-ever number. The final NeurIPS ranking, however, only considers your last five submissions. This rewards focused iteration over exhaustive lottery search.</p>
+          <div class="track-stats">
+            <div><span class="bs-kicker">Public board</span><strong>Best ever</strong></div>
+            <div><span class="bs-kicker">Final ranking</span><strong>Best of last 5</strong></div>
+          </div>
+        </article>
+
+        <article class="vb-track">
+          <div class="track-head">
+            <span class="bs-kicker">Reproducibility audit</span>
+            <span class="bs-badge">OCT 1</span>
+          </div>
+          <h3>Top-3 per track replay from config.</h3>
+          <p>We re-run the committed training pipeline against the sealed split. Within ±2 σ of the submitted score, you stay on the board. Outside, you drop. Audit is led by Arnaud Delorme (EEGLAB).</p>
+          <div class="track-stats">
+            <div><span class="bs-kicker">Tolerance</span><strong>±2 σ on metric</strong></div>
+            <div><span class="bs-kicker">Audit window</span><strong>Oct 1 — Nov 1</strong></div>
+          </div>
+        </article>
+
+        <article class="vb-track">
+          <div class="track-head">
+            <span class="bs-kicker">Anonymity</span>
+            <span class="bs-badge">OPT-IN</span>
+          </div>
+          <h3>You choose when to reveal.</h3>
+          <p>You can submit under an anonymized handle during the public phase. Affiliations only appear on the board after you opt in — usually right before the final ranking publishes on Nov 1. Useful for double-blind paper submissions.</p>
+          <div class="track-stats">
+            <div><span class="bs-kicker">Reveal deadline</span><strong>Oct 25, 2026</strong></div>
+            <div><span class="bs-kicker">Default</span><strong>Anonymous handle</strong></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================== CTA ============================== -->
+    <section class="vb-section vb-cta" id="cta" aria-labelledby="cta-heading">
+      <div>
+        <span class="bs-eyebrow"><span class="dot"></span> Warm-up opens Jul 1, 2026</span>
+        <h2 id="cta-heading">Take a baseline and beat it.</h2>
+        <p>Every track ships at least one fully-trained baseline. The start-kit walks you from clone to <code>submission.parquet</code> in fifteen minutes. From there, it's a leaderboard fight.</p>
+        <div class="bs-hero-cta">
+          <a class="bs-btn primary" href="startkit.html">Open the start-kit →</a>
+          <a class="bs-btn ghost" href="awards.html">See the prizes</a>
+        </div>
+      </div>
+      <figure class="bs-code" aria-label="One-line submission">
+        <figcaption class="bs-code-head">
+          <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="bs-kicker">bash · score + upload</span>
+          <button class="copy" type="button" data-copy>copy</button>
+        </figcaption>
+        <pre><div class="line"><span class="ln"> 1</span><code><span class="kw">$</span> neuralbench score bci <span class="op">--out</span> submission.parquet</code></div><div class="line"><span class="ln"> 2</span><code><span class="kw">$</span> neuralbench upload submission.parquet <span class="op">--track</span> bci</code></div><div class="line"><span class="ln"> 3</span><code><span class="c2">  ↳ uploaded · queued #1248</span></code></div></pre>
+      </figure>
+    </section>
+
+    <!-- ============================== Footer ============================== -->
+    <footer class="vb-footer">
+      <div class="vb-footer-row">
+        <a class="vb-brand" href="index.html" style="border-bottom: none; padding: 0; text-decoration: none;">
+          <span class="glyph">
+            <svg viewBox="0 0 32 32" width="20" height="20" aria-hidden="true">
+              <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                <path d="M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5" />
+                <path d="M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24" />
+              </g>
+            </svg>
+          </span>
+          <span>
+            <span class="title">EEG/EMG Foundation</span>
+            <span class="sub">NeurIPS 2026 · Sydney</span>
+          </span>
+        </a>
+        <div class="vb-footer-links">
+          <a href="startkit.html">Start-kit</a>
+          <a href="leaderboard.html">Leaderboard</a>
+          <a href="awards.html">Awards</a>
+          <a href="organizers.html">Organizers</a>
+          <a href="index.html#sponsors">Sponsors</a>
+          <a href="https://github.com/neural-interfaces26/neural-interfaces26.github.io" target="_blank" rel="noreferrer noopener">GitHub</a>
+        </div>
+      </div>
+      <div class="vb-footer-row">
+        <span class="vb-footer-meta">
+          © 2026 EEG/EMG Foundation Challenge · MIT licensed · Continues the work of the <a href="https://eeg2025.github.io/" target="_blank" rel="noreferrer noopener" style="color: inherit; text-decoration: underline;">EEG 2025 Challenge</a>
+        </span>
+        <span class="vb-footer-meta">
+          Organized by Yneuro · UCSD · Imperial · Meta FAIR · Donders · Alljoined · Inria Bordeaux · ISAE-SUPAERO · InteraXon · Meta Reality Labs · Paris-Saclay · CNRS · Salk · ChaLearn
+        </span>
+      </div>
+    </footer>
+
+  </main>
+</div>
+
+<script src="assets/js/ui.js?v=20260513" defer></script>
+
+</body>
+</html>
