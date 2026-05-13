@@ -667,10 +667,7 @@
         \[
         \Delta^{(b)}_{\mathrm{team}_1, \mathrm{team}_2} = \mathcal{S}^{(b)}_{\mathrm{team}_1} - \mathcal{S}^{(b)}_{\mathrm{team}_2}
         \]
-        \[
-        p_{\mathrm{boot}} = 2\min\!\left(\Pr_b\!\left[\Delta^{(b)}_{\mathrm{team}_1, \mathrm{team}_2}\le 0\right],\; \Pr_b\!\left[\Delta^{(b)}_{\mathrm{team}_1, \mathrm{team}_2}\ge 0\right]\right)
-        \]
-        <p>\(p_{\mathrm{boot}}\) is Holm-adjusted across the family of prize-relevant comparisons to control the family-wise error rate in the post-competition analysis. The public leaderboard ranks by point estimate and flags neighbours with unadjusted \(p_{\mathrm{boot}} > 0.05\) (equivalently, paired CI of \(\Delta\) contains zero) as statistically indistinguishable. Top-1, top-3, and top-5 rank stability (the bootstrap probability that a team holds those positions) accompanies each rank.</p>
+        <p>The two-sided bootstrap p-value \(p_{\mathrm{boot}} = 2\min(\Pr_b[\Delta^{(b)} \le 0],\; \Pr_b[\Delta^{(b)} \ge 0])\) is Holm-adjusted across the family of prize-relevant comparisons to control the family-wise error rate in the post-competition analysis. The public leaderboard ranks by point estimate and flags neighbours with unadjusted \(p_{\mathrm{boot}} > 0.05\) (equivalently, paired CI of \(\Delta\) contains zero) as statistically indistinguishable. Top-1, top-3, and top-5 rank stability (the bootstrap probability that a team holds those positions) accompanies each rank.</p>
       </div>
 
       <div class="formal-block">
