@@ -683,12 +683,12 @@
 
       <div class="formal-block">
         <h3>Overall ranking</h3>
-        <p>Each valid submission gets rank points \(P_{a,t}\) on its track (linearly interpolated against the field, so the top of the field scores 1 and the bottom scores 0). The submitted-track average summarises a team's record across the tracks it entered; the all-track score averages over all four task-specific tracks, padding missing tracks with zero so transfer is rewarded over single-track wins. \(r_{a,t}\) is the team's rank, \(N_t\) is the number of valid submissions on the track, and \(T_a\) is the set of tracks the team submitted.</p>
+        <p>Each valid submission gets rank points \(P_{\mathrm{team},t}\) on its track (linearly interpolated against the field, so the top of the field scores 1 and the bottom scores 0). The submitted-track average summarises a team's record across the tracks it entered; the all-track score averages over all four task-specific tracks, padding missing tracks with zero so transfer is rewarded over single-track wins. \(r_{\mathrm{team},t}\) is the team's rank, \(N_t\) is the number of valid submissions on the track, and \(T_{\mathrm{team}}\) is the set of tracks the team submitted.</p>
         \[
-        P_{a,t} = \begin{cases} 1-\dfrac{r_{a,t}-1}{N_t-1}, & N_t>1, \\[4pt] 1, & N_t=1, \end{cases} \qquad \mathcal{S}_{\mathrm{submitted}}(a) = \frac{1}{|T_a|}\sum_{t\in T_a} P_{a,t}
+        P_{\mathrm{team},t} = \begin{cases} 1-\dfrac{r_{\mathrm{team},t}-1}{N_t-1}, & N_t>1, \\[4pt] 1, & N_t=1, \end{cases} \qquad \mathcal{S}_{\mathrm{submitted}}(\mathrm{team}) = \frac{1}{|T_{\mathrm{team}}|}\sum_{t\in T_{\mathrm{team}}} P_{\mathrm{team},t}
         \]
         \[
-        \mathcal{S}_{\mathrm{all}}(a) = \frac{1}{4}\sum_{t\in T} P^{\star}_{a,t}, \qquad P^{\star}_{a,t} = \begin{cases} P_{a,t}, & t\in T_a, \\ 0, & t\notin T_a. \end{cases}
+        \mathcal{S}_{\mathrm{all}}(\mathrm{team}) = \frac{1}{4}\sum_{t\in T} P^{\star}_{\mathrm{team},t}, \qquad P^{\star}_{\mathrm{team},t} = \begin{cases} P_{\mathrm{team},t}, & t\in T_{\mathrm{team}}, \\ 0, & t\notin T_{\mathrm{team}}. \end{cases}
         \]
       </div>
     </section>
