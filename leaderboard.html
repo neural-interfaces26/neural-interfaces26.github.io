@@ -44,8 +44,12 @@
   .formal-block .bs-code { margin-top: 16px; }
   .formal-note { color: var(--bs-muted); }
   .formal-note a { font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 2px; }
-  .formal-block mjx-container { overflow-x: auto; max-width: 100%; }
-  .formal-block mjx-container[display="true"] { margin: 14px 0; }
+  .formal-block mjx-container { max-width: 100%; }
+  .formal-block mjx-container[display="true"] { margin: 14px 0; overflow-x: auto; overflow-y: hidden; padding-bottom: 2px; -webkit-overflow-scrolling: touch; }
+  @media (max-width: 640px) {
+    .formal-block { padding: 22px 24px; }
+    .formal-block mjx-container[display="true"] { font-size: 94%; }
+  }
 </style>
 
 <script>
@@ -660,7 +664,7 @@
         <div>
           <span class="bs-eyebrow"><span class="dot"></span> Formal definitions</span>
           <h2 id="form-heading">Scoring math, mirrored from the proposal.</h2>
-          <p>These are the equations the evaluator actually runs. They appear in §Error bars, §Test-set sizing, and §Overall ranking of the NeurIPS proposal and are reproduced here for participants who want to reason about score variance and ranking before submitting.</p>
+          <p>These are the equations the evaluator actually runs. They match the proposal sections on error bars, test-set sizing, and overall ranking, and are reproduced here for participants who want to reason about score variance and ranking before submitting.</p>
         </div>
       </div>
 
@@ -672,7 +676,9 @@
         \]
         <p>Examples are first collapsed into independent bootstrap units \(u \in U_t\): subject-image query blocks for EEG-to-IMG, subject-session-context cells for BCI, recordings for sleep onset, and user-session blocks for EMG-to-text. Each unit gets an oriented contribution \(s_{a,t,u}\), where higher is always better; for MAE and CER we use the negative error internally.</p>
         \[
-        s_{a,t,u} = \mathrm{score}_t(\hat{y}_{a,t,u}, y_{t,u}), \qquad
+        s_{a,t,u} = \mathrm{score}_t(\hat{y}_{a,t,u}, y_{t,u})
+        \]
+        \[
         \mathcal{S}_{a,t} = \frac{1}{|U_t|}\sum_{u \in U_t} s_{a,t,u}
         \]
         <p>The visible leaderboard for track \(t\) is the point-estimate ordering of \(\mathcal{S}_{a,t}\).</p>
@@ -691,29 +697,37 @@
         <p>For bootstrap draw \(b\), the evaluator resamples independent units \(U_t^{(b)}\) and recomputes each team's score. Pairwise uncertainty is calculated on the paired score difference, not from two separate confidence intervals.</p>
         \[
         \mathcal{S}^{(b)}_{a,t} =
-        \frac{1}{|U_t^{(b)}|}\sum_{u \in U_t^{(b)}} s_{a,t,u},
-        \qquad
+        \frac{1}{|U_t^{(b)}|}\sum_{u \in U_t^{(b)}} s_{a,t,u}
+        \]
+        \[
         \Delta^{(b)}_{a,c,t} =
         \mathcal{S}^{(b)}_{a,t} - \mathcal{S}^{(b)}_{c,t}
         \]
         \[
+        \begin{aligned}
         \mathrm{CI}_{95}(\Delta_{a,c,t}) =
-        \left[q_{0.025}(\Delta^{(b)}_{a,c,t}),\;
-        q_{0.975}(\Delta^{(b)}_{a,c,t})\right]
+        \big[&q_{0.025}(\Delta^{(b)}_{a,c,t}),\\
+        &q_{0.975}(\Delta^{(b)}_{a,c,t})\big]
+        \end{aligned}
         \]
         <p>If this interval contains zero, neighbouring teams are flagged as statistically indistinguishable. For prize-relevant comparisons, the two-sided bootstrap p-value is Holm-adjusted.</p>
         \[
+        \begin{aligned}
         p_{\mathrm{boot}} =
-        2\min\left(\Pr_b[\Delta^{(b)}_{a,c,t} \le 0],\;
-        \Pr_b[\Delta^{(b)}_{a,c,t} \ge 0]\right)
+        2\min\big(&\Pr_b[\Delta^{(b)}_{a,c,t} \le 0],\\
+        &\Pr_b[\Delta^{(b)}_{a,c,t} \ge 0]\big)
+        \end{aligned}
         \]
         <p>Rank stability is computed by re-ranking all teams inside each bootstrap draw.</p>
         \[
-        r^{(b)}_{a,t} = \mathrm{rank}\left(\mathcal{S}^{(b)}_{a,t}\right),
-        \qquad
-        \Pr(r^{(b)}_{a,t}\le1),\quad
-        \Pr(r^{(b)}_{a,t}\le3),\quad
+        r^{(b)}_{a,t} = \mathrm{rank}\left(\mathcal{S}^{(b)}_{a,t}\right)
+        \]
+        \[
+        \begin{gathered}
+        \Pr(r^{(b)}_{a,t}\le1),\\
+        \Pr(r^{(b)}_{a,t}\le3),\\
         \Pr(r^{(b)}_{a,t}\le5)
+        \end{gathered}
         \]
         <figure class="bs-code" aria-label="Bootstrap confidence interval and rank stability snippet">
           <figcaption class="bs-code-head">
@@ -731,8 +745,9 @@
         \[
         R^{(b)}_{a,5} =
         \frac{1}{3}\sum_{t \in \{\mathrm{IMG}, \mathrm{BCI}, \mathrm{Sleep}\}}
-        r^{(b)}_{a,t},
-        \qquad
+        r^{(b)}_{a,t}
+        \]
+        \[
         \mathcal{S}^{(b)}_{a,5} = -R^{(b)}_{a,5}
         \]
         <figure class="bs-code" aria-label="Foundation Transfer mean-rank snippet">
@@ -765,10 +780,26 @@
         <h3>Overall ranking</h3>
         <p>Each valid submission gets rank points \(P_{\mathrm{team},t}\) on its track (linearly interpolated against the field, so the top of the field scores 1 and the bottom scores 0). The submitted-track average summarises a team's record across the tracks it entered; the all-track score averages over all four task-specific tracks, padding missing tracks with zero so transfer is rewarded over single-track wins. \(r_{\mathrm{team},t}\) is the team's rank, \(N_t\) is the number of valid submissions on the track, and \(T_{\mathrm{team}}\) is the set of tracks the team submitted.</p>
         \[
-        P_{\mathrm{team},t} = \begin{cases} 1-\dfrac{r_{\mathrm{team},t}-1}{N_t-1}, & N_t>1, \\[4pt] 1, & N_t=1, \end{cases} \qquad \mathcal{S}_{\mathrm{submitted}}(\mathrm{team}) = \frac{1}{|T_{\mathrm{team}}|}\sum_{t\in T_{\mathrm{team}}} P_{\mathrm{team},t}
+        P_{\mathrm{team},t} =
+        \begin{cases}
+        1-\dfrac{r_{\mathrm{team},t}-1}{N_t-1}, & N_t>1, \\
+        1, & N_t=1
+        \end{cases}
         \]
         \[
-        \mathcal{S}_{\mathrm{all}}(\mathrm{team}) = \frac{1}{4}\sum_{t\in T} P^{\star}_{\mathrm{team},t}, \qquad P^{\star}_{\mathrm{team},t} = \begin{cases} P_{\mathrm{team},t}, & t\in T_{\mathrm{team}}, \\ 0, & t\notin T_{\mathrm{team}}. \end{cases}
+        \mathcal{S}_{\mathrm{submitted}}(\mathrm{team}) =
+        \frac{1}{|T_{\mathrm{team}}|}\sum_{t\in T_{\mathrm{team}}} P_{\mathrm{team},t}
+        \]
+        \[
+        \mathcal{S}_{\mathrm{all}}(\mathrm{team}) =
+        \frac{1}{4}\sum_{t\in T} P^{\star}_{\mathrm{team},t}
+        \]
+        \[
+        P^{\star}_{\mathrm{team},t} =
+        \begin{cases}
+        P_{\mathrm{team},t}, & t\in T_{\mathrm{team}}, \\
+        0, & t\notin T_{\mathrm{team}}
+        \end{cases}
         \]
         <figure class="bs-code" aria-label="Overall ranking snippet">
           <figcaption class="bs-code-head">
@@ -792,14 +823,6 @@
           <a class="bs-btn ghost" href="awards.html">See the prizes</a>
         </div>
       </div>
-      <figure class="bs-code" aria-label="One-line submission">
-        <figcaption class="bs-code-head">
-          <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
-          <span class="bs-kicker">bash · score + upload</span>
-          <button class="copy" type="button" data-copy>copy</button>
-        </figcaption>
-        <pre><div class="line"><span class="ln"> 1</span><code><span class="kw">$</span> neuralbench score bci <span class="op">--out</span> submission.parquet</code></div><div class="line"><span class="ln"> 2</span><code><span class="kw">$</span> neuralbench upload submission.parquet <span class="op">--track</span> bci</code></div><div class="line"><span class="ln"> 3</span><code><span class="c2">  ↳ uploaded · queued #1248</span></code></div></pre>
-      </figure>
     </section>
 
     <!-- ============================== Footer ============================== -->
