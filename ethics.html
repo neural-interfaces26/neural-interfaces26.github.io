@@ -172,7 +172,7 @@
       <div class="vb-hero-text">
         <span class="bs-eyebrow"><span class="dot"></span> About · ethics statement</span>
         <h1 id="ethics-heading">Ethics &amp; consent.</h1>
-        <p>This competition follows the NeurIPS Code of Ethics. Non-invasive neural decoding can benefit clinical applications, but it raises a central concern of mental privacy when applied to non-consenting subjects. We mitigate this through consented stimuli, cued tasks, consensual typing, and home wearables with subject-initiated recording — and through limits in the science itself.</p>
+        <p>This competition follows the NeurIPS Code of Ethics. Non-invasive neural decoding can benefit clinical applications, but it raises a central concern of mental privacy when applied to non-consenting subjects. We mitigate this through consented stimuli, cued tasks, consensual typing, and home wearables with subject-initiated recording, and through limits in the science itself.</p>
         <div class="bs-hero-cta">
           <a class="bs-btn primary" href="#contact">Contact the organisers →</a>
           <a class="bs-btn ghost" href="#commitments">Read the commitments</a>
@@ -212,15 +212,15 @@
             The task design also follows the NeurIPS Code of Ethics.
           </blockquote>
           <ul style="margin: 0; padding-left: 22px; line-height: 1.65; color: var(--bs-muted); font-size: 15px;">
-            <li style="margin-bottom: 10px;"><strong style="color: var(--bs-text);">Track 1 — EEG-to-IMG.</strong> Decoding controlled visual stimuli the participant is actively viewing. Does not test imagination, memory, or private thought.</li>
-            <li style="margin-bottom: 10px;"><strong style="color: var(--bs-text);">Track 2 — BCI decoding.</strong> Decoding cued mental tasks (motor imagery, mental calculation, word association). Each command is a deliberately chosen action, not unconstrained inference.</li>
-            <li style="margin-bottom: 10px;"><strong style="color: var(--bs-text);">Track 3 — Sleep onset.</strong> Decoding from at-home wearable EEG with subject-initiated recording. The subject controls when the headband is worn.</li>
-            <li style="margin-bottom: 10px;"><strong style="color: var(--bs-text);">Track 4 — EMG-to-Text.</strong> Decoding keystrokes from wristband EMG while the participant types prompted English text on a physical keyboard.</li>
+            <li style="margin-bottom: 10px;"><strong style="color: var(--bs-text);">Track 1, EEG-to-IMG.</strong> Decoding controlled visual stimuli the participant is actively viewing. Does not test imagination, memory, or private thought.</li>
+            <li style="margin-bottom: 10px;"><strong style="color: var(--bs-text);">Track 2, BCI decoding.</strong> Decoding cued mental tasks (motor imagery, mental calculation, word association). Each command is a deliberately chosen action, not unconstrained inference.</li>
+            <li style="margin-bottom: 10px;"><strong style="color: var(--bs-text);">Track 3, Sleep onset.</strong> Decoding from at-home wearable EEG with subject-initiated recording. The subject controls when the headband is worn.</li>
+            <li style="margin-bottom: 10px;"><strong style="color: var(--bs-text);">Track 4, EMG-to-Text.</strong> Decoding keystrokes from wristband EMG while the participant types prompted English text on a physical keyboard.</li>
           </ul>
         </div>
         <div class="vb-section-side">
           <span class="bs-kicker">Scope of consent</span>
-          <p style="font-size: 13px; line-height: 1.6; color: var(--bs-muted); margin: 10px 0 0; max-width: 32ch;">Every track operationalises consent through controlled-stimulus, cued-task, consensual-typing, or home-wearable setups — never covert observation.</p>
+          <p style="font-size: 13px; line-height: 1.6; color: var(--bs-muted); margin: 10px 0 0; max-width: 32ch;">Every track operationalises consent through controlled-stimulus, cued-task, consensual-typing, or home-wearable setups, never covert observation.</p>
         </div>
       </div>
     </section>
@@ -231,8 +231,8 @@
         <div>
           <span class="bs-eyebrow"><span class="dot"></span> Empirical limits</span>
           <h2 id="privacy-heading">Why non-invasive decoding is privacy-bounded today.</h2>
-          <p style="margin-bottom: 16px;">Two empirical limits bound the mental-privacy risk in non-invasive recordings. Decoding accuracy is high only for perceptual tasks — viewing an image, executing a cued movement — and falls sharply on imagined content. Decoding also fails when the subject disengages from the cued task (for example, counting backward instead of attending the stimulus).</p>
-          <p>Consent is therefore a technical requirement, not only a legal one: a non-consenting subject can defeat decoding by attending elsewhere. Each track enforces consent through its controlled-stimulus, cued-task, consensual-typing, or home-wearable setup. We commit to read-only decoding — no closed-loop actuation — and open, peer-reviewed evaluation.</p>
+          <p style="margin-bottom: 16px;">Two empirical limits bound the mental-privacy risk in non-invasive recordings. Decoding accuracy is high only for perceptual tasks (viewing an image, executing a cued movement) and falls sharply on imagined content. Decoding also fails when the subject disengages from the cued task (for example, counting backward instead of attending the stimulus).</p>
+          <p>Consent is therefore a technical requirement, not only a legal one: a non-consenting subject can defeat decoding by attending elsewhere. Each track enforces consent through its controlled-stimulus, cued-task, consensual-typing, or home-wearable setup. We commit to read-only decoding (no closed-loop actuation) and to open, peer-reviewed evaluation.</p>
         </div>
         <div class="vb-section-side">
           <span class="bs-kicker">What the science says</span>
@@ -249,15 +249,15 @@
           <h2 id="controllers-heading">Every dataset has an identified controller and a consent chain.</h2>
           <p>All human-subject datasets are provided by their original data controllers and used only after confirmation that recordings, annotations, and competition use comply with applicable consent, ethics approval, de-identification, data-use terms, and the NeurIPS Code of Ethics.</p>
           <ul style="margin: 18px 0 0; padding-left: 22px; line-height: 1.65; color: var(--bs-muted); font-size: 15px;">
-            <li style="margin-bottom: 10px;"><strong style="color: var(--bs-text);">Track 1 — EEG-to-IMG.</strong> THINGS-EEG1/2 (THINGS consortium), Alljoined-1, Alljoined-1.6M (Alljoined).</li>
-            <li style="margin-bottom: 10px;"><strong style="color: var(--bs-text);">Track 2 — BCI decoding.</strong> Stieger 2021, Dreyer 2023, Zyma 2019, Scherer 2015 (original lab data controllers); 20-subject Graz/BrainHero release (Inria Bordeaux, NEARBY/PROTEUS projects).</li>
-            <li style="margin-bottom: 10px;"><strong style="color: var(--bs-text);">Track 3 — Sleep onset.</strong> Sleep-EDF Extended (PhysioNet), PhysioNet Challenge 2018 (PhysioNet), HMC Sleep Staging (Haaglanden Medisch Centrum), Muse Sleep-Onset (InteraXon).</li>
-            <li style="margin-bottom: 10px;"><strong style="color: var(--bs-text);">Track 4 — EMG-to-Text.</strong> emg2qwerty (Meta Reality Labs); 100-user evaluation cohort (Meta Reality Labs).</li>
+            <li style="margin-bottom: 10px;"><strong style="color: var(--bs-text);">Track 1, EEG-to-IMG.</strong> THINGS-EEG1/2 (THINGS consortium), Alljoined-1, Alljoined-1.6M (Alljoined).</li>
+            <li style="margin-bottom: 10px;"><strong style="color: var(--bs-text);">Track 2, BCI decoding.</strong> Stieger 2021, Dreyer 2023, Zyma 2019, Scherer 2015 (original lab data controllers); 20-subject Graz/BrainHero release (Inria Bordeaux, NEARBY/PROTEUS projects).</li>
+            <li style="margin-bottom: 10px;"><strong style="color: var(--bs-text);">Track 3, Sleep onset.</strong> Sleep-EDF Extended (PhysioNet), PhysioNet Challenge 2018 (PhysioNet), HMC Sleep Staging (Haaglanden Medisch Centrum), Muse Sleep-Onset (InteraXon).</li>
+            <li style="margin-bottom: 10px;"><strong style="color: var(--bs-text);">Track 4, EMG-to-Text.</strong> emg2qwerty (Meta Reality Labs); 100-user evaluation cohort (Meta Reality Labs).</li>
           </ul>
         </div>
         <div class="vb-section-side">
           <span class="bs-kicker">Chain of custody</span>
-          <p style="font-size: 13px; line-height: 1.6; color: var(--bs-muted); margin: 10px 0 0; max-width: 32ch;">Each controller approves the recording paradigm, the annotation protocol, and the competition use — separately.</p>
+          <p style="font-size: 13px; line-height: 1.6; color: var(--bs-muted); margin: 10px 0 0; max-width: 32ch;">Each controller approves the recording paradigm, the annotation protocol, and the competition use separately.</p>
         </div>
       </div>
     </section>
@@ -272,7 +272,7 @@
         </div>
         <div class="vb-section-side">
           <span class="bs-kicker">Scope of claims</span>
-          <p style="font-size: 13px; line-height: 1.6; color: var(--bs-muted); margin: 10px 0 0; max-width: 32ch;">Results extrapolate only along the generalisation axes each track explicitly tests — not to populations or settings outside.</p>
+          <p style="font-size: 13px; line-height: 1.6; color: var(--bs-muted); margin: 10px 0 0; max-width: 32ch;">Results extrapolate only along the generalisation axes each track explicitly tests, not to populations or settings outside.</p>
         </div>
       </div>
     </section>

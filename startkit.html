@@ -230,7 +230,7 @@
           <span class="phase-tag">Step 02 <span class="badge">DATA</span></span>
           <h3>Pull a track's warm-up split.</h3>
           <span class="phase-date">~ 5 minutes · streamed BIDS</span>
-          <p class="phase-desc">EEGDash streams the BIDS layout — only the recordings you reference are downloaded. The warm-up split for every track lives under <code>~/.cache/eegdash/</code> after the first call.</p>
+          <p class="phase-desc">EEGDash streams the BIDS layout; only the recordings you reference are downloaded. The warm-up split for every track lives under <code>~/.cache/eegdash/</code> after the first call.</p>
           <div class="phase-meta">
             <div class="row"><span>Track 1 (EEG-to-IMG)</span><span>XX GB</span></div>
             <div class="row"><span>Track 2 (BCI)</span><span>X.X GB</span></div>
@@ -244,7 +244,7 @@
           <span class="phase-tag">Step 03 <span class="badge">TRAIN</span></span>
           <h3>Train a baseline.</h3>
           <span class="phase-date">2 – 6 GPU-hours · warm-up split</span>
-          <p class="phase-desc">Every track ships at least one baseline you can train with a single <code>neuralbench train</code> call. Configs are plain YAML — copy one, edit the model, keep the same data + scoring blocks.</p>
+          <p class="phase-desc">Every track ships at least one baseline you can train with a single <code>neuralbench train</code> call. Configs are plain YAML: copy one, edit the model, keep the same data + scoring blocks.</p>
           <div class="phase-meta">
             <div class="row"><span>Default model</span><span>EEGNet · X.X M params</span></div>
             <div class="row"><span>Optimizer</span><span>AdamW · cosine schedule</span></div>
@@ -257,7 +257,7 @@
           <span class="phase-tag">Step 04 <span class="badge">SCORE</span></span>
           <h3>Score against the held-out split.</h3>
           <span class="phase-date">~ 1 minute · local</span>
-          <p class="phase-desc">The evaluator is the exact code we run on Codabench. Run it locally first — <code>neuralbench score</code> writes a <code>submission.parquet</code> with predictions, hyperparameters, and the git SHA of your model code for the audit phase.</p>
+          <p class="phase-desc">The evaluator is the exact code we run on Codabench. Run it locally first. <code>neuralbench score</code> writes a <code>submission.parquet</code> with predictions, hyperparameters, and the git SHA of your model code for the audit phase.</p>
           <div class="phase-meta">
             <div class="row"><span>Metric (T1)</span><span>Top-5 retrieval accuracy</span></div>
             <div class="row"><span>Metric (T2)</span><span>Balanced accuracy</span></div>
@@ -287,7 +287,7 @@
         <div>
           <span class="bs-eyebrow"><span class="dot"></span> End-to-end Python · BCI track</span>
           <h2 id="walkthrough-heading">A baseline from scratch, in twenty lines.</h2>
-          <p>The same pattern works for every track: load with EEGDash, train with Braindecode, score with NeuralBench. Swap the dataset id and the model — the rest of the pipeline stays the same.</p>
+          <p>The same pattern works for every track: load with EEGDash, train with Braindecode, score with NeuralBench. Swap the dataset id and the model; the rest of the pipeline stays the same.</p>
         </div>
       </div>
 
@@ -467,7 +467,7 @@
         <div>
           <span class="bs-eyebrow"><span class="dot"></span> Submission format · same for every track</span>
           <h2 id="submit-heading">Predictions during iteration. Code at the audit gate.</h2>
-          <p>Two-stage submission. During the public phase you upload a predictions Parquet file — fast, no container build, validate locally with <code>neuralbench check</code>. For the top-ranked teams, organizers then re-run your training script inside a fixed Codabench container on the sealed split. Both stages are mandatory for prize eligibility. The container, AWS integration, and scaled deployment are being contributed back to upstream Codabench in partnership with Deloitte.</p>
+          <p>Two-stage submission. During the public phase you upload a predictions Parquet file. It is fast, no container build, and you can validate locally with <code>neuralbench check</code>. For the top-ranked teams, organizers then re-run your training script inside a fixed Codabench container on the sealed split. Both stages are mandatory for prize eligibility. The container, AWS integration, and scaled deployment are being contributed back to upstream Codabench in partnership with Deloitte.</p>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">
@@ -553,7 +553,7 @@
             <span class="bs-badge">ALLOWED</span>
           </div>
           <h3>Train on whatever you have.</h3>
-          <p>There is no compute cap during training. The sealed-test inference budget is the only constraint — your scoring container must finish a full test pass in under 60 minutes on a single H100 or H200 instance. AWS gives finalists complimentary instance hours; details land in the awards page.</p>
+          <p>There is no compute cap during training. The sealed-test inference budget is the only constraint: your scoring container must finish a full test pass in under 60 minutes on a single H100 or H200 instance. AWS gives finalists complimentary instance hours; details land in the awards page.</p>
           <div class="track-stats">
             <div><span class="bs-kicker">Inference budget</span><strong>60 min · H100 / H200</strong></div>
             <div><span class="bs-kicker">No cap</span><strong>on training</strong></div>
@@ -567,7 +567,7 @@
             <span class="bs-badge">ALLOWED</span>
           </div>
           <h3>Pretrain on anything public.</h3>
-          <p>Public, redistributable datasets are fair game. Closed datasets and the sealed test split are not. Declare every external corpus you used in the 2-page methods note that ships with your final submission — the audit cross-checks this against your <code>neuralbench replay</code>.</p>
+          <p>Public, redistributable datasets are fair game. Closed datasets and the sealed test split are not. Declare every external corpus you used in the 2-page methods note that ships with your final submission; the audit cross-checks this against your <code>neuralbench replay</code>.</p>
           <div class="track-stats">
             <div><span class="bs-kicker">OK</span><strong>OpenNeuro · MOABB · public BIDS</strong></div>
             <div><span class="bs-kicker">Not OK</span><strong>Sealed test · private clinical</strong></div>
@@ -607,7 +607,7 @@
       <div>
         <span class="bs-eyebrow"><span class="dot"></span> Start-kit drops Jun 1, 2026 · Warm-up Jul 1</span>
         <h2 id="cta-heading">Ready to run your first baseline?</h2>
-        <p>Clone the start-kit, run the toy split, and you're on the leaderboard in fifteen minutes. Everything is MIT-licensed — fork freely, but please cite the white paper and the 2025 challenge that this work continues.</p>
+        <p>Clone the start-kit, run the toy split, and you're on the leaderboard in fifteen minutes. Everything is MIT-licensed: fork freely, but please cite the white paper and the 2025 challenge that this work continues.</p>
         <div class="bs-hero-cta">
           <a class="bs-btn primary" href="https://github.com/neural-interfaces26/neuralbench" target="_blank" rel="noreferrer noopener">Clone the start-kit →</a>
           <a class="bs-btn ghost" href="https://arxiv.org/abs/2506.19141" target="_blank" rel="noreferrer noopener">Read the white paper</a>
