@@ -433,8 +433,8 @@
       <div class="vb-section-head">
         <div>
           <span class="bs-eyebrow"><span class="dot"></span> Submission format · same for every track</span>
-          <h2 id="submit-heading">A single Parquet file. No Docker. No build step.</h2>
-          <p>You don't upload code during the public phase — you upload predictions. Top entries are pulled for a reproducibility audit at test-freeze: we re-run your <code>neuralbench replay</code> against the sealed split. The submission file's schema is fixed and validated client-side before upload.</p>
+          <h2 id="submit-heading">Predictions during iteration. Code at the audit gate.</h2>
+          <p>Two-stage submission. During the public phase you upload a predictions Parquet file — fast, no container build, validate locally with <code>neuralbench check</code>. For the top-ranked teams, organizers then re-run your training script inside a fixed Codabench container on the sealed split. Both stages are mandatory for prize eligibility. The container, AWS integration, and scaled deployment are being contributed back to upstream Codabench in partnership with Deloitte.</p>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">
@@ -497,6 +497,11 @@
         <span class="bs-kicker">Validate locally: <code>neuralbench check submission.parquet</code></span>
         <a href="https://github.com/neural-interfaces26/neuralbench/blob/main/docs/submission.md" class="track-link" target="_blank" rel="noreferrer noopener">Schema spec on GitHub →</a>
       </div>
+
+      <div class="ds-foot">
+        <span class="bs-kicker">Audit container = Codabench public image. AWS provides 32,000+ H200 GPU-hours. Scaled Codabench deployment is funded with Deloitte and contributed back upstream.</span>
+        <a href="https://www.codabench.org" class="track-link" target="_blank" rel="noreferrer noopener">Codabench →</a>
+      </div>
     </section>
 
     <!-- ============================== Compute & policy ============================== -->
@@ -515,10 +520,11 @@
             <span class="bs-badge">ALLOWED</span>
           </div>
           <h3>Train on whatever you have.</h3>
-          <p>There is no compute cap during training. The sealed-test inference budget is the only constraint — your scoring container must finish a full test pass in under 60 minutes on a single A100. AWS gives finalists complimentary instance hours; details land in the awards page.</p>
+          <p>There is no compute cap during training. The sealed-test inference budget is the only constraint — your scoring container must finish a full test pass in under 60 minutes on a single H100 or H200 instance. AWS gives finalists complimentary instance hours; details land in the awards page.</p>
           <div class="track-stats">
-            <div><span class="bs-kicker">Inference budget</span><strong>60 min · A100</strong></div>
+            <div><span class="bs-kicker">Inference budget</span><strong>60 min · H100 / H200</strong></div>
             <div><span class="bs-kicker">No cap</span><strong>on training</strong></div>
+            <div><span class="bs-kicker">Audit hardware</span><strong>Codabench container</strong></div>
           </div>
         </article>
 
