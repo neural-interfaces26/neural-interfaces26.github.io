@@ -258,7 +258,7 @@
           <div class="phase-meta">
             <div class="row"><span>Metric (T1)</span><span>Top-5 retrieval accuracy</span></div>
             <div class="row"><span>Metric (T2)</span><span>Balanced accuracy</span></div>
-            <div class="row"><span>Metric (T3)</span><span>MAE on onset (s)</span></div>
+            <div class="row"><span>Metric (T3)</span><span>W-bMAE on onset (s)</span></div>
             <div class="row"><span>Metric (T4)</span><span>Character error rate</span></div>
           </div>
         </li>
@@ -314,12 +314,12 @@
       <div class="vb-section-head">
         <div>
           <span class="bs-eyebrow"><span class="dot"></span> Baselines · what to beat <span class="placeholder-badge">placeholder scores</span></span>
-          <h2 id="baselines-heading">Each track ships at least one trained baseline.</h2>
-          <p>Numbers below are the warm-up split — the public split you'll use for development. The sealed test set is held out by the organizers and only opens Aug 1, 2026.</p>
+          <h2 id="baselines-heading">Pre-computed baselines on representative public datasets.</h2>
+          <p>Numbers below are NeuralBench replications on representative public datasets, mean ± std, taken from the competition proposal's Table 1. They are the warm-up targets to beat. The official warm-up split scores arrive Jul 1, 2026.</p>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">
-            <div><span class="bs-kicker">Baselines released</span><strong>Jul 1, 2026 (warm-up)</strong></div>
+            <div><span class="bs-kicker">Baselines source</span><strong>NeuralBench (Banville et al., 2026)</strong></div>
             <div><span class="bs-kicker">Hosted weights</span><strong>HuggingFace · neural-interfaces26</strong></div>
             <div><span class="bs-kicker">License</span><strong>MIT</strong></div>
           </div>
@@ -334,96 +334,126 @@
             <span role="columnheader">Family</span>
             <span role="columnheader">Params</span>
             <span role="columnheader">Train (GPU-h)</span>
-            <span role="columnheader">Warm-up score</span>
+            <span role="columnheader">Proposal baseline</span>
             <span role="columnheader">Code</span>
             <span role="columnheader">Headroom</span>
           </div>
 
           <div class="ds-row" role="row">
             <span class="id" role="cell">T1 · EEG-to-IMG</span>
-            <span class="nm" role="cell">EEGNet + DINOv2 head</span>
-            <span class="mod mod-eeg" role="cell">CNN</span>
-            <span class="num" role="cell">X.X M</span>
-            <span class="num" role="cell">X.X</span>
-            <span class="num" role="cell">Top-5 XX.X</span>
-            <span class="num" role="cell">configs/img/eegnet.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 0%;"></span></span>
+            <span class="nm" role="cell">Chance</span>
+            <span class="mod mod-eeg" role="cell">reference</span>
+            <span class="num" role="cell">0</span>
+            <span class="num" role="cell">0</span>
+            <span class="num" role="cell">Top-5 2.22 ± 0.31</span>
+            <span class="num" role="cell">—</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 2%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T1 · EEG-to-IMG</span>
-            <span class="nm" role="cell">REVE (frozen)</span>
-            <span class="mod mod-eeg" role="cell">Foundation</span>
-            <span class="num" role="cell">XX M</span>
-            <span class="num" role="cell">X.X (probe only)</span>
-            <span class="num" role="cell">Top-5 XX.X</span>
-            <span class="num" role="cell">configs/img/reve_frozen.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 0%;"></span></span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="id" role="cell">T2 · BCI</span>
-            <span class="nm" role="cell">EEGNet-baseline</span>
+            <span class="nm" role="cell">EEGNet (Lawhern et al., 2018)</span>
             <span class="mod mod-eeg" role="cell">CNN</span>
-            <span class="num" role="cell">X.X M</span>
-            <span class="num" role="cell">X.X</span>
-            <span class="num" role="cell">Bal. Acc XX.X</span>
-            <span class="num" role="cell">configs/bci/eegnet.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 0%;"></span></span>
+            <span class="num" role="cell">0.04 M</span>
+            <span class="num" role="cell">2</span>
+            <span class="num" role="cell">Top-5 28.13 ± 0.14</span>
+            <span class="num" role="cell">configs/img/eegnet.yaml</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 33%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">T1 · EEG-to-IMG</span>
+            <span class="nm" role="cell">REVE (Elouahidi et al., 2025)</span>
+            <span class="mod mod-eeg" role="cell">Foundation</span>
+            <span class="num" role="cell">14 M</span>
+            <span class="num" role="cell">0.5 (probe)</span>
+            <span class="num" role="cell">Top-5 84.75 ± 0.38</span>
+            <span class="num" role="cell">configs/img/reve_frozen.yaml</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 95%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T2 · BCI</span>
-            <span class="nm" role="cell">EEGConformer</span>
-            <span class="mod mod-eeg" role="cell">Hybrid</span>
-            <span class="num" role="cell">X.X M</span>
-            <span class="num" role="cell">X.X</span>
-            <span class="num" role="cell">Bal. Acc XX.X</span>
-            <span class="num" role="cell">configs/bci/conformer.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 0%;"></span></span>
+            <span class="nm" role="cell">Chance</span>
+            <span class="mod mod-eeg" role="cell">reference</span>
+            <span class="num" role="cell">0</span>
+            <span class="num" role="cell">0</span>
+            <span class="num" role="cell">Bal. Acc 24.81 ± 1.03</span>
+            <span class="num" role="cell">—</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 25%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">T2 · BCI</span>
+            <span class="nm" role="cell">EEGNet</span>
+            <span class="mod mod-eeg" role="cell">CNN</span>
+            <span class="num" role="cell">0.04 M</span>
+            <span class="num" role="cell">4</span>
+            <span class="num" role="cell">Bal. Acc 58.58 ± 0.34</span>
+            <span class="num" role="cell">configs/bci/eegnet.yaml</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 65%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">T2 · BCI</span>
+            <span class="nm" role="cell">REVE</span>
+            <span class="mod mod-eeg" role="cell">Foundation</span>
+            <span class="num" role="cell">14 M</span>
+            <span class="num" role="cell">1 (probe)</span>
+            <span class="num" role="cell">Bal. Acc 68.04 ± 0.73</span>
+            <span class="num" role="cell">configs/bci/reve.yaml</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 75%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">T3 · Sleep</span>
+            <span class="nm" role="cell">Chance</span>
+            <span class="mod mod-sleep" role="cell">reference</span>
+            <span class="num" role="cell">0</span>
+            <span class="num" role="cell">0</span>
+            <span class="num" role="cell">W-bMAE 205.42 ± 0.01 s</span>
+            <span class="num" role="cell">—</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 30%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T3 · Sleep</span>
             <span class="nm" role="cell">EEGNet-sleep</span>
             <span class="mod mod-sleep" role="cell">Sleep</span>
-            <span class="num" role="cell">X.X M</span>
-            <span class="num" role="cell">X.X</span>
-            <span class="num" role="cell">MAE XXX.X s</span>
+            <span class="num" role="cell">0.04 M</span>
+            <span class="num" role="cell">4</span>
+            <span class="num" role="cell">W-bMAE 143.30 ± 0.40 s</span>
             <span class="num" role="cell">configs/sleep/eegnet.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 0%;"></span></span>
+            <span class="bar" role="cell"><span class="fill" style="width: 50%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T3 · Sleep</span>
-            <span class="nm" role="cell">LaBraM (linear probe)</span>
+            <span class="nm" role="cell">REVE-sleep</span>
             <span class="mod mod-sleep" role="cell">Foundation</span>
-            <span class="num" role="cell">XX M</span>
-            <span class="num" role="cell">X.X (probe only)</span>
-            <span class="num" role="cell">MAE XXX.X s</span>
-            <span class="num" role="cell">configs/sleep/labram_probe.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 0%;"></span></span>
+            <span class="num" role="cell">14 M</span>
+            <span class="num" role="cell">1 (probe)</span>
+            <span class="num" role="cell">W-bMAE 134.89 ± 2.02 s</span>
+            <span class="num" role="cell">configs/sleep/reve.yaml</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 55%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T4 · EMG</span>
-            <span class="nm" role="cell">EMG2QwertyNet</span>
-            <span class="mod mod-emg" role="cell">EMG</span>
-            <span class="num" role="cell">X.X M</span>
-            <span class="num" role="cell">X.X</span>
-            <span class="num" role="cell">CER XX.X%</span>
-            <span class="num" role="cell">configs/emg/qwerty.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 0%;"></span></span>
+            <span class="nm" role="cell">Chance</span>
+            <span class="mod mod-emg" role="cell">reference</span>
+            <span class="num" role="cell">0</span>
+            <span class="num" role="cell">0</span>
+            <span class="num" role="cell">CER 96.71 ± 0.00 %</span>
+            <span class="num" role="cell">—</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 5%;"></span></span>
           </div>
           <div class="ds-row" role="row">
-            <span class="id" role="cell">T5 · Foundation</span>
-            <span class="nm" role="cell">BIOT-large (shared encoder)</span>
-            <span class="mod mod-eeg" role="cell">Foundation</span>
-            <span class="num" role="cell">XX M</span>
-            <span class="num" role="cell">X.X (per head)</span>
-            <span class="num" role="cell">Mean rank XX.X</span>
-            <span class="num" role="cell">configs/foundation/biot.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 0%;"></span></span>
+            <span class="id" role="cell">T4 · EMG</span>
+            <span class="nm" role="cell">EMG2QwertyNet (Sivakumar et al., 2024)</span>
+            <span class="mod mod-emg" role="cell">EMG</span>
+            <span class="num" role="cell">5.3 M</span>
+            <span class="num" role="cell">8</span>
+            <span class="num" role="cell">CER 25.14 ± 2.30 %</span>
+            <span class="num" role="cell">configs/emg/qwerty.yaml</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 70%;"></span></span>
           </div>
         </div>
       </div>
 
       <div class="ds-foot">
-        <span class="bs-kicker">Headroom bar = baseline vs. best-known prior-work number on a comparable split</span>
+        <span class="bs-kicker">Headroom bar = proposal baseline vs. 100% upper bound. Sleep metric is W-bMAE (weighted-binned MAE) per the proposal §1.4.</span>
         <a href="leaderboard.html" class="track-link">See live leaderboard →</a>
       </div>
     </section>
