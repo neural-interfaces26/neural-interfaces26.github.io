@@ -229,10 +229,10 @@
           <span class="phase-date">~ 5 minutes · streamed BIDS</span>
           <p class="phase-desc">EEGDash streams the BIDS layout — only the recordings you reference are downloaded. The warm-up split for every track lives under <code>~/.cache/eegdash/</code> after the first call.</p>
           <div class="phase-meta">
-            <div class="row"><span>Track 1 (EEG-to-IMG)</span><span>14 GB</span></div>
-            <div class="row"><span>Track 2 (BCI)</span><span>2.3 GB</span></div>
-            <div class="row"><span>Track 3 (Sleep)</span><span>11 GB</span></div>
-            <div class="row"><span>Track 4 (EMG)</span><span>9 GB</span></div>
+            <div class="row"><span>Track 1 (EEG-to-IMG)</span><span>XX GB</span></div>
+            <div class="row"><span>Track 2 (BCI)</span><span>X.X GB</span></div>
+            <div class="row"><span>Track 3 (Sleep)</span><span>XX GB</span></div>
+            <div class="row"><span>Track 4 (EMG)</span><span>X GB</span></div>
           </div>
         </li>
 
@@ -243,7 +243,7 @@
           <span class="phase-date">2 – 6 GPU-hours · warm-up split</span>
           <p class="phase-desc">Every track ships at least one baseline you can train with a single <code>neuralbench train</code> call. Configs are plain YAML — copy one, edit the model, keep the same data + scoring blocks.</p>
           <div class="phase-meta">
-            <div class="row"><span>Default model</span><span>EEGNet · 0.4 M params</span></div>
+            <div class="row"><span>Default model</span><span>EEGNet · X.X M params</span></div>
             <div class="row"><span>Optimizer</span><span>AdamW · cosine schedule</span></div>
             <div class="row"><span>Seed</span><span>Fixed by config</span></div>
           </div>
@@ -304,7 +304,7 @@
             <span class="bs-kicker">bash · same flow, no Python file</span>
             <button class="copy" type="button" data-copy>copy</button>
           </figcaption>
-          <pre><div class="line"><span class="ln"> 1</span><code><span class="c1"># Pull the BCI warm-up split</span></code></div><div class="line"><span class="ln"> 2</span><code><span class="kw">$</span> neuralbench data bci <span class="op">--split</span> warmup</code></div><div class="line"><span class="ln"> 3</span><code> </code></div><div class="line"><span class="ln"> 4</span><code><span class="c1"># Train the EEGNet baseline</span></code></div><div class="line"><span class="ln"> 5</span><code><span class="kw">$</span> neuralbench train bci <span class="op">-m</span> <span class="str">eegnet</span> <span class="op">--epochs</span> 100</code></div><div class="line"><span class="ln"> 6</span><code> </code></div><div class="line"><span class="ln"> 7</span><code><span class="c1"># Score and write submission file</span></code></div><div class="line"><span class="ln"> 8</span><code><span class="kw">$</span> neuralbench score bci <span class="op">--out</span> submission.parquet</code></div><div class="line"><span class="ln"> 9</span><code><span class="c2">  ↳ bal. acc 0.586 · 20 subjects · 120 sessions</span></code></div><div class="line"><span class="ln">10</span><code> </code></div><div class="line"><span class="ln">11</span><code><span class="c1"># Reproduce a previous run from its config</span></code></div><div class="line"><span class="ln">12</span><code><span class="kw">$</span> neuralbench replay configs/bci/eegnet.yaml</code></div></pre>
+          <pre><div class="line"><span class="ln"> 1</span><code><span class="c1"># Pull the BCI warm-up split</span></code></div><div class="line"><span class="ln"> 2</span><code><span class="kw">$</span> neuralbench data bci <span class="op">--split</span> warmup</code></div><div class="line"><span class="ln"> 3</span><code> </code></div><div class="line"><span class="ln"> 4</span><code><span class="c1"># Train the EEGNet baseline</span></code></div><div class="line"><span class="ln"> 5</span><code><span class="kw">$</span> neuralbench train bci <span class="op">-m</span> <span class="str">eegnet</span> <span class="op">--epochs</span> 100</code></div><div class="line"><span class="ln"> 6</span><code> </code></div><div class="line"><span class="ln"> 7</span><code><span class="c1"># Score and write submission file</span></code></div><div class="line"><span class="ln"> 8</span><code><span class="kw">$</span> neuralbench score bci <span class="op">--out</span> submission.parquet</code></div><div class="line"><span class="ln"> 9</span><code><span class="c2">  ↳ bal. acc 0.XXX · XX subjects · XXX sessions</span></code></div><div class="line"><span class="ln">10</span><code> </code></div><div class="line"><span class="ln">11</span><code><span class="c1"># Reproduce a previous run from its config</span></code></div><div class="line"><span class="ln">12</span><code><span class="kw">$</span> neuralbench replay configs/bci/eegnet.yaml</code></div></pre>
         </figure>
       </div>
     </section>
@@ -343,81 +343,81 @@
             <span class="id" role="cell">T1 · EEG-to-IMG</span>
             <span class="nm" role="cell">EEGNet + DINOv2 head</span>
             <span class="mod mod-eeg" role="cell">CNN</span>
-            <span class="num" role="cell">0.4 M</span>
-            <span class="num" role="cell">2.1</span>
-            <span class="num" role="cell">Top-5 28.1</span>
+            <span class="num" role="cell">X.X M</span>
+            <span class="num" role="cell">X.X</span>
+            <span class="num" role="cell">Top-5 XX.X</span>
             <span class="num" role="cell">configs/img/eegnet.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 35%;"></span></span>
+            <span class="bar" role="cell"><span class="fill" style="width: 0%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T1 · EEG-to-IMG</span>
             <span class="nm" role="cell">REVE (frozen)</span>
             <span class="mod mod-eeg" role="cell">Foundation</span>
-            <span class="num" role="cell">52 M</span>
-            <span class="num" role="cell">0.6 (probe only)</span>
-            <span class="num" role="cell">Top-5 71.4</span>
+            <span class="num" role="cell">XX M</span>
+            <span class="num" role="cell">X.X (probe only)</span>
+            <span class="num" role="cell">Top-5 XX.X</span>
             <span class="num" role="cell">configs/img/reve_frozen.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 78%;"></span></span>
+            <span class="bar" role="cell"><span class="fill" style="width: 0%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T2 · BCI</span>
             <span class="nm" role="cell">EEGNet-baseline</span>
             <span class="mod mod-eeg" role="cell">CNN</span>
-            <span class="num" role="cell">0.4 M</span>
-            <span class="num" role="cell">0.9</span>
-            <span class="num" role="cell">Bal. Acc 58.6</span>
+            <span class="num" role="cell">X.X M</span>
+            <span class="num" role="cell">X.X</span>
+            <span class="num" role="cell">Bal. Acc XX.X</span>
             <span class="num" role="cell">configs/bci/eegnet.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 55%;"></span></span>
+            <span class="bar" role="cell"><span class="fill" style="width: 0%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T2 · BCI</span>
             <span class="nm" role="cell">EEGConformer</span>
             <span class="mod mod-eeg" role="cell">Hybrid</span>
-            <span class="num" role="cell">1.2 M</span>
-            <span class="num" role="cell">1.8</span>
-            <span class="num" role="cell">Bal. Acc 62.4</span>
+            <span class="num" role="cell">X.X M</span>
+            <span class="num" role="cell">X.X</span>
+            <span class="num" role="cell">Bal. Acc XX.X</span>
             <span class="num" role="cell">configs/bci/conformer.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 65%;"></span></span>
+            <span class="bar" role="cell"><span class="fill" style="width: 0%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T3 · Sleep</span>
             <span class="nm" role="cell">EEGNet-sleep</span>
             <span class="mod mod-sleep" role="cell">Sleep</span>
-            <span class="num" role="cell">0.4 M</span>
-            <span class="num" role="cell">3.4</span>
-            <span class="num" role="cell">MAE 143.3 s</span>
+            <span class="num" role="cell">X.X M</span>
+            <span class="num" role="cell">X.X</span>
+            <span class="num" role="cell">MAE XXX.X s</span>
             <span class="num" role="cell">configs/sleep/eegnet.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 45%;"></span></span>
+            <span class="bar" role="cell"><span class="fill" style="width: 0%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T3 · Sleep</span>
             <span class="nm" role="cell">LaBraM (linear probe)</span>
             <span class="mod mod-sleep" role="cell">Foundation</span>
-            <span class="num" role="cell">47 M</span>
-            <span class="num" role="cell">0.4 (probe only)</span>
-            <span class="num" role="cell">MAE 134.9 s</span>
+            <span class="num" role="cell">XX M</span>
+            <span class="num" role="cell">X.X (probe only)</span>
+            <span class="num" role="cell">MAE XXX.X s</span>
             <span class="num" role="cell">configs/sleep/labram_probe.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 60%;"></span></span>
+            <span class="bar" role="cell"><span class="fill" style="width: 0%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T4 · EMG</span>
             <span class="nm" role="cell">EMG2QwertyNet</span>
             <span class="mod mod-emg" role="cell">EMG</span>
-            <span class="num" role="cell">2.7 M</span>
-            <span class="num" role="cell">4.6</span>
-            <span class="num" role="cell">CER 25.1%</span>
+            <span class="num" role="cell">X.X M</span>
+            <span class="num" role="cell">X.X</span>
+            <span class="num" role="cell">CER XX.X%</span>
             <span class="num" role="cell">configs/emg/qwerty.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 72%;"></span></span>
+            <span class="bar" role="cell"><span class="fill" style="width: 0%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T5 · Foundation</span>
             <span class="nm" role="cell">BIOT-large (shared encoder)</span>
             <span class="mod mod-eeg" role="cell">Foundation</span>
-            <span class="num" role="cell">24 M</span>
-            <span class="num" role="cell">2.0 (per head)</span>
-            <span class="num" role="cell">Mean rank 82.1</span>
+            <span class="num" role="cell">XX M</span>
+            <span class="num" role="cell">X.X (per head)</span>
+            <span class="num" role="cell">Mean rank XX.X</span>
             <span class="num" role="cell">configs/foundation/biot.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 70%;"></span></span>
+            <span class="bar" role="cell"><span class="fill" style="width: 0%;"></span></span>
           </div>
         </div>
       </div>
