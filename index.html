@@ -205,7 +205,7 @@
         <h1 id="hero-heading">EEG/EMG Foundation Challenge 2026.</h1>
         <p>
           <strong>Neural Interfaces for Generalizable Decoding</strong> is a unified, open-source benchmark for AI models of EEG/EMG activity.
-          XX datasets, XX EEG tasks, XX architectures — all behind a standardized BIDS-first interface.
+          14 datasets, 4 decoding tasks, 8 architectures — all behind a standardised BIDS-first interface.
           Pretrain once. Evaluate everywhere. Reproduce by construction.
         </p>
         <div class="bs-hero-cta">
@@ -229,7 +229,7 @@
             <span class="bs-kicker">bash · pip · neuralbench</span>
             <button class="copy" type="button" data-copy>copy</button>
           </figcaption>
-          <pre><div class="line"><span class="ln"> 1</span><code><span class="c1"># 1. Install the benchmark</span></code></div><div class="line"><span class="ln"> 2</span><code><span class="kw">$</span> pip install <span class="str">neuralbench</span> eegdash braindecode</code></div><div class="line"><span class="ln"> 3</span><code> </code></div><div class="line"><span class="ln"> 4</span><code><span class="c1"># 2. Download a task</span></code></div><div class="line"><span class="ln"> 5</span><code><span class="kw">$</span> neuralbench eeg eeg_to_image <span class="op">--download</span></code></div><div class="line"><span class="ln"> 6</span><code> </code></div><div class="line"><span class="ln"> 7</span><code><span class="c1"># 3. Run the full grid</span></code></div><div class="line"><span class="ln"> 8</span><code><span class="kw">$</span> neuralbench eeg eeg_to_image <span class="op">-m</span> <span class="str">eegnet</span></code></div><div class="line"><span class="ln"> 9</span><code><span class="c2">  ↳ NeuralBench-EEG-Core v1.0 · XX datasets · XX tasks</span></code></div></pre>
+          <pre><div class="line"><span class="ln"> 1</span><code><span class="c1"># 1. Install the benchmark</span></code></div><div class="line"><span class="ln"> 2</span><code><span class="kw">$</span> pip install <span class="str">neuralbench</span> eegdash braindecode</code></div><div class="line"><span class="ln"> 3</span><code> </code></div><div class="line"><span class="ln"> 4</span><code><span class="c1"># 2. Download a task</span></code></div><div class="line"><span class="ln"> 5</span><code><span class="kw">$</span> neuralbench eeg eeg_to_image <span class="op">--download</span></code></div><div class="line"><span class="ln"> 6</span><code> </code></div><div class="line"><span class="ln"> 7</span><code><span class="c1"># 3. Run the full grid</span></code></div><div class="line"><span class="ln"> 8</span><code><span class="kw">$</span> neuralbench eeg eeg_to_image <span class="op">-m</span> <span class="str">eegnet</span></code></div><div class="line"><span class="ln"> 9</span><code><span class="c2">  ↳ NeuralBench-EEG-Core v1.0 · 14 datasets · 4 tasks</span></code></div></pre>
         </figure>
 
         <div class="vb-hero-eeg" aria-label="EEG demo signal — placeholder">
@@ -243,32 +243,30 @@
     </section>
 
     <!-- ============================== Stats banner ============================== -->
-    <section class="vb-stats" id="stats" aria-label="Benchmark stats — placeholder values" data-placeholder="true">
+    <section class="vb-stats" id="stats" aria-label="Benchmark stats">
       <div class="vb-stat">
-        <strong data-count-to="0">0</strong>
+        <strong data-count-to="14">14</strong>
         <span class="bs-kicker">datasets</span>
-        <span class="vb-stat-delta">+X this wk</span>
       </div>
       <div class="vb-stat">
-        <strong data-count-to="0">0</strong>
+        <strong data-count-to="4">4</strong>
         <span class="bs-kicker">EEG tasks</span>
       </div>
       <div class="vb-stat">
-        <strong data-count-to="0">0</strong>
+        <strong data-count-to="75" data-count-suffix=" +">75 +</strong>
         <span class="bs-kicker">architectures</span>
       </div>
       <div class="vb-stat">
-        <strong data-count-to="0" data-count-suffix=" h">0 h</strong>
+        <strong data-count-to="11000" data-count-suffix=" h+">11000 h+</strong>
         <span class="bs-kicker">of recording</span>
       </div>
       <div class="vb-stat">
-        <strong data-count-to="0">0</strong>
+        <strong data-count-to="3700" data-count-suffix=" +">3700 +</strong>
         <span class="bs-kicker">subjects</span>
       </div>
       <div class="vb-stat">
-        <strong data-count-to="0">0</strong>
+        <strong data-count-to="1500" data-count-suffix=" expected">1500 expected</strong>
         <span class="bs-kicker">teams</span>
-        <span class="vb-stat-delta">↑ X</span>
       </div>
     </section>
 
@@ -604,7 +602,7 @@
       <div class="vb-section-head">
         <div>
           <span class="bs-eyebrow"><span class="dot"></span> Datasets · BIDS-first via EEGDash <span class="placeholder-badge">placeholder data</span></span>
-          <h2 id="datasets-heading">XXX+ public datasets, one unified interface.</h2>
+          <h2 id="datasets-heading">14 public datasets, one unified interface.</h2>
           <p>Search standardized metadata, run reproducible pipelines, export model-ready features in minutes.</p>
         </div>
         <div class="vb-section-side">
@@ -633,60 +631,150 @@
           </div>
 
           <div class="ds-row" role="row">
-            <span class="id" role="cell">ds004245</span>
-            <span class="nm" role="cell">THINGS-EEG · Object viewing</span>
+            <span class="id" role="cell">things-eeg1</span>
+            <span class="nm" role="cell">THINGS-EEG1 · Object viewing</span>
             <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">XX</span>
-            <span class="num" role="cell">XXh+</span>
-            <span class="num" role="cell">XX</span>
-            <span class="num" role="cell">XXXX Hz</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 0%;"></span></span>
+            <span class="num" role="cell">50</span>
+            <span class="num" role="cell">60h+</span>
+            <span class="num" role="cell">64</span>
+            <span class="num" role="cell">1000 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 75%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">things-eeg2</span>
+            <span class="nm" role="cell">THINGS-EEG2 · Object viewing</span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">10</span>
+            <span class="num" role="cell">30h</span>
+            <span class="num" role="cell">63</span>
+            <span class="num" role="cell">1000 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 70%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">alljoined-1</span>
+            <span class="nm" role="cell">Alljoined-1 · Natural images</span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">8</span>
+            <span class="num" role="cell">12h</span>
+            <span class="num" role="cell">64</span>
+            <span class="num" role="cell">512 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 65%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">alljoined-1.6</span>
             <span class="nm" role="cell">Alljoined-1.6M · Natural images</span>
             <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">XX</span>
-            <span class="num" role="cell">XXXh</span>
-            <span class="num" role="cell">XX</span>
-            <span class="num" role="cell">XXX Hz</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 0%;"></span></span>
+            <span class="num" role="cell">20</span>
+            <span class="num" role="cell">100h</span>
+            <span class="num" role="cell">16</span>
+            <span class="num" role="cell">256 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 80%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">stieger2021</span>
+            <span class="nm" role="cell">Stieger 2021 · Continuous MI</span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">62</span>
+            <span class="num" role="cell">36h</span>
+            <span class="num" role="cell">64</span>
+            <span class="num" role="cell">500 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 70%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">dreyer2023</span>
+            <span class="nm" role="cell">Dreyer 2023 · Large MI cohort</span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">87</span>
+            <span class="num" role="cell">26h</span>
+            <span class="num" role="cell">32</span>
+            <span class="num" role="cell">512 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 65%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">zyma2019</span>
+            <span class="nm" role="cell">Zyma 2019 · Mental tasks</span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">36</span>
+            <span class="num" role="cell">6h</span>
+            <span class="num" role="cell">19</span>
+            <span class="num" role="cell">500 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 50%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">scherer2015</span>
+            <span class="nm" role="cell">Scherer 2015 · Individually tuned BCI</span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">8</span>
+            <span class="num" role="cell">4h</span>
+            <span class="num" role="cell">64</span>
+            <span class="num" role="cell">250 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 50%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">bci-graz</span>
-            <span class="nm" role="cell">Graz/BrainHero · BCI command</span>
+            <span class="nm" role="cell">Graz/BrainHero · BCI command (new)</span>
             <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">XX</span>
-            <span class="num" role="cell">XXh</span>
-            <span class="num" role="cell">XX</span>
-            <span class="num" role="cell">XXX Hz</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 0%;"></span></span>
+            <span class="num" role="cell">20</span>
+            <span class="num" role="cell">80h</span>
+            <span class="num" role="cell">64</span>
+            <span class="num" role="cell">500 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 60%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">sleepedf-ext</span>
+            <span class="nm" role="cell">Sleep-EDF Extended</span>
+            <span class="mod mod-sleep" role="cell">Sleep</span>
+            <span class="num" role="cell">78</span>
+            <span class="num" role="cell">200h+</span>
+            <span class="num" role="cell">2</span>
+            <span class="num" role="cell">100 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 70%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">physionet2018</span>
+            <span class="nm" role="cell">PhysioNet Challenge 2018</span>
+            <span class="mod mod-sleep" role="cell">Sleep</span>
+            <span class="num" role="cell">994</span>
+            <span class="num" role="cell">8500h</span>
+            <span class="num" role="cell">6</span>
+            <span class="num" role="cell">200 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 80%;"></span></span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="id" role="cell">hmc-sleep</span>
+            <span class="nm" role="cell">HMC Sleep Staging</span>
+            <span class="mod mod-sleep" role="cell">Sleep</span>
+            <span class="num" role="cell">151</span>
+            <span class="num" role="cell">1200h</span>
+            <span class="num" role="cell">6</span>
+            <span class="num" role="cell">256 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 70%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">muse-sleep</span>
-            <span class="nm" role="cell">Muse Sleep-Onset · Wearable</span>
+            <span class="nm" role="cell">Muse Sleep-Onset · Wearable (new)</span>
             <span class="mod mod-sleep" role="cell">Sleep</span>
-            <span class="num" role="cell">X,XXX</span>
-            <span class="num" role="cell">X,XXXh</span>
-            <span class="num" role="cell">X</span>
-            <span class="num" role="cell">XXX Hz</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 0%;"></span></span>
+            <span class="num" role="cell">1000+</span>
+            <span class="num" role="cell">1000h+</span>
+            <span class="num" role="cell">4</span>
+            <span class="num" role="cell">256 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 75%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">emg2qwerty</span>
             <span class="nm" role="cell">emg2qwerty · EMG typing</span>
             <span class="mod mod-emg" role="cell">EMG</span>
-            <span class="num" role="cell">XXX</span>
-            <span class="num" role="cell">XXXh</span>
-            <span class="num" role="cell">XX</span>
-            <span class="num" role="cell">XXXX Hz</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 0%;"></span></span>
+            <span class="num" role="cell">108</span>
+            <span class="num" role="cell">346h</span>
+            <span class="num" role="cell">32</span>
+            <span class="num" role="cell">2000 Hz</span>
+            <span class="bar" role="cell"><span class="fill" style="width: 80%;"></span></span>
           </div>
         </div>
       </div>
 
       <div class="ds-foot">
-        <span class="bs-kicker">Showing X of XX · NeuralBench-EEG-Core v1.0</span>
+        <span class="bs-kicker">Showing 14 of 14 · NeuralBench-EEG-Core v1.0</span>
         <a href="startkit.html" class="track-link">Open the start-kit →</a>
       </div>
     </section>
