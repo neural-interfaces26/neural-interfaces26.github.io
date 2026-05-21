@@ -143,7 +143,6 @@
         <a href="leaderboard.html">Leaderboard</a>
         <a href="awards.html">Awards &amp; prizes</a>
         <a href="#datasets">Datasets</a>
-        <a href="#models">Models</a>
       </div>
       <div class="vb-nav-section">
         <div class="vb-nav-head">About</div>
@@ -225,51 +224,21 @@
         </div>
       </div>
 
-      <div class="vb-hero-side">
-        <figure class="bs-code" aria-label="Install snippet">
-          <figcaption class="bs-code-head">
-            <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
-            <span class="bs-kicker">bash · pip · neuralbench</span>
-            <button class="copy" type="button" data-copy>copy</button>
-          </figcaption>
-          <pre><div class="line"><span class="ln"> 1</span><code><span class="c1"># 1. Install the benchmark</span></code></div><div class="line"><span class="ln"> 2</span><code><span class="kw">$</span> pip install <span class="str">neuralbench</span> eegdash braindecode</code></div><div class="line"><span class="ln"> 3</span><code> </code></div><div class="line"><span class="ln"> 4</span><code><span class="c1"># 2. Download a task</span></code></div><div class="line"><span class="ln"> 5</span><code><span class="kw">$</span> neuralbench eeg eeg_to_image <span class="op">--download</span></code></div><div class="line"><span class="ln"> 6</span><code> </code></div><div class="line"><span class="ln"> 7</span><code><span class="c1"># 3. Run the full grid</span></code></div><div class="line"><span class="ln"> 8</span><code><span class="kw">$</span> neuralbench eeg eeg_to_image <span class="op">-m</span> <span class="str">eegnet</span></code></div><div class="line"><span class="ln"> 9</span><code><span class="c2">  ↳ NeuralBench-EEG-Core v1.0 · 14 datasets · 4 tasks</span></code></div></pre>
-        </figure>
-
-        <div class="vb-hero-eeg" aria-label="EEG demo signal — placeholder">
-          <div class="bs-card-head">
-            <span class="bs-kicker">Demo signal · α-band placeholder</span>
-            <span style="font-size: 10px; color: var(--bs-faint); font-family: var(--bs-fontmono);">XXX Hz</span>
-          </div>
-          <div class="bs-eeg-host" data-eeg-host data-channels="6" data-speed="0.6" style="margin-top: 10px;"></div>
-        </div>
-      </div>
     </section>
 
     <!-- ============================== Stats banner ============================== -->
     <section class="vb-stats" id="stats" aria-label="Benchmark stats">
       <div class="vb-stat">
-        <strong data-count-to="14">14</strong>
-        <span class="bs-kicker">datasets</span>
-      </div>
-      <div class="vb-stat">
         <strong data-count-to="4">4</strong>
-        <span class="bs-kicker">EEG tasks</span>
+        <span class="bs-kicker">decoding tasks</span>
       </div>
       <div class="vb-stat">
-        <strong data-count-to="75" data-count-suffix=" +">75 +</strong>
-        <span class="bs-kicker">architectures</span>
-      </div>
-      <div class="vb-stat">
-        <strong data-count-to="11000" data-count-suffix=" h+">11000 h+</strong>
-        <span class="bs-kicker">of recording</span>
+        <strong data-count-to="14">14</strong>
+        <span class="bs-kicker">public datasets</span>
       </div>
       <div class="vb-stat">
         <strong data-count-to="3700" data-count-suffix=" +">3700 +</strong>
         <span class="bs-kicker">subjects</span>
-      </div>
-      <div class="vb-stat">
-        <strong data-count-to="1500" data-count-suffix=" expected">1500 expected</strong>
-        <span class="bs-kicker">teams</span>
       </div>
     </section>
 
@@ -277,15 +246,15 @@
     <section class="vb-section" id="tracks" aria-labelledby="tracks-heading">
       <div class="vb-section-head">
         <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Five tracks, one pipeline <span class="placeholder-badge">draft pre-launch</span></span>
+          <span class="bs-eyebrow"><span class="dot"></span> Five tracks, one pipeline</span>
           <h2 id="tracks-heading">From cognition to clinic to foundation transfer.</h2>
           <p>One harness, one BIDS-first interface, one reproducibility audit. Holding evaluation fixed lets a per-track score be attributed to the model rather than to the protocol; stacking across tracks then tests reusability of representation.</p>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">
-            <div><span class="bs-kicker">Submissions open</span><strong>Jul 1 — Sep 1, 2026 (AoE)</strong></div>
-            <div><span class="bs-kicker">Final results</span><strong>NeurIPS · Sydney</strong></div>
-            <div><span class="bs-kicker">Prize pool</span><strong>$XXX,XXX USD</strong></div>
+            <div><span class="bs-kicker">Submissions</span><strong>Jul 1 — Sep 1, 2026 (AoE)</strong></div>
+            <div><span class="bs-kicker">Finals</span><strong>NeurIPS · Sydney</strong></div>
+            <div><span class="bs-kicker">Prize</span><strong>$2,500 / top-3 / track</strong></div>
           </div>
         </div>
       </div>
@@ -305,21 +274,9 @@
             <span class="bs-pill">RSVP</span>
             <span class="bs-pill">Object viewing</span>
           </div>
-          <div class="track-stats">
-            <div><span class="bs-kicker">Trials</span><strong>X.XM+</strong></div>
-            <div><span class="bs-kicker">Subjects</span><strong>XX+</strong></div>
-            <div><span class="bs-kicker">Metric</span><strong>Top-5 Acc</strong></div>
-          </div>
-          <div class="vb-track-lead">
-            <div>
-              <span class="bs-kicker">Reference baseline</span>
-              <span class="lead-name">REVE (Elouahidi et al., 2025)</span>
-            </div>
-            <strong class="lead-score">XX.X</strong>
-          </div>
           <div class="vb-track-cta">
-            <a href="#cta" class="bs-btn primary sm">Submit to this track →</a>
-            <a href="#datasets" class="track-link">Browse datasets</a>
+            <span class="bs-kicker">Metric: Top-5 acc · Sponsor: Alljoined</span>
+            <a href="leaderboard.html#track-1" class="track-link">Track details →</a>
           </div>
         </article>
 
@@ -336,21 +293,9 @@
             <span class="bs-pill">Word association</span>
             <span class="bs-pill">Session drift</span>
           </div>
-          <div class="track-stats">
-            <div><span class="bs-kicker">Sessions</span><strong>XXX+</strong></div>
-            <div><span class="bs-kicker">Subjects</span><strong>XX</strong></div>
-            <div><span class="bs-kicker">Metric</span><strong>Bal. Acc</strong></div>
-          </div>
-          <div class="vb-track-lead">
-            <div>
-              <span class="bs-kicker">Reference baseline</span>
-              <span class="lead-name">EEGNet (Lawhern et al., 2018)</span>
-            </div>
-            <strong class="lead-score">XX.X</strong>
-          </div>
           <div class="vb-track-cta">
-            <a href="#cta" class="bs-btn primary sm">Submit to this track →</a>
-            <a href="#datasets" class="track-link">Browse datasets</a>
+            <span class="bs-kicker">Metric: Balanced acc · Sponsor: Meta FAIR Brain &amp; AI</span>
+            <a href="leaderboard.html#track-2" class="track-link">Track details →</a>
           </div>
         </article>
 
@@ -367,20 +312,9 @@
             <span class="bs-pill">Muse</span>
             <span class="bs-pill">Home monitoring</span>
           </div>
-          <div class="track-stats">
-            <div><span class="bs-kicker">Sleepers</span><strong>X,XXX+</strong></div>
-            <div><span class="bs-kicker">Metric</span><strong>MAE (s)</strong></div>
-          </div>
-          <div class="vb-track-lead">
-            <div>
-              <span class="bs-kicker">Reference baseline</span>
-              <span class="lead-name">REVE-sleep (probe)</span>
-            </div>
-            <strong class="lead-score">XXX.X</strong>
-          </div>
           <div class="vb-track-cta">
-            <a href="#cta" class="bs-btn primary sm">Submit to this track →</a>
-            <a href="#datasets" class="track-link">Browse datasets</a>
+            <span class="bs-kicker">Metric: W-bMAE (s) · Sponsor: InteraXon</span>
+            <a href="leaderboard.html#track-3" class="track-link">Track details →</a>
           </div>
         </article>
 
@@ -397,21 +331,9 @@
             <span class="bs-pill">Wristbands</span>
             <span class="bs-pill">QWERTY</span>
           </div>
-          <div class="track-stats">
-            <div><span class="bs-kicker">Users</span><strong>XXX</strong></div>
-            <div><span class="bs-kicker">Keystrokes</span><strong>XM+</strong></div>
-            <div><span class="bs-kicker">Metric</span><strong>CER (%)</strong></div>
-          </div>
-          <div class="vb-track-lead">
-            <div>
-              <span class="bs-kicker">Reference baseline</span>
-              <span class="lead-name">EMG2QwertyNet (Sivakumar et al., 2024)</span>
-            </div>
-            <strong class="lead-score">XX.X</strong>
-          </div>
           <div class="vb-track-cta">
-            <a href="#cta" class="bs-btn primary sm">Submit to this track →</a>
-            <a href="#datasets" class="track-link">Browse datasets</a>
+            <span class="bs-kicker">Metric: CER (%) · Sponsor: Meta Reality Labs</span>
+            <a href="leaderboard.html#track-4" class="track-link">Track details →</a>
           </div>
         </article>
 
@@ -428,21 +350,9 @@
             <span class="bs-pill">Shared encoder</span>
             <span class="bs-pill">EEG + EMG</span>
           </div>
-          <div class="track-stats">
-            <div><span class="bs-kicker">Tasks</span><strong>4</strong></div>
-            <div><span class="bs-kicker">Hours</span><strong>11k+</strong></div>
-            <div><span class="bs-kicker">Models</span><strong>8</strong></div>
-          </div>
-          <div class="vb-track-lead">
-            <div>
-              <span class="bs-kicker">Reference baseline</span>
-              <span class="lead-name">REVE (shared encoder)</span>
-            </div>
-            <strong class="lead-score">XX.X</strong>
-          </div>
           <div class="vb-track-cta">
-            <a href="#cta" class="bs-btn primary sm">Submit to this track →</a>
-            <a href="#datasets" class="track-link">Browse datasets</a>
+            <span class="bs-kicker">Metric: Mean rank across 4 tracks · Host: Yneuro · Single encoder</span>
+            <a href="leaderboard.html#track-5" class="track-link">Track details →</a>
           </div>
         </article>
       </div>
@@ -538,92 +448,10 @@
           <p class="phase-desc">Track winners present in Sydney at the NeurIPS Competition Track. Awards, lessons-learned keynote, and the v2.0 roadmap. Travel grants for top-3 per track.</p>
           <div class="phase-meta">
             <div class="row"><span>Venue</span><span>Sydney · ICC</span></div>
-            <div class="row"><span>Prize pool</span><span>$XXX,XXX USD</span></div>
+            <div class="row"><span>Prize</span><span>$2,500 / top-3 / track</span></div>
           </div>
         </li>
       </ol>
-    </section>
-
-    <!-- ============================== Leaderboard ============================== -->
-    <section class="vb-section vb-section-cream" id="leaderboard" aria-labelledby="leader-heading">
-      <div class="vb-section-head">
-        <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Leaderboard preview <span class="placeholder-badge">placeholder data</span></span>
-          <h2 id="leader-heading">One ranking, updated every 15 minutes during the final phase.</h2>
-        </div>
-        <div class="vb-section-side">
-          <div class="vb-leader-tabs" role="tablist" aria-label="Filter leaderboard by track">
-            <button class="bs-pill solid" type="button" role="tab" aria-selected="true">All tracks</button>
-            <button class="bs-pill" type="button" role="tab" aria-selected="false">Track 01</button>
-            <button class="bs-pill" type="button" role="tab" aria-selected="false">Track 02</button>
-            <button class="bs-pill" type="button" role="tab" aria-selected="false">Track 03</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="vb-leader" role="table" aria-label="Top submissions">
-        <div class="vb-leader-row head" role="row">
-          <span role="columnheader">#</span>
-          <span role="columnheader">Submission</span>
-          <span role="columnheader">Track</span>
-          <span role="columnheader">Score</span>
-          <span role="columnheader">Δ</span>
-        </div>
-        <div class="vb-leader-row hl" role="row">
-          <span class="rk" role="cell">#01</span>
-          <span class="nm" role="cell">REVE-pretrained · Lausanne</span>
-          <span class="tk" role="cell">T1</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">–</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#02</span>
-          <span class="nm" role="cell">REVE-BCI · Lausanne</span>
-          <span class="tk" role="cell">T2</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">–</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#03</span>
-          <span class="nm" role="cell">EMG2QwertyNet · Meta</span>
-          <span class="tk" role="cell">T4</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">–</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#04</span>
-          <span class="nm" role="cell">EEGNet-baseline · Inria</span>
-          <span class="tk" role="cell">T2</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">–</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#05</span>
-          <span class="nm" role="cell">REVE-sleep · Lausanne</span>
-          <span class="tk" role="cell">T3</span>
-          <span class="sc" role="cell">XXX.X</span>
-          <span class="dl" role="cell">–</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#06</span>
-          <span class="nm" role="cell">EEGNet-sleep · Inria</span>
-          <span class="tk" role="cell">T3</span>
-          <span class="sc" role="cell">XXX.X</span>
-          <span class="dl" role="cell">–</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#07</span>
-          <span class="nm" role="cell">EEGNet-visual · Inria</span>
-          <span class="tk" role="cell">T1</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">–</span>
-        </div>
-      </div>
-
-      <div class="ds-foot">
-        <span class="bs-kicker">Next refresh in X min · XXX teams · X,XXX submissions</span>
-        <a href="leaderboard.html" class="track-link">Open full leaderboard →</a>
-      </div>
     </section>
 
     <!-- ============================== Datasets ============================== -->
@@ -633,16 +461,6 @@
           <span class="bs-eyebrow"><span class="dot"></span> Datasets · BIDS-first via EEGDash</span>
           <h2 id="datasets-heading">14 public datasets, one unified interface.</h2>
           <p>Search standardized metadata, run reproducible pipelines, export model-ready features in minutes.</p>
-        </div>
-        <div class="vb-section-side">
-          <figure class="bs-code" aria-label="EEGDash usage">
-            <figcaption class="bs-code-head">
-              <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
-              <span class="bs-kicker">python · eegdash</span>
-              <button class="copy" type="button" data-copy>copy</button>
-            </figcaption>
-            <pre><div class="line"><span class="ln"> 1</span><code><span class="kw">from</span> eegdash <span class="kw">import</span> <span class="cls">EEGDashDataset</span></code></div><div class="line"><span class="ln"> 2</span><code> </code></div><div class="line"><span class="ln"> 3</span><code>dataset = <span class="cls">EEGDashDataset</span>(</code></div><div class="line"><span class="ln"> 4</span><code>    cache_dir=<span class="str">"./data"</span>,</code></div><div class="line"><span class="ln"> 5</span><code>    dataset=<span class="str">"ds002718"</span>,</code></div><div class="line"><span class="ln"> 6</span><code>    subject=[<span class="str">"012"</span>, <span class="str">"013"</span>],</code></div><div class="line"><span class="ln"> 7</span><code>)</code></div><div class="line"><span class="ln"> 8</span><code><span class="c1"># XX recordings · BIDS · streamed</span></code></div></pre>
-          </figure>
         </div>
       </div>
 
@@ -805,132 +623,6 @@
       <div class="ds-foot">
         <span class="bs-kicker">Showing 14 of 14 · NeuralBench-EEG-Core v1.0</span>
         <a href="startkit.html" class="track-link">Open the start-kit →</a>
-      </div>
-    </section>
-
-    <!-- ============================== Models ============================== -->
-    <section class="vb-section vb-section-cream" id="models" aria-labelledby="models-heading">
-      <div class="vb-section-head">
-        <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Architectures · braindecode model zoo</span>
-          <h2 id="models-heading">Side-by-side, on the same data, with the same protocol.</h2>
-        </div>
-      </div>
-
-      <div class="vb-models">
-
-        <article class="model-card">
-          <div class="model-head">
-            <span class="bs-kicker">task-specific</span>
-            <div class="model-matrix" data-matrix-seed="3" aria-hidden="true"></div>
-          </div>
-          <h4>EEGNeX</h4>
-          <div class="model-spec">Compact CNN</div>
-          <div class="model-stats">
-            <div><span class="bs-kicker">F1</span><strong>XX.X</strong></div>
-            <div><span class="bs-kicker">Params</span><strong>X.XM</strong></div>
-          </div>
-          <div class="model-bar"><div class="fill" style="width: 0%;"></div></div>
-        </article>
-
-        <article class="model-card">
-          <div class="model-head">
-            <span class="bs-kicker">task-specific</span>
-            <div class="model-matrix" data-matrix-seed="4" aria-hidden="true"></div>
-          </div>
-          <h4>EEGConformer</h4>
-          <div class="model-spec">CNN + Transformer</div>
-          <div class="model-stats">
-            <div><span class="bs-kicker">F1</span><strong>XX.X</strong></div>
-            <div><span class="bs-kicker">Params</span><strong>X.XM</strong></div>
-          </div>
-          <div class="model-bar"><div class="fill" style="width: 0%;"></div></div>
-        </article>
-
-        <article class="model-card">
-          <div class="model-head">
-            <span class="bs-kicker">foundation</span>
-            <div class="model-matrix" data-matrix-seed="5" aria-hidden="true"></div>
-          </div>
-          <h4>BIOT</h4>
-          <div class="model-spec">Transformer · pretrained</div>
-          <div class="model-stats">
-            <div><span class="bs-kicker">F1</span><strong>XX.X</strong></div>
-            <div><span class="bs-kicker">Params</span><strong>XXM</strong></div>
-          </div>
-          <div class="model-bar"><div class="fill" style="width: 0%;"></div></div>
-        </article>
-
-        <article class="model-card">
-          <div class="model-head">
-            <span class="bs-kicker">foundation</span>
-            <div class="model-matrix" data-matrix-seed="6" aria-hidden="true"></div>
-          </div>
-          <h4>LaBraM</h4>
-          <div class="model-spec">Large brain model</div>
-          <div class="model-stats">
-            <div><span class="bs-kicker">F1</span><strong>XX.X</strong></div>
-            <div><span class="bs-kicker">Params</span><strong>XXM</strong></div>
-          </div>
-          <div class="model-bar"><div class="fill" style="width: 0%;"></div></div>
-        </article>
-
-        <article class="model-card">
-          <div class="model-head">
-            <span class="bs-kicker">foundation</span>
-            <div class="model-matrix" data-matrix-seed="7" aria-hidden="true"></div>
-          </div>
-          <h4>CBraMod</h4>
-          <div class="model-spec">Criss-cross transformer</div>
-          <div class="model-stats">
-            <div><span class="bs-kicker">F1</span><strong>XX.X</strong></div>
-            <div><span class="bs-kicker">Params</span><strong>XXM</strong></div>
-          </div>
-          <div class="model-bar"><div class="fill" style="width: 0%;"></div></div>
-        </article>
-
-        <article class="model-card">
-          <div class="model-head">
-            <span class="bs-kicker">foundation</span>
-            <div class="model-matrix" data-matrix-seed="8" aria-hidden="true"></div>
-          </div>
-          <h4>REVE</h4>
-          <div class="model-spec">4D positional encoding</div>
-          <div class="model-stats">
-            <div><span class="bs-kicker">F1</span><strong>XX.X</strong></div>
-            <div><span class="bs-kicker">Params</span><strong>XXM</strong></div>
-          </div>
-          <div class="model-bar"><div class="fill" style="width: 0%;"></div></div>
-        </article>
-
-        <article class="model-card">
-          <div class="model-head">
-            <span class="bs-kicker">foundation</span>
-            <div class="model-matrix" data-matrix-seed="9" aria-hidden="true"></div>
-          </div>
-          <h4>SignalJEPA</h4>
-          <div class="model-spec">Self-supervised JEPA</div>
-          <div class="model-stats">
-            <div><span class="bs-kicker">F1</span><strong>XX.X</strong></div>
-            <div><span class="bs-kicker">Params</span><strong>XXM</strong></div>
-          </div>
-          <div class="model-bar"><div class="fill" style="width: 0%;"></div></div>
-        </article>
-
-        <article class="model-card">
-          <div class="model-head">
-            <span class="bs-kicker">foundation</span>
-            <div class="model-matrix" data-matrix-seed="10" aria-hidden="true"></div>
-          </div>
-          <h4>EEGPT</h4>
-          <div class="model-spec">Pretrained universal</div>
-          <div class="model-stats">
-            <div><span class="bs-kicker">F1</span><strong>XX.X</strong></div>
-            <div><span class="bs-kicker">Params</span><strong>XXM</strong></div>
-          </div>
-          <div class="model-bar"><div class="fill" style="width: 0%;"></div></div>
-        </article>
-
       </div>
     </section>
 
