@@ -13,10 +13,10 @@
   --bs-surface: #f8fafc;
   --bs-surface-soft: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
 
-  /* Text */
-  --bs-text: #1f232b;
-  --bs-muted: #494e53;
-  --bs-faint: #7a8288;
+  /* Text — all three pass WCAG AA on white (>= 4.5:1) */
+  --bs-text: #1f232b;       /* 15.75:1 on white */
+  --bs-muted: #494e53;      /*  8.41:1 on white */
+  --bs-faint: #62676d;      /*  5.71:1 on white (was #7a8288, 3.91:1) */
 
   /* Lines + cards */
   --bs-line: rgba(83, 88, 98, 0.34);

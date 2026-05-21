@@ -1527,5 +1527,5 @@
   }
 }
 
-.ds-row .mod-emg { background: rgba(204, 73, 0, 0.12); color: #cc4900; }
+.ds-row .mod-emg { background: rgba(204, 73, 0, 0.12); color: #a03900; }  /* 5.75:1 on tinted bg (was #cc4900, 3.92:1) */
 .ds-row .mod-sleep { background: rgba(126, 63, 152, 0.12); color: #7e3f98; }
