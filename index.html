@@ -199,9 +199,10 @@
         <span class="bs-eyebrow"><span class="dot"></span> NeurIPS 2026 · open competition</span>
         <h1 id="hero-heading">EEG/EMG Foundation Challenge 2026.</h1>
         <p>
-          A NeurIPS 2026 open competition on whether biosignal pretraining generalizes across the shift that breaks each task: unseen stimuli (EEG-to-image retrieval), later sessions (cued BCI commands), consumer wearables (sleep onset), new users (typing from wristband EMG).
-          A fifth track adds the harder constraint: <strong>one encoder across all four tasks, three EEG and one EMG</strong>.
-          Top-3 per track are rerun by the organizers on a sealed split. Prize pool: $30.000 across tracks 1–4. Winners present at the NeurIPS workshop in Sydney.
+          Biosignal foundation models claim to transfer across subjects, sessions, and devices with limited per-task training. The NeurIPS 2026 EEG/EMG Foundation Challenge tests this against strong task-specific baselines on four controlled shifts: cross-stimulus (EEG-to-image retrieval), cross-session (cued BCI commands), cross-device (sleep onset on wearable EEG), cross-user (typing from wristband EMG).
+          A fifth track, <strong>Foundation transfer</strong>, tightens the control: <strong>one encoder across all four tasks, three EEG and one EMG</strong>.
+          The 4+1 design separates three claims usually conflated in the literature: single-task performance, shift robustness, and cross-task representation reuse.
+          Top-3 per track are re-run by the organizers on a sealed split. Prize pool: $30.000 across tracks 1–4. Winners present at the NeurIPS workshop in Sydney.
         </p>
         <p class="vb-hero-lineage">
           Successor to the NeurIPS 2025 EEG Foundation Challenge: 1,197 teams across 247 institutions in 50+ countries, 8,622 submissions, promoted through EEGLAB, MNE-Python, and NeuroTechX.
