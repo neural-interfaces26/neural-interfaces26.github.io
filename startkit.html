@@ -163,7 +163,7 @@
         </p>
         <div class="bs-hero-cta">
           <a class="bs-btn primary" href="https://github.com/facebookresearch/neuroai" target="_blank" rel="noreferrer noopener">Clone the start-kit →</a>
-          <a class="bs-btn ghost" href="#submit">Skip to submission</a>
+          <a class="bs-btn ghost" href="#baselines">See the baselines</a>
         </div>
         <div class="vb-tags" aria-label="Stack">
           <span class="bs-pill">Python ≥ 3.10</span>
@@ -450,82 +450,6 @@
       <div class="ds-foot">
         <span class="bs-kicker">Headroom bar = proposal baseline vs. 100% upper bound. Sleep metric is W-bMAE (weighted-binned MAE) per the proposal §1.4.</span>
         <a href="leaderboard.html" class="track-link">See live leaderboard →</a>
-      </div>
-    </section>
-
-    <!-- ============================== Submission ============================== -->
-    <section class="vb-section vb-section-cream" id="submit" aria-labelledby="submit-heading">
-      <div class="vb-section-head">
-        <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Submission format · same for every track</span>
-          <h2 id="submit-heading">Predictions during iteration. Code at the audit gate.</h2>
-          <p>Submission is two-stage. During the public phase, teams upload a predictions Parquet — no container build, validate by re-running the same task locally, so iteration stays fast. For top-ranked teams the organizers then re-run the submitted training script inside a fixed Codabench container on the sealed split; this is what makes the leaderboard auditable rather than only competitive. Both stages are mandatory for prize eligibility. The container, AWS integration, and scaled deployment are contributed back to upstream Codabench in partnership with Deloitte.</p>
-        </div>
-        <div class="vb-section-side">
-          <div class="vb-tracks-meta">
-            <div><span class="bs-kicker">Format</span><strong>Apache Parquet · snappy</strong></div>
-            <div><span class="bs-kicker">Max size</span><strong>200 MB / submission</strong></div>
-            <div><span class="bs-kicker">Daily cap (final phase)</span><strong>5 / team / day</strong></div>
-            <div><span class="bs-kicker">Final score</span><strong>Best of last 5 submissions</strong></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="ds-table-wrap">
-        <div class="ds-table" role="table" aria-label="Submission schema">
-          <div class="ds-row head" role="row">
-            <span role="columnheader">Column</span>
-            <span role="columnheader">Type</span>
-            <span role="columnheader">Per track</span>
-            <span role="columnheader">Required</span>
-            <span role="columnheader">Notes</span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="id" role="cell">trial_id</span>
-            <span class="nm" role="cell">string</span>
-            <span class="num" role="cell">all</span>
-            <span class="num" role="cell">yes</span>
-            <span class="num" role="cell">Matches sealed-split index</span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="id" role="cell">prediction</span>
-            <span class="nm" role="cell">float[] / int / str</span>
-            <span class="num" role="cell">all</span>
-            <span class="num" role="cell">yes</span>
-            <span class="num" role="cell">Embedding for T1, label for T2, seconds for T3, text for T4</span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="id" role="cell">confidence</span>
-            <span class="nm" role="cell">float</span>
-            <span class="num" role="cell">T1, T2</span>
-            <span class="num" role="cell">optional</span>
-            <span class="num" role="cell">Used for tie-breaking on equal accuracy</span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="id" role="cell">model_sha</span>
-            <span class="nm" role="cell">string (40 hex)</span>
-            <span class="num" role="cell">all</span>
-            <span class="num" role="cell">yes</span>
-            <span class="num" role="cell">Git SHA of your model code · used for audit</span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="id" role="cell">hparams</span>
-            <span class="nm" role="cell">JSON string</span>
-            <span class="num" role="cell">all</span>
-            <span class="num" role="cell">yes</span>
-            <span class="num" role="cell">Auto-filled by the NeuralBench task run</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="ds-foot">
-        <span class="bs-kicker">Validate locally: re-run <code>neuralbench eeg &lt;task&gt;</code> before submitting</span>
-        <a href="https://github.com/facebookresearch/neuroai/blob/main/docs/submission.md" class="track-link" target="_blank" rel="noreferrer noopener">Schema spec on GitHub →</a>
-      </div>
-
-      <div class="ds-foot">
-        <span class="bs-kicker">Audit container = Codabench public image. AWS provides 32,000+ H200 GPU-hours. Scaled Codabench deployment is funded with Deloitte and contributed back upstream.</span>
-        <a href="https://www.codabench.org" class="track-link" target="_blank" rel="noreferrer noopener">Codabench →</a>
       </div>
     </section>
 

@@ -489,10 +489,48 @@
     <section class="vb-section" id="datasets" aria-labelledby="datasets-heading">
       <div class="vb-section-head">
         <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Datasets · BIDS-first via EEGDash</span>
-          <h2 id="datasets-heading">Four newly-released datasets across cognitive domains, plus 700+ via EEGDash for pretraining.</h2>
-          <p><strong>For 2026 the organisers release four brand-new datasets, one per cognitive domain</strong>: an Alljoined held-out evaluation cohort for visual decoding, a 20-subject &times; 6-session Graz/BrainHero corpus for BCI command decoding, a ~1,000-subject Muse wearable sleep set with <code>n2_onset</code> annotations, and a 100-user evaluation cohort for wristband EMG-to-text. They are wired into the start-kit alongside 14 curated public seed datasets; for foundation-model pretraining, <a href="https://eegdash.org/dataset_summary.html" target="_blank" rel="noreferrer noopener">EEGDash</a> exposes 700+ additional EEG corpora under the same BIDS-first streaming interface.</p>
+          <span class="bs-eyebrow"><span class="dot"></span> New in 2026 · BIDS-first via EEGDash</span>
+          <h2 id="datasets-heading">Four new datasets. One per cognitive domain.</h2>
+          <p>Each track ships with a brand-new corpus, alongside curated seed datasets. For foundation-model pretraining, <a href="https://eegdash.org/dataset_summary.html" target="_blank" rel="noreferrer noopener">EEGDash</a> exposes 700+ additional EEG corpora under the same BIDS-first streaming interface.</p>
         </div>
+      </div>
+
+      <div class="vb-tracks" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 32px;">
+        <article class="vb-track" style="padding: 18px;">
+          <div class="track-head">
+            <span class="bs-kicker">Visual decoding</span>
+            <span class="bs-badge">NEW</span>
+          </div>
+          <h3 style="font-size: 18px; margin: 8px 0 4px;">Alljoined</h3>
+          <p style="font-size: 13px; margin: 0; color: var(--bs-muted);">Held-out evaluation cohort for the EEG-to-IMG track.</p>
+        </article>
+
+        <article class="vb-track" style="padding: 18px;">
+          <div class="track-head">
+            <span class="bs-kicker">BCI command</span>
+            <span class="bs-badge">NEW</span>
+          </div>
+          <h3 style="font-size: 18px; margin: 8px 0 4px;">Graz / BrainHero</h3>
+          <p style="font-size: 13px; margin: 0; color: var(--bs-muted);">20 subjects &times; 6 sessions, mixed Graz and BrainHero paradigms.</p>
+        </article>
+
+        <article class="vb-track" style="padding: 18px;">
+          <div class="track-head">
+            <span class="bs-kicker">Sleep onset</span>
+            <span class="bs-badge">NEW</span>
+          </div>
+          <h3 style="font-size: 18px; margin: 8px 0 4px;">Muse wearable</h3>
+          <p style="font-size: 13px; margin: 0; color: var(--bs-muted);">~1,000-subject home-wearable EEG with <code>n2_onset</code> annotations.</p>
+        </article>
+
+        <article class="vb-track" style="padding: 18px;">
+          <div class="track-head">
+            <span class="bs-kicker">EMG-to-text</span>
+            <span class="bs-badge">NEW</span>
+          </div>
+          <h3 style="font-size: 18px; margin: 8px 0 4px;">emg2qwerty cohort</h3>
+          <p style="font-size: 13px; margin: 0; color: var(--bs-muted);">100-user wristband evaluation cohort released by Meta Reality Labs.</p>
+        </article>
       </div>
 
       <div class="ds-table-wrap">
