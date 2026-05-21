@@ -121,18 +121,60 @@
       strips.push(strip);
     }
 
-    // Render once layout has settled.
+    // Cache the rendered width per strip so we only redraw when the size
+    // actually changes — sub-pixel resizes from font-loading / scrollbar
+    // appearance otherwise trigger redundant re-renders.
+    const lastWidth = new WeakMap();
+
+    function maybeRender(strip, i) {
+      const w = Math.round(strip.getBoundingClientRect().width);
+      if (w < 8) return;
+      if (lastWidth.get(strip) === w) return;
+      lastWidth.set(strip, w);
+      renderChannel(strip, i);
+    }
+
+    // First paint after layout settles.
     requestAnimationFrame(() => {
-      strips.forEach((strip, i) => renderChannel(strip, i));
+      strips.forEach((strip, i) => maybeRender(strip, i));
     });
 
-    // Re-render on viewport changes so the path always tiles the strip width.
+    // Re-render whenever any strip's size actually changes — covers late
+    // font loading, hero-image reflow, sidebar/scrollbar toggles, and any
+    // layout shift that doesn't fire a window 'resize' event.
+    if (typeof ResizeObserver !== 'undefined') {
+      const ro = new ResizeObserver((entries) => {
+        for (const entry of entries) {
+          const strip = entry.target;
+          const i = strips.indexOf(strip);
+          if (i !== -1) maybeRender(strip, i);
+        }
+      });
+      strips.forEach((s) => ro.observe(s));
+    }
+
+    // Safety net for viewport changes on older browsers.
     let resizeId = null;
     window.addEventListener('resize', () => {
       clearTimeout(resizeId);
       resizeId = setTimeout(() => {
-        strips.forEach((strip, i) => renderChannel(strip, i));
-      }, 200);
+        strips.forEach((strip, i) => maybeRender(strip, i));
+      }, 150);
+    });
+
+    // Web fonts can land after first paint and reflow the hero column;
+    // re-render once they're ready.
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        strips.forEach((strip, i) => maybeRender(strip, i));
+      }).catch(() => {});
+    }
+
+    // The hero-side image loads later than the text; a load event on the
+    // surrounding figure can shift the strip width. Re-check on window
+    // load to catch the post-image layout.
+    window.addEventListener('load', () => {
+      strips.forEach((strip, i) => maybeRender(strip, i));
     });
   }
 
