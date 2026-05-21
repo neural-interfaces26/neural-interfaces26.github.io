@@ -518,8 +518,8 @@
             <span class="bs-kicker">Visual decoding</span>
             <span class="bs-badge">NEW</span>
           </div>
-          <h3 style="font-size: 18px; margin: 8px 0 4px;">Alljoined</h3>
-          <p style="font-size: 13px; margin: 0; color: var(--bs-muted);">Held-out evaluation cohort for the EEG-to-IMG track.</p>
+          <h3 style="font-size: 18px; margin: 8px 0 4px;">Alljoined eval cohort</h3>
+          <p style="font-size: 13px; margin: 0; color: var(--bs-muted);">New 11-subject evaluation cohort recorded with the same Emotiv hardware and natural-images paradigm as the public <strong>Alljoined-1.6M</strong> corpus. Released by Alljoined.</p>
         </article>
 
         <article class="vb-track" style="padding: 18px;">
@@ -595,6 +595,15 @@
             <span class="mod mod-eeg" role="cell">EEG</span>
             <span class="num" role="cell">20</span>
             <span class="num" role="cell">100h</span>
+            <span class="num" role="cell">32</span>
+            <span class="num" role="cell">250 Hz</span>
+          </div>
+          <div class="ds-row ds-row--new" role="row">
+            <span class="id" role="cell">alljoined-eval</span>
+            <span class="nm" role="cell">Alljoined eval · same setup as Alljoined-1.6M <span class="ds-new-tag">NEW</span></span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">11</span>
+            <span class="num" role="cell">—</span>
             <span class="num" role="cell">32</span>
             <span class="num" role="cell">250 Hz</span>
           </div>
@@ -688,11 +697,20 @@
             <span class="num" role="cell">32</span>
             <span class="num" role="cell">2000 Hz</span>
           </div>
+          <div class="ds-row ds-row--new" role="row">
+            <span class="id" role="cell">emg2qwerty-eval</span>
+            <span class="nm" role="cell">emg2qwerty eval · same setup as emg2qwerty <span class="ds-new-tag">NEW</span></span>
+            <span class="mod mod-emg" role="cell">EMG</span>
+            <span class="num" role="cell">100</span>
+            <span class="num" role="cell">—</span>
+            <span class="num" role="cell">32</span>
+            <span class="num" role="cell">2000 Hz</span>
+          </div>
         </div>
       </div>
 
       <div class="ds-foot">
-        <span class="bs-kicker">14 seed datasets · all under their original providers' licenses · sleep annotations expert-scored, stimulus/keystroke labels machine-derived · leakage held out by subject, session, stimulus, and keystroke · ground truth confidential, top-3 re-run by organisers · NeuralBench-EEG-Core v1.0 · 700+ additional EEG corpora ready via <a href="https://eegdash.org/dataset_summary.html" target="_blank" rel="noreferrer noopener" style="color: var(--bs-accent);">EEGDash</a></span>
+        <span class="bs-kicker">14 seed datasets + 4 new releases for 2026 (Graz/BrainHero and Muse Sleep-Onset for training; Alljoined eval and emg2qwerty eval as hidden test cohorts that mirror their public parents) · all under their original providers' licenses · sleep annotations expert-scored, stimulus/keystroke labels machine-derived · leakage held out by subject, session, stimulus, and keystroke · ground truth confidential, top-3 re-run by organisers · NeuralBench-EEG-Core v1.0 · 700+ additional EEG corpora ready via <a href="https://eegdash.org/dataset_summary.html" target="_blank" rel="noreferrer noopener" style="color: var(--bs-accent);">EEGDash</a></span>
         <a href="startkit.html" class="track-link">Open the start-kit →</a>
       </div>
     </section>
