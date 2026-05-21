@@ -972,6 +972,23 @@
   transition: background 0.15s;
 }
 
+/* Scoped grid for the baselines table on startkit.html — 7 columns, wider
+   data cells so the proposal-baseline values ("Top-5 28.13 ± 0.14") and the
+   config paths ("configs/img/reve_frozen.yaml") stop wrapping. */
+#baselines .ds-row {
+  grid-template-columns: 110px minmax(160px, 1.2fr) 90px 65px 90px 170px 200px;
+}
+#baselines .ds-row .nm,
+#baselines .ds-row .num:nth-child(7) {
+  white-space: normal;
+}
+#baselines .ds-row .num:nth-child(7) {
+  font-family: var(--bs-fontmono);
+  font-size: 11px;
+  color: var(--bs-muted);
+  word-break: break-word;
+}
+
 .ds-row > span {
   min-width: 0;
 }

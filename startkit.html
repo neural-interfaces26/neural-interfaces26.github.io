@@ -34,7 +34,7 @@
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260521c" />
 <link rel="stylesheet" href="assets/css/base.css?v=20260521c" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260521g" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20260521h" />
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e1320'/%3E%3Cg stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5'/%3E%3Cpath d='M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24'/%3E%3C/g%3E%3C/svg%3E" />
 
@@ -331,7 +331,6 @@
             <span role="columnheader">Train (GPU-h)</span>
             <span role="columnheader">Proposal baseline</span>
             <span role="columnheader">Code</span>
-            <span role="columnheader">Headroom</span>
           </div>
 
           <div class="ds-row" role="row">
@@ -342,7 +341,6 @@
             <span class="num" role="cell">0</span>
             <span class="num" role="cell">Top-5 2.22 ± 0.31</span>
             <span class="num" role="cell">—</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 2%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T1 · EEG-to-IMG</span>
@@ -352,7 +350,6 @@
             <span class="num" role="cell">2</span>
             <span class="num" role="cell">Top-5 28.13 ± 0.14</span>
             <span class="num" role="cell">configs/img/eegnet.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 33%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T1 · EEG-to-IMG</span>
@@ -362,7 +359,6 @@
             <span class="num" role="cell">0.5 (probe)</span>
             <span class="num" role="cell">Top-5 84.75 ± 0.38</span>
             <span class="num" role="cell">configs/img/reve_frozen.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 95%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T2 · BCI</span>
@@ -372,7 +368,6 @@
             <span class="num" role="cell">0</span>
             <span class="num" role="cell">Bal. Acc 24.81 ± 1.03</span>
             <span class="num" role="cell">—</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 25%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T2 · BCI</span>
@@ -382,7 +377,6 @@
             <span class="num" role="cell">4</span>
             <span class="num" role="cell">Bal. Acc 58.58 ± 0.34</span>
             <span class="num" role="cell">configs/bci/eegnet.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 65%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T2 · BCI</span>
@@ -392,7 +386,6 @@
             <span class="num" role="cell">1 (probe)</span>
             <span class="num" role="cell">Bal. Acc 68.04 ± 0.73</span>
             <span class="num" role="cell">configs/bci/reve.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 75%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T3 · Sleep</span>
@@ -402,7 +395,6 @@
             <span class="num" role="cell">0</span>
             <span class="num" role="cell">W-bMAE 205.42 ± 0.01 s</span>
             <span class="num" role="cell">—</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 30%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T3 · Sleep</span>
@@ -412,7 +404,6 @@
             <span class="num" role="cell">4</span>
             <span class="num" role="cell">W-bMAE 143.30 ± 0.40 s</span>
             <span class="num" role="cell">configs/sleep/eegnet.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 50%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T3 · Sleep</span>
@@ -422,7 +413,6 @@
             <span class="num" role="cell">1 (probe)</span>
             <span class="num" role="cell">W-bMAE 134.89 ± 2.02 s</span>
             <span class="num" role="cell">configs/sleep/reve.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 55%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T4 · EMG</span>
@@ -432,7 +422,6 @@
             <span class="num" role="cell">0</span>
             <span class="num" role="cell">CER 96.71 ± 0.00 %</span>
             <span class="num" role="cell">—</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 5%;"></span></span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T4 · EMG</span>
@@ -442,7 +431,6 @@
             <span class="num" role="cell">8</span>
             <span class="num" role="cell">CER 25.14 ± 2.30 %</span>
             <span class="num" role="cell">configs/emg/qwerty.yaml</span>
-            <span class="bar" role="cell"><span class="fill" style="width: 70%;"></span></span>
           </div>
         </div>
       </div>
