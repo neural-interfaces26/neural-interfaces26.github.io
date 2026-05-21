@@ -61,27 +61,29 @@
     return d;
   }
 
-  // Render one strip at a measured pixel width. The SVG width attribute is set
-  // to exactly 2x the strip pixel width so that two identical paths tile
-  // seamlessly and the CSS animation `translateX(-50%)` advances by one strip
-  // width per loop. This avoids the cross-browser gotcha where `width: 200%`
-  // on inline SVG sometimes resolves to the parent's width instead.
+  // Render one strip. The path is generated against a fixed viewBox (2 tiles
+  // of width VBW each) and the SVG is sized `width="100%"` so it always
+  // stretches to the parent strip's current pixel width — no late layout
+  // reflow can leave dead space on the right. preserveAspectRatio="none"
+  // lets the viewBox stretch horizontally; the wave's apparent frequency
+  // changes slightly with strip width, which is preferable to an empty
+  // tail and is invisible to the eye on a scrolling demo.
   function renderChannel(strip, channelIdx) {
-    const rect = strip.getBoundingClientRect();
-    const w = Math.max(200, Math.round(rect.width));
     const h = strip._rowHeight || 18;
+    const VBW = 600; // viewBox width per tile (units, not pixels)
 
     const seed = channelIdx + 11;
-    const points = Math.max(28, Math.round(w / 6));
+    // Point count drives only path smoothness — independent of pixel width.
+    const points = 120;
     const amp = 0.62 + (channelIdx % 3) * 0.06;
     const smoothness = 1.4 + (channelIdx % 2) * 0.4;
-    const d = eegPath(w, h, seed, points, amp, smoothness);
+    const d = eegPath(VBW, h, seed, points, amp, smoothness);
 
     strip.innerHTML = '';
     const svg = document.createElementNS(SVG_NS, 'svg');
-    svg.setAttribute('width', String(w * 2));
+    svg.setAttribute('width', '100%');
     svg.setAttribute('height', String(h));
-    svg.setAttribute('viewBox', `0 0 ${w * 2} ${h}`);
+    svg.setAttribute('viewBox', `0 0 ${VBW * 2} ${h}`);
     svg.setAttribute('preserveAspectRatio', 'none');
     svg.setAttribute('aria-hidden', 'true');
 
@@ -89,7 +91,7 @@
     p1.setAttribute('d', d);
     const p2 = document.createElementNS(SVG_NS, 'path');
     p2.setAttribute('d', d);
-    p2.setAttribute('transform', `translate(${w} 0)`);
+    p2.setAttribute('transform', `translate(${VBW} 0)`);
     svg.appendChild(p1);
     svg.appendChild(p2);
     strip.appendChild(svg);
@@ -103,7 +105,6 @@
     host.style.setProperty('--bs-eeg-speed', `${10 / speed}s`);
     host.innerHTML = '';
 
-    const strips = [];
     for (let i = 0; i < channels; i++) {
       const row = document.createElement('div');
       row.className = 'bs-eeg-channel';
@@ -118,64 +119,13 @@
       strip._rowHeight = rowHeight;
       row.appendChild(strip);
       host.appendChild(row);
-      strips.push(strip);
-    }
 
-    // Cache the rendered width per strip so we only redraw when the size
-    // actually changes — sub-pixel resizes from font-loading / scrollbar
-    // appearance otherwise trigger redundant re-renders.
-    const lastWidth = new WeakMap();
-
-    function maybeRender(strip, i) {
-      const w = Math.round(strip.getBoundingClientRect().width);
-      if (w < 8) return;
-      if (lastWidth.get(strip) === w) return;
-      lastWidth.set(strip, w);
+      // SVG renders once with viewBox + width="100%", so the strip's actual
+      // pixel width can change at any time (font load, hero-image reflow,
+      // sidebar collapse, viewport resize) and the trace will continue to
+      // fill it — no re-render needed.
       renderChannel(strip, i);
     }
-
-    // First paint after layout settles.
-    requestAnimationFrame(() => {
-      strips.forEach((strip, i) => maybeRender(strip, i));
-    });
-
-    // Re-render whenever any strip's size actually changes — covers late
-    // font loading, hero-image reflow, sidebar/scrollbar toggles, and any
-    // layout shift that doesn't fire a window 'resize' event.
-    if (typeof ResizeObserver !== 'undefined') {
-      const ro = new ResizeObserver((entries) => {
-        for (const entry of entries) {
-          const strip = entry.target;
-          const i = strips.indexOf(strip);
-          if (i !== -1) maybeRender(strip, i);
-        }
-      });
-      strips.forEach((s) => ro.observe(s));
-    }
-
-    // Safety net for viewport changes on older browsers.
-    let resizeId = null;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeId);
-      resizeId = setTimeout(() => {
-        strips.forEach((strip, i) => maybeRender(strip, i));
-      }, 150);
-    });
-
-    // Web fonts can land after first paint and reflow the hero column;
-    // re-render once they're ready.
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(() => {
-        strips.forEach((strip, i) => maybeRender(strip, i));
-      }).catch(() => {});
-    }
-
-    // The hero-side image loads later than the text; a load event on the
-    // surrounding figure can shift the strip width. Re-check on window
-    // load to catch the post-image layout.
-    window.addEventListener('load', () => {
-      strips.forEach((strip, i) => maybeRender(strip, i));
-    });
   }
 
   function buildMatrix(host) {
