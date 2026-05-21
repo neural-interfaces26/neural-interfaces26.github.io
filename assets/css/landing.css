@@ -431,7 +431,7 @@
    ============================================================ */
 .vb-stats {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   border-bottom: 1px solid var(--bs-card-border);
 }
 
@@ -466,7 +466,7 @@
    Section wrappers
    ============================================================ */
 .vb-section {
-  padding: 80px 32px;
+  padding: 56px 32px;
   border-bottom: 1px solid var(--bs-card-border);
 }
 
@@ -1251,7 +1251,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: center;
-  padding: 96px 32px;
+  padding: 64px 32px;
 }
 
 .vb-cta h2 {
