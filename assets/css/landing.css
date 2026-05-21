@@ -386,6 +386,16 @@
 
 .vb-hero-text p strong { color: var(--bs-text); }
 
+/* Lineage line at the foot of the hero copy: same width, smaller and quieter
+   than the main pitch paragraph so it reads as evidence, not as pitch. */
+.vb-hero-text p.vb-hero-lineage {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--bs-faint);
+  margin-top: -10px;
+  margin-bottom: 22px;
+}
+
 .bs-hero-cta {
   display: flex;
   gap: 10px;
