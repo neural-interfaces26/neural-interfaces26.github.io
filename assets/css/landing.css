@@ -1366,9 +1366,12 @@
 .bs-eeg-channel .strip svg path {
   fill: none;
   stroke: var(--bs-link);
-  stroke-width: 1.1;
+  stroke-width: 1.3;
   stroke-linecap: round;
   stroke-linejoin: round;
+  /* Soft glow gives the trace a sub-pixel anti-alias that reads as instrument
+     ink rather than vector geometry. */
+  filter: drop-shadow(0 0 0.6px rgba(34, 75, 141, 0.22));
 }
 
 /* ============================================================

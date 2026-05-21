@@ -14,22 +14,43 @@
     return x - Math.floor(x);
   }
 
+  // Generate a seamlessly tileable EEG-like path: every component uses an
+  // *integer* number of cycles over t ∈ [0, 1] so y(t=0) === y(t=1). When
+  // renderChannel() tiles two copies side-by-side and CSS scrolls -50%, the
+  // join point is mathematically continuous and the eye sees one continuous
+  // signal instead of a mid-strip vertical break.
   function eegPath(width, height, seed, points, amp, smoothness) {
-    const pts = [];
     const baseY = height / 2;
+    const TAU = 2 * Math.PI;
+    // Integer cycles per strip. Higher smoothness -> slightly fewer cycles
+    // so the trace stays organic-looking without being noisy. Coprime-ish
+    // frequencies (3/5/7 + 11/13/17) keep the wave from looking sinusoidal.
+    const k1 = Math.max(2, Math.round(3 - (smoothness - 1.4) * 0.5));
+    const k2 = k1 + 3;
+    const k3 = k2 + 4;
+    const k4 = k3 + 4;
+    const phase1 = (seed * 0.97) % TAU;
+    const phase2 = (seed * 1.83) % TAU;
+    const phase3 = (seed * 2.71) % TAU;
+    const phase4 = (seed * 0.41) % TAU;
+
+    const pts = [];
     for (let i = 0; i < points; i++) {
       const t = i / (points - 1);
       const x = t * width;
       let y = 0;
-      y += Math.sin(t * 12 * smoothness + seed * 1.7) * 0.35;
-      y += Math.sin(t * 28 * smoothness + seed * 4.3) * 0.18;
-      y += Math.sin(t * 52 * smoothness + seed * 7.9) * 0.10;
-      y += (rand(seed * 31 + i) - 0.5) * 0.16;
-      if (rand(seed * 13 + Math.floor(i / 7)) > 0.92) {
-        y += Math.sin((t - 0.05) * 60) * 0.6 * Math.exp(-Math.pow((t - ((seed * 0.37) % 1)) * 14, 2));
-      }
+      // Dominant slow oscillation (α-band-ish).
+      y += Math.sin(t * TAU * k1 + phase1) * 0.38;
+      // Mid-frequency components.
+      y += Math.sin(t * TAU * k2 + phase2) * 0.20;
+      y += Math.sin(t * TAU * k3 + phase3) * 0.10;
+      // High-frequency "noise" — still periodic, but coprime to lower bands
+      // so the trace looks irregular instead of metronomic.
+      y += Math.sin(t * TAU * k4 + phase4) * 0.05;
       pts.push([x, baseY + y * baseY * amp]);
     }
+
+    // Quadratic-Bézier smoothing for a soft, instrument-like line.
     let d = `M ${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`;
     for (let i = 1; i < pts.length; i++) {
       const [x0, y0] = pts[i - 1];
