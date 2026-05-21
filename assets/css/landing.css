@@ -355,6 +355,14 @@
   border-bottom: 1px solid var(--bs-card-border);
 }
 
+/* Collapse to a single column when the right rail is absent. */
+.vb-hero.solo {
+  grid-template-columns: minmax(0, 1fr);
+}
+.vb-hero.solo .vb-hero-text {
+  max-width: 760px;
+}
+
 .vb-hero-text { max-width: 540px; }
 
 .vb-hero-text h1 {
