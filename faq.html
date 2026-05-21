@@ -6,13 +6,13 @@
 <meta name="theme-color" content="#0e1320" />
 
 <title>FAQ · EEG/EMG Foundation Challenge 2026</title>
-<meta name="description" content="Frequently asked questions about the NeurIPS 2026 EEG/EMG Foundation Challenge — daily caps, anonymity, audit, authorship, Track 5 scope, contingency." />
+<meta name="description" content="Frequently asked questions about the NeurIPS 2026 EEG/EMG Foundation Challenge — daily caps, eligibility, audit, authorship, Track 5 scope, contingency." />
 
 <link rel="canonical" href="https://neuralinterface26.github.io/faq.html" />
 <meta name="author" content="Bruno Aristimunha and the EEG/EMG Foundation Challenge organising team" />
 
 <meta property="og:title" content="FAQ — EEG/EMG Foundation Challenge 2026" />
-<meta property="og:description" content="Twelve questions, twelve direct answers. Daily caps, anonymity, audit, authorship, Track 5 scope, contingency." />
+<meta property="og:description" content="Direct answers on daily caps, eligibility, audit, authorship, Track 5 scope, and contingency." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://neuralinterface26.github.io/faq.html" />
 <meta property="og:site_name" content="EEG/EMG Foundation Challenge" />
@@ -24,7 +24,7 @@
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="FAQ · EEG/EMG Foundation Challenge 2026" />
-<meta name="twitter:description" content="Twelve questions, twelve direct answers. Settle eligibility, caps, anonymity, audit, and authorship before you submit." />
+<meta name="twitter:description" content="Direct answers on eligibility, caps, audit, authorship, and contingency before you submit." />
 <meta name="twitter:image" content="https://neuralinterface26.github.io/assets/img/og-card.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -120,7 +120,7 @@
       </div>
       <div class="vb-nav-section">
         <div class="vb-nav-head">API reference</div>
-        <a href="https://github.com/neural-interfaces26/neuralbench" target="_blank" rel="noreferrer noopener">neuralbench</a>
+        <a href="https://github.com/facebookresearch/neuroai" target="_blank" rel="noreferrer noopener">neuralbench</a>
         <a href="https://eegdash.org/" target="_blank" rel="noreferrer noopener">eegdash</a>
         <a href="https://braindecode.org/" target="_blank" rel="noreferrer noopener">braindecode</a>
         <a href="https://moabb.neurotechx.com/" target="_blank" rel="noreferrer noopener">moabb</a>
@@ -172,7 +172,7 @@
       <div class="vb-hero-text">
         <span class="bs-eyebrow"><span class="dot"></span> About · participant FAQ</span>
         <h1 id="faq-heading">FAQ.</h1>
-        <p>Twelve questions, twelve direct answers. Use this page to settle eligibility, submission caps, anonymity, audit, and authorship before you submit.</p>
+        <p>Direct answers on eligibility, submission caps, audit, authorship, contingency, and Track 5 scope. Use this page before you submit.</p>
         <div class="bs-hero-cta">
           <a class="bs-btn primary" href="#contact">Reach the organisers →</a>
           <a class="bs-btn ghost" href="#q1">Jump to the questions</a>
@@ -276,30 +276,21 @@
       </div>
     </section>
 
-    <!-- ============================== Q5–Q6 · Who can enter ============================== -->
+    <!-- ============================== Q5 · Who can enter ============================== -->
     <section class="vb-section" aria-labelledby="eligibility-heading">
       <div class="vb-section-head">
         <div>
           <span class="bs-eyebrow"><span class="dot"></span> Eligibility</span>
-          <h2 id="eligibility-heading">Anonymous submissions and who can win.</h2>
-          <p>Anonymity during the public phase is supported for teams with a double-blind paper in flight. Reveal by the disclosure deadline to stay on the prize roster.</p>
+          <h2 id="eligibility-heading">Who can win.</h2>
+          <p>Open by default. Organizer-affiliated entries appear on the leaderboard as reference but cannot take prize positions.</p>
         </div>
         <div class="vb-section-side">
           <span class="bs-kicker">Open by default</span>
-          <p style="font-size: 13px; line-height: 1.6; color: var(--bs-muted); margin: 10px 0 0; max-width: 32ch;">Industry, academia, students, independents: all eligible. Organizer-affiliated entries are kept on the board as reference, never as prize winners.</p>
+          <p style="font-size: 13px; line-height: 1.6; color: var(--bs-muted); margin: 10px 0 0; max-width: 32ch;">Industry, academia, students, independents: all eligible. Cross-institution teams are encouraged.</p>
         </div>
       </div>
 
       <div class="vb-tracks">
-
-        <article class="vb-track">
-          <div class="track-head">
-            <span class="bs-kicker">Anonymity</span>
-            <span class="bs-badge">OPT-IN</span>
-          </div>
-          <h3>Can I stay anonymous?</h3>
-          <p>Yes during the public phase. Submit under an anonymized handle; reveal your affiliation by Oct 25, 2026 to be eligible for the NeurIPS workshop slot and the cash prize. Useful if you are simultaneously submitting a double-blind paper.</p>
-        </article>
 
         <article class="vb-track">
           <div class="track-head">
@@ -323,7 +314,7 @@
         </div>
         <div class="vb-section-side">
           <span class="bs-kicker">Disclose to be cited</span>
-          <p style="font-size: 13px; line-height: 1.6; color: var(--bs-muted); margin: 10px 0 0; max-width: 32ch;">Pre-training corpora and compute estimates go in the methods note. The audit reads them; the report names you.</p>
+          <p style="font-size: 13px; line-height: 1.6; color: var(--bs-muted); margin: 10px 0 0; max-width: 32ch;">Pre-training corpora and compute estimates go in the method description. The audit reads them; the report names you.</p>
         </div>
       </div>
 
@@ -344,7 +335,7 @@
             <span class="bs-badge">POLICY</span>
           </div>
           <h3>What pre-training datasets are allowed?</h3>
-          <p>For Tracks 1–4, training data is <em>suggested</em> to stay within the track, but pre-training on any publicly available dataset is allowed; reproducibility scripts from top submissions are checked at audit. For Track 5, any public dataset is explicitly encouraged. The sealed test split is never allowed; closed clinical datasets are not allowed. Declare every external corpus in your methods note.</p>
+          <p>For Tracks 1–4, training data is <em>suggested</em> to stay within the track, but pre-training on any publicly available dataset is allowed; reproducibility scripts from top submissions are checked at audit. For Track 5, any public dataset is explicitly encouraged. The sealed test split is never allowed; closed clinical datasets are not allowed. Declare every external corpus in your method description.</p>
         </article>
 
       </div>
