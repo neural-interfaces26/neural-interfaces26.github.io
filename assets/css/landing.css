@@ -353,6 +353,7 @@
   gap: 48px;
   padding: 56px 32px 72px;
   border-bottom: 1px solid var(--bs-card-border);
+  align-items: center;
 }
 
 /* Collapse to a single column when the right rail is absent. */
