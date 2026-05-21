@@ -152,13 +152,6 @@
         <a href="#sponsors">Sponsors</a>
         <a href="#cta">Register</a>
       </div>
-      <div class="vb-nav-section">
-        <div class="vb-nav-head">API reference</div>
-        <a href="https://github.com/facebookresearch/neuroai" target="_blank" rel="noreferrer noopener">neuralbench</a>
-        <a href="https://eegdash.org/" target="_blank" rel="noreferrer noopener">eegdash</a>
-        <a href="https://braindecode.org/" target="_blank" rel="noreferrer noopener">braindecode</a>
-        <a href="https://moabb.neurotechx.com/" target="_blank" rel="noreferrer noopener">moabb</a>
-      </div>
     </nav>
 
     <div class="vb-foot">
@@ -213,15 +206,7 @@
         </p>
         <div class="bs-hero-cta">
           <a class="bs-btn primary" href="#cta">Register your team →</a>
-          <a class="bs-btn ghost" href="https://arxiv.org/abs/2506.19141" target="_blank" rel="noreferrer noopener">Read the white paper</a>
-        </div>
-        <div class="vb-tags" aria-label="Modalities and stack">
-          <span class="bs-pill">EEG</span>
-          <span class="bs-pill">EMG</span>
-          <span class="bs-pill">Sleep</span>
-          <span class="bs-pill">BIDS-first</span>
-          <span class="bs-pill">PyTorch</span>
-          <span class="bs-pill">MIT licensed</span>
+          <a class="bs-btn ghost" href="#tracks">See the five tracks</a>
         </div>
       </div>
 
@@ -505,8 +490,8 @@
       <div class="vb-section-head">
         <div>
           <span class="bs-eyebrow"><span class="dot"></span> Datasets · BIDS-first via EEGDash</span>
-          <h2 id="datasets-heading">14 suggested datasets to start. 700+ ready for large-scale pretraining.</h2>
-          <p>The table below lists the curated public datasets the organisers recommend to start with — already wired into the start-kit and the baselines. For foundation-model pretraining, <a href="https://eegdash.org/dataset_summary.html" target="_blank" rel="noreferrer noopener">EEGDash</a> exposes 700+ additional EEG corpora under the same BIDS-first streaming interface, so you can scale beyond the seed list without changing the data path.</p>
+          <h2 id="datasets-heading">Four newly-released datasets across cognitive domains, plus 700+ via EEGDash for pretraining.</h2>
+          <p><strong>For 2026 the organisers release four brand-new datasets, one per cognitive domain</strong>: an Alljoined held-out evaluation cohort for visual decoding, a 20-subject &times; 6-session Graz/BrainHero corpus for BCI command decoding, a ~1,000-subject Muse wearable sleep set with <code>n2_onset</code> annotations, and a 100-user evaluation cohort for wristband EMG-to-text. They are wired into the start-kit alongside 14 curated public seed datasets; for foundation-model pretraining, <a href="https://eegdash.org/dataset_summary.html" target="_blank" rel="noreferrer noopener">EEGDash</a> exposes 700+ additional EEG corpora under the same BIDS-first streaming interface.</p>
         </div>
       </div>
 
@@ -753,24 +738,16 @@
     </section>
 
     <!-- ============================== CTA ============================== -->
-    <section class="vb-section vb-cta" id="cta" aria-labelledby="cta-heading">
+    <section class="vb-section vb-cta solo" id="cta" aria-labelledby="cta-heading">
       <div>
-        <span class="bs-eyebrow"><span class="dot"></span> Start-kit drops Jun 1, 2026 · Warm-up Jul 1</span>
-        <h2 id="cta-heading">Build with us. Benchmark with us. Publish with us.</h2>
-        <p>The challenge is open-source and MIT-licensed. Pull requests are welcome on the task registry, the dataset interface, and the model zoo. Each accepted contribution ships in the next NeuralBench release.</p>
+        <span class="bs-eyebrow"><span class="dot"></span> Start-kit drops Jun 1, 2026 · Warm-up Jul 1, 2026</span>
+        <h2 id="cta-heading">Register your team for NeurIPS 2026.</h2>
+        <p>Five tracks, sealed evaluation, $2,500 per top-3 team per track, and a workshop slot in Sydney. Sign up to the mailing list to receive the start-kit link on June 1, the warm-up split on July 1, and the sealed test on August 1.</p>
         <div class="bs-hero-cta">
-          <a class="bs-btn primary" href="https://github.com/neural-interfaces26/neural-interfaces26.github.io" target="_blank" rel="noreferrer noopener">Register your team →</a>
-          <a class="bs-btn ghost" href="https://github.com/facebookresearch/neuroai" target="_blank" rel="noreferrer noopener">Contribute on GitHub</a>
+          <a class="bs-btn primary" href="mailto:neurips2026-eeg-emg-competition@googlegroups.com?subject=Register%20team%20for%20EEG%2FEMG%20Foundation%20Challenge%202026">Register your team →</a>
+          <a class="bs-btn ghost" href="startkit.html">Open the start-kit</a>
         </div>
       </div>
-      <figure class="bs-code" aria-label="Contributor snippet">
-        <figcaption class="bs-code-head">
-          <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
-          <span class="bs-kicker">bash · contribute</span>
-          <button class="copy" type="button" data-copy>copy</button>
-        </figcaption>
-        <pre><div class="line"><span class="ln"> 1</span><code><span class="kw">$</span> git clone https://github.com/facebookresearch/neuroai</code></div><div class="line"><span class="ln"> 2</span><code><span class="kw">$</span> cd neuroai</code></div><div class="line"><span class="ln"> 3</span><code><span class="kw">$</span> pip install -e <span class="str">.</span></code></div><div class="line"><span class="ln"> 4</span><code> </code></div><div class="line"><span class="ln"> 5</span><code><span class="c1"># Smoke-test the canonical example task</span></code></div><div class="line"><span class="ln"> 6</span><code><span class="kw">$</span> neuralbench eeg audiovisual_stimulus <span class="op">--debug</span></code></div></pre>
-      </figure>
     </section>
 
     <!-- ============================== Footer ============================== -->
