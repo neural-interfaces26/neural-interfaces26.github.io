@@ -25,7 +25,7 @@
       return;
     }
 
-    const duration = 1400;
+    const duration = 600;
     const start = performance.now();
     const tick = (now) => {
       const k = Math.min(1, (now - start) / duration);
