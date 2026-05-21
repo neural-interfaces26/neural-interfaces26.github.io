@@ -467,7 +467,7 @@
         <div>
           <span class="bs-eyebrow"><span class="dot"></span> Submission format · same for every track</span>
           <h2 id="submit-heading">Predictions during iteration. Code at the audit gate.</h2>
-          <p>Two-stage submission. During the public phase you upload a predictions Parquet file. It is fast, no container build, and you can validate locally with <code>neuralbench check</code>. For the top-ranked teams, organizers then re-run your training script inside a fixed Codabench container on the sealed split. Both stages are mandatory for prize eligibility. The container, AWS integration, and scaled deployment are being contributed back to upstream Codabench in partnership with Deloitte.</p>
+          <p>Submission is two-stage. During the public phase, teams upload a predictions Parquet — no container build, locally validatable with <code>neuralbench check</code>, so iteration stays fast. For top-ranked teams the organizers then re-run the submitted training script inside a fixed Codabench container on the sealed split; this is what makes the leaderboard auditable rather than only competitive. Both stages are mandatory for prize eligibility. The container, AWS integration, and scaled deployment are contributed back to upstream Codabench in partnership with Deloitte.</p>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">
@@ -553,7 +553,7 @@
             <span class="bs-badge">ALLOWED</span>
           </div>
           <h3>Train on whatever you have.</h3>
-          <p>There is no compute cap during training. The sealed-test inference budget is the only constraint: your scoring container must finish a full test pass in under 60 minutes on a single H100 or H200 instance. AWS gives finalists complimentary instance hours; details land in the awards page.</p>
+          <p>Training compute is uncapped. The single constraint is inference: the scoring container must complete a full test pass in under 60 minutes on one H100 or H200 instance, so that audit cost stays bounded and per-team runtime stays comparable. AWS provides complimentary instance hours to finalists; details are listed on the awards page.</p>
           <div class="track-stats">
             <div><span class="bs-kicker">Inference budget</span><strong>60 min · H100 / H200</strong></div>
             <div><span class="bs-kicker">No cap</span><strong>on training</strong></div>
@@ -592,8 +592,8 @@
             <span class="bs-kicker">Foundation track</span>
             <span class="bs-badge">CONSTRAINT</span>
           </div>
-          <h3>One encoder, three tracks.</h3>
-          <p>Track 5 requires a single shared EEG encoder reused across the EEG-to-IMG, BCI, and Sleep tracks. Heads can be track-specific. Encoders fine-tuned on the sealed test set or trained per-track separately are rejected at audit.</p>
+          <h3>One encoder, four tracks.</h3>
+          <p>Track 5 requires a single set of encoder weights reused across all four tracks — EEG-to-IMG, BCI, Sleep, and EMG. Heads can be track-specific; the encoder cannot. Encoders fine-tuned on sealed evaluation data, or retrained per-track, are rejected at audit, because the comparison would otherwise reduce to four independent single-task models.</p>
           <div class="track-stats">
             <div><span class="bs-kicker">Encoder</span><strong>Shared · frozen or fine-tuned</strong></div>
             <div><span class="bs-kicker">Heads</span><strong>Per-track allowed</strong></div>

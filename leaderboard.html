@@ -234,7 +234,7 @@
         <div>
           <span class="bs-eyebrow"><span class="dot"></span> Track 01 · EEG-to-IMG <span class="placeholder-badge">placeholder rows</span></span>
           <h2 id="t1-heading">Evoked visual retrieval, top-5 accuracy.</h2>
-          <p>Rank held-out candidate images from EEG epochs. Targets are frozen DINOv2-giant embeddings. Higher is better.</p>
+          <p>Rank held-out candidate images from a single EEG epoch. Targets are frozen DINOv2-giant embeddings, so the score isolates the EEG side. Controlled shift: test stimuli are unseen during training. Higher is better.</p>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">
@@ -309,7 +309,7 @@
         <div>
           <span class="bs-eyebrow"><span class="dot"></span> Track 02 · BCI decoding <span class="placeholder-badge">placeholder rows</span></span>
           <h2 id="t2-heading">Calibration-stable command decoding.</h2>
-          <p>Generalize motor imagery, mental math, and word association labels to later sessions without recalibration. Higher is better.</p>
+          <p>Predict the cued command (motor imagery, mental math, word association) on later sessions of the same subject, with no per-session recalibration. The score reflects calibration-free stability across session drift. Higher is better.</p>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">
@@ -384,7 +384,7 @@
         <div>
           <span class="bs-eyebrow"><span class="dot"></span> Track 03 · Sleep onset <span class="placeholder-badge">placeholder rows</span></span>
           <h2 id="t3-heading">Latency to stable N2 on wearable EEG.</h2>
-          <p>Estimate seconds from recording start to stable sleep onset on consumer-grade EEG. Lower is better.</p>
+          <p>Predict seconds from recording start to the first stable N2 epoch, on consumer-grade wearable EEG. The shift is to a sparse home-wearable montage, which is too narrow to support full per-epoch staging but still resolves onset timing. Lower is better.</p>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">
@@ -459,7 +459,7 @@
         <div>
           <span class="bs-eyebrow"><span class="dot"></span> Track 04 · EMG-to-Text <span class="placeholder-badge">placeholder rows</span></span>
           <h2 id="t4-heading">Wristband EMG to typed text.</h2>
-          <p>Decode typed keystrokes from surface EMG across users, anatomy, and re-placement. Lower is better.</p>
+          <p>Transduce typed keystrokes from wristband surface EMG. The controlled shift is cross-user: held-out subjects vary in forearm anatomy, typing strategy, and sensor re-placement, so the score rewards user-invariant features rather than per-user templates. Lower is better.</p>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">
@@ -527,7 +527,7 @@
         <div>
           <span class="bs-eyebrow"><span class="dot"></span> Track 05 · Foundation transfer <span class="placeholder-badge">placeholder rows</span></span>
           <h2 id="t5-heading">One shared encoder across all four tracks.</h2>
-          <p>Rank shared encoders by their per-track score averaged across EEG-to-IMG, BCI, Sleep, and EMG. Normalized so 100 = perfect on every track. Higher is better.</p>
+          <p>Rank shared encoders by their mean rank across EEG-to-IMG, BCI, Sleep, and EMG. The visible score is presented on a 0–100 scale where 100 indicates first place on every track; internally it is the negated mean rank, so that confidence intervals stay higher-is-better. Higher is better.</p>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">

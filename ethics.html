@@ -172,7 +172,7 @@
       <div class="vb-hero-text">
         <span class="bs-eyebrow"><span class="dot"></span> About · ethics statement</span>
         <h1 id="ethics-heading">Ethics &amp; consent.</h1>
-        <p>This competition follows the NeurIPS Code of Ethics. Non-invasive neural decoding can benefit clinical applications, but it raises a central concern of mental privacy when applied to non-consenting subjects. We mitigate this through consented stimuli, cued tasks, consensual typing, and home wearables with subject-initiated recording, and through limits in the science itself.</p>
+        <p>This competition follows the NeurIPS Code of Ethics. Non-invasive neural decoding has clinical value, but raises a mental-privacy concern when applied to non-consenting subjects. Each track operationalises consent through its setup — consented stimuli, cued tasks, consensual typing, or subject-initiated home wearables — and the empirical limits of the science do the rest.</p>
         <div class="bs-hero-cta">
           <a class="bs-btn primary" href="#contact">Contact the organisers →</a>
           <a class="bs-btn ghost" href="#commitments">Read the commitments</a>
@@ -191,7 +191,7 @@
             <span class="bs-kicker">At a glance · ethics posture</span>
             <span class="bs-badge">QUOTED</span>
           </div>
-          <p style="font-size: 13px; line-height: 1.6; color: var(--bs-muted); margin: 12px 0 0;">All human-subject datasets are provided by their original data controllers and used only after confirmation that recordings, annotations, and competition use comply with applicable consent, ethics approval, de-identification, data-use terms, and the NeurIPS Code of Ethics on consent, privacy, and representativeness.</p>
+          <p style="font-size: 13px; line-height: 1.6; color: var(--bs-muted); margin: 12px 0 0;">Every human-subject dataset comes from its original data controller. We use it only after confirming that recordings, annotations, and competition use satisfy the relevant consent, ethics approval, de-identification, and data-use terms, alongside the NeurIPS Code of Ethics on consent, privacy, and representativeness.</p>
           <div class="vb-tags" style="margin-top: 14px;" aria-label="Quick commitments">
             <span class="bs-pill">No closed loop</span>
             <span class="bs-pill">No covert data</span>
@@ -231,8 +231,8 @@
         <div>
           <span class="bs-eyebrow"><span class="dot"></span> Empirical limits</span>
           <h2 id="privacy-heading">Why non-invasive decoding is privacy-bounded today.</h2>
-          <p style="margin-bottom: 16px;">Two empirical limits bound the mental-privacy risk in non-invasive recordings. Decoding accuracy is high only for perceptual tasks (viewing an image, executing a cued movement) and falls sharply on imagined content. Decoding also fails when the subject disengages from the cued task (for example, counting backward instead of attending the stimulus).</p>
-          <p>Consent is therefore a technical requirement, not only a legal one: a non-consenting subject can defeat decoding by attending elsewhere. Each track enforces consent through its controlled-stimulus, cued-task, consensual-typing, or home-wearable setup. We commit to read-only decoding (no closed-loop actuation) and to open, peer-reviewed evaluation.</p>
+          <p style="margin-bottom: 16px;">Two empirical limits bound mental-privacy risk in non-invasive recordings. First, decoding accuracy is high only for perceptual tasks — viewing an image, executing a cued movement — and falls sharply on imagined content. Second, when the subject diverts attention from the cued task (counting backward instead of attending the stimulus), the recoverable signal collapses and accuracy returns to chance.</p>
+          <p>Consent is therefore a technical precondition, not only a legal one: a non-consenting subject defeats decoding by attending elsewhere. Each track enforces consent through its setup — controlled-stimulus, cued-task, consensual-typing, or home-wearable — and never through covert observation. Decoders in this competition are read-only, with no closed-loop actuation, and all evaluation is open and peer-reviewed.</p>
         </div>
         <div class="vb-section-side">
           <span class="bs-kicker">What the science says</span>
@@ -247,7 +247,7 @@
         <div>
           <span class="bs-eyebrow"><span class="dot"></span> Data controllers</span>
           <h2 id="controllers-heading">Every dataset has an identified controller and a consent chain.</h2>
-          <p>All human-subject datasets are provided by their original data controllers and used only after confirmation that recordings, annotations, and competition use comply with applicable consent, ethics approval, de-identification, data-use terms, and the NeurIPS Code of Ethics.</p>
+          <p>Every human-subject dataset comes from its original data controller. We use it only after confirming that recordings, annotations, and competition use satisfy the relevant consent, ethics approval, de-identification, and data-use terms, alongside the NeurIPS Code of Ethics.</p>
           <ul style="margin: 18px 0 0; padding-left: 22px; line-height: 1.65; color: var(--bs-muted); font-size: 15px;">
             <li style="margin-bottom: 10px;"><strong style="color: var(--bs-text);">Track 1, EEG-to-IMG.</strong> THINGS-EEG1/2 (THINGS consortium), Alljoined-1, Alljoined-1.6M (Alljoined).</li>
             <li style="margin-bottom: 10px;"><strong style="color: var(--bs-text);">Track 2, BCI decoding.</strong> Stieger 2021, Dreyer 2023, Zyma 2019, Scherer 2015 (original lab data controllers); 20-subject Graz/BrainHero release (Inria Bordeaux, NEARBY/PROTEUS projects).</li>

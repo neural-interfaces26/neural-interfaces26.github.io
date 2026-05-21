@@ -279,7 +279,7 @@
         <div>
           <span class="bs-eyebrow"><span class="dot"></span> Five tracks, one pipeline <span class="placeholder-badge">draft pre-launch</span></span>
           <h2 id="tracks-heading">From cognition to clinic to foundation transfer.</h2>
-          <p>Each track shares the same evaluation harness, BIDS-first datasets, and reproducibility audit. Submit to one, or stack against all five.</p>
+          <p>One harness, one BIDS-first interface, one reproducibility audit. Holding evaluation fixed lets a per-track score be attributed to the model rather than to the protocol; stacking across tracks then tests reusability of representation.</p>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">
@@ -298,7 +298,7 @@
             <span class="bs-badge">OPEN</span>
           </div>
           <h3>EEG-to-IMG</h3>
-          <p>Evoked visual retrieval: rank held-out candidate images from EEG epochs recorded during visual stimulation. Targets are frozen DINOv2-giant embeddings.</p>
+          <p>Decodes which image a subject is viewing from a single EEG epoch, evaluated as ranking against held-out candidates. Targets are frozen DINOv2-giant embeddings, so the difficulty is in the EEG side, not in re-learning the image space. The controlled shift is cross-stimulus: test stimuli are unseen during training.</p>
           <div class="vb-track-paradigms">
             <span class="bs-pill">Visual retrieval</span>
             <span class="bs-pill">DINOv2</span>
@@ -329,7 +329,7 @@
             <span class="bs-badge">OPEN</span>
           </div>
           <h3>BCI decoding</h3>
-          <p>Calibration-stable command decoding across sessions and contexts. Generalize motor imagery, calculation, and word association tasks to later sessions without recalibration.</p>
+          <p>Decodes a cued mental command (motor imagery, mental calculation, word association) from short EEG windows. The controlled shift is cross-session: models train on early sessions and are scored on later sessions of the same subject, with no per-session recalibration allowed.</p>
           <div class="vb-track-paradigms">
             <span class="bs-pill">Motor imagery</span>
             <span class="bs-pill">Mental math</span>
@@ -360,7 +360,7 @@
             <span class="bs-badge">OPEN</span>
           </div>
           <h3>Sleep onset</h3>
-          <p>Estimate the latency from recording start to stable sleep onset (N2 event) using consumer-grade wearable EEG. Staging is secondary to precise timing.</p>
+          <p>Predicts the latency in seconds from recording start to the first stable N2 epoch, on consumer-grade wearable EEG. The controlled shift is to home-wearable channels and montages; precise timing replaces full staging because the wearable signal is too sparse to support per-epoch hypnogram reconstruction.</p>
           <div class="vb-track-paradigms">
             <span class="bs-pill">Sleep onset</span>
             <span class="bs-pill">Wearable EEG</span>
@@ -390,7 +390,7 @@
             <span class="bs-badge">OPEN</span>
           </div>
           <h3>EMG-to-Text</h3>
-          <p>Decode typed keystrokes from wristband surface EMG. Sequence transduction across 100+ users, addressing anatomy, typing strategy, and sensor re-placement.</p>
+          <p>Decodes typed keystrokes from wristband surface EMG as a sequence-transduction problem. The controlled shift is cross-user: 100+ held-out users vary in forearm anatomy, typing strategy, and sensor re-placement, so a model that overfits one user's geometry fails the test.</p>
           <div class="vb-track-paradigms">
             <span class="bs-pill">EMG typing</span>
             <span class="bs-pill">Sequence transduction</span>
@@ -421,7 +421,7 @@
             <span class="bs-badge">OPEN</span>
           </div>
           <h3>Foundation transfer</h3>
-          <p>Use a single shared biosignal encoder across all four tracks: EEG-to-IMG, BCI, Sleep, and EMG. Heads can be track-specific; the encoder must be one set of weights, applied to both EEG and surface EMG. Evaluates reusable cross-task and cross-modality representation learning.</p>
+          <p>Forces a single set of encoder weights across all four tracks: EEG-to-IMG, BCI, Sleep, and EMG. Heads can be track-specific; the encoder cannot. Sharing weights across EEG and surface EMG makes single-task wins separable from reusable representation learning, which a per-track encoder cannot demonstrate.</p>
           <div class="vb-track-paradigms">
             <span class="bs-pill">Frozen probe</span>
             <span class="bs-pill">Finetune</span>
@@ -454,7 +454,7 @@
         <div>
           <span class="bs-eyebrow"><span class="dot"></span> Phases · Jul — Dec 2026</span>
           <h2 id="timeline-heading">From warm-up to NeurIPS finals.</h2>
-          <p>One warm-up window, one final submission window, one reproducibility audit, one weekend in Sydney. The schedule follows the NeurIPS 2026 competition guidelines: launch July 1, submissions close September 1 (AoE), final rankings November 1, present at the December workshop.</p>
+          <p>One warm-up window, one final submission window, one reproducibility audit, one weekend in Sydney. Dates follow the NeurIPS 2026 competition guidelines: launch July 1, submissions close September 1 (AoE), final rankings November 1, workshop in December.</p>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">
