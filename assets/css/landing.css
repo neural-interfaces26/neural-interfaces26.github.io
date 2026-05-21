@@ -386,14 +386,61 @@
 
 .vb-hero-text p strong { color: var(--bs-text); }
 
-/* Lineage line at the foot of the hero copy: same width, smaller and quieter
-   than the main pitch paragraph so it reads as evidence, not as pitch. */
-.vb-hero-text p.vb-hero-lineage {
+/* Hero copy is broken into discrete short paragraphs (one argument each) so
+   the reader can scan and stop at any line. Tighter vertical rhythm than the
+   default p so the block still feels like one piece, not five bullets. */
+.vb-hero-text p {
+  margin: 0 0 14px;
+}
+
+/* The lead paragraph (the claim being tested) gets a slight emphasis bump
+   so it reads as the headline statement of the argument, not as filler. */
+.vb-hero-text p.vb-hero-lead {
+  font-size: 17px;
+  color: var(--bs-text);
+  margin-bottom: 18px;
+}
+
+/* Last paragraph in the hero copy is followed by the CTA cluster; give it
+   the original 26px of breathing room so the buttons don't kiss the text. */
+.vb-hero-text p:last-of-type {
+  margin-bottom: 26px;
+}
+
+/* Prior-edition trust strip: a quiet one-line band that sits between the
+   hero and the stats banner. Carries the 2025 lineage numbers + community
+   channels (EEGLAB / MNE-Python / NeuroTechX) so the hero stays scannable
+   and the social-proof signal stays visible above the fold of the next
+   scroll. */
+.vb-prior {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 14px 24px;
+  margin: 16px 0 0;
+  border-top: 1px solid var(--bs-card-border);
+  border-bottom: 1px solid var(--bs-card-border);
+  background: var(--bs-surface);
+}
+
+.vb-prior .bs-kicker {
+  flex: 0 0 auto;
+}
+
+.vb-prior p {
+  margin: 0;
   font-size: 13px;
   line-height: 1.55;
-  color: var(--bs-faint);
-  margin-top: -10px;
-  margin-bottom: 22px;
+  color: var(--bs-muted);
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.vb-prior p strong {
+  color: var(--bs-text);
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .bs-hero-cta {
