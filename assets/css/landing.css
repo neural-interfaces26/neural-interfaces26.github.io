@@ -497,6 +497,17 @@
   max-width: 56ch;
 }
 
+.vb-section-head p.vb-section-subtitle {
+  font-size: 20px;
+  line-height: 1.35;
+  color: var(--bs-fg);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  margin: 0 0 14px;
+  max-width: 56ch;
+  text-wrap: balance;
+}
+
 .vb-section-head .bs-eyebrow { margin-bottom: 0; }
 
 .vb-section-side {
@@ -963,7 +974,7 @@
 
 .ds-row {
   display: grid;
-  grid-template-columns: 90px minmax(0, 1fr) 50px 50px 60px 50px 70px 120px;
+  grid-template-columns: 90px minmax(0, 1fr) 60px 60px 70px 60px 80px;
   gap: 14px;
   align-items: center;
   padding: 12px 18px;
@@ -1179,6 +1190,69 @@
   margin-top: 12px;
 }
 
+/* Hard line-break inside the flex grid: forces the items after this span to
+   start on a fresh row, regardless of how many would otherwise fit. Used to
+   split organizing institutions into a deliberate 6 + 6 layout. */
+.vb-logo-row-break {
+  flex-basis: 100%;
+  width: 100%;
+  height: 0;
+  margin: 0;
+}
+
+/* Full-width logo group: escapes the 2-column .vb-sponsors-grid so a long
+   row of organizing institutions has room to lay out 6-up without crowding. */
+.vb-logo-group--full {
+  grid-column: 1 / -1;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--bs-card-border);
+}
+
+/* Six-up logo grid: a 7-column track where UCSD's wide wordmark spans two
+   columns, letting row 1 fit 6 logos (Yneuro, UCSD×2, Imperial, Donders,
+   Inria, ISAE) and row 2 fit the remaining 6 with one trailing empty cell. */
+.vb-logo-grid--six-up {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 32px 24px;
+  align-items: center;
+  justify-items: center;
+}
+
+.vb-logo-grid--six-up .vb-logo-mark img {
+  max-width: 100%;
+}
+
+/* UCSD wordmark spans 2 grid columns so its very wide aspect ratio (5.25:1)
+   reads at parity with the other --xl marks instead of getting crushed into
+   a single 1fr cell. Stretch the mark and force the img to fill it so the
+   logo grows to fit the 2-cell span instead of stopping at its 289px
+   intrinsic width. */
+.vb-logo-grid--six-up .vb-logo-mark--ucsd {
+  grid-column: span 2;
+  justify-self: stretch;
+  width: 100%;
+  height: 80px;
+}
+.vb-logo-grid--six-up .vb-logo-mark--ucsd img {
+  max-width: 360px;
+  width: 100%;
+  height: auto;
+}
+
+/* Step the 6-up grid down at narrower viewports so cells don't get smaller
+   than the contained logos can reasonably read at. */
+@media (max-width: 1100px) {
+  .vb-logo-grid--six-up { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .vb-logo-grid--six-up { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 480px) {
+  .vb-logo-grid--six-up { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 .vb-logo-mark {
   display: flex;
   align-items: center;
@@ -1214,6 +1288,9 @@
 .vb-logo-mark--xl img {
   max-width: 180px;
 }
+
+/* UCSD wordmark sizing is handled in the six-up rule above via
+   .vb-logo-mark--ucsd; no extra override needed here. */
 
 /* Fallback for when logos are missing or just text is preferred */
 .org-list {
@@ -1594,6 +1671,7 @@
 .vb-section-head .bs-eyebrow { margin-bottom: 0; }
 .vb-section-head h2 { margin: 10px 0 0; }
 .vb-section-head p { margin: 12px 0 0; }
+.vb-section-head p.vb-section-subtitle { margin: 10px 0 0; }
 
 /* Same for organizers' bespoke section head — match the new landing rhythm. */
 .org-section-head {
