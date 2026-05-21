@@ -1100,6 +1100,33 @@
   width: fit-content;
 }
 
+/* Rows newly released for the 2026 competition: left accent stripe + faint
+   tint + a small NEW pill inline with the dataset name. Keeps the table
+   scannable while making the new releases pop. */
+.ds-row--new {
+  position: relative;
+  background: rgba(46, 109, 213, 0.04);
+  box-shadow: inset 3px 0 0 var(--bs-accent, #2e6dd5);
+}
+
+.ds-row--new:hover:not(.head) {
+  background: rgba(46, 109, 213, 0.08);
+}
+
+.ds-new-tag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--bs-accent, #2e6dd5);
+  color: white;
+  font-family: var(--bs-fontmono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  vertical-align: 1px;
+}
+
 .ds-row .mod-eeg { background: rgba(34, 75, 141, 0.1); color: var(--bs-link); }
 .ds-row .mod-meg { background: rgba(0, 54, 159, 0.12); color: var(--bs-accent-2); }
 .ds-row .mod-ieeg { background: rgba(238, 95, 91, 0.12); color: #b33b3a; }
