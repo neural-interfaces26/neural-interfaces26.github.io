@@ -238,9 +238,9 @@
         <div class="vb-hero-eeg" aria-label="EEG demo signal">
           <div class="bs-card-head">
             <span class="bs-kicker">Demo signal · α-band</span>
-            <span style="font-size: 10px; color: var(--bs-faint); font-family: var(--bs-fontmono);">6 ch · 256 Hz</span>
+            <span class="bs-meta-mono">6 ch · 256 Hz</span>
           </div>
-          <div class="bs-eeg-host" data-eeg-host data-channels="6" data-speed="0.6" style="margin-top: 10px;"></div>
+          <div class="bs-eeg-host" data-eeg-host data-channels="6" data-speed="0.6"></div>
         </div>
       </div>
     </section>
@@ -289,7 +289,7 @@
                srcset="assets/img/figures/eeg-to-img.png 1x, assets/img/figures/eeg-to-img@2x.png 2x"
                alt="Track 1 EEG-to-IMG: THINGS-EEG and Alljoined data feed an EEG decoder ranked against a held-out image gallery."
                loading="lazy"
-               style="display: block; width: 100%; height: auto; border-radius: 10px; margin: 0 0 14px;" />
+               class="vb-track-img" />
           <h3>EEG-to-IMG</h3>
           <p>Decodes which image a subject is viewing from a single EEG epoch, evaluated as ranking against held-out candidates. Targets are frozen DINOv2-giant embeddings, so the difficulty is in the EEG side, not in re-learning the image space. The controlled shift is cross-stimulus: test stimuli are unseen during training.</p>
           <div class="vb-track-paradigms">
@@ -313,7 +313,7 @@
                srcset="assets/img/figures/bci-track.png 1x, assets/img/figures/bci-track@2x.png 2x"
                alt="Track 2 BCI decoding: cued mental commands (motor imagery, mental math, word association) decoded from EEG across later sessions of the same subject."
                loading="lazy"
-               style="display: block; width: 100%; height: auto; border-radius: 10px; margin: 0 0 14px;" />
+               class="vb-track-img" />
           <h3>BCI decoding</h3>
           <p>Decodes a cued mental command (motor imagery, mental calculation, word association) from short EEG windows. The controlled shift is cross-session: models train on early sessions and are scored on later sessions of the same subject, with no per-session recalibration allowed.</p>
           <div class="vb-track-paradigms">
@@ -337,7 +337,7 @@
                srcset="assets/img/figures/sleep_prediction.png 1x, assets/img/figures/sleep_prediction@2x.png 2x"
                alt="Track 3 Sleep onset: consumer-grade wearable EEG predicts seconds remaining until the first stable N2 epoch."
                loading="lazy"
-               style="display: block; width: 100%; height: auto; border-radius: 10px; margin: 0 0 14px;" />
+               class="vb-track-img" />
           <h3>Sleep onset</h3>
           <p>Predicts the latency in seconds from recording start to the first stable N2 epoch, on consumer-grade wearable EEG. The controlled shift is to home-wearable channels and montages; precise timing replaces full staging because the wearable signal is too sparse to support per-epoch hypnogram reconstruction.</p>
           <div class="vb-track-paradigms">
@@ -361,7 +361,7 @@
                srcset="assets/img/figures/emg-to-text.png 1x, assets/img/figures/emg-to-text@2x.png 2x"
                alt="Track 4 EMG-to-Text: wristband surface EMG decoded as a sequence of typed keystrokes, generalising across users."
                loading="lazy"
-               style="display: block; width: 100%; height: auto; border-radius: 10px; margin: 0 0 14px;" />
+               class="vb-track-img" />
           <h3>EMG-to-Text</h3>
           <p>Decodes typed keystrokes from wristband surface EMG as a sequence-transduction problem. The controlled shift is cross-user: 100+ held-out users vary in forearm anatomy, typing strategy, and sensor re-placement, so a model that overfits one user's geometry fails the test.</p>
           <div class="vb-track-paradigms">
@@ -385,7 +385,7 @@
                srcset="assets/img/figures/track_5.png 1x, assets/img/figures/track_5@2x.png 2x"
                alt="Track 5 Foundation transfer: a single shared biosignal encoder applied across all four task heads on the EEG and EMG tracks."
                loading="lazy"
-               style="display: block; width: 100%; height: auto; border-radius: 10px; margin: 0 0 14px;" />
+               class="vb-track-img" />
           <h3>Foundation transfer</h3>
           <p>Forces a single set of encoder weights across all four tracks: EEG-to-IMG, BCI, Sleep, and EMG. Heads can be track-specific; the encoder cannot. Sharing weights across EEG and surface EMG makes single-task wins separable from reusable representation learning, which a per-track encoder cannot demonstrate.</p>
           <div class="vb-track-paradigms">
@@ -682,16 +682,16 @@
           <a class="bs-btn ghost" href="organizers.html">Meet the team →</a>
         </div>
         <div>
-          <div style="margin-bottom: 24px;">
-            <span class="bs-kicker" style="display:block; margin-bottom: 12px;">Compute partner</span>
+          <div class="vb-logo-group">
+            <span class="bs-kicker">Compute partner</span>
             <div class="vb-logo-grid">
               <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark" title="Amazon Web Services">
                 <img src="assets/img/logos/aws.svg" alt="AWS">
               </a>
             </div>
           </div>
-          <div style="margin-bottom: 24px;">
-            <span class="bs-kicker" style="display:block; margin-bottom: 12px;">Track sponsors</span>
+          <div class="vb-logo-group">
+            <span class="bs-kicker">Track sponsors</span>
             <div class="vb-logo-grid">
               <a href="https://www.alljoined.com/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark" title="Alljoined">
                 <img src="assets/img/logos/alljoined.png" alt="Alljoined">
@@ -707,8 +707,8 @@
               </a>
             </div>
           </div>
-          <div>
-            <span class="bs-kicker" style="display:block; margin-bottom: 12px;">Organizing institutions</span>
+          <div class="vb-logo-group">
+            <span class="bs-kicker">Organizing institutions</span>
             <div class="vb-logo-grid">
               <a href="https://www.yneuro.com/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark vb-logo-mark--xl" title="Yneuro">
                 <img src="assets/img/logos/yneuro.png" alt="Yneuro">
@@ -776,7 +776,7 @@
     <!-- ============================== Footer ============================== -->
     <footer class="vb-footer">
       <div class="vb-footer-row">
-        <a class="vb-brand" href="#top" style="border-bottom: none; padding: 0; text-decoration: none;">
+        <a class="vb-brand footer-brand" href="#top">
           <span class="glyph">
             <svg viewBox="0 0 32 32" width="20" height="20" aria-hidden="true">
               <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
@@ -804,7 +804,7 @@
       </div>
       <div class="vb-footer-row">
         <span class="vb-footer-meta">
-          © 2026 EEG/EMG Foundation Challenge · MIT licensed · Continues the work of the <a href="https://eeg2025.github.io/" target="_blank" rel="noreferrer noopener" style="color: inherit; text-decoration: underline;">EEG 2025 Challenge</a>
+          © 2026 EEG/EMG Foundation Challenge · MIT licensed · Continues the work of the <a href="https://eeg2025.github.io/" target="_blank" rel="noreferrer noopener" >EEG 2025 Challenge</a>
         </span>
         <span class="vb-footer-meta">
           Organized by Yneuro · UCSD · Imperial · Meta FAIR · Donders · Alljoined · Inria Bordeaux · ISAE-SUPAERO · InteraXon · Meta Reality Labs · Paris-Saclay · CNRS · Salk · ChaLearn

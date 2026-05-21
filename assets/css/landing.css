@@ -1537,3 +1537,429 @@
 
 .ds-row .mod-emg { background: rgba(204, 73, 0, 0.12); color: #a03900; }  /* 5.75:1 on tinted bg (was #cc4900, 3.92:1) */
 .ds-row .mod-sleep { background: rgba(126, 63, 152, 0.12); color: #7e3f98; }
+
+/* ============================================================
+   Audit pass 2026-05-21 — alignment, rhythm, utility classes
+   ============================================================ */
+
+/* ---- 1. Section head: align rails to the top so the right-column meta
+        starts on the same baseline as the left-column eyebrow, instead of
+        floating mid-block when the left column has 3 children and the
+        right has 5. This is the single biggest source of "off" feel on
+        index.html (Tracks/Timeline) and leaderboard.html (every section). */
+.vb-section-head {
+  align-items: start;
+  margin-bottom: 32px;
+}
+
+/* Left column: eyebrow → 10px → h2 → 12px → p. Tight, deliberate vertical
+   rhythm; replaces the inherited h2 margin which was uneven. */
+.vb-section-head > div:first-child { display: flex; flex-direction: column; gap: 0; }
+.vb-section-head .bs-eyebrow { margin-bottom: 0; }
+.vb-section-head h2 { margin: 10px 0 0; }
+.vb-section-head p { margin: 12px 0 0; }
+
+/* Same for organizers' bespoke section head — match the new landing rhythm. */
+.org-section-head {
+  align-items: start;
+  margin-bottom: 32px;
+}
+.org-section-head > div:first-child { display: flex; flex-direction: column; gap: 0; }
+.org-section-head h2 { margin: 10px 0 0; }
+.org-section-head p { margin: 12px 0 0; }
+
+/* Right rail: when the column hosts vb-tracks-meta or a hero-cta cluster,
+   anchor it to the eyebrow baseline of the heading column. The 22px lead
+   keeps the meta blocks from kissing the eyebrow. */
+.vb-section-side { padding-top: 22px; }
+.org-section-side { padding-top: 22px; }
+
+/* Contact section uses .vb-section-side to host a bs-hero-cta — strip the
+   default lead so the buttons start aligned with the eyebrow row. */
+.vb-section-head .vb-section-side > .bs-hero-cta { margin-top: -22px; }
+
+
+/* ---- 2. Section padding rhythm: 56/56 was inconsistent across breakpoints
+        (1100px bumped to 64, then 900px dropped to 48). Normalise so every
+        section uses the same vertical rhythm regardless of stylesheet. */
+.vb-section { padding: 56px 32px; }
+.org-section { padding: 56px 32px; }
+
+/* The "+ section" override on organizers was adding asymmetric 64px padding
+   to consecutive org-sections only — drop it so the rhythm matches. */
+.org-section + .org-section { padding-top: 56px; }
+
+
+/* ---- 3. .ds-foot: justify-content space-between with flex-wrap meant the
+        kicker text and the right-side link would split awkwardly when the
+        kicker was long. Constrain kicker width and let the link sit tight
+        against the right edge. */
+.ds-foot {
+  align-items: baseline;
+  margin-top: 18px;
+}
+.ds-foot .bs-kicker {
+  flex: 1 1 320px;
+  min-width: 0;
+  line-height: 1.5;
+  letter-spacing: 0.8px;
+  text-transform: none;
+  font-size: 11px;
+}
+.ds-foot .track-link { flex: 0 0 auto; white-space: nowrap; }
+
+
+/* ---- 4. .vb-track-cta: was flex-wrap with no justify-content, so kicker
+        and track-link sometimes stacked, sometimes spread. Pin them with
+        space-between for a consistent CTA row across every track card. */
+.vb-track-cta {
+  justify-content: space-between;
+  align-items: baseline;
+}
+.vb-track-cta .bs-kicker {
+  flex: 1 1 200px;
+  min-width: 0;
+  text-transform: none;
+  letter-spacing: 0.8px;
+  font-size: 11px;
+  color: var(--bs-muted);
+  line-height: 1.5;
+}
+.vb-track-cta .track-link { flex: 0 0 auto; white-space: nowrap; }
+
+
+/* ---- 5. .vb-track: equal-height card flex layout had no bottom-anchor for
+        the CTA row, so cards with short descriptions had CTAs floating mid-
+        card while cards with long descriptions had CTAs pinned at the bottom.
+        margin-top: auto on the CTA forces every card to bottom-align CTAs. */
+.vb-track > .vb-track-cta { margin-top: auto; }
+
+/* Same for the track-stats row in awards.html prize cards — sits at the
+   bottom of each card so prize amounts visually line up across columns. */
+.vb-track > .track-stats { margin-top: auto; }
+
+
+/* ---- 6. Featured (Track 05) grid-template: the cta row had margin-top: 4px
+        added on top of the existing row gap (12px), creating 16px of visual
+        air between the description block and the CTA divider. Strip it. */
+@media (min-width: 901px) {
+  .vb-track.full-width .vb-track-cta { margin-top: 0; padding-top: 14px; }
+  .vb-track.full-width .vb-track-lead { margin-top: 0; }
+}
+
+
+/* ---- 7. Track image: 5 inline-style images on index.html shared identical
+        rules. Promote to .vb-track-img so the markup reads design-systemy. */
+.vb-track-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 0 0 14px;
+}
+
+
+/* ---- 8. Hero side panel meta micro-row: small mono caption that was used
+        inline twice on index.html and leaderboard.html. */
+.bs-meta-mono {
+  font-family: var(--bs-fontmono);
+  font-size: 10px;
+  color: var(--bs-faint);
+  letter-spacing: 0.4px;
+}
+
+
+/* ---- 9. Note paragraph: 14 instances of identical inline style across
+        ethics.html, faq.html, track-record.html — same font, line-height,
+        colour, narrow max-width. Promote to utility. */
+.note-text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--bs-muted);
+  margin: 10px 0 0;
+  max-width: 32ch;
+}
+.note-text.wide { max-width: none; }
+.note-text.tight-top { margin-top: 12px; }
+
+
+/* ---- 10. Long-form bulleted list with strong inline labels (ethics page).
+         Pulled out so list spacing matches the body rhythm. */
+.policy-list {
+  margin: 18px 0 0;
+  padding-left: 22px;
+  line-height: 1.65;
+  color: var(--bs-muted);
+  font-size: 15px;
+}
+.policy-list li { margin-bottom: 10px; }
+.policy-list li strong { color: var(--bs-text); }
+
+
+/* ---- 11. Blockquote utility (ethics page). */
+.bs-quote {
+  border-left: 3px solid var(--bs-accent);
+  padding: 8px 18px;
+  margin: 20px 0 24px;
+  font-family: var(--bs-fontserif, "Source Serif 4", Georgia, serif);
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--bs-text);
+}
+
+
+/* ---- 12. Sponsor logo group: kicker label + .vb-logo-grid pair. Replaces
+         <div style="margin-bottom:24px"><span class="bs-kicker"
+         style="display:block;margin-bottom:12px">…</span><div class="vb-logo-grid">…</div></div>
+         repeated 6 times across index.html and awards.html. */
+.vb-logo-group {
+  margin-bottom: 24px;
+}
+.vb-logo-group:last-child { margin-bottom: 0; }
+.vb-logo-group .bs-kicker {
+  display: block;
+  margin-bottom: 12px;
+}
+/* When the kicker sits directly on a .vb-logo-grid, no extra margin needed. */
+.vb-logo-group .vb-logo-grid { margin-top: 0; }
+
+
+/* ---- 13. Footer brand: 8 instances of the identical inline override on
+         every page. Promote to .vb-brand.footer-brand modifier. */
+.vb-brand.footer-brand {
+  border-bottom: none;
+  padding: 0;
+  text-decoration: none;
+}
+
+
+/* ---- 14. Footer meta links inheriting the meta colour. */
+.vb-footer-meta a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+
+/* ---- 15. Eyebrow with a trailing placeholder badge: keep the badge from
+         pushing the dot/text into a wrap when room is tight. */
+.bs-eyebrow .placeholder-badge {
+  margin-left: 4px;
+  flex-shrink: 0;
+}
+
+
+/* ---- 16. Section .vb-section + .vb-section pair: when two sections of the
+         same surface stack, an extra 1px border creates a faint double-line.
+         The .vb-section-cream variant fixes this with bg colour, but the
+         non-cream stacks still draw double. Collapse adjacent borders. */
+.vb-section + .vb-section { border-top: none; }
+.vb-section + .vb-section.vb-section-cream,
+.vb-section.vb-section-cream + .vb-section { border-top: 1px solid var(--bs-card-border); }
+
+
+/* ---- 17. Sticky table headers — keeps the column labels visible while
+         scrolling long .ds-table or .vb-leader bodies, instead of having
+         users lose their column reference mid-scroll. */
+.ds-table .ds-row.head,
+.vb-leader .vb-leader-row.head {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+
+/* ---- 18. Numeric cells in .ds-table should right-align when they are
+         counts, durations, etc. Currently every .num is left-aligned which
+         makes column scanning slow on the dataset directory and the
+         start-kit baselines table. */
+.ds-row .num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.ds-row.head > span:not(:first-child):not(:nth-child(2)) {
+  text-align: right;
+}
+/* Restore left-align where the column is text-coded (e.g. config paths,
+   metric strings with mean ± std) — these are .nm cells, already left. */
+
+
+/* ---- 19. Formal block (leaderboard math section): the inline <style>
+         block at top of the page sets a 10px radius and a 22/24 padding, but
+         the .bs-code child inside the formal-block has its own 14px radius,
+         creating a visible inset that doesn't quite line up. Match the
+         inner border-radius cleanly. */
+.formal-block .bs-code {
+  border-radius: 10px;
+}
+.formal-block h3 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0;
+  margin: 0 0 8px;
+}
+
+
+/* ---- 20. .vb-tracks-meta items: 10px 14px padding + 2px left border means
+         when items stack vertically (5 items on index.html timeline meta),
+         the left edge of the rail is the only visual alignment. Add a
+         consistent 6px vertical rhythm between items. */
+.vb-tracks-meta { gap: 10px; }
+.vb-tracks-meta > div { padding: 8px 12px; }
+
+
+/* ---- 21. .org-section-side: was hard right-aligned at desktop. Match the
+         left column's eyebrow baseline by allowing it to sit start-aligned,
+         and prevent it from disappearing visually when text is short. */
+.org-section-side {
+  align-self: start;
+  text-align: right;
+  line-height: 1.4;
+}
+
+
+/* ---- 22. .vb-track .track-head (Track 01/02/etc. header): when content
+         is long, the badge and kicker wrap into two lines breaking visual
+         rhythm. Pin them. */
+.vb-track .track-head {
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.vb-track .track-head .bs-kicker { flex: 1 1 auto; min-width: 0; }
+.vb-track .track-head .bs-badge { flex: 0 0 auto; }
+
+
+/* ---- 23. Featured track text contrast inside .vb-track-cta — kicker
+         needed a brighter colour on the dark surface; the inherited
+         var(--bs-muted) reads as #494e53 against #0e1320 (4.0:1) which fails
+         WCAG AA for non-large text. Bump to the code surface's faint token. */
+.vb-track.featured .vb-track-cta .bs-kicker { color: #b9bcc8; }
+
+
+/* ---- 24. .vb-leader-row affiliation column .tk: pin to fit-content so the
+         pill doesn't stretch on wide rows but also doesn't overflow on
+         narrow ones. */
+.vb-leader-row .tk {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* ---- 25. Top-bar consistency: vb-bread on long pages was overflowing on
+         desktops below 1280px when the breadcrumb had 4 levels. Pin a
+         minimum size on the breadcrumb. */
+@media (min-width: 901px) {
+  .vb-bread { min-width: 0; flex: 1 1 auto; }
+  .vb-top-cta { flex: 0 0 auto; }
+}
+
+
+/* ---- 26. Footer brand title vs sub gap on mobile — sub line was kissing
+         the title on the footer, but had 1.2 line-height on the title. */
+.vb-footer .vb-brand .title { display: block; line-height: 1.2; margin-bottom: 2px; }
+.vb-footer .vb-brand .sub { display: block; line-height: 1.2; }
+
+
+/* ---- 27. Track-record's hero-side .vb-tracks-meta — was using the .vb-tracks-meta
+         style with 2px left rail and tinted bg, but inside the dark hero-eeg
+         card it reads wrong. Tighter, no rail when nested inside hero-eeg. */
+.vb-hero-eeg .vb-tracks-meta { gap: 8px; }
+.vb-hero-eeg .vb-tracks-meta > div {
+  background: transparent;
+  border-left: 1px solid var(--bs-card-border);
+  padding: 4px 12px;
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+.vb-hero-eeg .vb-tracks-meta > div strong {
+  font-family: var(--bs-fontmono);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--bs-text);
+}
+
+
+/* ---- 28. Walkthrough section's "two side-by-side bs-code figures" override
+         on startkit.html — promote to a modifier instead of inline style. */
+.vb-tracks.two-col {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+@media (max-width: 900px) {
+  .vb-tracks.two-col { grid-template-columns: 1fr; }
+}
+
+
+/* ---- 29. Inline hero-side stat-stripe override on leaderboard.html — extract
+         the local override to a modifier. */
+.vb-stats.compact {
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 12px;
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+.vb-stats.compact .vb-stat {
+  padding: 12px 14px;
+  border-right: 1px solid var(--bs-card-border);
+}
+.vb-stats.compact .vb-stat:last-child { border-right: none; }
+.vb-stats.compact .vb-stat strong { font-size: 20px; }
+
+
+/* ---- 30. EEG host margin override (index.html). */
+.bs-eeg-host { margin-top: 10px; }
+
+
+/* ---- 31. Mobile footer rows: when wrapped, both meta lines were stacking
+         too tightly. Add explicit spacing. */
+@media (max-width: 720px) {
+  .vb-footer-row { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .vb-footer .vb-footer-row + .vb-footer-row { margin-top: 14px; padding-top: 14px; }
+  .vb-footer-meta { font-size: 11px; line-height: 1.5; }
+}
+
+
+/* ---- 32. .org-card.lead — text alignment: image-backed avatar inside the
+         lead card overflow was clipping the ring; make sure flex doesn't
+         squash the avatar. */
+.org-card .avatar { flex-shrink: 0; }
+
+
+/* ---- 33. Affil row: when affils mix .bs-pill text labels and <img> logos,
+         baseline alignment is uneven because pills and imgs have different
+         vertical rhythms. Force everything to align at the centre. */
+.org-card .affil {
+  align-items: center;
+}
+.org-card .affil img,
+.org-card .affil .bs-pill {
+  display: inline-flex;
+  align-items: center;
+}
+
+
+/* ---- 34. Restore symmetric breakpoint between 1100px (compact) and
+         the desktop section padding. */
+@media (max-width: 1100px) {
+  .vb-section { padding: 48px 24px; }
+  .org-section { padding: 48px 24px; }
+  .vb-cta { padding: 56px 24px; }
+}
+
+
+/* ---- 35. .vb-tracks-meta.inline-stats: when meta is appended inline below
+         a paragraph (track-record's BEETL/Brain Age stats), it needs a
+         deliberate top margin so it doesn't kiss the prose. */
+.vb-tracks-meta.inline-stats { margin-top: 18px; }
+
+/* ---- 36. .bs-hero-cta.spaced: extra top breathing room when a CTA cluster
+         follows a stats block (track-record's EEG-2025 row). */
+.bs-hero-cta.spaced { margin-top: 22px; }
+
+/* ---- 37. .vb-tags.spaced-tags: 14px top gap when tag row sits inside a
+         hero card after a paragraph (ethics, faq quick-topics row). */
+.vb-tags.spaced-tags { margin-top: 14px; }
+

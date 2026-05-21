@@ -76,12 +76,9 @@ ANCHORS: dict[str, list[str]] = {
         "track-record.html",
         "faq.html",
     ],
-    "affinity-group naming (P2)": [
-        "Women in AI",
-        "Black in AI",
-        "Queer in AI",
-        "LatinX in AI",
-    ],
+    # "affinity-group naming" anchors removed: the diversity-grant row was
+    # deleted from awards.html (proposal does not commit to affinity-network
+    # grants; only travel support per top-3 is in the proposal).
     "timeline additions (P1)": [
         "Jun 1, 2026", "Jun 15, 2026",
     ],
