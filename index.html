@@ -201,7 +201,7 @@
     </div>
 
     <!-- ============================== Hero ============================== -->
-    <section class="vb-hero solo" id="quickstart" aria-labelledby="hero-heading">
+    <section class="vb-hero" id="quickstart" aria-labelledby="hero-heading">
       <div class="vb-hero-text">
         <span class="bs-eyebrow"><span class="dot"></span> NeurIPS 2026 · open competition</span>
         <h1 id="hero-heading">EEG/EMG Foundation Challenge 2026.</h1>
@@ -225,6 +225,24 @@
         </div>
       </div>
 
+      <div class="vb-hero-side">
+        <figure class="bs-code" aria-label="Install snippet">
+          <figcaption class="bs-code-head">
+            <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span class="bs-kicker">bash · pip · neuralbench</span>
+            <button class="copy" type="button" data-copy>copy</button>
+          </figcaption>
+          <pre><div class="line"><span class="ln"> 1</span><code><span class="c1"># 1. Install the benchmark stack</span></code></div><div class="line"><span class="ln"> 2</span><code><span class="kw">$</span> pip install <span class="str">neuralbench</span> eegdash braindecode</code></div><div class="line"><span class="ln"> 3</span><code> </code></div><div class="line"><span class="ln"> 4</span><code><span class="c1"># 2. Download a task</span></code></div><div class="line"><span class="ln"> 5</span><code><span class="kw">$</span> neuralbench eeg eeg_to_image <span class="op">--download</span></code></div><div class="line"><span class="ln"> 6</span><code> </code></div><div class="line"><span class="ln"> 7</span><code><span class="c1"># 3. Train a baseline</span></code></div><div class="line"><span class="ln"> 8</span><code><span class="kw">$</span> neuralbench eeg eeg_to_image <span class="op">-m</span> <span class="str">eegnet</span></code></div><div class="line"><span class="ln"> 9</span><code><span class="c2">  ↳ NeuralBench-EEG-Core v1.0 · 14 datasets · 4 tasks</span></code></div></pre>
+        </figure>
+
+        <div class="vb-hero-eeg" aria-label="EEG demo signal">
+          <div class="bs-card-head">
+            <span class="bs-kicker">Demo signal · α-band</span>
+            <span style="font-size: 10px; color: var(--bs-faint); font-family: var(--bs-fontmono);">6 ch · 256 Hz</span>
+          </div>
+          <div class="bs-eeg-host" data-eeg-host data-channels="6" data-speed="0.6" style="margin-top: 10px;"></div>
+        </div>
+      </div>
     </section>
 
     <!-- ============================== Stats banner ============================== -->
