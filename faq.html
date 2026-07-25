@@ -71,7 +71,7 @@
 
 <div class="preview-banner" role="status">
   <span class="badge">Preview</span>
-  <span>This is a draft of the public site. The FAQ answers below are sourced from the competition proposal; <strong>numbers and dates elsewhere on the site are placeholder values</strong> until launch.</span>
+  <span><strong>More announcements coming after the summer.</strong> The competition runs Sep 1 – Nov 1, 2026 — audit, prizes, and workshop dates follow later. FAQ answers below are from the competition proposal; numbers and dates elsewhere are placeholder values until launch.</span>
 </div>
 
 <div class="bs-root landing">
@@ -120,8 +120,8 @@
 </nav>
 
     <div class="vb-foot">
-      <div class="bs-kicker">Start-kit drops</div>
-      <div class="vb-countdown" data-countdown-to="2026-06-01T00:00:00Z" aria-live="polite">
+      <div class="bs-kicker">Competition opens</div>
+      <div class="vb-countdown" data-countdown-to="2026-09-01T00:00:00Z" aria-live="polite">
         <span class="vb-cd-group"><span class="vb-cd-num" data-cd-days>—</span><span class="vb-cd-unit" data-cd-days-unit>days</span></span>
         <span class="vb-cd-group"><span class="vb-cd-num" data-cd-hours>—</span><span class="vb-cd-unit">hr</span></span>
         <span class="vb-cd-group"><span class="vb-cd-num" data-cd-mins>—</span><span class="vb-cd-unit">min</span></span>
@@ -181,7 +181,7 @@
       <div class="vb-hero-side">
         <div class="vb-hero-eeg" aria-label="FAQ summary">
           <div class="bs-card-head">
-            <span class="bs-kicker">At a glance · eleven answers</span>
+            <span class="bs-kicker">At a glance · twelve answers</span>
             <span class="bs-badge">REFERENCE</span>
           </div>
           <p class="note-text wide tight-top">Each answer is sourced from the competition proposal. If the FAQ contradicts something you read elsewhere on the site, treat this page as canonical and tell us. Email or Discord, same response time either way.</p>
@@ -225,7 +225,17 @@
             <span class="bs-badge">RULES</span>
           </div>
           <h3>What's the daily submission cap?</h3>
-          <p>The warm-up phase (Jul 1 – Jul 31, 2026) is uncapped; iterate freely. The sealed final phase (Aug 1 – Sep 1, 2026 AoE) caps you at 5 submissions per team per day, so the prize roster reflects deliberate iteration rather than lottery search. The final NeurIPS ranking takes the best of your last five sealed submissions.</p>
+          <p>The warm-up phase (Sep 1 – Sep 30, 2026) is uncapped; iterate freely. The sealed final phase (Oct 1 – Nov 1, 2026 AoE) caps you at 5 submissions per team per day, so the prize roster reflects deliberate iteration rather than lottery search. The final NeurIPS ranking takes the best of your last five sealed submissions.</p>
+        </article>
+
+        <article class="vb-track">
+          <div class="track-head">
+            <span class="bs-kicker">Datasets</span>
+            <span class="bs-badge">DATA</span>
+          </div>
+          <h3>When is the Track 3 Muse Sleep-Onset dataset available, and how do I access it?</h3>
+          <p>The four <strong>NEW</strong> 2026 competition cohorts — <strong>Muse Sleep-Onset</strong> (Track 3), Graz/BrainHero (Track 2), and the Alljoined and emg2qwerty evaluation sets — are released when the competition opens on <strong>September 1, 2026</strong>. From that date, <code>neuralbench eeg sleep_onset --download</code> pulls the official Muse cohort directly. There is no separate platform, access link, or manual permission step beyond registering your team — just update your NeuralBench install after Sep 1.</p>
+          <p>Before September, <code>neuralbench eeg sleep_onset --download</code> returns the <strong>seed datasets</strong> (Sleep-EDF, PhysioNet Challenge 2018, HMC Sleep). These are starter-kit / analog data for building and validating your pipeline — development stand-ins, not the sealed evaluation set or the official Track 3 cohort. Release notices go to the website and Discord, so watch there for the exact drop.</p>
         </article>
 
       </div>
