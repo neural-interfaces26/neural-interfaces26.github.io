@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#0e1320" />
 
 <title>Leaderboard · EEG/EMG Foundation Challenge 2026</title>
-<meta name="description" content="Live per-track leaderboard for the NeurIPS 2026 EEG/EMG Foundation Challenge. Top submissions across EEG-to-IMG, BCI decoding, sleep onset, EMG-to-Text, and Foundation Transfer." />
+<meta name="description" content="Live per-track leaderboard for the NeurIPS 2026 EEG/EMG Foundation Challenge. Top submissions across EEG-to-IMG, BCI decoding, sleep onset, and EMG-to-Text." />
 
 <link rel="canonical" href="https://neuralinterface26.github.io/leaderboard.html" />
 <meta name="author" content="Bruno Aristimunha and the EEG/EMG Foundation Challenge organising team" />
@@ -25,7 +25,7 @@
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Leaderboard · EEG/EMG Foundation Challenge 2026" />
-<meta name="twitter:description" content="Live per-track rankings across five EEG/EMG tracks for NeurIPS 2026 Sydney." />
+<meta name="twitter:description" content="Live per-track rankings across four EEG/EMG tracks for NeurIPS 2026 Sydney." />
 <meta name="twitter:image" content="https://neuralinterface26.github.io/assets/img/og-card.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -512,82 +512,6 @@
         <a href="#methodology" class="track-link">How scoring works ↓</a>
       </div>
     </section>
-
-    <!-- ============================== Track 05 ============================== -->
-    <section class="vb-section" id="track-5" aria-labelledby="t5-heading">
-      <div class="vb-section-head">
-        <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Track 05 · Foundation transfer <span class="placeholder-badge">placeholder rows</span></span>
-          <h2 id="t5-heading">One shared encoder across all four tracks.</h2>
-          <p>Rank shared encoders by their mean rank across EEG-to-IMG, BCI, Sleep, and EMG. The visible score is presented on a 0–100 scale where 100 indicates first place on every track; internally it is the negated mean rank, so that confidence intervals stay higher-is-better. Higher is better.</p>
-        </div>
-        <div class="vb-section-side">
-          <div class="vb-tracks-meta">
-            <div><span class="bs-kicker">Metric</span><strong>Mean rank score (0–100)</strong></div>
-            <div><span class="bs-kicker">Constraint</span><strong>Single shared encoder</strong></div>
-            <div><span class="bs-kicker">Audit</span><strong>Weights identity check</strong></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="vb-leader" role="table" aria-label="Track 5 top submissions">
-        <div class="vb-leader-row head" role="row">
-          <span role="columnheader">#</span>
-          <span role="columnheader">Encoder</span>
-          <span role="columnheader">Affiliation</span>
-          <span role="columnheader">Mean rank</span>
-          <span role="columnheader">Δ</span>
-        </div>
-        <div class="vb-leader-row hl" role="row">
-          <span class="rk" role="cell">#01</span>
-          <span class="nm" role="cell">placeholder-model-1</span>
-          <span class="tk" role="cell">Team A</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">—</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#02</span>
-          <span class="nm" role="cell">placeholder-model-2</span>
-          <span class="tk" role="cell">Team B</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">−X.X</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#03</span>
-          <span class="nm" role="cell">placeholder-model-3</span>
-          <span class="tk" role="cell">Team C</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">−X.X</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#04</span>
-          <span class="nm" role="cell">placeholder-model-4</span>
-          <span class="tk" role="cell">Team D</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">−XX.X</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#05</span>
-          <span class="nm" role="cell">placeholder-model-5</span>
-          <span class="tk" role="cell">Team E</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">−XX.X</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#06</span>
-          <span class="nm" role="cell">placeholder-model-6</span>
-          <span class="tk" role="cell">Team F</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">−XX.X</span>
-        </div>
-      </div>
-
-      <div class="ds-foot">
-        <span class="bs-kicker">N = X of XX submissions · last update XX min ago</span>
-        <a href="#methodology" class="track-link">How scoring works ↓</a>
-      </div>
-    </section>
-
     <!-- ============================== Methodology ============================== -->
     <section class="vb-section vb-section-cream" id="methodology" aria-labelledby="meth-heading">
       <div class="vb-section-head">
@@ -719,27 +643,6 @@
             <button class="copy" type="button" data-copy>copy</button>
           </figcaption>
           <pre><div class="line"><span class="ln"> 1</span><code><span class="kw">import</span> numpy <span class="kw">as</span> np</code></div><div class="line"><span class="ln"> 2</span><code><span class="kw">from</span> confidence_intervals <span class="kw">import</span> get_bootstrap_indices, get_conf_int</code></div><div class="line"><span class="ln"> 3</span><code><span class="kw">from</span> statsmodels.stats.multitest <span class="kw">import</span> multipletests</code></div><div class="line"><span class="ln"> 4</span><code></code></div><div class="line"><span class="ln"> 5</span><code><span class="kw">def</span> <span class="cls">bootstrap_track</span>(unit_scores, unit_ids<span class="op">=</span>None, n_boot<span class="op">=</span><span class="str">10_000</span>):</code></div><div class="line"><span class="ln"> 6</span><code>    teams <span class="op">=</span> list(unit_scores)</code></div><div class="line"><span class="ln"> 7</span><code>    n_units <span class="op">=</span> len(unit_scores[teams[<span class="str">0</span>]])</code></div><div class="line"><span class="ln"> 8</span><code>    score_boot <span class="op">=</span> {team: np.empty(n_boot) <span class="kw">for</span> team <span class="kw">in</span> teams}</code></div><div class="line"><span class="ln"> 9</span><code>    rank_boot <span class="op">=</span> {team: np.empty(n_boot, dtype<span class="op">=</span>int) <span class="kw">for</span> team <span class="kw">in</span> teams}</code></div><div class="line"><span class="ln">10</span><code>    <span class="kw">for</span> b <span class="kw">in</span> range(n_boot):</code></div><div class="line"><span class="ln">11</span><code>        idx <span class="op">=</span> get_bootstrap_indices(n_units, conditions<span class="op">=</span>unit_ids, random_state<span class="op">=</span>b)</code></div><div class="line"><span class="ln">12</span><code>        scores <span class="op">=</span> {team: float(np.mean(np.asarray(vals)[idx])) <span class="kw">for</span> team, vals <span class="kw">in</span> unit_scores.items()}</code></div><div class="line"><span class="ln">13</span><code>        <span class="kw">for</span> rank, team <span class="kw">in</span> enumerate(sorted(teams, key<span class="op">=</span>scores.get, reverse<span class="op">=</span>True), start<span class="op">=</span><span class="str">1</span>):</code></div><div class="line"><span class="ln">14</span><code>            score_boot[team][b] <span class="op">=</span> scores[team]</code></div><div class="line"><span class="ln">15</span><code>            rank_boot[team][b] <span class="op">=</span> rank</code></div><div class="line"><span class="ln">16</span><code>    <span class="kw">return</span> score_boot, rank_boot</code></div><div class="line"><span class="ln">17</span><code></code></div><div class="line"><span class="ln">18</span><code><span class="kw">def</span> <span class="cls">pair_summary</span>(score_boot, team_a, team_c, alpha<span class="op">=</span><span class="str">5</span>):</code></div><div class="line"><span class="ln">19</span><code>    delta <span class="op">=</span> score_boot[team_a] <span class="op">-</span> score_boot[team_c]</code></div><div class="line"><span class="ln">20</span><code>    ci_low, ci_high <span class="op">=</span> get_conf_int(delta, alpha<span class="op">=</span>alpha)</code></div><div class="line"><span class="ln">21</span><code>    p_boot <span class="op">=</span> <span class="str">2</span> <span class="op">*</span> min(np.mean(delta <span class="op">&lt;=</span> <span class="str">0</span>), np.mean(delta <span class="op">&gt;=</span> <span class="str">0</span>))</code></div><div class="line"><span class="ln">22</span><code>    <span class="kw">return</span> {<span class="str">"delta"</span>: float(np.mean(delta)), <span class="str">"ci95"</span>: (float(ci_low), float(ci_high)),</code></div><div class="line"><span class="ln">23</span><code>            <span class="str">"p_boot"</span>: min(float(p_boot), <span class="str">1.0</span>), <span class="str">"indistinguishable"</span>: bool(ci_low <span class="op">&lt;=</span> <span class="str">0</span> <span class="op">&lt;=</span> ci_high)}</code></div><div class="line"><span class="ln">24</span><code></code></div><div class="line"><span class="ln">25</span><code><span class="kw">def</span> <span class="cls">add_holm</span>(rows, alpha<span class="op">=</span><span class="str">0.05</span>):</code></div><div class="line"><span class="ln">26</span><code>    reject, p_holm, _, _ <span class="op">=</span> multipletests([r[<span class="str">"p_boot"</span>] <span class="kw">for</span> r <span class="kw">in</span> rows], method<span class="op">=</span><span class="str">"holm"</span>, alpha<span class="op">=</span>alpha)</code></div><div class="line"><span class="ln">27</span><code>    <span class="kw">for</span> row, adj_p, keep <span class="kw">in</span> zip(rows, p_holm, reject):</code></div><div class="line"><span class="ln">28</span><code>        row.update(p_holm<span class="op">=</span>float(adj_p), significant_after_holm<span class="op">=</span>bool(keep))</code></div><div class="line"><span class="ln">29</span><code>    <span class="kw">return</span> rows</code></div><div class="line"><span class="ln">30</span><code></code></div><div class="line"><span class="ln">31</span><code><span class="kw">def</span> <span class="cls">rank_stability</span>(rank_boot):</code></div><div class="line"><span class="ln">32</span><code>    <span class="kw">return</span> {team: {<span class="str">"top1"</span>: float(np.mean(r <span class="op">&lt;=</span> <span class="str">1</span>)), <span class="str">"top3"</span>: float(np.mean(r <span class="op">&lt;=</span> <span class="str">3</span>)),</code></div><div class="line"><span class="ln">33</span><code>                   <span class="str">"top5"</span>: float(np.mean(r <span class="op">&lt;=</span> <span class="str">5</span>))} <span class="kw">for</span> team, r <span class="kw">in</span> rank_boot.items()}</code></div></pre>
-        </figure>
-      </div>
-
-      <div class="formal-block">
-        <h3>Foundation Transfer special case</h3>
-        <p>Track 5 evaluates one shared biosignal encoder through organizer-fitted heads on all four tracks (three EEG, one EMG). In each bootstrap draw, the evaluator recomputes the per-track leaderboards, takes the encoder's rank on each one, and averages ranks. Lower mean rank is better; for confidence-interval code we orient it as a higher-is-better score by negating the mean rank.</p>
-        \[
-        R^{(b)}_{a,5} =
-        \frac{1}{4}\sum_{t \in \{\mathrm{IMG}, \mathrm{BCI}, \mathrm{Sleep}, \mathrm{EMG}\}}
-        r^{(b)}_{a,t}
-        \]
-        \[
-        \mathcal{S}^{(b)}_{a,5} = -R^{(b)}_{a,5}
-        \]
-        <figure class="bs-code" aria-label="Foundation Transfer mean-rank snippet">
-          <figcaption class="bs-code-head">
-            <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
-            <span class="bs-kicker">python · Track 5 mean rank</span>
-            <button class="copy" type="button" data-copy>copy</button>
-          </figcaption>
-          <pre><div class="line"><span class="ln"> 1</span><code><span class="kw">import</span> numpy <span class="kw">as</span> np</code></div><div class="line"><span class="ln"> 2</span><code></code></div><div class="line"><span class="ln"> 3</span><code><span class="kw">def</span> <span class="cls">foundation_transfer_score</span>(track_rank_boot, tracks<span class="op">=</span>(<span class="str">"img"</span>, <span class="str">"bci"</span>, <span class="str">"sleep"</span>, <span class="str">"emg"</span>)):</code></div><div class="line"><span class="ln"> 4</span><code>    <span class="str">"""Return S^{(b)}_{a,5} = -mean rank across all four tracks for each Track 5 team."""</span></code></div><div class="line"><span class="ln"> 5</span><code>    teams <span class="op">=</span> list(track_rank_boot[tracks[<span class="str">0</span>]])</code></div><div class="line"><span class="ln"> 6</span><code>    <span class="kw">return</span> {</code></div><div class="line"><span class="ln"> 7</span><code>        team: <span class="op">-</span>np.mean([track_rank_boot[t][team] <span class="kw">for</span> t <span class="kw">in</span> tracks], axis<span class="op">=</span><span class="str">0</span>)</code></div><div class="line"><span class="ln"> 8</span><code>        <span class="kw">for</span> team <span class="kw">in</span> teams</code></div><div class="line"><span class="ln"> 9</span><code>    }</code></div></pre>
         </figure>
       </div>
 

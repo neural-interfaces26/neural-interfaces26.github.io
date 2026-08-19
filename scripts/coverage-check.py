@@ -27,10 +27,6 @@ PAGES = sorted(ROOT.glob("*.html"))
 # new facts ship; do not auto-extract from the inventory because the
 # inventory contains documentation-only metadata.
 ANCHORS: dict[str, list[str]] = {
-    "track-5 scope (P0)": [
-        "all four tracks",
-        "EEG + EMG",
-    ],
     "baseline values (P1)": [
         "84.75", "68.04", "143.30", "25.14",
         "28.13", "58.58", "134.89", "205.42",

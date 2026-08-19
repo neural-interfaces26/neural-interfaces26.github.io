@@ -6,13 +6,13 @@
 <meta name="theme-color" content="#0e1320" />
 
 <title>FAQ · EEG/EMG Foundation Challenge 2026</title>
-<meta name="description" content="Frequently asked questions about the NeurIPS 2026 EEG/EMG Foundation Challenge — daily caps, eligibility, audit, authorship, Track 5 scope, contingency." />
+<meta name="description" content="Frequently asked questions about the NeurIPS 2026 EEG/EMG Foundation Challenge — daily caps, eligibility, audit, authorship, contingency." />
 
 <link rel="canonical" href="https://neuralinterface26.github.io/faq.html" />
 <meta name="author" content="Bruno Aristimunha and the EEG/EMG Foundation Challenge organising team" />
 
 <meta property="og:title" content="FAQ — EEG/EMG Foundation Challenge 2026" />
-<meta property="og:description" content="Direct answers on daily caps, eligibility, audit, authorship, Track 5 scope, and contingency." />
+<meta property="og:description" content="Direct answers on daily caps, eligibility, audit, authorship, and contingency." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://neuralinterface26.github.io/faq.html" />
 <meta property="og:site_name" content="EEG/EMG Foundation Challenge" />
@@ -164,7 +164,7 @@
       <div class="vb-hero-text">
         <span class="bs-eyebrow"><span class="dot"></span> About · participant FAQ</span>
         <h1 id="faq-heading">FAQ.</h1>
-        <p>Direct answers on eligibility, submission caps, audit, authorship, contingency, and Track 5 scope. Use this page before you submit.</p>
+        <p>Direct answers on eligibility, submission caps, audit, authorship, and contingency. Use this page before you submit.</p>
         <div class="bs-hero-cta">
           <a class="bs-btn primary" href="#contact">Reach the organisers →</a>
           <a class="bs-btn ghost" href="#q1">Jump to the questions</a>
@@ -187,7 +187,6 @@
           <p class="note-text wide tight-top">Each answer is sourced from the competition proposal. If the FAQ contradicts something you read elsewhere on the site, treat this page as canonical and tell us. Email or Discord, same response time either way.</p>
           <div class="vb-tags spaced-tags" aria-label="Quick topics">
             <span class="bs-pill">Caps &amp; phases</span>
-            <span class="bs-pill">Track 5 scope</span>
             <span class="bs-pill">Audit tolerance</span>
           </div>
         </div>
@@ -199,8 +198,8 @@
       <div class="vb-section-head">
         <div>
           <span class="bs-eyebrow"><span class="dot"></span> Rules basics</span>
-          <h2 id="rules-basics-heading">Submitting to one track, or all five.</h2>
-          <p>Multi-track entries are encouraged. Track 5 reuses the Tracks 1–4 evaluations through organizer-fitted heads, so a single foundation encoder gets you five leaderboard appearances.</p>
+          <h2 id="rules-basics-heading">Submitting to one track, or all four.</h2>
+          <p>Multi-track entries are encouraged. Each of the four tracks accepts independent submissions per team under the same harness and audit.</p>
         </div>
         <div class="vb-section-side">
           <span class="bs-kicker">Phase caps</span>
@@ -216,7 +215,7 @@
             <span class="bs-badge">RULES</span>
           </div>
           <h3>Can I submit to more than one track?</h3>
-          <p>Yes. Tracks 1–4 accept independent submissions per team. Track 5 requires a single shared encoder; that encoder is automatically scored on Tracks 1–4 by organizer-fitted linear heads and appears on those leaderboards with a <code>foundation-model</code> label.</p>
+          <p>Yes. All four tracks accept independent submissions per team, scored on their own leaderboards.</p>
         </article>
 
         <article class="vb-track">
@@ -263,7 +262,7 @@
             <span class="bs-badge">POLICY</span>
           </div>
           <h3>What happens if a track has too few participants?</h3>
-          <p>Low-participation tracks fold into the closest active analysis group for the post-competition report, but prizes are still awarded on that track's own leaderboard. Track 5 is designed for this case: fewer Track-5 entries do not shrink the EEG-only field, because Tracks 1–4 are scored independently of Track 5 participation.</p>
+          <p>Low-participation tracks fold into the closest active analysis group for the post-competition report, but prizes are still awarded on that track's own leaderboard. Each track is scored independently, so low participation on one track never shrinks the field on another.</p>
         </article>
 
         <article class="vb-track">
@@ -312,7 +311,7 @@
         <div>
           <span class="bs-eyebrow"><span class="dot"></span> Publication &amp; data</span>
           <h2 id="publication-heading">Authorship rights and pre-training data.</h2>
-          <p>The PMLR competition report is the long-form artifact of the challenge. Reproducible top teams are co-authors. Pre-training data has a different rule per track: Tracks 1–4 prefer in-track training; Track 5 explicitly invites broad public-data use.</p>
+          <p>The PMLR competition report is the long-form artifact of the challenge. Reproducible top teams are co-authors. Pre-training data follows one rule: in-track training is preferred, but any publicly available dataset is allowed.</p>
         </div>
         <div class="vb-section-side">
           <span class="bs-kicker">Disclose to be cited</span>
@@ -337,44 +336,7 @@
             <span class="bs-badge">POLICY</span>
           </div>
           <h3>What pre-training datasets are allowed?</h3>
-          <p>For Tracks 1–4, training data is <em>suggested</em> to stay within the track, but pre-training on any publicly available dataset is allowed; reproducibility scripts from top submissions are checked at audit. For Track 5, any public dataset is explicitly encouraged. The sealed test split is never allowed; closed clinical datasets are not allowed. Declare every external corpus in your method description.</p>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ============================== Q9–Q10 · Track 5 rules ============================== -->
-    <section class="vb-section" aria-labelledby="track5-heading">
-      <div class="vb-section-head">
-        <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Track 5 rules</span>
-          <h2 id="track5-heading">Why EMG sits inside Track 5, and what counts as adaptation.</h2>
-          <p>Track 5 is the cross-modality stress test. A single set of encoder weights, evaluated through organizer-fitted heads on all four tasks. The two questions below mark the boundary between permitted adaptation and forbidden per-track tuning.</p>
-        </div>
-        <div class="vb-section-side">
-          <span class="bs-kicker">One encoder, four tasks</span>
-          <p class="note-text">Manual code review at audit verifies that the same weights serve every task. Hidden-data fine-tuning is forbidden across the board.</p>
-        </div>
-      </div>
-
-      <div class="vb-tracks">
-
-        <article class="vb-track">
-          <div class="track-head">
-            <span class="bs-kicker">Track 5 scope</span>
-            <span class="bs-badge">RULES</span>
-          </div>
-          <h3>Why does Track 5 cover EMG too?</h3>
-          <p>Foundation Transfer tests whether a single encoder reuses across modalities, not just across EEG tasks. EMG is the cross-modality stress test. Without it, Track 5 would only measure multi-task EEG, which the 2025 challenge already covered.</p>
-        </article>
-
-        <article class="vb-track">
-          <div class="track-head">
-            <span class="bs-kicker">Adaptation</span>
-            <span class="bs-badge">RULES</span>
-          </div>
-          <h3>Can my Track-5 encoder be adapted per task?</h3>
-          <p>Per-task linear heads and organizer-fitted probes are allowed. Per-track fine-tuning of the encoder weights is not. The encoder must remain a single set of weights, verified by manual code review at audit. Re-training or fine-tuning on hidden evaluation data is forbidden across all tracks.</p>
+          <p>Training data is <em>suggested</em> to stay within the track, but pre-training on any publicly available dataset is allowed; reproducibility scripts from top submissions are checked at audit. The sealed test split is never allowed; closed clinical datasets are not allowed. Declare every external corpus in your method description.</p>
         </article>
 
       </div>

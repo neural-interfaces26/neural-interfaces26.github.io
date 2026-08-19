@@ -13,7 +13,7 @@
 <meta name="keywords" content="NeurIPS 2026, EEG benchmark, brain-computer interface, BCI competition, EMG decoding, sleep onset, EEG-to-image, foundation models, Braindecode, MOABB" />
 
 <meta property="og:title" content="EEG/EMG Foundation Challenge 2026 | Neural Interfaces for Generalizable Decoding" />
-<meta property="og:description" content="Open-source neural-interface benchmark. Five tracks: EEG-to-IMG, BCI decoding, sleep onset, EMG-to-Text, and Foundation Transfer. Submissions Sep 16 — Nov 16, 2026 (AoE)." />
+<meta property="og:description" content="Open-source neural-interface benchmark. Four tracks: EEG-to-IMG, BCI decoding, sleep onset, and EMG-to-Text. Submissions Sep 16 — Nov 16, 2026 (AoE)." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://neuralinterface26.github.io/" />
 <meta property="og:site_name" content="EEG/EMG Foundation Challenge" />
@@ -44,7 +44,7 @@
   "@type": "Event",
   "name": "EEG/EMG Foundation Challenge 2026 | Neural Interfaces for Generalizable Decoding",
   "alternateName": "Neural Interfaces for Generalizable Decoding",
-  "description": "An open-source benchmark for generalizable EEG/EMG decoding, run as a NeurIPS 2026 competition. Five tracks across EEG-to-IMG, BCI decoding, sleep onset, EMG-to-Text, and Foundation Transfer.",
+  "description": "An open-source benchmark for generalizable EEG/EMG decoding, run as a NeurIPS 2026 competition. Four tracks across EEG-to-IMG, BCI decoding, sleep onset, and EMG-to-Text.",
   "startDate": "2026-09-16",
   "endDate": "2026-11-16",
   "eventStatus": "https://schema.org/EventScheduled",
@@ -205,17 +205,14 @@
           The <strong>NeurIPS 2026 EEG/EMG Foundation Challenge</strong> tests this against strong task-specific baselines on four controlled shifts: cross-stimulus, cross-session, cross-device, cross-user.
         </p>
         <p>
-          A fifth track, <strong>Foundation transfer</strong>, tightens the control: <strong>one encoder across all four tasks, three EEG and one EMG</strong>.
+          The four-track design separates two claims usually conflated in the literature: single-task performance and shift robustness.
         </p>
         <p>
-          The 4+1 design separates three claims usually conflated in the literature: single-task performance, shift robustness, and cross-task representation reuse.
-        </p>
-        <p>
-          Top-3 per track are re-run by the organizers on a sealed split. Prize pool: $30.000 across tracks 1–4. Winners present at the NeurIPS workshop in Sydney.
+          Top-3 per track are re-run by the organizers on a sealed split. Prize pool: $30.000 across the four tracks. Winners present at the NeurIPS workshop in Sydney.
         </p>
         <div class="bs-hero-cta">
           <a class="bs-btn primary" href="#cta">Register your team →</a>
-          <a class="bs-btn ghost" href="#tracks">See the five tracks</a>
+          <a class="bs-btn ghost" href="#tracks">See the four tracks</a>
         </div>
       </div>
 
@@ -264,16 +261,16 @@
     <section class="vb-section" id="tracks" aria-labelledby="tracks-heading">
       <div class="vb-section-head">
         <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Five tracks, one pipeline</span>
+          <span class="bs-eyebrow"><span class="dot"></span> Four tracks, one pipeline</span>
           <h2 id="tracks-heading">Competition tracks</h2>
-          <p class="vb-section-subtitle">From cognition to clinic to foundation transfer.</p>
-          <p>One harness, one BIDS-first interface, one reproducibility audit. Holding evaluation fixed lets a per-track score be attributed to the model rather than to the protocol; stacking across tracks then tests reusability of representation.</p>
+          <p class="vb-section-subtitle">From cognition to clinic.</p>
+          <p>One harness, one BIDS-first interface, one reproducibility audit. Holding evaluation fixed lets a per-track score be attributed to the model rather than to the protocol.</p>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">
             <div><span class="bs-kicker">Submissions</span><strong>Sep 16 — Nov 16, 2026 (AoE)</strong></div>
             <div><span class="bs-kicker">Finals</span><strong>NeurIPS · Sydney</strong></div>
-            <div><span class="bs-kicker">Prize pool</span><strong>$30.000 ($2.500 / top-3 / tracks 1-4)</strong></div>
+            <div><span class="bs-kicker">Prize pool</span><strong>$30.000 ($2.500 / top-3 / track)</strong></div>
           </div>
         </div>
       </div>
@@ -373,30 +370,6 @@
           <div class="vb-track-cta">
             <span class="bs-kicker">Metric: CER (%) · Sponsor: Meta Reality Labs</span>
             <a href="leaderboard.html#track-4" class="track-link">Track details →</a>
-          </div>
-        </article>
-
-        <article class="vb-track featured full-width">
-          <div class="track-head">
-            <span class="bs-kicker">Track 05</span>
-            <span class="bs-badge">OPEN</span>
-          </div>
-          <img src="assets/img/figures/track_5.png"
-               srcset="assets/img/figures/track_5.png 1x, assets/img/figures/track_5@2x.png 2x"
-               alt="Track 5 Foundation transfer: a single shared biosignal encoder applied across all four task heads on the EEG and EMG tracks."
-               loading="lazy"
-               class="vb-track-img" />
-          <h3>Foundation transfer</h3>
-          <p>Forces a single set of encoder weights across all four tracks: EEG-to-IMG, BCI, Sleep, and EMG. Heads can be track-specific; the encoder cannot. Sharing weights across EEG and surface EMG makes single-task wins separable from reusable representation learning, which a per-track encoder cannot demonstrate.</p>
-          <div class="vb-track-paradigms">
-            <span class="bs-pill">Frozen probe</span>
-            <span class="bs-pill">Finetune</span>
-            <span class="bs-pill">Shared encoder</span>
-            <span class="bs-pill">EEG + EMG</span>
-          </div>
-          <div class="vb-track-cta">
-            <span class="bs-kicker">Metric: Mean rank across 4 tracks · Host: Yneuro · Single encoder</span>
-            <a href="leaderboard.html#track-5" class="track-link">Track details →</a>
           </div>
         </article>
       </div>
@@ -749,7 +722,7 @@
       <div>
         <span class="bs-eyebrow"><span class="dot"></span> Competition runs Sep 16 – Nov 16, 2026 · more after summer</span>
         <h2 id="cta-heading">Register your team for NeurIPS 2026.</h2>
-        <p>Five tracks, sealed evaluation, a $30.000 prize pool ($2.500 per top-3 team for tracks 1-4), and a workshop slot in Sydney. Sign up to the mailing list for the start-kit and dataset links, submission access when the window opens Sep 16, and the post-summer announcement of audit, prizes, and workshop dates.</p>
+        <p>Four tracks, sealed evaluation, a $30.000 prize pool ($2.500 per top-3 team per track), and a workshop slot in Sydney. Sign up to the mailing list for the start-kit and dataset links, submission access when the window opens Sep 16, and the post-summer announcement of audit, prizes, and workshop dates.</p>
         <div class="bs-hero-cta">
           <a class="bs-btn primary" href="mailto:neurips2026-eeg-emg-competition@googlegroups.com?subject=Register%20team%20for%20EEG%2FEMG%20Foundation%20Challenge%202026">Register your team →</a>
           <a class="bs-btn ghost" href="startkit.html">Open the start-kit</a>
