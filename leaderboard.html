@@ -6,11 +6,11 @@
 <meta name="theme-color" content="#0e1320" />
 
 <title>Leaderboard · EEG/EMG Foundation Challenge 2026</title>
-<meta name="description" content="Live per-track leaderboard for the NeurIPS 2026 EEG/EMG Foundation Challenge. Top submissions across EEG-to-IMG, BCI decoding, sleep onset, and EMG-to-Text." />
+<meta name="description" content="Live per-track leaderboard for the NeurIPS 2026 EEG/EMG Foundation Challenge. Top submissions across EEG-to-IMG, BCI decoding, sleep onset, and EMG-to-Pose." />
 
 <link rel="canonical" href="https://neuralinterface26.github.io/leaderboard.html" />
 <meta name="author" content="Bruno Aristimunha and the EEG/EMG Foundation Challenge organising team" />
-<meta name="keywords" content="EEG leaderboard, NeurIPS 2026 EEG challenge results, BCI decoding scores, EMG2qwerty leaderboard, sleep onset benchmark" />
+<meta name="keywords" content="EEG leaderboard, NeurIPS 2026 EEG challenge results, BCI decoding scores, emg2pose leaderboard, sleep onset benchmark" />
 
 <meta property="og:title" content="Leaderboard — EEG/EMG Foundation Challenge 2026" />
 <meta property="og:description" content="Live per-track rankings for the NeurIPS 2026 EEG/EMG Foundation Challenge." />
@@ -449,14 +449,14 @@
     <section class="vb-section vb-section-cream" id="track-4" aria-labelledby="t4-heading">
       <div class="vb-section-head">
         <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Track 04 · EMG-to-Text <span class="placeholder-badge">placeholder rows</span></span>
-          <h2 id="t4-heading">Wristband EMG to typed text.</h2>
-          <p>Transduce typed keystrokes from wristband surface EMG. The controlled shift is cross-user: held-out subjects vary in forearm anatomy, typing strategy, and sensor re-placement, so the score rewards user-invariant features rather than per-user templates. Lower is better.</p>
+          <span class="bs-eyebrow"><span class="dot"></span> Track 04 · EMG-to-Pose <span class="placeholder-badge">placeholder rows</span></span>
+          <h2 id="t4-heading">Wristband EMG to hand pose.</h2>
+          <p>Regress the joint angles of the hand from wristband surface EMG, scored against motion-capture ground truth. The controlled shift is cross-user: held-out subjects vary in forearm anatomy, movement style, and sensor re-placement, so the score rewards user-invariant features rather than per-user templates. Lower is better.</p>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">
-            <div><span class="bs-kicker">Metric</span><strong>Character error rate (%)</strong></div>
-            <div><span class="bs-kicker">Tie-break</span><strong>Word error rate</strong></div>
+            <div><span class="bs-kicker">Metric</span><strong>Joint angle error (°)</strong></div>
+            <div><span class="bs-kicker">Tie-break</span><strong>Landmark distance (mm)</strong></div>
             <div><span class="bs-kicker">Sponsor</span><strong>Meta Reality Labs</strong></div>
           </div>
         </div>
@@ -467,7 +467,7 @@
           <span role="columnheader">#</span>
           <span role="columnheader">Submission</span>
           <span role="columnheader">Affiliation</span>
-          <span role="columnheader">CER (%)</span>
+          <span role="columnheader">Angle err (°)</span>
           <span role="columnheader">Δ</span>
         </div>
         <div class="vb-leader-row hl" role="row">
@@ -581,7 +581,7 @@
         \[
         \hat{y}_{a,t,i} = f_a(X_{t,i}, m_{t,i})
         \]
-        <p>Examples are first collapsed into independent bootstrap units \(u \in U_t\): subject-image query blocks for EEG-to-IMG, subject-session-context cells for BCI, recordings for sleep onset, and user-session blocks for EMG-to-text. Each unit gets an oriented contribution \(s_{a,t,u}\), where higher is always better; for MAE and CER we use the negative error internally.</p>
+        <p>Examples are first collapsed into independent bootstrap units \(u \in U_t\): subject-image query blocks for EEG-to-IMG, subject-session-context cells for BCI, recordings for sleep onset, and user-session blocks for EMG-to-pose. Each unit gets an oriented contribution \(s_{a,t,u}\), where higher is always better; for MAE and angular error we use the negative error internally.</p>
         \[
         s_{a,t,u} = \mathrm{score}_t(\hat{y}_{a,t,u}, y_{t,u})
         \]

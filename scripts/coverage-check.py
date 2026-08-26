@@ -28,7 +28,7 @@ PAGES = sorted(ROOT.glob("*.html"))
 # inventory contains documentation-only metadata.
 ANCHORS: dict[str, list[str]] = {
     "baseline values (P1)": [
-        "84.75", "68.04", "143.30", "25.14",
+        "84.75", "68.04", "143.30", "12.2",
         "28.13", "58.58", "134.89", "205.42",
     ],
     "headline competition numbers (P1)": [
@@ -75,9 +75,6 @@ ANCHORS: dict[str, list[str]] = {
     # "affinity-group naming" anchors removed: the diversity-grant row was
     # deleted from awards.html (proposal does not commit to affinity-network
     # grants; only travel support per top-3 is in the proposal).
-    "timeline additions (P1)": [
-        "Jun 1, 2026", "Jun 15, 2026",
-    ],
     "internship reinstated (P1)": [
         "internship",
     ],
@@ -99,6 +96,7 @@ ANCHORS: dict[str, list[str]] = {
         "Jiansheng Niu",
         "Pranav Mamidanna",
         "Alex Gramfort",
+        "Cedric Rommel",
         "Marie-Constance Corsi",
         "Lionel Kusch",
         "Thomas Semah",
