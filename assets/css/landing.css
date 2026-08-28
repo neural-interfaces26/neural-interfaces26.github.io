@@ -8,9 +8,9 @@
   flex-wrap: wrap;
   gap: 10px;
   padding: 8px 16px;
-  background: linear-gradient(90deg, rgba(34, 75, 141, 0.08), rgba(34, 75, 141, 0.04) 60%, rgba(34, 75, 141, 0.08));
-  border-bottom: 1px solid rgba(34, 75, 141, 0.18);
-  color: #1a3869;
+  background: linear-gradient(90deg, rgba(91, 46, 229, 0.08), rgba(91, 46, 229, 0.04) 60%, rgba(91, 46, 229, 0.08));
+  border-bottom: 1px solid rgba(91, 46, 229, 0.18);
+  color: #3f14b0;
   font-family: var(--bs-fontmono);
   font-size: 11px;
   letter-spacing: 0.6px;
@@ -40,7 +40,7 @@
   display: inline-block;
   padding: 2px 7px;
   border-radius: 4px;
-  background: rgba(34, 75, 141, 0.08);
+  background: rgba(91, 46, 229, 0.08);
   color: var(--bs-link);
   font-family: var(--bs-fontmono);
   font-size: 9.5px;
@@ -98,7 +98,7 @@
 .sidebar-scrim {
   position: fixed;
   inset: 0;
-  background: rgba(15, 19, 32, 0.36);
+  background: rgba(16, 16, 43, 0.36);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.25s ease;
@@ -190,12 +190,12 @@
 }
 
 .vb-nav a:hover {
-  background: rgba(73, 78, 83, 0.06);
+  background: rgba(91, 46, 229, 0.07);
   color: var(--bs-text);
 }
 
 .vb-nav a.active {
-  background: rgba(34, 75, 141, 0.1);
+  background: rgba(91, 46, 229, 0.1);
   color: var(--bs-link);
   font-weight: 600;
 }
@@ -250,7 +250,7 @@
   height: 6px;
   border-radius: 999px;
   background: var(--bs-success);
-  box-shadow: 0 0 0 3px rgba(42, 140, 78, 0.18);
+  box-shadow: 0 0 0 3px rgba(31, 122, 72, 0.18);
   animation: bs-pulse 2s infinite;
   flex-shrink: 0;
 }
@@ -583,7 +583,7 @@
   gap: 4px;
   padding: 10px 14px;
   border-left: 2px solid var(--bs-link);
-  background: rgba(34, 75, 141, 0.04);
+  background: rgba(91, 46, 229, 0.04);
 }
 
 .vb-tracks-meta strong {
@@ -762,7 +762,7 @@
 }
 
 .vb-track.featured h3 { color: white; }
-.vb-track.featured p { color: #b9bcc8; }
+.vb-track.featured p { color: #c6c1de; }
 .vb-track.featured .bs-kicker { color: var(--bs-code-faint); }
 .vb-track.featured .track-head .bs-kicker { color: var(--bs-accent); }
 .vb-track.featured .track-stats { border-top-color: rgba(255, 255, 255, 0.08); }
@@ -783,7 +783,7 @@
 .vb-track.featured .vb-track-lead .lead-score { color: var(--bs-accent); }
 
 .vb-track.featured .bs-badge {
-  background: rgba(77, 134, 247, 0.15);
+  background: rgba(107, 58, 240, 0.15);
   color: var(--bs-accent);
 }
 
@@ -837,7 +837,7 @@
   height: 8px;
   border-radius: 999px;
   background: var(--bs-link);
-  box-shadow: 0 0 0 3px rgba(34, 75, 141, 0.18);
+  box-shadow: 0 0 0 3px rgba(91, 46, 229, 0.18);
 }
 
 .phase-card.done .phase-rail { background: var(--bs-link); }
@@ -845,7 +845,7 @@
 
 .phase-card.active .phase-rail::after {
   background: var(--bs-accent);
-  box-shadow: 0 0 0 3px rgba(77, 134, 247, 0.22);
+  box-shadow: 0 0 0 3px rgba(107, 58, 240, 0.22);
   animation: bs-pulse calc(2.4s / var(--bs-anim-speed)) ease-in-out infinite;
 }
 
@@ -878,8 +878,8 @@
   color: var(--bs-muted);
 }
 
-.phase-card.active .phase-tag .badge { background: rgba(77, 134, 247, 0.16); color: var(--bs-accent); }
-.phase-card.done .phase-tag .badge { background: rgba(42, 140, 78, 0.14); color: var(--bs-success); }
+.phase-card.active .phase-tag .badge { background: rgba(107, 58, 240, 0.16); color: var(--bs-accent); }
+.phase-card.done .phase-tag .badge { background: rgba(31, 122, 72, 0.14); color: var(--bs-success); }
 
 .phase-card h3 {
   font-size: 18px;
@@ -968,7 +968,7 @@
 }
 
 .vb-leader-row.hl {
-  background: linear-gradient(90deg, rgba(34, 75, 141, 0.08), transparent);
+  background: linear-gradient(90deg, rgba(91, 46, 229, 0.08), transparent);
 }
 
 .vb-leader-row.hl .nm { color: var(--bs-link); }
@@ -990,7 +990,7 @@
   font-family: var(--bs-fontmono);
   font-size: 10px;
   color: var(--bs-link);
-  background: rgba(34, 75, 141, 0.1);
+  background: rgba(91, 46, 229, 0.1);
   padding: 2px 6px;
   border-radius: 4px;
   width: fit-content;
@@ -1105,12 +1105,12 @@
    scannable while making the new releases pop. */
 .ds-row--new {
   position: relative;
-  background: rgba(46, 109, 213, 0.04);
-  box-shadow: inset 3px 0 0 var(--bs-accent, #2e6dd5);
+  background: rgba(107, 58, 240, 0.04);
+  box-shadow: inset 3px 0 0 var(--bs-accent, #6b3af0);
 }
 
 .ds-row--new:hover:not(.head) {
-  background: rgba(46, 109, 213, 0.08);
+  background: rgba(107, 58, 240, 0.08);
 }
 
 .ds-new-tag {
@@ -1118,7 +1118,7 @@
   margin-left: 8px;
   padding: 1px 6px;
   border-radius: 4px;
-  background: var(--bs-accent, #2e6dd5);
+  background: var(--bs-accent, #6b3af0);
   color: white;
   font-family: var(--bs-fontmono);
   font-size: 9px;
@@ -1127,7 +1127,7 @@
   vertical-align: 1px;
 }
 
-.ds-row .mod-eeg { background: rgba(34, 75, 141, 0.1); color: var(--bs-link); }
+.ds-row .mod-eeg { background: rgba(91, 46, 229, 0.1); color: var(--bs-link); }
 .ds-row .mod-meg { background: rgba(0, 54, 159, 0.12); color: var(--bs-accent-2); }
 .ds-row .mod-ieeg { background: rgba(238, 95, 91, 0.12); color: #b33b3a; }
 
@@ -1550,7 +1550,7 @@
   stroke-linejoin: round;
   /* Soft glow gives the trace a sub-pixel anti-alias that reads as instrument
      ink rather than vector geometry. */
-  filter: drop-shadow(0 0 0.6px rgba(34, 75, 141, 0.22));
+  filter: drop-shadow(0 0 0.6px rgba(91, 46, 229, 0.22));
 }
 
 /* ============================================================
@@ -1558,10 +1558,7 @@
    ============================================================ */
 @media (max-width: 1100px) {
   .vb-hero { gap: 32px; padding: 48px 24px 56px; }
-  .vb-hero-text h1 { font-size: 40px; }
   .vb-section { padding: 64px 24px; }
-  .vb-section-head h2 { font-size: 30px; }
-  .vb-cta h2 { font-size: 32px; }
   .vb-cta { padding: 72px 24px; }
   .vb-stats { grid-template-columns: repeat(3, 1fr); }
   .vb-stat:nth-child(3n) { border-right: none; }
@@ -1589,7 +1586,7 @@
     z-index: 30;
     transform: translateX(-100%);
     transition: transform 0.25s ease;
-    box-shadow: 8px 0 32px rgba(15, 19, 32, 0.18);
+    box-shadow: 8px 0 32px rgba(16, 16, 43, 0.18);
   }
 
   .vb-sidebar.open { transform: translateX(0); }
@@ -1612,7 +1609,6 @@
     gap: 24px;
     padding: 32px 18px 40px;
   }
-  .vb-hero-text h1 { font-size: 32px; }
   .vb-hero-text p { font-size: 14px; }
 
   .bs-card-head {
@@ -1628,13 +1624,11 @@
 
   .vb-section { padding: 48px 18px; }
   .vb-section-head { grid-template-columns: 1fr; gap: 18px; align-items: start; }
-  .vb-section-head h2 { font-size: 26px; }
   .vb-section-side { justify-self: stretch; }
   .vb-leader-tabs { justify-content: flex-start; }
 
   .vb-tracks { grid-template-columns: 1fr; }
   .vb-track { padding: 22px; }
-  .vb-track h3 { font-size: 20px; }
 
   .vb-leader-row {
     grid-template-columns: 36px minmax(0, 1fr) 50px 56px 40px;
@@ -1661,7 +1655,6 @@
     padding: 56px 18px;
     gap: 28px;
   }
-  .vb-cta h2 { font-size: 28px; }
 
   .vb-footer { padding: 24px 18px; }
 }
@@ -1682,10 +1675,6 @@
 
   .vb-section {
     padding: 40px 14px;
-  }
-
-  .vb-section-head h2 {
-    font-size: 24px;
   }
 
   .vb-stats { grid-template-columns: 1fr; }
@@ -2029,9 +2018,9 @@
 
 /* ---- 23. Featured track text contrast inside .vb-track-cta — kicker
          needed a brighter colour on the dark surface; the inherited
-         var(--bs-muted) reads as #494e53 against #0e1320 (4.0:1) which fails
+         var(--bs-muted) reads as #494e53 against #10102b (4.0:1) which fails
          WCAG AA for non-large text. Bump to the code surface's faint token. */
-.vb-track.featured .vb-track-cta .bs-kicker { color: #b9bcc8; }
+.vb-track.featured .vb-track-cta .bs-kicker { color: #c6c1de; }
 
 
 /* ---- 24. .vb-leader-row affiliation column .tk: pin to fit-content so the
@@ -2161,3 +2150,418 @@
          hero card after a paragraph (ethics, faq quick-topics row). */
 .vb-tags.spaced-tags { margin-top: 14px; }
 
+
+
+/* ============================================================
+   BRAND REFRESH 2026-08-28 — artwork identity
+   ------------------------------------------------------------
+   Aligned on the LinkedIn artwork set ("GET READY." / "4 TRACKS." /
+   "WE'RE BACK."). Four moves, in order of visual weight:
+
+     1. Ground/figure inversion — the content column now sits on the
+        lavender wash and every card is pure white with a soft violet
+        shadow, instead of white-on-white separated by hairlines.
+     2. Display type — heavy grotesque (Archivo 800/900) with negative
+        tracking on h1/h2 and on every large numeral.
+     3. One violet — #5b2ee5 replaces the two-blue docs palette
+        everywhere; deep #3f14b0 for hover, bright #6b3af0 for data marks.
+     4. Two signature motifs — the violet full stop closing a display
+        heading, and the short violet rule under a section eyebrow.
+
+   Headings stay sentence case: the artwork sets them all-caps, but the
+   site's headings are long ("Sponsors & organizing institutions") and
+   all-caps at that length costs more in readability than it buys in
+   likeness. The heavy display face carries the impact instead.
+   ============================================================ */
+
+/* ---- Ground / figure -------------------------------------------------- */
+
+.landing { background: var(--bs-surface); }
+
+.vb-main { background: var(--bs-surface); }
+
+.vb-sidebar {
+  background: var(--bs-bg);
+  border-right: 1px solid var(--bs-card-border);
+}
+
+.vb-top {
+  background: rgba(245, 244, 251, 0.88);
+  border-bottom: 1px solid var(--bs-card-border);
+}
+
+.vb-sponsors { background: transparent; }
+
+.vb-footer { background: var(--bs-bg); }
+
+/* Cards lift off the lavender ground with a shadow; the hairline stays
+   only to keep the edge crisp on low-contrast displays. */
+.vb-track,
+.phase-card,
+.model-card,
+.vb-leader,
+.ds-table,
+.org-card,
+.vb-hero-eeg,
+.formal-block {
+  background: var(--bs-card);
+  border-color: var(--bs-card-border);
+  border-radius: var(--bs-radius-card);
+  box-shadow: var(--bs-shadow-card);
+}
+
+.vb-track,
+.org-card {
+  transition: box-shadow 0.22s ease, transform 0.22s ease, border-color 0.22s ease;
+}
+
+.vb-track:hover,
+.org-card:hover {
+  box-shadow: var(--bs-shadow-card-lift);
+  border-color: var(--bs-card-border);
+  transform: translateY(-2px);
+}
+
+/* The featured/lead dark cards keep their ink fill but pick up the new
+   violet-tinted code surface and the same radius. */
+.vb-track.featured,
+.org-card.lead {
+  box-shadow: var(--bs-shadow-code);
+}
+
+/* ---- Display type ----------------------------------------------------- */
+
+.vb-hero-text h1,
+.org-hero h1,
+.vb-section-head h2,
+.org-section-head h2,
+.vb-cta h2,
+.vb-sponsors-side h2,
+.vb-track h3,
+.phase-card h3,
+.model-card h4,
+.formal-block h3 {
+  font-family: var(--bs-fontdisplay);
+  font-weight: 800;
+  letter-spacing: -0.022em;
+  color: var(--bs-text);
+}
+
+.vb-hero-text h1 {
+  /* The lower bound has to clear "EEG/EMG Foundation" inside a 390px
+     viewport: .vb-main is overflow-x: hidden below 900px, so a heading that
+     is too wide is clipped rather than scrolled. */
+  font-size: clamp(29px, 4.6vw, 58px);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.032em;
+  overflow-wrap: break-word;
+  margin: 22px 0 20px;
+}
+
+.org-hero h1 {
+  font-size: clamp(28px, 4vw, 50px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  overflow-wrap: break-word;
+}
+
+.vb-section-head h2,
+.org-section-head h2 {
+  font-size: clamp(24px, 3vw, 40px);
+  line-height: 1.02;
+  letter-spacing: -0.028em;
+  overflow-wrap: break-word;
+}
+
+.vb-cta h2 {
+  font-size: clamp(26px, 3.4vw, 46px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  overflow-wrap: break-word;
+}
+
+.vb-track h3 { font-size: 23px; line-height: 1.1; }
+.phase-card h3 { font-size: 19px; line-height: 1.12; }
+
+.vb-section-head p.vb-section-subtitle {
+  font-family: var(--bs-fontdisplay);
+  font-weight: 700;
+  font-size: 21px;
+  letter-spacing: -0.015em;
+  color: var(--bs-text);
+}
+
+/* Big numerals read as display type in the artwork, never as mono. */
+.vb-stat strong,
+.org-hero-stats strong,
+.vb-cd-num,
+.vb-track-lead .lead-score,
+.model-stats strong,
+.vb-track .track-stats strong {
+  font-family: var(--bs-fontdisplay);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.vb-stat strong,
+.org-hero-stats strong {
+  font-size: 34px;
+  line-height: 1.05;
+  color: var(--bs-text);
+}
+
+/* The sidebar rail is 260px wide, so the countdown gets the display face
+   but not the display size — at 26px the four groups wrapped onto a
+   second line. */
+.vb-cd-num {
+  font-size: 20px;
+  color: var(--bs-violet);
+}
+
+.vb-cd-unit {
+  font-family: var(--bs-fontsans);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 8px;
+  color: var(--bs-faint);
+}
+
+.vb-countdown { gap: 9px; }
+.vb-cd-group { gap: 2px; }
+
+/* ---- Signature motif 1: the violet full stop -------------------------- */
+/* .bs-stop is injected by ui.js around the trailing "." of a display
+   heading; the rule lives in base.css so it also applies without JS if a
+   page ever hard-codes the span. */
+
+/* ---- Signature motif 2: the short violet rule ------------------------- */
+
+.vb-section-head > div:first-child > .bs-eyebrow,
+.vb-cta .bs-eyebrow,
+.vb-hero-text > .bs-eyebrow,
+.org-hero .bs-eyebrow,
+.vb-sponsors-side .bs-eyebrow {
+  position: relative;
+  padding-bottom: 14px;
+}
+
+.vb-section-head > div:first-child > .bs-eyebrow::after,
+.vb-cta .bs-eyebrow::after,
+.vb-hero-text > .bs-eyebrow::after,
+.org-hero .bs-eyebrow::after,
+.vb-sponsors-side .bs-eyebrow::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 34px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--bs-violet);
+}
+
+/* ---- Track cards: the artwork's violet ordinal ------------------------ */
+/* Sized for the long form of this label ("Sponsor offer · variable" on
+   awards.html), not just for "Track 01" — at the artwork's numeral size the
+   long ones broke into three lines. */
+
+.vb-track .track-head .bs-kicker {
+  font-family: var(--bs-fontdisplay);
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  color: var(--bs-violet);
+  text-transform: uppercase;
+}
+
+.vb-track .track-stats strong { font-size: 17px; line-height: 1.25; }
+
+.vb-track-img {
+  border-radius: 12px;
+  background: var(--bs-surface);
+}
+
+/* ---- Stats banner ----------------------------------------------------- */
+
+.vb-stats {
+  border-top: 1px solid var(--bs-card-border);
+  border-bottom: 1px solid var(--bs-card-border);
+  background: var(--bs-bg);
+}
+
+.vb-stat { padding: 30px 26px; gap: 6px; }
+
+.vb-stat .bs-kicker { font-size: 9.5px; letter-spacing: 1.6px; }
+
+/* ---- Prior-edition strip / meta rails --------------------------------- */
+
+.vb-prior { background: var(--bs-bg); }
+
+.vb-tracks-meta > div {
+  border-left: 3px solid var(--bs-violet);
+  background: var(--bs-violet-wash);
+  border-radius: 0 10px 10px 0;
+}
+
+/* ---- Nav ------------------------------------------------------------- */
+
+.vb-brand .glyph {
+  background: var(--bs-violet);
+  border-radius: 9px;
+  box-shadow: 0 8px 18px -10px rgba(91, 46, 229, 0.9);
+}
+
+.vb-brand .title { font-family: var(--bs-fontdisplay); font-weight: 800; letter-spacing: -0.015em; }
+
+.vb-brand .sub,
+.vb-nav-head {
+  font-family: var(--bs-fontsans);
+  font-weight: 700;
+  letter-spacing: 1.4px;
+}
+
+.vb-nav a { border-radius: 8px; }
+
+.vb-nav a.active {
+  background: var(--bs-violet-wash-2);
+  color: var(--bs-violet-deep);
+}
+
+.vb-bread { font-family: var(--bs-fontsans); font-weight: 600; }
+
+/* ---- Preview banner --------------------------------------------------- */
+
+.preview-banner {
+  background: linear-gradient(90deg, rgba(91, 46, 229, 0.1), rgba(91, 46, 229, 0.05) 60%, rgba(91, 46, 229, 0.1));
+  border-bottom: 1px solid rgba(91, 46, 229, 0.2);
+  color: var(--bs-violet-deep);
+  font-family: var(--bs-fontsans);
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: 0.2px;
+}
+
+.preview-banner .badge {
+  background: var(--bs-violet);
+  font-family: var(--bs-fontsans);
+}
+
+.preview-banner strong { color: var(--bs-violet-deep); }
+
+.placeholder-badge {
+  background: var(--bs-violet-wash-2);
+  color: var(--bs-violet-deep);
+  font-family: var(--bs-fontsans);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+/* ---- Timeline --------------------------------------------------------- */
+
+.phase-card .phase-tag,
+.phase-card .phase-tag .badge {
+  font-family: var(--bs-fontsans);
+  font-weight: 700;
+}
+
+.phase-card .phase-tag .badge { border-radius: 999px; padding: 2px 8px; }
+
+.phase-card .phase-date {
+  font-family: var(--bs-fontsans);
+  font-weight: 700;
+  color: var(--bs-violet);
+  font-size: 12.5px;
+}
+
+/* ---- Sponsor logos: the artwork's white logo cards -------------------- */
+
+.vb-logo-grid { gap: 14px; }
+
+.vb-logo-grid--six-up { gap: 14px; }
+
+.vb-logo-mark {
+  height: auto;
+  min-height: 76px;
+  width: 100%;
+  padding: 14px 20px;
+  background: var(--bs-card);
+  border: 1px solid var(--bs-card-border);
+  border-radius: 14px;
+  box-shadow: var(--bs-shadow-card);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.vb-logo-mark:hover {
+  opacity: 1;
+  box-shadow: var(--bs-shadow-card-lift);
+  transform: translateY(-2px);
+}
+
+.vb-logo-mark img { max-height: 36px; max-width: 100%; }
+.vb-logo-mark--lg img { max-height: 44px; max-width: 100%; }
+.vb-logo-mark--xl img { max-height: 48px; max-width: 100%; }
+
+/* The compute/track-sponsor rows are flex, not grid — keep the cards from
+   stretching to the full row width. */
+.vb-logo-group .vb-logo-grid > .vb-logo-mark { width: auto; min-width: 150px; }
+
+/* UCSD keeps its 2-column span but drops the fixed pixel height so the
+   card padding does not squash the wordmark. */
+.vb-logo-grid--six-up .vb-logo-mark--ucsd { height: auto; }
+.vb-logo-grid--six-up .vb-logo-mark--ucsd img { max-width: 190px; max-height: 40px; }
+
+/* ---- Dataset table ---------------------------------------------------- */
+
+.ds-row.head,
+.vb-leader-row.head {
+  font-family: var(--bs-fontsans);
+  font-weight: 700;
+  background: var(--bs-surface);
+}
+
+.ds-new-tag,
+.ds-row .mod,
+.vb-leader-row .tk {
+  border-radius: 999px;
+  font-family: var(--bs-fontsans);
+  font-weight: 800;
+}
+
+.ds-row .id { font-weight: 600; }
+
+/* ---- Quote / rails ---------------------------------------------------- */
+
+.bs-quote { border-left-color: var(--bs-violet); }
+
+.org-card .avatar {
+  background: linear-gradient(135deg, var(--bs-violet) 0%, var(--bs-violet-bright) 100%);
+  box-shadow: 0 6px 16px -8px rgba(91, 46, 229, 0.7);
+}
+
+.org-card .role,
+.org-section-side,
+.vb-footer-meta,
+.vb-stat-delta {
+  font-family: var(--bs-fontsans);
+  font-weight: 700;
+}
+
+/* ---- Responsive trims for the new type scale -------------------------- */
+
+@media (max-width: 900px) {
+  .vb-stat strong,
+  .org-hero-stats strong { font-size: 28px; }
+  .vb-track h3 { font-size: 20px; }
+  .vb-section-head p.vb-section-subtitle { font-size: 18px; }
+  .vb-logo-mark { min-height: 68px; padding: 12px 14px; }
+  .vb-logo-mark img,
+  .vb-logo-mark--lg img,
+  .vb-logo-mark--xl img { max-height: 34px; }
+  .vb-logo-group .vb-logo-grid > .vb-logo-mark { min-width: 128px; }
+}

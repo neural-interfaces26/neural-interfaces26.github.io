@@ -2,7 +2,8 @@
    - Animated count-up on [data-count-to] when in viewport
    - Copy-to-clipboard on [data-copy] inside .bs-code blocks
    - Mobile sidebar toggle (#mobile-burger / .vb-sidebar)
-   - Leaderboard tab toggling */
+   - Leaderboard tab toggling
+   - Violet full stop on display headings (artwork identity motif) */
 
 (function () {
   'use strict';
@@ -169,6 +170,36 @@
     if (tick()) intervalId = setInterval(tick, 1000);
   }
 
+  /* ---------- Display full stop ----------
+     Every headline in the 2026 artwork set closes on a violet period
+     ("GET READY.", "4 TRACKS.", "WE'RE BACK."). Rather than sprinkling a
+     span through eight pages of markup, wrap the trailing period of each
+     display heading here. Purely decorative: without JS the heading still
+     renders with a normal-coloured period. */
+  const DISPLAY_HEADINGS = [
+    '.vb-hero-text h1',
+    '.org-hero h1',
+    '.vb-section-head h2',
+    '.org-section-head h2',
+    '.vb-cta h2',
+    '.vb-sponsors-side h2',
+  ].join(', ');
+
+  function initDisplayStops() {
+    document.querySelectorAll(DISPLAY_HEADINGS).forEach((el) => {
+      const last = el.lastChild;
+      if (!last || last.nodeType !== 3) return;
+      const text = last.nodeValue.replace(/\s+$/, '');
+      if (!text.endsWith('.') || text.endsWith('..')) return;
+      last.nodeValue = text.slice(0, -1);
+      const stop = document.createElement('span');
+      stop.className = 'bs-stop';
+      stop.setAttribute('aria-hidden', 'false');
+      stop.textContent = '.';
+      el.appendChild(stop);
+    });
+  }
+
   /* ---------- Leaderboard tabs ---------- */
   function initLeaderboardTabs() {
     const tabs = document.querySelectorAll('.vb-leader-tabs [role="tab"]');
@@ -191,6 +222,7 @@
     initMobileNav();
     initCountdown();
     initLeaderboardTabs();
+    initDisplayStops();
   }
 
   if (document.readyState === 'loading') {
