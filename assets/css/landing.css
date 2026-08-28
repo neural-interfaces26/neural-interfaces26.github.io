@@ -2565,3 +2565,63 @@
   .vb-logo-mark--xl img { max-height: 34px; }
   .vb-logo-group .vb-logo-grid > .vb-logo-mark { min-width: 128px; }
 }
+
+
+/* ============================================================
+   Rules notice
+   ------------------------------------------------------------
+   The competition rules are not a separate document: they live on the
+   Rules & FAQ page alongside the questions. Participants are expected to
+   have read them, so the same notice is repeated at the four points where
+   someone is about to commit to something — registering, reading the
+   operational rules summary in the start-kit, submitting, and checking
+   what they can win.
+   ============================================================ */
+
+.rules-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 22px 0 0;
+  padding: 14px 18px;
+  border-left: 3px solid var(--bs-violet);
+  border-radius: 0 12px 12px 0;
+  background: var(--bs-violet-wash);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--bs-muted);
+  max-width: 64ch;
+}
+
+.rules-note svg {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  color: var(--bs-violet);
+}
+
+.rules-note strong {
+  color: var(--bs-text);
+  font-weight: 700;
+}
+
+.rules-note a {
+  font-weight: 700;
+  color: var(--bs-violet);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.rules-note a:hover { color: var(--bs-violet-deep); }
+
+/* In a hero the notice follows the CTA cluster, which already carries its
+   own bottom margin — pull it back so the spacing matches the rest. */
+.bs-hero-cta + .rules-note { margin-top: 18px; }
+
+@media (max-width: 600px) {
+  .rules-note {
+    padding: 12px 14px;
+    font-size: 13px;
+    gap: 10px;
+  }
+}
