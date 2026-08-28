@@ -92,6 +92,18 @@
     const scrim = document.getElementById('sidebar-scrim');
     if (!burger || !sidebar || !scrim) return;
 
+    // The preview banner scrolls with the page, so how much of it is still on
+    // screen depends on the scroll position. Publish that height so the drawer
+    // and the scrim can start below it instead of behind it. Opening locks the
+    // body scroll, so the value only has to be refreshed on open and on resize.
+    const banner = document.querySelector('.preview-banner');
+    const syncBannerOffset = () => {
+      const visible = banner
+        ? Math.max(0, Math.min(banner.getBoundingClientRect().bottom, window.innerHeight))
+        : 0;
+      document.documentElement.style.setProperty('--preview-visible-h', visible + 'px');
+    };
+
     const close = () => {
       sidebar.classList.remove('open');
       scrim.classList.remove('open');
@@ -100,11 +112,16 @@
     };
 
     const open = () => {
+      syncBannerOffset();
       sidebar.classList.add('open');
       scrim.classList.add('open');
       burger.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
     };
+
+    window.addEventListener('resize', () => {
+      if (sidebar.classList.contains('open')) syncBannerOffset();
+    });
 
     burger.addEventListener('click', () => {
       sidebar.classList.contains('open') ? close() : open();
