@@ -6,13 +6,13 @@
 <meta name="theme-color" content="#5b2ee5" />
 
 <title>Rules &amp; FAQ · EEG/EMG Foundation Challenge 2026</title>
-<meta name="description" content="The rules of the NeurIPS 2026 EEG/EMG Foundation Challenge and the questions participants ask — submission caps, eligibility, external-data policy, authorship, and the reproducibility audit. Required reading before you submit." />
+<meta name="description" content="The six rules of the NeurIPS 2026 EEG/EMG Foundation Challenge — eligibility, tracks, submission caps, external data, the reproducibility audit, authorship — and the questions participants ask. Required reading before you submit." />
 
 <link rel="canonical" href="https://neural-interfaces26.github.io/faq.html" />
 <meta name="author" content="Bruno Aristimunha and the EEG/EMG Foundation Challenge organising team" />
 
 <meta property="og:title" content="Rules &amp; FAQ — EEG/EMG Foundation Challenge 2026" />
-<meta property="og:description" content="The competition rules and the answers that go with them: caps, eligibility, external data, authorship, audit. Required reading before you submit." />
+<meta property="og:description" content="Six binding rules — eligibility, tracks, caps, external data, audit, authorship — then the questions participants ask. Required reading before you submit." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://neural-interfaces26.github.io/faq.html" />
 <meta property="og:site_name" content="EEG/EMG Foundation Challenge" />
@@ -24,7 +24,7 @@
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Rules &amp; FAQ · EEG/EMG Foundation Challenge 2026" />
-<meta name="twitter:description" content="The rules every participant is expected to have read: eligibility, caps, external data, authorship, audit." />
+<meta name="twitter:description" content="The six rules every participant is expected to have read: eligibility, tracks, caps, external data, audit, authorship." />
 <meta name="twitter:image" content="https://neural-interfaces26.github.io/assets/img/og-card.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,7 +33,7 @@
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
 <link rel="stylesheet" href="assets/css/base.css?v=20260828a" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260828c" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20260828d" />
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235b2ee5'/%3E%3Cg stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5'/%3E%3Cpath d='M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24'/%3E%3C/g%3E%3C/svg%3E" />
 
@@ -41,9 +41,9 @@
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "name": "Rules \u0026 FAQ — EEG/EMG Foundation Challenge 2026",
+  "name": "Rules & FAQ — EEG/EMG Foundation Challenge 2026",
   "url": "https://neural-interfaces26.github.io/faq.html",
-  "description": "The rules of the NeurIPS 2026 EEG/EMG Foundation Challenge, in ten questions: submission caps, eligibility, external data, authorship, and the reproducibility audit.",
+  "description": "The six binding rules of the NeurIPS 2026 EEG/EMG Foundation Challenge — eligibility, tracks, submission caps, external data, the reproducibility audit, authorship — and the four questions participants ask most.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "EEG/EMG Foundation Challenge",
@@ -54,14 +54,36 @@
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://neural-interfaces26.github.io/" },
       { "@type": "ListItem", "position": 2, "name": "Get started" },
-      { "@type": "ListItem", "position": 3, "name": "Rules \u0026 FAQ", "item": "https://neural-interfaces26.github.io/faq.html" }
+      { "@type": "ListItem", "position": 3, "name": "Rules & FAQ", "item": "https://neural-interfaces26.github.io/faq.html" }
     ]
   },
   "about": {
     "@type": "Event",
     "name": "EEG/EMG Foundation Challenge 2026 | Neural Interfaces for Generalizable Decoding",
     "url": "https://neural-interfaces26.github.io/"
-  }
+  },
+  "mainEntity": [
+    { "@type": "Question", "name": "Who can win?", "url": "https://neural-interfaces26.github.io/faq.html#rule-eligibility",
+      "acceptedAnswer": { "@type": "Answer", "text": "Anyone: industry, academia, students, independents; cross-institution teams are encouraged. Organisers and their direct lab members may submit, but their entries appear as reference on the leaderboard and are ineligible for cash prizes." } },
+    { "@type": "Question", "name": "Can I submit to more than one track?", "url": "https://neural-interfaces26.github.io/faq.html#rule-tracks",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. All four tracks accept independent submissions per team, each scored on its own leaderboard under the same harness and audit." } },
+    { "@type": "Question", "name": "What's the daily submission cap?", "url": "https://neural-interfaces26.github.io/faq.html#rule-caps",
+      "acceptedAnswer": { "@type": "Answer", "text": "Warm-up (Sep 16 – Oct 15, 2026): 5 submissions per team per day. Sealed final (Oct 16 – Nov 16, 2026, AoE): 2 per team per day. The final NeurIPS ranking takes the best of your last five sealed submissions." } },
+    { "@type": "Question", "name": "What pre-training datasets are allowed?", "url": "https://neural-interfaces26.github.io/faq.html#rule-data",
+      "acceptedAnswer": { "@type": "Answer", "text": "Pre-training on any publicly available dataset is allowed, though staying within the track is suggested. The sealed test split is never allowed and closed clinical datasets are not allowed. Every external corpus must be declared in the method description." } },
+    { "@type": "Question", "name": "What if the audit re-run produces a different score?", "url": "https://neural-interfaces26.github.io/faq.html#rule-audit",
+      "acceptedAnswer": { "@type": "Answer", "text": "The audit re-runs the training pipeline from the committed config and re-scores against the sealed split. Scores within ±2σ of the submitted number stay on the prize roster; scores outside the tolerance drop off the prize roster but remain on the public board. Arnaud Delorme (EEGLAB) chairs the audit." } },
+    { "@type": "Question", "name": "What about authorship on the competition report?", "url": "https://neural-interfaces26.github.io/faq.html#rule-authorship",
+      "acceptedAnswer": { "@type": "Answer", "text": "Top-ranked teams that pass the reproducibility audit and submit a method description, training and inference code, and pre-training disclosures are invited as named authors on the PMLR competition report. Consortium authorship is offered to teams with complete, reproducible artifacts." } },
+    { "@type": "Question", "name": "When is the Track 3 Muse Sleep-Onset dataset available, and how do I access it?", "url": "https://neural-interfaces26.github.io/faq.html#faq-muse",
+      "acceptedAnswer": { "@type": "Answer", "text": "The 2026 competition cohorts are released when the competition opens on September 16, 2026; from that date `neuralbench eeg sleep_onset --download` pulls the official Muse cohort directly, with no separate platform or permission step beyond team registration. Before September the same command returns the seed datasets (Sleep-EDF, PhysioNet Challenge 2018, HMC Sleep) as development stand-ins." } },
+    { "@type": "Question", "name": "What happens if a track has too few participants?", "url": "https://neural-interfaces26.github.io/faq.html#faq-underfill",
+      "acceptedAnswer": { "@type": "Answer", "text": "Low-participation tracks fold into the closest active analysis group for the post-competition report, but prizes are still awarded on that track's own leaderboard. Each track is scored independently." } },
+    { "@type": "Question", "name": "What if there's a delay?", "url": "https://neural-interfaces26.github.io/faq.html#faq-delay",
+      "acceptedAnswer": { "@type": "Answer", "text": "Technical, data, or infrastructure delays shift all downstream deadlines by the same amount, announced on the website and Discord. The reproducibility audit gate is the only milestone that can extend independently." } },
+    { "@type": "Question", "name": "Will the competition data be released?", "url": "https://neural-interfaces26.github.io/faq.html#faq-release",
+      "acceptedAnswer": { "@type": "Answer", "text": "After the challenge, new data is made publicly available in full or in part where consent, licensing, and provider policy allow. The hidden evaluation labels remain confidential indefinitely." } }
+  ]
 }
 </script>
 </head>
@@ -164,89 +186,123 @@
       <div class="vb-hero-text">
         <span class="bs-eyebrow"><span class="dot"></span> Rules &amp; FAQ · required reading</span>
         <h1 id="faq-heading">Rules &amp; FAQ.</h1>
-        <p>This page carries the competition rules, written as the questions people actually ask: submission caps, eligibility, external-data policy, authorship, and what the reproducibility audit decides. Every participant is expected to have read it before submitting.</p>
+        <p>Six binding rules — eligibility, tracks, submission caps, external data, the reproducibility audit, authorship — followed by the questions participants ask most. Every participant is expected to have read the rules before submitting.</p>
         <div class="bs-hero-cta">
-          <a class="bs-btn primary" href="#q1">Read the rules →</a>
+          <a class="bs-btn primary" href="#rules">Read the six rules →</a>
           <a class="bs-btn ghost" href="#contact">Reach the organisers</a>
-        </div>
-        <div class="vb-tags" aria-label="Rules and FAQ scope">
-          <span class="bs-pill">Rules</span>
-          <span class="bs-pill">Submissions</span>
-          <span class="bs-pill">Eligibility</span>
-          <span class="bs-pill">Audit</span>
-          <span class="bs-pill">Authorship</span>
         </div>
       </div>
 
       <div class="vb-hero-side">
-        <div class="vb-hero-eeg" aria-label="Rules summary">
+        <nav class="vb-hero-eeg vb-toc" aria-label="On this page">
           <div class="bs-card-head">
-            <span class="bs-kicker">At a glance · ten rules and answers</span>
+            <span class="bs-kicker">On this page</span>
             <span class="bs-badge">CANONICAL</span>
           </div>
-          <p class="note-text wide tight-top">Every rule and answer here is sourced from the competition proposal. If this page contradicts something you read elsewhere on the site, this page wins — and please tell us. Email or Discord, same response time either way.</p>
-          <div class="vb-tags spaced-tags" aria-label="Quick topics">
-            <span class="bs-pill">Caps &amp; phases</span>
-            <span class="bs-pill">Audit tolerance</span>
+          <div class="vb-toc-group">
+            <span class="bs-kicker">Rules · binding</span>
+            <ol>
+              <li><a href="#rule-eligibility">Eligibility</a></li>
+              <li><a href="#rule-tracks">Tracks</a></li>
+              <li><a href="#rule-caps">Submission cap</a></li>
+              <li><a href="#rule-data">External data</a></li>
+              <li><a href="#rule-audit">Reproducibility audit</a></li>
+              <li><a href="#rule-authorship">Authorship</a></li>
+            </ol>
           </div>
-        </div>
+          <div class="vb-toc-group">
+            <span class="bs-kicker">FAQ</span>
+            <ul>
+              <li><a href="#faq-muse">Track 3 Muse dataset access</a></li>
+              <li><a href="#faq-underfill">Underfilled tracks</a></li>
+              <li><a href="#faq-delay">Delays</a></li>
+              <li><a href="#faq-release">Data release</a></li>
+            </ul>
+          </div>
+        </nav>
       </div>
     </section>
 
-    <!-- ============================== Q1–Q2 · Rules basics ============================== -->
-    <section class="vb-section" id="q1" aria-labelledby="rules-basics-heading">
+    <!-- ============================== Rules ============================== -->
+    <section class="vb-section" id="rules" aria-labelledby="rules-heading">
       <div class="vb-section-head">
         <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Rules basics</span>
-          <h2 id="rules-basics-heading">Submitting to one track, or all four.</h2>
-          <p>Multi-track entries are encouraged. Each of the four tracks accepts independent submissions per team under the same harness and audit.</p>
+          <span class="bs-eyebrow"><span class="dot"></span> The rules · binding</span>
+          <h2 id="rules-heading">Six rules. Read them before you submit.</h2>
+          <p>Every rule is sourced from the competition proposal. Submitting means you have read and accepted them.</p>
         </div>
         <div class="vb-section-side">
-          <span class="bs-kicker">Phase caps</span>
-          <p class="note-text">Warm-up is generous. The sealed final tightens the cap so the prize roster reflects the model, not the search.</p>
+          <span class="bs-kicker">Canonical</span>
+          <p class="note-text">If this page contradicts something you read elsewhere on the site, this page wins — and please tell us, by email or Discord.</p>
         </div>
       </div>
 
-      <div class="vb-tracks">
+      <ol class="vb-rules" aria-label="Competition rules">
 
-        <article class="vb-track">
-          <div class="track-head">
-            <span class="bs-kicker">Multi-track</span>
-            <span class="bs-badge">RULES</span>
+        <li class="vb-rule" id="rule-eligibility">
+          <span class="vb-rule-num" aria-hidden="true">01</span>
+          <div class="vb-rule-body">
+            <span class="bs-kicker">Eligibility</span>
+            <h3>Anyone can enter. Organisers cannot win prizes.</h3>
+            <p>Industry, academia, students, independents — all eligible, and cross-institution teams are encouraged. Organisers and their direct lab members may submit, but their entries appear as <code>Organizers · reference</code> on the leaderboard and are ineligible for cash prizes.</p>
           </div>
-          <h3>Can I submit to more than one track?</h3>
-          <p>Yes. All four tracks accept independent submissions per team, scored on their own leaderboards.</p>
-        </article>
+        </li>
 
-        <article class="vb-track">
-          <div class="track-head">
+        <li class="vb-rule" id="rule-tracks">
+          <span class="vb-rule-num" aria-hidden="true">02</span>
+          <div class="vb-rule-body">
+            <span class="bs-kicker">Tracks</span>
+            <h3>One team may enter all four tracks.</h3>
+            <p>Each track accepts independent submissions per team and is scored on its own leaderboard, under the same harness and the same audit.</p>
+          </div>
+        </li>
+
+        <li class="vb-rule" id="rule-caps">
+          <span class="vb-rule-num" aria-hidden="true">03</span>
+          <div class="vb-rule-body">
             <span class="bs-kicker">Submission cap</span>
-            <span class="bs-badge">RULES</span>
+            <h3>Five submissions a day in warm-up, two in the sealed final.</h3>
+            <p>Warm-up (Sep 16 – Oct 15, 2026): 5 submissions per team per day. Sealed final (Oct 16 – Nov 16, 2026, AoE): 2 per team per day, so the prize roster reflects deliberate iteration rather than lottery search. The final NeurIPS ranking takes the best of your last five sealed submissions.</p>
           </div>
-          <h3>What's the daily submission cap?</h3>
-          <p>The warm-up phase (Sep 16 – Oct 15, 2026) allows 5 submissions per team per day. The sealed final phase (Oct 16 – Nov 16, 2026 AoE) tightens that to 2 per team per day, so the prize roster reflects deliberate iteration rather than lottery search. The final NeurIPS ranking takes the best of your last five sealed submissions.</p>
-        </article>
+        </li>
 
-        <article class="vb-track">
-          <div class="track-head">
-            <span class="bs-kicker">Datasets</span>
-            <span class="bs-badge">DATA</span>
+        <li class="vb-rule" id="rule-data">
+          <span class="vb-rule-num" aria-hidden="true">04</span>
+          <div class="vb-rule-body">
+            <span class="bs-kicker">External data</span>
+            <h3>Pre-train on any public dataset. Declare all of it.</h3>
+            <p>Training data is <em>suggested</em> to stay within the track, but pre-training on any publicly available dataset is allowed. The sealed test split is never allowed; closed clinical datasets are not allowed. Declare every external corpus, and a compute estimate, in your method description — the audit reads them.</p>
           </div>
-          <h3>When is the Track 3 Muse Sleep-Onset dataset available, and how do I access it?</h3>
-          <p>The four <strong>NEW</strong> 2026 competition cohorts — <strong>Muse Sleep-Onset</strong> (Track 3), Graz/BrainHero (Track 2), and the Alljoined and emg2qwerty evaluation sets — are released when the competition opens on <strong>September 16, 2026</strong>. From that date, <code>neuralbench eeg sleep_onset --download</code> pulls the official Muse cohort directly. There is no separate platform, access link, or manual permission step beyond registering your team — just update your NeuralBench install after Sep 16.</p>
-          <p>Before September, <code>neuralbench eeg sleep_onset --download</code> returns the <strong>seed datasets</strong> (Sleep-EDF, PhysioNet Challenge 2018, HMC Sleep). These are starter-kit / analog data for building and validating your pipeline — development stand-ins, not the sealed evaluation set or the official Track 3 cohort. Release notices go to the website and Discord, so watch there for the exact drop.</p>
-        </article>
+        </li>
 
-      </div>
+        <li class="vb-rule" id="rule-audit">
+          <span class="vb-rule-num" aria-hidden="true">05</span>
+          <div class="vb-rule-body">
+            <span class="bs-kicker">Reproducibility audit</span>
+            <h3>Every prize is gated by an audit re-run, tolerance ±2σ.</h3>
+            <p>The audit re-runs your training pipeline from the committed config and re-scores against the sealed split. Scores within ±2σ of your submitted number stay on the prize roster; scores outside the tolerance drop off the prize roster but remain on the public board for context. Arnaud Delorme (EEGLAB) chairs the audit.</p>
+          </div>
+        </li>
+
+        <li class="vb-rule" id="rule-authorship">
+          <span class="vb-rule-num" aria-hidden="true">06</span>
+          <div class="vb-rule-body">
+            <span class="bs-kicker">Authorship</span>
+            <h3>Reproducible top teams are named authors on the competition report.</h3>
+            <p>Top-ranked teams that pass the audit and submit a method description, training and inference code, and pre-training disclosures are invited as named authors on the PMLR competition report. Consortium authorship is offered to teams with complete, reproducible artifacts.</p>
+          </div>
+        </li>
+
+      </ol>
     </section>
 
-    <!-- ============================== Q3–Q4 · Contingency ============================== -->
-    <section class="vb-section vb-section-cream" aria-labelledby="contingency-heading">
+    <!-- ============================== FAQ ============================== -->
+    <section class="vb-section vb-section-cream" id="faq" aria-labelledby="faq-list-heading">
       <div class="vb-section-head">
         <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Contingency</span>
-          <h2 id="contingency-heading">If a track underfills, or the timeline slips.</h2>
-          <p>The competition has explicit fallbacks for low participation and delay. Neither outcome silently invalidates work already submitted; the rules below are how the organisers respond when reality disagrees with the plan.</p>
+          <span class="bs-eyebrow"><span class="dot"></span> FAQ</span>
+          <h2 id="faq-list-heading">Questions people ask.</h2>
+          <p>Answers, not rules: nothing here overrides the six rules above.</p>
         </div>
         <div class="vb-section-side">
           <span class="bs-kicker">No silent changes</span>
@@ -254,126 +310,39 @@
         </div>
       </div>
 
-      <div class="vb-tracks">
+      <div class="vb-tracks vb-faq">
 
-        <article class="vb-track">
+        <article class="vb-track" id="faq-muse">
+          <div class="track-head">
+            <span class="bs-kicker">Datasets</span>
+          </div>
+          <h3>When is the Track 3 Muse Sleep-Onset dataset available, and how do I access it?</h3>
+          <p>The four <strong>NEW</strong> 2026 competition cohorts — <strong>Muse Sleep-Onset</strong> (Track 3), Graz/BrainHero (Track 2), and the Alljoined and emg2qwerty evaluation sets — are released when the competition opens on <strong>September 16, 2026</strong>. From that date, <code>neuralbench eeg sleep_onset --download</code> pulls the official Muse cohort directly. There is no separate platform, access link, or manual permission step beyond registering your team — just update your NeuralBench install after Sep 16.</p>
+          <p>Before September, <code>neuralbench eeg sleep_onset --download</code> returns the <strong>seed datasets</strong> (Sleep-EDF, PhysioNet Challenge 2018, HMC Sleep). These are starter-kit / analog data for building and validating your pipeline — development stand-ins, not the sealed evaluation set or the official Track 3 cohort. Release notices go to the website and Discord, so watch there for the exact drop.</p>
+        </article>
+
+        <article class="vb-track" id="faq-underfill">
           <div class="track-head">
             <span class="bs-kicker">Low participation</span>
-            <span class="bs-badge">POLICY</span>
           </div>
           <h3>What happens if a track has too few participants?</h3>
           <p>Low-participation tracks fold into the closest active analysis group for the post-competition report, but prizes are still awarded on that track's own leaderboard. Each track is scored independently, so low participation on one track never shrinks the field on another.</p>
         </article>
 
-        <article class="vb-track">
+        <article class="vb-track" id="faq-delay">
           <div class="track-head">
             <span class="bs-kicker">Delays</span>
-            <span class="bs-badge">POLICY</span>
           </div>
           <h3>What if there's a delay?</h3>
           <p>Technical, data, or infrastructure delays shift all downstream deadlines by the same amount on the website and Discord. The reproducibility audit gate is the only milestone that can extend independently if a top submission needs more re-run time.</p>
         </article>
 
-      </div>
-    </section>
-
-    <!-- ============================== Q5 · Who can enter ============================== -->
-    <section class="vb-section" aria-labelledby="eligibility-heading">
-      <div class="vb-section-head">
-        <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Eligibility</span>
-          <h2 id="eligibility-heading">Who can win.</h2>
-          <p>Open by default. Organizer-affiliated entries appear on the leaderboard as reference but cannot take prize positions.</p>
-        </div>
-        <div class="vb-section-side">
-          <span class="bs-kicker">Open by default</span>
-          <p class="note-text">Industry, academia, students, independents: all eligible. Cross-institution teams are encouraged.</p>
-        </div>
-      </div>
-
-      <div class="vb-tracks">
-
-        <article class="vb-track">
-          <div class="track-head">
-            <span class="bs-kicker">Eligibility</span>
-            <span class="bs-badge">OPEN</span>
-          </div>
-          <h3>Who can win?</h3>
-          <p>Anyone: industry, academia, students, independents. Cross-institution teams encouraged. Organizers and their direct lab members may submit, but their entries appear as <code>Organizers · reference</code> and are ineligible for cash prizes.</p>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ============================== Q7–Q8 · Publication & data ============================== -->
-    <section class="vb-section vb-section-cream" aria-labelledby="publication-heading">
-      <div class="vb-section-head">
-        <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Publication &amp; data</span>
-          <h2 id="publication-heading">Authorship rights and pre-training data.</h2>
-          <p>The PMLR competition report is the long-form artifact of the challenge. Reproducible top teams are co-authors. Pre-training data follows one rule: in-track training is preferred, but any publicly available dataset is allowed.</p>
-        </div>
-        <div class="vb-section-side">
-          <span class="bs-kicker">Disclose to be cited</span>
-          <p class="note-text">Pre-training corpora and compute estimates go in the method description. The audit reads them; the report names you.</p>
-        </div>
-      </div>
-
-      <div class="vb-tracks">
-
-        <article class="vb-track">
-          <div class="track-head">
-            <span class="bs-kicker">Authorship</span>
-            <span class="bs-badge">PUBLICATION</span>
-          </div>
-          <h3>What about authorship on the competition report?</h3>
-          <p>Top-ranked teams that pass the reproducibility audit and submit a method description, training and inference code, and pre-training disclosures are invited as named authors on the PMLR competition report. Consortium authorship is offered to teams with complete, reproducible artifacts.</p>
-        </article>
-
-        <article class="vb-track">
-          <div class="track-head">
-            <span class="bs-kicker">External data</span>
-            <span class="bs-badge">POLICY</span>
-          </div>
-          <h3>What pre-training datasets are allowed?</h3>
-          <p>Training data is <em>suggested</em> to stay within the track, but pre-training on any publicly available dataset is allowed; reproducibility scripts from top submissions are checked at audit. The sealed test split is never allowed; closed clinical datasets are not allowed. Declare every external corpus in your method description.</p>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ============================== Q11–Q12 · Data & audit ============================== -->
-    <section class="vb-section vb-section-cream" aria-labelledby="data-audit-heading">
-      <div class="vb-section-head">
-        <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Data &amp; audit</span>
-          <h2 id="data-audit-heading">What gets released, and what the audit decides.</h2>
-          <p>New data is released where consent and licensing allow. Hidden evaluation labels stay confidential indefinitely. The audit re-runs the submitted training pipeline and compares scores against a tolerance band.</p>
-        </div>
-        <div class="vb-section-side">
-          <span class="bs-kicker">Audit lead</span>
-          <p class="note-text">Arnaud Delorme (EEGLAB) chairs the reproducibility audit. Tolerance band is ±2σ around the submitted score.</p>
-        </div>
-      </div>
-
-      <div class="vb-tracks">
-
-        <article class="vb-track">
+        <article class="vb-track" id="faq-release">
           <div class="track-head">
             <span class="bs-kicker">Data release</span>
-            <span class="bs-badge">DATA</span>
           </div>
           <h3>Will the competition data be released?</h3>
           <p>After the challenge, new data is made publicly available in full or in part where consent, licensing, and provider policy allow. The hidden evaluation labels remain confidential indefinitely so the benchmark stays usable for future research.</p>
-        </article>
-
-        <article class="vb-track">
-          <div class="track-head">
-            <span class="bs-kicker">Audit tolerance</span>
-            <span class="bs-badge">AUDIT</span>
-          </div>
-          <h3>What if the audit re-run produces a different score?</h3>
-          <p>The audit re-runs your training pipeline from the committed config and re-scores against the sealed split. Scores within ±2σ of your submitted number stay on the prize roster; scores outside the tolerance drop off the prize roster but remain on the public board for context. The audit is led by Arnaud Delorme (EEGLAB).</p>
         </article>
 
       </div>

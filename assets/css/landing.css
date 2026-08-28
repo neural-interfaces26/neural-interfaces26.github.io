@@ -2645,3 +2645,152 @@
     gap: 10px;
   }
 }
+
+
+/* ============================================================
+   Rules & FAQ page
+   The rules must read as the rulebook, not as one more card row: a single
+   ink block (same surface as the featured track cards) with big violet
+   numerals, one rule per row, hairlines between rows. The FAQ below sits on
+   the cream band in ordinary white cards, so the two registers — binding vs.
+   informational — are told apart at a glance.
+   ============================================================ */
+
+.vb-rules {
+  list-style: none;
+  margin: 0;
+  padding: 8px 36px;
+  background: linear-gradient(180deg, var(--bs-code-bg) 0%, var(--bs-code-bg-soft) 100%);
+  border: 1px solid var(--bs-code-line);
+  border-radius: var(--bs-radius-card);
+  box-shadow: var(--bs-shadow-code);
+  color: var(--bs-code-fg);
+}
+
+.vb-rule {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr);
+  column-gap: 20px;
+  padding: 30px 0;
+  border-top: 1px solid var(--bs-code-line);
+  scroll-margin-top: 96px;
+}
+
+.vb-rule:first-child { border-top: none; }
+
+.vb-rule-num {
+  font-family: var(--bs-fontdisplay);
+  font-size: 44px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--bs-violet-lift);
+  font-variant-numeric: tabular-nums;
+  margin-top: -2px;
+}
+
+.vb-rule-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  max-width: 68ch;
+}
+
+.vb-rule-body .bs-kicker { color: var(--bs-code-faint); }
+
+.vb-rule-body h3 {
+  margin: 0;
+  font-family: var(--bs-fontdisplay);
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.022em;
+  color: white;
+  text-wrap: balance;
+}
+
+.vb-rule-body p {
+  margin: 2px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #c6c1de;
+}
+
+.vb-rule-body p em { color: var(--bs-code-fg); }
+
+.vb-rule-body code {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--bs-code-fg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* FAQ: two wide columns rather than the four narrow track columns — the
+   Muse answer runs to two paragraphs and needs the width. */
+.vb-tracks.vb-faq { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.vb-faq .vb-track { scroll-margin-top: 96px; }
+.vb-faq .vb-track h3 { font-size: 20px; }
+
+/* "On this page" list in the hero side card. */
+.vb-toc { display: grid; gap: 14px; }
+
+.vb-toc-group { display: grid; gap: 6px; }
+
+.vb-toc ol,
+.vb-toc ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 3px;
+  counter-reset: toc;
+}
+
+.vb-toc li {
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--bs-muted);
+}
+
+.vb-toc ol li::before {
+  counter-increment: toc;
+  content: counter(toc, decimal-leading-zero);
+  display: inline-block;
+  min-width: 26px;
+  font-family: var(--bs-fontmono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--bs-violet);
+}
+
+.vb-toc ul li::before {
+  content: "—";
+  display: inline-block;
+  min-width: 26px;
+  font-size: 11px;
+  color: var(--bs-violet);
+}
+
+.vb-toc a {
+  color: var(--bs-text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.vb-toc a:hover { color: var(--bs-violet); text-decoration: underline; text-underline-offset: 2px; }
+
+@media (max-width: 900px) {
+  .vb-tracks.vb-faq { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .vb-rules { padding: 4px 20px; }
+  .vb-rule {
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+    padding: 24px 0;
+  }
+  .vb-rule-num { font-size: 34px; }
+  .vb-rule-body h3 { font-size: 20px; }
+}
