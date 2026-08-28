@@ -1031,7 +1031,7 @@
 
 .ds-row {
   display: grid;
-  grid-template-columns: 90px minmax(0, 1fr) 60px 60px 70px 60px 80px;
+  grid-template-columns: 90px minmax(0, 1fr) 60px 60px 70px 60px 80px 70px;
   gap: 14px;
   align-items: center;
   padding: 12px 18px;
