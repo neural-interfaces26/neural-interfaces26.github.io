@@ -13,7 +13,7 @@
 <meta name="keywords" content="NeurIPS 2026, EEG benchmark, brain-computer interface, BCI competition, EMG decoding, sleep onset, EEG-to-image, foundation models, Braindecode, MOABB" />
 
 <meta property="og:title" content="EEG/EMG Foundation Challenge 2026 | Neural Interfaces for Generalizable Decoding" />
-<meta property="og:description" content="Open-source neural-interface benchmark. Four tracks: EEG-to-IMG, BCI decoding, sleep onset, and EMG-to-Pose. Submissions Sep 16 — Nov 16, 2026 (AoE)." />
+<meta property="og:description" content="Open-source neural-interface benchmark. Four tracks: EEG-to-IMG, BCI decoding, sleep onset, and EMG-to-Text. Submissions Sep 16 — Nov 16, 2026 (AoE)." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://neural-interfaces26.github.io/" />
 <meta property="og:site_name" content="EEG/EMG Foundation Challenge" />
@@ -44,7 +44,7 @@
   "@type": "Event",
   "name": "EEG/EMG Foundation Challenge 2026 | Neural Interfaces for Generalizable Decoding",
   "alternateName": "Neural Interfaces for Generalizable Decoding",
-  "description": "An open-source benchmark for generalizable EEG/EMG decoding, run as a NeurIPS 2026 competition. Four tracks across EEG-to-IMG, BCI decoding, sleep onset, and EMG-to-Pose.",
+  "description": "An open-source benchmark for generalizable EEG/EMG decoding, run as a NeurIPS 2026 competition. Four tracks across EEG-to-IMG, BCI decoding, sleep onset, and EMG-to-Text.",
   "startDate": "2026-09-16",
   "endDate": "2026-11-16",
   "eventStatus": "https://schema.org/EventScheduled",
@@ -356,19 +356,19 @@
           </div>
           <img src="assets/img/figures/emg-to-text.png"
                srcset="assets/img/figures/emg-to-text.png 1x, assets/img/figures/emg-to-text@2x.png 2x"
-               alt="Track 4 EMG-to-Pose: wristband surface EMG decoded as continuous hand joint angles, generalising across users."
+               alt="Track 4 EMG-to-Text: wristband surface EMG decoded as a sequence of typed keystrokes, generalising across users."
                loading="lazy"
                class="vb-track-img" />
-          <h3>EMG-to-Pose</h3>
-          <p>Decodes continuous hand pose — the joint angles of a 20-DoF hand skeleton — from wristband surface EMG. Ground truth comes from a 26-camera motion-capture rig. The controlled shift is cross-user: 100+ held-out users vary in forearm anatomy, movement style, and sensor re-placement, so a model that overfits one user's geometry fails the test.</p>
+          <h3>EMG-to-Text</h3>
+          <p>Decodes typed keystrokes from wristband surface EMG as a sequence-transduction problem. The controlled shift is cross-user: 100+ held-out users vary in forearm anatomy, typing strategy, and sensor re-placement, so a model that overfits one user's geometry fails the test.</p>
           <div class="vb-track-paradigms">
-            <span class="bs-pill">Hand pose</span>
-            <span class="bs-pill">Joint angles</span>
+            <span class="bs-pill">EMG typing</span>
+            <span class="bs-pill">Sequence transduction</span>
             <span class="bs-pill">Wristbands</span>
-            <span class="bs-pill">Mocap labels</span>
+            <span class="bs-pill">QWERTY</span>
           </div>
           <div class="vb-track-cta">
-            <span class="bs-kicker">Metric: Joint angle error (°) · Sponsor: Meta Reality Labs</span>
+            <span class="bs-kicker">Metric: CER (%) · Sponsor: Meta Reality Labs</span>
             <a href="leaderboard.html#track-4" class="track-link">Track details →</a>
           </div>
         </article>
@@ -464,11 +464,11 @@
 
         <article class="vb-track" style="padding: 18px;">
           <div class="track-head">
-            <span class="bs-kicker">EMG-to-pose</span>
+            <span class="bs-kicker">EMG-to-text</span>
             <span class="bs-badge">NEW</span>
           </div>
           <h3 style="font-size: 18px; margin: 8px 0 4px;">Wristband EMG cohort</h3>
-          <p style="font-size: 13px; margin: 0; color: var(--bs-muted);">New 100-user evaluation cohort recorded with the same wrist-sEMG hardware, gesture stages, and motion-capture paradigm as the public <strong>emg2pose</strong> corpus. Released by Meta Reality Labs.</p>
+          <p style="font-size: 13px; margin: 0; color: var(--bs-muted);">New 100-user evaluation cohort recorded with the same wrist-sEMG hardware, typing task, and collection paradigm as the public <strong>emg2qwerty</strong> corpus. Released by Meta Reality Labs.</p>
         </article>
       </div>
 
@@ -611,28 +611,28 @@
             <span class="num" role="cell">256 Hz</span>
           </div>
           <div class="ds-row" role="row">
-            <span class="id" role="cell">emg2pose</span>
-            <span class="nm" role="cell">emg2pose · EMG hand pose</span>
+            <span class="id" role="cell">emg2qwerty</span>
+            <span class="nm" role="cell">emg2qwerty · EMG typing</span>
             <span class="mod mod-emg" role="cell">EMG</span>
-            <span class="num" role="cell">193</span>
-            <span class="num" role="cell">370h</span>
-            <span class="num" role="cell">16</span>
+            <span class="num" role="cell">108</span>
+            <span class="num" role="cell">346h</span>
+            <span class="num" role="cell">32</span>
             <span class="num" role="cell">2000 Hz</span>
           </div>
           <div class="ds-row ds-row--new" role="row">
-            <span class="id" role="cell">emg2pose-eval</span>
-            <span class="nm" role="cell">emg2pose eval · same setup as emg2pose <span class="ds-new-tag">NEW · SEP 16</span></span>
+            <span class="id" role="cell">emg2qwerty-eval</span>
+            <span class="nm" role="cell">emg2qwerty eval · same setup as emg2qwerty <span class="ds-new-tag">NEW · SEP 16</span></span>
             <span class="mod mod-emg" role="cell">EMG</span>
             <span class="num" role="cell">100</span>
             <span class="num" role="cell">—</span>
-            <span class="num" role="cell">16</span>
+            <span class="num" role="cell">32</span>
             <span class="num" role="cell">2000 Hz</span>
           </div>
         </div>
       </div>
 
       <div class="ds-foot">
-        <span class="bs-kicker">14 seed datasets + 4 new releases for 2026 (Graz/BrainHero and Muse Sleep-Onset for training; Alljoined eval and emg2pose eval as hidden test cohorts that mirror their public parents) · the 4 NEW cohorts become downloadable via NeuralBench when the competition opens Sep 16, 2026 — the seed datasets are available now as starter-kit / analog data for pipeline development · all under their original providers' licenses · sleep annotations expert-scored, stimulus labels machine-derived, hand-pose labels motion-capture-derived · leakage held out by subject, session, stimulus, and movement stage · ground truth confidential, top-3 re-run by organisers · NeuralBench-EEG-Core v1.0 · 700+ additional EEG corpora ready via <a href="https://eegdash.org/dataset_summary.html" target="_blank" rel="noreferrer noopener" style="color: var(--bs-accent);">EEGDash</a></span>
+        <span class="bs-kicker">14 seed datasets + 4 new releases for 2026 (Graz/BrainHero and Muse Sleep-Onset for training; Alljoined eval and emg2qwerty eval as hidden test cohorts that mirror their public parents) · the 4 NEW cohorts become downloadable via NeuralBench when the competition opens Sep 16, 2026 — the seed datasets are available now as starter-kit / analog data for pipeline development · all under their original providers' licenses · sleep annotations expert-scored, stimulus/keystroke labels machine-derived · leakage held out by subject, session, stimulus, and keystroke · ground truth confidential, top-3 re-run by organisers · NeuralBench-EEG-Core v1.0 · 700+ additional EEG corpora ready via <a href="https://eegdash.org/dataset_summary.html" target="_blank" rel="noreferrer noopener" style="color: var(--bs-accent);">EEGDash</a></span>
         <a href="startkit.html" class="track-link">Open the start-kit →</a>
       </div>
     </section>
@@ -643,7 +643,7 @@
         <div class="vb-sponsors-side">
           <span class="bs-eyebrow"><span class="dot"></span> Backed by</span>
           <h2 id="sponsors-heading">Sponsors &amp; organizing institutions</h2>
-          <p>Compute, datasets, prizes, and engineering hours from 14 institutions across 5 countries. Yneuro hosts the platform; AWS provides the GPU cloud. Each track has its own sponsor: Alljoined for EEG-to-IMG, Meta FAIR Brain &amp; AI for BCI decoding, InteraXon for sleep onset, and Meta Reality Labs for EMG-to-Pose.</p>
+          <p>Compute, datasets, prizes, and engineering hours from 14 institutions across 5 countries. Yneuro hosts the platform; AWS provides the GPU cloud. Each track has its own sponsor: Alljoined for EEG-to-IMG, Meta FAIR Brain &amp; AI for BCI decoding, InteraXon for sleep onset, and Meta Reality Labs for EMG-to-Text.</p>
           <a class="bs-btn ghost" href="organizers.html">Meet the team →</a>
         </div>
         <div>
