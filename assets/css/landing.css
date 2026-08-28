@@ -2593,9 +2593,9 @@
    The competition rules are not a separate document: they live on the
    Rules & FAQ page alongside the questions. Participants are expected to
    have read them, so the same notice is repeated at the four points where
-   someone is about to commit to something — registering, reading the
-   operational rules summary in the start-kit, submitting, and checking
-   what they can win.
+   someone is about to commit to something — registering, opening the
+   start-kit, submitting, and checking what they can win. The start-kit
+   itself states no rules: everything binding lives on the Rules & FAQ page.
    ============================================================ */
 
 .rules-note {
@@ -2723,6 +2723,30 @@
   background: rgba(255, 255, 255, 0.08);
   color: var(--bs-code-fg);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Compact fact row under a rule (budget, tolerance, allowed / not allowed):
+   the same kicker-over-value pairs the track cards use, on the ink ground. */
+.vb-rule-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vb-rule-facts > div {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.vb-rule-facts strong {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0;
 }
 
 /* FAQ: two wide columns rather than the four narrow track columns — the

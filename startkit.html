@@ -34,7 +34,7 @@
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
 <link rel="stylesheet" href="assets/css/base.css?v=20260828a" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260828d" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20260828e" />
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235b2ee5'/%3E%3Cg stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5'/%3E%3Cpath d='M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24'/%3E%3C/g%3E%3C/svg%3E" />
 
@@ -165,6 +165,10 @@
           <a class="bs-btn primary" href="https://github.com/facebookresearch/neuroai" target="_blank" rel="noreferrer noopener">Clone the start-kit →</a>
           <a class="bs-btn ghost" href="#baselines">See the baselines</a>
         </div>
+        <p class="rules-note">
+          <svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 2.5H5.5a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V6.5z" /><path d="M11.5 2.5v4h4" /><path d="M7.5 10.5h5M7.5 13.5h3" /></svg>
+          <span><strong>The rules are not on this page.</strong> Submission caps, eligibility, external data, compute, the reproducibility audit and authorship all live on the <a href="faq.html#rules">Rules &amp; FAQ</a> page. Read them before your first upload.</span>
+        </p>
         <div class="vb-tags" aria-label="Stack">
           <span class="bs-pill">Python ≥ 3.10</span>
           <span class="bs-pill">PyTorch ≥ 2.2</span>
@@ -263,11 +267,10 @@
           <span class="phase-tag">Step 05 <span class="badge">SUBMIT</span></span>
           <h3>Upload to Codabench.</h3>
           <span class="phase-date">~ 30 seconds · web UI or API</span>
-          <p class="phase-desc">Drop the <code>submission.parquet</code> on the Codabench page for your track. Five submissions per team per day during the warm-up, two per day during the sealed final phase. Final ranking is the best of your last five submissions.</p>
+          <p class="phase-desc">Drop the <code>submission.parquet</code> on the Codabench page for your track. The daily submission cap, the best-of-last-five ranking and the reproducibility audit are rules, not start-kit details: read them on the <a href="faq.html#rules">Rules &amp; FAQ</a> page before your first upload.</p>
           <div class="phase-meta">
             <div class="row"><span>Platform</span><span>Codabench</span></div>
-            <div class="row"><span>Daily cap</span><span>5 warm-up · 2 final</span></div>
-            <div class="row"><span>Audit at top-of-leaderboard</span><span>Reproducibility check</span></div>
+            <div class="row"><span>Before you upload</span><span><a href="faq.html#rules">Read the rules →</a></span></div>
           </div>
         </li>
       </ol>
@@ -438,63 +441,6 @@
       <div class="ds-foot">
         <span class="bs-kicker">All values mean ± std from NeuralBench (Banville et al., 2026), Table 1. Sleep metric is W-bMAE (weighted-binned MAE) per the proposal §1.4.</span>
         <a href="leaderboard.html" class="track-link">See live leaderboard →</a>
-      </div>
-    </section>
-
-    <!-- ============================== Compute & policy ============================== -->
-    <section class="vb-section" id="policy" aria-labelledby="policy-heading">
-      <div class="vb-section-head">
-        <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Rules of the road</span>
-          <h2 id="policy-heading">Compute, external data, and what counts as "your model".</h2>
-        </div>
-      </div>
-
-      <p class="rules-note">
-        <svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 2.5H5.5a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V6.5z" /><path d="M11.5 2.5v4h4" /><path d="M7.5 10.5h5M7.5 13.5h3" /></svg>
-        <span><strong>This is a summary, not the rulebook.</strong> The full rules — submission caps, eligibility, authorship on the competition report, what the audit decides, and what happens if a track underfills — are on the <a href="faq.html">Rules &amp; FAQ</a> page. Read them before your first upload.</span>
-      </p>
-
-      <div class="vb-tracks">
-        <article class="vb-track">
-          <div class="track-head">
-            <span class="bs-kicker">Compute</span>
-            <span class="bs-badge">ALLOWED</span>
-          </div>
-          <h3>Train on whatever you have.</h3>
-          <p>Training compute is uncapped. The single constraint is inference: the scoring container must complete a full test pass in under 60 minutes on one H100 or H200 instance, so that audit cost stays bounded and per-team runtime stays comparable. AWS provides complimentary instance hours to finalists; details are listed on the awards page.</p>
-          <div class="track-stats">
-            <div><span class="bs-kicker">Inference budget</span><strong>60 min · H100 / H200</strong></div>
-            <div><span class="bs-kicker">No cap</span><strong>on training</strong></div>
-            <div><span class="bs-kicker">Audit hardware</span><strong>Codabench container</strong></div>
-          </div>
-        </article>
-
-        <article class="vb-track">
-          <div class="track-head">
-            <span class="bs-kicker">External data</span>
-            <span class="bs-badge">ALLOWED</span>
-          </div>
-          <h3>Pretrain on anything public.</h3>
-          <p>Public, redistributable datasets are fair game. Closed datasets and the sealed test split are not. Declare every external corpus you used in the method description that ships with your final submission; the audit cross-checks this against a re-run of <code>neuralbench eeg &lt;task&gt;</code> from your committed config.</p>
-          <div class="track-stats">
-            <div><span class="bs-kicker">OK</span><strong>OpenNeuro · MOABB · public BIDS</strong></div>
-            <div><span class="bs-kicker">Not OK</span><strong>Sealed test · private clinical</strong></div>
-          </div>
-        </article>
-
-        <article class="vb-track">
-          <div class="track-head">
-            <span class="bs-kicker">Reproducibility</span>
-            <span class="bs-badge">AUDITED</span>
-          </div>
-          <h3>The top-of-board has to replay.</h3>
-          <p>Top-3 per track go through a reproducibility audit after the summer (date announced later). We re-run your training pipeline from the committed config, then score the resulting weights against the sealed test split. If the score is within tolerance of your submission, you stay on the board. If not, you drop.</p>
-          <div class="track-stats">
-            <div><span class="bs-kicker">Tolerance</span><strong>±2 σ on metric</strong></div>
-            <div><span class="bs-kicker">Audit lead</span><strong>Arnaud Delorme (EEGLAB)</strong></div>
-          </div>
-        </article>
       </div>
     </section>
 
