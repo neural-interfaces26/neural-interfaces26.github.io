@@ -2818,3 +2818,150 @@
   .vb-rule-num { font-size: 34px; }
   .vb-rule-body h3 { font-size: 20px; }
 }
+
+
+/* ============================================================
+   Start-kit page
+   The five steps are a sequence, not four phases: one row per step with
+   a violet numeral (same motif as the rules), the description in the
+   middle and the facts on the right. No status rail — nothing is "done"
+   for the reader yet. Detailed guides close the walkthrough section.
+   ============================================================ */
+
+.vb-timeline.vb-steps {
+  grid-template-columns: 1fr;
+  gap: 12px;
+  overflow: visible;
+}
+
+.vb-steps .phase-card {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) minmax(240px, 300px);
+  column-gap: 28px;
+  align-items: start;
+  padding: 24px 28px;
+}
+
+.vb-step-num {
+  font-family: var(--bs-fontdisplay);
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--bs-violet);
+  font-variant-numeric: tabular-nums;
+  margin-top: -2px;
+}
+
+.vb-steps .phase-body {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.vb-steps .phase-card h3 { font-size: 20px; }
+
+.vb-steps .phase-desc {
+  font-size: 14px;
+  max-width: 62ch;
+}
+
+.vb-steps .phase-meta {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+  padding-left: 20px;
+  border-left: 1px solid var(--bs-card-border);
+  align-self: stretch;
+  align-content: start;
+}
+
+.vb-steps .phase-meta a {
+  color: var(--bs-violet);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.vb-steps .phase-meta a:hover { text-decoration: underline; text-underline-offset: 2px; }
+
+.doc-links-head { margin-top: 36px; }
+
+.doc-links-head .note-text { max-width: 64ch; }
+
+.doc-links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.doc-link {
+  display: grid;
+  gap: 6px;
+  align-content: start;
+  min-width: 0;
+  padding: 18px 20px;
+  border-radius: var(--bs-radius-card);
+  background: var(--bs-card);
+  border: 1px solid var(--bs-card-border);
+  box-shadow: var(--bs-shadow-card);
+  color: inherit;
+  text-decoration: none;
+  transition: box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.doc-link:hover {
+  box-shadow: var(--bs-shadow-card-lift);
+  transform: translateY(-2px);
+}
+
+.doc-link .bs-kicker code {
+  font-size: 10px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* A command quoted inside an eyebrow or kicker stays lowercase: the
+   uppercase transform would turn `pip install` into PIP INSTALL. */
+.bs-eyebrow code,
+.bs-kicker code {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.95em;
+}
+
+.doc-link strong {
+  font-family: var(--bs-fontdisplay);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: var(--bs-text);
+}
+
+.doc-link .desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--bs-muted);
+}
+
+.doc-link .arrow {
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--bs-violet);
+}
+
+@media (max-width: 900px) {
+  .vb-steps .phase-card {
+    grid-template-columns: 1fr;
+    row-gap: 12px;
+    padding: 20px;
+  }
+  .vb-steps .phase-meta {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid var(--bs-card-border);
+    padding-top: 12px;
+  }
+  .doc-links { grid-template-columns: 1fr; }
+}
