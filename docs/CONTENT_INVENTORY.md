@@ -8,14 +8,14 @@ Source: `competitions_neurips_2026.tex` (835 lines), `affiliations.tex` (20 line
 
 | # | Conflict | Proposal evidence (line nos.) | Canonical decision | Reason |
 |---|----------|-------------------------------|--------------------|--------|
-| C1 | Domain name | Line 463: `neural-interfaces26.github.io` (starter kit href text); Lines 535, 540: `neuralinterface26.github.io` (Communication paragraph; Schedule footnote) | **`neuralinterface26.github.io`** | Two occurrences vs one for the hyphen form; live site resolves to the no-hyphen/no-s domain. |
+| C1 | Domain name | Line 463: `neural-interfaces26.github.io` (starter kit href text); Lines 535, 540: `neuralinterface26.github.io` (Communication paragraph; Schedule footnote) | **`neural-interfaces26.github.io`** — *reversed 2026-08-28* | Originally decided the other way on a majority-of-occurrences count plus the claim that "the live site resolves to the no-hyphen/no-s domain". That claim was wrong: the repository is `github.com/neural-interfaces26/neural-interfaces26.github.io`, so GitHub Pages serves it at `https://neural-interfaces26.github.io/` and the no-hyphen host never resolved. The 2026 LinkedIn artwork set prints `neural-interfaces26.github.io`. Deployment reality and published comms both outrank the proposal's typo count. |
 | C2 | GitHub org name | Line 463: `github.com/neural-interfaces26` (hyphen, plural) | **`github.com/neural-interfaces26`** (keep as written) | Single occurrence; no contradicting form. Org and Pages domain may legitimately differ. |
 | C3 | Track 5 scope | Line 194 (abstract): 'four diverse tasks (EEG-to-image, BCI command decoding, Sleep stage onset prediction, and EMG-to-text)'; Line 221 (figure caption): 'one shared biosignal encoder through organizer-fitted linear heads on the four tasks'; Line 384: 'applied across all four tasks (three EEG and one EMG)' | **All four tasks: IMG, BCI, Sleep, EMG** | Abstract and all track-description passages agree; current website 'three EEG tracks' label omits EMG. |
 | C4 | Submission model | Line 235: 'code submissions'; Lines 506-507: 'Codabench workers with H100/H200 NVIDIA instances … fixed container image'; Line 351: 'top submissions are rerun by the organizers' | **Hybrid: prediction output for public leaderboard; code re-executed at audit gate on Codabench H100/H200** | Code submission stated throughout §2; audit rerun is the leakage-prevention gate. |
 | C5 | Daily submission caps | Line 524 (commented-out LaTeX only): `% 5/day during warm-up, 2/day during the sealed final phase` | **5/day warm-up, 2/day final** | Commented text is the sole source; treat as intended rule. Not visible in rendered PDF. |
 | C6 | Prize amount | Line 555: 'USD 2,500 cash prize' per top-three team per track | **USD $2,500 per top-3 team per track** | Single figure; no contradicting amount anywhere. |
 | C7 | GPU class | Lines 506-507: 'H100/H200 NVIDIA instances'; Line 574: '32,000+ H200 GPU-hours' | **H100/H200 scoring workers (AWS H200-class allocation)** | Both §2 and §3 confirm; H200 is the specific AWS allocation type in the resources paragraph. |
-| C8 | Footnote URL form | Line 454 footnote: `neural-interfaces26.github.io/leaderboard.html` (hyphen + `s`) | **Rewrite footnote to `neuralinterface26.github.io/leaderboard.html`** | Third collision with C1; same resolution. |
+| C8 | Footnote URL form | Line 454 footnote: `neural-interfaces26.github.io/leaderboard.html` (hyphen + `s`) | **Keep as written** — *reversed 2026-08-28* | Third collision with C1; same resolution. The footnote was already using the form that actually resolves. |
 | C9 | Track-5 adaptation rule | Line 385: "adaptation mechanisms" permitted; lines 519-521: "separately-trained sub-encoders" forbidden | **Adaptation = per-task heads + organizer-fitted linear probes only; no per-track encoder fine-tuning** | Surface in FAQ Q1/Q11; flag in startkit submission section. |
 | C10 | "Suggested" vs "required" training rule | Line 516: "are suggested to be trained exclusively on data of their track"; line 529: "reproducible scripts from top submissions enforce it" | **Enforced for top-N audit; suggestion-only for the public leaderboard** | Surface in FAQ Q8 alongside the external-data policy. |
 
@@ -254,7 +254,7 @@ Verbatim sentences with source line numbers:
 |---------|-------|-------------|
 | Email list | neurips2026-eeg-emg-competition@googlegroups.com | 145, 535 |
 | Discord | https://discord.gg/yZv8KqKMpH (provided out-of-band; proposal line 535 only says 'Discord Channel') | 535 |
-| Website | https://neuralinterface26.github.io | 535 |
+| Website | https://neural-interfaces26.github.io | 535 |
 | GitHub (starter kit / baselines) | https://github.com/neural-interfaces26 | 463 |
 | Submission platform | Codabench (https://www.codabench.org) | 504 |
 
@@ -284,7 +284,7 @@ Verbatim from §2 (lines 509-526, 556):
 
 | # | Location | Description |
 |---|----------|-------------|
-| D1 | Lines 463 vs 535, 540 | Domain name: `neural-interfaces26.github.io` (line 463, inside href for GitHub link) vs `neuralinterface26.github.io` (lines 535 and 540, Communication + Schedule). Two occurrences for the no-hyphen/no-s form; live site resolves to that form. See C1. |
+| D1 | Lines 463 vs 535, 540 | Domain name: `neural-interfaces26.github.io` (line 463, inside href for GitHub link) vs `neural-interfaces26.github.io` (lines 535 and 540, Communication + Schedule). Two occurrences for the no-hyphen/no-s form; live site resolves to that form. See C1. |
 | D2 | Line 384 vs line 194 | Track 5 described as 'three EEG and one EMG' (line 384) vs abstract listing all four by full name (line 194). Factually equivalent, but the shorthand could mislead visitors expecting three tracks in Track 5. |
 | D3 | Line 524 (comment only) | Daily submission caps (5/day warm-up, 2/day final) appear only in a LaTeX comment. They are absent from the visible Rules section. Website must source them from this comment or confirm with organizers. |
 | D4 | Line 574 | '4,000 hours of H200-class GPU instances' and '32,000+ H200 GPU-hours' appear in the same sentence using different units. Consistent (4,000 node-hours x ~8 GPUs/node), but unexplained. Website should clarify the unit used. |

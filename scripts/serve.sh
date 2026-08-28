@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Local preview server for neuralinterface26.github.io
+# Local preview server for neural-interfaces26.github.io
 # Usage: ./scripts/serve.sh [port]
 #
 # Static site, no build step. Python 3's http.server is enough.

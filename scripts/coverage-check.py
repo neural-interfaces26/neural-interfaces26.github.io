@@ -39,7 +39,7 @@ ANCHORS: dict[str, list[str]] = {
         "EEG Foundation Challenge",
     ],
     "domain disambiguation (P0)": [
-        "neuralinterface26.github.io",
+        "neural-interfaces26.github.io",
     ],
     "discord url (out-of-band)": [
         "discord.gg/yZv8KqKMpH",
