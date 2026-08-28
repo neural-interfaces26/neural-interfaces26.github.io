@@ -1,4 +1,7 @@
-/* EEG/EMG Foundation Challenge 2026 — organizers page styles. */
+/* EEG/EMG Foundation Challenge 2026 — organizers page styles.
+   Brand refresh 2026-08-28: this sheet loads after landing.css, so the
+   display-type and label rules from the artwork identity are restated
+   here for the org-* selectors rather than inherited. */
 
 .org-section {
   padding: 56px 32px;
@@ -16,10 +19,12 @@
 }
 
 .org-section-head h2 {
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: 0;
-  line-height: 1.08;
+  font-family: var(--bs-fontdisplay);
+  font-size: clamp(23px, 2.8vw, 36px);
+  font-weight: 800;
+  letter-spacing: -0.026em;
+  overflow-wrap: break-word;
+  line-height: 1.04;
   margin: 14px 0 10px;
   text-wrap: balance;
 }
@@ -33,7 +38,8 @@
 }
 
 .org-section-side {
-  font-family: var(--bs-fontmono);
+  font-family: var(--bs-fontsans);
+  font-weight: 700;
   font-size: 11px;
   color: var(--bs-faint);
   letter-spacing: 0.6px;
@@ -62,9 +68,10 @@
 .org-grid.tight .org-card .affil .bs-pill { font-size: 9.5px; padding: 2px 7px; }
 
 .org-card {
-  background: white;
+  background: var(--bs-card);
   border: 1px solid var(--bs-card-border);
   border-radius: var(--bs-radius-card);
+  box-shadow: var(--bs-shadow-card);
   padding: 22px 22px 20px;
   display: flex;
   flex-direction: column;
@@ -73,7 +80,9 @@
 }
 
 .org-card:hover {
-  border-color: var(--bs-line-strong);
+  border-color: var(--bs-card-border);
+  box-shadow: var(--bs-shadow-card-lift);
+  transform: translateY(-2px);
 }
 
 .org-card .head {
@@ -86,7 +95,7 @@
   width: 48px;
   height: 48px;
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--bs-link) 0%, var(--bs-accent) 100%);
+  background: linear-gradient(135deg, var(--bs-violet) 0%, var(--bs-violet-bright) 100%);
   color: white;
   display: grid;
   place-items: center;
@@ -95,7 +104,7 @@
   font-family: var(--bs-fontsans);
   letter-spacing: 0;
   flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(34, 75, 141, 0.18);
+  box-shadow: 0 2px 6px rgba(91, 46, 229, 0.18);
   overflow: hidden;
   position: relative;
 }
@@ -109,8 +118,8 @@
 }
 
 .org-card.lead .avatar img {
-  /* Lead avatar gets a blue-tinted ring even when image-backed */
-  box-shadow: inset 0 0 0 1.5px rgba(34, 75, 141, 0.5);
+  /* Lead avatar gets a violet-tinted ring even when image-backed */
+  box-shadow: inset 0 0 0 1.5px rgba(91, 46, 229, 0.5);
 }
 
 .org-card .name-wrap { display: grid; gap: 1px; min-width: 0; }
@@ -124,10 +133,11 @@
 }
 
 .org-card .role {
-  font-family: var(--bs-fontmono);
+  font-family: var(--bs-fontsans);
+  font-weight: 700;
   font-size: 10px;
   color: var(--bs-faint);
-  letter-spacing: 0.6px;
+  letter-spacing: 1.1px;
   text-transform: uppercase;
 }
 
@@ -151,8 +161,8 @@
 .org-card .affil .bs-pill {
   padding: 3px 8px;
   font-size: 10px;
-  background: rgba(34, 75, 141, 0.06);
-  border-color: rgba(34, 75, 141, 0.15);
+  background: rgba(91, 46, 229, 0.06);
+  border-color: rgba(91, 46, 229, 0.15);
   color: var(--bs-link);
 }
 
@@ -176,8 +186,8 @@
 }
 
 .org-card.lead .name { color: white; }
-.org-card.lead .role { color: var(--bs-accent); }
-.org-card.lead .bio { color: #b9bcc8; }
+.org-card.lead .role { color: var(--bs-violet-lift); }
+.org-card.lead .bio { color: #c6c1de; }
 .org-card.lead .affil { border-top-color: rgba(255, 255, 255, 0.08); }
 
 .org-card.lead .affil .bs-pill {
@@ -187,8 +197,8 @@
 }
 
 .org-card.lead .avatar {
-  background: linear-gradient(135deg, var(--bs-link) 0%, var(--bs-accent) 100%);
-  box-shadow: 0 2px 6px rgba(34, 75, 141, 0.32);
+  background: linear-gradient(135deg, var(--bs-violet) 0%, var(--bs-violet-lift) 100%);
+  box-shadow: 0 2px 6px rgba(91, 46, 229, 0.32);
 }
 
 /* Hero specific to organizers page */
@@ -198,10 +208,12 @@
 }
 
 .org-hero h1 {
-  font-size: 44px;
-  font-weight: 700;
-  line-height: 1.04;
-  letter-spacing: 0;
+  font-family: var(--bs-fontdisplay);
+  font-size: clamp(28px, 4vw, 50px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  overflow-wrap: break-word;
   margin: 16px 0 16px;
   max-width: 22ch;
   text-wrap: balance;
@@ -234,10 +246,12 @@
 .org-hero-stats > div:last-child { border-right: none; }
 
 .org-hero-stats strong {
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 0;
-  font-family: var(--bs-fontmono);
+  font-family: var(--bs-fontdisplay);
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--bs-text);
 }
 
 .org-hero-stats .bs-kicker { font-size: 9px; }
@@ -253,7 +267,6 @@
   .org-section-head { grid-template-columns: 1fr; gap: 14px; }
   .org-section-side { text-align: left; }
   .org-hero { padding: 48px 24px 40px; }
-  .org-hero h1 { font-size: 36px; }
   .org-hero-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .org-hero-stats > div:nth-child(2n) { border-right: none; }
   .org-hero-stats > div:nth-child(n+3) { border-top: 1px solid var(--bs-card-border); }
@@ -264,7 +277,7 @@
   .org-grid.tight { grid-template-columns: 1fr; }
   .org-section { padding: 32px 18px; }
   .org-hero { padding: 32px 18px; }
-  .org-hero h1 { font-size: 30px; }
+  .org-hero-stats strong { font-size: 26px; }
 }
 
 @media (max-width: 480px) {
@@ -273,7 +286,7 @@
   }
 
   .org-section-head h2 {
-    font-size: 24px;
+    letter-spacing: -0.02em;
   }
 
   .org-grid.tight .org-card,

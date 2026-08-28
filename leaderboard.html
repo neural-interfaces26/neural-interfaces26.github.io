@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="theme-color" content="#0e1320" />
+<meta name="theme-color" content="#5b2ee5" />
 
 <title>Leaderboard · EEG/EMG Foundation Challenge 2026</title>
-<meta name="description" content="Live per-track leaderboard for the NeurIPS 2026 EEG/EMG Foundation Challenge. Top submissions across EEG-to-IMG, BCI decoding, sleep onset, and EMG-to-Pose." />
+<meta name="description" content="Live per-track leaderboard for the NeurIPS 2026 EEG/EMG Foundation Challenge. Top submissions across EEG-to-IMG, BCI decoding, sleep onset, and EMG-to-Text." />
 
-<link rel="canonical" href="https://neuralinterface26.github.io/leaderboard.html" />
+<link rel="canonical" href="https://neural-interfaces26.github.io/leaderboard.html" />
 <meta name="author" content="Bruno Aristimunha and the EEG/EMG Foundation Challenge organising team" />
-<meta name="keywords" content="EEG leaderboard, NeurIPS 2026 EEG challenge results, BCI decoding scores, emg2pose leaderboard, sleep onset benchmark" />
+<meta name="keywords" content="EEG leaderboard, NeurIPS 2026 EEG challenge results, BCI decoding scores, emg2qwerty leaderboard, sleep onset benchmark" />
 
 <meta property="og:title" content="Leaderboard — EEG/EMG Foundation Challenge 2026" />
 <meta property="og:description" content="Live per-track rankings for the NeurIPS 2026 EEG/EMG Foundation Challenge." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://neuralinterface26.github.io/leaderboard.html" />
+<meta property="og:url" content="https://neural-interfaces26.github.io/leaderboard.html" />
 <meta property="og:site_name" content="EEG/EMG Foundation Challenge" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:image" content="https://neuralinterface26.github.io/assets/img/og-card.png" />
+<meta property="og:image" content="https://neural-interfaces26.github.io/assets/img/og-card.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="EEG/EMG Foundation Challenge 2026 | Neural Interfaces for Generalizable Decoding." />
@@ -26,15 +26,15 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Leaderboard · EEG/EMG Foundation Challenge 2026" />
 <meta name="twitter:description" content="Live per-track rankings across four EEG/EMG tracks for NeurIPS 2026 Sydney." />
-<meta name="twitter:image" content="https://neuralinterface26.github.io/assets/img/og-card.png" />
+<meta name="twitter:image" content="https://neural-interfaces26.github.io/assets/img/og-card.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&amp;display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600..900&amp;family=Manrope:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&amp;display=swap" rel="stylesheet" />
 
-<link rel="stylesheet" href="assets/css/tokens.css?v=20260521c" />
-<link rel="stylesheet" href="assets/css/base.css?v=20260521c" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260521h" />
+<link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
+<link rel="stylesheet" href="assets/css/base.css?v=20260828a" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20260828c" />
 
 <style>
   .formal-section .vb-section-head { margin-bottom: 24px; }
@@ -65,19 +65,19 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e1320'/%3E%3Cg stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5'/%3E%3Cpath d='M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24'/%3E%3C/g%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235b2ee5'/%3E%3Cg stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5'/%3E%3Cpath d='M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24'/%3E%3C/g%3E%3C/svg%3E" />
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Leaderboard — EEG/EMG Foundation Challenge 2026",
-  "url": "https://neuralinterface26.github.io/leaderboard.html",
+  "url": "https://neural-interfaces26.github.io/leaderboard.html",
   "description": "Live per-track leaderboard for the NeurIPS 2026 EEG/EMG Foundation Challenge.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "EEG/EMG Foundation Challenge",
-    "url": "https://neuralinterface26.github.io/"
+    "url": "https://neural-interfaces26.github.io/"
   }
 }
 </script>
@@ -88,7 +88,7 @@
 
 <div class="preview-banner" role="status">
   <span class="badge">Preview</span>
-  <span><strong>More announcements coming after the summer.</strong> The competition runs Sep 16 – Nov 16, 2026 — audit, prizes, and workshop dates follow later. Rows shown below are illustrative placeholder values until real submissions open.</span>
+  <span>The competition runs Sep 16 – Nov 16, 2026; prizes are awarded at <a href="https://brainbodyfm-workshop.github.io" target="_blank" rel="noreferrer noopener">Foundation Models for the Brain and Body</a>, the NeurIPS 2026 workshop in Sydney.</span>
 </div>
 
 <div class="bs-root landing">
@@ -116,7 +116,7 @@
         <a href="index.html#top">Overview</a>
         <a href="startkit.html">Start-kit &amp; baselines</a>
         <a href="index.html#stats">At a glance</a>
-        <a href="faq.html">FAQ</a>
+        <a href="faq.html">Rules &amp; FAQ</a>
       </div>
       <div class="vb-nav-section">
         <div class="vb-nav-head">Challenge</div>
@@ -188,6 +188,10 @@
           <a class="bs-btn primary" href="startkit.html">Get on the board →</a>
           <a class="bs-btn ghost" href="#methodology">Scoring methodology</a>
         </div>
+        <p class="rules-note">
+          <svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 2.5H5.5a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V6.5z" /><path d="M11.5 2.5v4h4" /><path d="M7.5 10.5h5M7.5 13.5h3" /></svg>
+          <span><strong>Before your first upload.</strong> The daily submission caps and the audit that gates the final ranking are defined on the <a href="faq.html">Rules &amp; FAQ</a> page.</span>
+        </p>
         <div class="vb-tags" aria-label="Status">
           <span class="bs-pill">Warm-up: Sep 16 — Oct 15</span>
           <span class="bs-pill">Sealed: Oct 16 — Nov 16</span>
@@ -212,7 +216,7 @@
               <span class="bs-kicker">submissions</span>
             </div>
             <div class="vb-stat">
-              <strong data-count-to="5">5</strong>
+              <strong data-count-to="4">4</strong>
               <span class="bs-kicker">tracks</span>
             </div>
           </div>
@@ -376,7 +380,7 @@
         <div>
           <span class="bs-eyebrow"><span class="dot"></span> Track 03 · Sleep onset <span class="placeholder-badge">placeholder rows</span></span>
           <h2 id="t3-heading">Latency to stable N2 on wearable EEG.</h2>
-          <p>Predict seconds from recording start to the first stable N2 epoch, on consumer-grade wearable EEG. The shift is to a sparse home-wearable montage, which is too narrow to support full per-epoch staging but still resolves onset timing. Lower is better.</p>
+          <p>Predict seconds from recording start to the first stable N2 epoch, on consumer-grade wearable EEG. The controlled shift is cross-device: a sparse home-wearable montage, too narrow to support full per-epoch staging but still able to resolve onset timing. Lower is better.</p>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">
@@ -449,14 +453,14 @@
     <section class="vb-section vb-section-cream" id="track-4" aria-labelledby="t4-heading">
       <div class="vb-section-head">
         <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Track 04 · EMG-to-Pose <span class="placeholder-badge">placeholder rows</span></span>
-          <h2 id="t4-heading">Wristband EMG to hand pose.</h2>
-          <p>Regress the joint angles of the hand from wristband surface EMG, scored against motion-capture ground truth. The controlled shift is cross-user: held-out subjects vary in forearm anatomy, movement style, and sensor re-placement, so the score rewards user-invariant features rather than per-user templates. Lower is better.</p>
+          <span class="bs-eyebrow"><span class="dot"></span> Track 04 · EMG-to-Text <span class="placeholder-badge">placeholder rows</span></span>
+          <h2 id="t4-heading">Wristband EMG to typed text.</h2>
+          <p>Transduce typed keystrokes from wristband surface EMG. The controlled shift is cross-user: held-out subjects vary in forearm anatomy, typing strategy, and sensor re-placement, so the score rewards user-invariant features rather than per-user templates. Lower is better.</p>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">
-            <div><span class="bs-kicker">Metric</span><strong>Joint angle error (°)</strong></div>
-            <div><span class="bs-kicker">Tie-break</span><strong>Landmark distance (mm)</strong></div>
+            <div><span class="bs-kicker">Metric</span><strong>Character error rate (%)</strong></div>
+            <div><span class="bs-kicker">Tie-break</span><strong>Word error rate</strong></div>
             <div><span class="bs-kicker">Sponsor</span><strong>Meta Reality Labs</strong></div>
           </div>
         </div>
@@ -467,7 +471,7 @@
           <span role="columnheader">#</span>
           <span role="columnheader">Submission</span>
           <span role="columnheader">Affiliation</span>
-          <span role="columnheader">Angle err (°)</span>
+          <span role="columnheader">CER (%)</span>
           <span role="columnheader">Δ</span>
         </div>
         <div class="vb-leader-row hl" role="row">
@@ -532,7 +536,7 @@
           <p>Codabench evaluates each upload immediately. The leaderboard page on this site is regenerated every 15 minutes, so there can be a short lag between submission and what you see here.</p>
           <div class="track-stats">
             <div><span class="bs-kicker">Final phase</span><strong>Oct 16 — Nov 16, 2026</strong></div>
-            <div><span class="bs-kicker">Daily cap</span><strong>5 / team / day</strong></div>
+            <div><span class="bs-kicker">Daily cap</span><strong>5/day warm-up · 2/day sealed final</strong></div>
           </div>
         </article>
 
@@ -581,7 +585,7 @@
         \[
         \hat{y}_{a,t,i} = f_a(X_{t,i}, m_{t,i})
         \]
-        <p>Examples are first collapsed into independent bootstrap units \(u \in U_t\): subject-image query blocks for EEG-to-IMG, subject-session-context cells for BCI, recordings for sleep onset, and user-session blocks for EMG-to-pose. Each unit gets an oriented contribution \(s_{a,t,u}\), where higher is always better; for MAE and angular error we use the negative error internally.</p>
+        <p>Examples are first collapsed into independent bootstrap units \(u \in U_t\): subject-image query blocks for EEG-to-IMG, subject-session-context cells for BCI, recordings for sleep onset, and user-session blocks for EMG-to-text. Each unit gets an oriented contribution \(s_{a,t,u}\), where higher is always better; for MAE and CER we use the negative error internally.</p>
         \[
         s_{a,t,u} = \mathrm{score}_t(\hat{y}_{a,t,u}, y_{t,u})
         \]
@@ -730,7 +734,7 @@
         </a>
         <div class="vb-footer-links">
           <a href="startkit.html">Start-kit</a>
-          <a href="faq.html">FAQ</a>
+          <a href="faq.html">Rules &amp; FAQ</a>
           <a href="leaderboard.html">Leaderboard</a>
           <a href="awards.html">Awards</a>
           <a href="organizers.html">Organizers</a>
@@ -753,7 +757,7 @@
   </main>
 </div>
 
-<script src="assets/js/ui.js?v=20260521c" defer></script>
+<script src="assets/js/ui.js?v=20260828a" defer></script>
 
 </body>
 </html>

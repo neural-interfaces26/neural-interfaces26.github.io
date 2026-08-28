@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="theme-color" content="#0e1320" />
+<meta name="theme-color" content="#5b2ee5" />
 
 <title>Start-kit & Baselines · EEG/EMG Foundation Challenge 2026</title>
 <meta name="description" content="Install the benchmark, train a baseline, and submit your first model to the EEG/EMG Foundation Challenge 2026 in under fifteen minutes. Reproducible BIDS-first pipelines, baseline scores, and a step-by-step submission walkthrough." />
 
-<link rel="canonical" href="https://neuralinterface26.github.io/startkit.html" />
+<link rel="canonical" href="https://neural-interfaces26.github.io/startkit.html" />
 <meta name="author" content="Bruno Aristimunha and the EEG/EMG Foundation Challenge organising team" />
 <meta name="keywords" content="EEG baseline, start-kit, neuralbench, eegdash, braindecode, NeurIPS 2026 challenge submission" />
 
 <meta property="og:title" content="Start-kit & Baselines — EEG/EMG Foundation Challenge 2026" />
 <meta property="og:description" content="Install, train, and submit. The official start-kit for the NeurIPS 2026 EEG/EMG Foundation Challenge." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://neuralinterface26.github.io/startkit.html" />
+<meta property="og:url" content="https://neural-interfaces26.github.io/startkit.html" />
 <meta property="og:site_name" content="EEG/EMG Foundation Challenge" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:image" content="https://neuralinterface26.github.io/assets/img/og-card.png" />
+<meta property="og:image" content="https://neural-interfaces26.github.io/assets/img/og-card.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="EEG/EMG Foundation Challenge 2026 | Neural Interfaces for Generalizable Decoding." />
@@ -26,46 +26,38 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Start-kit & Baselines · EEG/EMG Foundation Challenge 2026" />
 <meta name="twitter:description" content="Train a baseline and submit your first model in fifteen minutes." />
-<meta name="twitter:image" content="https://neuralinterface26.github.io/assets/img/og-card.png" />
+<meta name="twitter:image" content="https://neural-interfaces26.github.io/assets/img/og-card.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&amp;display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600..900&amp;family=Manrope:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&amp;display=swap" rel="stylesheet" />
 
-<link rel="stylesheet" href="assets/css/tokens.css?v=20260521c" />
-<link rel="stylesheet" href="assets/css/base.css?v=20260521c" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260521h" />
+<link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
+<link rel="stylesheet" href="assets/css/base.css?v=20260828a" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20260828c" />
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e1320'/%3E%3Cg stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5'/%3E%3Cpath d='M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24'/%3E%3C/g%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235b2ee5'/%3E%3Cg stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5'/%3E%3Cpath d='M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24'/%3E%3C/g%3E%3C/svg%3E" />
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
   "headline": "Start-kit & Baselines — EEG/EMG Foundation Challenge 2026",
-  "url": "https://neuralinterface26.github.io/startkit.html",
+  "url": "https://neural-interfaces26.github.io/startkit.html",
   "description": "Install the benchmark, train a baseline, and submit your first model to the NeurIPS 2026 EEG/EMG Foundation Challenge.",
   "author": { "@type": "Person", "name": "Bruno Aristimunha" },
   "isPartOf": {
     "@type": "WebSite",
     "name": "EEG/EMG Foundation Challenge",
-    "url": "https://neuralinterface26.github.io/"
+    "url": "https://neural-interfaces26.github.io/"
   },
   "about": {
     "@type": "Event",
     "name": "EEG/EMG Foundation Challenge 2026",
-    "url": "https://neuralinterface26.github.io/"
+    "url": "https://neural-interfaces26.github.io/"
   }
 }
 </script>
-<!-- REVIEW MARKERS · strip this block + every .todo/.review-note before launch -->
-<style>
-  .todo { color: #d02b2b !important; font-weight: 600; }
-  .ds-row.todo-row { background: rgba(208, 43, 43, 0.06); }
-  .review-note { display: block; margin-top: 10px; padding: 10px 12px; border-left: 3px solid #d02b2b;
-                 background: rgba(208, 43, 43, 0.06); color: #d02b2b; font-size: 13px; line-height: 1.55; }
-  .review-note strong { color: #d02b2b; }
-</style>
 </head>
 <body>
 
@@ -73,7 +65,7 @@
 
 <div class="preview-banner" role="status">
   <span class="badge">Preview</span>
-  <span><strong>More announcements coming after the summer.</strong> The competition runs Sep 16 – Nov 16, 2026 — audit, prizes, and workshop dates follow later. Baseline numbers and dataset entries shown here are official values, double-checked with NeuralBench.</span>
+  <span>The competition runs Sep 16 – Nov 16, 2026; prizes are awarded at <a href="https://brainbodyfm-workshop.github.io" target="_blank" rel="noreferrer noopener">Foundation Models for the Brain and Body</a>, the NeurIPS 2026 workshop in Sydney.</span>
 </div>
 
 <div class="bs-root landing">
@@ -101,7 +93,7 @@
         <a href="index.html#top">Overview</a>
         <a href="startkit.html" class="active" aria-current="page">Start-kit &amp; baselines</a>
         <a href="index.html#stats">At a glance</a>
-        <a href="faq.html">FAQ</a>
+        <a href="faq.html">Rules &amp; FAQ</a>
       </div>
       <div class="vb-nav-section">
         <div class="vb-nav-head">Challenge</div>
@@ -229,13 +221,13 @@
           <span class="phase-rail" aria-hidden="true"></span>
           <span class="phase-tag">Step 02 <span class="badge">DATA</span></span>
           <h3>Pull a track's warm-up split.</h3>
-          <span class="phase-date">~ 5 minutes · streamed BIDS</span>
-          <p class="phase-desc">EEGDash streams the BIDS layout; only the recordings you reference are downloaded. The warm-up split for every track lives under <code>~/.cache/eegdash/</code> after the first call.</p>
+          <span class="phase-date">streamed BIDS · seed corpora</span>
+          <p class="phase-desc">EEGDash streams the BIDS layout; only the recordings you reference are downloaded. The warm-up split for every track lives under <code>~/.cache/eegdash/</code> after the first call. The figures below are the full seed corpora per track — a warm-up split pulls only a fraction of that.</p>
           <div class="phase-meta">
-            <div class="row"><span>Track 1 (EEG-to-IMG)</span><span>XX GB</span></div>
-            <div class="row"><span>Track 2 (BCI)</span><span>X.X GB</span></div>
-            <div class="row"><span>Track 3 (Sleep)</span><span>XX GB</span></div>
-            <div class="row"><span>Track 4 (EMG)</span><span>X GB</span></div>
+            <div class="row"><span>Track 1 (EEG-to-IMG)</span><span>116 GB</span></div>
+            <div class="row"><span>Track 2 (BCI)</span><span>419 GB</span></div>
+            <div class="row"><span>Track 3 (Sleep)</span><span>439 GB</span></div>
+            <div class="row"><span>Track 4 (EMG)</span><span>239 GB</span></div>
           </div>
         </li>
 
@@ -246,7 +238,7 @@
           <span class="phase-date">2 – 6 GPU-hours · warm-up split</span>
           <p class="phase-desc">Every track ships at least one baseline you can train with a single <code>neuralbench eeg &lt;task&gt; -m &lt;model&gt;</code> call. Task and model names are documented in the NeuralBench registry.</p>
           <div class="phase-meta">
-            <div class="row"><span>Default model</span><span>EEGNet · X.X M params</span></div>
+            <div class="row"><span>Default model</span><span>EEGNet · 0.04 M params</span></div>
             <div class="row"><span>Optimizer</span><span>AdamW · cosine schedule</span></div>
             <div class="row"><span>Seed</span><span>Fixed by config</span></div>
           </div>
@@ -262,7 +254,7 @@
             <div class="row"><span>Metric (T1)</span><span>Top-5 retrieval accuracy</span></div>
             <div class="row"><span>Metric (T2)</span><span>Balanced accuracy</span></div>
             <div class="row"><span>Metric (T3)</span><span>W-bMAE on onset (s)</span></div>
-            <div class="row"><span>Metric (T4)</span><span>Joint angle error (°)</span></div>
+            <div class="row"><span>Metric (T4)</span><span>Character error rate</span></div>
           </div>
         </li>
 
@@ -271,10 +263,10 @@
           <span class="phase-tag">Step 05 <span class="badge">SUBMIT</span></span>
           <h3>Upload to Codabench.</h3>
           <span class="phase-date">~ 30 seconds · web UI or API</span>
-          <p class="phase-desc">Drop the <code>submission.parquet</code> on the Codabench page for your track. Five submissions per team per day during the sealed phase. Final ranking is the best of your last five submissions.</p>
+          <p class="phase-desc">Drop the <code>submission.parquet</code> on the Codabench page for your track. Five submissions per team per day during the warm-up, two per day during the sealed final phase. Final ranking is the best of your last five submissions.</p>
           <div class="phase-meta">
             <div class="row"><span>Platform</span><span>Codabench</span></div>
-            <div class="row"><span>Daily cap (final phase)</span><span>5 / team / day</span></div>
+            <div class="row"><span>Daily cap</span><span>5 warm-up · 2 final</span></div>
             <div class="row"><span>Audit at top-of-leaderboard</span><span>Reproducibility check</span></div>
           </div>
         </li>
@@ -316,7 +308,7 @@
     <section class="vb-section" id="baselines" aria-labelledby="baselines-heading">
       <div class="vb-section-head">
         <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Baselines · what to beat <span class="placeholder-badge">placeholder scores</span></span>
+          <span class="bs-eyebrow"><span class="dot"></span> Baselines · what to beat</span>
           <h2 id="baselines-heading">Pre-computed baselines on representative public datasets.</h2>
           <p>Numbers below are NeuralBench replications on representative public datasets, mean ± std, taken from the competition proposal's Table 1. They are the warm-up targets to beat. The official warm-up split scores arrive Sep 16, 2026.</p>
         </div>
@@ -422,46 +414,29 @@
             <span class="num" role="cell">W-bMAE 134.89 ± 2.02 s</span>
             <span class="num" role="cell">configs/sleep/reve.yaml</span>
           </div>
-          <div class="ds-row todo-row" role="row">
+          <div class="ds-row" role="row">
             <span class="id" role="cell">T4 · EMG</span>
-            <span class="nm" role="cell">Chance <span class="todo">← reference row missing</span></span>
+            <span class="nm" role="cell">Chance</span>
             <span class="mod mod-emg" role="cell">reference</span>
             <span class="num" role="cell">0</span>
             <span class="num" role="cell">0</span>
-            <span class="num todo" role="cell">MISSING</span>
+            <span class="num" role="cell">CER 96.71 ± 0.00 %</span>
             <span class="num" role="cell">—</span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T4 · EMG</span>
-            <span class="nm" role="cell">NeuroPose (Salter et al., 2024)</span>
+            <span class="nm" role="cell">EMG2QwertyNet (Sivakumar et al., 2024)</span>
             <span class="mod mod-emg" role="cell">EMG</span>
-            <span class="num todo" role="cell">MISSING</span>
-            <span class="num todo" role="cell">MISSING</span>
-            <span class="num" role="cell">Angle err 13.2 ± 1.1 ° <span class="todo">← paper, not NeuralBench</span></span>
-            <span class="num" role="cell">configs/emg/neuropose.yaml</span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="id" role="cell">T4 · EMG</span>
-            <span class="nm" role="cell">vemg2pose (Salter et al., 2024)</span>
-            <span class="mod mod-emg" role="cell">EMG</span>
-            <span class="num todo" role="cell">MISSING</span>
-            <span class="num todo" role="cell">MISSING</span>
-            <span class="num" role="cell">Angle err 12.2 ± 1.3 ° <span class="todo">← paper, not NeuralBench</span></span>
-            <span class="num" role="cell">configs/emg/vemg2pose.yaml</span>
+            <span class="num" role="cell">5.3 M</span>
+            <span class="num" role="cell">8</span>
+            <span class="num" role="cell">CER 25.14 ± 2.30 %</span>
+            <span class="num" role="cell">configs/emg/qwerty.yaml</span>
           </div>
         </div>
       </div>
 
       <div class="ds-foot">
-        <span class="bs-kicker">EEG and sleep values are mean ± std from NeuralBench (Banville et al., 2026), Table 1. Sleep metric is W-bMAE (weighted-binned MAE) per the proposal §1.4. EMG values are the held-out-user regression results published in the emg2pose benchmark (Salter et al., NeurIPS 2024), pending NeuralBench replication.</span>
-        <span class="review-note">
-          <strong>REVIEW · Track 4 (EMG2POSE) baseline gaps — 4 items.</strong><br />
-          1. <strong>Chance reference row</strong> — T1, T2 and T3 each publish one; T4 has none. Needs an angle-error value for a naive predictor (e.g. mean pose or zero-velocity).<br />
-          2. <strong>Params (M)</strong> — not reported for NeuroPose or vemg2pose in the emg2pose paper.<br />
-          3. <strong>Train (GPU-h)</strong> — same; no training cost published.<br />
-          4. <strong>Metric provenance</strong> — 13.2° and 12.2° are the paper's held-out-user regression numbers, not a NeuralBench replication. Every other row on this table is NeuralBench Table 1.<br />
-          Also outstanding site-wide: <code>assets/img/figures/emg-to-text.png</code> still draws the typing task, and <code>configs/emg/neuropose.yaml</code> / <code>vemg2pose.yaml</code> must exist in the start-kit.
-        </span>
+        <span class="bs-kicker">All values mean ± std from NeuralBench (Banville et al., 2026), Table 1. Sleep metric is W-bMAE (weighted-binned MAE) per the proposal §1.4.</span>
         <a href="leaderboard.html" class="track-link">See live leaderboard →</a>
       </div>
     </section>
@@ -474,6 +449,11 @@
           <h2 id="policy-heading">Compute, external data, and what counts as "your model".</h2>
         </div>
       </div>
+
+      <p class="rules-note">
+        <svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 2.5H5.5a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V6.5z" /><path d="M11.5 2.5v4h4" /><path d="M7.5 10.5h5M7.5 13.5h3" /></svg>
+        <span><strong>This is a summary, not the rulebook.</strong> The full rules — submission caps, eligibility, authorship on the competition report, what the audit decides, and what happens if a track underfills — are on the <a href="faq.html">Rules &amp; FAQ</a> page. Read them before your first upload.</span>
+      </p>
 
       <div class="vb-tracks">
         <article class="vb-track">
@@ -523,7 +503,7 @@
       <div>
         <span class="bs-eyebrow"><span class="dot"></span> Competition runs Sep 16 – Nov 16, 2026 · more after summer</span>
         <h2 id="cta-heading">Ready to run your first baseline?</h2>
-        <p>Clone the start-kit, run the toy split, and you're on the leaderboard in fifteen minutes. Everything is MIT-licensed: fork freely, but please cite the white paper and the 2025 challenge that this work continues.</p>
+        <p>Clone the start-kit, run the toy split, and you're on the leaderboard in fifteen minutes. Everything is MIT-licensed: fork freely, but please cite the white paper and the <a href="https://eeg2025.github.io/" target="_blank" rel="noreferrer noopener">2025 challenge</a> that this work continues.</p>
         <div class="bs-hero-cta">
           <a class="bs-btn primary" href="https://github.com/facebookresearch/neuroai" target="_blank" rel="noreferrer noopener">Clone the start-kit →</a>
           <a class="bs-btn ghost" href="https://arxiv.org/abs/2506.19141" target="_blank" rel="noreferrer noopener">Read the white paper</a>
@@ -558,7 +538,7 @@
         </a>
         <div class="vb-footer-links">
           <a href="startkit.html">Start-kit</a>
-          <a href="faq.html">FAQ</a>
+          <a href="faq.html">Rules &amp; FAQ</a>
           <a href="leaderboard.html">Leaderboard</a>
           <a href="awards.html">Awards</a>
           <a href="organizers.html">Organizers</a>
@@ -581,7 +561,7 @@
   </main>
 </div>
 
-<script src="assets/js/ui.js?v=20260521c" defer></script>
+<script src="assets/js/ui.js?v=20260828a" defer></script>
 
 </body>
 </html>

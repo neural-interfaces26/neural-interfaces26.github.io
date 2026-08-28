@@ -28,7 +28,7 @@ PAGES = sorted(ROOT.glob("*.html"))
 # inventory contains documentation-only metadata.
 ANCHORS: dict[str, list[str]] = {
     "baseline values (P1)": [
-        "84.75", "68.04", "143.30", "12.2",
+        "84.75", "68.04", "143.30", "25.14",
         "28.13", "58.58", "134.89", "205.42",
     ],
     "headline competition numbers (P1)": [
@@ -39,7 +39,7 @@ ANCHORS: dict[str, list[str]] = {
         "EEG Foundation Challenge",
     ],
     "domain disambiguation (P0)": [
-        "neuralinterface26.github.io",
+        "neural-interfaces26.github.io",
     ],
     "discord url (out-of-band)": [
         "discord.gg/yZv8KqKMpH",

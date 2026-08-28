@@ -1,5 +1,10 @@
 /* EEG/EMG Foundation Challenge 2026 — base reset + reusable atoms (eyebrow, kicker, pill, btn,
-   badge, code block) shared across the landing. */
+   badge, code block) shared across the landing.
+
+   Brand refresh 2026-08-28 (artwork identity): labels moved off the mono
+   stack onto letter-spaced bold sans, because the artwork set uses no
+   monospace outside of code. Mono is now reserved for code blocks and
+   tabular figures. */
 
 *,
 *::before,
@@ -45,9 +50,9 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid var(--bs-accent);
+  outline: 2px solid var(--bs-violet);
   outline-offset: 2px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 /* Skip link for keyboard / screen-reader users */
@@ -56,9 +61,9 @@ button {
   top: -40px;
   left: 8px;
   padding: 8px 14px;
-  background: var(--bs-text);
-  color: var(--bs-bg);
-  border-radius: 4px;
+  background: var(--bs-violet);
+  color: #ffffff;
+  border-radius: 8px;
   font-weight: 600;
   font-size: 13px;
   z-index: 1000;
@@ -68,7 +73,7 @@ button {
 
 .skip-link:focus {
   top: 8px;
-  color: var(--bs-bg);
+  color: #ffffff;
 }
 
 .bs-root {
@@ -84,30 +89,38 @@ button {
   align-items: center;
   gap: 8px;
   max-width: 100%;
-  font-family: var(--bs-fontmono);
+  font-family: var(--bs-fontsans);
   font-size: 11px;
-  letter-spacing: 1.4px;
+  letter-spacing: 1.6px;
   text-transform: uppercase;
-  color: var(--bs-muted);
-  font-weight: 500;
+  color: var(--bs-violet);
+  font-weight: 700;
 }
+
 
 .bs-eyebrow .dot {
   width: 6px;
   height: 6px;
   border-radius: 999px;
   background: var(--bs-accent);
-  box-shadow: 0 0 0 4px rgba(77, 134, 247, 0.18);
+  box-shadow: 0 0 0 4px rgba(107, 58, 240, 0.18);
   animation: bs-pulse calc(2.4s / var(--bs-anim-speed)) ease-in-out infinite;
 }
 
 .bs-kicker {
-  font-family: var(--bs-fontmono);
+  font-family: var(--bs-fontsans);
   font-size: 10px;
-  letter-spacing: 1.6px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--bs-faint);
-  font-weight: 500;
+  font-weight: 700;
+}
+
+/* The violet full stop that closes every display heading in the artwork
+   set ("GET READY.", "4 TRACKS.", "WE'RE BACK."). Wrapped around the
+   trailing period by ui.js so the markup stays clean. */
+.bs-stop {
+  color: var(--bs-violet);
 }
 
 .bs-pill {
@@ -115,7 +128,7 @@ button {
   align-items: center;
   gap: 6px;
   max-width: 100%;
-  padding: 6px 12px;
+  padding: 6px 13px;
   border-radius: var(--bs-radius-pill);
   border: 1px solid var(--bs-card-border);
   background: rgba(255, 255, 255, 0.72);
@@ -136,9 +149,10 @@ button.bs-pill:hover {
 }
 
 .bs-pill.solid {
-  background: var(--bs-link);
+  background: var(--bs-violet);
   color: white;
-  border-color: var(--bs-link);
+  border-color: var(--bs-violet);
+  box-shadow: 0 8px 20px -12px rgba(91, 46, 229, 0.8);
 }
 
 a.bs-pill.solid:hover,
@@ -152,55 +166,60 @@ button.bs-pill.solid:hover {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 16px;
-  border-radius: var(--bs-radius-sm);
+  padding: 12px 20px;
+  border-radius: var(--bs-radius-md);
   border: 1px solid transparent;
   background: transparent;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 13.5px;
+  letter-spacing: 0.1px;
   cursor: pointer;
   font-family: inherit;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   text-decoration: none;
 }
 
 .bs-btn.primary {
-  background: var(--bs-link);
+  background: var(--bs-violet);
   color: white;
+  box-shadow: 0 10px 24px -12px rgba(91, 46, 229, 0.7);
 }
 
 .bs-btn.primary:hover {
-  background: var(--bs-link-hover);
+  background: var(--bs-violet-deep);
   color: white;
+  box-shadow: 0 14px 30px -12px rgba(63, 20, 176, 0.72);
 }
 
 .bs-btn.ghost {
-  background: transparent;
+  background: #ffffff;
   color: var(--bs-text);
   border-color: var(--bs-card-border);
+  box-shadow: var(--bs-shadow-card);
 }
 
 .bs-btn.ghost:hover {
-  border-color: var(--bs-line-strong);
-  color: var(--bs-text);
+  border-color: var(--bs-violet);
+  color: var(--bs-violet);
 }
 
 .bs-btn.sm {
-  padding: 8px 14px;
+  padding: 9px 15px;
   font-size: 12px;
 }
 
 .bs-badge {
   display: inline-flex;
   align-items: center;
-  padding: 2px 8px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.4px;
-  background: var(--bs-accent-2);
-  color: white;
-  border-radius: 4px;
-  font-family: var(--bs-fontmono);
+  padding: 3px 9px;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: var(--bs-violet-wash-2);
+  color: var(--bs-violet-deep);
+  border-radius: 999px;
+  font-family: var(--bs-fontsans);
 }
 
 /* ---------- Code block ---------- */
@@ -237,7 +256,7 @@ button.bs-pill.solid:hover {
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background: #2a3247;
+  background: #33315c;
 }
 
 .bs-code-head .bs-kicker {
@@ -245,6 +264,8 @@ button.bs-pill.solid:hover {
   flex: 1;
   min-width: 0;
   letter-spacing: 1.2px;
+  font-family: var(--bs-fontmono);
+  font-weight: 500;
 }
 
 .bs-code-head .copy {
@@ -283,7 +304,7 @@ button.bs-pill.solid:hover {
 }
 
 .bs-code .ln {
-  color: #3d4661;
+  color: #494571;
   user-select: none;
 }
 
