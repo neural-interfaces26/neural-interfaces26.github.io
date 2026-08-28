@@ -2463,6 +2463,17 @@
 
 .preview-banner strong { color: var(--bs-violet-deep); }
 
+/* The banner now names the workshop where prizes are awarded, so it carries a
+   link. Underline it: at 11.5px on a violet wash, colour alone is not a strong
+   enough affordance. */
+.preview-banner a {
+  color: var(--bs-violet-deep);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.preview-banner a:hover { color: var(--bs-violet); }
+
 .placeholder-badge {
   background: var(--bs-violet-wash-2);
   color: var(--bs-violet-deep);
