@@ -318,7 +318,7 @@ button.bs-pill.solid:hover {
 .bs-code .c2 { color: var(--bs-violet-soft); }
 .bs-code .str,
 .bs-code .op { color: var(--bs-surface); }
-.bs-code .c1 { color: var(--bs-faint); font-style: italic; }
+.bs-code .c1 { color: var(--bs-code-c1); font-style: italic; }
 .bs-code .c2 { font-style: italic; }
 
 .glass-panel {
