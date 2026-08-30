@@ -14,7 +14,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  align-items: end;
+  align-items: start;
   margin-bottom: 32px;
 }
 
@@ -31,14 +31,14 @@
   letter-spacing: -0.026em;
   overflow-wrap: break-word;
   line-height: 1.04;
-  margin: 14px 0 10px;
+  margin: 10px 0 0;
   text-wrap: balance;
 }
 
 .org-section-head p {
   font-size: 15px;
   color: var(--bs-muted);
-  margin: 0;
+  margin: 12px 0 0;
   line-height: 1.55;
   max-width: 56ch;
 }
@@ -50,7 +50,7 @@
   color: var(--bs-faint);
   letter-spacing: 0.6px;
   text-align: right;
-  align-self: end;
+  align-self: start;
   padding-top: 22px;
   line-height: 1.4;
 }
