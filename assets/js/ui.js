@@ -1,7 +1,7 @@
 /* EEG/EMG Foundation Challenge 2026 — page interactions:
    - Animated count-up on [data-count-to] when in viewport
    - Copy-to-clipboard on [data-copy] inside .bs-code blocks
-   - Mobile sidebar toggle (#mobile-burger / .vb-sidebar)
+   - Responsive site menu toggle
    - Leaderboard tab toggling
    - Violet full stop on display headings (artwork identity motif) */
 
@@ -85,61 +85,35 @@
     });
   }
 
-  /* ---------- Mobile sidebar ---------- */
-  function initMobileNav() {
-    const burger = document.getElementById('mobile-burger');
-    const sidebar = document.getElementById('vb-sidebar');
-    const scrim = document.getElementById('sidebar-scrim');
-    if (!burger || !sidebar || !scrim) return;
+  /* ---------- Responsive site menu ---------- */
+  function initSiteMenu() {
+    const toggle = document.querySelector('.site-menu-toggle');
+    const menu = document.getElementById('site-menu');
+    if (!toggle || !menu) return;
 
-    // The preview banner scrolls with the page, so how much of it is still on
-    // screen depends on the scroll position. Publish that height so the drawer
-    // and the scrim can start below it instead of behind it. Opening locks the
-    // body scroll, so the value only has to be refreshed on open and on resize.
-    const banner = document.querySelector('.preview-banner');
-    const syncBannerOffset = () => {
-      const visible = banner
-        ? Math.max(0, Math.min(banner.getBoundingClientRect().bottom, window.innerHeight))
-        : 0;
-      document.documentElement.style.setProperty('--preview-visible-h', visible + 'px');
+    const close = ({ restoreFocus = false } = {}) => {
+      menu.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+      if (restoreFocus) toggle.focus();
     };
 
-    const close = () => {
-      sidebar.classList.remove('open');
-      scrim.classList.remove('open');
-      burger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    };
-
-    const open = () => {
-      syncBannerOffset();
-      sidebar.classList.add('open');
-      scrim.classList.add('open');
-      burger.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
-    };
-
-    window.addEventListener('resize', () => {
-      if (sidebar.classList.contains('open')) syncBannerOffset();
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      if (open) return close();
+      menu.classList.add('is-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('menu-open');
     });
-
-    burger.addEventListener('click', () => {
-      sidebar.classList.contains('open') ? close() : open();
+    menu.addEventListener('click', (event) => {
+      if (event.target.closest('a')) close();
     });
-
-    scrim.addEventListener('click', close);
-
-    sidebar.addEventListener('click', (e) => {
-      if (e.target.tagName === 'A') close();
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menu.classList.contains('is-open')) {
+        close({ restoreFocus: true });
+      }
     });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && sidebar.classList.contains('open')) close();
-    });
-
-    // If the viewport grows past mobile, drop the open state
-    const mq = window.matchMedia('(min-width: 901px)');
-    mq.addEventListener('change', (e) => { if (e.matches) close(); });
+    window.matchMedia('(min-width: 901px)').addEventListener('change', close);
   }
 
   /* ---------- Countdown to warm-up ---------- */
@@ -236,7 +210,7 @@
   function init() {
     initCounters();
     initCopyButtons();
-    initMobileNav();
+    initSiteMenu();
     initCountdown();
     initLeaderboardTabs();
     initDisplayStops();

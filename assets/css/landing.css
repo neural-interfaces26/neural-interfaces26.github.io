@@ -1,347 +1,271 @@
-/* EEG/EMG Foundation Challenge 2026 — landing layout (Variation B: NeuroAI Docs).
-   Sticky sidebar + main column on desktop, single-column flow on mobile. */
-
-.preview-banner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 8px 16px;
-  background: linear-gradient(90deg, rgba(91, 46, 229, 0.08), rgba(91, 46, 229, 0.04) 60%, rgba(91, 46, 229, 0.08));
-  border-bottom: 1px solid rgba(91, 46, 229, 0.18);
-  color: #3f14b0;
-  font-family: var(--bs-fontmono);
-  font-size: 11px;
-  letter-spacing: 0.6px;
-  text-align: center;
-  position: relative;
-  z-index: 40;
-}
-
-.preview-banner .badge {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 999px;
-  background: var(--bs-link);
-  color: white;
-  font-weight: 700;
-  letter-spacing: 1px;
-  font-size: 9.5px;
-  text-transform: uppercase;
-}
-
-.preview-banner strong {
-  color: #6f3a23;
-  font-weight: 600;
-}
-
-.placeholder-badge {
-  display: inline-block;
-  padding: 2px 7px;
-  border-radius: 4px;
-  background: rgba(91, 46, 229, 0.08);
-  color: var(--bs-link);
-  font-family: var(--bs-fontmono);
-  font-size: 9.5px;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  vertical-align: middle;
-  margin-left: 6px;
-}
-
-.placeholder-note {
-  display: block;
-  margin-top: 8px;
-  font-family: var(--bs-fontmono);
-  font-size: 11px;
-  color: var(--bs-faint);
-  letter-spacing: 0.4px;
-}
-
-@media (max-width: 600px) {
-  .preview-banner {
-    align-items: flex-start;
-    justify-content: flex-start;
-    font-size: 10.5px;
-    padding: 8px 12px;
-    line-height: 1.3;
-    text-align: left;
-  }
-
-  .preview-banner .badge {
-    flex: 0 0 auto;
-  }
-
-  .preview-banner span:not(.badge) {
-    min-width: 0;
-    flex: 1 1 180px;
-  }
-
-  .placeholder-badge {
-    margin: 3px 0 0;
-  }
-}
+/* EEG/EMG Foundation Challenge 2026 — shared responsive shell. */
 
 .landing {
-  display: grid;
-  grid-template-columns: 260px minmax(0, 1fr);
-  background: var(--bs-bg);
-  min-height: 100vh;
+  display: block;
   min-width: 0;
-}
-
-/* Scrim is only used when the mobile sidebar is open. It must stay out of the
-   grid flow at every breakpoint, otherwise it claims the second grid column on
-   desktop and pushes main onto a new row. */
-.sidebar-scrim {
-  position: fixed;
-  inset: 0;
-  background: rgba(16, 16, 43, 0.36);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s ease;
-  z-index: 20;
-}
-
-.sidebar-scrim.open {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* ============================================================
-   Sidebar
-   ============================================================ */
-.vb-sidebar {
+  min-height: 100vh;
   background: var(--bs-surface);
-  border-right: 1px solid var(--bs-card-border);
-  padding: 22px 18px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.site-header {
   position: sticky;
   top: 0;
-  align-self: start;
-  height: 100vh;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--bs-card-border) transparent;
-}
-
-.vb-sidebar::-webkit-scrollbar { width: 4px; }
-.vb-sidebar::-webkit-scrollbar-thumb { background: var(--bs-card-border); border-radius: 999px; }
-
-.vb-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0 6px 18px;
-  border-bottom: 1px solid var(--bs-card-border);
-  text-decoration: none;
-  color: var(--bs-text);
-}
-
-.vb-brand .glyph {
-  width: 26px;
-  height: 26px;
-  border-radius: 6px;
-  background: var(--bs-code-bg);
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-}
-
-.vb-brand .title {
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.2;
-}
-
-.vb-brand .sub {
-  font-family: var(--bs-fontmono);
-  font-size: 10px;
-  color: var(--bs-faint);
-  letter-spacing: 0.4px;
-}
-
-.vb-nav {
-  display: grid;
-  gap: 22px;
-  padding: 22px 0 0;
-}
-
-.vb-nav-section { display: grid; gap: 2px; }
-
-.vb-nav-head {
-  font-family: var(--bs-fontmono);
-  font-size: 9px;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-  color: var(--bs-faint);
-  padding: 0 8px 6px;
-}
-
-.vb-nav a {
-  display: block;
-  padding: 6px 10px;
-  font-size: 13px;
-  color: var(--bs-muted);
-  text-decoration: none;
-  border-radius: 6px;
-  transition: all 0.15s ease;
-}
-
-.vb-nav a:hover {
-  background: rgba(91, 46, 229, 0.07);
-  color: var(--bs-text);
-}
-
-.vb-nav a.active {
-  background: rgba(91, 46, 229, 0.1);
-  color: var(--bs-link);
-  font-weight: 600;
-}
-
-.vb-foot {
-  margin-top: 26px;
-  padding: 12px 8px;
-  border-top: 1px solid var(--bs-card-border);
-}
-
-.vb-countdown {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 10px;
-  margin: 8px 0 10px;
-  font-variant-numeric: tabular-nums;
-}
-
-.vb-cd-group {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 3px;
-}
-
-.vb-cd-num {
-  font-family: var(--bs-fontmono);
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--bs-link);
-  letter-spacing: 0;
-  font-variant-numeric: tabular-nums;
-}
-
-.vb-cd-unit {
-  font-family: var(--bs-fontmono);
-  font-size: 10px;
-  color: var(--bs-faint);
-}
-
-.vb-status {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  color: var(--bs-muted);
-  margin-top: 6px;
-}
-
-.vb-status .dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: var(--bs-success);
-  box-shadow: 0 0 0 3px rgba(31, 122, 72, 0.18);
-  animation: bs-pulse 2s infinite;
-  flex-shrink: 0;
-}
-
-/* ============================================================
-   Main column
-   ============================================================ */
-.vb-main {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 0;
-  width: 100%;
-  min-width: 0;
-}
-
-.vb-main > * {
-  min-width: 0;
-}
-
-.vb-top {
+  z-index: 30;
+  min-height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 14px 32px;
-  border-bottom: 1px solid var(--bs-card-border);
-  position: sticky;
-  top: 0;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  z-index: 5;
+  gap: 24px;
+  padding: 12px clamp(20px, 4vw, 64px);
+  background: rgba(247, 245, 252, 0.88);
+  border-bottom: 1px solid rgba(227, 219, 244, 0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 
-.vb-bread {
-  font-family: var(--bs-fontmono);
-  font-size: 12px;
-  color: var(--bs-muted);
-  display: flex;
-  gap: 8px;
+.site-brand {
+  display: inline-flex;
   align-items: center;
-  min-width: 0;
+  gap: 10px;
+  color: var(--bs-text);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
-.vb-bread a {
-  color: var(--bs-faint);
+.site-brand:hover { color: var(--bs-violet); }
+
+.site-brand-mark {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: var(--bs-radius-sm);
+  background: var(--bs-violet);
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.site-menu {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2vw, 28px);
+}
+
+.site-menu > a:not(.bs-btn) {
+  padding-block: 10px;
+  color: var(--bs-muted);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-menu > a:not(.bs-btn):hover,
+.site-menu > a[aria-current="page"] {
+  color: var(--bs-violet);
+}
+
+.site-menu > .bs-btn { min-height: 44px; }
+
+.site-menu-toggle {
+  display: none;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--bs-card-border);
+  border-radius: var(--bs-radius-md);
+  background: #ffffff;
+}
+
+.site-menu-toggle > span[aria-hidden="true"] {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 3px auto;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 0.2s ease;
+}
+
+.site-menu-toggle[aria-expanded="true"] > span[aria-hidden="true"]:nth-of-type(2) {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.site-menu-toggle[aria-expanded="true"] > span[aria-hidden="true"]:nth-of-type(3) {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+.site-main {
+  min-width: 0;
+  overflow: clip;
+}
+
+.page-shell {
+  width: min(100% - 40px, 1440px);
+  margin-inline: auto;
+}
+
+.reading-width { max-width: 65ch; }
+
+.dataset-release-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.dataset-release-card { padding: 18px; }
+
+.dataset-release-heading {
+  margin: 8px 0 4px;
+  font-size: 18px;
+}
+
+.dataset-release-copy {
+  margin: 0;
+  color: var(--bs-muted);
+  font-size: 13px;
+}
+
+.policy-list.flush-top { margin-top: 0; }
+.privacy-evidence { margin-bottom: 16px; }
+.edition-note { margin: 12px 0 14px; }
+.org-card .bio a,
+.bs-kicker a {
+  color: var(--bs-violet);
+  text-decoration: underline;
+}
+
+.announcement-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px clamp(20px, 4vw, 64px);
+  background: var(--bs-surface);
+  border-bottom: 1px solid var(--bs-card-border);
+  color: var(--bs-muted);
+}
+
+.announcement-strip p {
+  max-width: 65ch;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.announcement-label {
+  flex: 0 0 auto;
+  color: var(--bs-violet);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.site-footer {
+  padding: 28px 0;
+  background: var(--bs-bg);
+  border-top: 1px solid var(--bs-card-border);
+}
+
+.site-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px 32px;
+  flex-wrap: wrap;
+}
+
+.site-footer-brand {
+  color: var(--bs-text);
+  font-weight: 800;
   text-decoration: none;
 }
 
-.vb-bread a:hover { color: var(--bs-link); }
+.site-footer-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
-.vb-bread strong {
-  color: var(--bs-text);
+.site-footer-links a,
+.site-footer-email {
+  color: var(--bs-muted);
+  font-size: 12px;
   font-weight: 600;
 }
 
-.vb-bread .sep { color: var(--bs-line); }
+.site-footer-links a { text-decoration: none; }
+.site-footer a:hover { color: var(--bs-violet); }
 
-.vb-top-cta {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  flex-shrink: 0;
+body.menu-open { overflow: hidden; }
+
+@media (max-width: 900px) {
+  .site-menu-toggle { display: grid; place-content: center; }
+
+  .site-menu {
+    position: fixed;
+    inset: 72px 16px auto;
+    display: grid;
+    max-height: calc(100dvh - 88px);
+    padding: 20px;
+    overflow-y: auto;
+    border: 1px solid var(--bs-card-border);
+    border-radius: var(--bs-radius-card);
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: var(--bs-shadow-card-lift);
+    transform: translateY(-12px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  }
+
+  .site-menu.is-open {
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .site-menu > a:not(.bs-btn) {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .site-menu > .bs-btn { justify-content: center; }
 }
 
-.vb-top-cta .kbd {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  border-radius: 4px;
-  border: 1px solid var(--bs-card-border);
-  background: white;
-  font-size: 10px;
-  line-height: 14px;
-  text-align: center;
-  margin-right: 4px;
-  font-family: var(--bs-fontmono);
-}
-
-.vb-mobile-burger {
-  display: none;
-  background: transparent;
-  border: 1px solid var(--bs-card-border);
-  border-radius: 6px;
-  width: 36px;
-  height: 36px;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  color: var(--bs-text);
-  padding: 0;
+@media (max-width: 640px) {
+  .site-brand { min-width: 0; }
+  .site-brand > span:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .announcement-strip { align-items: flex-start; justify-content: flex-start; }
+  .site-footer-inner { align-items: flex-start; flex-direction: column; }
+  .site-footer-email { overflow-wrap: anywhere; }
 }
 
 /* ============================================================
@@ -1460,52 +1384,6 @@
 }
 
 /* ============================================================
-   Footer
-   ============================================================ */
-.vb-footer {
-  padding: 32px;
-  border-top: 1px solid var(--bs-card-border);
-  background: var(--bs-surface);
-}
-
-.vb-footer-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-.vb-footer-meta {
-  font-size: 11px;
-  color: var(--bs-faint);
-  font-family: var(--bs-fontmono);
-  letter-spacing: 0.4px;
-}
-
-.vb-footer-links {
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.vb-footer-links a {
-  font-size: 12px;
-  color: var(--bs-muted);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.vb-footer-links a:hover { color: var(--bs-link); }
-
-.vb-footer .vb-footer-row + .vb-footer-row {
-  margin-top: 18px;
-  padding-top: 18px;
-  border-top: 1px solid var(--bs-card-border);
-}
-
-/* ============================================================
    Live EEG strip (vanilla JS-rendered SVG)
    ============================================================ */
 .bs-eeg-channel {
@@ -1571,48 +1449,6 @@
 }
 
 @media (max-width: 900px) {
-  .vb-main {
-    overflow-x: hidden;
-  }
-
-  .landing { grid-template-columns: 1fr; }
-
-  /* The preview banner scrolls with the page, so the drawer opens below
-     whatever is left of it on screen rather than underneath it — the banner is
-     translucent, and stacking the two made both texts unreadable. JS keeps
-     --preview-visible-h in sync; with no JS it falls back to 0 and the drawer
-     covers the full height as before. */
-  .vb-sidebar {
-    position: fixed;
-    inset: var(--preview-visible-h, 0px) auto 0 0;
-    width: min(84vw, 320px);
-    max-width: calc(100vw - 44px);
-    height: calc(100dvh - var(--preview-visible-h, 0px));
-    z-index: 30;
-    transform: translateX(-100%);
-    transition: transform 0.25s ease;
-    box-shadow: 8px 0 32px rgba(16, 16, 43, 0.18);
-  }
-
-  /* The scrim takes the same offset: dimming the strip behind a translucent
-     banner tints the banner itself. */
-  .sidebar-scrim { top: var(--preview-visible-h, 0px); }
-
-  .vb-sidebar.open { transform: translateX(0); }
-
-  .vb-mobile-burger { display: inline-flex; }
-  .vb-top-cta .desktop-only { display: none; }
-  .vb-top { padding: 12px 18px; gap: 12px; }
-  .vb-bread { font-size: 11px; gap: 6px; flex: 1; min-width: 0; overflow: hidden; }
-  .vb-bread a,
-  .vb-bread .sep { display: none; }
-  .vb-bread strong {
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
   .vb-hero {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -1664,20 +1500,9 @@
     padding: 56px 18px;
     gap: 28px;
   }
-
-  .vb-footer { padding: 24px 18px; }
 }
 
 @media (max-width: 480px) {
-  .vb-top {
-    padding: 10px 12px;
-  }
-
-  .vb-top-cta .bs-pill.solid {
-    padding: 7px 10px;
-    font-size: 11px;
-  }
-
   .vb-hero {
     padding: 28px 14px 36px;
   }
@@ -1920,22 +1745,6 @@
 .vb-logo-group .vb-logo-grid { margin-top: 0; }
 
 
-/* ---- 13. Footer brand: 8 instances of the identical inline override on
-         every page. Promote to .vb-brand.footer-brand modifier. */
-.vb-brand.footer-brand {
-  border-bottom: none;
-  padding: 0;
-  text-decoration: none;
-}
-
-
-/* ---- 14. Footer meta links inheriting the meta colour. */
-.vb-footer-meta a {
-  color: inherit;
-  text-decoration: underline;
-}
-
-
 /* ---- 15. Eyebrow with a trailing placeholder badge: keep the badge from
          pushing the dot/text into a wrap when room is tight. */
 .bs-eyebrow .placeholder-badge {
@@ -2043,21 +1852,6 @@
 }
 
 
-/* ---- 25. Top-bar consistency: vb-bread on long pages was overflowing on
-         desktops below 1280px when the breadcrumb had 4 levels. Pin a
-         minimum size on the breadcrumb. */
-@media (min-width: 901px) {
-  .vb-bread { min-width: 0; flex: 1 1 auto; }
-  .vb-top-cta { flex: 0 0 auto; }
-}
-
-
-/* ---- 26. Footer brand title vs sub gap on mobile — sub line was kissing
-         the title on the footer, but had 1.2 line-height on the title. */
-.vb-footer .vb-brand .title { display: block; line-height: 1.2; margin-bottom: 2px; }
-.vb-footer .vb-brand .sub { display: block; line-height: 1.2; }
-
-
 /* ---- 27. Track-record's hero-side .vb-tracks-meta — was using the .vb-tracks-meta
          style with 2px left rail and tinted bg, but inside the dark hero-eeg
          card it reads wrong. Tighter, no rail when nested inside hero-eeg. */
@@ -2107,15 +1901,6 @@
 
 /* ---- 30. EEG host margin override (index.html). */
 .bs-eeg-host { margin-top: 10px; }
-
-
-/* ---- 31. Mobile footer rows: when wrapped, both meta lines were stacking
-         too tightly. Add explicit spacing. */
-@media (max-width: 720px) {
-  .vb-footer-row { flex-direction: column; align-items: flex-start; gap: 14px; }
-  .vb-footer .vb-footer-row + .vb-footer-row { margin-top: 14px; padding-top: 14px; }
-  .vb-footer-meta { font-size: 11px; line-height: 1.5; }
-}
 
 
 /* ---- 32. .org-card.lead — text alignment: image-backed avatar inside the
@@ -2185,23 +1970,7 @@
 
 /* ---- Ground / figure -------------------------------------------------- */
 
-.landing { background: var(--bs-surface); }
-
-.vb-main { background: var(--bs-surface); }
-
-.vb-sidebar {
-  background: var(--bs-bg);
-  border-right: 1px solid var(--bs-card-border);
-}
-
-.vb-top {
-  background: rgba(245, 244, 251, 0.88);
-  border-bottom: 1px solid var(--bs-card-border);
-}
-
 .vb-sponsors { background: transparent; }
-
-.vb-footer { background: var(--bs-bg); }
 
 /* Cards lift off the lavender ground with a shadow; the hairline stays
    only to keep the edge crisp on low-contrast displays. */
@@ -2258,7 +2027,7 @@
 
 .vb-hero-text h1 {
   /* The lower bound has to clear "EEG/EMG Foundation" inside a 390px
-     viewport: .vb-main is overflow-x: hidden below 900px, so a heading that
+     viewport: .site-main clips overflow, so a heading that
      is too wide is clipped rather than scrolled. */
   font-size: clamp(29px, 4.6vw, 58px);
   font-weight: 900;
@@ -2418,62 +2187,6 @@
   border-radius: 0 10px 10px 0;
 }
 
-/* ---- Nav ------------------------------------------------------------- */
-
-.vb-brand .glyph {
-  background: var(--bs-violet);
-  border-radius: 9px;
-  box-shadow: 0 8px 18px -10px rgba(91, 46, 229, 0.9);
-}
-
-.vb-brand .title { font-family: var(--bs-fontdisplay); font-weight: 800; letter-spacing: -0.015em; }
-
-.vb-brand .sub,
-.vb-nav-head {
-  font-family: var(--bs-fontsans);
-  font-weight: 700;
-  letter-spacing: 1.4px;
-}
-
-.vb-nav a { border-radius: 8px; }
-
-.vb-nav a.active {
-  background: var(--bs-violet-wash-2);
-  color: var(--bs-violet-deep);
-}
-
-.vb-bread { font-family: var(--bs-fontsans); font-weight: 600; }
-
-/* ---- Preview banner --------------------------------------------------- */
-
-.preview-banner {
-  background: linear-gradient(90deg, rgba(91, 46, 229, 0.1), rgba(91, 46, 229, 0.05) 60%, rgba(91, 46, 229, 0.1));
-  border-bottom: 1px solid rgba(91, 46, 229, 0.2);
-  color: var(--bs-violet-deep);
-  font-family: var(--bs-fontsans);
-  font-weight: 600;
-  font-size: 11.5px;
-  letter-spacing: 0.2px;
-}
-
-.preview-banner .badge {
-  background: var(--bs-violet);
-  font-family: var(--bs-fontsans);
-}
-
-.preview-banner strong { color: var(--bs-violet-deep); }
-
-/* The banner now names the workshop where prizes are awarded, so it carries a
-   link. Underline it: at 11.5px on a violet wash, colour alone is not a strong
-   enough affordance. */
-.preview-banner a {
-  color: var(--bs-violet-deep);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.preview-banner a:hover { color: var(--bs-violet); }
-
 .placeholder-badge {
   background: var(--bs-violet-wash-2);
   color: var(--bs-violet-deep);
@@ -2566,7 +2279,6 @@
 
 .org-card .role,
 .org-section-side,
-.vb-footer-meta,
 .vb-stat-delta {
   font-family: var(--bs-fontsans);
   font-weight: 700;

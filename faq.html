@@ -33,7 +33,7 @@
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
 <link rel="stylesheet" href="assets/css/base.css?v=20260828a" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260828g" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20260830a" />
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235b2ee5'/%3E%3Cg stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5'/%3E%3Cpath d='M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24'/%3E%3C/g%3E%3C/svg%3E" />
 
@@ -180,101 +180,33 @@
 }
 </script>
 </head>
-<body>
+<body class="bs-root landing">
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<div class="preview-banner" role="status">
-  <span class="badge">Preview</span>
-  <span>The competition runs Sep 16 – Nov 16, 2026; prizes are awarded at <a href="https://brainbodyfm-workshop.github.io" target="_blank" rel="noreferrer noopener">Foundation Models for the Brain and Body</a>, the NeurIPS 2026 workshop in Sydney.</span>
-</div>
+<header class="site-header">
+  <a class="site-brand" href="index.html" aria-label="EEG/EMG Foundation Challenge home">
+    <span class="site-brand-mark" aria-hidden="true">∿</span>
+    <span>EEG/EMG Foundation</span>
+  </a>
+  <button class="site-menu-toggle" type="button" aria-controls="site-menu" aria-expanded="false">
+    <span class="sr-only">Open navigation</span>
+    <span aria-hidden="true"></span><span aria-hidden="true"></span>
+  </button>
+  <nav class="site-menu" id="site-menu" aria-label="Primary navigation">
+    <a href="index.html#tracks">Tracks</a>
+    <a href="index.html#timeline">Timeline</a>
+    <a href="startkit.html">Start kit</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="faq.html" aria-current="page">Rules</a>
+    <a href="organizers.html">Organizers</a>
+    <a class="bs-btn primary sm" href="mailto:neurips2026-eeg-emg-competition@googlegroups.com?subject=Register%20team%20for%20EEG%2FEMG%20Foundation%20Challenge%202026">Register</a>
+  </nav>
+</header>
 
-<div class="bs-root landing">
+<main class="site-main" id="main">
 
-  <!-- ============================== Sidebar ============================== -->
-  <aside class="vb-sidebar" id="vb-sidebar" aria-label="Documentation navigation">
-    <a class="vb-brand" href="index.html">
-      <span class="glyph">
-        <svg viewBox="0 0 32 32" width="20" height="20" aria-hidden="true">
-          <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
-            <path d="M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5" />
-            <path d="M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24" />
-          </g>
-        </svg>
-      </span>
-      <span>
-        <span class="title">EEG/EMG Foundation</span>
-        <span class="sub">Generalizable Decoding</span>
-      </span>
-    </a>
-
-    <nav class="vb-nav" aria-label="Documentation sections">
-      <div class="vb-nav-section">
-        <div class="vb-nav-head">Get started</div>
-        <a href="index.html#top">Overview</a>
-        <a href="startkit.html">Start-kit &amp; baselines</a>
-        <a href="index.html#stats">At a glance</a>
-        <a href="faq.html" class="active" aria-current="page">Rules &amp; FAQ</a>
-      </div>
-      <div class="vb-nav-section">
-        <div class="vb-nav-head">Challenge</div>
-        <a href="index.html#tracks">Tracks</a>
-        <a href="index.html#timeline">Timeline</a>
-        <a href="leaderboard.html">Leaderboard</a>
-        <a href="awards.html">Awards &amp; prizes</a>
-        <a href="index.html#datasets">Datasets</a>
-      </div>
-      <div class="vb-nav-section">
-        <div class="vb-nav-head">About</div>
-        <a href="organizers.html">Organizers</a>
-        <a href="ethics.html">Ethics</a>
-        <a href="track-record.html">Track record</a>
-        <a href="index.html#sponsors">Sponsors</a>
-        <a href="index.html#cta">Register</a>
-      </div>
-</nav>
-
-    <div class="vb-foot">
-      <div class="bs-kicker">Competition opens</div>
-      <div class="vb-countdown" data-countdown-to="2026-09-16T00:00:00Z" aria-live="polite">
-        <span class="vb-cd-group"><span class="vb-cd-num" data-cd-days>—</span><span class="vb-cd-unit" data-cd-days-unit>days</span></span>
-        <span class="vb-cd-group"><span class="vb-cd-num" data-cd-hours>—</span><span class="vb-cd-unit">hr</span></span>
-        <span class="vb-cd-group"><span class="vb-cd-num" data-cd-mins>—</span><span class="vb-cd-unit">min</span></span>
-        <span class="vb-cd-group"><span class="vb-cd-num" data-cd-secs>—</span><span class="vb-cd-unit">sec</span></span>
-      </div>
-      <div class="vb-status"><span class="dot"></span>preview build · star on GitHub</div>
-    </div>
-  </aside>
-
-  <div class="sidebar-scrim" id="sidebar-scrim" aria-hidden="true"></div>
-
-  <!-- ============================== Main ============================== -->
-  <main class="vb-main" id="main">
-
-    <!-- Topbar -->
-    <div class="vb-top" id="top">
-      <button class="vb-mobile-burger" id="mobile-burger" aria-label="Open navigation" aria-controls="vb-sidebar" aria-expanded="false">
-        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
-          <path d="M2 4h14M2 9h14M2 14h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-        </svg>
-      </button>
-      <div class="vb-bread">
-        <a href="index.html">docs</a>
-        <span class="sep">/</span>
-        <a href="index.html">eeg-emg-foundation-challenge</a>
-        <span class="sep">/</span>
-        <a href="faq.html">get-started</a>
-        <span class="sep">/</span>
-        <strong>rules &amp; faq</strong>
-      </div>
-      <div class="vb-top-cta">
-        <span class="bs-pill desktop-only"><span class="kbd">⌘</span> K · search</span>
-        <a class="bs-pill desktop-only" href="https://github.com/neural-interfaces26/neural-interfaces26.github.io" target="_blank" rel="noreferrer noopener">GitHub</a>
-        <a class="bs-pill solid" href="index.html#cta">Register</a>
-      </div>
-    </div>
-
-    <!-- ============================== Hero ============================== -->
+  <!-- ============================== Hero ============================== -->
     <section class="vb-hero" aria-labelledby="faq-heading">
       <div class="vb-hero-text">
         <span class="bs-eyebrow"><span class="dot"></span> Rules &amp; FAQ · required reading</span>
@@ -316,6 +248,11 @@
         </nav>
       </div>
     </section>
+<section class="announcement-strip" aria-label="Competition announcement">
+  <span class="announcement-label">Preview</span>
+  <p>The competition runs Sep 16 – Nov 16, 2026; prizes are awarded at <a href="https://brainbodyfm-workshop.github.io" target="_blank" rel="noreferrer noopener">Foundation Models for the Brain and Body</a>, the NeurIPS 2026 workshop in Sydney.</p>
+</section>
+
 
     <!-- ============================== Rules ============================== -->
     <section class="vb-section" id="rules" aria-labelledby="rules-heading">
@@ -482,49 +419,22 @@
       </div>
     </section>
 
-    <!-- ============================== Footer ============================== -->
-    <footer class="vb-footer">
-      <div class="vb-footer-row">
-        <a class="vb-brand footer-brand" href="index.html">
-          <span class="glyph">
-            <svg viewBox="0 0 32 32" width="20" height="20" aria-hidden="true">
-              <g stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
-                <path d="M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5" />
-                <path d="M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24" />
-              </g>
-            </svg>
-          </span>
-          <span>
-            <span class="title">EEG/EMG Foundation</span>
-            <span class="sub">NeurIPS 2026 · Sydney</span>
-          </span>
-        </a>
-        <div class="vb-footer-links">
-          <a href="startkit.html">Start-kit</a>
-          <a href="faq.html">Rules &amp; FAQ</a>
-          <a href="leaderboard.html">Leaderboard</a>
-          <a href="awards.html">Awards</a>
-          <a href="organizers.html">Organizers</a>
-          <a href="ethics.html">Ethics</a>
-          <a href="track-record.html">Track record</a>
-          <a href="index.html#sponsors">Sponsors</a>
-          <a href="https://github.com/neural-interfaces26/neural-interfaces26.github.io" target="_blank" rel="noreferrer noopener">GitHub</a>
-        </div>
-      </div>
-      <div class="vb-footer-row">
-        <span class="vb-footer-meta">
-          © 2026 EEG/EMG Foundation Challenge · MIT licensed · Continues the work of the <a href="https://eeg2025.github.io/" target="_blank" rel="noreferrer noopener" >EEG 2025 Challenge</a>
-        </span>
-        <span class="vb-footer-meta">
-          Organized by Yneuro · UCSD · Imperial · Meta FAIR · Donders · Alljoined · Inria Bordeaux · ISAE-SUPAERO · InteraXon · Meta Reality Labs · Paris-Saclay · CNRS · Salk · ChaLearn
-        </span>
-      </div>
-    </footer>
+</main>
 
-  </main>
-</div>
+<footer class="site-footer">
+  <div class="site-footer-inner page-shell">
+    <a class="site-footer-brand" href="index.html">EEG/EMG Foundation Challenge 2026</a>
+    <nav class="site-footer-links" aria-label="Footer navigation">
+      <a href="startkit.html">Start kit</a>
+      <a href="faq.html">Rules</a>
+      <a href="ethics.html">Ethics</a>
+      <a href="https://github.com/neural-interfaces26/neural-interfaces26.github.io" target="_blank" rel="noreferrer noopener">GitHub</a>
+    </nav>
+    <a class="site-footer-email" href="mailto:neurips2026-eeg-emg-competition@googlegroups.com">neurips2026-eeg-emg-competition@googlegroups.com</a>
+  </div>
+</footer>
 
-<script src="assets/js/ui.js?v=20260828a" defer></script>
+<script src="assets/js/ui.js?v=20260830a" defer></script>
 
 </body>
 </html>
