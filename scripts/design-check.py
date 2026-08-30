@@ -17,6 +17,16 @@ TOKENS = {
     "--bs-surface": "#f7f5fc",
     "--bs-card-border": "#e3dbf4",
 }
+NARRATIVE_PAGES = ("awards.html", "organizers.html", "ethics.html", "track-record.html")
+ORGANIZER_NAMES = (
+    "Bruno Aristimunha", "Arnault Caillet", "Hubert Banville", "Pierre Guetschel",
+    "Jean-Rémi King", "Vinay Jayaram", "Ugo Nunes", "Simon Kojima",
+    "Pauline Dreyer", "Raphaëlle N. Roy", "Fabien Lotte", "Jiansheng Niu",
+    "Maurice Abou Jaoude", "Christopher Aimone", "Pranav Mamidanna", "Alex Gramfort",
+    "Cédric Rommel", "Marie-Constance Corsi", "Thomas Moreau", "Joséphine Raugel",
+    "Lionel Kusch", "Thomas Semah", "Seyed Yahya Shirazi", "Scott Makeig",
+    "Isabelle Guyon", "Terrence Sejnowski", "Sylvain Chevallier", "Arnaud Delorme",
+)
 
 
 class PageParser(HTMLParser):
@@ -220,6 +230,90 @@ def check_technical(errors: list[str]) -> None:
             errors.append(f"{name}: copy controls must use native buttons")
 
 
+def check_narrative(errors: list[str]) -> None:
+    pages = {name: parse_page(name) for name in NARRATIVE_PAGES}
+    for name, (text, parsed) in pages.items():
+        if "narrative-page" not in parsed.classes:
+            errors.append(f"{name}: narrative page class missing")
+        heroes = parsed.find("section", "page-hero")
+        if len(heroes) != 1:
+            errors.append(f"{name}: requires one compact page hero")
+        elif len([h1 for h1 in parsed.find("h1") if has_ancestor(h1, heroes[0])]) != 1:
+            errors.append(f"{name}: page hero requires one h1")
+        if "—" in text or "–" in text:
+            errors.append(f"{name}: visible copy must use regular hyphens")
+
+    awards = pages["awards.html"][1]
+    if len(awards.find(class_name="award-total")) != 1 or "$30,000" not in element_text(awards.find(class_name="award-total")[0]):
+        errors.append("awards.html: requires one dominant $30,000 total")
+    if len(awards.find(class_name="award-breakdown")) != 1:
+        errors.append("awards.html: requires one ruled award breakdown")
+    if len(awards.find(class_name="award-track")) != 4:
+        errors.append("awards.html: requires four track award rows")
+    if len(awards.find(class_name="award-eligibility")) != 1:
+        errors.append("awards.html: requires one eligibility caveat")
+    awards_main = awards.find("main")
+    ethics_links = [
+        link for link in awards.find("a")
+        if link["attrs"].get("href") == "ethics.html" and awards_main and has_ancestor(link, awards_main[0])
+    ]
+    if len(ethics_links) != 1:
+        errors.append("awards.html: main content must link the ethics route once")
+
+    organizers_text, organizers = pages["organizers.html"]
+    people = organizers.find("article", "org-card")
+    if len(people) != 28:
+        errors.append("organizers.html: requires all 28 organizers")
+    if tuple(element_text(name) for name in organizers.find(class_name="name")) != ORGANIZER_NAMES:
+        errors.append("organizers.html: organizer proposal order changed")
+    for person in people:
+        for field in ("avatar", "name", "role", "bio", "affil"):
+            if not any(has_ancestor(item, person) for item in organizers.find(class_name=field)):
+                errors.append(f"organizers.html: organizer missing {field}")
+                break
+    if len(organizers.find(class_name="org-directory")) != 1:
+        errors.append("organizers.html: requires one ruled portrait directory")
+    if len(organizers.find(class_name="org-institutions")) != 1:
+        errors.append("organizers.html: institutional marks require a separate stage")
+    if organizers_text.count('loading="lazy"') < 28:
+        errors.append("organizers.html: all portraits must lazy-load")
+    if len((ROOT / "assets/css/organizers.css").read_text(encoding="utf-8").splitlines()) >= 300:
+        errors.append("assets/css/organizers.css: must stay below 300 lines")
+
+    ethics = pages["ethics.html"][1]
+    if len(ethics.find("nav", "local-nav")) != 1:
+        errors.append("ethics.html: requires one local section index")
+    if len(ethics.find(class_name="review-state")) != 1:
+        errors.append("ethics.html: requires a visible review state")
+    if len(ethics.find(class_name="editorial-lane")) != 1:
+        errors.append("ethics.html: requires one editorial reading lane")
+    commitments = ethics.find("ol", "commitment-list")
+    if len(commitments) != 1 or len([item for item in ethics.find("li") if has_ancestor(item, commitments[0])]) != 3:
+        errors.append("ethics.html: requires three numbered ruled commitments")
+
+    record = pages["track-record.html"][1]
+    rails = record.find(class_name="year-rail")
+    entries = record.find(class_name="year-entry")
+    if len(rails) != 1 or len(entries) != 5:
+        errors.append("track-record.html: requires one five-entry year rail")
+    if len(record.find(class_name="evidence-header")) != 5:
+        errors.append("track-record.html: each year requires an evidence header")
+    rail_text = element_text(rails[0]) if rails else ""
+    for year in ("2021", "2022", "2023", "2025", "2026"):
+        if year not in rail_text:
+            errors.append(f"track-record.html: missing {year} from year rail")
+
+    error_text, error_page = parse_page("404.html") if (ROOT / "404.html").is_file() else ("", PageParser())
+    if error_page.tags.get("header") != 1 or error_page.tags.get("main") != 1 or error_page.tags.get("footer") != 1:
+        errors.append("404.html: requires the shared shell")
+    for destination in ('href="index.html"', 'href="startkit.html"', 'href="faq.html"', 'href="mailto:neurips2026-eeg-emg-competition@googlegroups.com"'):
+        if destination not in error_text:
+            errors.append(f"404.html: missing recovery destination {destination}")
+    trophies = error_page.find(class_name="error-trophy")
+    if len(trophies) != 1 or trophies[0]["attrs"].get("aria-hidden") != "true":
+        errors.append("404.html: requires one decorative trophy field")
+
+
 def check_metadata(errors: list[str]) -> None:
     for page in PAGES + ["404.html"]:
         text = (ROOT / page).read_text(encoding="utf-8")
@@ -249,7 +343,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--scope",
-        choices=("tokens", "shell", "home", "technical", "metadata", "assets", "all"),
+        choices=("tokens", "shell", "home", "technical", "narrative", "metadata", "assets", "all"),
         default="all",
     )
     scope = parser.parse_args().scope
@@ -259,6 +353,7 @@ def main() -> int:
         "shell": check_shell,
         "home": check_home,
         "technical": check_technical,
+        "narrative": check_narrative,
         "metadata": check_metadata,
         "assets": check_assets,
     }

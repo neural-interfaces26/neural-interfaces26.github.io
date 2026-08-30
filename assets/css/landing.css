@@ -2856,6 +2856,377 @@ body.menu-open { overflow: hidden; }
 }
 
 /* ============================================================
+   Narrative pages - page-specific editorial systems
+   ============================================================ */
+
+.narrative-page {
+  background: var(--bs-bg);
+  color: var(--bs-text);
+  font-size: 16px;
+}
+
+.narrative-page .site-main { overflow-x: clip; }
+.narrative-page .page-hero-inner { max-width: 980px; }
+
+.narrative-page .page-hero p,
+.narrative-page .announcement-strip p,
+.narrative-page .vb-section p,
+.narrative-page .org-section p,
+.narrative-page .policy-list,
+.narrative-page .note-text { font-size: 16px; }
+
+.narrative-page .bs-btn { min-height: 44px; }
+.narrative-page .dot { display: none; }
+
+/* Awards: one numeric declaration followed by one ruled breakdown. */
+.awards-hero .page-hero-inner { max-width: 1120px; }
+
+.award-field {
+  padding: 56px max(20px, calc((100vw - 1344px) / 2)) 64px;
+  border-bottom: 1px solid var(--bs-card-border);
+}
+
+.award-declaration {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+  gap: 40px;
+  align-items: end;
+  margin: 0 0 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--bs-text);
+}
+
+.award-declaration > div { display: grid; gap: 8px; }
+
+.award-total {
+  margin: 0;
+  color: var(--bs-violet);
+  font-family: var(--bs-fontdisplay);
+  font-size: clamp(88px, 11vw, 152px);
+  font-weight: 900;
+  letter-spacing: -0.075em;
+  line-height: 0.82;
+}
+
+.award-declaration span {
+  color: var(--bs-text);
+  font-family: var(--bs-fontmono);
+  font-size: 13px;
+  line-height: 1.55;
+  text-transform: uppercase;
+}
+
+.award-declaration p {
+  color: var(--bs-text);
+  font-family: var(--bs-fontmono);
+  font-size: 16px;
+  line-height: 1.65;
+  text-transform: uppercase;
+}
+
+.narrative-page .award-eligibility { max-width: 65ch; font-size: 16px; line-height: 1.65; }
+
+.award-breakdown {
+  display: block;
+  margin-top: 32px;
+  border-top: 1px solid var(--bs-text);
+}
+
+.award-breakdown .vb-track {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) minmax(230px, 0.45fr);
+  gap: 16px 28px;
+  align-items: start;
+  margin: 0;
+  padding: 32px 0 36px;
+  border: 0;
+  border-bottom: 1px solid var(--bs-card-border);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.award-breakdown .vb-track:hover { transform: none; box-shadow: none; }
+.award-breakdown .track-head { grid-column: 1; grid-row: 1 / span 4; display: grid; align-content: start; justify-items: start; }
+.award-breakdown .vb-track h3,
+.award-breakdown .vb-track > p,
+.award-breakdown .vb-track-paradigms { grid-column: 2; }
+.award-breakdown .vb-track h3 { margin: 0; font-size: clamp(24px, 3vw, 34px); }
+.award-breakdown .vb-track > p { margin: 0; font-size: 16px; line-height: 1.65; }
+.award-breakdown .track-stats { grid-column: 3; grid-row: 1 / span 4; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.award-breakdown .track-stats strong { font-family: var(--bs-fontmono); font-size: 16px; }
+
+.award-breakdown .bs-badge,
+.award-breakdown .bs-pill {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font-family: var(--bs-fontmono);
+  font-size: 11px;
+}
+
+.award-internship {
+  margin-top: 32px !important;
+  padding-inline: 28px !important;
+  background: var(--bs-surface) !important;
+}
+
+.award-sponsors { background: var(--bs-surface); }
+.award-sponsors .vb-logo-mark,
+.award-sponsors .vb-logo-mark:hover { background: var(--bs-bg); box-shadow: none; transform: none; }
+
+/* Ethics: one legal reading lane, local index, and ruled commitments. */
+.review-state {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  width: min(100% - 40px, 1344px);
+  align-items: center;
+  gap: 12px 24px;
+  margin-inline: auto;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--bs-card-border);
+}
+
+.review-state > span,
+.review-state > strong {
+  font-family: var(--bs-fontmono);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.review-state > strong { color: var(--bs-violet); }
+.review-state p { margin: 0; color: var(--bs-muted); font-size: 16px; }
+
+.editorial-lane {
+  width: min(100% - 40px, 65ch);
+  margin-inline: auto;
+}
+
+.ethics-page .vb-section,
+.ethics-page .vb-section-cream {
+  padding: 64px 0 72px;
+  border-bottom: 1px solid var(--bs-card-border);
+  background: transparent;
+}
+
+.ethics-page .vb-section-head { display: block; }
+.ethics-page .vb-section-head > div:first-child { max-width: none; }
+.ethics-page .vb-section-head h2 { font-size: clamp(34px, 4vw, 48px); line-height: 1.02; }
+.ethics-page .vb-section-side {
+  max-width: 56ch;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--bs-card-border);
+}
+
+.ethics-page .policy-list { padding-left: 22px; }
+.ethics-page .policy-list li { margin-bottom: 20px; line-height: 1.65; }
+
+.commitment-list {
+  margin: 32px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--bs-text);
+  counter-reset: commitments;
+  list-style: none;
+}
+
+.commitment-list > li {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 4px 24px;
+  padding: 28px 0 32px;
+  border-bottom: 1px solid var(--bs-card-border);
+  counter-increment: commitments;
+}
+
+.commitment-list > li::before {
+  grid-row: 1 / span 3;
+  color: var(--bs-violet);
+  content: "0" counter(commitments);
+  font-family: var(--bs-fontmono);
+  font-size: 14px;
+}
+
+.commitment-list .track-head { display: none; }
+.commitment-list h3 { margin: 0; color: var(--bs-text); font-size: 24px; line-height: 1.2; }
+.commitment-list p { margin: 8px 0 0; color: var(--bs-muted); line-height: 1.65; }
+.ethics-page #contact .bs-btn { max-width: 100%; white-space: normal; overflow-wrap: anywhere; text-align: center; }
+
+/* Track record: one chronological rail with compact evidence headers. */
+.year-rail {
+  position: relative;
+  width: min(100% - 40px, 1344px);
+  margin-inline: auto;
+  padding-left: 72px;
+}
+
+.year-rail::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 1px;
+  background: var(--bs-card-border);
+  content: "";
+}
+
+.year-entry { position: relative; border-bottom: 1px solid var(--bs-card-border); }
+
+.year-entry::before {
+  position: absolute;
+  top: 31px;
+  left: -58px;
+  width: 12px;
+  height: 12px;
+  border: 3px solid var(--bs-bg);
+  border-radius: 50%;
+  background: var(--bs-violet);
+  box-shadow: 0 0 0 1px var(--bs-violet);
+  content: "";
+}
+
+.evidence-header {
+  display: grid;
+  grid-template-columns: 80px 1.25fr 0.8fr auto 1.1fr;
+  gap: 16px 24px;
+  align-items: start;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--bs-card-border);
+  color: var(--bs-muted);
+  font-family: var(--bs-fontmono);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.evidence-header time {
+  color: var(--bs-violet);
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.evidence-header a { min-height: 44px; display: inline-flex; align-items: flex-start; }
+
+.track-record-page .year-entry > .vb-section {
+  padding: 48px 0 72px;
+  border: 0;
+  background: transparent;
+}
+
+.track-record-page .year-entry .vb-section-head { grid-template-columns: minmax(0, 1.4fr) minmax(240px, 0.6fr); }
+.track-record-page .year-entry .vb-section-head h2 { font-size: clamp(36px, 4vw, 52px); }
+
+.track-record-page .year-entry .vb-tracks {
+  display: block;
+  border-top: 1px solid var(--bs-text);
+}
+
+.track-record-page .year-entry .vb-track {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 8px 28px;
+  padding: 28px 0 32px;
+  border: 0;
+  border-bottom: 1px solid var(--bs-card-border);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.track-record-page .year-entry .vb-track:hover { transform: none; box-shadow: none; }
+.track-record-page .year-entry .vb-track .track-head { grid-row: 1 / span 2; }
+.track-record-page .year-entry .vb-track h3,
+.track-record-page .year-entry .vb-track p { grid-column: 2; margin: 0; }
+.track-record-page .year-entry .vb-track p { font-size: 16px; line-height: 1.65; }
+
+/* Branded dead-end recovery. */
+.error-page {
+  position: relative;
+  display: grid;
+  min-height: calc(100dvh - 190px);
+  align-items: center;
+  overflow: hidden;
+  padding: 56px max(20px, calc((100% - 1344px) / 2));
+  background: var(--bs-surface);
+}
+
+.error-copy { position: relative; z-index: 1; max-width: 720px; }
+
+.error-page h1 {
+  max-width: 10ch;
+  margin: 24px 0;
+  color: var(--bs-text);
+  font-size: clamp(56px, 6vw, 72px);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.94;
+}
+
+.error-page .error-copy > p:not(.bs-eyebrow) { max-width: 48ch; color: var(--bs-muted); font-size: 18px; line-height: 1.65; }
+
+.error-trophy {
+  position: absolute;
+  inset: 0 -14% 0 40%;
+  background: url("../img/brand/hero-trophy.webp") center right / cover no-repeat;
+  opacity: 0.34;
+  pointer-events: none;
+}
+
+.error-recovery { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 24px; }
+.error-recovery a { display: inline-flex; min-height: 44px; align-items: center; }
+
+@media (max-width: 1024px) {
+  .evidence-header { grid-template-columns: 72px repeat(2, minmax(0, 1fr)); }
+  .evidence-header > :last-child { grid-column: 2 / -1; }
+}
+
+@media (max-width: 768px) {
+  .award-breakdown .vb-track { grid-template-columns: 112px minmax(0, 1fr); }
+  .award-breakdown .track-stats { grid-column: 2; grid-row: auto; }
+  .evidence-header { grid-template-columns: 64px minmax(0, 1fr); }
+  .evidence-header > :last-child { grid-column: 2; }
+  .track-record-page .year-entry .vb-section-head { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .narrative-page .page-hero { padding-top: 48px; padding-bottom: 56px; }
+  .narrative-page .page-hero h1 { font-size: 42px; line-height: 0.98; }
+  .narrative-page .page-hero p { font-size: 17px; }
+  .narrative-page .page-hero .bs-hero-cta { align-items: stretch; }
+  .narrative-page .page-hero .bs-btn { width: 100%; justify-content: center; }
+  .award-declaration { grid-template-columns: 1fr; gap: 20px; }
+  .award-total { font-size: clamp(70px, 23vw, 88px); }
+  .award-breakdown .vb-track { grid-template-columns: 1fr; }
+  .award-breakdown .track-head,
+  .award-breakdown .vb-track h3,
+  .award-breakdown .vb-track > p,
+  .award-breakdown .vb-track-paradigms,
+  .award-breakdown .track-stats { grid-column: 1; grid-row: auto; }
+  .award-internship { padding-inline: 20px !important; }
+  .review-state { grid-template-columns: auto 1fr; }
+  .review-state p { grid-column: 1 / -1; }
+  .ethics-page .vb-section { padding-block: 56px; }
+  .ethics-page .vb-section-head h2 { font-size: 36px; }
+  .commitment-list > li { grid-template-columns: 40px minmax(0, 1fr); gap: 4px 12px; }
+  .year-rail { padding-left: 36px; }
+  .year-rail::before { left: 4px; }
+  .year-entry::before { left: -38px; }
+  .evidence-header { grid-template-columns: 1fr; gap: 12px; }
+  .evidence-header > :last-child { grid-column: 1; }
+  .track-record-page .year-entry .vb-track { grid-template-columns: 1fr; }
+  .track-record-page .year-entry .vb-track .track-head,
+  .track-record-page .year-entry .vb-track h3,
+  .track-record-page .year-entry .vb-track p { grid-column: 1; grid-row: auto; }
+  .error-page { min-height: calc(100dvh - 160px); align-items: end; padding-block: 48px; }
+  .error-page h1 { font-size: 44px; }
+  .error-trophy { inset: 10% -68% 40% 28%; opacity: 0.14; }
+  .error-page .bs-hero-cta { align-items: stretch; }
+  .error-page .bs-btn { width: 100%; justify-content: center; }
+}
+
+/* ============================================================
    Technical pages — editorial journal
    ============================================================ */
 
