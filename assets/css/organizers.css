@@ -18,6 +18,12 @@
   margin-bottom: 32px;
 }
 
+.org-section-head > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
 .org-section-head h2 {
   font-family: var(--bs-fontdisplay);
   font-size: clamp(23px, 2.8vw, 36px);
@@ -45,6 +51,8 @@
   letter-spacing: 0.6px;
   text-align: right;
   align-self: end;
+  padding-top: 22px;
+  line-height: 1.4;
 }
 
 .org-grid {
@@ -159,6 +167,8 @@
 }
 
 .org-card .affil .bs-pill {
+  display: inline-flex;
+  align-items: center;
   padding: 3px 8px;
   font-size: 10px;
   background: rgba(91, 46, 229, 0.06);
@@ -167,6 +177,8 @@
 }
 
 .org-card .affil img {
+  display: inline-flex;
+  align-items: center;
   height: 16px;
   width: auto;
   object-fit: contain;
