@@ -1,80 +1,50 @@
-/* EEG/EMG Foundation Challenge 2026 — design tokens.
-
-   Brand refresh 2026-08-28: palette, type scale and shape aligned on the
-   LinkedIn artwork set ("GET READY." / "4 TRACKS." / "WE'RE BACK.").
-   The artwork identity is: deep navy-ink display type with a violet full
-   stop, one vivid blue-violet accent, white cards floating on a lavender
-   wash, generous corner radii and soft violet-tinted shadows.
-
-   Every text token below is checked against WCAG AA (>= 4.5:1) on the two
-   grounds it can land on: #ffffff and the lavender surface #f5f4fb. */
-
 :root {
-  /* Type families
-     — display: heavy grotesque for h1/h2 and the big numerals (artwork
-       headline face). Manrope is the metric-compatible fallback.
-     — sans: UI and body copy.
-     — mono: code blocks and tabular figures only. The artwork uses no
-       monospace, so labels moved to the sans stack. */
-  --bs-fontdisplay: "Archivo", "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --bs-fontsans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --bs-fontserif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --bs-fontdisplay: "Noto Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --bs-fontsans: "Noto Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --bs-fontmono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
-
-  /* Surface — white page, lavender wash for banded sections */
   --bs-bg: #ffffff;
-  --bs-surface: #f5f4fb;
-  --bs-surface-soft: linear-gradient(180deg, #faf9fd 0%, #f2f0fa 100%);
-
-  /* Text — navy-ink family, all three pass WCAG AA on white and on #f5f4fb */
-  --bs-text: #0b0e2a;       /* 18.91:1 on white · 17.30:1 on surface */
-  --bs-muted: #494e63;      /*  8.22:1 on white ·  7.53:1 on surface */
-  --bs-faint: #5f6480;      /*  5.80:1 on white ·  5.31:1 on surface */
-
-  /* Lines + cards */
-  --bs-line: rgba(64, 58, 110, 0.28);
-  --bs-line-strong: rgba(43, 36, 90, 0.72);
-  --bs-card: #ffffff;
-  --bs-card-border: #e8e6f3;
-
-  /* Brand / accent — one violet, three stops */
-  --bs-violet: #5b2ee5;       /* 7.08:1 both ways (text on white, white on it) */
-  --bs-violet-deep: #3f14b0;  /* 10.83:1 on white — hover / pressed */
-  --bs-violet-bright: #6b3af0;/* 6.02:1 both ways — tags, rails, data marks */
-  --bs-violet-lift: #a88bfa;  /* 6.84:1 on the code ink — accent on dark */
-  --bs-violet-wash: rgba(91, 46, 229, 0.06);
-  --bs-violet-wash-2: rgba(91, 46, 229, 0.12);
-
-  --bs-link: var(--bs-violet);
-  --bs-link-hover: var(--bs-violet-deep);
-  --bs-accent: var(--bs-violet-bright);
-  --bs-accent-2: var(--bs-violet-deep);
-  --bs-success: #1f7a48;
-
-  /* Code surface — violet-tinted ink rather than the old blue-grey */
-  --bs-code-bg: #10102b;
-  --bs-code-bg-soft: #191838;
-  --bs-code-line: #262547;
-  --bs-code-fg: #dcd8ee;
-  --bs-code-faint: #8c87b6;
-  --bs-code-kw: #a88bfa;
-  --bs-code-str: #b8d69c;
-  --bs-code-cls: #f6c177;
-  --bs-code-op: #ea8ab6;
-  --bs-code-c1: #8c87b6;
-  --bs-code-c2: #a88bfa;
-
-  /* Radii — the artwork cards are noticeably rounder than the old 14px */
+  --bs-surface: #f7f5fc;
+  --bs-text: #07101f;
+  --bs-muted: #5a6378;
+  --bs-faint: #666b84;
+  --bs-card: rgba(255, 255, 255, 0.92);
+  --bs-card-border: #e3dbf4;
+  --bs-violet: #5332f4;
+  --bs-violet-deep: #3f1bc7;
+  --bs-violet-soft: #ae99e5;
+  --bs-violet-wash: rgba(83, 50, 244, 0.08);
+  --bs-code-bg: #0b1020;
   --bs-radius-sm: 8px;
   --bs-radius-md: 12px;
   --bs-radius-card: 18px;
   --bs-radius-pill: 999px;
-
-  /* Shadow — soft, violet-tinted, no hard border needed */
-  --bs-shadow-card: 0 1px 2px rgba(23, 16, 66, 0.04), 0 18px 40px -22px rgba(23, 16, 66, 0.22);
-  --bs-shadow-card-lift: 0 2px 4px rgba(23, 16, 66, 0.05), 0 26px 54px -24px rgba(23, 16, 66, 0.3);
-  --bs-shadow-code: 0 20px 48px -20px rgba(16, 16, 43, 0.45);
-
-  /* Motion */
+  --bs-shadow-card: 0 18px 50px -28px rgba(83, 50, 244, 0.28);
+  --bs-shadow-card-lift: 0 26px 64px -30px rgba(83, 50, 244, 0.38);
+  --bs-focus: 0 0 0 3px rgba(83, 50, 244, 0.28);
   --bs-anim-speed: 1;
+
+  /* Existing atom aliases stay on the approved two-plate identity. */
+  --bs-fontserif: var(--bs-fontsans);
+  --bs-surface-soft: var(--bs-surface);
+  --bs-line: var(--bs-card-border);
+  --bs-line-strong: var(--bs-violet-soft);
+  --bs-violet-bright: var(--bs-violet);
+  --bs-violet-lift: var(--bs-violet-soft);
+  --bs-violet-wash-2: var(--bs-violet-wash);
+  --bs-link: var(--bs-violet);
+  --bs-link-hover: var(--bs-violet-deep);
+  --bs-accent: var(--bs-violet);
+  --bs-accent-2: var(--bs-violet-deep);
+  --bs-success: var(--bs-violet-deep);
+  --bs-code-bg-soft: var(--bs-code-bg);
+  --bs-code-line: rgba(227, 219, 244, 0.18);
+  --bs-code-fg: var(--bs-surface);
+  --bs-code-faint: var(--bs-violet-soft);
+  --bs-code-kw: var(--bs-violet-soft);
+  --bs-code-str: var(--bs-surface);
+  --bs-code-cls: var(--bs-violet-soft);
+  --bs-code-op: var(--bs-surface);
+  --bs-code-c1: var(--bs-violet-soft);
+  --bs-code-c2: var(--bs-violet-soft);
+  --bs-shadow-code: var(--bs-shadow-card);
 }

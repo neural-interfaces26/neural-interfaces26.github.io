@@ -35,12 +35,12 @@ svg {
 }
 
 a {
-  color: var(--bs-link);
+  color: var(--bs-violet);
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: var(--bs-link-hover);
+  color: var(--bs-violet-deep);
 }
 
 button {
@@ -50,9 +50,8 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid var(--bs-violet);
-  outline-offset: 2px;
-  border-radius: 6px;
+  outline: none;
+  box-shadow: var(--bs-focus);
 }
 
 /* Skip link for keyboard / screen-reader users */
@@ -102,8 +101,8 @@ button {
   width: 6px;
   height: 6px;
   border-radius: 999px;
-  background: var(--bs-accent);
-  box-shadow: 0 0 0 4px rgba(107, 58, 240, 0.18);
+  background: var(--bs-violet);
+  box-shadow: 0 0 0 4px var(--bs-violet-wash);
   animation: bs-pulse calc(2.4s / var(--bs-anim-speed)) ease-in-out infinite;
 }
 
@@ -144,22 +143,22 @@ button {
 a.bs-pill:hover,
 button.bs-pill:hover {
   background: rgba(255, 255, 255, 0.96);
-  border-color: var(--bs-line-strong);
-  color: var(--bs-link);
+  border-color: var(--bs-violet);
+  color: var(--bs-violet);
 }
 
 .bs-pill.solid {
   background: var(--bs-violet);
   color: white;
   border-color: var(--bs-violet);
-  box-shadow: 0 8px 20px -12px rgba(91, 46, 229, 0.8);
+  box-shadow: var(--bs-shadow-card);
 }
 
 a.bs-pill.solid:hover,
 button.bs-pill.solid:hover {
-  background: var(--bs-link-hover);
+  background: var(--bs-violet-deep);
   color: white;
-  border-color: var(--bs-link-hover);
+  border-color: var(--bs-violet-deep);
 }
 
 .bs-btn {
@@ -182,13 +181,13 @@ button.bs-pill.solid:hover {
 .bs-btn.primary {
   background: var(--bs-violet);
   color: white;
-  box-shadow: 0 10px 24px -12px rgba(91, 46, 229, 0.7);
+  box-shadow: var(--bs-shadow-card);
 }
 
 .bs-btn.primary:hover {
   background: var(--bs-violet-deep);
   color: white;
-  box-shadow: 0 14px 30px -12px rgba(63, 20, 176, 0.72);
+  box-shadow: var(--bs-shadow-card-lift);
 }
 
 .bs-btn.ghost {
@@ -216,7 +215,7 @@ button.bs-pill.solid:hover {
   font-weight: 800;
   letter-spacing: 1px;
   text-transform: uppercase;
-  background: var(--bs-violet-wash-2);
+  background: var(--bs-violet-wash);
   color: var(--bs-violet-deep);
   border-radius: 999px;
   font-family: var(--bs-fontsans);
@@ -229,12 +228,12 @@ button.bs-pill.solid:hover {
   max-width: 100%;
   min-width: 0;
   background: var(--bs-code-bg);
-  color: var(--bs-code-fg);
+  color: var(--bs-surface);
   border-radius: var(--bs-radius-card);
   overflow: hidden;
   font-family: var(--bs-fontmono);
-  border: 1px solid var(--bs-code-line);
-  box-shadow: var(--bs-shadow-code);
+  border: 1px solid rgba(227, 219, 244, 0.18);
+  box-shadow: var(--bs-shadow-card);
   font-size: 12.5px;
 }
 
@@ -243,7 +242,7 @@ button.bs-pill.solid:hover {
   align-items: center;
   gap: 12px;
   padding: 10px 14px;
-  border-bottom: 1px solid var(--bs-code-line);
+  border-bottom: 1px solid rgba(227, 219, 244, 0.18);
   font-size: 11px;
 }
 
@@ -260,7 +259,7 @@ button.bs-pill.solid:hover {
 }
 
 .bs-code-head .bs-kicker {
-  color: var(--bs-code-faint);
+  color: var(--bs-violet-soft);
   flex: 1;
   min-width: 0;
   letter-spacing: 1.2px;
@@ -270,7 +269,7 @@ button.bs-pill.solid:hover {
 
 .bs-code-head .copy {
   font-size: 10px;
-  color: var(--bs-code-faint);
+  color: var(--bs-violet-soft);
   background: transparent;
   border: 1px solid transparent;
   padding: 3px 7px;
@@ -281,12 +280,12 @@ button.bs-pill.solid:hover {
 }
 
 .bs-code-head .copy:hover {
-  color: var(--bs-code-fg);
-  border-color: var(--bs-code-line);
+  color: var(--bs-surface);
+  border-color: rgba(227, 219, 244, 0.18);
 }
 
 .bs-code-head .copy.copied {
-  color: var(--bs-code-str);
+  color: var(--bs-surface);
 }
 
 .bs-code pre {
@@ -309,17 +308,34 @@ button.bs-pill.solid:hover {
 }
 
 .bs-code code {
-  color: var(--bs-code-fg);
+  color: var(--bs-surface);
   white-space: pre;
   font-family: inherit;
 }
 
-.bs-code .kw  { color: var(--bs-code-kw); }
-.bs-code .str { color: var(--bs-code-str); }
-.bs-code .cls { color: var(--bs-code-cls); }
-.bs-code .op  { color: var(--bs-code-op); }
-.bs-code .c1  { color: var(--bs-code-c1); font-style: italic; }
-.bs-code .c2  { color: var(--bs-code-c2); font-style: italic; }
+.bs-code .kw,
+.bs-code .cls,
+.bs-code .c2 { color: var(--bs-violet-soft); }
+.bs-code .str,
+.bs-code .op { color: var(--bs-surface); }
+.bs-code .c1 { color: var(--bs-faint); font-style: italic; }
+.bs-code .c2 { font-style: italic; }
+
+.glass-panel {
+  background: var(--bs-card);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow: var(--bs-shadow-card), inset 0 1px 0 rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 500ms ease, transform 500ms cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.is-visible { opacity: 1; transform: none; }
 
 /* ---------- Animations ---------- */
 
@@ -361,16 +377,13 @@ button.bs-pill.solid:hover {
 .bs-fade-in > *:nth-child(7) { animation-delay: calc(0.65s / var(--bs-anim-speed)); }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001s !important;
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.001s !important;
+    transition-duration: 0.01ms !important;
   }
-  html {
-    scroll-behavior: auto;
-  }
+  .reveal { opacity: 1; transform: none; }
 }
 
 @media (max-width: 600px) {
