@@ -79,7 +79,7 @@
   min-height: 44px;
   padding-block: 10px;
   color: var(--bs-muted);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
@@ -90,7 +90,7 @@
   color: var(--bs-violet);
 }
 
-.site-menu > .bs-btn { min-height: 44px; }
+.site-menu > .bs-btn { min-height: 44px; font-size: 14px; }
 
 .site-menu-toggle {
   display: none;
@@ -125,6 +125,8 @@
   min-width: 0;
   overflow: clip;
 }
+
+.site-main [id] { scroll-margin-top: 72px; }
 
 .page-shell {
   width: min(100% - 40px, 1440px);
@@ -380,7 +382,7 @@ body.menu-open { overflow: hidden; }
   margin: 28px 0 24px;
   color: var(--bs-text);
   font-family: var(--bs-fontdisplay);
-  font-size: clamp(52px, 4.6vw, 72px);
+  font-size: clamp(52px, 5.4vw, 72px);
   font-weight: 900;
   letter-spacing: -0.045em;
   line-height: 0.94;
@@ -389,6 +391,27 @@ body.menu-open { overflow: hidden; }
 }
 
 .campaign-mobile-break { display: none; }
+
+@media (min-width: 1200px) {
+  .campaign-hero-art { transform: translateX(clamp(408px, 35.4vw, 510px)); }
+  .campaign-hero-copy h1 { font-size: 80px; }
+}
+
+@media (min-width: 1320px) {
+  .campaign-hero-art { transform: translateX(clamp(468px, 35.4vw, 510px)) scale(1.06); }
+}
+
+@media (min-width: 901px) and (max-width: 1199px) {
+  .campaign-hero-art { transform: translateX(36vw) scale(0.82); }
+  .campaign-hero-copy h1 { font-size: clamp(52px, 4.8vw, 56px); }
+}
+
+@media (min-width: 901px) {
+  .campaign-hero-art {
+    -webkit-mask-image: linear-gradient(to right, transparent, var(--bs-text) 12%, var(--bs-text));
+    mask-image: linear-gradient(to right, transparent, var(--bs-text) 12%, var(--bs-text));
+  }
+}
 
 .campaign-hero-copy > p:not(.bs-eyebrow) {
   max-width: 42ch;
@@ -494,7 +517,7 @@ body.menu-open { overflow: hidden; }
   max-width: 56ch;
   margin: 4px 0 0;
   color: var(--bs-muted);
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.65;
 }
 
@@ -512,7 +535,7 @@ body.menu-open { overflow: hidden; }
 .challenge-thesis-copy p {
   margin: 4px 0 0;
   color: var(--bs-muted);
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.65;
 }
 
@@ -615,7 +638,7 @@ body.menu-open { overflow: hidden; }
   grid-column: 2;
   margin: 0;
   color: var(--bs-muted);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.65;
 }
 
@@ -640,7 +663,7 @@ body.menu-open { overflow: hidden; }
   border-top: 1px solid var(--bs-card-border);
   color: var(--bs-faint);
   font-family: var(--bs-fontmono);
-  font-size: 10px;
+  font-size: 11px;
   line-height: 1.5;
 }
 
@@ -715,7 +738,7 @@ body.menu-open { overflow: hidden; }
   justify-content: space-between;
   gap: 20px;
   color: var(--bs-text);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 800;
   cursor: pointer;
   list-style: none;
@@ -726,6 +749,9 @@ body.menu-open { overflow: hidden; }
 .dataset-directory[open] > summary::after { content: "−"; }
 .dataset-directory-body { padding-top: 48px; }
 .dataset-directory .ds-row .mod { background: var(--bs-surface); color: var(--bs-violet); }
+.dataset-directory .dataset-release-copy,
+.dataset-directory .vb-section-head p { font-size: 16px; line-height: 1.65; }
+.dataset-directory .ds-foot .bs-kicker { font-size: 12px; line-height: 1.6; }
 
 .timeline-section { background: var(--bs-bg); }
 
@@ -788,7 +814,7 @@ body.menu-open { overflow: hidden; }
   max-width: 30ch;
   margin: 0;
   color: var(--bs-muted);
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.6;
 }
 
@@ -855,7 +881,7 @@ body.menu-open { overflow: hidden; }
 .sponsor-wall-intro p {
   margin: 0 0 24px;
   color: var(--bs-muted);
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.65;
 }
 
@@ -898,12 +924,17 @@ body.menu-open { overflow: hidden; }
 
 .sponsor-wall .vb-logo-mark:hover { transform: translateY(-2px); box-shadow: none; }
 .sponsor-wall .vb-logo-grid > :last-child { border-right: 0; }
-.sponsor-wall .vb-logo-mark img { max-width: 100%; max-height: 44px; }
+.sponsor-wall .vb-logo-mark img { max-width: 100%; max-height: 36px; }
+.sponsor-wall .vb-logo-mark--lg img { max-height: 44px; }
+.sponsor-wall .vb-logo-mark--xl img { max-height: 52px; }
+.sponsor-wall .vb-logo-mark--ucsd img { max-width: 190px; max-height: 40px; }
 
 .sponsor-wall .vb-logo-grid--six-up .vb-logo-mark--ucsd {
   grid-column: auto;
   height: auto;
 }
+
+.sponsor-wall .vb-logo-group > .bs-kicker { font-size: 11px; }
 
 .register-panel {
   background: var(--bs-surface);
@@ -917,17 +948,24 @@ body.menu-open { overflow: hidden; }
   max-width: 62ch;
   margin: 0 0 28px;
   color: var(--bs-muted);
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.65;
 }
 
+.register-panel .rules-note { font-size: 16px; }
+
 .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-ready .reveal {
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 500ms ease, transform 500ms ease;
 }
 
-.reveal.is-visible { opacity: 1; transform: none; }
+.reveal-ready .reveal.is-visible { opacity: 1; transform: none; }
 
 .campaign-hero .bs-btn:active,
 .register-panel .bs-btn:active { transform: scale(0.98); }
@@ -944,11 +982,16 @@ body.menu-open { overflow: hidden; }
   .track-card { grid-template-columns: minmax(150px, 0.65fr) minmax(0, 1fr); padding-inline: 24px; }
 }
 
+@media (min-width: 901px) and (max-width: 1100px) {
+  .site-header { padding-inline: 24px; }
+  .site-menu { gap: 14px; }
+}
+
 @media (max-width: 900px) {
   .campaign-hero { grid-template-rows: auto auto; min-height: 0; }
   .campaign-hero-copy { width: min(100% - 64px, 768px); padding: 56px 0 32px; }
-  .campaign-hero-art { position: relative; grid-row: 2; aspect-ratio: 16 / 9; }
-  .campaign-hero-art img { object-position: 58% 54%; }
+  .campaign-hero-art { position: relative; grid-row: 2; aspect-ratio: 16 / 9; overflow: hidden; }
+  .campaign-hero-art img { object-position: 58% 54%; transform: scale(1.45); }
   .campaign-section { padding: 80px 32px; }
   .campaign-section-head > h2 { grid-column: 1 / 8; }
   .challenge-thesis-copy { grid-column: 8 / 13; grid-template-columns: 1fr; }
@@ -967,19 +1010,19 @@ body.menu-open { overflow: hidden; }
 }
 
 @media (max-width: 767px) {
-  .campaign-hero-copy { padding: 56px 0 24px; width: min(100% - 40px, 640px); }
+  .campaign-hero-copy { padding: 32px 0 20px; width: min(100% - 40px, 640px); }
   .campaign-hero-art { position: relative; grid-row: 2; aspect-ratio: 4 / 3; }
-  .campaign-hero-art img { object-position: 50% 58%; }
+  .campaign-hero-art img { object-position: 50% 58%; transform: none; }
   .campaign-hero-copy h1 {
     width: auto;
     max-width: none;
-    margin-block: 24px 20px;
+    margin-block: 20px 16px;
     font-size: clamp(42px, 12.4vw, 52px);
     line-height: 0.96;
     white-space: normal;
   }
   .campaign-mobile-break { display: initial; }
-  .campaign-hero-copy > p:not(.bs-eyebrow) { font-size: 15px; }
+  .campaign-hero-copy > p:not(.bs-eyebrow) { margin-bottom: 20px; font-size: 16px; }
   .proof-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
   .proof-strip > a,
   .proof-strip > p { grid-column: 1 / -1; }
@@ -1026,11 +1069,16 @@ body.menu-open { overflow: hidden; }
   .sponsor-wall .vb-logo-grid--six-up { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sponsor-wall .vb-logo-grid > :nth-child(2n),
   .sponsor-wall .vb-logo-grid--six-up > :nth-child(3n) { border-right: 0; }
+  .sponsor-wall .vb-logo-mark img { max-height: 30px; }
+  .sponsor-wall .vb-logo-mark--lg img { max-height: 36px; }
+  .sponsor-wall .vb-logo-mark--xl img { max-height: 42px; }
+  .sponsor-wall .vb-logo-mark--ucsd img { max-height: 36px; }
   .register-panel > div { width: 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal,
+  .reveal-ready .reveal { opacity: 1; transform: none; transition: none; }
 }
 
 /* ============================================================

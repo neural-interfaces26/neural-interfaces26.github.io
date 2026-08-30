@@ -57,6 +57,7 @@
   /* ---------- Campaign reveals ---------- */
   function initReveals() {
     const elements = document.querySelectorAll('.reveal');
+    if (!elements.length) return;
     if (prefersReducedMotion || !('IntersectionObserver' in window)) {
       elements.forEach((element) => element.classList.add('is-visible'));
       return;
@@ -71,6 +72,7 @@
     }, { threshold: 0.12 });
 
     elements.forEach((element) => observer.observe(element));
+    document.documentElement.classList.add('reveal-ready');
   }
 
   /* ---------- Copy buttons ---------- */
