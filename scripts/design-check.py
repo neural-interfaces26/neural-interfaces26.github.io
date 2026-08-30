@@ -275,6 +275,24 @@ def check_narrative(errors: list[str]) -> None:
         errors.append("organizers.html: requires one ruled portrait directory")
     if len(organizers.find(class_name="org-institutions")) != 1:
         errors.append("organizers.html: institutional marks require a separate stage")
+    person_affiliations = [
+        affiliation for affiliation in organizers.find(class_name="affil")
+        if any(has_ancestor(affiliation, person) for person in people)
+    ]
+    affiliation_images = [
+        image for image in organizers.find("img")
+        if any(has_ancestor(image, affiliation) for affiliation in person_affiliations)
+    ]
+    if affiliation_images:
+        errors.append("organizers.html: person affiliations must be plain text without images")
+    institution_stages = organizers.find(class_name="org-logo-stage")
+    institution_marks = [
+        image for image in organizers.find("img")
+        if institution_stages and has_ancestor(image, institution_stages[0])
+    ]
+    institution_copy = element_text(organizers.find(class_name="org-institutions")[0]) if organizers.find(class_name="org-institutions") else ""
+    if len(institution_marks) != 18 or "14 organizer institutions" not in institution_copy or "18 affiliation marks" not in institution_copy:
+        errors.append("organizers.html: institution stage must distinguish 14 institutions from 18 affiliation marks")
     if organizers_text.count('loading="lazy"') < 28:
         errors.append("organizers.html: all portraits must lazy-load")
     if len((ROOT / "assets/css/organizers.css").read_text(encoding="utf-8").splitlines()) >= 300:
@@ -287,6 +305,17 @@ def check_narrative(errors: list[str]) -> None:
         errors.append("ethics.html: requires a visible review state")
     if len(ethics.find(class_name="editorial-lane")) != 1:
         errors.append("ethics.html: requires one editorial reading lane")
+    ethics_main = ethics.find("main")
+    ethics_copy = element_text(ethics_main[0]) if ethics_main else ""
+    ethics_facts = (
+        "Non-invasive neural decoding has clinical value, but raises a mental-privacy concern when applied to non-consenting subjects.",
+        "Every human-subject dataset comes from its original data controller.",
+        "Every participant in every dataset has provided explicit consent.",
+        "All decoders in this competition are read-only.",
+    )
+    for fact in ethics_facts:
+        if fact not in ethics_copy:
+            errors.append(f"ethics.html: preserved fact missing: {fact}")
     commitments = ethics.find("ol", "commitment-list")
     if len(commitments) != 1 or len([item for item in ethics.find("li") if has_ancestor(item, commitments[0])]) != 3:
         errors.append("ethics.html: requires three numbered ruled commitments")
@@ -298,6 +327,13 @@ def check_narrative(errors: list[str]) -> None:
         errors.append("track-record.html: requires one five-entry year rail")
     if len(record.find(class_name="evidence-header")) != 5:
         errors.append("track-record.html: each year requires an evidence header")
+    evidence_self_links = [
+        link for link in record.find("a")
+        if str(link["attrs"].get("href", "")).startswith("#")
+        and any(has_ancestor(link, header) for header in record.find(class_name="evidence-header"))
+    ]
+    if evidence_self_links:
+        errors.append("track-record.html: evidence headers must not present local headings as sources")
     rail_text = element_text(rails[0]) if rails else ""
     for year in ("2021", "2022", "2023", "2025", "2026"):
         if year not in rail_text:

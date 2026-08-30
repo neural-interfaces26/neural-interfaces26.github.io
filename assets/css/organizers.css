@@ -168,20 +168,14 @@
   border-top: 1px solid var(--bs-card-border);
 }
 
-.org-card .affil img {
-  width: auto;
-  max-width: 88px;
-  height: auto;
-  max-height: 22px;
-  object-fit: contain;
-}
-
-.org-card .affil .bs-pill {
+.org-card .affil span {
   padding: 0;
   border: 0;
   background: transparent;
   color: var(--bs-muted);
+  font-family: var(--bs-fontmono);
   font-size: 12px;
+  line-height: 1.5;
 }
 
 .org-institutions { background: var(--bs-surface); }
