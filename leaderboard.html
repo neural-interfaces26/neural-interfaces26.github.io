@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="theme-color" content="#5b2ee5" />
+<meta name="theme-color" content="#5332F4" />
 
 <title>Leaderboard · EEG/EMG Foundation Challenge 2026</title>
 <meta name="description" content="Live per-track leaderboard for the NeurIPS 2026 EEG/EMG Foundation Challenge. Top submissions across EEG-to-IMG, BCI decoding, sleep onset, and EMG-to-Text." />
@@ -36,22 +36,6 @@
 <link rel="stylesheet" href="assets/css/base.css?v=20260828a" />
 <link rel="stylesheet" href="assets/css/landing.css?v=20260830b" />
 
-<style>
-  .formal-section .vb-section-head { margin-bottom: 24px; }
-  .formal-block { margin: 28px 0; padding: 22px 24px; border: 1px solid var(--bs-card-border); border-radius: 10px; background: var(--bs-surface-soft, transparent); }
-  .formal-block h3 { margin: 0 0 8px 0; font-size: 18px; }
-  .formal-block p { margin: 0 0 16px 0; }
-  .formal-block .bs-code { margin-top: 16px; }
-  .formal-note { color: var(--bs-muted); }
-  .formal-note a { font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 2px; }
-  .formal-block mjx-container { max-width: 100%; }
-  .formal-block mjx-container[display="true"] { margin: 14px 0; overflow-x: auto; overflow-y: hidden; padding-bottom: 2px; -webkit-overflow-scrolling: touch; }
-  @media (max-width: 640px) {
-    .formal-block { padding: 22px 24px; }
-    .formal-block mjx-container[display="true"] { font-size: 94%; }
-  }
-</style>
-
 <script>
   window.MathJax = {
     tex: {
@@ -82,7 +66,7 @@
 }
 </script>
 </head>
-<body class="bs-root landing">
+<body class="bs-root landing technical-page leaderboard-page">
 
 <a class="skip-link" href="#main">Skip to content</a>
 
@@ -109,56 +93,46 @@
 <main class="site-main" id="main">
 
   <!-- ============================== Hero ============================== -->
-    <section class="vb-hero" aria-labelledby="lb-heading">
-      <div class="vb-hero-text">
-        <span class="bs-eyebrow"><span class="dot"></span> Public leaderboard · live during final phase</span>
-        <h1 id="lb-heading">Leaderboard.</h1>
-        <p>
-          One ranking per track. Refreshed every 15 minutes during the sealed phase. Top-3 per track go through a reproducibility audit at test-freeze — only audited entries appear in the final NeurIPS rankings.
-        </p>
-        <div class="bs-hero-cta">
-          <a class="bs-btn primary" href="startkit.html">Get on the board →</a>
-          <a class="bs-btn ghost" href="#methodology">Scoring methodology</a>
-        </div>
-        <p class="rules-note">
-          <svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 2.5H5.5a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V6.5z" /><path d="M11.5 2.5v4h4" /><path d="M7.5 10.5h5M7.5 13.5h3" /></svg>
-          <span><strong>Before your first upload.</strong> The daily submission caps and the audit that gates the final ranking are defined on the <a href="faq.html">Rules &amp; FAQ</a> page.</span>
-        </p>
-        <div class="vb-tags" aria-label="Status">
-          <span class="bs-pill">Warm-up: Sep 16 — Oct 15</span>
-          <span class="bs-pill">Sealed: Oct 16 — Nov 16</span>
-          <span class="bs-pill">Audit: after summer</span>
-          <span class="bs-pill">Final: TBA</span>
-        </div>
+  <section class="page-hero" aria-labelledby="lb-heading">
+    <div class="page-hero-inner">
+      <span class="bs-eyebrow">Public leaderboard</span>
+      <h1 id="lb-heading">Leaderboard.</h1>
+      <p>One ranking per track, with final positions gated by reproducibility audit.</p>
+      <div class="bs-hero-cta">
+        <a class="bs-btn primary" href="startkit.html">Get on the board →</a>
+        <a class="bs-btn ghost" href="#methodology">Scoring methodology</a>
       </div>
+    </div>
+  </section>
 
-      <div class="vb-hero-side">
-        <div class="vb-hero-eeg" aria-label="Submission stats">
-          <div class="bs-card-head">
-            <span class="bs-kicker">Submissions snapshot · placeholder</span>
-            <span class="bs-meta-mono">refresh · 15 min</span>
-          </div>
-          <div class="vb-stats compact">
-            <div class="vb-stat">
-              <strong data-count-to="0">0</strong>
-              <span class="bs-kicker">teams</span>
-            </div>
-            <div class="vb-stat">
-              <strong data-count-to="0">0</strong>
-              <span class="bs-kicker">submissions</span>
-            </div>
-            <div class="vb-stat">
-              <strong data-count-to="4">4</strong>
-              <span class="bs-kicker">tracks</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <nav class="local-nav" aria-label="Leaderboard tracks and scoring">
+    <a href="#track-1">Track 01</a>
+    <a href="#track-2">Track 02</a>
+    <a href="#track-3">Track 03</a>
+    <a href="#track-4">Track 04</a>
+    <a href="#methodology">Methodology</a>
+    <a href="#formal-scoring">Formal scoring</a>
+  </nav>
+
 <section class="announcement-strip" aria-label="Competition announcement">
   <span class="announcement-label">Preview</span>
   <p>The competition runs Sep 16 – Nov 16, 2026; prizes are awarded at <a href="https://brainbodyfm-workshop.github.io" target="_blank" rel="noreferrer noopener">Foundation Models for the Brain and Body</a>, the NeurIPS 2026 workshop in Sydney.</p>
 </section>
+
+  <section class="leaderboard-overview" aria-label="Leaderboard phase and entry status">
+    <p>Refreshed every 15 minutes during the sealed phase. Top-3 per track go through a reproducibility audit at test-freeze; only audited entries appear in the final NeurIPS rankings.</p>
+    <div class="board-status">
+      <div><span>Track</span><strong>01-04</strong></div>
+      <div><span>Phase</span><strong>Preview</strong></div>
+      <div><span>Last updated</span><strong>Updates begin Sep 16</strong></div>
+      <div><span>Entries / baselines</span><strong>No ranked entries; <a href="startkit.html#baselines">baselines available</a></strong></div>
+      <div><span>Platform</span><strong>Codabench</strong></div>
+    </div>
+    <p class="rules-note">
+      <svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 2.5H5.5a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V6.5z" /><path d="M11.5 2.5v4h4" /><path d="M7.5 10.5h5M7.5 13.5h3" /></svg>
+      <span><strong>Before your first upload.</strong> The daily submission caps and the audit that gates the final ranking are defined on the <a href="faq.html">Rules &amp; FAQ</a> page.</span>
+    </p>
+  </section>
 
 
     <!-- ============================== Track 01 ============================== -->
@@ -178,60 +152,18 @@
         </div>
       </div>
 
-      <div class="vb-leader" role="table" aria-label="Track 1 top submissions">
-        <div class="vb-leader-row head" role="row">
-          <span role="columnheader">#</span>
-          <span role="columnheader">Submission</span>
-          <span role="columnheader">Affiliation</span>
-          <span role="columnheader">Top-5</span>
-          <span role="columnheader">Δ</span>
-        </div>
-        <div class="vb-leader-row hl" role="row">
-          <span class="rk" role="cell">#01</span>
-          <span class="nm" role="cell">placeholder-model-1</span>
-          <span class="tk" role="cell">Team A</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">—</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#02</span>
-          <span class="nm" role="cell">placeholder-model-2</span>
-          <span class="tk" role="cell">Team B</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">−X.X</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#03</span>
-          <span class="nm" role="cell">placeholder-model-3</span>
-          <span class="tk" role="cell">Team C</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">−X.X</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#04</span>
-          <span class="nm" role="cell">placeholder-model-4</span>
-          <span class="tk" role="cell">Team D</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">−XX.X</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#05</span>
-          <span class="nm" role="cell">placeholder-model-5</span>
-          <span class="tk" role="cell">Team E</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">−XX.X</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#06</span>
-          <span class="nm" role="cell">placeholder-model-6</span>
-          <span class="tk" role="cell">Team F</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">−XX.X</span>
-        </div>
+      <div class="table-shell" role="region" aria-label="Track 1 leaderboard" tabindex="0">
+        <table class="leaderboard-table">
+          <caption>Track 1 leaderboard. Preview state with no ranked submissions.</caption>
+          <thead><tr><th scope="col">Rank state</th><th scope="col">Submission</th><th scope="col">Affiliation</th><th scope="col">Top-5</th><th scope="col">Delta</th></tr></thead>
+          <tbody class="unranked-rows">
+            <tr><th scope="row">Not ranked</th><td>No submissions yet</td><td>Warm-up opens Sep 16, 2026</td><td>Not scored</td><td>Not ranked</td></tr>
+          </tbody>
+        </table>
       </div>
 
       <div class="ds-foot">
-        <span class="bs-kicker">N = X of XX submissions · last update X min ago</span>
+        <span class="bs-kicker">No ranked submissions yet · updates begin Sep 16, 2026</span>
         <a href="#methodology" class="track-link">How scoring works ↓</a>
       </div>
     </section>
@@ -253,60 +185,18 @@
         </div>
       </div>
 
-      <div class="vb-leader" role="table" aria-label="Track 2 top submissions">
-        <div class="vb-leader-row head" role="row">
-          <span role="columnheader">#</span>
-          <span role="columnheader">Submission</span>
-          <span role="columnheader">Affiliation</span>
-          <span role="columnheader">Bal. Acc</span>
-          <span role="columnheader">Δ</span>
-        </div>
-        <div class="vb-leader-row hl" role="row">
-          <span class="rk" role="cell">#01</span>
-          <span class="nm" role="cell">placeholder-model-1</span>
-          <span class="tk" role="cell">Team A</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">—</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#02</span>
-          <span class="nm" role="cell">placeholder-model-2</span>
-          <span class="tk" role="cell">Team B</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">−X.X</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#03</span>
-          <span class="nm" role="cell">placeholder-model-3</span>
-          <span class="tk" role="cell">Team C</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">−X.X</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#04</span>
-          <span class="nm" role="cell">placeholder-model-4</span>
-          <span class="tk" role="cell">Team D</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">−X.X</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#05</span>
-          <span class="nm" role="cell">placeholder-model-5</span>
-          <span class="tk" role="cell">Team E</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">−X.X</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#06</span>
-          <span class="nm" role="cell">placeholder-model-6</span>
-          <span class="tk" role="cell">Team F</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">−XX.X</span>
-        </div>
+      <div class="table-shell" role="region" aria-label="Track 2 leaderboard" tabindex="0">
+        <table class="leaderboard-table">
+          <caption>Track 2 leaderboard. Preview state with no ranked submissions.</caption>
+          <thead><tr><th scope="col">Rank state</th><th scope="col">Submission</th><th scope="col">Affiliation</th><th scope="col">Balanced accuracy</th><th scope="col">Delta</th></tr></thead>
+          <tbody class="unranked-rows">
+            <tr><th scope="row">Not ranked</th><td>No submissions yet</td><td>Warm-up opens Sep 16, 2026</td><td>Not scored</td><td>Not ranked</td></tr>
+          </tbody>
+        </table>
       </div>
 
       <div class="ds-foot">
-        <span class="bs-kicker">N = X of XXX submissions · last update X min ago</span>
+        <span class="bs-kicker">No ranked submissions yet · updates begin Sep 16, 2026</span>
         <a href="#methodology" class="track-link">How scoring works ↓</a>
       </div>
     </section>
@@ -328,60 +218,18 @@
         </div>
       </div>
 
-      <div class="vb-leader" role="table" aria-label="Track 3 top submissions">
-        <div class="vb-leader-row head" role="row">
-          <span role="columnheader">#</span>
-          <span role="columnheader">Submission</span>
-          <span role="columnheader">Affiliation</span>
-          <span role="columnheader">MAE (s)</span>
-          <span role="columnheader">Δ</span>
-        </div>
-        <div class="vb-leader-row hl" role="row">
-          <span class="rk" role="cell">#01</span>
-          <span class="nm" role="cell">placeholder-model-1</span>
-          <span class="tk" role="cell">Team A</span>
-          <span class="sc" role="cell">XXX.X</span>
-          <span class="dl" role="cell">—</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#02</span>
-          <span class="nm" role="cell">placeholder-model-2</span>
-          <span class="tk" role="cell">Team B</span>
-          <span class="sc" role="cell">XXX.X</span>
-          <span class="dl" role="cell">+X.X</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#03</span>
-          <span class="nm" role="cell">placeholder-model-3</span>
-          <span class="tk" role="cell">Team C</span>
-          <span class="sc" role="cell">XXX.X</span>
-          <span class="dl" role="cell">+X.X</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#04</span>
-          <span class="nm" role="cell">placeholder-model-4</span>
-          <span class="tk" role="cell">Team D</span>
-          <span class="sc" role="cell">XXX.X</span>
-          <span class="dl" role="cell">+X.X</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#05</span>
-          <span class="nm" role="cell">placeholder-model-5</span>
-          <span class="tk" role="cell">Team E</span>
-          <span class="sc" role="cell">XXX.X</span>
-          <span class="dl" role="cell">+XX.X</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#06</span>
-          <span class="nm" role="cell">placeholder-model-6</span>
-          <span class="tk" role="cell">Team F</span>
-          <span class="sc" role="cell">XXX.X</span>
-          <span class="dl" role="cell">+XX.X</span>
-        </div>
+      <div class="table-shell" role="region" aria-label="Track 3 leaderboard" tabindex="0">
+        <table class="leaderboard-table">
+          <caption>Track 3 leaderboard. Preview state with no ranked submissions.</caption>
+          <thead><tr><th scope="col">Rank state</th><th scope="col">Submission</th><th scope="col">Affiliation</th><th scope="col">MAE (s)</th><th scope="col">Delta</th></tr></thead>
+          <tbody class="unranked-rows">
+            <tr><th scope="row">Not ranked</th><td>No submissions yet</td><td>Warm-up opens Sep 16, 2026</td><td>Not scored</td><td>Not ranked</td></tr>
+          </tbody>
+        </table>
       </div>
 
       <div class="ds-foot">
-        <span class="bs-kicker">N = X of XX submissions · last update XX min ago</span>
+        <span class="bs-kicker">No ranked submissions yet · updates begin Sep 16, 2026</span>
         <a href="#methodology" class="track-link">How scoring works ↓</a>
       </div>
     </section>
@@ -403,53 +251,18 @@
         </div>
       </div>
 
-      <div class="vb-leader" role="table" aria-label="Track 4 top submissions">
-        <div class="vb-leader-row head" role="row">
-          <span role="columnheader">#</span>
-          <span role="columnheader">Submission</span>
-          <span role="columnheader">Affiliation</span>
-          <span role="columnheader">CER (%)</span>
-          <span role="columnheader">Δ</span>
-        </div>
-        <div class="vb-leader-row hl" role="row">
-          <span class="rk" role="cell">#01</span>
-          <span class="nm" role="cell">placeholder-model-1</span>
-          <span class="tk" role="cell">Team A</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">—</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#02</span>
-          <span class="nm" role="cell">placeholder-model-2</span>
-          <span class="tk" role="cell">Team B</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">+X.X</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#03</span>
-          <span class="nm" role="cell">placeholder-model-3</span>
-          <span class="tk" role="cell">Team C</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">+X.X</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#04</span>
-          <span class="nm" role="cell">placeholder-model-4</span>
-          <span class="tk" role="cell">Team D</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">+X.X</span>
-        </div>
-        <div class="vb-leader-row" role="row">
-          <span class="rk" role="cell">#05</span>
-          <span class="nm" role="cell">placeholder-model-5</span>
-          <span class="tk" role="cell">Team E</span>
-          <span class="sc" role="cell">XX.X</span>
-          <span class="dl" role="cell">+XX.X</span>
-        </div>
+      <div class="table-shell" role="region" aria-label="Track 4 leaderboard" tabindex="0">
+        <table class="leaderboard-table">
+          <caption>Track 4 leaderboard. Preview state with no ranked submissions.</caption>
+          <thead><tr><th scope="col">Rank state</th><th scope="col">Submission</th><th scope="col">Affiliation</th><th scope="col">CER (%)</th><th scope="col">Delta</th></tr></thead>
+          <tbody class="unranked-rows">
+            <tr><th scope="row">Not ranked</th><td>No submissions yet</td><td>Warm-up opens Sep 16, 2026</td><td>Not scored</td><td>Not ranked</td></tr>
+          </tbody>
+        </table>
       </div>
 
       <div class="ds-foot">
-        <span class="bs-kicker">N = X of XX submissions · last update X min ago</span>
+        <span class="bs-kicker">No ranked submissions yet · updates begin Sep 16, 2026</span>
         <a href="#methodology" class="track-link">How scoring works ↓</a>
       </div>
     </section>

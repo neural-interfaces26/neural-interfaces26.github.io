@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="theme-color" content="#5b2ee5" />
+<meta name="theme-color" content="#5332F4" />
 
 <title>Rules &amp; FAQ · EEG/EMG Foundation Challenge 2026</title>
 <meta name="description" content="The seven rules of the NeurIPS 2026 EEG/EMG Foundation Challenge — eligibility, tracks, submission caps, external data, compute, the reproducibility audit, authorship — and the questions participants ask. Required reading before you submit." />
@@ -180,7 +180,7 @@
 }
 </script>
 </head>
-<body class="bs-root landing">
+<body class="bs-root landing technical-page faq-page">
 
 <a class="skip-link" href="#main">Skip to content</a>
 
@@ -207,51 +207,32 @@
 <main class="site-main" id="main">
 
   <!-- ============================== Hero ============================== -->
-    <section class="vb-hero" aria-labelledby="faq-heading">
-      <div class="vb-hero-text">
-        <span class="bs-eyebrow"><span class="dot"></span> Rules &amp; FAQ · required reading</span>
-        <h1 id="faq-heading">Rules &amp; FAQ.</h1>
-        <p>Seven binding rules — eligibility, tracks, submission caps, external data, compute, the reproducibility audit, authorship — followed by the questions participants ask most. Every participant is expected to have read the rules before submitting.</p>
-        <div class="bs-hero-cta">
-          <a class="bs-btn primary" href="#rules">Read the seven rules →</a>
-          <a class="bs-btn ghost" href="#contact">Reach the organisers</a>
-        </div>
+  <section class="page-hero" aria-labelledby="faq-heading">
+    <div class="page-hero-inner">
+      <span class="bs-eyebrow">Rules and FAQ</span>
+      <h1 id="faq-heading">Rules &amp; FAQ.</h1>
+      <p>Seven binding rules, followed by the questions participants ask most.</p>
+      <div class="bs-hero-cta">
+        <a class="bs-btn primary" href="#rules">Read the seven rules →</a>
+        <a class="bs-btn ghost" href="#contact">Reach the organisers</a>
       </div>
+    </div>
+  </section>
 
-      <div class="vb-hero-side">
-        <nav class="vb-hero-eeg vb-toc" aria-label="On this page">
-          <div class="bs-card-head">
-            <span class="bs-kicker">On this page</span>
-            <span class="bs-badge">CANONICAL</span>
-          </div>
-          <div class="vb-toc-group">
-            <span class="bs-kicker">Rules · binding</span>
-            <ol>
-              <li><a href="#rule-eligibility">Eligibility</a></li>
-              <li><a href="#rule-tracks">Tracks</a></li>
-              <li><a href="#rule-caps">Submission cap</a></li>
-              <li><a href="#rule-data">External data</a></li>
-              <li><a href="#rule-compute">Compute</a></li>
-              <li><a href="#rule-audit">Reproducibility audit</a></li>
-              <li><a href="#rule-authorship">Authorship</a></li>
-            </ol>
-          </div>
-          <div class="vb-toc-group">
-            <span class="bs-kicker">FAQ</span>
-            <ul>
-              <li><a href="#faq-muse">Track 3 Muse dataset access</a></li>
-              <li><a href="#faq-underfill">Underfilled tracks</a></li>
-              <li><a href="#faq-delay">Delays</a></li>
-              <li><a href="#faq-release">Data release</a></li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </section>
+  <nav class="local-nav" aria-label="Rules and FAQ sections">
+    <a href="#rules">Seven rules</a>
+    <a href="#faq">Questions people ask</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
 <section class="announcement-strip" aria-label="Competition announcement">
   <span class="announcement-label">Preview</span>
   <p>The competition runs Sep 16 – Nov 16, 2026; prizes are awarded at <a href="https://brainbodyfm-workshop.github.io" target="_blank" rel="noreferrer noopener">Foundation Models for the Brain and Body</a>, the NeurIPS 2026 workshop in Sydney.</p>
 </section>
+
+  <section class="technical-intro faq-intro" aria-label="Required reading">
+    <p>Eligibility, tracks, submission caps, external data, compute, the reproducibility audit, and authorship are binding. Every participant is expected to have read the rules before submitting.</p>
+  </section>
 
 
     <!-- ============================== Rules ============================== -->
@@ -268,7 +249,17 @@
         </div>
       </div>
 
-      <ol class="vb-rules" aria-label="Competition rules">
+      <nav class="rule-index" aria-label="Seven rule anchors">
+        <a href="#rule-eligibility">01 Eligibility</a>
+        <a href="#rule-tracks">02 Tracks</a>
+        <a href="#rule-caps">03 Submission cap</a>
+        <a href="#rule-data">04 External data</a>
+        <a href="#rule-compute">05 Compute</a>
+        <a href="#rule-audit">06 Reproducibility audit</a>
+        <a href="#rule-authorship">07 Authorship</a>
+      </nav>
+
+      <ol class="vb-rules rules-list" aria-label="Competition rules">
 
         <li class="vb-rule" id="rule-eligibility">
           <span class="vb-rule-num" aria-hidden="true">01</span>
@@ -364,41 +355,35 @@
         </div>
       </div>
 
-      <div class="vb-tracks vb-faq">
-
-        <article class="vb-track" id="faq-muse">
-          <div class="track-head">
-            <span class="bs-kicker">Datasets</span>
+      <div class="faq-list">
+        <details class="faq-item" id="faq-muse">
+          <summary><span class="faq-topic">Datasets</span><span class="faq-question">When is the Track 3 Muse Sleep-Onset dataset available, and how do I access it?</span></summary>
+          <div class="faq-answer">
+            <p>The four <strong>NEW</strong> 2026 competition cohorts — <strong>Muse Sleep-Onset</strong> (Track 3), Graz/BrainHero (Track 2), and the Alljoined and emg2qwerty evaluation sets — are released when the competition opens on <strong>September 16, 2026</strong>. From that date, <code>neuralbench eeg sleep_onset --download</code> pulls the official Muse cohort directly. There is no separate platform, access link, or manual permission step beyond registering your team — just update your NeuralBench install after Sep 16.</p>
+            <p>Before September, <code>neuralbench eeg sleep_onset --download</code> returns the <strong>seed datasets</strong> (Sleep-EDF, PhysioNet Challenge 2018, HMC Sleep). These are starter-kit / analog data for building and validating your pipeline — development stand-ins, not the sealed evaluation set or the official Track 3 cohort. Release notices go to the website and Discord, so watch there for the exact drop.</p>
           </div>
-          <h3>When is the Track 3 Muse Sleep-Onset dataset available, and how do I access it?</h3>
-          <p>The four <strong>NEW</strong> 2026 competition cohorts — <strong>Muse Sleep-Onset</strong> (Track 3), Graz/BrainHero (Track 2), and the Alljoined and emg2qwerty evaluation sets — are released when the competition opens on <strong>September 16, 2026</strong>. From that date, <code>neuralbench eeg sleep_onset --download</code> pulls the official Muse cohort directly. There is no separate platform, access link, or manual permission step beyond registering your team — just update your NeuralBench install after Sep 16.</p>
-          <p>Before September, <code>neuralbench eeg sleep_onset --download</code> returns the <strong>seed datasets</strong> (Sleep-EDF, PhysioNet Challenge 2018, HMC Sleep). These are starter-kit / analog data for building and validating your pipeline — development stand-ins, not the sealed evaluation set or the official Track 3 cohort. Release notices go to the website and Discord, so watch there for the exact drop.</p>
-        </article>
+        </details>
 
-        <article class="vb-track" id="faq-underfill">
-          <div class="track-head">
-            <span class="bs-kicker">Low participation</span>
+        <details class="faq-item" id="faq-underfill">
+          <summary><span class="faq-topic">Low participation</span><span class="faq-question">What happens if a track has too few participants?</span></summary>
+          <div class="faq-answer">
+            <p>Low-participation tracks fold into the closest active analysis group for the post-competition report, but prizes are still awarded on that track's own leaderboard. Each track is scored independently, so low participation on one track never shrinks the field on another.</p>
           </div>
-          <h3>What happens if a track has too few participants?</h3>
-          <p>Low-participation tracks fold into the closest active analysis group for the post-competition report, but prizes are still awarded on that track's own leaderboard. Each track is scored independently, so low participation on one track never shrinks the field on another.</p>
-        </article>
+        </details>
 
-        <article class="vb-track" id="faq-delay">
-          <div class="track-head">
-            <span class="bs-kicker">Delays</span>
+        <details class="faq-item" id="faq-delay">
+          <summary><span class="faq-topic">Delays</span><span class="faq-question">What if there's a delay?</span></summary>
+          <div class="faq-answer">
+            <p>Technical, data, or infrastructure delays shift all downstream deadlines by the same amount on the website and Discord. The reproducibility audit gate is the only milestone that can extend independently if a top submission needs more re-run time.</p>
           </div>
-          <h3>What if there's a delay?</h3>
-          <p>Technical, data, or infrastructure delays shift all downstream deadlines by the same amount on the website and Discord. The reproducibility audit gate is the only milestone that can extend independently if a top submission needs more re-run time.</p>
-        </article>
+        </details>
 
-        <article class="vb-track" id="faq-release">
-          <div class="track-head">
-            <span class="bs-kicker">Data release</span>
+        <details class="faq-item" id="faq-release">
+          <summary><span class="faq-topic">Data release</span><span class="faq-question">Will the competition data be released?</span></summary>
+          <div class="faq-answer">
+            <p>After the challenge, new data is made publicly available in full or in part where consent, licensing, and provider policy allow. The hidden evaluation labels remain confidential indefinitely so the benchmark stays usable for future research.</p>
           </div>
-          <h3>Will the competition data be released?</h3>
-          <p>After the challenge, new data is made publicly available in full or in part where consent, licensing, and provider policy allow. The hidden evaluation labels remain confidential indefinitely so the benchmark stays usable for future research.</p>
-        </article>
-
+        </details>
       </div>
     </section>
 

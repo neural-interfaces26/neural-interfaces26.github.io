@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="theme-color" content="#5b2ee5" />
+<meta name="theme-color" content="#5332F4" />
 
 <title>Start-kit & Baselines · EEG/EMG Foundation Challenge 2026</title>
 <meta name="description" content="Install the benchmark, train a baseline, and submit your first model to the EEG/EMG Foundation Challenge 2026 in under fifteen minutes. Reproducible BIDS-first pipelines, baseline scores, and a step-by-step submission walkthrough." />
@@ -59,7 +59,7 @@
 }
 </script>
 </head>
-<body class="bs-root landing">
+<body class="bs-root landing technical-page startkit-page">
 
 <a class="skip-link" href="#main">Skip to content</a>
 
@@ -86,34 +86,109 @@
 <main class="site-main" id="main">
 
   <!-- ============================== Hero ============================== -->
-    <section class="vb-hero solo" id="quickstart" aria-labelledby="kit-heading">
-      <div class="vb-hero-text">
-        <span class="bs-eyebrow"><span class="dot"></span> Get started · 15 minutes from <code>pip install</code> to leaderboard</span>
-        <h1 id="kit-heading">Start-kit &amp; baselines.</h1>
-        <p>
-          One <code>pip install</code>, one <code>neuralbench</code> command, one submission file. The start-kit ships the same evaluation harness the organizers use, every baseline reported on the leaderboard, and a deterministic toy split you can iterate on before the warm-up opens.
-        </p>
-        <div class="bs-hero-cta">
-          <a class="bs-btn primary" href="https://github.com/facebookresearch/neuroai" target="_blank" rel="noreferrer noopener">Get the start-kit →</a>
-          <a class="bs-btn ghost" href="#baselines">See the baselines</a>
-        </div>
-        <p class="rules-note">
-          <svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 2.5H5.5a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V6.5z" /><path d="M11.5 2.5v4h4" /><path d="M7.5 10.5h5M7.5 13.5h3" /></svg>
-          <span><strong>The rules are not on this page.</strong> Submission caps, eligibility, external data, compute, the reproducibility audit and authorship all live on the <a href="faq.html#rules">Rules &amp; FAQ</a> page. Read them before your first upload.</span>
-        </p>
-        <div class="vb-tags" aria-label="Stack">
-          <span class="bs-pill">Python ≥ 3.12</span>
-          <span class="bs-pill">PyTorch ≥ 2.2</span>
-          <span class="bs-pill">CUDA optional</span>
-          <span class="bs-pill">BIDS-first</span>
-          <span class="bs-pill">MIT licensed</span>
-        </div>
+  <section class="page-hero" id="quickstart" aria-labelledby="kit-heading">
+    <div class="page-hero-inner">
+      <span class="bs-eyebrow">Start kit and baselines</span>
+      <h1 id="kit-heading">Start-kit &amp; baselines.</h1>
+      <p>One <code>pip install</code>, one <code>neuralbench</code> command, one submission file.</p>
+      <div class="bs-hero-cta">
+        <a class="bs-btn primary" href="https://github.com/facebookresearch/neuroai" target="_blank" rel="noreferrer noopener">Get the start-kit →</a>
+        <a class="bs-btn ghost" href="#baselines">See the baselines</a>
       </div>
-    </section>
+    </div>
+  </section>
+
+  <nav class="local-nav" aria-label="Start kit sections">
+    <a href="#contract">Track contract</a>
+    <a href="#steps">Five-step workflow</a>
+    <a href="#walkthrough">Code walkthrough</a>
+    <a href="#baselines">Baselines</a>
+  </nav>
+
 <section class="announcement-strip" aria-label="Competition announcement">
   <span class="announcement-label">Preview</span>
   <p>The competition runs Sep 16 – Nov 16, 2026; prizes are awarded at <a href="https://brainbodyfm-workshop.github.io" target="_blank" rel="noreferrer noopener">Foundation Models for the Brain and Body</a>, the NeurIPS 2026 workshop in Sydney.</p>
 </section>
+
+  <section class="technical-intro" aria-label="Start kit scope">
+    <div class="technical-intro-copy">
+      <p>The start-kit ships the same evaluation harness the organizers use, every baseline reported on the leaderboard, and a deterministic toy split you can iterate on before the warm-up opens.</p>
+      <p class="rules-note">
+        <svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 2.5H5.5a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V6.5z" /><path d="M11.5 2.5v4h4" /><path d="M7.5 10.5h5M7.5 13.5h3" /></svg>
+        <span><strong>The rules are not on this page.</strong> Submission caps, eligibility, external data, compute, the reproducibility audit and authorship all live on the <a href="faq.html#rules">Rules &amp; FAQ</a> page. Read them before your first upload.</span>
+      </p>
+    </div>
+    <div class="technical-facts" aria-label="Start kit requirements">
+      <span>Python ≥ 3.12</span>
+      <span>PyTorch ≥ 2.2</span>
+      <span>CUDA optional</span>
+      <span>BIDS-first</span>
+      <span>MIT licensed</span>
+    </div>
+  </section>
+
+  <section class="vb-section contract-section" id="contract" aria-labelledby="contract-heading">
+    <div class="vb-section-head">
+      <div>
+        <h2 id="contract-heading">Know the shift before you train.</h2>
+        <p>Every track uses the same harness, but each holds out a different source of variation. The official warm-up split scores arrive Sep 16, 2026.</p>
+      </div>
+    </div>
+    <div class="table-shell" role="region" aria-label="Four-track input, output, metric, baseline, and release contract" tabindex="0">
+      <table class="track-contract">
+        <caption>Four-track start-kit contract</caption>
+        <thead>
+          <tr>
+            <th scope="col">Track</th>
+            <th scope="col">Input</th>
+            <th scope="col">Held-out shift</th>
+            <th scope="col">Output</th>
+            <th scope="col">Metric</th>
+            <th scope="col">Baseline</th>
+            <th scope="col">Release state</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><span>01</span> EEG-to-IMG</th>
+            <td>Single EEG epoch</td>
+            <td>Unseen stimuli</td>
+            <td>Ranked candidate images</td>
+            <td>Top-5 retrieval accuracy</td>
+            <td><a href="#baselines">NeuralBench table</a></td>
+            <td>Seed data now; official split Sep 16, 2026</td>
+          </tr>
+          <tr>
+            <th scope="row"><span>02</span> BCI decoding</th>
+            <td>EEG from cued mental tasks</td>
+            <td>Later sessions, no recalibration</td>
+            <td>Cued command</td>
+            <td>Balanced accuracy</td>
+            <td><a href="#walkthrough"><code>neuralbench eeg motor_imagery</code></a></td>
+            <td>Seed data now; official split Sep 16, 2026</td>
+          </tr>
+          <tr>
+            <th scope="row"><span>03</span> Sleep onset</th>
+            <td>Muse wearable EEG</td>
+            <td>Cross-device</td>
+            <td>Seconds to stable N2</td>
+            <td>W-bMAE on onset (s)</td>
+            <td><a href="#baselines">NeuralBench table</a></td>
+            <td>Seed datasets now; Muse cohort Sep 16, 2026</td>
+          </tr>
+          <tr>
+            <th scope="row"><span>04</span> EMG-to-Text</th>
+            <td>Wristband surface EMG</td>
+            <td>Held-out users</td>
+            <td>Typed text</td>
+            <td>Character error rate</td>
+            <td><a href="#baselines">NeuralBench table</a></td>
+            <td>Seed data now; official split Sep 16, 2026</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
 
     <!-- ============================== Steps ============================== -->
@@ -133,11 +208,11 @@
         </div>
       </div>
 
-      <ol class="vb-timeline vb-steps" aria-label="Start-kit steps">
+      <ol class="vb-timeline vb-steps steps-list" aria-label="Start-kit steps">
         <li class="phase-card">
           <span class="vb-step-num" aria-hidden="true">01</span>
           <div class="phase-body">
-            <span class="phase-tag">Step 01 <span class="badge">INSTALL</span></span>
+            <span class="phase-tag"><span class="badge">INSTALL</span></span>
             <h3>Install neuralbench.</h3>
             <span class="phase-date">~ 60 seconds · pip</span>
             <p class="phase-desc"><code>pip install neuralbench</code> pulls in the benchmark runner, task registry, and evaluator; the <code>datasets</code> and <code>models</code> extras add dataset downloading (EEGDash) and the baseline model zoo (Braindecode). On first run, set <code>DATA_DIR</code>, <code>CACHE_DIR</code> and <code>SAVE_DIR</code> in <code>~/.neuralbench/config.json</code>.</p>
@@ -153,7 +228,7 @@
         <li class="phase-card">
           <span class="vb-step-num" aria-hidden="true">02</span>
           <div class="phase-body">
-            <span class="phase-tag">Step 02 <span class="badge">DATA</span></span>
+            <span class="phase-tag"><span class="badge">DATA</span></span>
             <h3>Download a track's data.</h3>
             <span class="phase-date">streamed BIDS · seed corpora</span>
             <p class="phase-desc">EEGDash streams the BIDS layout; only the recordings you reference are downloaded. Downloads land in the <code>DATA_DIR</code> of your NeuralBench config; preprocessed data is cached in <code>CACHE_DIR</code> and reused on every later run. The figures on the right are the full seed corpora per track — a warm-up split pulls only a fraction of that.</p>
@@ -169,7 +244,7 @@
         <li class="phase-card">
           <span class="vb-step-num" aria-hidden="true">03</span>
           <div class="phase-body">
-            <span class="phase-tag">Step 03 <span class="badge">TRAIN</span></span>
+            <span class="phase-tag"><span class="badge">TRAIN</span></span>
             <h3>Train a baseline.</h3>
             <span class="phase-date">2 – 6 GPU-hours · warm-up split</span>
             <p class="phase-desc">Every track ships at least one baseline you can train with a single <code>neuralbench eeg &lt;task&gt; -m &lt;model&gt;</code> call. Task and model names come from the registry: <code>from neuralbench.registry import TASKS, ALL_MODELS</code>.</p>
@@ -184,7 +259,7 @@
         <li class="phase-card">
           <span class="vb-step-num" aria-hidden="true">04</span>
           <div class="phase-body">
-            <span class="phase-tag">Step 04 <span class="badge">SCORE</span></span>
+            <span class="phase-tag"><span class="badge">SCORE</span></span>
             <h3>Score locally with the official evaluator.</h3>
             <span class="phase-date">~ 1 minute · local</span>
             <p class="phase-desc">The evaluator is the exact code we run on Codabench. Run the task locally first with <code>neuralbench eeg &lt;task&gt;</code>; the run writes a predictions Parquet with hyperparameters and the git SHA of your model code for the audit phase.</p>
@@ -200,7 +275,7 @@
         <li class="phase-card">
           <span class="vb-step-num" aria-hidden="true">05</span>
           <div class="phase-body">
-            <span class="phase-tag">Step 05 <span class="badge">SUBMIT</span></span>
+            <span class="phase-tag"><span class="badge">SUBMIT</span></span>
             <h3>Upload to Codabench.</h3>
             <span class="phase-date">~ 30 seconds · web UI or API</span>
             <p class="phase-desc">Drop the <code>submission.parquet</code> on the Codabench page for your track. The daily submission cap, the best-of-last-five ranking and the reproducibility audit are rules, not start-kit details: read them on the <a href="faq.html#rules">Rules &amp; FAQ</a> page before your first upload.</p>
@@ -304,7 +379,7 @@
         </div>
       </div>
 
-      <div class="ds-table-wrap">
+      <div class="ds-table-wrap table-shell" role="region" aria-label="Per-track baseline scores" tabindex="0">
         <div class="ds-table" role="table" aria-label="Per-track baselines">
           <div class="ds-row head" role="row">
             <span role="columnheader">Track</span>
