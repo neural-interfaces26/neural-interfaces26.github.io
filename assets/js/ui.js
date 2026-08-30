@@ -54,6 +54,25 @@
     els.forEach((el) => io.observe(el));
   }
 
+  /* ---------- Campaign reveals ---------- */
+  function initReveals() {
+    const elements = document.querySelectorAll('.reveal');
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      elements.forEach((element) => element.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12 });
+
+    elements.forEach((element) => observer.observe(element));
+  }
+
   /* ---------- Copy buttons ---------- */
   function initCopyButtons() {
     document.querySelectorAll('[data-copy]').forEach((btn) => {
@@ -168,6 +187,8 @@
      display heading here. Purely decorative: without JS the heading still
      renders with a normal-coloured period. */
   const DISPLAY_HEADINGS = [
+    '.campaign-hero-copy h1',
+    '.challenge-thesis .campaign-section-head h2',
     '.vb-hero-text h1',
     '.org-hero h1',
     '.vb-section-head h2',
@@ -209,6 +230,7 @@
   /* ---------- Init ---------- */
   function init() {
     initCounters();
+    initReveals();
     initCopyButtons();
     initSiteMenu();
     initCountdown();

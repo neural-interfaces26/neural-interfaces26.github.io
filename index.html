@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="theme-color" content="#5b2ee5" />
+<meta name="theme-color" content="#5332f4" />
 
 <title>EEG/EMG Foundation Challenge 2026 | Neural Interfaces for Generalizable Decoding</title>
-<meta name="description" content="Open-source EEG/EMG decoding benchmark for NeurIPS 2026 in Sydney. Neural Interfaces for Generalizable Decoding across EEG, EMG, sleep, and BCI tracks. Submissions Sep 16 — Nov 16, 2026 (AoE)." />
+<meta name="description" content="Open-source EEG/EMG decoding benchmark for NeurIPS 2026 in Sydney. Neural Interfaces for Generalizable Decoding across EEG, EMG, sleep, and BCI tracks. Submissions Sep 16 - Nov 16, 2026 (AoE)." />
 
 <link rel="canonical" href="https://neural-interfaces26.github.io/" />
 <meta name="author" content="Bruno Aristimunha and the EEG/EMG Foundation Challenge organising team" />
 <meta name="keywords" content="NeurIPS 2026, EEG benchmark, brain-computer interface, BCI competition, EMG decoding, sleep onset, EEG-to-image, foundation models, Braindecode, MOABB" />
 
 <meta property="og:title" content="EEG/EMG Foundation Challenge 2026 | Neural Interfaces for Generalizable Decoding" />
-<meta property="og:description" content="Open-source neural-interface benchmark. Four tracks: EEG-to-IMG, BCI decoding, sleep onset, and EMG-to-Text. Submissions Sep 16 — Nov 16, 2026 (AoE)." />
+<meta property="og:description" content="Open-source neural-interface benchmark. Four tracks: EEG-to-IMG, BCI decoding, sleep onset, and EMG-to-Text. Submissions Sep 16 - Nov 16, 2026 (AoE)." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://neural-interfaces26.github.io/" />
 <meta property="og:site_name" content="EEG/EMG Foundation Challenge" />
@@ -25,7 +25,7 @@
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="EEG/EMG Foundation Challenge 2026 | Neural Interfaces for Generalizable Decoding" />
-<meta name="twitter:description" content="Open-source EEG/EMG decoding benchmark for NeurIPS 2026 Sydney. Submissions Sep 16 — Nov 16, 2026 (AoE)." />
+<meta name="twitter:description" content="Open-source EEG/EMG decoding benchmark for NeurIPS 2026 Sydney. Submissions Sep 16 - Nov 16, 2026 (AoE)." />
 <meta name="twitter:image" content="https://neural-interfaces26.github.io/assets/img/og-card.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -126,248 +126,113 @@
 
 <main class="site-main" id="main">
 
-  <!-- ============================== Hero ============================== -->
-    <section class="vb-hero" id="quickstart" aria-labelledby="hero-heading">
-      <div class="vb-hero-text">
-        <span class="bs-eyebrow"><span class="dot"></span> NeurIPS 2026 · open competition</span>
-        <h1 id="hero-heading">EEG/EMG Foundation Challenge 2026.</h1>
-        <p class="vb-hero-lead">
-          Biosignal foundation models claim to transfer across subjects, sessions, and devices with limited per-task training.
-        </p>
-        <p>
-          The <strong>NeurIPS 2026 EEG/EMG Foundation Challenge</strong> tests this against strong task-specific baselines on four controlled shifts: cross-stimulus, cross-session, cross-device, cross-user.
-        </p>
-        <p>
-          The four-track design separates two claims usually conflated in the literature: single-task performance and shift robustness.
-        </p>
-        <p>
-          Top-3 per track are re-run by the organizers on a sealed split. Prize pool: $30,000 across the four tracks. Winners present at the NeurIPS workshop in Sydney.
-        </p>
-        <div class="bs-hero-cta">
-          <a class="bs-btn primary" href="#cta">Register your team →</a>
-          <a class="bs-btn ghost" href="#tracks">See the four tracks</a>
+  <section class="campaign-hero" id="quickstart" aria-labelledby="hero-heading">
+    <picture class="campaign-hero-art">
+      <source media="(max-width: 640px)" srcset="assets/img/brand/hero-trophy-mobile.webp" />
+      <img src="assets/img/brand/hero-trophy.webp" width="2400" height="1260"
+        alt="Violet neural-signal sculpture rising from a stone trophy base" fetchpriority="high" />
+    </picture>
+    <div class="campaign-hero-copy reveal">
+      <p class="bs-eyebrow">EEG/EMG Foundation Challenge · NeurIPS 2026</p>
+      <h1 id="hero-heading" aria-label="Train once. Generalize across signals.">Train once.<br />Generalize <br class="campaign-mobile-break" />across signals.</h1>
+      <p>Four decoding tracks test models across stimuli, sessions, devices, and people.</p>
+      <div class="bs-hero-cta">
+        <a class="bs-btn primary" href="mailto:neurips2026-eeg-emg-competition@googlegroups.com?subject=Register%20team%20for%20EEG%2FEMG%20Foundation%20Challenge%202026">Register your team</a>
+        <a class="bs-btn ghost" href="#tracks">Explore the tracks</a>
+      </div>
+    </div>
+  </section>
+
+  <aside class="proof-strip reveal" id="stats" aria-label="NeurIPS 2025 EEG Foundation Challenge participation">
+    <a href="https://eeg2025.github.io/" target="_blank" rel="noreferrer noopener">2025 challenge</a>
+    <div><strong>1,197</strong><span>teams</span></div>
+    <div><strong>247</strong><span>institutions</span></div>
+    <div><strong>50+</strong><span>countries</span></div>
+    <div><strong>8,622</strong><span>submissions</span></div>
+    <p>Promoted via EEGLAB, MNE-Python, and NeuroTechX.</p>
+  </aside>
+
+  <section class="challenge-thesis campaign-section" id="tracks" aria-labelledby="tracks-heading">
+    <div class="campaign-section-head reveal">
+      <h2 id="tracks-heading">One benchmark. Four real shifts.</h2>
+      <div class="challenge-thesis-copy">
+        <p>Biosignal foundation models claim to transfer across subjects, sessions, and devices with limited per-task training. This challenge tests that claim against strong task-specific baselines.</p>
+        <p>The four-track design separates two claims usually conflated in the literature: single-task performance and shift robustness. One harness and one reproducibility audit hold evaluation fixed, so a per-track score can be attributed to the model rather than the protocol.</p>
+      </div>
+      <dl class="challenge-meta">
+        <div><dt>Submissions</dt><dd>Sep 16 - Nov 16, 2026 (AoE)</dd></div>
+        <div><dt>Finals</dt><dd>NeurIPS, Sydney</dd></div>
+        <div><dt>Rules</dt><dd><a href="faq.html">Read before you submit</a></dd></div>
+      </dl>
+    </div>
+
+    <div class="track-grid">
+      <article class="track-card reveal">
+        <div class="track-card-heading">
+          <span class="track-number">01</span>
+          <div><p class="track-shift">Cross-stimulus</p><h3>EEG-to-IMG</h3></div>
         </div>
-      </div>
+        <img src="assets/img/figures/eeg-to-img.png" srcset="assets/img/figures/eeg-to-img.png 1x, assets/img/figures/eeg-to-img@2x.png 2x" width="335" height="218" alt="THINGS-EEG and Alljoined data feeding an EEG decoder ranked against a held-out image gallery" loading="lazy" />
+        <p>Decodes which image a subject is viewing from a single EEG epoch, evaluated as ranking against held-out candidates. Targets are frozen DINOv2-giant embeddings, so the difficulty is in the EEG side, not in re-learning the image space. The controlled shift is cross-stimulus: test stimuli are unseen during training.</p>
+        <p class="track-facts">Visual retrieval, DINOv2, RSVP, object viewing</p>
+        <div class="track-card-footer"><span>Metric: Top-5 acc. Sponsor: Alljoined</span><a href="leaderboard.html#track-1">View track</a></div>
+      </article>
 
-      <div class="vb-hero-side">
-        <figure class="bs-code" aria-label="Install snippet">
-          <figcaption class="bs-code-head">
-            <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
-            <span class="bs-kicker">bash · pip · neuralbench</span>
-            <button class="copy" type="button" data-copy>copy</button>
-          </figcaption>
-          <pre><div class="line"><span class="ln"> 1</span><code><span class="c1"># 1. Install the benchmark stack</span></code></div><div class="line"><span class="ln"> 2</span><code><span class="kw">$</span> pip install <span class="str">neuralbench</span> eegdash braindecode</code></div><div class="line"><span class="ln"> 3</span><code> </code></div><div class="line"><span class="ln"> 4</span><code><span class="c1"># 2. Download and prepare data for Track 1</span></code></div><div class="line"><span class="ln"> 5</span><code><span class="kw">$</span> neuralbench eeg image <span class="op">--download</span>  <span class="c1"># THINGS-EEG2</span></code></div><div class="line"><span class="ln"> 6</span><code><span class="kw">$</span> neuralbench eeg image <span class="op">--prepare</span></code></div><div class="line"><span class="ln"> 7</span><code> </code></div><div class="line"><span class="ln"> 8</span><code><span class="c1"># 3. Train a baseline</span></code></div><div class="line"><span class="ln"> 9</span><code><span class="kw">$</span> neuralbench eeg image <span class="op">-m</span> <span class="str">eegnet</span></code></div><div class="line"><span class="ln">10</span><code><span class="c2">  ↳ Track 1 baseline · NeuralBench v1 · facebookresearch/neuroai</span></code></div></pre>
-        </figure>
-      </div>
-    </section>
-<section class="announcement-strip" aria-label="Competition announcement">
-  <span class="announcement-label">Preview</span>
-  <p>The competition runs Sep 16 – Nov 16, 2026; prizes are awarded at <a href="https://brainbodyfm-workshop.github.io" target="_blank" rel="noreferrer noopener">Foundation Models for the Brain and Body</a>, the NeurIPS 2026 workshop in Sydney.</p>
-</section>
+      <article class="track-card reveal">
+        <div class="track-card-heading">
+          <span class="track-number">02</span>
+          <div><p class="track-shift">Cross-session</p><h3>BCI decoding</h3></div>
+        </div>
+        <img src="assets/img/figures/bci-track.png" srcset="assets/img/figures/bci-track.png 1x, assets/img/figures/bci-track@2x.png 2x" width="335" height="218" alt="Cued mental commands decoded from EEG across later sessions of the same subject" loading="lazy" />
+        <p>Decodes a cued mental command (motor imagery, mental calculation, word association) from short EEG windows. The controlled shift is cross-session: models train on early sessions and are scored on later sessions of the same subject, with no per-session recalibration allowed.</p>
+        <p class="track-facts">Motor imagery, mental math, word association, session drift</p>
+        <div class="track-card-footer"><span>Metric: Balanced acc. Sponsor: Meta FAIR Brain &amp; AI</span><a href="leaderboard.html#track-2">View track</a></div>
+      </article>
 
+      <article class="track-card reveal">
+        <div class="track-card-heading">
+          <span class="track-number">03</span>
+          <div><p class="track-shift">Cross-device</p><h3>Sleep onset</h3></div>
+        </div>
+        <img src="assets/img/figures/sleep_prediction.png" srcset="assets/img/figures/sleep_prediction.png 1x, assets/img/figures/sleep_prediction@2x.png 2x" width="336" height="218" alt="Consumer-grade wearable EEG predicting seconds remaining until the first stable N2 epoch" loading="lazy" />
+        <p>Predicts the latency in seconds from recording start to the first stable N2 epoch, on consumer-grade wearable EEG. The controlled shift is cross-device: home-wearable channels and montages instead of the clinical polysomnography setups of the seed corpora. Precise timing replaces full staging because the wearable signal is too sparse to support per-epoch hypnogram reconstruction.</p>
+        <p class="track-facts">Sleep onset, wearable EEG, Muse, home monitoring</p>
+        <div class="track-card-footer"><span>Metric: W-bMAE (s). Sponsor: InteraXon</span><a href="leaderboard.html#track-3">View track</a></div>
+      </article>
 
-    <!-- ============================== Prior edition / trust strip ============================== -->
-    <aside class="vb-prior" aria-label="Prior edition">
-      <span class="bs-kicker">Continuing</span>
-      <p>
-        <a href="https://eeg2025.github.io/" target="_blank" rel="noreferrer noopener">NeurIPS 2025 EEG Foundation Challenge</a>:
-        <strong>1,197 teams</strong> ·
-        <strong>247 institutions</strong> ·
-        <strong>50+ countries</strong> ·
-        <strong>8,622 submissions</strong>.
-        Promoted via EEGLAB, MNE-Python, NeuroTechX.
-      </p>
-    </aside>
+      <article class="track-card reveal">
+        <div class="track-card-heading">
+          <span class="track-number">04</span>
+          <div><p class="track-shift">Cross-user</p><h3>EMG-to-Text</h3></div>
+        </div>
+        <img src="assets/img/figures/emg-to-text.png" srcset="assets/img/figures/emg-to-text.png 1x, assets/img/figures/emg-to-text@2x.png 2x" width="336" height="217" alt="Wristband surface EMG decoded as a sequence of typed keystrokes across users" loading="lazy" />
+        <p>Decodes typed keystrokes from wristband surface EMG as a sequence-transduction problem. The controlled shift is cross-user: 100+ held-out users vary in forearm anatomy, typing strategy, and sensor re-placement, so a model that overfits one user's geometry fails the test.</p>
+        <p class="track-facts">EMG typing, sequence transduction, wristbands, QWERTY</p>
+        <div class="track-card-footer"><span>Metric: CER (%). Sponsor: Meta Reality Labs</span><a href="leaderboard.html#track-4">View track</a></div>
+      </article>
+    </div>
+  </section>
 
-    <!-- ============================== Stats banner ============================== -->
-    <section class="vb-stats" id="stats" aria-label="Benchmark stats">
-      <div class="vb-stat">
-        <strong data-count-to="4">4</strong>
-        <span class="bs-kicker">decoding tracks</span>
-      </div>
-      <div class="vb-stat">
-        <strong data-count-to="14">14</strong>
-        <span class="bs-kicker">public datasets</span>
-      </div>
-      <div class="vb-stat">
-        <strong data-count-to="3700" data-count-suffix="+">3,700+</strong>
-        <span class="bs-kicker">subjects</span>
-      </div>
-    </section>
+  <section class="campaign-section evidence-panel" id="datasets" aria-labelledby="datasets-heading">
+    <div class="campaign-section-head reveal">
+      <p class="bs-eyebrow">Evidence, held to one protocol</p>
+      <h2 id="datasets-heading">Built to expose the shift.</h2>
+      <p>Each track ships with a brand-new corpus alongside curated seed datasets. <a href="https://eegdash.org/dataset_summary.html" target="_blank" rel="noreferrer noopener">EEGDash</a> exposes 700+ additional EEG corpora through the same BIDS-first streaming interface.</p>
+    </div>
+    <div class="evidence-strip reveal" aria-label="Benchmark evidence">
+      <div><strong>14</strong><span>public datasets</span></div>
+      <div><strong>3,700+</strong><span>subjects</span></div>
+      <div><strong>BIDS-first</strong><span>one data interface</span></div>
+      <div><strong>sealed replay</strong><span>top-3 re-run by organizers</span></div>
+    </div>
+  </section>
 
-    <!-- ============================== Tracks ============================== -->
-    <section class="vb-section" id="tracks" aria-labelledby="tracks-heading">
+    <details class="dataset-directory campaign-section">
+      <summary>Dataset directory and 2026 releases</summary>
+      <div class="dataset-directory-body">
       <div class="vb-section-head">
         <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Four tracks, one pipeline</span>
-          <h2 id="tracks-heading">Competition tracks</h2>
-          <p class="vb-section-subtitle">From cognition to clinic.</p>
-          <p>One harness, one BIDS-first interface, one reproducibility audit. Holding evaluation fixed lets a per-track score be attributed to the model rather than to the protocol.</p>
-        </div>
-        <div class="vb-section-side">
-          <div class="vb-tracks-meta">
-            <div><span class="bs-kicker">Submissions</span><strong>Sep 16 — Nov 16, 2026 (AoE)</strong></div>
-            <div><span class="bs-kicker">Finals</span><strong>NeurIPS · Sydney</strong></div>
-            <div><span class="bs-kicker">Prize pool</span><strong>$30,000 ($2,500 / top-3 / track)</strong></div>
-            <div><span class="bs-kicker">Rules</span><strong><a href="faq.html">Read before you submit &rarr;</a></strong></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="vb-tracks">
-
-        <article class="vb-track">
-          <div class="track-head">
-            <span class="bs-kicker">Track 01</span>
-            <span class="bs-badge">OPEN</span>
-          </div>
-          <img src="assets/img/figures/eeg-to-img.png"
-               srcset="assets/img/figures/eeg-to-img.png 1x, assets/img/figures/eeg-to-img@2x.png 2x"
-               alt="Track 1 EEG-to-IMG: THINGS-EEG and Alljoined data feed an EEG decoder ranked against a held-out image gallery."
-               loading="lazy"
-               class="vb-track-img" />
-          <h3>EEG-to-IMG</h3>
-          <p>Decodes which image a subject is viewing from a single EEG epoch, evaluated as ranking against held-out candidates. Targets are frozen DINOv2-giant embeddings, so the difficulty is in the EEG side, not in re-learning the image space. The controlled shift is cross-stimulus: test stimuli are unseen during training.</p>
-          <div class="vb-track-paradigms">
-            <span class="bs-pill">Visual retrieval</span>
-            <span class="bs-pill">DINOv2</span>
-            <span class="bs-pill">RSVP</span>
-            <span class="bs-pill">Object viewing</span>
-          </div>
-          <div class="vb-track-cta">
-            <span class="bs-kicker">Metric: Top-5 acc · Sponsor: Alljoined</span>
-            <a href="leaderboard.html#track-1" class="track-link">Track details →</a>
-          </div>
-        </article>
-
-        <article class="vb-track">
-          <div class="track-head">
-            <span class="bs-kicker">Track 02</span>
-            <span class="bs-badge">OPEN</span>
-          </div>
-          <img src="assets/img/figures/bci-track.png"
-               srcset="assets/img/figures/bci-track.png 1x, assets/img/figures/bci-track@2x.png 2x"
-               alt="Track 2 BCI decoding: cued mental commands (motor imagery, mental math, word association) decoded from EEG across later sessions of the same subject."
-               loading="lazy"
-               class="vb-track-img" />
-          <h3>BCI decoding</h3>
-          <p>Decodes a cued mental command (motor imagery, mental calculation, word association) from short EEG windows. The controlled shift is cross-session: models train on early sessions and are scored on later sessions of the same subject, with no per-session recalibration allowed.</p>
-          <div class="vb-track-paradigms">
-            <span class="bs-pill">Motor imagery</span>
-            <span class="bs-pill">Mental math</span>
-            <span class="bs-pill">Word association</span>
-            <span class="bs-pill">Session drift</span>
-          </div>
-          <div class="vb-track-cta">
-            <span class="bs-kicker">Metric: Balanced acc · Sponsor: Meta FAIR Brain &amp; AI</span>
-            <a href="leaderboard.html#track-2" class="track-link">Track details →</a>
-          </div>
-        </article>
-
-        <article class="vb-track">
-          <div class="track-head">
-            <span class="bs-kicker">Track 03</span>
-            <span class="bs-badge">OPEN</span>
-          </div>
-          <img src="assets/img/figures/sleep_prediction.png"
-               srcset="assets/img/figures/sleep_prediction.png 1x, assets/img/figures/sleep_prediction@2x.png 2x"
-               alt="Track 3 Sleep onset: consumer-grade wearable EEG predicts seconds remaining until the first stable N2 epoch."
-               loading="lazy"
-               class="vb-track-img" />
-          <h3>Sleep onset</h3>
-          <p>Predicts the latency in seconds from recording start to the first stable N2 epoch, on consumer-grade wearable EEG. The controlled shift is cross-device: home-wearable channels and montages instead of the clinical polysomnography setups of the seed corpora. Precise timing replaces full staging because the wearable signal is too sparse to support per-epoch hypnogram reconstruction.</p>
-          <div class="vb-track-paradigms">
-            <span class="bs-pill">Sleep onset</span>
-            <span class="bs-pill">Wearable EEG</span>
-            <span class="bs-pill">Muse</span>
-            <span class="bs-pill">Home monitoring</span>
-          </div>
-          <div class="vb-track-cta">
-            <span class="bs-kicker">Metric: W-bMAE (s) · Sponsor: InteraXon</span>
-            <a href="leaderboard.html#track-3" class="track-link">Track details →</a>
-          </div>
-        </article>
-
-        <article class="vb-track">
-          <div class="track-head">
-            <span class="bs-kicker">Track 04</span>
-            <span class="bs-badge">OPEN</span>
-          </div>
-          <img src="assets/img/figures/emg-to-text.png"
-               srcset="assets/img/figures/emg-to-text.png 1x, assets/img/figures/emg-to-text@2x.png 2x"
-               alt="Track 4 EMG-to-Text: wristband surface EMG decoded as a sequence of typed keystrokes, generalising across users."
-               loading="lazy"
-               class="vb-track-img" />
-          <h3>EMG-to-Text</h3>
-          <p>Decodes typed keystrokes from wristband surface EMG as a sequence-transduction problem. The controlled shift is cross-user: 100+ held-out users vary in forearm anatomy, typing strategy, and sensor re-placement, so a model that overfits one user's geometry fails the test.</p>
-          <div class="vb-track-paradigms">
-            <span class="bs-pill">EMG typing</span>
-            <span class="bs-pill">Sequence transduction</span>
-            <span class="bs-pill">Wristbands</span>
-            <span class="bs-pill">QWERTY</span>
-          </div>
-          <div class="vb-track-cta">
-            <span class="bs-kicker">Metric: CER (%) · Sponsor: Meta Reality Labs</span>
-            <a href="leaderboard.html#track-4" class="track-link">Track details →</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============================== Timeline ============================== -->
-    <section class="vb-section" id="timeline" aria-labelledby="timeline-heading">
-      <div class="vb-section-head">
-        <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Competition window · Sep — Nov 2026</span>
-          <h2 id="timeline-heading">Timeline</h2>
-          <p class="vb-section-subtitle">One window. More dates after the summer.</p>
-          <p>The competition runs <strong>Sep 16 — Nov 16, 2026 (AoE)</strong>. Prizes are awarded at <a href="https://brainbodyfm-workshop.github.io" target="_blank" rel="noreferrer noopener">Foundation Models for the Brain and Body</a>, the NeurIPS 2026 workshop in Sydney, on Dec 11 or 12. The reproducibility audit and final-ranking dates are announced after the summer.</p>
-        </div>
-        <div class="vb-section-side">
-          <div class="vb-tracks-meta">
-            <div><span class="bs-kicker">All times</span><strong>Anywhere on Earth (AoE)</strong></div>
-            <div><span class="bs-kicker">Daily cap</span><strong>5/day warm-up · 2/day sealed final</strong></div>
-            <div><span class="bs-kicker">Audit</span><strong>Top-3 re-run on sealed split · ±2σ tolerance</strong></div>
-            <div><span class="bs-kicker">Inference</span><strong>Fixed Codabench H100/H200 container · 60 min budget</strong></div>
-            <div><span class="bs-kicker">Prizes</span><strong>BrainBodyFM workshop · Sydney · Dec 11 or 12</strong></div>
-          </div>
-        </div>
-      </div>
-
-      <ol class="vb-timeline" aria-label="Competition phases">
-        <li class="phase-card active">
-          <span class="phase-rail" aria-hidden="true"></span>
-          <span class="phase-tag">Competition <span class="badge">OPEN</span></span>
-          <h3>Submission window</h3>
-          <span class="phase-date">Sep 16 — Nov 16, 2026 (AoE)</span>
-          <p class="phase-desc">Starter kit, baselines, datasets, and the scoring container are released at the start. Public validation and sealed evaluation run across a single window; submissions close Nov 16, 2026 (AoE).</p>
-          <div class="phase-meta">
-            <div class="row"><span>Opens</span><span>Sep 16, 2026</span></div>
-            <div class="row"><span>Closes</span><span>Nov 16, 2026 (AoE)</span></div>
-            <div class="row"><span>Repo</span><span>github.com/neural-interfaces26</span></div>
-          </div>
-        </li>
-
-        <li class="phase-card upcoming">
-          <span class="phase-rail" aria-hidden="true"></span>
-          <span class="phase-tag">Next <span class="badge">TBA</span></span>
-          <h3>After the summer</h3>
-          <span class="phase-date">Announced later in 2026</span>
-          <p class="phase-desc">Winners are announced and prizes awarded at the BrainBodyFM workshop in Sydney. The reproducibility audit and final-ranking dates are released after the summer. Sign up to the mailing list to be notified.</p>
-          <div class="phase-meta">
-            <div class="row"><span>Audit &amp; ranking</span><span>To be announced</span></div>
-            <div class="row"><span>Prizes &amp; workshop</span><span>Sydney · Dec 11 or 12, 2026</span></div>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <!-- ============================== Datasets ============================== -->
-    <section class="vb-section" id="datasets" aria-labelledby="datasets-heading">
-      <div class="vb-section-head">
-        <div>
-          <span class="bs-eyebrow"><span class="dot"></span> New in 2026 · BIDS-first via EEGDash</span>
-          <h2 id="datasets-heading">Datasets</h2>
+          <h2>Four new datasets. One per cognitive domain.</h2>
           <p class="vb-section-subtitle">Four new datasets. One per cognitive domain.</p>
           <p>Each track ships with a brand-new corpus, alongside curated seed datasets. For foundation-model pretraining, <a href="https://eegdash.org/dataset_summary.html" target="_blank" rel="noreferrer noopener">EEGDash</a> exposes 700+ additional EEG corpora under the same BIDS-first streaming interface.</p>
         </div>
@@ -376,8 +241,7 @@
       <div class="vb-tracks dataset-release-grid">
         <article class="vb-track dataset-release-card">
           <div class="track-head">
-            <span class="bs-kicker">Visual decoding</span>
-            <span class="bs-badge">NEW</span>
+            <span class="bs-kicker">New visual decoding cohort</span>
           </div>
           <h3 class="dataset-release-heading">Alljoined eval cohort</h3>
           <p class="dataset-release-copy">New 11-subject evaluation cohort recorded with the same Emotiv hardware and natural-images paradigm as the public <strong>Alljoined-1.6M</strong> corpus. Released by Alljoined.</p>
@@ -385,8 +249,7 @@
 
         <article class="vb-track dataset-release-card">
           <div class="track-head">
-            <span class="bs-kicker">BCI command</span>
-            <span class="bs-badge">NEW</span>
+            <span class="bs-kicker">New BCI command cohort</span>
           </div>
           <h3 class="dataset-release-heading">Graz / BrainHero</h3>
           <p class="dataset-release-copy">20 subjects &times; 6 sessions, mixed Graz and BrainHero paradigms.</p>
@@ -394,8 +257,7 @@
 
         <article class="vb-track dataset-release-card">
           <div class="track-head">
-            <span class="bs-kicker">Sleep onset</span>
-            <span class="bs-badge">NEW</span>
+            <span class="bs-kicker">New sleep onset cohort</span>
           </div>
           <h3 class="dataset-release-heading">Muse wearable</h3>
           <p class="dataset-release-copy">~1,000-subject home-wearable EEG with <code>n2_onset</code> annotations.</p>
@@ -403,8 +265,7 @@
 
         <article class="vb-track dataset-release-card">
           <div class="track-head">
-            <span class="bs-kicker">EMG-to-text</span>
-            <span class="bs-badge">NEW</span>
+            <span class="bs-kicker">New EMG-to-text cohort</span>
           </div>
           <h3 class="dataset-release-heading">Wristband EMG cohort</h3>
           <p class="dataset-release-copy">New 100-user evaluation cohort recorded with the same wrist-sEMG hardware, typing task, and collection paradigm as the public <strong>emg2qwerty</strong> corpus. Released by Meta Reality Labs.</p>
@@ -449,7 +310,7 @@
             <span class="nm" role="cell">Alljoined-1 · Natural images</span>
             <span class="mod mod-eeg" role="cell">EEG</span>
             <span class="num" role="cell">8</span>
-            <span class="num" role="cell">—</span>
+            <span class="num" role="cell">-</span>
             <span class="num" role="cell">64</span>
             <span class="num" role="cell">512 Hz</span>
             <span class="num" role="cell">4.4 GB</span>
@@ -466,13 +327,13 @@
           </div>
           <div class="ds-row ds-row--new" role="row">
             <span class="id" role="cell">alljoined-eval</span>
-            <span class="nm" role="cell">Alljoined eval · same setup as Alljoined-1.6M <span class="ds-new-tag">NEW · SEP 16</span></span>
+            <span class="nm" role="cell">Alljoined eval, same setup as Alljoined-1.6M (new Sep 16)</span>
             <span class="mod mod-eeg" role="cell">EEG</span>
             <span class="num" role="cell">11</span>
-            <span class="num" role="cell">—</span>
+            <span class="num" role="cell">-</span>
             <span class="num" role="cell">32</span>
             <span class="num" role="cell">250 Hz</span>
-            <span class="num" role="cell">—</span>
+            <span class="num" role="cell">-</span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">stieger2021</span>
@@ -516,13 +377,13 @@
           </div>
           <div class="ds-row ds-row--new" role="row">
             <span class="id" role="cell">bci-graz</span>
-            <span class="nm" role="cell">Graz/BrainHero · BCI command <span class="ds-new-tag">NEW · SEP 16</span></span>
+            <span class="nm" role="cell">Graz/BrainHero, BCI command (new Sep 16)</span>
             <span class="mod mod-eeg" role="cell">EEG</span>
             <span class="num" role="cell">20</span>
             <span class="num" role="cell">80h</span>
             <span class="num" role="cell">64</span>
             <span class="num" role="cell">500 Hz</span>
-            <span class="num" role="cell">—</span>
+            <span class="num" role="cell">-</span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">sleepedf-ext</span>
@@ -552,17 +413,17 @@
             <span class="num" role="cell">1200h</span>
             <span class="num" role="cell">4</span>
             <span class="num" role="cell">256 Hz</span>
-            <span class="num" role="cell">—</span>
+            <span class="num" role="cell">-</span>
           </div>
           <div class="ds-row ds-row--new" role="row">
             <span class="id" role="cell">muse-sleep</span>
-            <span class="nm" role="cell">Muse Sleep-Onset · Wearable <span class="ds-new-tag">NEW · SEP 16</span></span>
+            <span class="nm" role="cell">Muse Sleep-Onset, wearable (new Sep 16)</span>
             <span class="mod mod-sleep" role="cell">Sleep</span>
             <span class="num" role="cell">1000+</span>
             <span class="num" role="cell">1000h+</span>
             <span class="num" role="cell">4</span>
             <span class="num" role="cell">256 Hz</span>
-            <span class="num" role="cell">—</span>
+            <span class="num" role="cell">-</span>
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">emg2qwerty</span>
@@ -576,33 +437,54 @@
           </div>
           <div class="ds-row ds-row--new" role="row">
             <span class="id" role="cell">emg2qwerty-eval</span>
-            <span class="nm" role="cell">emg2qwerty eval · same setup as emg2qwerty <span class="ds-new-tag">NEW · SEP 16</span></span>
+            <span class="nm" role="cell">emg2qwerty eval, same setup as emg2qwerty (new Sep 16)</span>
             <span class="mod mod-emg" role="cell">EMG</span>
             <span class="num" role="cell">100</span>
-            <span class="num" role="cell">—</span>
+            <span class="num" role="cell">-</span>
             <span class="num" role="cell">32</span>
             <span class="num" role="cell">2000 Hz</span>
-            <span class="num" role="cell">—</span>
+            <span class="num" role="cell">-</span>
           </div>
         </div>
       </div>
 
       <div class="ds-foot">
-        <span class="bs-kicker">14 seed datasets + 4 new releases for 2026 (Graz/BrainHero and Muse Sleep-Onset for training; Alljoined eval and emg2qwerty eval as hidden test cohorts that mirror their public parents) · the 4 NEW cohorts become downloadable via NeuralBench when the competition opens Sep 16, 2026 — the seed datasets are available now as starter-kit / analog data for pipeline development · all under their original providers' licenses · sleep annotations expert-scored, stimulus/keystroke labels machine-derived · leakage held out by subject, session, stimulus, and keystroke · ground truth confidential, top-3 re-run by organisers · NeuralBench-EEG-Core v1.0 · 700+ additional EEG corpora ready via <a href="https://eegdash.org/dataset_summary.html" target="_blank" rel="noreferrer noopener">EEGDash</a></span>
+        <span class="bs-kicker">14 seed datasets + 4 new releases for 2026 (Graz/BrainHero and Muse Sleep-Onset for training; Alljoined eval and emg2qwerty eval as hidden test cohorts that mirror their public parents). The 4 new cohorts become downloadable via NeuralBench when the competition opens Sep 16, 2026; the seed datasets are available now as starter-kit or analog data for pipeline development. All remain under their original providers' licenses. Sleep annotations are expert-scored; stimulus and keystroke labels are machine-derived. Leakage is held out by subject, session, stimulus, and keystroke. Ground truth stays confidential, and organizers re-run the top three. NeuralBench-EEG-Core v1.0. More than 700 additional EEG corpora are ready via <a href="https://eegdash.org/dataset_summary.html" target="_blank" rel="noreferrer noopener">EEGDash</a>.</span>
         <a href="startkit.html" class="track-link">Open the start-kit →</a>
       </div>
-    </section>
+      </div>
+    </details>
 
-    <!-- ============================== Sponsors ============================== -->
-    <section class="vb-sponsors" id="sponsors" aria-labelledby="sponsors-heading">
-      <div class="vb-sponsors-grid">
-        <div class="vb-sponsors-side">
-          <span class="bs-eyebrow"><span class="dot"></span> Backed by</span>
+  <section class="campaign-section timeline-section" id="timeline" aria-labelledby="timeline-heading">
+    <div class="campaign-section-head reveal">
+      <h2 id="timeline-heading">From release to sealed replay.</h2>
+      <p>The competition runs <strong>Sep 16 - Nov 16, 2026 (AoE)</strong>. Starter kit, baselines, datasets, and the scoring container are released at the start; public validation and sealed evaluation run across one window.</p>
+    </div>
+    <ol class="timeline-panel reveal" aria-label="Competition timeline">
+      <li class="active"><time datetime="2026-09-16">Sep 16, 2026</time><h3>Submissions open</h3><p>Five warm-up submissions per day. Fixed Codabench H100/H200 container with a 60-minute inference budget.</p></li>
+      <li><time datetime="2026-11-16">Nov 16, 2026 (AoE)</time><h3>Submissions close</h3><p>Two submissions per day in the sealed final phase. Ground truth stays confidential.</p></li>
+      <li><time datetime="2026-12">After the summer</time><h3>Audit and final ranking</h3><p>Top-3 are re-run on the sealed split with ±2σ tolerance; final-ranking dates are announced later in 2026.</p></li>
+      <li><time datetime="2026-12-11">Dec 11 or 12, 2026</time><h3>Prizes in Sydney</h3><p>Winners present at <a href="https://brainbodyfm-workshop.github.io" target="_blank" rel="noreferrer noopener">Foundation Models for the Brain and Body</a>, the NeurIPS workshop in Sydney.</p></li>
+    </ol>
+  </section>
+
+  <section class="campaign-section prize-panel reveal" aria-labelledby="prize-heading">
+    <div>
+      <h2 id="prize-heading"><span>$30,000</span> prize pool.</h2>
+      <p><strong>$2,500 / top-3 / track</strong>, sealed evaluation, and a workshop slot in Sydney.</p>
+      <a class="track-link" href="awards.html">View awards</a>
+    </div>
+  </section>
+
+    <section class="sponsor-wall campaign-section" id="sponsors" aria-labelledby="sponsors-heading">
+      <div class="sponsor-wall-layout">
+        <div class="sponsor-wall-intro reveal">
+          <span class="bs-eyebrow">Backed by</span>
           <h2 id="sponsors-heading">Sponsors &amp; organizing institutions</h2>
           <p>Compute, datasets, prizes, and engineering hours from 14 institutions across 5 countries. Yneuro hosts the platform; AWS provides the GPU cloud. Each track has its own sponsor: Alljoined for EEG-to-IMG, Meta FAIR Brain &amp; AI for BCI decoding, InteraXon for sleep onset, and Meta Reality Labs for EMG-to-Text.</p>
-          <a class="bs-btn ghost" href="organizers.html">Meet the team →</a>
+          <a class="track-link" href="organizers.html">Meet the team</a>
         </div>
-        <div>
+        <div class="sponsor-groups reveal">
           <div class="vb-logo-group">
             <span class="bs-kicker">Compute partner</span>
             <div class="vb-logo-grid">
@@ -629,7 +511,7 @@
             </div>
           </div>
         </div>
-        <div class="vb-logo-group vb-logo-group--full">
+        <div class="vb-logo-group sponsor-institutions reveal">
           <span class="bs-kicker">Organizing institutions</span>
           <div class="vb-logo-grid vb-logo-grid--six-up">
             <a href="https://www.yneuro.com/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark vb-logo-mark--xl" title="Yneuro">
@@ -673,18 +555,15 @@
       </div>
     </section>
 
-    <!-- ============================== CTA ============================== -->
-    <section class="vb-section vb-cta solo" id="cta" aria-labelledby="cta-heading">
-      <div>
-        <span class="bs-eyebrow"><span class="dot"></span> Competition runs Sep 16 – Nov 16, 2026 · more after summer</span>
-        <h2 id="cta-heading">Register your team for NeurIPS 2026.</h2>
+    <section class="register-panel campaign-section" id="cta" aria-labelledby="cta-heading">
+      <div class="reveal">
+        <h2 id="cta-heading">Ready to test your model?</h2>
         <p>Four tracks, sealed evaluation, a $30,000 prize pool ($2,500 per top-3 team per track), and a workshop slot in Sydney. Sign up to the mailing list for the start-kit and dataset links, submission access when the window opens Sep 16, and the post-summer announcement of audit, prizes, and workshop dates.</p>
         <div class="bs-hero-cta">
-          <a class="bs-btn primary" href="mailto:neurips2026-eeg-emg-competition@googlegroups.com?subject=Register%20team%20for%20EEG%2FEMG%20Foundation%20Challenge%202026">Register your team →</a>
+          <a class="bs-btn primary" href="mailto:neurips2026-eeg-emg-competition@googlegroups.com?subject=Register%20team%20for%20EEG%2FEMG%20Foundation%20Challenge%202026">Register your team</a>
           <a class="bs-btn ghost" href="startkit.html">Open the start-kit</a>
         </div>
         <p class="rules-note">
-          <svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 2.5H5.5a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V6.5z" /><path d="M11.5 2.5v4h4" /><path d="M7.5 10.5h5M7.5 13.5h3" /></svg>
           <span><strong>Read the rules before you enter.</strong> Submission caps, eligibility, the external-data policy and the reproducibility audit are all set out on the <a href="faq.html">Rules &amp; FAQ</a> page. Entering the competition means you accept them.</span>
         </p>
       </div>
