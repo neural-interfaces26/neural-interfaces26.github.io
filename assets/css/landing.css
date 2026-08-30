@@ -2866,6 +2866,17 @@ body.menu-open { overflow: hidden; }
 
 .technical-page .site-main { overflow: visible; }
 
+.technical-page .bs-btn { min-height: 44px; }
+
+.technical-page .announcement-strip p,
+.technical-page .rules-note,
+.technical-page .vb-section p,
+.technical-page .leaderboard-overview > p,
+.technical-page .technical-intro p,
+.technical-page .doc-link .desc {
+  font-size: 16px;
+}
+
 .page-hero {
   padding: 72px max(20px, calc((100% - 1344px) / 2)) 80px;
   background: var(--bs-surface);
@@ -3002,6 +3013,74 @@ body.menu-open { overflow: hidden; }
 
 .leaderboard-overview > .rules-note { margin-top: 24px; }
 
+.methodology-list {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--bs-text);
+  list-style: none;
+}
+
+.methodology-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: 32px;
+  align-items: end;
+  padding: 30px 0 34px;
+  border-bottom: 1px solid var(--bs-card-border);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.methodology-copy {
+  display: grid;
+  gap: 12px;
+  max-width: 65ch;
+}
+
+.methodology-item .track-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.methodology-item h3 {
+  margin: 0;
+  color: var(--bs-text);
+  font-family: var(--bs-fontdisplay);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.methodology-item p {
+  margin: 0;
+  color: var(--bs-muted);
+  line-height: 1.65;
+}
+
+.methodology-item .track-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.methodology-item .track-stats > div {
+  display: grid;
+  gap: 4px;
+  padding-top: 12px;
+  border-top: 1px solid var(--bs-card-border);
+}
+
+.methodology-item .track-stats strong {
+  color: var(--bs-text);
+  font-family: var(--bs-fontmono);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
 .board-status {
   display: grid;
   grid-template-columns: 0.7fr 0.8fr 1.15fr 1.6fr 0.85fr;
@@ -3127,6 +3206,8 @@ body.menu-open { overflow: hidden; }
 .technical-page .bs-code pre,
 .technical-page #steps code { user-select: text; }
 
+.technical-page .formal-block { overflow-wrap: anywhere; }
+
 .formal-block mjx-container[display="true"] { font-size: 100%; }
 
 @media (max-width: 900px) {
@@ -3147,6 +3228,13 @@ body.menu-open { overflow: hidden; }
   .board-status > div { border-bottom: 1px solid var(--bs-card-border); }
   .formal-block { padding: 20px; }
   .formal-block mjx-container[display="true"] { font-size: 94%; }
+}
+
+@media (max-width: 768px) {
+  .methodology-item {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
 }
 
 

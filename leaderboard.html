@@ -139,8 +139,7 @@
     <section class="vb-section" id="track-1" aria-labelledby="t1-heading">
       <div class="vb-section-head">
         <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Track 01 · EEG-to-IMG <span class="placeholder-badge">placeholder rows</span></span>
-          <h2 id="t1-heading">Evoked visual retrieval, top-5 accuracy.</h2>
+          <h2 id="t1-heading">Track 01: evoked visual retrieval, top-5 accuracy.</h2>
           <p>Rank held-out candidate images from a single EEG epoch. Targets are frozen DINOv2-giant embeddings, so the score isolates the EEG side. Controlled shift: test stimuli are unseen during training. Higher is better.</p>
         </div>
         <div class="vb-section-side">
@@ -172,8 +171,7 @@
     <section class="vb-section vb-section-cream" id="track-2" aria-labelledby="t2-heading">
       <div class="vb-section-head">
         <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Track 02 · BCI decoding <span class="placeholder-badge">placeholder rows</span></span>
-          <h2 id="t2-heading">Calibration-stable command decoding.</h2>
+          <h2 id="t2-heading">Track 02: calibration-stable command decoding.</h2>
           <p>Predict the cued command (motor imagery, mental math, word association) on later sessions of the same subject, with no per-session recalibration. The score reflects calibration-free stability across session drift. Higher is better.</p>
         </div>
         <div class="vb-section-side">
@@ -205,8 +203,7 @@
     <section class="vb-section" id="track-3" aria-labelledby="t3-heading">
       <div class="vb-section-head">
         <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Track 03 · Sleep onset <span class="placeholder-badge">placeholder rows</span></span>
-          <h2 id="t3-heading">Latency to stable N2 on wearable EEG.</h2>
+          <h2 id="t3-heading">Track 03: latency to stable N2 on wearable EEG.</h2>
           <p>Predict seconds from recording start to the first stable N2 epoch, on consumer-grade wearable EEG. The controlled shift is cross-device: a sparse home-wearable montage, too narrow to support full per-epoch staging but still able to resolve onset timing. Lower is better.</p>
         </div>
         <div class="vb-section-side">
@@ -238,8 +235,7 @@
     <section class="vb-section vb-section-cream" id="track-4" aria-labelledby="t4-heading">
       <div class="vb-section-head">
         <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Track 04 · EMG-to-Text <span class="placeholder-badge">placeholder rows</span></span>
-          <h2 id="t4-heading">Wristband EMG to typed text.</h2>
+          <h2 id="t4-heading">Track 04: wristband EMG to typed text.</h2>
           <p>Transduce typed keystrokes from wristband surface EMG. The controlled shift is cross-user: held-out subjects vary in forearm anatomy, typing strategy, and sensor re-placement, so the score rewards user-invariant features rather than per-user templates. Lower is better.</p>
         </div>
         <div class="vb-section-side">
@@ -270,60 +266,64 @@
     <section class="vb-section vb-section-cream" id="methodology" aria-labelledby="meth-heading">
       <div class="vb-section-head">
         <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Scoring &amp; refresh policy</span>
           <h2 id="meth-heading">How a submission becomes a number on this page.</h2>
           <p>The scoring code is open-source and identical between local NeuralBench task runs and the Codabench server. The only thing the server adds is the sealed test split.</p>
         </div>
       </div>
 
-      <div class="vb-tracks">
-        <article class="vb-track">
-          <div class="track-head">
-            <span class="bs-kicker">Refresh cadence</span>
-            <span class="bs-badge">15 min</span>
+      <ol class="methodology-list" aria-label="Leaderboard scoring methodology">
+        <li class="methodology-item">
+          <div class="methodology-copy">
+            <div class="track-head">
+              <span class="bs-kicker">Refresh cadence</span>
+              <span class="bs-badge">15 min</span>
+            </div>
+            <h3>Live during the final phase.</h3>
+            <p>Codabench evaluates each upload immediately. The leaderboard page on this site is regenerated every 15 minutes, so there can be a short lag between submission and what you see here.</p>
           </div>
-          <h3>Live during the final phase.</h3>
-          <p>Codabench evaluates each upload immediately. The leaderboard page on this site is regenerated every 15 minutes, so there can be a short lag between submission and what you see here.</p>
           <div class="track-stats">
             <div><span class="bs-kicker">Final phase</span><strong>Oct 16 — Nov 16, 2026</strong></div>
             <div><span class="bs-kicker">Daily cap</span><strong>5/day warm-up · 2/day sealed final</strong></div>
           </div>
-        </article>
+        </li>
 
-        <article class="vb-track">
-          <div class="track-head">
-            <span class="bs-kicker">Aggregation</span>
-            <span class="bs-badge">BEST-OF-5</span>
+        <li class="methodology-item">
+          <div class="methodology-copy">
+            <div class="track-head">
+              <span class="bs-kicker">Aggregation</span>
+              <span class="bs-badge">BEST-OF-5</span>
+            </div>
+            <h3>Final score = best of last five.</h3>
+            <p>The public board shows your best-ever number. The final NeurIPS ranking, however, only considers your last five submissions. This rewards focused iteration over exhaustive lottery search.</p>
           </div>
-          <h3>Final score = best of last five.</h3>
-          <p>The public board shows your best-ever number. The final NeurIPS ranking, however, only considers your last five submissions. This rewards focused iteration over exhaustive lottery search.</p>
           <div class="track-stats">
             <div><span class="bs-kicker">Public board</span><strong>Best ever</strong></div>
             <div><span class="bs-kicker">Final ranking</span><strong>Best of last 5</strong></div>
           </div>
-        </article>
+        </li>
 
-        <article class="vb-track">
-          <div class="track-head">
-            <span class="bs-kicker">Reproducibility audit</span>
-            <span class="bs-badge">OCT 16</span>
+        <li class="methodology-item">
+          <div class="methodology-copy">
+            <div class="track-head">
+              <span class="bs-kicker">Reproducibility audit</span>
+              <span class="bs-badge">OCT 16</span>
+            </div>
+            <h3>Top-3 per track replay from config.</h3>
+            <p>We re-run the committed training pipeline against the sealed split. Within ±2 σ of the submitted score, you stay on the board. Outside, you drop. Audit is led by Arnaud Delorme (EEGLAB).</p>
           </div>
-          <h3>Top-3 per track replay from config.</h3>
-          <p>We re-run the committed training pipeline against the sealed split. Within ±2 σ of the submitted score, you stay on the board. Outside, you drop. Audit is led by Arnaud Delorme (EEGLAB).</p>
           <div class="track-stats">
             <div><span class="bs-kicker">Tolerance</span><strong>±2 σ on metric</strong></div>
             <div><span class="bs-kicker">Audit window</span><strong>Announced after summer</strong></div>
           </div>
-        </article>
+        </li>
 
-      </div>
+      </ol>
     </section>
 
     <!-- ============================== Formal definitions ============================== -->
     <section class="vb-section formal-section" id="formal-scoring" aria-labelledby="form-heading">
       <div class="vb-section-head">
         <div>
-          <span class="bs-eyebrow"><span class="dot"></span> Formal definitions</span>
           <h2 id="form-heading">Scoring math, mirrored from the proposal.</h2>
           <p>These are the equations the evaluator actually runs. They match the proposal sections on error bars, test-set sizing, and overall ranking, and are reproduced here for participants who want to reason about score variance and ranking before submitting.</p>
         </div>
@@ -455,9 +455,8 @@
     <!-- ============================== CTA ============================== -->
     <section class="vb-section vb-cta" id="cta" aria-labelledby="cta-heading">
       <div>
-        <span class="bs-eyebrow"><span class="dot"></span> Competition runs Sep 16 – Nov 16, 2026 · more after summer</span>
         <h2 id="cta-heading">Take a baseline and beat it.</h2>
-        <p>Every track ships at least one fully-trained baseline. The start-kit walks you from clone to <code>submission.parquet</code> in fifteen minutes. From there, it's a leaderboard fight.</p>
+        <p>The competition runs Sep 16 – Nov 16, 2026, with more after summer. Every track ships at least one fully-trained baseline. The start-kit walks you from clone to <code>submission.parquet</code> in fifteen minutes. From there, it's a leaderboard fight.</p>
         <div class="bs-hero-cta">
           <a class="bs-btn primary" href="startkit.html">Open the start-kit →</a>
           <a class="bs-btn ghost" href="awards.html">See the prizes</a>

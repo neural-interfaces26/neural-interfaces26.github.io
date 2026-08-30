@@ -144,6 +144,11 @@ def check_technical(errors: list[str]) -> None:
             errors.append(f"{name}: requires one compact page hero")
         elif len([h1 for h1 in parsed.find("h1") if has_ancestor(h1, heroes[0])]) != 1:
             errors.append(f"{name}: page hero requires one h1")
+        eyebrows = parsed.find(class_name="bs-eyebrow")
+        if len(eyebrows) != 1 or not heroes or not has_ancestor(eyebrows[0], heroes[0]):
+            errors.append(f"{name}: keep exactly one eyebrow in the page hero")
+        if parsed.find(class_name="dot"):
+            errors.append(f"{name}: decorative pulsing dots are not allowed on technical pages")
         if len(parsed.find("nav", "local-nav")) != 1:
             errors.append(f"{name}: requires one local navigation")
 
@@ -165,6 +170,21 @@ def check_technical(errors: list[str]) -> None:
             errors.append(f"leaderboard.html: table {number} requires row and column headers")
         if "not ranked" not in element_text(table).lower():
             errors.append(f"leaderboard.html: table {number} requires an explicit not ranked state")
+
+    methodology = [
+        element for element in leaderboard.elements
+        if element["tag"] == "section" and element["attrs"].get("id") == "methodology"
+    ]
+    methodology_lists = [
+        element for element in leaderboard.find("ol", "methodology-list")
+        if methodology and has_ancestor(element, methodology[0])
+    ]
+    methodology_items = [
+        element for element in leaderboard.find("li", "methodology-item")
+        if methodology_lists and has_ancestor(element, methodology_lists[0])
+    ]
+    if len(methodology) != 1 or len(methodology_lists) != 1 or len(methodology_items) != 3:
+        errors.append("leaderboard.html: methodology requires one open three-step list")
 
     startkit = pages["startkit.html"]
     contracts = startkit.find("table", "track-contract")
