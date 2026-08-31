@@ -2440,8 +2440,8 @@ body.menu-open { overflow: hidden; }
 }
 
 .vb-cta h2 {
-  font-size: clamp(26px, 3.4vw, 46px);
-  line-height: 1;
+  font-size: var(--bs-type-section);
+  line-height: 1.1;
   letter-spacing: -0.03em;
   overflow-wrap: break-word;
 }
@@ -2741,7 +2741,7 @@ body.menu-open { overflow: hidden; }
   text-transform: uppercase;
 }
 
-.narrative-page .award-eligibility { max-width: 65ch; font-size: 16px; line-height: 1.65; }
+.narrative-page .award-eligibility { max-width: 65ch; font-size: 16px; line-height: 1.5; }
 
 .award-breakdown {
   display: block;
@@ -2769,7 +2769,7 @@ body.menu-open { overflow: hidden; }
 .award-breakdown .vb-track > p,
 .award-breakdown .vb-track-paradigms { grid-column: 2; }
 .award-breakdown .vb-track h3 { margin: 0; font-size: clamp(24px, 3vw, 34px); }
-.award-breakdown .vb-track > p { margin: 0; font-size: 16px; line-height: 1.65; }
+.award-breakdown .vb-track > p { margin: 0; font-size: 16px; line-height: 1.5; }
 .award-breakdown .track-stats { grid-column: 3; grid-row: 1 / span 4; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .award-breakdown .track-stats strong { font-family: var(--bs-fontmono); font-size: 16px; }
 
@@ -2817,7 +2817,7 @@ body.menu-open { overflow: hidden; }
 }
 
 .ethics-page .policy-list { padding-left: 22px; }
-.ethics-page .policy-list li { margin-bottom: 20px; line-height: 1.65; }
+.ethics-page .policy-list li { margin-bottom: 20px; line-height: 1.5; }
 
 .commitment-list {
   margin: 32px 0 0;
@@ -2846,7 +2846,7 @@ body.menu-open { overflow: hidden; }
 
 .commitment-list .track-head { display: none; }
 .commitment-list h3 { margin: 0; color: var(--bs-text); font-size: 24px; line-height: 1.2; }
-.commitment-list p { margin: 8px 0 0; color: var(--bs-muted); line-height: 1.65; }
+.commitment-list p { margin: 8px 0 0; color: var(--bs-muted); line-height: 1.5; }
 .ethics-page #contact .bs-btn { max-width: 100%; white-space: normal; overflow-wrap: anywhere; text-align: center; }
 
 /* Track record: one chronological rail with compact evidence headers. */
@@ -2935,7 +2935,7 @@ body.menu-open { overflow: hidden; }
 .track-record-page .year-entry .vb-track .track-head { grid-row: 1 / span 2; }
 .track-record-page .year-entry .vb-track h3,
 .track-record-page .year-entry .vb-track p { grid-column: 2; margin: 0; }
-.track-record-page .year-entry .vb-track p { font-size: 16px; line-height: 1.65; }
+.track-record-page .year-entry .vb-track p { font-size: 16px; line-height: 1.5; }
 
 /* Branded dead-end recovery. */
 .error-page {

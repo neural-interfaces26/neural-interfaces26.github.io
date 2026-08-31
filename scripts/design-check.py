@@ -162,6 +162,8 @@ def check_typography(errors: list[str]) -> None:
         ("assets/css/landing.css", "shared page heading weight", r"\.vb-hero-text h1,[^{]*\.formal-block h3\s*\{[^}]*font-weight\s*:\s*var\(--bs-weight-display\)"),
         ("assets/css/landing.css", "technical section scale", r"\.technical-page \.vb-section-head h2\s*\{[^}]*font-size\s*:\s*var\(--bs-type-section\)[^}]*line-height\s*:\s*1\.1"),
         ("assets/css/landing.css", "recovery heading scale", r"\.error-page h1\s*\{[^}]*font-size\s*:\s*var\(--bs-type-hero-page\)[^}]*font-weight\s*:\s*var\(--bs-weight-display\)"),
+        ("assets/css/landing.css", "secondary CTA heading scale", r"\.vb-cta h2\s*\{[^}]*font-size\s*:\s*var\(--bs-type-section\)[^}]*line-height\s*:\s*1\.1"),
+        ("assets/css/landing.css", "narrative prose leading", r"(?=.*\.narrative-page \.award-eligibility\s*\{[^}]*line-height\s*:\s*1\.5)(?=.*\.award-breakdown \.vb-track > p\s*\{[^}]*line-height\s*:\s*1\.5)(?=.*\.ethics-page \.policy-list li\s*\{[^}]*line-height\s*:\s*1\.5)(?=.*\.commitment-list p\s*\{[^}]*line-height\s*:\s*1\.5)(?=.*\.track-record-page \.year-entry \.vb-track p\s*\{[^}]*line-height\s*:\s*1\.5)"),
         ("assets/css/organizers.css", "organizer section scale", r"\.org-section-head h2\s*\{[^}]*font-size\s*:\s*var\(--bs-type-section\)[^}]*font-weight\s*:\s*var\(--bs-weight-display\)[^}]*line-height\s*:\s*1\.1"),
     )
     for path, label, pattern in rules:
