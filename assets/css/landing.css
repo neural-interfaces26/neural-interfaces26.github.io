@@ -3439,9 +3439,9 @@ body.menu-open { overflow: hidden; }
 
 @media (max-width: 640px) {
   .technical-page .page-hero,
-  .narrative-page .page-hero { padding-top: 12px; padding-bottom: 12px; }
+  .narrative-page .page-hero { padding-top: 2px; padding-bottom: 2px; }
   .technical-page .page-hero-inner,
-  .narrative-page .page-hero-inner { gap: 12px; }
+  .narrative-page .page-hero-inner { gap: 0; }
   .technical-page .page-hero .bs-eyebrow,
   .narrative-page .page-hero .bs-eyebrow { padding-bottom: 8px; }
   .page-proof { grid-template-columns: 1fr 1fr; }
@@ -3473,7 +3473,7 @@ body.menu-open { overflow: hidden; }
   .technical-page .page-hero .bs-hero-cta,
   .narrative-page .page-hero .bs-hero-cta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
   .technical-page .page-hero .bs-btn,
-  .narrative-page .page-hero .bs-btn { width: 100%; min-width: 0; justify-content: center; white-space: normal; text-align: center; }
+  .narrative-page .page-hero .bs-btn { width: 100%; min-width: 0; justify-content: center; padding-block: 0; white-space: normal; text-align: center; }
   .technical-page .vb-section { padding-block: 56px; }
   .board-status { grid-template-columns: 1fr; }
   .formal-block { padding: 20px; }

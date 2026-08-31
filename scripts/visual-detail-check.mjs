@@ -77,7 +77,7 @@ async function open(route, width, height, blockedURLs = []) {
 const measure = `(()=>{
   const visible=e=>{const r=e.getBoundingClientRect(),s=getComputedStyle(e);return r.width>0&&r.height>0&&s.display!=='none'&&s.visibility!=='hidden'};
   const rect=e=>e?(()=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height,bottom:r.bottom}})():null;
-  const type=e=>({size:parseFloat(getComputedStyle(e).fontSize),family:getComputedStyle(e).fontFamily});
+  const type=e=>e?(()=>{const s=getComputedStyle(e),r=e.getBoundingClientRect();return {size:parseFloat(s.fontSize),lineHeight:parseFloat(s.lineHeight),weight:Number(s.fontWeight),tracking:s.letterSpacing,family:s.fontFamily,lines:Math.round(r.height/parseFloat(s.lineHeight))}})():null;
   const rgb=value=>(value.match(/[0-9.]+/g)||[]).slice(0,3).map(Number);
   const luminance=value=>rgb(value).map(v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4}).reduce((sum,v,i)=>sum+v*[.2126,.7152,.0722][i],0);
   const contrast=(a,b)=>{const values=[luminance(a),luminance(b)].sort((x,y)=>y-x);return (values[0]+.05)/(values[1]+.05)};
@@ -94,13 +94,34 @@ const measure = `(()=>{
   const code=line?.closest('.bs-code');
   const trackFigures=[...document.querySelectorAll('.track-card > img')].map(img=>{const card=img.closest('.track-card'),r=img.getBoundingClientRect(),s=getComputedStyle(card);return {width:r.width,available:card.getBoundingClientRect().width-parseFloat(s.paddingLeft)-parseFloat(s.paddingRight),currentSrc:img.currentSrc,naturalWidth:img.naturalWidth}});
   const stack=hero?Math.max(hero.getBoundingClientRect().bottom,challenge?.getBoundingClientRect().bottom||0,local?.getBoundingClientRect().bottom||0)-hero.getBoundingClientRect().top:0;
-  return {innerWidth,clientWidth:document.documentElement.clientWidth,rootWidth:document.documentElement.scrollWidth,bodyWidth:document.body.scrollWidth,small,buttons,hero:rect(hero),proof:rect(proof),challenge:rect(challenge),stack,proofType:[...document.querySelectorAll('.page-proof strong')].map(type),stateType:[...document.querySelectorAll('.challenge-state strong')].map(type),brandText:brand?.querySelector('span')?.textContent.trim(),brandAriaLabel:brand?.getAttribute('aria-label'),seal:seal?{...rect(seal),complete:seal.complete,naturalWidth:seal.naturalWidth,naturalHeight:seal.naturalHeight,src:seal.getAttribute('src'),alt:seal.getAttribute('alt')}:null,lineContrast:line&&code?contrast(getComputedStyle(line).color,getComputedStyle(code).backgroundColor):null,fontFaceCount:document.fonts?[...document.fonts].filter(face=>/Noto Sans|IBM Plex Mono/.test(face.family)).length:null,trackFigures,heroArtMask:heroArt?getComputedStyle(heroArt).maskImage:null};
+  const typography={
+    body:type(document.body),
+    brand:type(document.querySelector('.site-brand')),
+    nav:type(document.querySelector('.site-menu > a:not(.bs-btn), .site-menu > .bs-btn')),
+    localNav:type(document.querySelector('.local-nav a')),
+    button:type(document.querySelector('.bs-btn')),
+    homeHero:type(document.querySelector('.campaign-hero-copy h1')),
+    pageHero:type(document.querySelector('.page-hero h1, .error-page h1')),
+    lead:type(document.querySelector('.campaign-hero-copy > p:not(.bs-eyebrow), .page-hero p, .error-copy > p:not(.bs-eyebrow)')),
+    section:type(document.querySelector('.campaign-section-head h2, .vb-section-head h2, .org-section-head h2')),
+  };
+  return {innerWidth,clientWidth:document.documentElement.clientWidth,rootWidth:document.documentElement.scrollWidth,bodyWidth:document.body.scrollWidth,small,buttons,hero:rect(hero),proof:rect(proof),challenge:rect(challenge),stack,proofType:[...document.querySelectorAll('.page-proof strong')].map(type),stateType:[...document.querySelectorAll('.challenge-state strong')].map(type),brandText:brand?.querySelector('span')?.textContent.trim(),brandAriaLabel:brand?.getAttribute('aria-label'),seal:seal?{...rect(seal),complete:seal.complete,naturalWidth:seal.naturalWidth,naturalHeight:seal.naturalHeight,src:seal.getAttribute('src'),alt:seal.getAttribute('alt')}:null,lineContrast:line&&code?contrast(getComputedStyle(line).color,getComputedStyle(code).backgroundColor):null,fontFaceCount:document.fonts?[...document.fonts].filter(face=>/Noto Sans|IBM Plex Mono/.test(face.family)).length:null,trackFigures,heroArtMask:heroArt?getComputedStyle(heroArt).maskImage:null,typography};
 })()`;
 
 function assertState(state, route, width) {
   if (state.innerWidth !== width || state.clientWidth !== width || state.rootWidth !== width || state.bodyWidth !== width) throw new Error(`overflow ${route} ${width}: ${JSON.stringify(state)}`);
   if (state.small.length) throw new Error(`microtype ${route} ${width}: ${JSON.stringify(state.small)}`);
   if (state.buttons.length) throw new Error(`targets ${route} ${width}: ${JSON.stringify(state.buttons)}`);
+  const t=state.typography;
+  if (t.body.size!==16||t.body.lineHeight!==24) throw new Error(`body typography ${route} ${width}: ${JSON.stringify(t.body)}`);
+  if (t.brand.size!==16) throw new Error(`brand typography ${route} ${width}: ${JSON.stringify(t.brand)}`);
+  if (width>900&&t.nav?.size!==16) throw new Error(`navigation typography ${route} ${width}: ${JSON.stringify(t.nav)}`);
+  if (t.localNav&&t.localNav.size!==16) throw new Error(`local navigation typography ${route} ${width}: ${JSON.stringify(t.localNav)}`);
+  if (t.button&&t.button.size!==16) throw new Error(`button typography ${route} ${width}: ${JSON.stringify(t.button)}`);
+  if (t.homeHero&&(t.homeHero.size<42||t.homeHero.size>64||t.homeHero.weight!==800||(width>900&&t.homeHero.lines>2))) throw new Error(`homepage hero typography ${route} ${width}: ${JSON.stringify(t.homeHero)}`);
+  if (t.pageHero&&(t.pageHero.size<40||t.pageHero.size>56||t.pageHero.weight!==700)) throw new Error(`page hero typography ${route} ${width}: ${JSON.stringify(t.pageHero)}`);
+  if (t.lead&&(t.lead.size<18||t.lead.size>20||Math.abs(t.lead.lineHeight/t.lead.size-1.6)>.06)) throw new Error(`lead typography ${route} ${width}: ${JSON.stringify(t.lead)}`);
+  if (t.section&&(t.section.size<32||t.section.size>48||t.section.weight!==700)) throw new Error(`section typography ${route} ${width}: ${JSON.stringify(t.section)}`);
   if (state.brandText !== 'EEG/EMG Foundation' || !state.seal || !state.seal.complete || state.seal.naturalWidth !== 256 || state.seal.naturalHeight !== 256 || state.seal.width !== 40 || state.seal.height !== 40 || state.seal.src !== 'assets/img/brand/trophy-seal.webp' || state.seal.alt !== '') throw new Error(`header seal/name inputs ${route} ${width}: ${JSON.stringify(state.seal)}`);
   if (secondary.has(route) && (!state.proof || !state.challenge)) throw new Error(`first-fold components ${route} ${width}`);
   if (secondary.has(route) && (!state.proofType.length || state.proofType.some(type => type.size < 16 || !type.family.includes('IBM Plex Mono')))) throw new Error(`proof typography ${route} ${width}: ${JSON.stringify(state.proofType)}`);
