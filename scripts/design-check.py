@@ -1,13 +1,12 @@
 from __future__ import annotations
 
 import argparse
-import json
 import re
 import sys
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import unquote, urlsplit
+from urllib.parse import unquote, urljoin, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = [
@@ -16,8 +15,12 @@ PAGES = [
 ]
 ALL_PAGES = PAGES + ["404.html"]
 SITE_ORIGIN = "https://neural-interfaces26.github.io"
-SITE_HOST = "neural-interfaces26.github.io"
 OG_IMAGE = f"{SITE_ORIGIN}/assets/img/og-card.png"
+HOME_DESCRIPTION = (
+    "Open-source EEG/EMG decoding benchmark for NeurIPS 2026 in Sydney. "
+    "Neural Interfaces for Generalizable Decoding across EEG, EMG, sleep, and BCI tracks. "
+    "Submissions Sep 16 - Nov 16, 2026 (AoE)."
+)
 TOKENS = {
     "--bs-violet": "#5332f4",
     "--bs-text": "#07101f",
@@ -406,7 +409,9 @@ def check_metadata(errors: list[str]) -> None:
         description = one_attr(page, parsed, "meta", "name", "description")
         if description:
             descriptions[page] = description
-            if not 120 <= len(description) <= 160:
+            if page == "index.html" and description != HOME_DESCRIPTION:
+                errors.append(f"{page}: description must preserve the existing factual homepage copy")
+            elif page != "index.html" and not 120 <= len(description) <= 160:
                 errors.append(f"{page}: description must be 120-160 characters (found {len(description)})")
 
         if not one_attr(page, parsed, "meta", "name", "viewport"):
@@ -464,16 +469,11 @@ def check_metadata(errors: list[str]) -> None:
         if len(og["og:image:alt"].split()) < 6:
             errors.append(f"{page}: og:image:alt must describe the social image")
 
-        for script in parsed.find("script"):
-            if script["attrs"].get("type") != "application/ld+json":
-                continue
-            try:
-                data = json.loads("".join(script["text"]))
-            except (json.JSONDecodeError, TypeError):
-                errors.append(f"{page}: structured data must be valid JSON")
-                continue
-            if data.get("url") != expected_url:
-                errors.append(f"{page}: structured data URL must match {expected_url}")
+        if any(
+            script["attrs"].get("type") == "application/ld+json"
+            for script in parsed.find("script")
+        ):
+            errors.append(f"{page}: unsupported structured data must be omitted")
 
     if len(set(titles.values())) != len(ALL_PAGES):
         errors.append("metadata: every route must have a unique title")
@@ -495,37 +495,57 @@ def check_metadata(errors: list[str]) -> None:
 
 
 def resolve_same_site_href(source: str, href: str) -> tuple[Path, str, str] | None:
-    ignored_schemes = {"mailto", "tel", "sms", "data", "blob", "about"}
-    url = urlsplit(href)
+    source_url = urljoin(f"{SITE_ORIGIN}/", source)
+    url = urlsplit(urljoin(source_url, href))
     scheme = url.scheme.lower()
-    if scheme in ignored_schemes or (scheme and scheme not in {"http", "https"}):
-        return None
-    if url.hostname and url.hostname.lower() != SITE_HOST:
+    if scheme not in {"http", "https"} or not url.hostname:
         return None
 
-    decoded_path = unquote(url.path).replace("\\", "/")
-    if decoded_path:
-        relative = decoded_path.lstrip("/") if decoded_path.startswith("/") or url.netloc else decoded_path
-        base = ROOT if decoded_path.startswith("/") or url.netloc else ROOT / Path(source).parent
-        target = (base / relative).resolve()
-        if decoded_path.endswith("/"):
-            target /= "index.html"
-    elif url.netloc:
-        target = (ROOT / "index.html").resolve()
-    else:
-        target = (ROOT / source).resolve()
+    try:
+        port = url.port
+        site = urlsplit(SITE_ORIGIN)
+        site_port = site.port
+    except ValueError:
+        return None
+    effective_port = port or (443 if scheme == "https" else 80)
+    site_scheme = site.scheme.lower()
+    site_effective_port = site_port or (443 if site_scheme == "https" else 80)
+    if (scheme, url.hostname.lower(), effective_port) != (
+        site_scheme,
+        str(site.hostname).lower(),
+        site_effective_port,
+    ):
+        return None
+
+    decoded_path = unquote(url.path or "/").replace("\\", "/")
+    relative = decoded_path.lstrip("/")
+    if decoded_path.endswith("/"):
+        relative += "index.html"
+    target = (ROOT / relative).resolve()
     target_name = target.relative_to(ROOT.resolve()).as_posix()
     return target, target_name, unquote(url.fragment)
 
 
 def check_links(errors: list[str]) -> None:
     parsed_pages = {page: parse_page(page)[1] for page in ALL_PAGES}
+    target_pages = parsed_pages.copy()
 
     regression_cases = (
         ("index.html", "faq.html?from=home#rule%2Ddata", ("faq.html", "rule-data")),
         ("index.html", "?preview=1#main", ("index.html", "main")),
         ("faq.html", f"{SITE_ORIGIN}?preview=1#tracks", ("index.html", "tracks")),
         ("index.html", "leaderboard%2Ehtml#track%2D1", ("leaderboard.html", "track-1")),
+        ("index.html", ".", ("index.html", "")),
+        ("index.html", "./", ("index.html", "")),
+        ("faq.html", "/", ("index.html", "")),
+        ("index.html", f"{SITE_ORIGIN}/faq.html#rules", ("faq.html", "rules")),
+        (
+            "index.html",
+            "https://neural-interfaces26.github.io:443/faq.html#rules",
+            ("faq.html", "rules"),
+        ),
+        ("index.html", "https://neural-interfaces26.github.io:444/faq.html", None),
+        ("index.html", "http://neural-interfaces26.github.io/faq.html", None),
     )
     for source, href, expected in regression_cases:
         resolved = resolve_same_site_href(source, href)
@@ -554,10 +574,10 @@ def check_links(errors: list[str]) -> None:
                 continue
 
             if fragment:
-                target_page = parsed_pages.get(target_name)
+                target_page = target_pages.get(target_name)
                 if target_page is None and target.suffix.lower() == ".html":
                     _, target_page = parse_page(target_name)
-                    parsed_pages[target_name] = target_page
+                    target_pages[target_name] = target_page
                 if target_page is None or fragment not in target_page.ids:
                     errors.append(f"{source}: href {href!r} targets missing fragment #{fragment} in {target_name}")
 
