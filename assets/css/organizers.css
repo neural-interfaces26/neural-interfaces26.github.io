@@ -177,9 +177,12 @@
   .org-logo-stage img:nth-child(3n) { border-right: 0; }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .org-section { padding-block: 64px; }
   .org-section-head { margin-bottom: 36px; }
+}
+
+@media (max-width: 640px) {
   .org-card .head,
   .org-grid.tight .org-card .head { grid-template-columns: 72px minmax(0, 1fr); gap: 16px; }
   .org-card .avatar,

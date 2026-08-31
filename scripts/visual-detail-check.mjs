@@ -184,6 +184,23 @@ async function checkDesktopNavigation() {
   }
 }
 
+async function checkOrganizerCadence768() {
+  const page = await open('organizers.html', 768, 900);
+  try {
+    const state = await page.eval(`(()=>{
+      const visible=e=>{const r=e.getBoundingClientRect(),s=getComputedStyle(e);return r.width>0&&r.height>0&&s.display!=='none'&&s.visibility!=='hidden'};
+      const sections=[...document.querySelectorAll('.organizers-page .org-section')].filter(visible).map(e=>{const s=getComputedStyle(e);return {paddingTop:parseFloat(s.paddingTop),paddingBottom:parseFloat(s.paddingBottom)}});
+      const headings=[...document.querySelectorAll('.organizers-page .org-section-head')].filter(visible).map(e=>parseFloat(getComputedStyle(e).marginBottom));
+      return {sections,headings,rootWidth:document.documentElement.scrollWidth,bodyWidth:document.body.scrollWidth,innerWidth};
+    })()`);
+    if (!state.sections.length||state.sections.some(section=>section.paddingTop!==64||section.paddingBottom!==64)||!state.headings.length||state.headings.some(margin=>margin!==36)||state.rootWidth!==768||state.bodyWidth!==768||state.innerWidth!==768) throw new Error(`organizer cadence 768: ${JSON.stringify(state)}`);
+    if (page.errors.length) throw new Error(`console organizers.html 768: ${JSON.stringify(page.errors)}`);
+    return state;
+  } finally {
+    await page.close();
+  }
+}
+
 async function checkCodeScrollers(page, route) {
   const expected = await page.eval(`([...document.querySelectorAll('.bs-code pre')].map(pre=>pre.getAttribute('aria-label')))`);
   const count = route === 'startkit.html' ? 2 : 4;
@@ -230,7 +247,7 @@ async function prepareFullPage(page) {
 }
 
 await mkdir(output, { recursive: true });
-const summary = { viewportCaptures: 0, fullPageCaptures: 0, fontFallbackCaptures: 0, navigation1024: await checkDesktopNavigation(), viewports: {}, buttonHoverFocus: null, codeScrollers: {}, fullPages: {}, fontFallback: {} };
+const summary = { viewportCaptures: 0, fullPageCaptures: 0, fontFallbackCaptures: 0, navigation1024: await checkDesktopNavigation(), organizer768: await checkOrganizerCadence768(), viewports: {}, buttonHoverFocus: null, codeScrollers: {}, fullPages: {}, fontFallback: {} };
 const brandOverrides = [];
 
 for (const route of routes) {
