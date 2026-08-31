@@ -53,16 +53,13 @@
 .site-brand:hover { color: var(--bs-violet); }
 
 .site-brand-mark {
-  display: grid;
+  display: block;
   width: 32px;
   height: 32px;
-  place-items: center;
-  border-radius: var(--bs-radius-sm);
-  background: var(--bs-violet);
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 1;
+  flex: 0 0 32px;
+  border: 1px solid var(--bs-card-border);
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .site-menu {
@@ -88,6 +85,27 @@
 .site-menu > a:not(.bs-btn):hover,
 .site-menu > a[aria-current="page"] {
   color: var(--bs-violet);
+}
+
+.site-menu > a:not(.bs-btn),
+.local-nav a { position: relative; }
+
+.site-menu > a:not(.bs-btn)::after,
+.local-nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: -6px;
+  height: 1px;
+  background: var(--bs-violet);
+  transition: left 180ms ease, right 180ms ease;
+}
+
+.site-menu > a:not(.bs-btn):is(:hover, :focus-visible, [aria-current])::after,
+.local-nav a:is(:hover, :focus-visible, [aria-current])::after {
+  left: 0;
+  right: 0;
 }
 
 .site-menu > .bs-btn { min-height: 44px; font-size: 14px; }
@@ -1323,14 +1341,22 @@ body.menu-open { overflow: hidden; }
 /* ============================================================
    Tracks
    ============================================================ */
-.vb-tracks-meta { display: grid; gap: 10px; }
+.vb-tracks-meta { display: grid; }
 
 .vb-tracks-meta > div {
   display: grid;
   gap: 4px;
-  padding: 8px 12px;
-  border-left: 2px solid var(--bs-link);
-  background: rgba(83, 50, 244, 0.04);
+  padding: 11px 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--bs-card-border);
+  border-radius: 0;
+}
+
+.vb-tracks-meta > div:first-child {
+  padding-left: 12px;
+  border-top: 1px solid var(--bs-text);
+  box-shadow: inset 3px 0 0 var(--bs-violet);
 }
 
 .vb-tracks-meta strong {
@@ -2541,12 +2567,6 @@ body.menu-open { overflow: hidden; }
 
 .vb-prior { background: var(--bs-bg); }
 
-.vb-tracks-meta > div {
-  border-left: 3px solid var(--bs-violet);
-  background: var(--bs-violet-wash);
-  border-radius: 0 10px 10px 0;
-}
-
 .placeholder-badge {
   background: var(--bs-violet-wash-2);
   color: var(--bs-violet-deep);
@@ -3272,15 +3292,23 @@ body.menu-open { overflow: hidden; }
   grid-template-columns: 0.7fr 0.8fr 1.15fr 1.6fr 0.85fr;
   margin-top: 28px;
   border-top: 1px solid var(--bs-text);
-  border-bottom: 1px solid var(--bs-card-border);
 }
 
 .board-status > div {
   display: grid;
   align-content: start;
-  gap: 6px;
+  gap: 4px;
   min-width: 0;
-  padding: 14px 16px 18px 0;
+  padding: 11px 16px 11px 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--bs-card-border);
+  border-radius: 0;
+}
+
+.board-status > div:first-child {
+  padding-left: 12px;
+  box-shadow: inset 3px 0 0 var(--bs-violet);
 }
 
 .board-status span {
@@ -3442,7 +3470,6 @@ body.menu-open { overflow: hidden; }
   .technical-page .vb-section { padding-block: 56px; }
   .technical-page .vb-section-head h2 { font-size: 36px; }
   .board-status { grid-template-columns: 1fr; }
-  .board-status > div { border-bottom: 1px solid var(--bs-card-border); }
   .formal-block { padding: 20px; }
   .formal-block mjx-container[display="true"] { font-size: 94%; }
 }

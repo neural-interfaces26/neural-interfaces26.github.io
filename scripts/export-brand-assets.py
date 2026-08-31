@@ -37,6 +37,13 @@ def export(source: Path, root: Path) -> None:
         raise ValueError("approved 4768x2504 trophy composite was not found")
 
     brand = root / "assets" / "img" / "brand"
+    seal = trophy.crop((2209, 1668, 2441, 1900)).convert("RGB")
+    seal.resize((256, 256), Image.Resampling.LANCZOS).save(
+        brand / "trophy-seal.webp",
+        "WEBP",
+        quality=90,
+        method=6,
+    )
     save_webp(trophy, brand / "hero-trophy.webp", (2400, 1260))
     save_webp(trophy, brand / "hero-trophy-mobile.webp", (1400, 1400))
 

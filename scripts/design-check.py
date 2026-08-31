@@ -162,6 +162,29 @@ def check_detail_css(errors: list[str]) -> None:
     ):
         errors.append("assets/css/landing.css: phase metadata must retain IBM Plex Mono")
 
+    required_detail_selectors = (
+        ".site-menu > a:not(.bs-btn)::after",
+        ".local-nav a::after",
+        ".page-proof > div:first-child",
+        ".vb-tracks-meta > div:first-child",
+    )
+    for selector in required_detail_selectors:
+        if selector not in styles["assets/css/landing.css"]:
+            errors.append(f"assets/css/landing.css: missing shared detail selector {selector}")
+
+    seal_path = ROOT / "assets/img/brand/trophy-seal.webp"
+    if not seal_path.exists():
+        errors.append("assets/img/brand/trophy-seal.webp: missing exported pedestal seal")
+
+    for page in ALL_PAGES:
+        html = (ROOT / page).read_text(encoding="utf-8")
+        if "∿" in html:
+            errors.append(f"{page}: placeholder header glyph remains")
+        if html.count('class="site-brand-mark"') != 1:
+            errors.append(f"{page}: requires exactly one shared site-brand-mark")
+        if html.count('src="assets/img/brand/trophy-seal.webp"') != 1:
+            errors.append(f"{page}: requires exactly one pedestal-seal asset")
+
     if any(parse_page(name)[1].find(class_name="announcement-strip") for name in NARRATIVE_PAGES):
         scoped_announcement = (
             r"\.narrative-page\s+\.announcement-strip\s*\{[^}]*display\s*:\s*flex",
