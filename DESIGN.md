@@ -47,9 +47,9 @@ The PSD trophy may retain its native lilac and stone tones. Scientific figures, 
 
 - Display and body: `"Noto Sans", system-ui, -apple-system, "Segoe UI", sans-serif`; weights 300, 400, 500, 600, 700, 800, 900.
 - Code, tabular figures, dates, and compact technical metadata: `"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace`; weights 400, 500, 600.
-- Hero display: responsive `52–112 px`; section display: `36–72 px`; page title: `40–72 px`; body: `15–18 px`; microcopy: `10–12 px`.
+- Shared editorial scale: homepage hero `42–64 px`; secondary-page title `40–56 px`; section heading `32–48 px`; body `16 px`; lead `18–20 px`; microcopy `10–12 px`.
 - Maintain one clear `5×–12×` display/microcopy relationship where space permits. Do not scale factual copy down to create it.
-- Display tracking is tight, from `-0.045em` to `-0.025em`, with `0.92–1.02` line height. Body line height is `1.55–1.7` and reading text stays within `65ch`.
+- Display tracking is `-0.025em` for hero and page titles and `-0.02em` for section headings; their line heights are `1.02`, `1.08`, and `1.1` respectively. Body line height is `1.5` and reading text stays within `65ch`.
 - Large primary headings may end in one violet full stop. Use the motif deliberately, never on every heading.
 - Factual text stays fully readable: never distort it, screen it, or hide it behind an overlap.
 
