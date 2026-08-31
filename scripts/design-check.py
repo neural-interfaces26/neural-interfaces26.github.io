@@ -162,6 +162,18 @@ def check_detail_css(errors: list[str]) -> None:
     ):
         errors.append("assets/css/landing.css: phase metadata must retain IBM Plex Mono")
 
+    if any(parse_page(name)[1].find(class_name="announcement-strip") for name in NARRATIVE_PAGES):
+        scoped_announcement = (
+            r"\.narrative-page\s+\.announcement-strip\s*\{[^}]*display\s*:\s*flex",
+            r"\.narrative-page\s+\.announcement-strip\s+p\s*\{[^}]*max-width",
+            r"\.narrative-page\s+\.announcement-label\s*\{[^}]*text-transform\s*:\s*uppercase",
+            r"\.narrative-page\s+\.announcement-strip\s*\{[^}]*align-items\s*:\s*flex-start[^}]*justify-content\s*:\s*flex-start",
+        )
+        if not all(re.search(pattern, landing) for pattern in scoped_announcement):
+            errors.append("assets/css/landing.css: unmigrated narrative announcements require scoped presentation")
+        if re.search(r"(?m)^\s*\.page-hero-inner\s*\{[^}]*(?:display\s*:\s*grid|grid-template-columns\s*:)", landing):
+            errors.append("assets/css/landing.css: technical hero grid must not apply to unmigrated narrative heroes")
+
 
 def check_shell(errors: list[str]) -> None:
     for page in PAGES:
