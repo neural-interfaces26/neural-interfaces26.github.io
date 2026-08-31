@@ -116,3 +116,12 @@ Reference originality firewall: a reference is evidence for grammar, never a lay
 - **Accessibility:** WCAG 2.2 AA contrast; sequential headings; single `<main id="main">`; functional skip link; visible focus; keyboard menu; meaningful alt text; `44×44 px` targets; reduced motion.
 - **Performance:** no framework or runtime dependency; ≤700 KB desktop trophy, ≤500 KB mobile trophy, ≤700 KB OG card, ≤1.8 MB initial homepage transfer; zero console errors and broken same-site links.
 - **Originality:** at least four structural choices differ from every supplied poster; no traced arrangement, line break, label system, distinctive lettering, palette, botanical imagery, or copy.
+
+## Round Two detail grammar
+
+- The trophy is the homepage's dominant object. Secondary pages use factual proof and the violet registration rule, never miniature trophy decoration or new route artwork.
+- Every secondary hero has one left copy column and one right factual proof rail on desktop; the proof stacks after the CTA on mobile.
+- Every secondary route has one compact competition-state rail. Ethics merges provider approval state into this rail instead of adding a second strip.
+- Proof/state/meta rows use open paper, a 1px separator, uppercase 10–12px labels, and one short violet registration rule. Rounded glass is reserved for code, technical scrollers, rules caveats, sponsor marks, and primary actions.
+- Visible non-code text has a 10px computed-size floor. Density comes from spacing, measure, and alignment, never unreadably small type.
+- Secondary first-fold order is header → hero → competition state → existing local navigation → substantive content.

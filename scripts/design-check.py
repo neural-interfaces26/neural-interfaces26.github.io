@@ -125,6 +125,39 @@ def check_tokens(errors: list[str]) -> None:
             errors.append(f"{page}: favicon must use exact #5332F4")
 
 
+def strip_css_comments(css: str) -> str:
+    return re.sub(r"/\*.*?\*/", "", css, flags=re.DOTALL)
+
+
+def check_detail_css(errors: list[str]) -> None:
+    styles = {
+        name: strip_css_comments((ROOT / name).read_text(encoding="utf-8"))
+        for name in (
+            "assets/css/tokens.css",
+            "assets/css/base.css",
+            "assets/css/landing.css",
+            "assets/css/organizers.css",
+        )
+    }
+    for name, css in styles.items():
+        for match in re.finditer(r"font-size\s*:\s*([0-9]+(?:\.[0-9]+)?)px", css):
+            if float(match.group(1)) < 10:
+                line = css.count("\n", 0, match.start()) + 1
+                errors.append(f"{name}:{line}: fixed font-size below the 10px detail floor")
+
+    landing = styles["assets/css/landing.css"].lower()
+    forbidden = {
+        "linear-gradient(": "interface gradients are not allowed",
+        "rgba(31, 122, 72": "legacy green completion color remains",
+        ".vb-track.featured": "unused featured-track styling remains",
+        ".phase-card.done": "unused completion-state styling remains",
+        ".vb-leader-row": "unused legacy leaderboard styling remains",
+    }
+    for token, message in forbidden.items():
+        if token in landing:
+            errors.append(f"assets/css/landing.css: {message}")
+
+
 def check_shell(errors: list[str]) -> None:
     for page in PAGES:
         text, parsed = parse_page(page)
@@ -614,13 +647,14 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--scope",
-        choices=("tokens", "shell", "home", "technical", "narrative", "metadata", "assets", "all"),
+        choices=("tokens", "detail", "shell", "home", "technical", "narrative", "metadata", "assets", "all"),
         default="all",
     )
     scope = parser.parse_args().scope
     errors: list[str] = []
     checks = {
         "tokens": check_tokens,
+        "detail": check_detail_css,
         "shell": check_shell,
         "home": check_home,
         "technical": check_technical,
