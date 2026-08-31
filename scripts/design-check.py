@@ -218,6 +218,24 @@ def check_home(errors: list[str]) -> None:
 
 def check_technical(errors: list[str]) -> None:
     pages = {name: parse_page(name)[1] for name in ("startkit.html", "leaderboard.html", "faq.html")}
+    proof_copy = {
+        "startkit.html": ("Python ≥ 3.12", "PyTorch ≥ 2.2", "BIDS-first", "MIT licensed"),
+        "faq.html": ("7 rules", "4 optional questions", "Canonical rules source", "Reproducibility audit"),
+        "leaderboard.html": ("4 track boards", "Preview", "Begin Sep 16", "Baselines available"),
+    }
+    for name, parsed in pages.items():
+        proofs = parsed.find("aside", "page-proof")
+        states = parsed.find("section", "challenge-state")
+        if len(proofs) != 1 or not proofs[0]["attrs"].get("aria-label"):
+            errors.append(f"{name}: requires one labelled page-proof aside")
+        if len(states) != 1 or not states[0]["attrs"].get("aria-label"):
+            errors.append(f"{name}: requires one labelled challenge-state section")
+        if parsed.find(class_name="announcement-strip"):
+            errors.append(f"{name}: legacy announcement strip remains")
+        proof_text = element_text(proofs[0]) if proofs else ""
+        for fact in proof_copy[name]:
+            if fact not in proof_text:
+                errors.append(f"{name}: page proof missing {fact!r}")
     for name, parsed in pages.items():
         text = (ROOT / name).read_text(encoding="utf-8")
         if not re.search(r'<meta\s+name="theme-color"\s+content="#5332f4"\s*/?>', text, re.IGNORECASE):
