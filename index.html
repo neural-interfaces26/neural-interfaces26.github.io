@@ -30,7 +30,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+<link id="site-fonts" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet" media="print" />
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
 <link rel="stylesheet" href="assets/css/base.css?v=20260828a" />
@@ -111,7 +111,8 @@
           <span class="track-number">01</span>
           <div><p class="track-shift">Cross-stimulus</p><h3>EEG-to-IMG</h3></div>
         </div>
-        <img src="assets/img/figures/eeg-to-img.png" srcset="assets/img/figures/eeg-to-img.png 1x, assets/img/figures/eeg-to-img@2x.png 2x" width="335" height="218" alt="THINGS-EEG and Alljoined data feeding an EEG decoder ranked against a held-out image gallery" loading="lazy" />
+        <noscript><img src="assets/img/figures/eeg-to-img.png" srcset="assets/img/figures/eeg-to-img.png 1x, assets/img/figures/eeg-to-img@2x.png 2x" width="335" height="218" alt="THINGS-EEG and Alljoined data feeding an EEG decoder ranked against a held-out image gallery" loading="lazy" /></noscript>
+        <img data-src="assets/img/figures/eeg-to-img.png" data-srcset="assets/img/figures/eeg-to-img.png 1x, assets/img/figures/eeg-to-img@2x.png 2x" width="335" height="218" alt="THINGS-EEG and Alljoined data feeding an EEG decoder ranked against a held-out image gallery" />
         <p>Decodes which image a subject is viewing from a single EEG epoch, evaluated as ranking against held-out candidates. Targets are frozen DINOv2-giant embeddings, so the difficulty is in the EEG side, not in re-learning the image space. The controlled shift is cross-stimulus: test stimuli are unseen during training.</p>
         <p class="track-facts">Visual retrieval, DINOv2, RSVP, object viewing</p>
         <div class="track-card-footer"><span>Metric: Top-5 acc. Sponsor: Alljoined</span><a href="leaderboard.html#track-1">View track</a></div>
@@ -122,7 +123,8 @@
           <span class="track-number">02</span>
           <div><p class="track-shift">Cross-session</p><h3>BCI decoding</h3></div>
         </div>
-        <img src="assets/img/figures/bci-track.png" srcset="assets/img/figures/bci-track.png 1x, assets/img/figures/bci-track@2x.png 2x" width="335" height="218" alt="Cued mental commands decoded from EEG across later sessions of the same subject" loading="lazy" />
+        <noscript><img src="assets/img/figures/bci-track.png" srcset="assets/img/figures/bci-track.png 1x, assets/img/figures/bci-track@2x.png 2x" width="335" height="218" alt="Cued mental commands decoded from EEG across later sessions of the same subject" loading="lazy" /></noscript>
+        <img data-src="assets/img/figures/bci-track.png" data-srcset="assets/img/figures/bci-track.png 1x, assets/img/figures/bci-track@2x.png 2x" width="335" height="218" alt="Cued mental commands decoded from EEG across later sessions of the same subject" />
         <p>Decodes a cued mental command (motor imagery, mental calculation, word association) from short EEG windows. The controlled shift is cross-session: models train on early sessions and are scored on later sessions of the same subject, with no per-session recalibration allowed.</p>
         <p class="track-facts">Motor imagery, mental math, word association, session drift</p>
         <div class="track-card-footer"><span>Metric: Balanced acc. Sponsor: Meta FAIR Brain &amp; AI</span><a href="leaderboard.html#track-2">View track</a></div>
@@ -133,7 +135,8 @@
           <span class="track-number">03</span>
           <div><p class="track-shift">Cross-device</p><h3>Sleep onset</h3></div>
         </div>
-        <img src="assets/img/figures/sleep_prediction.png" srcset="assets/img/figures/sleep_prediction.png 1x, assets/img/figures/sleep_prediction@2x.png 2x" width="336" height="218" alt="Consumer-grade wearable EEG predicting seconds remaining until the first stable N2 epoch" loading="lazy" />
+        <noscript><img src="assets/img/figures/sleep_prediction.png" srcset="assets/img/figures/sleep_prediction.png 1x, assets/img/figures/sleep_prediction@2x.png 2x" width="336" height="218" alt="Consumer-grade wearable EEG predicting seconds remaining until the first stable N2 epoch" loading="lazy" /></noscript>
+        <img data-src="assets/img/figures/sleep_prediction.png" data-srcset="assets/img/figures/sleep_prediction.png 1x, assets/img/figures/sleep_prediction@2x.png 2x" width="336" height="218" alt="Consumer-grade wearable EEG predicting seconds remaining until the first stable N2 epoch" />
         <p>Predicts the latency in seconds from recording start to the first stable N2 epoch, on consumer-grade wearable EEG. The controlled shift is cross-device: home-wearable channels and montages instead of the clinical polysomnography setups of the seed corpora. Precise timing replaces full staging because the wearable signal is too sparse to support per-epoch hypnogram reconstruction.</p>
         <p class="track-facts">Sleep onset, wearable EEG, Muse, home monitoring</p>
         <div class="track-card-footer"><span>Metric: W-bMAE (s). Sponsor: InteraXon</span><a href="leaderboard.html#track-3">View track</a></div>
@@ -144,7 +147,8 @@
           <span class="track-number">04</span>
           <div><p class="track-shift">Cross-user</p><h3>EMG-to-Text</h3></div>
         </div>
-        <img src="assets/img/figures/emg-to-text.png" srcset="assets/img/figures/emg-to-text.png 1x, assets/img/figures/emg-to-text@2x.png 2x" width="336" height="217" alt="Wristband surface EMG decoded as a sequence of typed keystrokes across users" loading="lazy" />
+        <noscript><img src="assets/img/figures/emg-to-text.png" srcset="assets/img/figures/emg-to-text.png 1x, assets/img/figures/emg-to-text@2x.png 2x" width="336" height="217" alt="Wristband surface EMG decoded as a sequence of typed keystrokes across users" loading="lazy" /></noscript>
+        <img data-src="assets/img/figures/emg-to-text.png" data-srcset="assets/img/figures/emg-to-text.png 1x, assets/img/figures/emg-to-text@2x.png 2x" width="336" height="217" alt="Wristband surface EMG decoded as a sequence of typed keystrokes across users" />
         <p>Decodes typed keystrokes from wristband surface EMG as a sequence-transduction problem. The controlled shift is cross-user: 100+ held-out users vary in forearm anatomy, typing strategy, and sensor re-placement, so a model that overfits one user's geometry fails the test.</p>
         <p class="track-facts">EMG typing, sequence transduction, wristbands, QWERTY</p>
         <div class="track-card-footer"><span>Metric: CER (%). Sponsor: Meta Reality Labs</span><a href="leaderboard.html#track-4">View track</a></div>
@@ -428,7 +432,7 @@
             <span class="bs-kicker">Compute partner</span>
             <div class="vb-logo-grid">
               <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark" title="Amazon Web Services">
-                <img src="assets/img/logos/aws.svg" alt="AWS">
+                <img src="assets/img/logos/aws.svg" alt="AWS" loading="lazy" decoding="async">
               </a>
             </div>
           </div>
@@ -436,16 +440,16 @@
             <span class="bs-kicker">Track sponsors</span>
             <div class="vb-logo-grid">
               <a href="https://www.alljoined.com/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark" title="Alljoined">
-                <img src="assets/img/logos/alljoined.png" alt="Alljoined">
+                <img src="assets/img/logos/alljoined.png" alt="Alljoined" loading="lazy" decoding="async">
               </a>
               <a href="https://ai.meta.com/research/brain-ai/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark" title="Meta FAIR Brain & AI">
-                <img src="assets/img/logos/meta_brainai.png" alt="Meta FAIR Brain & AI">
+                <img src="assets/img/logos/meta_brainai.png" alt="Meta FAIR Brain & AI" loading="lazy" decoding="async">
               </a>
               <a href="https://www.interaxon.ca/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark vb-logo-mark--xl" title="InteraXon">
-                <img src="assets/img/logos/interaxon.jpg" alt="InteraXon">
+                <img src="assets/img/logos/interaxon.jpg" alt="InteraXon" loading="lazy" decoding="async">
               </a>
               <a href="https://about.meta.com/reality-labs/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark vb-logo-mark--xl" title="Meta Reality Labs">
-                <img src="assets/img/logos/meta_reality.png" alt="Meta Reality Labs">
+                <img src="assets/img/logos/meta_reality.png" alt="Meta Reality Labs" loading="lazy" decoding="async">
               </a>
             </div>
           </div>
@@ -454,40 +458,40 @@
           <span class="bs-kicker">Organizing institutions</span>
           <div class="vb-logo-grid vb-logo-grid--six-up">
             <a href="https://www.yneuro.com/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark vb-logo-mark--xl" title="Yneuro">
-              <img src="assets/img/logos/yneuro.png" alt="Yneuro">
+              <img src="assets/img/logos/yneuro.png" alt="Yneuro" loading="lazy" decoding="async">
             </a>
             <a href="https://sccn.ucsd.edu/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark vb-logo-mark--xl vb-logo-mark--ucsd" title="UCSD · SCCN">
-              <img src="assets/img/logos/ucsd.svg?v=2" width="289" height="55" alt="UCSD · SCCN">
+              <img src="assets/img/logos/ucsd.svg?v=2" width="289" height="55" alt="UCSD · SCCN" loading="lazy" decoding="async">
             </a>
             <a href="https://www.imperial.ac.uk/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark vb-logo-mark--lg" title="Imperial College London">
-              <img src="assets/img/logos/imperial.png" alt="Imperial College London">
+              <img src="assets/img/logos/imperial.png" alt="Imperial College London" loading="lazy" decoding="async">
             </a>
             <a href="https://www.ru.nl/donders/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark vb-logo-mark--lg" title="Donders Institute">
-              <img src="assets/img/logos/donders.png" alt="Donders Institute">
+              <img src="assets/img/logos/donders.png" alt="Donders Institute" loading="lazy" decoding="async">
             </a>
             <a href="https://www.inria.fr/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark vb-logo-mark--lg" title="Inria">
-              <img src="assets/img/logos/inria.png" alt="Inria">
+              <img src="assets/img/logos/inria.png" alt="Inria" loading="lazy" decoding="async">
             </a>
             <a href="https://www.isae-supaero.fr/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark vb-logo-mark--lg" title="ISAE-SUPAERO">
-              <img src="assets/img/logos/isae-supaero.svg" alt="ISAE-SUPAERO">
+              <img src="assets/img/logos/isae-supaero.svg" alt="ISAE-SUPAERO" loading="lazy" decoding="async">
             </a>
             <a href="https://www.universite-paris-saclay.fr/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark vb-logo-mark--lg" title="Paris-Saclay">
-              <img src="assets/img/logos/paris-saclay.png" alt="Paris-Saclay">
+              <img src="assets/img/logos/paris-saclay.png" alt="Paris-Saclay" loading="lazy" decoding="async">
             </a>
             <a href="https://www.labri.fr/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark vb-logo-mark--lg" title="LaBRI">
-              <img src="assets/img/logos/bordeaux.png" alt="LaBRI">
+              <img src="assets/img/logos/bordeaux.png" alt="LaBRI" loading="lazy" decoding="async">
             </a>
             <a href="https://institutducerveau-icm.org/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark vb-logo-mark--lg" title="Paris Brain Institute">
-              <img src="assets/img/logos/icm.png" alt="Paris Brain Institute">
+              <img src="assets/img/logos/icm.png" alt="Paris Brain Institute" loading="lazy" decoding="async">
             </a>
             <a href="https://www.cnrs.fr/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark vb-logo-mark--xl" title="CNRS">
-              <img src="assets/img/logos/cnrs.png" alt="CNRS">
+              <img src="assets/img/logos/cnrs.png" alt="CNRS" loading="lazy" decoding="async">
             </a>
             <a href="https://www.salk.edu/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark vb-logo-mark--lg" title="Salk Institute">
-              <img src="assets/img/logos/salk.png" alt="Salk Institute">
+              <img src="assets/img/logos/salk.png" alt="Salk Institute" loading="lazy" decoding="async">
             </a>
             <a href="https://www.chalearn.org/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark vb-logo-mark--lg" title="ChaLearn">
-              <img src="assets/img/logos/chalearn.png" alt="ChaLearn">
+              <img src="assets/img/logos/chalearn.png" alt="ChaLearn" loading="lazy" decoding="async">
             </a>
           </div>
         </div>
@@ -524,7 +528,7 @@
 </footer>
 
 <script src="assets/js/eeg.js?v=20260521f" defer></script>
-<script src="assets/js/ui.js?v=20260831a" defer></script>
+<script src="assets/js/ui.js?v=20260831c" defer></script>
 
 </body>
 </html>

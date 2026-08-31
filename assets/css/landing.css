@@ -644,7 +644,8 @@ body.menu-open { overflow: hidden; }
   line-height: 1;
 }
 
-.track-card > img {
+.track-card > img,
+.track-card > noscript > img {
   grid-column: 1;
   grid-row: 2 / span 2;
   width: 100%;
@@ -1020,6 +1021,7 @@ body.menu-open { overflow: hidden; }
   .proof-strip > * { border-bottom: 1px solid var(--bs-card-border); }
   .track-card { grid-template-columns: 1fr; }
   .track-card > img,
+  .track-card > noscript > img,
   .track-card > p:not(.track-facts),
   .track-facts { grid-column: 1; grid-row: auto; }
   .sponsor-wall-intro { grid-column: 1 / 6; }

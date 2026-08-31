@@ -76,6 +76,35 @@
     document.documentElement.classList.add('reveal-ready');
   }
 
+  /* ---------- Deferred track figures ---------- */
+  function initDeferredImages() {
+    const images = document.querySelectorAll('img[data-src]');
+    if (!images.length) return;
+    const load = (image) => {
+      if (image.dataset.srcset) image.srcset = image.dataset.srcset;
+      image.src = image.dataset.src;
+      image.removeAttribute('data-src');
+      image.removeAttribute('data-srcset');
+    };
+    if (!('IntersectionObserver' in window)) {
+      images.forEach(load);
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        load(entry.target);
+        observer.unobserve(entry.target);
+      });
+    });
+    images.forEach((image) => observer.observe(image));
+  }
+
+  function initFonts() {
+    const fonts = document.getElementById('site-fonts');
+    if (fonts) fonts.media = 'all';
+  }
+
   /* ---------- Copy buttons ---------- */
   function initCopyButtons() {
     document.querySelectorAll('[data-copy]').forEach((btn) => {
@@ -272,6 +301,8 @@
   function init() {
     initCounters();
     initReveals();
+    initDeferredImages();
+    initFonts();
     initCopyButtons();
     initSiteMenu();
     initSectionNavigation();
