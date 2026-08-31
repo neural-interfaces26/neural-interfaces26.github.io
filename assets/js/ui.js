@@ -105,6 +105,26 @@
     if (fonts) fonts.media = 'all';
   }
 
+  function initMathJax() {
+    const section = document.querySelector('[data-mathjax-src]');
+    if (!section) return;
+    const load = () => {
+      if (document.querySelector('[data-mathjax-loader]')) return;
+      const script = document.createElement('script');
+      script.src = section.dataset.mathjaxSrc;
+      script.defer = true;
+      script.dataset.mathjaxLoader = 'true';
+      document.head.appendChild(script);
+    };
+    if (!('IntersectionObserver' in window)) return load();
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries[0].isIntersecting) return;
+      load();
+      observer.disconnect();
+    });
+    observer.observe(section);
+  }
+
   /* ---------- Copy buttons ---------- */
   function initCopyButtons() {
     document.querySelectorAll('[data-copy]').forEach((btn) => {
@@ -303,6 +323,7 @@
     initReveals();
     initDeferredImages();
     initFonts();
+    initMathJax();
     initCopyButtons();
     initSiteMenu();
     initSectionNavigation();

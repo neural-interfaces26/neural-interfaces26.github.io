@@ -1614,7 +1614,7 @@ body.menu-open { overflow: hidden; }
 .vb-track.featured .vb-track-lead .lead-score { color: var(--bs-accent); }
 
 .vb-track.featured .bs-badge {
-  background: rgba(107, 58, 240, 0.15);
+  background: rgba(83, 50, 244, 0.15);
   color: var(--bs-accent);
 }
 
@@ -1678,7 +1678,7 @@ body.menu-open { overflow: hidden; }
 
 .phase-card.active .phase-rail::after {
   background: var(--bs-accent);
-  box-shadow: 0 0 0 3px rgba(107, 58, 240, 0.22);
+  box-shadow: 0 0 0 3px rgba(83, 50, 244, 0.22);
   animation: bs-pulse calc(2.4s / var(--bs-anim-speed)) ease-in-out infinite;
 }
 
@@ -1711,7 +1711,7 @@ body.menu-open { overflow: hidden; }
   color: var(--bs-muted);
 }
 
-.phase-card.active .phase-tag .badge { background: rgba(107, 58, 240, 0.16); color: var(--bs-accent); }
+.phase-card.active .phase-tag .badge { background: rgba(83, 50, 244, 0.16); color: var(--bs-accent); }
 .phase-card.done .phase-tag .badge { background: rgba(31, 122, 72, 0.14); color: var(--bs-success); }
 
 .phase-card h3 {
@@ -1960,12 +1960,12 @@ body.menu-open { overflow: hidden; }
    scannable while making the new releases pop. */
 .ds-row--new {
   position: relative;
-  background: rgba(107, 58, 240, 0.04);
-  box-shadow: inset 3px 0 0 var(--bs-accent, #6b3af0);
+  background: rgba(83, 50, 244, 0.04);
+  box-shadow: inset 3px 0 0 var(--bs-violet);
 }
 
 .ds-row--new:hover:not(.head) {
-  background: rgba(107, 58, 240, 0.08);
+  background: rgba(83, 50, 244, 0.08);
 }
 
 .ds-new-tag {
@@ -1973,7 +1973,7 @@ body.menu-open { overflow: hidden; }
   margin-left: 8px;
   padding: 1px 6px;
   border-radius: 4px;
-  background: var(--bs-accent, #6b3af0);
+  background: var(--bs-violet);
   color: white;
   font-family: var(--bs-fontmono);
   font-size: 9px;
@@ -1982,9 +1982,11 @@ body.menu-open { overflow: hidden; }
   vertical-align: 1px;
 }
 
-.ds-row .mod-eeg { background: rgba(91, 46, 229, 0.1); color: var(--bs-link); }
-.ds-row .mod-meg { background: rgba(0, 54, 159, 0.12); color: var(--bs-accent-2); }
-.ds-row .mod-ieeg { background: rgba(238, 95, 91, 0.12); color: #b33b3a; }
+.ds-row .mod-eeg,
+.ds-row .mod-meg,
+.ds-row .mod-ieeg,
+.ds-row .mod-emg,
+.ds-row .mod-sleep { background: rgba(83, 50, 244, 0.12); color: var(--bs-violet); }
 
 .ds-row .num {
   font-family: var(--bs-fontmono);
@@ -2502,11 +2504,8 @@ body.menu-open { overflow: hidden; }
   }
 }
 
-.ds-row .mod-emg { background: rgba(204, 73, 0, 0.12); color: #a03900; }  /* 5.75:1 on tinted bg (was #cc4900, 3.92:1) */
-.ds-row .mod-sleep { background: rgba(126, 63, 152, 0.12); color: #7e3f98; }
-
 /* ============================================================
-   BRAND REFRESH 2026-08-28 — artwork identity
+   BRAND REFRESH 2026-08-28 - artwork identity
    ------------------------------------------------------------
    Aligned on the LinkedIn artwork set ("GET READY." / "4 TRACKS." /
    "WE'RE BACK."). Four moves, in order of visual weight:
@@ -2516,8 +2515,7 @@ body.menu-open { overflow: hidden; }
         shadow, instead of white-on-white separated by hairlines.
      2. Display type — heavy grotesque (Archivo 800/900) with negative
         tracking on h1/h2 and on every large numeral.
-     3. One violet — #5b2ee5 replaces the two-blue docs palette
-        everywhere; deep #3f14b0 for hover, bright #6b3af0 for data marks.
+     3. One violet - #5332F4 carries all interface emphasis.
      4. Two signature motifs — the violet full stop closing a display
         heading, and the short violet rule under a section eyebrow.
 
