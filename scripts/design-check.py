@@ -117,7 +117,7 @@ def check_tokens(errors: list[str]) -> None:
     if '"noto sans"' not in css:
         errors.append("tokens: Noto Sans is not the sans/display family")
     legacy = (ROOT / "assets/css/landing.css").read_text(encoding="utf-8").lower()
-    if re.search(r"rgba\(107,\s*58,\s*240|#(?:5b2ee5|6b3af0)|rgba\((?:0,\s*54,\s*159|238,\s*95,\s*91|204,\s*73,\s*0|126,\s*63,\s*152)", legacy):
+    if re.search(r"rgba\((?:107,\s*58,\s*240|91,\s*46,\s*229)|#(?:5b2ee5|6b3af0)|rgba\((?:0,\s*54,\s*159|238,\s*95,\s*91|204,\s*73,\s*0|126,\s*63,\s*152)", legacy):
         errors.append("tokens: legacy third-accent UI colors remain")
     for page in ("index.html", "faq.html", "leaderboard.html", "startkit.html"):
         if "%235332f4" not in (ROOT / page).read_text(encoding="utf-8").lower():
