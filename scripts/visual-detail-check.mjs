@@ -140,6 +140,15 @@ async function press(page, key, code, virtualKeyCode) {
   await page.call('Input.dispatchKeyEvent', { type: 'keyUp', ...params });
 }
 
+async function checkButtonHoverFocus(page, route, width) {
+  const target = await page.eval(`(()=>{const e=document.querySelector('.campaign-hero .bs-btn.primary'),r=e.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()`);
+  await page.call('Input.dispatchMouseEvent', { type: 'mouseMoved', ...target });
+  await press(page, 'Tab', 'Tab', 9);
+  const state = await page.eval(`(async()=>{const e=document.querySelector('.campaign-hero .bs-btn.primary');e.focus({focusVisible:true});await new Promise(r=>setTimeout(r,250));const s=getComputedStyle(e);return {focusVisible:e.matches(':focus-visible'),hover:e.matches(':hover'),outline:s.outline,boxShadow:s.boxShadow}})()`);
+  if (!state.focusVisible || !state.hover || !state.boxShadow.includes('0px 0px 0px 3px')) throw new Error(`button hover focus ${route} ${width}: ${JSON.stringify(state)}`);
+  return state;
+}
+
 async function checkCodeScrollers(page, route) {
   const expected = await page.eval(`([...document.querySelectorAll('.bs-code pre')].map(pre=>pre.getAttribute('aria-label')))`);
   const count = route === 'startkit.html' ? 2 : 4;
@@ -186,7 +195,7 @@ async function prepareFullPage(page) {
 }
 
 await mkdir(output, { recursive: true });
-const summary = { viewportCaptures: 0, fullPageCaptures: 0, fontFallbackCaptures: 0, viewports: {}, codeScrollers: {}, fullPages: {}, fontFallback: {} };
+const summary = { viewportCaptures: 0, fullPageCaptures: 0, fontFallbackCaptures: 0, viewports: {}, buttonHoverFocus: null, codeScrollers: {}, fullPages: {}, fontFallback: {} };
 const brandOverrides = [];
 
 for (const route of routes) {
@@ -198,6 +207,7 @@ for (const route of routes) {
       if (secondary.has(route) && width <= 390) summary.viewports[`${route}@${width}`] = { stack: state.stack, stateHeight: state.challenge.height, proofType: state.proofType[0], stateType: state.stateType[0] };
       if (state.lineContrast !== null) summary.viewports[`${route}@${width}`] = { ...(summary.viewports[`${route}@${width}`] || {}), lineContrast: state.lineContrast };
       if (state.brandAriaLabel !== null) brandOverrides.push(`${route}@${width}`);
+      if (route === 'index.html' && width === 1440) summary.buttonHoverFocus = await checkButtonHoverFocus(page, route, width);
       if (width === 320 && (route === 'startkit.html' || route === 'leaderboard.html')) summary.codeScrollers[route] = await checkCodeScrollers(page, route);
       if (page.errors.length) throw new Error(`console ${route} ${width}: ${JSON.stringify(page.errors)}`);
       await screenshot(page, `${output}/${route.replace('.html','')}-${width}x${height}.png`, { captureBeyondViewport: false });

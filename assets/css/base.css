@@ -203,7 +203,8 @@ button.bs-pill.solid:hover {
   color: var(--bs-violet);
 }
 
-.bs-btn:focus-visible { box-shadow: var(--bs-focus); }
+.bs-btn:focus-visible,
+.bs-btn:hover:focus-visible { box-shadow: var(--bs-focus); }
 
 .bs-btn.sm {
   padding: 9px 15px;
