@@ -7,7 +7,7 @@
 
 ## Goal
 
-Raise the finished site from a strong identity redesign to a campaign-grade system whose quality survives close inspection. Preserve the approved PSD trophy, palette, typography, facts, routes, accessibility, and performance. Improve the small details that control composition: first-fold hierarchy, optical alignment, repeated visual grammar, spacing cadence, technical density, state communication, and responsive recomposition.
+Raise the finished site from a strong identity redesign to a campaign-grade system whose quality survives close inspection. Preserve the approved PSD trophy, palette, typography, facts, routes, accessibility, and performance. Improve the small details that control composition: first-fold hierarchy, optical alignment, repeated visual grammar, spacing cadence, technical density, state communication, responsive recomposition, and exact brand-mark reuse.
 
 ## Evidence and chosen approach
 
@@ -35,8 +35,10 @@ Three approaches were considered:
 
 - The trophy remains the homepage's single dominant object.
 - The existing restrained trophy use on the 404 and prize treatment may remain.
+- The circular signal seal embossed in the trophy pedestal becomes the shared header mark. It must be cropped from the approved PSD smart-object composite through the existing deterministic exporter, not redrawn or regenerated.
+- The seal is functional brand identity, not a miniature trophy decoration: use one identical decorative image beside the accessible `EEG/EMG Foundation` name on all nine routes, with an explicit intrinsic size and a 44px link target.
 - Secondary-page differentiation uses facts, rules, and signal geometry, not miniature trophies or new illustrations.
-- The reusable gesture is a short violet registration rule joined to fine ink/lavender hairlines.
+- Apart from the fixed brand seal, the reusable decorative gesture is a short violet registration rule joined to fine ink/lavender hairlines.
 
 ### 2. Secondary-page first fold
 
@@ -90,6 +92,7 @@ Rounded glass remains only where containment has a job: code, keyboard-scrollabl
 - No visible non-code text computes below 10px at 1440, 834, 390, or 320px.
 - Body copy remains at least 15px, with long-form pages at 16px where already established.
 - All buttons and button-like links retain 44×44px minimum targets.
+- The header link retains the accessible name `EEG/EMG Foundation`; the cropped seal has empty alternative text and remains crisp at desktop, mobile, and high device-pixel ratios.
 - The page proof and phase rail use semantic HTML and accessible labels; decorative rules remain hidden from assistive technology.
 - No heading level, landmark, anchor, focus, menu, no-JS, or reduced-motion regression is permitted.
 
@@ -119,7 +122,7 @@ Each iteration records a screenshot, a pass/fail ruling, any change, and the rea
 ## Verification matrix
 
 - Static: design gate, content coverage, JavaScript syntax, Python compilation, `git diff --check`, same-site link validation, and identical shared-script cache keys.
-- Visual: all nine routes at 1440×1100, 834×1080, 390×844, and 320×720; full-page lower-content captures for all eight substantive routes.
+- Visual: all nine routes at 1440×1100, 834×1080, 390×844, and 320×720; full-page lower-content captures for all eight substantive routes; exact seal loading, intrinsic/rendered size, and crop legibility at high device-pixel ratio.
 - Interaction: keyboard navigation, focus visibility, mobile menu open/Escape/focus return, native details, code copy, and keyboard-scrollable tables.
 - Resilience: JavaScript disabled, reduced motion, missing IntersectionObserver, font fallback, and lazy-image completion after scroll.
 - Performance: preserve the existing deferred-asset behavior and rerun Lighthouse on the homepage and leaderboard only if production CSS/HTML changes affect their measured path.
@@ -135,3 +138,4 @@ Each iteration records a screenshot, a pass/fail ruling, any change, and the rea
 6. No legacy green UI, active interface gradient, page overflow, focus regression, lazy-load regression, or console error remains.
 7. All ten visual iteration questions pass with retained evidence.
 8. Lighthouse, accessibility, performance, content, route, and cache-key gates remain at or above the accepted Round One result.
+9. The placeholder `∿` header glyph is absent; every route uses the same exporter-generated pedestal seal without changing the hero trophy artwork.

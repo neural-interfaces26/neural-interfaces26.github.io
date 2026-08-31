@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Differentiate every secondary page and raise close-range visual quality through route-specific proof rails, a compact shared competition-state rail, a unified ruled detail grammar, a 10px microtype floor, and adversarial visual QA.
+**Goal:** Differentiate every secondary page and raise close-range visual quality through route-specific proof rails, a compact shared competition-state rail, the exact trophy-pedestal seal as the shared header mark, a unified ruled detail grammar, a 10px microtype floor, and adversarial visual QA.
 
 **Architecture:** Keep the static HTML/CSS/vanilla-JS architecture and the existing shared shell. Extend the existing Python design gate, establish the shared proof/state components on the three technical routes, apply them to four narrative routes, remove conflicting dormant CSS, and finish with a dependency-free Chrome DevTools Protocol geometry/screenshot gate plus ten focused critique passes.
 
@@ -14,6 +14,7 @@
 
 - `Linkedin Post 1.psd` remains the visual authority; the real trophy is not redrawn, regenerated, or replaced.
 - The trophy remains the homepage's dominant object and is not repeated as a small secondary-page decoration.
+- The header mark is the exact circular signal seal cropped from the trophy pedestal by `scripts/export-brand-assets.py`; do not redraw, trace, or generate it.
 - Exact interface colors remain `#5332F4`, `#07101F`, `#F7F5FC`, and `#E3DBF4`; no third UI accent is introduced.
 - Noto Sans remains display/body; IBM Plex Mono remains dates, code, tabular values, and compact technical metadata.
 - No visible non-code text may compute below `10px` at 1440, 834, 390, or 320 CSS pixels.
@@ -31,6 +32,7 @@
 
 ### Create
 
+- `assets/img/brand/trophy-seal.webp` — deterministic 256×256 crop of the approved pedestal seal, reused by every shared header.
 - `scripts/visual-detail-check.mjs` — dependency-free CDP geometry, typography, console, and screenshot matrix used by the final iteration task.
 - `.superpowers/sdd/2026-08-31-round-two/iterations.md` — retained ten-pass visual evidence ledger; this directory is operational evidence and may remain ignored.
 
@@ -40,16 +42,18 @@
 - `scripts/design-check.py` — statically enforces microtype, prohibited legacy styling, proof/state structure, preserved facts, and obsolete-class removal.
 - `assets/css/base.css` — raises the shared badge floor.
 - `assets/css/landing.css` — removes dormant first-round styling and implements proof rails, compact challenge state, nav underline, and normalized ruled metadata.
+- `scripts/export-brand-assets.py` — exports the exact pedestal seal from the already-approved smart-object composite.
 - `assets/css/tokens.css` — removes aliases used only by deleted legacy gradients/completion states.
 - `assets/css/organizers.css` — only if the organizer proof rail needs directory-specific optical sizing; do not move shared proof rules here.
 - `startkit.html`, `faq.html`, `leaderboard.html` — technical first-fold composition.
 - `awards.html`, `ethics.html`, `organizers.html`, `track-record.html` — narrative first-fold composition.
+- `index.html`, `404.html`, and all seven secondary HTML routes — replace only the shared header placeholder glyph with the same seal asset.
 
 ### Preserve
 
-- `index.html` hero composition and trophy position.
+- `index.html` hero composition and trophy position; only its shared header mark changes.
 - `404.html` restrained trophy recovery composition.
-- `assets/img/brand/*`, `assets/img/figures/*`, `assets/img/people/*`, `assets/img/logos/*`.
+- Existing `assets/img/brand/*`, `assets/img/figures/*`, `assets/img/people/*`, and `assets/img/logos/*`; Task 4 adds only `trophy-seal.webp`.
 - `assets/js/ui.js` behavior unless QA identifies a genuine interaction regression.
 - `scripts/coverage-check.py` facts/anchor gate.
 
@@ -537,18 +541,22 @@ git commit -m "design: differentiate narrative page first folds"
 ### Task 4: Optical Reuse, Navigation Detail, and Ruled Metadata
 
 **Files:**
+- Modify: `scripts/export-brand-assets.py`
+- Create: `assets/img/brand/trophy-seal.webp`
 - Modify: `assets/css/landing.css:72-105, 1360-1395, 2740-2765, 2929-2968, 3295-3320, 3623-3768`
 - Modify: `scripts/design-check.py`
+- Modify: `index.html`, `awards.html`, `ethics.html`, `faq.html`, `leaderboard.html`, `organizers.html`, `startkit.html`, `track-record.html`, `404.html`
 
 **Interfaces:**
 - Consumes: the proof/state system from Tasks 2–3 and the existing `.vb-tracks-meta`, `.board-status`, `.local-nav`, `.site-menu`, `.vb-rule`, `.award-track`, and `.year-entry` components.
-- Produces: one repeatable violet-registration/hairline grammar without adding markup or artwork.
+- Consumes: the validated `4768×2504` trophy smart-object composite already selected by `scripts/export-brand-assets.py`.
+- Produces: one repeatable violet-registration/hairline grammar plus one exact, deterministic pedestal-seal brand asset shared by all route headers. The seal is identity, not a second decorative gesture or a miniature trophy.
 
 - [ ] **Step 1: Capture the retained comparison before styling**
 
 Capture top screenshots for all nine routes at 1440×1100 and 390×844 into `/tmp/round-two-before-detail/`. Record these four explicit failure questions in the iteration ledger: competing small soft boxes, missing nav affordance, mismatched metadata row rhythm, and broken first/last separators.
 
-- [ ] **Step 2: Add a static guard for the single gesture family**
+- [ ] **Step 2: Add static guards for the gesture family and exact shared seal**
 
 Extend `check_detail_css`:
 
@@ -562,11 +570,78 @@ Extend `check_detail_css`:
     for selector in required_detail_selectors:
         if selector not in styles["assets/css/landing.css"]:
             errors.append(f"assets/css/landing.css: missing shared detail selector {selector}")
+
+    seal_path = ROOT / "assets/img/brand/trophy-seal.webp"
+    if not seal_path.exists():
+        errors.append("assets/img/brand/trophy-seal.webp: missing exported pedestal seal")
+
+    for page in ALL_PAGES:
+        html = (ROOT / page).read_text(encoding="utf-8")
+        if "∿" in html:
+            errors.append(f"{page}: placeholder header glyph remains")
+        if html.count('class="site-brand-mark"') != 1:
+            errors.append(f"{page}: requires exactly one shared site-brand-mark")
+        if html.count('src="assets/img/brand/trophy-seal.webp"') != 1:
+            errors.append(f"{page}: requires exactly one pedestal-seal asset")
 ```
 
-Run `python3 scripts/design-check.py --scope detail` and record RED for the missing selectors.
+Run `python3 scripts/design-check.py --scope detail` and record RED for the missing selectors, asset, and retained placeholder glyph.
 
-- [ ] **Step 3: Add the shared navigation underline**
+- [ ] **Step 3: Export the exact pedestal seal from the approved PSD composite**
+
+After the existing trophy composite geometry check, add only this deterministic crop:
+
+```python
+    seal = trophy.crop((2209, 1668, 2441, 1900)).convert("RGB")
+    seal.resize((256, 256), Image.Resampling.LANCZOS).save(
+        brand / "trophy-seal.webp",
+        "WEBP",
+        quality=90,
+        method=6,
+    )
+```
+
+Run the existing pinned ephemeral exporter command:
+
+```bash
+uv run --with 'psd-tools>=1.10,<2' --with 'Pillow>=10,<13' \
+  python scripts/export-brand-assets.py --source 'Linkedin Post 1.psd'
+file assets/img/brand/trophy-seal.webp
+```
+
+Expected: a `256×256` WebP whose crop matches the circular embossed signal seal at the trophy base, without altering the existing trophy or social assets. Inspect the asset at native size and scaled to 32px. Keep it below 40KB.
+
+- [ ] **Step 4: Replace the placeholder mark once in every shared header**
+
+On all nine routes, replace:
+
+```html
+<span class="site-brand-mark" aria-hidden="true">∿</span>
+```
+
+with:
+
+```html
+<img class="site-brand-mark" src="assets/img/brand/trophy-seal.webp" alt="" width="32" height="32" />
+```
+
+Retain the sibling `EEG/EMG Foundation` text as the link's accessible name and retain the link's 44px minimum target. Replace the old violet-square/text-glyph declarations with the minimum image treatment:
+
+```css
+.site-brand-mark {
+  display: block;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  border: 1px solid var(--bs-card-border);
+  border-radius: 50%;
+  object-fit: cover;
+}
+```
+
+Do not change the hero trophy, header height, brand label, or menu geometry.
+
+- [ ] **Step 5: Add the shared navigation underline**
 
 ```css
 .site-menu > a:not(.bs-btn),
@@ -593,7 +668,7 @@ Run `python3 scripts/design-check.py --scope detail` and record RED for the miss
 
 Do not suppress the existing focus halo. Under reduced motion, the existing global transition rule must make this immediate.
 
-- [ ] **Step 4: Normalize open-paper metadata rows**
+- [ ] **Step 6: Normalize open-paper metadata rows**
 
 Replace the soft-box treatment of `.vb-tracks-meta > div` with:
 
@@ -617,7 +692,7 @@ Replace the soft-box treatment of `.vb-tracks-meta > div` with:
 
 Apply the same separator rhythm to `.board-status > div`; retain its grid columns and native table semantics. Do not convert code, tables, rules caveats, sponsor marks, or primary actions to open paper.
 
-- [ ] **Step 5: Check optical alignment on the four strongest route grammars**
+- [ ] **Step 7: Check optical alignment on the four strongest route grammars**
 
 At 1440px and 390px, inspect:
 
@@ -626,9 +701,11 @@ At 1440px and 390px, inspect:
 - FAQ rule numerals and content starts;
 - track-record year rail and evidence headers.
 
+Also inspect the shared header at 1440, 390, and 320px with a high device-pixel-ratio capture: the seal must read as the same embossed mark as the trophy base, remain circular and undistorted, stay within the 44px brand target, and introduce no header-height or menu shift.
+
 Use CSS-only optical adjustments in multiples of 4px, except a 1px rule or a maximum 2px optical correction. Do not add a new component, illustration, badge family, shadow family, or radius.
 
-- [ ] **Step 6: Verify and commit detail reuse**
+- [ ] **Step 8: Verify and commit detail reuse**
 
 Run:
 
@@ -637,14 +714,15 @@ python3 scripts/design-check.py --scope detail
 python3 scripts/design-check.py --scope all
 python3 scripts/coverage-check.py
 node --check assets/js/ui.js
+test "$(find assets/img/brand/trophy-seal.webp -size -40000c -print)" = "assets/img/brand/trophy-seal.webp"
 git diff --check
 ```
 
 Expected: all PASS.
 
 ```bash
-git add assets/css/landing.css scripts/design-check.py
-git commit -m "design: unify ruled details and navigation cues"
+git add scripts/export-brand-assets.py assets/img/brand/trophy-seal.webp assets/css/landing.css scripts/design-check.py *.html
+git commit -m "design: unify the trophy seal and ruled details"
 ```
 
 ---
@@ -754,12 +832,15 @@ for (const route of routes) {
       const proof=document.querySelector('.page-proof');
       const challenge=document.querySelector('.challenge-state');
       const local=document.querySelector('.local-nav');
+      const brand=document.querySelector('.site-brand');
+      const seal=document.querySelector('img.site-brand-mark');
       const stack=hero?Math.max(hero.getBoundingClientRect().bottom,challenge?.getBoundingClientRect().bottom||0,local?.getBoundingClientRect().bottom||0)-hero.getBoundingClientRect().top:0;
-      return {innerWidth,clientWidth:document.documentElement.clientWidth,rootWidth:document.documentElement.scrollWidth,bodyWidth:document.body.scrollWidth,small,buttons,hero:rect(hero),proof:rect(proof),challenge:rect(challenge),stack};
+      return {innerWidth,clientWidth:document.documentElement.clientWidth,rootWidth:document.documentElement.scrollWidth,bodyWidth:document.body.scrollWidth,small,buttons,hero:rect(hero),proof:rect(proof),challenge:rect(challenge),stack,brandName:brand?.textContent.trim(),seal:seal?{...rect(seal),complete:seal.complete,naturalWidth:seal.naturalWidth,naturalHeight:seal.naturalHeight,src:seal.getAttribute('src'),alt:seal.getAttribute('alt')}:null};
     })()`);
     if (state.innerWidth !== width || state.clientWidth !== width || state.rootWidth !== width || state.bodyWidth !== width) throw new Error(`overflow ${route} ${width}: ${JSON.stringify(state)}`);
     if (state.small.length) throw new Error(`microtype ${route} ${width}: ${JSON.stringify(state.small)}`);
     if (state.buttons.length) throw new Error(`targets ${route} ${width}: ${JSON.stringify(state.buttons)}`);
+    if (state.brandName !== 'EEG/EMG Foundation' || !state.seal || !state.seal.complete || state.seal.naturalWidth !== 256 || state.seal.naturalHeight !== 256 || state.seal.width !== 32 || state.seal.height !== 32 || state.seal.src !== 'assets/img/brand/trophy-seal.webp' || state.seal.alt !== '') throw new Error(`header seal ${route} ${width}: ${JSON.stringify(state.seal)}`);
     if (secondary.has(route) && (!state.proof || !state.challenge)) throw new Error(`first-fold components ${route} ${width}`);
     if (secondary.has(route) && width <= 390 && state.stack > 640) throw new Error(`first-fold stack ${route} ${width}: ${state.stack}`);
     if (secondary.has(route) && width <= 390 && state.challenge.height > 108) throw new Error(`state height ${route} ${width}: ${state.challenge.height}`);
@@ -795,7 +876,7 @@ Expected: `PASS: 36 visual detail captures`.
 
 - [ ] **Step 4: Execute and record the ten visual critique passes**
 
-Create `.superpowers/sdd/2026-08-31-round-two/iterations.md` with one row for each spec question: entry point, eye flow, weight, grid, cadence, reuse, density, responsive composition, resilience, and originality/performance. Each row records desktop/mobile evidence filenames, finding, change or `no change`, and PASS/FAIL. Use the installed `design-critique` and `critique-visual-hierarchy` skills for passes 1–6 and the existing accessibility/performance/visual-verdict skills for passes 7–10.
+Create `.superpowers/sdd/2026-08-31-round-two/iterations.md` with one row for each spec question: entry point, eye flow, weight, grid, cadence, reuse, density, responsive composition, resilience, and originality/performance. Each row records desktop/mobile evidence filenames, finding, change or `no change`, and PASS/FAIL. Use the installed `design-critique` and `critique-visual-hierarchy` skills for passes 1–6 and the existing accessibility/performance/visual-verdict skills for passes 7–10. The reuse and responsive passes must compare the 32px header seal with the source pedestal crop and include a 2× device-pixel-ratio close-up; reject blur, distortion, a changed header height, or a second seal variant.
 
 Any FAIL receives the smallest CSS/HTML correction at the shared root, a rerun of the affected capture, and a fresh row noting the correction. Do not add artwork, JavaScript behavior, component classes, or dependencies to resolve a spacing/alignment defect.
 
@@ -852,7 +933,7 @@ From the approved final head, rerun Step 6 and `scripts/visual-detail-check.mjs`
 
 ## Plan Self-Review
 
-- **Spec coverage:** Tasks 1–4 cover trophy scarcity, proof/state first folds, 10px microtype, rule reuse, CSS cleanup, navigation detail, and route differentiation. Task 5 covers all ten iteration questions, resilience, performance, accessibility, and fresh review.
+- **Spec coverage:** Tasks 1–4 cover trophy scarcity, the exact shared pedestal seal, proof/state first folds, 10px microtype, rule reuse, CSS cleanup, navigation detail, and route differentiation. Task 5 covers all ten iteration questions, seal fidelity, resilience, performance, accessibility, and fresh review.
 - **Placeholder scan:** The plan contains no deferred implementation markers or unspecified error-handling steps. Every structural change includes exact markup, CSS, gate code, commands, and expected results.
 - **Interface consistency:** `.page-hero-copy`, `.page-proof`, and `.challenge-state` are defined once in Task 2 and consumed unchanged in Task 3. `check_detail_css` is defined in Task 1 and extended—not duplicated—in Task 4. The CDP script's environment variables and screenshot output are consistent across Steps 1–3.
-- **Scope discipline:** No new artwork, product feature, authentication, framework, analytics, CMS, or content claim is introduced. The plan changes only the detail system and its QA evidence.
+- **Scope discipline:** No generated/redrawn artwork, product feature, authentication, framework, analytics, CMS, or content claim is introduced. The only new image file is a deterministic crop from the approved PSD source; the plan otherwise changes only the detail system and its QA evidence.
