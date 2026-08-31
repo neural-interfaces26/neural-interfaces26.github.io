@@ -146,6 +146,34 @@ def check_detail_css(errors: list[str]) -> None:
                 errors.append(f"{name}:{line}: fixed font-size below the 10px detail floor")
 
     landing = styles["assets/css/landing.css"].lower()
+    proof_rules = re.findall(r"\.page-proof\s+strong\s*\{([^{}]*)\}", landing)
+    proof_fonts = [
+        float(match.group(1))
+        for body in proof_rules
+        if (match := re.search(
+            r"font\s*:\s*700\s+([0-9]+(?:\.[0-9]+)?)px\s*/\s*[0-9.]+\s+var\(--bs-fontmono\)",
+            body,
+        ))
+    ]
+    if not proof_fonts or max(proof_fonts) < 16:
+        errors.append("assets/css/landing.css: page-proof values require IBM Plex Mono at 16px or larger")
+
+    state_rules = re.findall(r"\.challenge-state\s+strong\s*\{([^{}]*)\}", landing)
+    if not any(
+        re.search(r"font\s*:\s*700\s+12px\s*/\s*1\.4\s+var\(--bs-fontmono\)", body)
+        for body in state_rules
+    ):
+        errors.append("assets/css/landing.css: challenge-state values require IBM Plex Mono at 12px")
+
+    all_css = "\n".join(styles.values()).lower()
+    if "#494571" in all_css:
+        errors.append("styles: prohibited low-contrast code line-number color #494571 remains")
+    line_number_rules = re.findall(r"\.bs-code\s+\.ln\s*\{([^{}]*)\}", styles["assets/css/base.css"].lower())
+    if not any(re.search(r"color\s*:\s*var\(--bs-code-faint\)", body) for body in line_number_rules):
+        errors.append("assets/css/base.css: code line numbers must use var(--bs-code-faint)")
+    if re.search(r"\.org-hero-stats\s+strong\s*\{[^{}]*font-size\s*:\s*28px", landing):
+        errors.append("assets/css/landing.css: ineffective 28px organizer proof override remains")
+
     forbidden = {
         "linear-gradient(": "interface gradients are not allowed",
         "rgba(31, 122, 72": "legacy green completion color remains",
@@ -177,13 +205,28 @@ def check_detail_css(errors: list[str]) -> None:
         errors.append("assets/img/brand/trophy-seal.webp: missing exported pedestal seal")
 
     for page in ALL_PAGES:
-        html = (ROOT / page).read_text(encoding="utf-8")
+        html, parsed = parse_page(page)
         if "∿" in html:
             errors.append(f"{page}: placeholder header glyph remains")
         if html.count('class="site-brand-mark"') != 1:
             errors.append(f"{page}: requires exactly one shared site-brand-mark")
         if html.count('src="assets/img/brand/trophy-seal.webp"') != 1:
             errors.append(f"{page}: requires exactly one pedestal-seal asset")
+        brands = parsed.find("a", "site-brand")
+        if len(brands) != 1:
+            errors.append(f"{page}: requires exactly one site-brand link")
+            continue
+        brand = brands[0]
+        if "aria-label" in brand["attrs"]:
+            errors.append(f"{page}: site-brand must use its visible text as the accessible name")
+        if element_text(brand) != "EEG/EMG Foundation":
+            errors.append(f"{page}: site-brand visible text must be exactly 'EEG/EMG Foundation'")
+        seals = [
+            image for image in parsed.find("img", "site-brand-mark")
+            if has_ancestor(image, brand)
+        ]
+        if len(seals) != 1 or seals[0]["attrs"].get("src") != "assets/img/brand/trophy-seal.webp" or seals[0]["attrs"].get("alt") != "":
+            errors.append(f"{page}: site-brand must retain the exact decorative pedestal seal")
 
     if any(parse_page(name)[1].find(class_name="announcement-strip") for name in NARRATIVE_PAGES):
         scoped_announcement = (
@@ -271,6 +314,24 @@ def check_technical(errors: list[str]) -> None:
         for fact in proof_copy[name]:
             if fact not in proof_text:
                 errors.append(f"{name}: page proof missing {fact!r}")
+    code_labels: list[str] = []
+    for name, expected in (("startkit.html", 2), ("leaderboard.html", 4)):
+        parsed = pages[name]
+        code_blocks = parsed.find(class_name="bs-code")
+        code_regions = [
+            pre for pre in parsed.find("pre")
+            if any(has_ancestor(pre, block) for block in code_blocks)
+        ]
+        if len(code_regions) != expected:
+            errors.append(f"{name}: requires exactly {expected} code scrollers")
+        for number, region in enumerate(code_regions, start=1):
+            label = str(region["attrs"].get("aria-label", "")).strip()
+            if region["attrs"].get("tabindex") != "0" or not label:
+                errors.append(f"{name}: code scroller {number} requires tabindex='0' and a non-empty aria-label")
+            if label:
+                code_labels.append(label)
+    if len(code_labels) != len(set(code_labels)):
+        errors.append("technical pages: code scroller aria-label values must be unique")
     for name, parsed in pages.items():
         text = (ROOT / name).read_text(encoding="utf-8")
         if not re.search(r'<meta\s+name="theme-color"\s+content="#5332f4"\s*/?>', text, re.IGNORECASE):

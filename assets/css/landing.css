@@ -2665,8 +2665,7 @@ body.menu-open { overflow: hidden; }
 /* ---- Responsive trims for the new type scale -------------------------- */
 
 @media (max-width: 900px) {
-  .vb-stat strong,
-  .org-hero-stats strong { font-size: 28px; }
+  .vb-stat strong { font-size: 28px; }
   .vb-track h3 { font-size: 20px; }
   .vb-section-head p.vb-section-subtitle { font-size: 18px; }
   .vb-logo-mark { min-height: 68px; padding: 12px 14px; }
@@ -3073,8 +3072,15 @@ body.menu-open { overflow: hidden; }
 .page-proof > div:first-child { box-shadow: inset 3px 0 0 var(--bs-violet); padding-left: 12px; }
 .page-proof span,
 .challenge-state span { font: 700 10px/1.4 var(--bs-fontmono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--bs-violet); }
-.page-proof strong,
-.challenge-state strong { font-size: 14px; line-height: 1.45; color: var(--bs-text); }
+.page-proof strong {
+  font: 700 16px/1.35 var(--bs-fontmono);
+  color: var(--bs-text);
+}
+
+.challenge-state strong {
+  font: 700 12px/1.4 var(--bs-fontmono);
+  color: var(--bs-text);
+}
 
 .challenge-state {
   display: grid;
@@ -3434,9 +3440,9 @@ body.menu-open { overflow: hidden; }
 
 @media (max-width: 640px) {
   .technical-page .page-hero,
-  .narrative-page .page-hero { padding-top: 20px; padding-bottom: 20px; }
+  .narrative-page .page-hero { padding-top: 12px; padding-bottom: 12px; }
   .technical-page .page-hero-inner,
-  .narrative-page .page-hero-inner { gap: 16px; }
+  .narrative-page .page-hero-inner { gap: 12px; }
   .technical-page .page-hero .bs-eyebrow,
   .narrative-page .page-hero .bs-eyebrow { padding-bottom: 8px; }
   .page-proof { grid-template-columns: 1fr 1fr; }

@@ -123,5 +123,6 @@ Reference originality firewall: a reference is evidence for grammar, never a lay
 - Every secondary hero has one left copy column and one right factual proof rail on desktop; the proof stacks after the CTA on mobile.
 - Every secondary route has one compact competition-state rail. Ethics merges provider approval state into this rail instead of adding a second strip.
 - Proof/state/meta rows use open paper, a 1px separator, uppercase 10–12px labels, and one short violet registration rule. Rounded glass is reserved for code, technical scrollers, rules caveats, sponsor marks, and primary actions.
+- Factual proof values use 700 16px IBM Plex Mono; compact challenge-state values use 700 12px IBM Plex Mono. Neither value class inherits the sans stack or shrinks at mobile breakpoints.
 - Visible non-code text has a 10px computed-size floor. Density comes from spacing, measure, and alignment, never unreadably small type.
 - Secondary first-fold order is header → hero → competition state → existing local navigation → substantive content.

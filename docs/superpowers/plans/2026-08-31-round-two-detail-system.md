@@ -332,8 +332,15 @@ Replace the current `.page-hero`, `.page-hero-inner`, and old announcement rules
 .page-proof > div:first-child { box-shadow: inset 3px 0 0 var(--bs-violet); padding-left: 12px; }
 .page-proof span,
 .challenge-state span { font: 700 10px/1.4 var(--bs-fontmono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--bs-violet); }
-.page-proof strong,
-.challenge-state strong { font-size: 14px; line-height: 1.45; color: var(--bs-text); }
+.page-proof strong {
+  font: 700 16px/1.35 var(--bs-fontmono);
+  color: var(--bs-text);
+}
+
+.challenge-state strong {
+  font: 700 12px/1.4 var(--bs-fontmono);
+  color: var(--bs-text);
+}
 
 .challenge-state {
   display: grid;

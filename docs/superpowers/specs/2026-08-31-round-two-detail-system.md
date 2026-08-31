@@ -1,8 +1,8 @@
 # EEG/EMG Challenge Round Two Detail System
 
-**Date:** 2026-08-31  
-**Status:** Approved for autonomous implementation  
-**Baseline commit:** `6b7555e`  
+**Date:** 2026-08-31
+**Status:** Approved for autonomous implementation
+**Baseline commit:** `6b7555e`
 **Primary benchmark:** https://virtualcellchallenge.org/
 
 ## Goal

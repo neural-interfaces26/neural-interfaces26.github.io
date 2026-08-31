@@ -303,7 +303,7 @@ button.bs-pill.solid:hover {
 }
 
 .bs-code .ln {
-  color: #494571;
+  color: var(--bs-code-faint);
   user-select: none;
 }
 
