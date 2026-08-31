@@ -152,10 +152,18 @@ def check_typography(errors: list[str]) -> None:
         ("assets/css/landing.css", "brand scale", r"\.site-brand\s*\{[^}]*font-size\s*:\s*16px"),
         ("assets/css/landing.css", "primary navigation scale", r"\.site-menu\s*>\s*a:not\(\.bs-btn\)\s*\{[^}]*font-size\s*:\s*16px"),
         ("assets/css/landing.css", "local navigation scale", r"\.local-nav a\s*\{[^}]*font-size\s*:\s*16px"),
+        ("assets/css/landing.css", "homepage hero scale", r"\.campaign-hero-copy h1\s*\{[^}]*font-size\s*:\s*var\(--bs-type-hero-home\)[^}]*font-weight\s*:\s*800[^}]*letter-spacing\s*:\s*var\(--bs-tracking-display\)[^}]*line-height\s*:\s*1\.02"),
+        ("assets/css/landing.css", "homepage lead scale", r"\.campaign-hero-copy\s*>\s*p:not\(\.bs-eyebrow\)\s*\{[^}]*font-size\s*:\s*var\(--bs-type-lead\)[^}]*line-height\s*:\s*var\(--bs-leading-lead\)"),
+        ("assets/css/landing.css", "campaign section cadence", r"\.campaign-section\s*\{[^}]*padding\s*:\s*96px 48px"),
+        ("assets/css/landing.css", "campaign heading scale", r"\.campaign-section-head h2[^{]*\{[^}]*font-size\s*:\s*var\(--bs-type-section\)[^}]*font-weight\s*:\s*var\(--bs-weight-display\)[^}]*line-height\s*:\s*1\.1"),
+        ("assets/css/landing.css", "track heading scale", r"\.track-card h3\s*\{[^}]*font-size\s*:\s*clamp\(24px,\s*2vw,\s*30px\)[^}]*font-weight\s*:\s*700[^}]*line-height\s*:\s*1\.2"),
     )
     for path, label, pattern in rules:
         if not re.search(pattern, styles[path], flags=re.DOTALL):
             errors.append(f"{path}: missing typography contract: {label}")
+    landing = styles["assets/css/landing.css"]
+    if re.search(r"\.campaign-hero-copy h1\s*\{\s*font-size\s*:\s*80px", landing):
+        errors.append("assets/css/landing.css: desktop 80px homepage hero override remains")
 
 
 def strip_css_comments(css: str) -> str:

@@ -391,10 +391,10 @@ body.menu-open { overflow: hidden; }
   margin: 28px 0 24px;
   color: var(--bs-text);
   font-family: var(--bs-fontdisplay);
-  font-size: clamp(52px, 5.4vw, 72px);
-  font-weight: 900;
-  letter-spacing: -0.045em;
-  line-height: 0.94;
+  font-size: var(--bs-type-hero-home);
+  font-weight: 800;
+  letter-spacing: var(--bs-tracking-display);
+  line-height: 1.02;
   text-wrap: balance;
   white-space: nowrap;
 }
@@ -410,7 +410,6 @@ body.menu-open { overflow: hidden; }
 
 @media (min-width: 1200px) {
   .campaign-hero-art { transform: translateX(clamp(408px, 35.4vw, 510px)); }
-  .campaign-hero-copy h1 { font-size: 80px; }
 }
 
 @media (min-width: 1320px) {
@@ -419,15 +418,14 @@ body.menu-open { overflow: hidden; }
 
 @media (min-width: 901px) and (max-width: 1199px) {
   .campaign-hero-art { transform: translateX(36vw) scale(0.82); }
-  .campaign-hero-copy h1 { font-size: clamp(52px, 4.8vw, 56px); }
 }
 
 .campaign-hero-copy > p:not(.bs-eyebrow) {
   max-width: 42ch;
   margin: 0 0 28px;
   color: var(--bs-muted);
-  font-size: 17px;
-  line-height: 1.65;
+  font-size: var(--bs-type-lead);
+  line-height: var(--bs-leading-lead);
 }
 
 .campaign-hero .bs-btn { min-height: 48px; }
@@ -484,7 +482,7 @@ body.menu-open { overflow: hidden; }
 .proof-strip > p { display: flex; align-items: center; }
 
 .campaign-section {
-  padding: clamp(72px, 9vw, 128px) 48px;
+  padding: 96px 48px;
   border-bottom: 1px solid var(--bs-card-border);
   background: var(--bs-bg);
 }
@@ -500,7 +498,7 @@ body.menu-open { overflow: hidden; }
   column-gap: 24px;
   row-gap: 24px;
   align-items: start;
-  margin-bottom: 64px;
+  margin-bottom: 48px;
 }
 
 .campaign-section-head > .bs-eyebrow { grid-column: 1 / 13; justify-self: start; }
@@ -512,10 +510,10 @@ body.menu-open { overflow: hidden; }
   margin: 0;
   color: var(--bs-text);
   font-family: var(--bs-fontdisplay);
-  font-size: clamp(42px, 5vw, 72px);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 0.96;
+  font-size: var(--bs-type-section);
+  font-weight: var(--bs-weight-display);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
   text-wrap: balance;
 }
 
@@ -526,8 +524,8 @@ body.menu-open { overflow: hidden; }
   max-width: 56ch;
   margin: 4px 0 0;
   color: var(--bs-muted);
-  font-size: 17px;
-  line-height: 1.65;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .challenge-thesis { background: var(--bs-bg); }
@@ -544,8 +542,8 @@ body.menu-open { overflow: hidden; }
 .challenge-thesis-copy p {
   margin: 4px 0 0;
   color: var(--bs-muted);
-  font-size: 17px;
-  line-height: 1.65;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .challenge-meta {
@@ -628,10 +626,10 @@ body.menu-open { overflow: hidden; }
 .track-card h3 {
   margin: 0;
   color: var(--bs-text);
-  font-size: clamp(25px, 2.2vw, 34px);
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1;
+  font-size: clamp(24px, 2vw, 30px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 .track-card > img,
@@ -649,7 +647,7 @@ body.menu-open { overflow: hidden; }
   margin: 0;
   color: var(--bs-muted);
   font-size: 16px;
-  line-height: 1.65;
+  line-height: 1.5;
 }
 
 .track-facts {
@@ -1027,19 +1025,17 @@ body.menu-open { overflow: hidden; }
     width: auto;
     max-width: none;
     margin-block: 20px 16px;
-    font-size: clamp(42px, 12.4vw, 52px);
-    line-height: 0.96;
     white-space: normal;
   }
   .campaign-mobile-break { display: initial; }
-  .campaign-hero-copy > p:not(.bs-eyebrow) { margin-bottom: 20px; font-size: 16px; }
+  .campaign-hero-copy > p:not(.bs-eyebrow) { margin-bottom: 20px; }
   .proof-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
   .proof-strip > a,
   .proof-strip > p { grid-column: 1 / -1; }
   .proof-strip > * { padding: 18px 20px; }
   .proof-strip > *:nth-child(even) { border-right: 0; }
-  .campaign-section { padding: 64px 20px; }
-  .campaign-section-head { grid-template-columns: 1fr; margin-bottom: 44px; }
+  .campaign-section { padding: 64px 24px; }
+  .campaign-section-head { grid-template-columns: 1fr; margin-bottom: 36px; }
   .campaign-section-head > .bs-eyebrow,
   .campaign-section-head > h2,
   .campaign-section-head > p:not(.bs-eyebrow),
