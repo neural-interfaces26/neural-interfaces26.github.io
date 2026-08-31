@@ -112,8 +112,8 @@
           <span class="track-number">01</span>
           <div><p class="track-shift">Cross-stimulus</p><h3>EEG-to-IMG</h3></div>
         </div>
-        <noscript><img src="assets/img/figures/eeg-to-img.png" srcset="assets/img/figures/eeg-to-img.png 1x, assets/img/figures/eeg-to-img@2x.png 2x" width="335" height="218" alt="THINGS-EEG and Alljoined data feeding an EEG decoder ranked against a held-out image gallery" loading="lazy" /></noscript>
-        <img data-src="assets/img/figures/eeg-to-img.png" data-srcset="assets/img/figures/eeg-to-img.png 1x, assets/img/figures/eeg-to-img@2x.png 2x" width="335" height="218" alt="THINGS-EEG and Alljoined data feeding an EEG decoder ranked against a held-out image gallery" />
+        <noscript><img src="assets/img/figures/eeg-to-img.png" srcset="assets/img/figures/eeg-to-img.png 335w, assets/img/figures/eeg-to-img@2x.png 670w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="335" height="218" alt="THINGS-EEG and Alljoined data feeding an EEG decoder ranked against a held-out image gallery" loading="lazy" /></noscript>
+        <img data-src="assets/img/figures/eeg-to-img.png" data-srcset="assets/img/figures/eeg-to-img.png 335w, assets/img/figures/eeg-to-img@2x.png 670w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="335" height="218" alt="THINGS-EEG and Alljoined data feeding an EEG decoder ranked against a held-out image gallery" />
         <p>Decodes which image a subject is viewing from a single EEG epoch, evaluated as ranking against held-out candidates. Targets are frozen DINOv2-giant embeddings, so the difficulty is in the EEG side, not in re-learning the image space. The controlled shift is cross-stimulus: test stimuli are unseen during training.</p>
         <p class="track-facts">Visual retrieval, DINOv2, RSVP, object viewing</p>
         <div class="track-card-footer"><span>Metric: Top-5 acc. Sponsor: Alljoined</span><a href="leaderboard.html#track-1">View track</a></div>
@@ -124,8 +124,8 @@
           <span class="track-number">02</span>
           <div><p class="track-shift">Cross-session</p><h3>BCI decoding</h3></div>
         </div>
-        <noscript><img src="assets/img/figures/bci-track.png" srcset="assets/img/figures/bci-track.png 1x, assets/img/figures/bci-track@2x.png 2x" width="335" height="218" alt="Cued mental commands decoded from EEG across later sessions of the same subject" loading="lazy" /></noscript>
-        <img data-src="assets/img/figures/bci-track.png" data-srcset="assets/img/figures/bci-track.png 1x, assets/img/figures/bci-track@2x.png 2x" width="335" height="218" alt="Cued mental commands decoded from EEG across later sessions of the same subject" />
+        <noscript><img src="assets/img/figures/bci-track.png" srcset="assets/img/figures/bci-track.png 335w, assets/img/figures/bci-track@2x.png 669w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="335" height="218" alt="Cued mental commands decoded from EEG across later sessions of the same subject" loading="lazy" /></noscript>
+        <img data-src="assets/img/figures/bci-track.png" data-srcset="assets/img/figures/bci-track.png 335w, assets/img/figures/bci-track@2x.png 669w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="335" height="218" alt="Cued mental commands decoded from EEG across later sessions of the same subject" />
         <p>Decodes a cued mental command (motor imagery, mental calculation, word association) from short EEG windows. The controlled shift is cross-session: models train on early sessions and are scored on later sessions of the same subject, with no per-session recalibration allowed.</p>
         <p class="track-facts">Motor imagery, mental math, word association, session drift</p>
         <div class="track-card-footer"><span>Metric: Balanced acc. Sponsor: Meta FAIR Brain &amp; AI</span><a href="leaderboard.html#track-2">View track</a></div>
@@ -136,8 +136,8 @@
           <span class="track-number">03</span>
           <div><p class="track-shift">Cross-device</p><h3>Sleep onset</h3></div>
         </div>
-        <noscript><img src="assets/img/figures/sleep_prediction.png" srcset="assets/img/figures/sleep_prediction.png 1x, assets/img/figures/sleep_prediction@2x.png 2x" width="336" height="218" alt="Consumer-grade wearable EEG predicting seconds remaining until the first stable N2 epoch" loading="lazy" /></noscript>
-        <img data-src="assets/img/figures/sleep_prediction.png" data-srcset="assets/img/figures/sleep_prediction.png 1x, assets/img/figures/sleep_prediction@2x.png 2x" width="336" height="218" alt="Consumer-grade wearable EEG predicting seconds remaining until the first stable N2 epoch" />
+        <noscript><img src="assets/img/figures/sleep_prediction.png" srcset="assets/img/figures/sleep_prediction.png 336w, assets/img/figures/sleep_prediction@2x.png 671w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="336" height="218" alt="Consumer-grade wearable EEG predicting seconds remaining until the first stable N2 epoch" loading="lazy" /></noscript>
+        <img data-src="assets/img/figures/sleep_prediction.png" data-srcset="assets/img/figures/sleep_prediction.png 336w, assets/img/figures/sleep_prediction@2x.png 671w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="336" height="218" alt="Consumer-grade wearable EEG predicting seconds remaining until the first stable N2 epoch" />
         <p>Predicts the latency in seconds from recording start to the first stable N2 epoch, on consumer-grade wearable EEG. The controlled shift is cross-device: home-wearable channels and montages instead of the clinical polysomnography setups of the seed corpora. Precise timing replaces full staging because the wearable signal is too sparse to support per-epoch hypnogram reconstruction.</p>
         <p class="track-facts">Sleep onset, wearable EEG, Muse, home monitoring</p>
         <div class="track-card-footer"><span>Metric: W-bMAE (s). Sponsor: InteraXon</span><a href="leaderboard.html#track-3">View track</a></div>
@@ -148,8 +148,8 @@
           <span class="track-number">04</span>
           <div><p class="track-shift">Cross-user</p><h3>EMG-to-Text</h3></div>
         </div>
-        <noscript><img src="assets/img/figures/emg-to-text.png" srcset="assets/img/figures/emg-to-text.png 1x, assets/img/figures/emg-to-text@2x.png 2x" width="336" height="217" alt="Wristband surface EMG decoded as a sequence of typed keystrokes across users" loading="lazy" /></noscript>
-        <img data-src="assets/img/figures/emg-to-text.png" data-srcset="assets/img/figures/emg-to-text.png 1x, assets/img/figures/emg-to-text@2x.png 2x" width="336" height="217" alt="Wristband surface EMG decoded as a sequence of typed keystrokes across users" />
+        <noscript><img src="assets/img/figures/emg-to-text.png" srcset="assets/img/figures/emg-to-text.png 336w, assets/img/figures/emg-to-text@2x.png 670w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="336" height="217" alt="Wristband surface EMG decoded as a sequence of typed keystrokes across users" loading="lazy" /></noscript>
+        <img data-src="assets/img/figures/emg-to-text.png" data-srcset="assets/img/figures/emg-to-text.png 336w, assets/img/figures/emg-to-text@2x.png 670w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="336" height="217" alt="Wristband surface EMG decoded as a sequence of typed keystrokes across users" />
         <p>Decodes typed keystrokes from wristband surface EMG as a sequence-transduction problem. The controlled shift is cross-user: 100+ held-out users vary in forearm anatomy, typing strategy, and sensor re-placement, so a model that overfits one user's geometry fails the test.</p>
         <p class="track-facts">EMG typing, sequence transduction, wristbands, QWERTY</p>
         <div class="track-card-footer"><span>Metric: CER (%). Sponsor: Meta Reality Labs</span><a href="leaderboard.html#track-4">View track</a></div>

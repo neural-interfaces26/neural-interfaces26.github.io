@@ -174,8 +174,19 @@ def check_detail_css(errors: list[str]) -> None:
     if re.search(r"\.org-hero-stats\s+strong\s*\{[^{}]*font-size\s*:\s*28px", landing):
         errors.append("assets/css/landing.css: ineffective 28px organizer proof override remains")
 
+    hero_feather = """@media (min-width: 901px) {
+  .campaign-hero-art {
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 clamp(140px, 14vw, 220px));
+    mask-image: linear-gradient(to right, transparent 0, #000 clamp(140px, 14vw, 220px));
+  }
+}"""
+    if landing.count(hero_feather) != 1:
+        errors.append("assets/css/landing.css: requires the sole approved desktop hero edge feather")
+    color_gradient_css = landing.replace(hero_feather, "")
+    if "linear-gradient(" in color_gradient_css:
+        errors.append("assets/css/landing.css: interface gradients are not allowed")
+
     forbidden = {
-        "linear-gradient(": "interface gradients are not allowed",
         "rgba(31, 122, 72": "legacy green completion color remains",
         ".vb-track.featured": "unused featured-track styling remains",
         ".phase-card.done": "unused completion-state styling remains",

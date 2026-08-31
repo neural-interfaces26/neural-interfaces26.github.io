@@ -89,10 +89,12 @@ const measure = `(()=>{
   const local=document.querySelector('.local-nav');
   const brand=document.querySelector('.site-brand');
   const seal=document.querySelector('img.site-brand-mark');
+  const heroArt=document.querySelector('.campaign-hero-art');
   const line=document.querySelector('.bs-code .ln');
   const code=line?.closest('.bs-code');
+  const trackFigures=[...document.querySelectorAll('.track-card > img')].map(img=>{const card=img.closest('.track-card'),r=img.getBoundingClientRect(),s=getComputedStyle(card);return {width:r.width,available:card.getBoundingClientRect().width-parseFloat(s.paddingLeft)-parseFloat(s.paddingRight),currentSrc:img.currentSrc,naturalWidth:img.naturalWidth}});
   const stack=hero?Math.max(hero.getBoundingClientRect().bottom,challenge?.getBoundingClientRect().bottom||0,local?.getBoundingClientRect().bottom||0)-hero.getBoundingClientRect().top:0;
-  return {innerWidth,clientWidth:document.documentElement.clientWidth,rootWidth:document.documentElement.scrollWidth,bodyWidth:document.body.scrollWidth,small,buttons,hero:rect(hero),proof:rect(proof),challenge:rect(challenge),stack,proofType:[...document.querySelectorAll('.page-proof strong')].map(type),stateType:[...document.querySelectorAll('.challenge-state strong')].map(type),brandText:brand?.querySelector('span')?.textContent.trim(),brandAriaLabel:brand?.getAttribute('aria-label'),seal:seal?{...rect(seal),complete:seal.complete,naturalWidth:seal.naturalWidth,naturalHeight:seal.naturalHeight,src:seal.getAttribute('src'),alt:seal.getAttribute('alt')}:null,lineContrast:line&&code?contrast(getComputedStyle(line).color,getComputedStyle(code).backgroundColor):null,fontFaceCount:document.fonts?[...document.fonts].filter(face=>/Noto Sans|IBM Plex Mono/.test(face.family)).length:null};
+  return {innerWidth,clientWidth:document.documentElement.clientWidth,rootWidth:document.documentElement.scrollWidth,bodyWidth:document.body.scrollWidth,small,buttons,hero:rect(hero),proof:rect(proof),challenge:rect(challenge),stack,proofType:[...document.querySelectorAll('.page-proof strong')].map(type),stateType:[...document.querySelectorAll('.challenge-state strong')].map(type),brandText:brand?.querySelector('span')?.textContent.trim(),brandAriaLabel:brand?.getAttribute('aria-label'),seal:seal?{...rect(seal),complete:seal.complete,naturalWidth:seal.naturalWidth,naturalHeight:seal.naturalHeight,src:seal.getAttribute('src'),alt:seal.getAttribute('alt')}:null,lineContrast:line&&code?contrast(getComputedStyle(line).color,getComputedStyle(code).backgroundColor):null,fontFaceCount:document.fonts?[...document.fonts].filter(face=>/Noto Sans|IBM Plex Mono/.test(face.family)).length:null,trackFigures,heroArtMask:heroArt?getComputedStyle(heroArt).maskImage:null};
 })()`;
 
 function assertState(state, route, width) {
@@ -106,6 +108,9 @@ function assertState(state, route, width) {
   if (secondary.has(route) && width <= 390 && state.stack > 640) throw new Error(`first-fold stack ${route} ${width}: ${state.stack}`);
   if (secondary.has(route) && width <= 390 && state.challenge.height > 108) throw new Error(`state height ${route} ${width}: ${state.challenge.height}`);
   if (state.lineContrast !== null && state.lineContrast < 4.5) throw new Error(`code line-number contrast ${route} ${width}: ${state.lineContrast}`);
+  if (route === 'index.html' && width > 900 && (!state.heroArtMask || state.heroArtMask === 'none')) throw new Error(`desktop hero artwork has a hard background edge at ${width}px`);
+  if (route === 'index.html' && width <= 900 && state.heroArtMask !== 'none') throw new Error(`stacked hero retains a desktop mask at ${width}px`);
+  if (route === 'index.html' && (state.trackFigures.length !== 4 || state.trackFigures.some(figure => figure.width < figure.available - 1))) throw new Error(`homepage figures do not span their panels at ${width}px: ${JSON.stringify(state.trackFigures)}`);
 }
 
 async function press(page, key, code, virtualKeyCode) {
@@ -154,7 +159,8 @@ async function prepareFullPage(page) {
     const stickyHeader=document.querySelector('.site-header');
     if(stickyHeader)stickyHeader.style.setProperty('position','static','important');
     scrollTo(0,0);await frame();
-    return {hiddenReveals,incompleteImages,contentVisibilityOverrides:auto.length,stickyHeaderNeutralized:!!stickyHeader,height:document.documentElement.scrollHeight};
+    const trackFigures=[...document.querySelectorAll('.track-card > img')].map(img=>({width:img.getBoundingClientRect().width,naturalWidth:img.naturalWidth,currentSrc:img.currentSrc}));
+    return {hiddenReveals,incompleteImages,contentVisibilityOverrides:auto.length,stickyHeaderNeutralized:!!stickyHeader,height:document.documentElement.scrollHeight,trackFigures};
   })()`);
 }
 
@@ -187,6 +193,7 @@ for (const route of substantive) {
   try {
     const prepared = await prepareFullPage(page);
     if (prepared.hiddenReveals || prepared.incompleteImages.length) throw new Error(`full-page readiness ${route}: ${JSON.stringify(prepared)}`);
+    if (route === 'index.html' && (prepared.trackFigures.length !== 4 || prepared.trackFigures.some(figure => figure.naturalWidth < figure.width))) throw new Error(`homepage figure source too small: ${JSON.stringify(prepared.trackFigures)}`);
     if (page.errors.length) throw new Error(`console full-page ${route}: ${JSON.stringify(page.errors)}`);
     const { cssContentSize } = await page.call('Page.getLayoutMetrics');
     await screenshot(page, `${output}/${route.replace('.html','')}-full-1440.png`, { captureBeyondViewport: true, clip: { x: 0, y: 0, width: 1440, height: Math.ceil(cssContentSize.height), scale: 1 } });
