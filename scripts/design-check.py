@@ -34,7 +34,7 @@ ORGANIZER_NAMES = (
     "Jean-Rémi King", "Vinay Jayaram", "Ugo Nunes", "Simon Kojima",
     "Pauline Dreyer", "Raphaëlle N. Roy", "Fabien Lotte", "Jiansheng Niu",
     "Maurice Abou Jaoude", "Christopher Aimone", "Pranav Mamidanna", "Alex Gramfort",
-    "Cédric Rommel", "Marie-Constance Corsi", "Thomas Moreau", "Joséphine Raugel",
+    "Cédric Rommel", "Thorir Mar Ingolfsson", "Marie-Constance Corsi", "Thomas Moreau", "Joséphine Raugel",
     "Lionel Kusch", "Thomas Semah", "Seyed Yahya Shirazi", "Scott Makeig",
     "Isabelle Guyon", "Terrence Sejnowski", "Sylvain Chevallier", "Arnaud Delorme",
 )
@@ -371,6 +371,35 @@ def check_home(errors: list[str]) -> None:
         errors.append("index.html: approved hero heading missing")
     if "bs-code" in text[text.find('<section class="campaign-hero"'):text.find("</section>")]:
         errors.append("index.html: code sample remains inside hero")
+    main = parsed.find("main")
+    main_copy = element_text(main[0]) if main else ""
+    if "EMG-to-Pose" not in main_copy or "EMG-to-Text" in main_copy:
+        errors.append("index.html: Track 4 must present EMG-to-Pose without legacy EMG-to-Text copy")
+    track_headings = [heading for heading in parsed.find("h3") if element_text(heading) == "EMG-to-Pose"]
+    track_cards = [
+        ancestor for heading in track_headings for ancestor in heading["ancestors"]
+        if ancestor["tag"] == "article" and "track-card" in str(ancestor["attrs"].get("class", "")).split()
+    ]
+    track_images = [
+        image for image in parsed.find("img")
+        if track_cards and has_ancestor(image, track_cards[0])
+    ]
+    image_paths = {
+        str(image["attrs"].get("src") or image["attrs"].get("data-src"))
+        for image in track_images
+    }
+    if len(track_cards) != 1 or image_paths != {"assets/img/figures/emg-to-text.png"}:
+        errors.append("index.html: EMG-to-Pose must retain the approved existing Track 4 image")
+    if any("pose" not in str(image["attrs"].get("alt", "")).lower() for image in track_images):
+        errors.append("index.html: retained Track 4 image needs EMG-to-Pose alternative text")
+    institution_groups = parsed.find(class_name="sponsor-institutions")
+    home_eth_marks = [
+        image for image in parsed.find("img")
+        if image["attrs"].get("src") == "assets/img/logos/eth-zurich.svg"
+        and institution_groups and has_ancestor(image, institution_groups[0])
+    ]
+    if len(home_eth_marks) != 1 or home_eth_marks[0]["attrs"].get("alt") != "ETH Zürich":
+        errors.append("index.html: organizing-institutions wall requires one labelled ETH Zürich mark")
 
 
 def check_technical(errors: list[str]) -> None:
@@ -463,6 +492,17 @@ def check_technical(errors: list[str]) -> None:
         errors.append("leaderboard.html: methodology requires one open three-step list")
 
     startkit = pages["startkit.html"]
+    startkit_copy = element_text(startkit.find("main")[0])
+    for fact in (
+        "EMG-to-Pose",
+        "20 joint-angle trajectories",
+        "Mean absolute angular error (degrees)",
+        "neuralbench emg pose -m neuropose",
+    ):
+        if fact not in startkit_copy:
+            errors.append(f"startkit.html: Track 4 contract missing {fact!r}")
+    if "EMG-to-Text" in startkit_copy:
+        errors.append("startkit.html: legacy EMG-to-Text copy remains")
     contracts = startkit.find("table", "track-contract")
     if len(contracts) != 1:
         errors.append("startkit.html: requires one native four-track contract")
@@ -479,6 +519,13 @@ def check_technical(errors: list[str]) -> None:
         shells = [shell for shell in startkit.find("div", "table-shell") if has_ancestor(contract, shell)]
         if len(shells) != 1 or not shells[0]["attrs"].get("aria-label") or shells[0]["attrs"].get("tabindex") != "0":
             errors.append("startkit.html: track contract requires one labelled keyboard scroller")
+
+    leaderboard_copy = element_text(leaderboard.find("main")[0])
+    for fact in ("EMG-to-Pose", "20-joint angle trajectories", "Mean absolute angular error (degrees)"):
+        if fact not in leaderboard_copy:
+            errors.append(f"leaderboard.html: Track 4 contract missing {fact!r}")
+    if "EMG-to-Text" in leaderboard_copy:
+        errors.append("leaderboard.html: legacy EMG-to-Text copy remains")
 
     faq = pages["faq.html"]
     details = faq.find("details", "faq-item")
@@ -501,7 +548,7 @@ def check_narrative(errors: list[str]) -> None:
     proof_copy = {
         "awards.html": ("4 tracks", "3 prize places", "$2,500", "Sydney"),
         "ethics.html": ("Preview", "Provider approvals", "Explicit consent", "Read-only decoders"),
-        "organizers.html": ("28", "4", "14", "5"),
+        "organizers.html": ("29", "4", "15", "6"),
         "track-record.html": ("2021", "2026", "4 competitions", "Same lead"),
     }
     for name, (_, parsed) in pages.items():
@@ -549,8 +596,8 @@ def check_narrative(errors: list[str]) -> None:
 
     organizers_text, organizers = pages["organizers.html"]
     people = organizers.find("article", "org-card")
-    if len(people) != 28:
-        errors.append("organizers.html: requires all 28 organizers")
+    if len(people) != 29:
+        errors.append("organizers.html: requires all 29 organizers")
     if tuple(element_text(name) for name in organizers.find(class_name="name")) != ORGANIZER_NAMES:
         errors.append("organizers.html: organizer proposal order changed")
     for person in people:
@@ -578,10 +625,25 @@ def check_narrative(errors: list[str]) -> None:
         if institution_stages and has_ancestor(image, institution_stages[0])
     ]
     institution_copy = element_text(organizers.find(class_name="org-institutions")[0]) if organizers.find(class_name="org-institutions") else ""
-    if len(institution_marks) != 18 or "14 organizer institutions" not in institution_copy or "18 affiliation marks" not in institution_copy:
-        errors.append("organizers.html: institution stage must distinguish 14 institutions from 18 affiliation marks")
-    if organizers_text.count('loading="lazy"') < 28:
+    if len(institution_marks) != 19 or "15 organizer institutions" not in institution_copy or "19 affiliation marks" not in institution_copy:
+        errors.append("organizers.html: institution stage must distinguish 15 institutions from 19 affiliation marks")
+    if organizers_text.count('loading="lazy"') < 29:
         errors.append("organizers.html: all portraits must lazy-load")
+    thorir_cards = [person for person in people if "Thorir Mar Ingolfsson" in element_text(person)]
+    thorir_links = [
+        link for link in organizers.find("a")
+        if link["attrs"].get("href") == "https://www.thorirmar.com"
+        and thorir_cards and has_ancestor(link, thorir_cards[0])
+    ]
+    if len(thorir_cards) != 1 or len(thorir_links) != 1 or "ETH Zürich" not in element_text(thorir_cards[0]):
+        errors.append("organizers.html: Thorir requires one linked ETH Zürich organizer card")
+    eth_marks = [image for image in institution_marks if image["attrs"].get("src") == "assets/img/logos/eth-zurich.svg"]
+    if len(eth_marks) != 1 or eth_marks[0]["attrs"].get("alt") != "ETH Zürich":
+        errors.append("organizers.html: institutional stage requires one labelled ETH Zürich mark")
+    for name in ("awards.html", "ethics.html", "organizers.html"):
+        main = pages[name][1].find("main")
+        if main and "EMG-to-Text" in element_text(main[0]):
+            errors.append(f"{name}: legacy EMG-to-Text copy remains")
     if len((ROOT / "assets/css/organizers.css").read_text(encoding="utf-8").splitlines()) >= 300:
         errors.append("assets/css/organizers.css: must stay below 300 lines")
 
@@ -849,6 +911,14 @@ def check_assets(errors: list[str]) -> None:
         path = ROOT / name
         if not path.is_file() or path.stat().st_size > limit:
             errors.append(f"{name}: missing or larger than {limit} bytes")
+    eth_logo = ROOT / "assets/img/logos/eth-zurich.svg"
+    try:
+        eth_root = ET.parse(eth_logo).getroot()
+    except (ET.ParseError, OSError):
+        errors.append("assets/img/logos/eth-zurich.svg: missing or invalid official ETH Zürich mark")
+    else:
+        if not eth_root.tag.endswith("svg") or eth_root.attrib.get("viewBox") != "0 0 120 20":
+            errors.append("assets/img/logos/eth-zurich.svg: unexpected ETH Zürich logo geometry")
     for page in ALL_PAGES:
         _, parsed = parse_page(page)
         ui_scripts = [

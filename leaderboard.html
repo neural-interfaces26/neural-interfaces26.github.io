@@ -10,7 +10,7 @@
 
 <link rel="canonical" href="https://neural-interfaces26.github.io/leaderboard.html" />
 <meta name="author" content="Bruno Aristimunha and the EEG/EMG Foundation Challenge organising team" />
-<meta name="keywords" content="EEG leaderboard, NeurIPS 2026 EEG challenge results, BCI decoding scores, emg2qwerty leaderboard, sleep onset benchmark" />
+<meta name="keywords" content="EEG leaderboard, NeurIPS 2026 EEG challenge results, BCI decoding scores, EMG-to-pose leaderboard, sleep onset benchmark" />
 
 <meta property="og:title" content="Leaderboard · EEG/EMG Foundation Challenge 2026" />
 <meta property="og:description" content="Follow the four EEG and EMG track leaderboards, preview their metrics, and review the scoring, uncertainty, and audit methodology." />
@@ -229,13 +229,13 @@
     <section class="vb-section vb-section-cream" id="track-4" aria-labelledby="t4-heading">
       <div class="vb-section-head">
         <div>
-          <h2 id="t4-heading">Track 04: wristband EMG to typed text.</h2>
-          <p>Transduce typed keystrokes from wristband surface EMG. The controlled shift is cross-user: held-out subjects vary in forearm anatomy, typing strategy, and sensor re-placement, so the score rewards user-invariant features rather than per-user templates. Lower is better.</p>
+          <h2 id="t4-heading">Track 04: wristband EMG to hand pose.</h2>
+          <p>Regress 20-joint angle trajectories from 16-channel wrist surface EMG. Held-out users and movement stages vary anatomy, device placement, and kinematics, so the score rewards robust pose representations rather than participant-specific templates. Lower is better.</p>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">
-            <div><span class="bs-kicker">Metric</span><strong>Character error rate (%)</strong></div>
-            <div><span class="bs-kicker">Tie-break</span><strong>Word error rate</strong></div>
+            <div><span class="bs-kicker">Metric</span><strong>Mean absolute angular error (degrees)</strong></div>
+            <div><span class="bs-kicker">Tie-break</span><strong>Final protocol pending</strong></div>
             <div><span class="bs-kicker">Sponsor</span><strong>Meta Reality Labs</strong></div>
           </div>
         </div>
@@ -244,7 +244,7 @@
       <div class="table-shell" role="region" aria-label="Track 4 leaderboard" tabindex="0">
         <table class="leaderboard-table">
           <caption>Track 4 leaderboard. Preview state with no ranked submissions.</caption>
-          <thead><tr><th scope="col">Rank state</th><th scope="col">Submission</th><th scope="col">Affiliation</th><th scope="col">CER (%)</th><th scope="col">Delta</th></tr></thead>
+          <thead><tr><th scope="col">Rank state</th><th scope="col">Submission</th><th scope="col">Affiliation</th><th scope="col">MAE (&deg;)</th><th scope="col">Delta</th></tr></thead>
           <tbody class="unranked-rows">
             <tr><th scope="row">Not ranked</th><td>No submissions yet</td><td>Warm-up opens Sep 16, 2026</td><td>Not scored</td><td>Not ranked</td></tr>
           </tbody>
@@ -329,7 +329,7 @@
         \[
         \hat{y}_{a,t,i} = f_a(X_{t,i}, m_{t,i})
         \]
-        <p>Examples are first collapsed into independent bootstrap units \(u \in U_t\): subject-image query blocks for EEG-to-IMG, subject-session-context cells for BCI, recordings for sleep onset, and user-session blocks for EMG-to-text. Each unit gets an oriented contribution \(s_{a,t,u}\), where higher is always better; for MAE and CER we use the negative error internally.</p>
+        <p>Examples are first collapsed into independent bootstrap units \(u \in U_t\): subject-image query blocks for EEG-to-IMG, subject-session-context cells for BCI, recordings for sleep onset, and participant-stage blocks for EMG-to-Pose. Each unit gets an oriented contribution \(s_{a,t,u}\), where higher is always better; for MAE we use the negative error internally.</p>
         \[
         s_{a,t,u} = \mathrm{score}_t(\hat{y}_{a,t,u}, y_{t,u})
         \]

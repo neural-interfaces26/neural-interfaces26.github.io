@@ -166,13 +166,13 @@
             <td>Seed datasets now; Muse cohort Sep 16, 2026</td>
           </tr>
           <tr>
-            <th scope="row"><span>04</span> EMG-to-Text</th>
-            <td>Wristband surface EMG</td>
-            <td>Held-out users</td>
-            <td>Typed text</td>
-            <td>Character error rate</td>
-            <td><a href="#baselines">NeuralBench table</a></td>
-            <td>Seed data now; official split Sep 16, 2026</td>
+            <th scope="row"><span>04</span> EMG-to-Pose</th>
+            <td>16-channel wrist surface EMG</td>
+            <td>Held-out users and movement stages</td>
+            <td>20 joint-angle trajectories</td>
+            <td>Mean absolute angular error (degrees)</td>
+            <td><a href="#walkthrough"><code>neuralbench emg pose -m neuropose</code></a></td>
+            <td>Public EMG2Pose data now; competition split Sep 16, 2026</td>
           </tr>
         </tbody>
       </table>
@@ -225,7 +225,7 @@
             <div class="row"><span>Track 1 (EEG-to-IMG)</span><span>116 GB</span></div>
             <div class="row"><span>Track 2 (BCI)</span><span>419 GB</span></div>
             <div class="row"><span>Track 3 (Sleep)</span><span>439 GB</span></div>
-            <div class="row"><span>Track 4 (EMG)</span><span>239 GB</span></div>
+            <div class="row"><span>Track 4 (EMG)</span><span>370 h · 193 participants</span></div>
           </div>
         </li>
 
@@ -256,7 +256,7 @@
             <div class="row"><span>Metric (T1)</span><span>Top-5 retrieval accuracy</span></div>
             <div class="row"><span>Metric (T2)</span><span>Balanced accuracy</span></div>
             <div class="row"><span>Metric (T3)</span><span>W-bMAE on onset (s)</span></div>
-            <div class="row"><span>Metric (T4)</span><span>Character error rate</span></div>
+            <div class="row"><span>Metric (T4)</span><span>Mean angular MAE (&deg;)</span></div>
           </div>
         </li>
 
@@ -340,10 +340,10 @@
           <span class="desc">Sleep-EDF as the stand-in until the Muse cohort drops; binned MAE on onset latency, in seconds.</span>
           <span class="arrow">Open guide →</span>
         </a>
-        <a class="doc-link" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track4_emg_to_text.html" target="_blank" rel="noreferrer noopener">
-          <span class="bs-kicker">Track 4 · <code>neuralbench emg typing</code></span>
-          <strong>EMG-to-Text</strong>
-          <span class="desc">emg2qwerty, 108 users and 32 channels; character error rate on decoded keystrokes.</span>
+        <a class="doc-link" href="https://github.com/bruAristimunha/neuroai/blob/emg-pose-neuralbench/docs/neuralbench/tasks/emg/pose.rst" target="_blank" rel="noreferrer noopener">
+          <span class="bs-kicker">Track 4 · <code>neuralbench emg pose -m neuropose</code></span>
+          <strong>EMG-to-Pose</strong>
+          <span class="desc">Salter2024 EMG2Pose: 16-channel wrist sEMG to 20 joint-angle trajectories, evaluated in degrees.</span>
           <span class="arrow">Open guide →</span>
         </a>
       </div>
@@ -460,21 +460,12 @@
           </div>
           <div class="ds-row" role="row">
             <span class="id" role="cell">T4 · EMG</span>
-            <span class="nm" role="cell">Chance</span>
-            <span class="mod mod-emg" role="cell">reference</span>
-            <span class="num" role="cell">0</span>
-            <span class="num" role="cell">0</span>
-            <span class="num" role="cell">CER 96.71 ± 0.00 %</span>
-            <span class="num" role="cell">—</span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="id" role="cell">T4 · EMG</span>
-            <span class="nm" role="cell">EMG2QwertyNet (Sivakumar et al., 2024)</span>
-            <span class="mod mod-emg" role="cell">EMG</span>
-            <span class="num" role="cell">5.3 M</span>
-            <span class="num" role="cell">8</span>
-            <span class="num" role="cell">CER 25.14 ± 2.30 %</span>
-            <span class="num" role="cell">configs/emg/qwerty.yaml</span>
+            <span class="nm" role="cell">NeuroPose (Liu et al., 2021)</span>
+            <span class="mod mod-emg" role="cell">Pose CNN</span>
+            <span class="num" role="cell">-</span>
+            <span class="num" role="cell">paper</span>
+            <span class="num" role="cell">MAE 17.5 &plusmn; 1.5&deg;</span>
+            <span class="num" role="cell">tasks/emg/pose/config.yaml</span>
           </div>
         </div>
       </div>

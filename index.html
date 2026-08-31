@@ -146,13 +146,13 @@
       <article class="track-card reveal">
         <div class="track-card-heading">
           <span class="track-number">04</span>
-          <div><p class="track-shift">Cross-user</p><h3>EMG-to-Text</h3></div>
+          <div><p class="track-shift">Cross-user + stage</p><h3>EMG-to-Pose</h3></div>
         </div>
-        <noscript><img src="assets/img/figures/emg-to-text.png" srcset="assets/img/figures/emg-to-text.png 336w, assets/img/figures/emg-to-text@2x.png 670w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="336" height="217" alt="Wristband surface EMG decoded as a sequence of typed keystrokes across users" loading="lazy" /></noscript>
-        <img data-src="assets/img/figures/emg-to-text.png" data-srcset="assets/img/figures/emg-to-text.png 336w, assets/img/figures/emg-to-text@2x.png 670w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="336" height="217" alt="Wristband surface EMG decoded as a sequence of typed keystrokes across users" />
-        <p>Decodes typed keystrokes from wristband surface EMG as a sequence-transduction problem. The controlled shift is cross-user: 100+ held-out users vary in forearm anatomy, typing strategy, and sensor re-placement, so a model that overfits one user's geometry fails the test.</p>
-        <p class="track-facts">EMG typing, sequence transduction, wristbands, QWERTY</p>
-        <div class="track-card-footer"><span>Metric: CER (%). Sponsor: Meta Reality Labs</span><a href="leaderboard.html#track-4">View track</a></div>
+        <noscript><img src="assets/img/figures/emg-to-text.png" srcset="assets/img/figures/emg-to-text.png 336w, assets/img/figures/emg-to-text@2x.png 670w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="336" height="217" alt="Existing wristband surface EMG figure retained as temporary artwork for the EMG-to-pose challenge" loading="lazy" /></noscript>
+        <img data-src="assets/img/figures/emg-to-text.png" data-srcset="assets/img/figures/emg-to-text.png 336w, assets/img/figures/emg-to-text@2x.png 670w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="336" height="217" alt="Existing wristband surface EMG figure retained as temporary artwork for the EMG-to-pose challenge" />
+        <p>Regresses 20 hand-joint angle trajectories from 16-channel wrist surface EMG. The controlled shift combines held-out users and movement stages, testing whether a model survives changes in anatomy, device placement, and hand kinematics.</p>
+        <p class="track-facts">Hand pose, trajectory regression, wristbands, UmeTrack joints</p>
+        <div class="track-card-footer"><span>Metric: Mean angular MAE (&deg;). Sponsor: Meta Reality Labs</span><a href="leaderboard.html#track-4">View track</a></div>
       </article>
     </div>
   </section>
@@ -209,10 +209,10 @@
 
         <article class="vb-track dataset-release-card">
           <div class="track-head">
-            <span class="bs-kicker">New EMG-to-text cohort</span>
+            <span class="bs-kicker">EMG-to-pose benchmark</span>
           </div>
-          <h3 class="dataset-release-heading">Wristband EMG cohort</h3>
-          <p class="dataset-release-copy">New 100-user evaluation cohort recorded with the same wrist-sEMG hardware, typing task, and collection paradigm as the public <strong>emg2qwerty</strong> corpus. Released by Meta Reality Labs.</p>
+          <h3 class="dataset-release-heading">Salter2024 EMG2Pose</h3>
+          <p class="dataset-release-copy">A 370-hour benchmark pairing 16-channel wrist sEMG with 20 UmeTrack joint angles across 193 participants and 29 movement stages.</p>
         </article>
       </div>
 
@@ -370,22 +370,22 @@
             <span class="num" role="cell">-</span>
           </div>
           <div class="ds-row" role="row">
-            <span class="id" role="cell">emg2qwerty</span>
-            <span class="nm" role="cell">emg2qwerty · EMG typing</span>
+            <span class="id" role="cell">Salter2024Emg2pose</span>
+            <span class="nm" role="cell">EMG2Pose · joint-angle regression</span>
             <span class="mod mod-emg" role="cell">EMG</span>
-            <span class="num" role="cell">108</span>
-            <span class="num" role="cell">346h</span>
-            <span class="num" role="cell">32</span>
+            <span class="num" role="cell">193</span>
+            <span class="num" role="cell">370h</span>
+            <span class="num" role="cell">16</span>
             <span class="num" role="cell">2000 Hz</span>
-            <span class="num" role="cell">239 GB</span>
+            <span class="num" role="cell">-</span>
           </div>
           <div class="ds-row ds-row--new" role="row">
-            <span class="id" role="cell">emg2qwerty-eval</span>
-            <span class="nm" role="cell">emg2qwerty eval, same setup as emg2qwerty (new Sep 16)</span>
+            <span class="id" role="cell">emg2pose-test</span>
+            <span class="nm" role="cell">EMG2Pose held-out user + stage split (Sep 16)</span>
             <span class="mod mod-emg" role="cell">EMG</span>
-            <span class="num" role="cell">100</span>
+            <span class="num" role="cell">held out</span>
             <span class="num" role="cell">-</span>
-            <span class="num" role="cell">32</span>
+            <span class="num" role="cell">16</span>
             <span class="num" role="cell">2000 Hz</span>
             <span class="num" role="cell">-</span>
           </div>
@@ -393,7 +393,7 @@
       </div>
 
       <div class="ds-foot">
-        <span class="bs-kicker">14 seed datasets + 4 new releases for 2026 (Graz/BrainHero and Muse Sleep-Onset for training; Alljoined eval and emg2qwerty eval as hidden test cohorts that mirror their public parents). The 4 new cohorts become downloadable via NeuralBench when the competition opens Sep 16, 2026; the seed datasets are available now as starter-kit or analog data for pipeline development. All remain under their original providers' licenses. Sleep annotations are expert-scored; stimulus and keystroke labels are machine-derived. Leakage is held out by subject, session, stimulus, and keystroke. Ground truth stays confidential, and organizers re-run the top three. NeuralBench-EEG-Core v1.0. More than 700 additional EEG corpora are ready via <a href="https://eegdash.org/dataset_summary.html" target="_blank" rel="noreferrer noopener">EEGDash</a>.</span>
+        <span class="bs-kicker">14 seed datasets + 4 competition releases for 2026. Graz/BrainHero and Muse Sleep-Onset support training; Alljoined and EMG2Pose supply held-out evaluation splits. The competition releases become available through NeuralBench when submissions open Sep 16, 2026. All data retain their original licenses. Leakage is controlled by subject, session, stimulus, and movement stage; ground truth stays confidential, and organizers re-run the top three. More than 700 additional EEG corpora are ready through <a href="https://eegdash.org/dataset_summary.html" target="_blank" rel="noreferrer noopener">EEGDash</a>.</span>
         <a href="startkit.html" class="track-link">Open the start-kit →</a>
       </div>
       </div>
@@ -425,7 +425,7 @@
         <div class="sponsor-wall-intro reveal">
           <span class="bs-eyebrow">Backed by</span>
           <h2 id="sponsors-heading">Sponsors &amp; organizing institutions</h2>
-          <p>Compute, datasets, prizes, and engineering hours from 14 institutions across 5 countries. Yneuro hosts the platform; AWS provides the GPU cloud. Each track has its own sponsor: Alljoined for EEG-to-IMG, Meta FAIR Brain &amp; AI for BCI decoding, InteraXon for sleep onset, and Meta Reality Labs for EMG-to-Text.</p>
+          <p>Compute, datasets, prizes, and engineering hours from 15 institutions across 6 countries. Yneuro hosts the platform; AWS provides the GPU cloud. Each track has its own sponsor: Alljoined for EEG-to-IMG, Meta FAIR Brain &amp; AI for BCI decoding, InteraXon for sleep onset, and Meta Reality Labs for EMG-to-Pose.</p>
           <a class="track-link" href="organizers.html">Meet the team</a>
         </div>
         <div class="sponsor-groups reveal">
@@ -493,6 +493,9 @@
             </a>
             <a href="https://www.chalearn.org/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark vb-logo-mark--lg" title="ChaLearn">
               <img src="assets/img/logos/chalearn.png" alt="ChaLearn" loading="lazy" decoding="async">
+            </a>
+            <a href="https://ethz.ch/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark vb-logo-mark--lg" title="ETH Zürich">
+              <img src="assets/img/logos/eth-zurich.svg" alt="ETH Z&uuml;rich" loading="lazy" decoding="async">
             </a>
           </div>
         </div>
