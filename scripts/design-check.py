@@ -1,16 +1,23 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
+import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = [
     "index.html", "startkit.html", "faq.html", "leaderboard.html",
     "awards.html", "organizers.html", "ethics.html", "track-record.html",
 ]
+ALL_PAGES = PAGES + ["404.html"]
+SITE_ORIGIN = "https://neural-interfaces26.github.io"
+SITE_HOST = "neural-interfaces26.github.io"
+OG_IMAGE = f"{SITE_ORIGIN}/assets/img/og-card.png"
 TOKENS = {
     "--bs-violet": "#5332f4",
     "--bs-text": "#07101f",
@@ -127,6 +134,24 @@ def check_shell(errors: list[str]) -> None:
         for image in parsed.images:
             if "alt" not in image:
                 errors.append(f"{page}: image without alt attribute")
+
+        shell = parsed.find("header") + parsed.find("footer")
+        route = "index.html" if page == "index.html" else page
+        direct_links = [
+            link for link in parsed.find("a")
+            if link["attrs"].get("href") == route
+            and any(has_ancestor(link, container) for container in shell)
+        ]
+        for link in direct_links:
+            if link["attrs"].get("aria-current") != "page":
+                errors.append(f"{page}: shell link {route!r} must use aria-current='page'")
+        for link in parsed.find("a"):
+            current = link["attrs"].get("aria-current")
+            href = str(link["attrs"].get("href", ""))
+            if current == "page" and (href != route or link not in direct_links):
+                errors.append(f"{page}: aria-current='page' is invalid on href {href!r}")
+            if current == "location":
+                errors.append(f"{page}: aria-current='location' must be set dynamically")
 
 
 def check_home(errors: list[str]) -> None:
@@ -351,16 +376,190 @@ def check_narrative(errors: list[str]) -> None:
 
 
 def check_metadata(errors: list[str]) -> None:
-    for page in PAGES + ["404.html"]:
-        text = (ROOT / page).read_text(encoding="utf-8")
-        for needle in ('<meta name="description"', '<meta name="viewport"', '<title>'):
-            if needle not in text:
-                errors.append(f"{page}: missing {needle}")
-    index = (ROOT / "index.html").read_text(encoding="utf-8")
-    if 'content="#5332f4"' not in index.lower():
-        errors.append("index.html: theme-color is not approved violet")
-    if "assets/img/og-card.png" not in index:
-        errors.append("index.html: Open Graph image path missing")
+    titles: dict[str, str] = {}
+    descriptions: dict[str, str] = {}
+
+    def one_attr(
+        page: str,
+        parsed: PageParser,
+        tag: str,
+        selector: str,
+        value: str,
+        attr: str = "content",
+    ) -> str:
+        matches = [element for element in parsed.find(tag) if element["attrs"].get(selector) == value]
+        if len(matches) != 1:
+            errors.append(f"{page}: requires one {tag}[{selector}={value!r}]")
+            return ""
+        return str(matches[0]["attrs"].get(attr, ""))
+
+    for page in ALL_PAGES:
+        _, parsed = parse_page(page)
+        page_titles = parsed.find("title")
+        if len(page_titles) != 1 or not element_text(page_titles[0]):
+            errors.append(f"{page}: requires one non-empty title")
+            title = ""
+        else:
+            title = element_text(page_titles[0])
+            titles[page] = title
+
+        description = one_attr(page, parsed, "meta", "name", "description")
+        if description:
+            descriptions[page] = description
+            if not 120 <= len(description) <= 160:
+                errors.append(f"{page}: description must be 120-160 characters (found {len(description)})")
+
+        if not one_attr(page, parsed, "meta", "name", "viewport"):
+            errors.append(f"{page}: viewport content must not be empty")
+        if one_attr(page, parsed, "meta", "name", "theme-color") != "#5332F4":
+            errors.append(f"{page}: theme-color must be #5332F4")
+
+        expected_url = f"{SITE_ORIGIN}/{'' if page == 'index.html' else page}"
+        canonicals = [
+            element for element in parsed.find("link")
+            if "canonical" in str(element["attrs"].get("rel", "")).split()
+        ]
+        if page == "404.html":
+            if canonicals:
+                errors.append("404.html: canonical must be omitted")
+            if one_attr(page, parsed, "meta", "name", "robots") != "noindex, follow":
+                errors.append("404.html: robots must be exactly 'noindex, follow'")
+            if any(
+                script["attrs"].get("type") == "application/ld+json"
+                for script in parsed.find("script")
+            ):
+                errors.append("404.html: structured data must be omitted")
+        elif len(canonicals) != 1 or canonicals[0]["attrs"].get("href") != expected_url:
+            errors.append(f"{page}: canonical must be {expected_url}")
+
+        og = {
+            name: one_attr(page, parsed, "meta", "property", name)
+            for name in (
+                "og:title", "og:description", "og:type", "og:url", "og:image",
+                "og:image:width", "og:image:height", "og:image:alt",
+            )
+        }
+        twitter = {
+            name: one_attr(page, parsed, "meta", "name", name)
+            for name in ("twitter:card", "twitter:title", "twitter:description", "twitter:image")
+        }
+        expected_social = {
+            "og:title": title,
+            "og:description": description,
+            "og:url": expected_url,
+            "og:image": OG_IMAGE,
+            "og:image:width": "1200",
+            "og:image:height": "627",
+            "twitter:card": "summary_large_image",
+            "twitter:title": title,
+            "twitter:description": description,
+            "twitter:image": OG_IMAGE,
+        }
+        for name, expected in expected_social.items():
+            actual = og.get(name, twitter.get(name, ""))
+            if actual != expected:
+                errors.append(f"{page}: {name} must be {expected!r}")
+        if not og["og:type"]:
+            errors.append(f"{page}: og:type must not be empty")
+        if len(og["og:image:alt"].split()) < 6:
+            errors.append(f"{page}: og:image:alt must describe the social image")
+
+        for script in parsed.find("script"):
+            if script["attrs"].get("type") != "application/ld+json":
+                continue
+            try:
+                data = json.loads("".join(script["text"]))
+            except (json.JSONDecodeError, TypeError):
+                errors.append(f"{page}: structured data must be valid JSON")
+                continue
+            if data.get("url") != expected_url:
+                errors.append(f"{page}: structured data URL must match {expected_url}")
+
+    if len(set(titles.values())) != len(ALL_PAGES):
+        errors.append("metadata: every route must have a unique title")
+    if len(set(descriptions.values())) != len(ALL_PAGES):
+        errors.append("metadata: every route must have a unique description")
+
+    sitemap = ET.parse(ROOT / "sitemap.xml").getroot()
+    namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+    sitemap_urls = [element.text or "" for element in sitemap.findall("sm:url/sm:loc", namespace)]
+    expected_urls = [f"{SITE_ORIGIN}/{'' if page == 'index.html' else page}" for page in PAGES]
+    if sitemap_urls != expected_urls:
+        errors.append(f"sitemap.xml: routes must be exactly {expected_urls!r}")
+
+    robots = (ROOT / "robots.txt").read_text(encoding="utf-8")
+    if "User-agent: *\nAllow: /" not in robots:
+        errors.append("robots.txt: crawling must remain permissive")
+    if f"Sitemap: {SITE_ORIGIN}/sitemap.xml" not in robots:
+        errors.append("robots.txt: sitemap URL is incorrect")
+
+
+def resolve_same_site_href(source: str, href: str) -> tuple[Path, str, str] | None:
+    ignored_schemes = {"mailto", "tel", "sms", "data", "blob", "about"}
+    url = urlsplit(href)
+    scheme = url.scheme.lower()
+    if scheme in ignored_schemes or (scheme and scheme not in {"http", "https"}):
+        return None
+    if url.hostname and url.hostname.lower() != SITE_HOST:
+        return None
+
+    decoded_path = unquote(url.path).replace("\\", "/")
+    if decoded_path:
+        relative = decoded_path.lstrip("/") if decoded_path.startswith("/") or url.netloc else decoded_path
+        base = ROOT if decoded_path.startswith("/") or url.netloc else ROOT / Path(source).parent
+        target = (base / relative).resolve()
+        if decoded_path.endswith("/"):
+            target /= "index.html"
+    elif url.netloc:
+        target = (ROOT / "index.html").resolve()
+    else:
+        target = (ROOT / source).resolve()
+    target_name = target.relative_to(ROOT.resolve()).as_posix()
+    return target, target_name, unquote(url.fragment)
+
+
+def check_links(errors: list[str]) -> None:
+    parsed_pages = {page: parse_page(page)[1] for page in ALL_PAGES}
+
+    regression_cases = (
+        ("index.html", "faq.html?from=home#rule%2Ddata", ("faq.html", "rule-data")),
+        ("index.html", "?preview=1#main", ("index.html", "main")),
+        ("faq.html", f"{SITE_ORIGIN}?preview=1#tracks", ("index.html", "tracks")),
+        ("index.html", "leaderboard%2Ehtml#track%2D1", ("leaderboard.html", "track-1")),
+    )
+    for source, href, expected in regression_cases:
+        resolved = resolve_same_site_href(source, href)
+        actual = (resolved[1], resolved[2]) if resolved else None
+        if actual != expected:
+            errors.append(f"links: regression case {href!r} resolved to {actual!r}, expected {expected!r}")
+    try:
+        resolve_same_site_href("index.html", "%2e%2e/outside.html")
+    except ValueError:
+        pass
+    else:
+        errors.append("links: encoded path traversal must be rejected")
+
+    for source, parsed in parsed_pages.items():
+        for href in parsed.hrefs:
+            try:
+                resolved = resolve_same_site_href(source, href)
+            except ValueError:
+                errors.append(f"{source}: href {href!r} resolves outside the repository")
+                continue
+            if resolved is None:
+                continue
+            target, target_name, fragment = resolved
+            if not target.is_file():
+                errors.append(f"{source}: href {href!r} targets missing file {target_name}")
+                continue
+
+            if fragment:
+                target_page = parsed_pages.get(target_name)
+                if target_page is None and target.suffix.lower() == ".html":
+                    _, target_page = parse_page(target_name)
+                    parsed_pages[target_name] = target_page
+                if target_page is None or fragment not in target_page.ids:
+                    errors.append(f"{source}: href {href!r} targets missing fragment #{fragment} in {target_name}")
 
 
 def check_assets(errors: list[str]) -> None:
@@ -393,7 +592,7 @@ def main() -> int:
         "metadata": check_metadata,
         "assets": check_assets,
     }
-    selected = checks.values() if scope == "all" else [checks[scope]]
+    selected = [*checks.values(), check_links] if scope == "all" else [checks[scope]]
     for check in selected:
         check(errors)
     if errors:

@@ -2,6 +2,7 @@
    - Animated count-up on [data-count-to] when in viewport
    - Copy-to-clipboard on [data-copy] inside .bs-code blocks
    - Responsive site menu toggle
+   - Active homepage section navigation
    - Leaderboard tab toggling
    - Violet full stop on display headings (artwork identity motif) */
 
@@ -137,6 +138,44 @@
     window.matchMedia('(min-width: 901px)').addEventListener('change', close);
   }
 
+  /* ---------- Active homepage section ---------- */
+  function initSectionNavigation() {
+    if (!document.querySelector('.campaign-hero') || !('IntersectionObserver' in window)) return;
+
+    const locations = new Map();
+    document.querySelectorAll('nav a[href*="#"]').forEach((link) => {
+      const url = new URL(link.href, window.location.href);
+      const currentPath = window.location.pathname.replace(/index\.html$/, '');
+      const linkPath = url.pathname.replace(/index\.html$/, '');
+      if (url.origin !== window.location.origin || linkPath !== currentPath || !url.hash) return;
+      const target = document.getElementById(decodeURIComponent(url.hash.slice(1)));
+      if (!target) return;
+      const item = locations.get(target.id) || { target, links: [] };
+      item.links.push(link);
+      locations.set(target.id, item);
+    });
+    if (!locations.size) return;
+
+    const visible = new Map();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) visible.set(entry.target.id, entry);
+        else visible.delete(entry.target.id);
+      });
+      const current = Array.from(visible.values())
+        .sort((a, b) => Math.abs(a.boundingClientRect.top - 72) - Math.abs(b.boundingClientRect.top - 72))[0];
+      locations.forEach(({ links }, id) => {
+        links.forEach((link) => {
+          if (link.getAttribute('aria-current') === 'page') return;
+          if (current && id === current.target.id) link.setAttribute('aria-current', 'location');
+          else if (link.getAttribute('aria-current') === 'location') link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '-72px 0px -55% 0px', threshold: 0 });
+
+    locations.forEach(({ target }) => observer.observe(target));
+  }
+
   /* ---------- Countdown to warm-up ---------- */
   function initCountdown() {
     const root = document.querySelector('[data-countdown-to]');
@@ -235,6 +274,7 @@
     initReveals();
     initCopyButtons();
     initSiteMenu();
+    initSectionNavigation();
     initCountdown();
     initLeaderboardTabs();
     initDisplayStops();
