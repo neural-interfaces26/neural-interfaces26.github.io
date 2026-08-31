@@ -2587,14 +2587,14 @@ body.menu-open { overflow: hidden; }
 
 .phase-card .phase-tag,
 .phase-card .phase-tag .badge {
-  font-family: var(--bs-fontsans);
+  font-family: var(--bs-fontmono);
   font-weight: 700;
 }
 
 .phase-card .phase-tag .badge { border-radius: 999px; padding: 2px 8px; }
 
 .phase-card .phase-date {
-  font-family: var(--bs-fontsans);
+  font-family: var(--bs-fontmono);
   font-weight: 700;
   color: var(--bs-violet);
   font-size: 12.5px;

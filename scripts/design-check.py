@@ -156,6 +156,11 @@ def check_detail_css(errors: list[str]) -> None:
     for token, message in forbidden.items():
         if token in landing:
             errors.append(f"assets/css/landing.css: {message}")
+    if re.search(
+        r"\.phase-card \.phase-(?:tag(?: \.badge)?|date)(?:\s*,[^{}]+)?\s*\{[^}]*font-family\s*:\s*var\(--bs-fontsans\)",
+        landing,
+    ):
+        errors.append("assets/css/landing.css: phase metadata must retain IBM Plex Mono")
 
 
 def check_shell(errors: list[str]) -> None:
