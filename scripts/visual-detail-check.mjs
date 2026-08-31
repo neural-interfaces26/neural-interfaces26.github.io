@@ -23,7 +23,7 @@ class Cdp {
         this.pending.delete(message.id);
         return message.error ? pending.reject(new Error(JSON.stringify(message.error))) : pending.resolve(message.result);
       }
-      if (message.method === 'Runtime.exceptionThrown' || (message.method === 'Log.entryAdded' && message.params?.entry?.level === 'error')) this.errors.push(message);
+      if (message.method === 'Runtime.exceptionThrown' || (message.method === 'Runtime.consoleAPICalled' && message.params?.type === 'error') || (message.method === 'Log.entryAdded' && message.params?.entry?.level === 'error')) this.errors.push(message);
       for (const resolve of this.events.get(message.method) || []) resolve(message.params);
       this.events.delete(message.method);
     };
@@ -68,31 +68,34 @@ await mkdir(output, { recursive: true });
 for (const route of routes) {
   for (const [width, height] of sizes) {
     const page = await open(route, width, height);
-    const state = await page.eval(`(()=>{
-      const visible=e=>{const r=e.getBoundingClientRect(),s=getComputedStyle(e);return r.width>0&&r.height>0&&s.display!=='none'&&s.visibility!=='hidden'};
-      const rect=e=>e?(()=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height,bottom:r.bottom}})():null;
-      const small=[...document.querySelectorAll('body *')].filter(e=>visible(e)&&e.childElementCount===0&&e.textContent.trim()&&!e.closest('pre,code')).map(e=>({tag:e.tagName,className:e.className,text:e.textContent.trim().slice(0,40),size:parseFloat(getComputedStyle(e).fontSize)})).filter(e=>e.size<10);
-      const buttons=[...document.querySelectorAll('button,.bs-btn')].filter(visible).map(rect).filter(r=>r.width<44||r.height<44);
-      const hero=document.querySelector('.page-hero');
-      const proof=document.querySelector('.page-proof');
-      const challenge=document.querySelector('.challenge-state');
-      const local=document.querySelector('.local-nav');
-      const brand=document.querySelector('.site-brand');
-      const seal=document.querySelector('img.site-brand-mark');
-      const stack=hero?Math.max(hero.getBoundingClientRect().bottom,challenge?.getBoundingClientRect().bottom||0,local?.getBoundingClientRect().bottom||0)-hero.getBoundingClientRect().top:0;
-      return {innerWidth,clientWidth:document.documentElement.clientWidth,rootWidth:document.documentElement.scrollWidth,bodyWidth:document.body.scrollWidth,small,buttons,hero:rect(hero),proof:rect(proof),challenge:rect(challenge),stack,brandName:brand?.textContent.trim(),seal:seal?{...rect(seal),complete:seal.complete,naturalWidth:seal.naturalWidth,naturalHeight:seal.naturalHeight,src:seal.getAttribute('src'),alt:seal.getAttribute('alt')}:null};
-    })()`);
-    if (state.innerWidth !== width || state.clientWidth !== width || state.rootWidth !== width || state.bodyWidth !== width) throw new Error(`overflow ${route} ${width}: ${JSON.stringify(state)}`);
-    if (state.small.length) throw new Error(`microtype ${route} ${width}: ${JSON.stringify(state.small)}`);
-    if (state.buttons.length) throw new Error(`targets ${route} ${width}: ${JSON.stringify(state.buttons)}`);
-    if (state.brandName !== 'EEG/EMG Foundation' || !state.seal || !state.seal.complete || state.seal.naturalWidth !== 256 || state.seal.naturalHeight !== 256 || state.seal.width !== 32 || state.seal.height !== 32 || state.seal.src !== 'assets/img/brand/trophy-seal.webp' || state.seal.alt !== '') throw new Error(`header seal ${route} ${width}: ${JSON.stringify(state.seal)}`);
-    if (secondary.has(route) && (!state.proof || !state.challenge)) throw new Error(`first-fold components ${route} ${width}`);
-    if (secondary.has(route) && width <= 390 && state.stack > 640) throw new Error(`first-fold stack ${route} ${width}: ${state.stack}`);
-    if (secondary.has(route) && width <= 390 && state.challenge.height > 108) throw new Error(`state height ${route} ${width}: ${state.challenge.height}`);
-    if (page.errors.length) throw new Error(`console ${route} ${width}: ${JSON.stringify(page.errors)}`);
-    const shot = await page.call('Page.captureScreenshot', { format: 'png', fromSurface: true, captureBeyondViewport: false });
-    await writeFile(`${output}/${route.replace('.html','')}-${width}x${height}.png`, Buffer.from(shot.data, 'base64'));
-    await page.close();
+    try {
+      const state = await page.eval(`(()=>{
+        const visible=e=>{const r=e.getBoundingClientRect(),s=getComputedStyle(e);return r.width>0&&r.height>0&&s.display!=='none'&&s.visibility!=='hidden'};
+        const rect=e=>e?(()=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height,bottom:r.bottom}})():null;
+        const small=[...document.querySelectorAll('body *')].filter(e=>visible(e)&&e.childElementCount===0&&e.textContent.trim()&&!e.closest('pre,code')).map(e=>({tag:e.tagName,className:e.className,text:e.textContent.trim().slice(0,40),size:parseFloat(getComputedStyle(e).fontSize)})).filter(e=>e.size<10);
+        const buttons=[...document.querySelectorAll('button,.bs-btn')].filter(visible).map(rect).filter(r=>r.width<44||r.height<44);
+        const hero=document.querySelector('.page-hero');
+        const proof=document.querySelector('.page-proof');
+        const challenge=document.querySelector('.challenge-state');
+        const local=document.querySelector('.local-nav');
+        const brand=document.querySelector('.site-brand');
+        const seal=document.querySelector('img.site-brand-mark');
+        const stack=hero?Math.max(hero.getBoundingClientRect().bottom,challenge?.getBoundingClientRect().bottom||0,local?.getBoundingClientRect().bottom||0)-hero.getBoundingClientRect().top:0;
+        return {innerWidth,clientWidth:document.documentElement.clientWidth,rootWidth:document.documentElement.scrollWidth,bodyWidth:document.body.scrollWidth,small,buttons,hero:rect(hero),proof:rect(proof),challenge:rect(challenge),stack,brandName:brand?.textContent.trim(),seal:seal?{...rect(seal),complete:seal.complete,naturalWidth:seal.naturalWidth,naturalHeight:seal.naturalHeight,src:seal.getAttribute('src'),alt:seal.getAttribute('alt')}:null};
+      })()`);
+      if (state.innerWidth !== width || state.clientWidth !== width || state.rootWidth !== width || state.bodyWidth !== width) throw new Error(`overflow ${route} ${width}: ${JSON.stringify(state)}`);
+      if (state.small.length) throw new Error(`microtype ${route} ${width}: ${JSON.stringify(state.small)}`);
+      if (state.buttons.length) throw new Error(`targets ${route} ${width}: ${JSON.stringify(state.buttons)}`);
+      if (state.brandName !== 'EEG/EMG Foundation' || !state.seal || !state.seal.complete || state.seal.naturalWidth !== 256 || state.seal.naturalHeight !== 256 || state.seal.width !== 32 || state.seal.height !== 32 || state.seal.src !== 'assets/img/brand/trophy-seal.webp' || state.seal.alt !== '') throw new Error(`header seal ${route} ${width}: ${JSON.stringify(state.seal)}`);
+      if (secondary.has(route) && (!state.proof || !state.challenge)) throw new Error(`first-fold components ${route} ${width}`);
+      if (secondary.has(route) && width <= 390 && state.stack > 640) throw new Error(`first-fold stack ${route} ${width}: ${state.stack}`);
+      if (secondary.has(route) && width <= 390 && state.challenge.height > 108) throw new Error(`state height ${route} ${width}: ${state.challenge.height}`);
+      if (page.errors.length) throw new Error(`console ${route} ${width}: ${JSON.stringify(page.errors)}`);
+      const shot = await page.call('Page.captureScreenshot', { format: 'png', fromSurface: true, captureBeyondViewport: false });
+      await writeFile(`${output}/${route.replace('.html','')}-${width}x${height}.png`, Buffer.from(shot.data, 'base64'));
+    } finally {
+      await page.close();
+    }
   }
 }
 console.log(`PASS: ${routes.length * sizes.length} visual detail captures`);
