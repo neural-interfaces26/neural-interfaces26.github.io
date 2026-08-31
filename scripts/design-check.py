@@ -16,6 +16,7 @@ PAGES = [
 ALL_PAGES = PAGES + ["404.html"]
 SITE_ORIGIN = "https://neural-interfaces26.github.io"
 OG_IMAGE = f"{SITE_ORIGIN}/assets/img/og-card.png"
+UI_SCRIPT = "assets/js/ui.js?v=20260831e"
 HOME_DESCRIPTION = (
     "Open-source EEG/EMG decoding benchmark for NeurIPS 2026 in Sydney. "
     "Neural Interfaces for Generalizable Decoding across EEG, EMG, sleep, and BCI tracks. "
@@ -598,6 +599,15 @@ def check_assets(errors: list[str]) -> None:
         path = ROOT / name
         if not path.is_file() or path.stat().st_size > limit:
             errors.append(f"{name}: missing or larger than {limit} bytes")
+    for page in ALL_PAGES:
+        _, parsed = parse_page(page)
+        ui_scripts = [
+            str(element["attrs"].get("src", ""))
+            for element in parsed.find("script")
+            if "assets/js/ui.js" in str(element["attrs"].get("src", ""))
+        ]
+        if ui_scripts != [UI_SCRIPT]:
+            errors.append(f"{page}: requires exactly {UI_SCRIPT}, found {ui_scripts!r}")
 
 
 def main() -> int:
