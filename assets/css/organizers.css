@@ -9,7 +9,7 @@
 
 .org-section-head {
   max-width: 760px;
-  margin-bottom: 36px;
+  margin-bottom: 48px;
 }
 
 .org-section-head h2 {
@@ -98,9 +98,9 @@
 .org-grid.tight .org-card .name {
   color: var(--bs-text);
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.02em;
-  line-height: 1.15;
+  line-height: 1.25;
 }
 
 .org-card .role,
@@ -179,6 +179,7 @@
 
 @media (max-width: 640px) {
   .org-section { padding-block: 64px; }
+  .org-section-head { margin-bottom: 36px; }
   .org-card .head,
   .org-grid.tight .org-card .head { grid-template-columns: 72px minmax(0, 1fr); gap: 16px; }
   .org-card .avatar,

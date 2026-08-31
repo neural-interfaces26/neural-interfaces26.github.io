@@ -629,7 +629,7 @@ body.menu-open { overflow: hidden; }
   font-size: clamp(24px, 2vw, 30px);
   font-weight: 700;
   letter-spacing: -0.02em;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .track-card > img,
@@ -815,7 +815,7 @@ body.menu-open { overflow: hidden; }
   color: var(--bs-text);
   font-size: 20px;
   letter-spacing: -0.025em;
-  line-height: 1.15;
+  line-height: 1.25;
 }
 
 .timeline-panel p {
@@ -883,7 +883,7 @@ body.menu-open { overflow: hidden; }
 
 .sponsor-wall-intro h2 {
   margin: 28px 0 24px;
-  font-size: clamp(40px, 4.3vw, 64px);
+  font-size: var(--bs-type-section);
 }
 
 .sponsor-wall-intro p {
@@ -1965,9 +1965,14 @@ body.menu-open { overflow: hidden; }
   align-items: start;
 }
 
-.vb-sponsors-side h2,
+.vb-sponsors-side h2 {
+  font-size: var(--bs-type-section);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
 .vb-sponsors-side h3 {
-  font-size: 18px;
+  font-size: 20px;
   margin: 8px 0 8px;
   letter-spacing: 0;
   font-weight: 700;
@@ -1975,7 +1980,7 @@ body.menu-open { overflow: hidden; }
 }
 
 .vb-sponsors-side p {
-  font-size: 13px;
+  font-size: 16px;
   color: var(--bs-muted);
   margin: 0 0 12px;
   line-height: 1.5;
@@ -2768,7 +2773,7 @@ body.menu-open { overflow: hidden; }
 .award-breakdown .vb-track h3,
 .award-breakdown .vb-track > p,
 .award-breakdown .vb-track-paradigms { grid-column: 2; }
-.award-breakdown .vb-track h3 { margin: 0; font-size: clamp(24px, 3vw, 34px); }
+.award-breakdown .vb-track h3 { margin: 0; font-size: clamp(24px, 3vw, 30px); }
 .award-breakdown .vb-track > p { margin: 0; font-size: 16px; line-height: 1.5; }
 .award-breakdown .track-stats { grid-column: 3; grid-row: 1 / span 4; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .award-breakdown .track-stats strong { font-family: var(--bs-fontmono); font-size: 16px; }
@@ -2845,7 +2850,7 @@ body.menu-open { overflow: hidden; }
 }
 
 .commitment-list .track-head { display: none; }
-.commitment-list h3 { margin: 0; color: var(--bs-text); font-size: 24px; line-height: 1.2; }
+.commitment-list h3 { margin: 0; color: var(--bs-text); font-size: 24px; line-height: 1.25; }
 .commitment-list p { margin: 8px 0 0; color: var(--bs-muted); line-height: 1.5; }
 .ethics-page #contact .bs-btn { max-width: 100%; white-space: normal; overflow-wrap: anywhere; text-align: center; }
 
@@ -3178,8 +3183,8 @@ body.menu-open { overflow: hidden; }
   max-width: 65ch;
   margin: 0;
   color: var(--bs-muted);
-  font-size: 17px;
-  line-height: 1.65;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .technical-facts {
@@ -3219,7 +3224,7 @@ body.menu-open { overflow: hidden; }
 .technical-page .faq-answer p,
 .technical-page .vb-rule-body p {
   font-size: 16px;
-  line-height: 1.65;
+  line-height: 1.5;
 }
 
 .leaderboard-overview > .rules-note { margin-top: 24px; }
@@ -3261,15 +3266,15 @@ body.menu-open { overflow: hidden; }
   color: var(--bs-text);
   font-family: var(--bs-fontdisplay);
   font-size: 24px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.02em;
-  line-height: 1.15;
+  line-height: 1.25;
 }
 
 .methodology-item p {
   margin: 0;
   color: var(--bs-muted);
-  line-height: 1.65;
+  line-height: 1.5;
 }
 
 .methodology-item .track-stats {
@@ -3469,7 +3474,7 @@ body.menu-open { overflow: hidden; }
     line-height: 1.08;
   }
   .technical-page .page-hero p,
-  .narrative-page .page-hero p { margin-bottom: 16px; font-size: 18px; line-height: 1.55; }
+  .narrative-page .page-hero p { margin-bottom: 16px; font-size: 18px; line-height: var(--bs-leading-lead); }
   .technical-page .page-hero .bs-hero-cta,
   .narrative-page .page-hero .bs-hero-cta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
   .technical-page .page-hero .bs-btn,
@@ -3601,8 +3606,8 @@ body.menu-open { overflow: hidden; }
   margin: 0;
   font-family: var(--bs-fontdisplay);
   font-size: 22px;
-  font-weight: 800;
-  line-height: 1.15;
+  font-weight: 700;
+  line-height: 1.25;
   letter-spacing: -0.022em;
   color: var(--bs-text);
   text-wrap: balance;
@@ -3611,7 +3616,7 @@ body.menu-open { overflow: hidden; }
 .vb-rule-body p {
   margin: 2px 0 0;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.5;
   color: var(--bs-muted);
 }
 
@@ -3695,7 +3700,7 @@ body.menu-open { overflow: hidden; }
 .faq-question {
   font-family: var(--bs-fontdisplay);
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.018em;
   line-height: 1.25;
 }
@@ -3948,4 +3953,32 @@ body.menu-open { overflow: hidden; }
     padding-top: 12px;
   }
   .doc-links { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 769px) {
+  .technical-page .vb-section,
+  .narrative-page .vb-section,
+  .narrative-page .vb-sponsors,
+  .narrative-page .vb-cta,
+  .narrative-page .award-field,
+  .narrative-page .year-entry > .vb-section { padding-block: 80px; }
+}
+
+@media (max-width: 768px) {
+  .technical-page .vb-section,
+  .narrative-page .vb-section,
+  .narrative-page .vb-sponsors,
+  .narrative-page .vb-cta,
+  .narrative-page .award-field,
+  .narrative-page .year-entry > .vb-section { padding-block: 56px; }
+}
+
+@media (min-width: 769px) {
+  .technical-page .vb-section-head,
+  .narrative-page .vb-section-head { margin-bottom: 48px; }
+}
+
+@media (max-width: 768px) {
+  .technical-page .vb-section-head,
+  .narrative-page .vb-section-head { margin-bottom: 36px; }
 }

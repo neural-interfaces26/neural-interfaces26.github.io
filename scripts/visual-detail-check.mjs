@@ -81,6 +81,7 @@ const measure = `(()=>{
   const rgb=value=>(value.match(/[0-9.]+/g)||[]).slice(0,3).map(Number);
   const luminance=value=>rgb(value).map(v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4}).reduce((sum,v,i)=>sum+v*[.2126,.7152,.0722][i],0);
   const contrast=(a,b)=>{const values=[luminance(a),luminance(b)].sort((x,y)=>y-x);return (values[0]+.05)/(values[1]+.05)};
+  const types=selector=>[...document.querySelectorAll(selector)].filter(visible).map(e=>({tag:e.tagName,className:typeof e.className==='string'?e.className:'',text:e.textContent.trim().slice(0,80),...type(e)}));
   const small=[...document.querySelectorAll('body *')].filter(e=>visible(e)&&e.childElementCount===0&&e.textContent.trim()&&!e.closest('pre,code')).map(e=>({tag:e.tagName,className:e.className,text:e.textContent.trim().slice(0,40),size:parseFloat(getComputedStyle(e).fontSize)})).filter(e=>e.size<10);
   const buttons=[...document.querySelectorAll('button,.bs-btn')].filter(visible).map(rect).filter(r=>r.width<44||r.height<44);
   const hero=document.querySelector('.page-hero');
@@ -104,6 +105,11 @@ const measure = `(()=>{
     pageHero:type(document.querySelector('.page-hero h1, .error-page h1')),
     lead:type(document.querySelector('.campaign-hero-copy > p:not(.bs-eyebrow), .page-hero p, .error-copy > p:not(.bs-eyebrow)')),
     section:type(document.querySelector('.campaign-section-head h2, .vb-section-head h2, .org-section-head h2')),
+    headings:types('h2:not(.award-total)'),
+    features:types('.track-card h3, .timeline-panel h3, .vb-track h3, .phase-card h3, .model-card h4, .formal-block h3, .commitment-list h3, .methodology-item h3, .vb-rule-body h3, .faq-question, .org-card .name'),
+    technicalCopy:types('.technical-page .vb-section-head p, .technical-page .phase-desc, .technical-page .formal-block p, .technical-page .faq-answer p, .technical-page .vb-rule-body p, .technical-page .technical-intro-copy > p:first-child, .technical-page .leaderboard-overview > p:first-child, .technical-page .faq-intro > p, .technical-page .methodology-item p'),
+    sectionCadence:[...document.querySelectorAll('.technical-page .vb-section, .narrative-page .vb-section, .narrative-page .vb-sponsors, .narrative-page .vb-cta, .narrative-page .award-field, .organizers-page .org-section')].filter(visible).map(e=>{const s=getComputedStyle(e);return {tag:e.tagName,className:e.className,paddingTop:parseFloat(s.paddingTop),paddingBottom:parseFloat(s.paddingBottom)}}),
+    headingCadence:[...document.querySelectorAll('.technical-page .vb-section-head, .narrative-page .vb-section-head, .organizers-page .org-section-head')].filter(visible).map(e=>({className:e.className,marginBottom:parseFloat(getComputedStyle(e).marginBottom)})),
   };
   return {innerWidth,clientWidth:document.documentElement.clientWidth,rootWidth:document.documentElement.scrollWidth,bodyWidth:document.body.scrollWidth,small,buttons,hero:rect(hero),proof:rect(proof),challenge:rect(challenge),stack,proofType:[...document.querySelectorAll('.page-proof strong')].map(type),stateType:[...document.querySelectorAll('.challenge-state strong')].map(type),brandText:brand?.querySelector('span')?.textContent.trim(),brandAriaLabel:brand?.getAttribute('aria-label'),seal:seal?{...rect(seal),complete:seal.complete,naturalWidth:seal.naturalWidth,naturalHeight:seal.naturalHeight,src:seal.getAttribute('src'),alt:seal.getAttribute('alt')}:null,lineContrast:line&&code?contrast(getComputedStyle(line).color,getComputedStyle(code).backgroundColor):null,fontFaceCount:document.fonts?[...document.fonts].filter(face=>/Noto Sans|IBM Plex Mono/.test(face.family)).length:null,trackFigures,heroArtMask:heroArt?getComputedStyle(heroArt).maskImage:null,typography};
 })()`;
@@ -120,8 +126,15 @@ function assertState(state, route, width) {
   if (t.button&&t.button.size!==16) throw new Error(`button typography ${route} ${width}: ${JSON.stringify(t.button)}`);
   if (t.homeHero&&(t.homeHero.size<42||t.homeHero.size>64||t.homeHero.weight!==800||(width>900&&t.homeHero.lines>2))) throw new Error(`homepage hero typography ${route} ${width}: ${JSON.stringify(t.homeHero)}`);
   if (t.pageHero&&(t.pageHero.size<40||t.pageHero.size>56||t.pageHero.weight!==700)) throw new Error(`page hero typography ${route} ${width}: ${JSON.stringify(t.pageHero)}`);
-  if (t.lead&&(t.lead.size<18||t.lead.size>20||Math.abs(t.lead.lineHeight/t.lead.size-1.6)>.06)) throw new Error(`lead typography ${route} ${width}: ${JSON.stringify(t.lead)}`);
+  if (t.lead&&(t.lead.size<18||t.lead.size>20||Math.abs(t.lead.lineHeight/t.lead.size-1.6)>.01)) throw new Error(`lead typography ${route} ${width}: ${JSON.stringify(t.lead)}`);
   if (t.section&&(t.section.size<32||t.section.size>48||t.section.weight!==700)) throw new Error(`section typography ${route} ${width}: ${JSON.stringify(t.section)}`);
+  if (t.headings.some(type=>type.size<32||type.size>48||type.weight!==700)) throw new Error(`semantic H2 typography ${route} ${width}: ${JSON.stringify(t.headings)}`);
+  if (t.features.some(type=>type.size<20||type.size>30||type.weight<600||type.weight>700||type.lineHeight/type.size<1.24||type.lineHeight/type.size>1.51)) throw new Error(`feature typography ${route} ${width}: ${JSON.stringify(t.features)}`);
+  if (t.technicalCopy.some(type=>type.size!==16||type.lineHeight!==24)) throw new Error(`technical prose typography ${route} ${width}: ${JSON.stringify(t.technicalCopy)}`);
+  const cadence=width>768?type=>type.paddingTop===80&&type.paddingBottom===80:type=>type.paddingTop>=56&&type.paddingTop<=64&&type.paddingBottom>=56&&type.paddingBottom<=64;
+  if (secondary.has(route)&&(!t.sectionCadence.length||t.sectionCadence.some(type=>!cadence(type)))) throw new Error(`section cadence ${route} ${width}: ${JSON.stringify(t.sectionCadence)}`);
+  const headingMargin=width>768?48:36;
+  if (secondary.has(route)&&(!t.headingCadence.length||t.headingCadence.some(type=>type.marginBottom!==headingMargin))) throw new Error(`heading cadence ${route} ${width}: ${JSON.stringify(t.headingCadence)}`);
   if (state.brandText !== 'EEG/EMG Foundation' || !state.seal || !state.seal.complete || state.seal.naturalWidth !== 256 || state.seal.naturalHeight !== 256 || state.seal.width !== 40 || state.seal.height !== 40 || state.seal.src !== 'assets/img/brand/trophy-seal.webp' || state.seal.alt !== '') throw new Error(`header seal/name inputs ${route} ${width}: ${JSON.stringify(state.seal)}`);
   if (secondary.has(route) && (!state.proof || !state.challenge)) throw new Error(`first-fold components ${route} ${width}`);
   if (secondary.has(route) && (!state.proofType.length || state.proofType.some(type => type.size < 16 || !type.family.includes('IBM Plex Mono')))) throw new Error(`proof typography ${route} ${width}: ${JSON.stringify(state.proofType)}`);
@@ -147,6 +160,28 @@ async function checkButtonHoverFocus(page, route, width) {
   const state = await page.eval(`(async()=>{const e=document.querySelector('.campaign-hero .bs-btn.primary');e.focus({focusVisible:true});await new Promise(r=>setTimeout(r,250));const s=getComputedStyle(e);return {focusVisible:e.matches(':focus-visible'),hover:e.matches(':hover'),outline:s.outline,boxShadow:s.boxShadow}})()`);
   if (!state.focusVisible || !state.hover || !state.boxShadow.includes('0px 0px 0px 3px')) throw new Error(`button hover focus ${route} ${width}: ${JSON.stringify(state)}`);
   return state;
+}
+
+async function checkDesktopNavigation() {
+  const page = await open('index.html', 1024, 900);
+  try {
+    const state = await page.eval(`(()=>{
+      const visible=e=>{const r=e.getBoundingClientRect(),s=getComputedStyle(e);return r.width>0&&r.height>0&&s.display!=='none'&&s.visibility!=='hidden'};
+      const rect=e=>{const r=e.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height}};
+      const header=document.querySelector('.site-header'),brand=document.querySelector('.site-brand'),menu=document.querySelector('.site-menu');
+      const items=[...document.querySelectorAll('.site-menu > a')].filter(visible).map(rect);
+      const targets=[...document.querySelectorAll('.site-header a, .site-header button')].filter(visible).map(rect);
+      return {header:rect(header),brand:rect(brand),menu:rect(menu),menuFlexWrap:getComputedStyle(menu).flexWrap,items,targets,rootWidth:document.documentElement.scrollWidth,bodyWidth:document.body.scrollWidth,innerWidth};
+    })()`);
+    const overlap=state.brand.right>state.menu.left&&state.brand.left<state.menu.right&&state.brand.bottom>state.menu.top&&state.brand.top<state.menu.bottom;
+    const tops=state.items.map(item=>item.top);
+    const contained=state.rootWidth===1024&&state.bodyWidth===1024&&state.header.left>=-1&&state.header.right<=1025;
+    if (overlap||state.menuFlexWrap!=='nowrap'||!state.items.length||Math.max(...tops)-Math.min(...tops)>1||!contained||state.targets.some(target=>target.height<44)) throw new Error(`desktop navigation 1024: ${JSON.stringify({...state,overlap,contained})}`);
+    if (page.errors.length) throw new Error(`console index.html 1024: ${JSON.stringify(page.errors)}`);
+    return state;
+  } finally {
+    await page.close();
+  }
 }
 
 async function checkCodeScrollers(page, route) {
@@ -195,7 +230,7 @@ async function prepareFullPage(page) {
 }
 
 await mkdir(output, { recursive: true });
-const summary = { viewportCaptures: 0, fullPageCaptures: 0, fontFallbackCaptures: 0, viewports: {}, buttonHoverFocus: null, codeScrollers: {}, fullPages: {}, fontFallback: {} };
+const summary = { viewportCaptures: 0, fullPageCaptures: 0, fontFallbackCaptures: 0, navigation1024: await checkDesktopNavigation(), viewports: {}, buttonHoverFocus: null, codeScrollers: {}, fullPages: {}, fontFallback: {} };
 const brandOverrides = [];
 
 for (const route of routes) {
