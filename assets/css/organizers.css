@@ -2,36 +2,6 @@
 
 .organizers-page { font-size: 16px; }
 
-.org-hero .page-hero-inner { max-width: 1040px; }
-
-.org-hero-stats {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin-top: 40px;
-  border-top: 1px solid var(--bs-text);
-  border-bottom: 1px solid var(--bs-card-border);
-}
-
-.org-hero-stats > div {
-  display: grid;
-  gap: 4px;
-  min-width: 0;
-  padding: 20px 20px 20px 0;
-  border-right: 1px solid var(--bs-card-border);
-}
-
-.org-hero-stats > div:not(:first-child) { padding-left: 20px; }
-.org-hero-stats > div:last-child { border-right: 0; }
-
-.org-hero-stats strong {
-  color: var(--bs-text);
-  font-family: var(--bs-fontmono);
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 600;
-  letter-spacing: -0.04em;
-  line-height: 1;
-}
-
 .org-section {
   padding: 72px max(20px, calc((100% - 1344px) / 2));
   border-bottom: 1px solid var(--bs-card-border);
@@ -208,9 +178,6 @@
 }
 
 @media (max-width: 640px) {
-  .org-hero-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .org-hero-stats > div:nth-child(2n) { border-right: 0; }
-  .org-hero-stats > div:nth-child(n + 3) { border-top: 1px solid var(--bs-card-border); }
   .org-section { padding-block: 56px; }
   .org-section-head h2 { font-size: 36px; }
   .org-card .head,

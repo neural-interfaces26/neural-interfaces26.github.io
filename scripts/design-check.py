@@ -335,6 +335,27 @@ def check_technical(errors: list[str]) -> None:
 
 def check_narrative(errors: list[str]) -> None:
     pages = {name: parse_page(name) for name in NARRATIVE_PAGES}
+    proof_copy = {
+        "awards.html": ("4 tracks", "3 prize places", "$2,500", "Sydney"),
+        "ethics.html": ("Preview", "Provider approvals", "Explicit consent", "Read-only decoders"),
+        "organizers.html": ("28", "4", "14", "5"),
+        "track-record.html": ("2021", "2026", "4 competitions", "Same lead"),
+    }
+    for name, (_, parsed) in pages.items():
+        proofs = parsed.find("aside", "page-proof")
+        states = parsed.find("section", "challenge-state")
+        if len(proofs) != 1 or not proofs[0]["attrs"].get("aria-label"):
+            errors.append(f"{name}: requires one labelled page-proof aside")
+        if len(states) != 1 or not states[0]["attrs"].get("aria-label"):
+            errors.append(f"{name}: requires one labelled challenge-state section")
+        if parsed.find(class_name="announcement-strip"):
+            errors.append(f"{name}: legacy announcement strip remains")
+        proof_text = element_text(proofs[0]) if proofs else ""
+        for fact in proof_copy[name]:
+            if fact not in proof_text:
+                errors.append(f"{name}: page proof missing {fact!r}")
+    if pages["ethics.html"][1].find(class_name="review-state"):
+        errors.append("ethics.html: duplicate review-state strip remains")
     for name, (text, parsed) in pages.items():
         if "narrative-page" not in parsed.classes:
             errors.append(f"{name}: narrative page class missing")
@@ -404,8 +425,6 @@ def check_narrative(errors: list[str]) -> None:
     ethics = pages["ethics.html"][1]
     if len(ethics.find("nav", "local-nav")) != 1:
         errors.append("ethics.html: requires one local section index")
-    if len(ethics.find(class_name="review-state")) != 1:
-        errors.append("ethics.html: requires a visible review state")
     if len(ethics.find(class_name="editorial-lane")) != 1:
         errors.append("ethics.html: requires one editorial reading lane")
     ethics_main = ethics.find("main")
