@@ -2408,8 +2408,8 @@ body.menu-open { overflow: hidden; }
 .model-card h4,
 .formal-block h3 {
   font-family: var(--bs-fontdisplay);
-  font-weight: 800;
-  letter-spacing: -0.022em;
+  font-weight: var(--bs-weight-display);
+  letter-spacing: -0.02em;
   color: var(--bs-text);
 }
 
@@ -2418,7 +2418,6 @@ body.menu-open { overflow: hidden; }
      viewport: .site-main clips overflow, so a heading that
      is too wide is clipped rather than scrolled. */
   font-size: clamp(29px, 4.6vw, 58px);
-  font-weight: 900;
   line-height: 0.98;
   letter-spacing: -0.032em;
   overflow-wrap: break-word;
@@ -2427,7 +2426,6 @@ body.menu-open { overflow: hidden; }
 
 .org-hero h1 {
   font-size: clamp(28px, 4vw, 50px);
-  font-weight: 900;
   line-height: 1;
   letter-spacing: -0.03em;
   overflow-wrap: break-word;
@@ -2435,27 +2433,29 @@ body.menu-open { overflow: hidden; }
 
 .vb-section-head h2,
 .org-section-head h2 {
-  font-size: clamp(24px, 3vw, 40px);
-  line-height: 1.02;
-  letter-spacing: -0.028em;
+  font-size: var(--bs-type-section);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   overflow-wrap: break-word;
 }
 
 .vb-cta h2 {
   font-size: clamp(26px, 3.4vw, 46px);
-  font-weight: 900;
   line-height: 1;
   letter-spacing: -0.03em;
   overflow-wrap: break-word;
 }
 
-.vb-track h3 { font-size: 23px; line-height: 1.1; }
-.phase-card h3 { font-size: 19px; line-height: 1.12; }
+.vb-track h3 { font-size: 22px; line-height: 1.35; }
+.phase-card h3 { font-size: 20px; line-height: 1.4; font-weight: 600; }
+.model-card h4,
+.formal-block h3 { font-size: 20px; line-height: 1.4; font-weight: 600; }
 
 .vb-section-head p.vb-section-subtitle {
   font-family: var(--bs-fontdisplay);
-  font-weight: 700;
-  font-size: 21px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.5;
   letter-spacing: -0.015em;
   color: var(--bs-text);
 }
@@ -2689,11 +2689,10 @@ body.menu-open { overflow: hidden; }
 
 .narrative-page .site-main { overflow-x: clip; }
 
-.narrative-page .page-hero p,
 .narrative-page .vb-section p,
 .narrative-page .org-section p,
 .narrative-page .policy-list,
-.narrative-page .note-text { font-size: 16px; }
+.narrative-page .note-text { font-size: 16px; line-height: 1.5; }
 
 .narrative-page .bs-btn { min-height: 44px; }
 .narrative-page .dot { display: none; }
@@ -2809,7 +2808,7 @@ body.menu-open { overflow: hidden; }
 
 .ethics-page .vb-section-head { display: block; }
 .ethics-page .vb-section-head > div:first-child { max-width: none; }
-.ethics-page .vb-section-head h2 { font-size: clamp(34px, 4vw, 48px); line-height: 1.02; }
+.ethics-page .vb-section-head h2 { font-size: var(--bs-type-section); line-height: 1.1; }
 .ethics-page .vb-section-side {
   max-width: 56ch;
   margin-top: 28px;
@@ -2913,7 +2912,7 @@ body.menu-open { overflow: hidden; }
 }
 
 .track-record-page .year-entry .vb-section-head { grid-template-columns: minmax(0, 1.4fr) minmax(240px, 0.6fr); }
-.track-record-page .year-entry .vb-section-head h2 { font-size: clamp(36px, 4vw, 52px); }
+.track-record-page .year-entry .vb-section-head h2 { font-size: var(--bs-type-section); line-height: 1.1; }
 
 .track-record-page .year-entry .vb-tracks {
   display: block;
@@ -2955,13 +2954,13 @@ body.menu-open { overflow: hidden; }
   max-width: 10ch;
   margin: 24px 0;
   color: var(--bs-text);
-  font-size: clamp(56px, 6vw, 72px);
-  font-weight: 900;
-  letter-spacing: -0.05em;
-  line-height: 0.94;
+  font-size: var(--bs-type-hero-page);
+  font-weight: var(--bs-weight-display);
+  letter-spacing: var(--bs-tracking-display);
+  line-height: 1.08;
 }
 
-.error-page .error-copy > p:not(.bs-eyebrow) { max-width: 48ch; color: var(--bs-muted); font-size: 18px; line-height: 1.65; }
+.error-page .error-copy > p:not(.bs-eyebrow) { max-width: 48ch; color: var(--bs-muted); font-size: var(--bs-type-lead); line-height: var(--bs-leading-lead); }
 
 .error-trophy {
   position: absolute;
@@ -2998,7 +2997,6 @@ body.menu-open { overflow: hidden; }
   .award-breakdown .track-stats { grid-column: 1; grid-row: auto; }
   .award-internship { padding-inline: 20px !important; }
   .ethics-page .vb-section { padding-block: 56px; }
-  .ethics-page .vb-section-head h2 { font-size: 36px; }
   .commitment-list > li { grid-template-columns: 40px minmax(0, 1fr); gap: 4px 12px; }
   .year-rail { padding-left: 36px; }
   .year-rail::before { left: 4px; }
@@ -3010,7 +3008,6 @@ body.menu-open { overflow: hidden; }
   .track-record-page .year-entry .vb-track h3,
   .track-record-page .year-entry .vb-track p { grid-column: 1; grid-row: auto; }
   .error-page { min-height: calc(100dvh - 160px); align-items: end; padding-block: 48px; }
-  .error-page h1 { font-size: 44px; }
   .error-trophy { inset: 10% -68% 40% 28%; opacity: 0.14; }
   .error-page .bs-hero-cta { align-items: stretch; }
   .error-page .bs-btn { width: 100%; justify-content: center; }
@@ -3118,10 +3115,10 @@ body.menu-open { overflow: hidden; }
   margin: 28px 0 20px;
   color: var(--bs-text);
   font-family: var(--bs-fontdisplay);
-  font-size: clamp(56px, 6vw, 72px);
-  font-weight: 900;
-  letter-spacing: -0.042em;
-  line-height: 0.96;
+  font-size: var(--bs-type-hero-page);
+  font-weight: var(--bs-weight-display);
+  letter-spacing: var(--bs-tracking-display);
+  line-height: 1.08;
   text-wrap: balance;
 }
 
@@ -3129,8 +3126,8 @@ body.menu-open { overflow: hidden; }
   max-width: 65ch;
   margin: 0 0 28px;
   color: var(--bs-muted);
-  font-size: 18px;
-  line-height: 1.65;
+  font-size: var(--bs-type-lead);
+  line-height: var(--bs-leading-lead);
 }
 
 .page-hero .bs-btn { min-height: 48px; white-space: nowrap; }
@@ -3205,15 +3202,15 @@ body.menu-open { overflow: hidden; }
 .faq-intro { grid-template-columns: minmax(0, 65ch); }
 
 .technical-page .vb-section {
-  padding: 72px max(20px, calc((100% - 1344px) / 2));
+  padding: 80px max(20px, calc((100% - 1344px) / 2));
   background: var(--bs-bg);
 }
 
 .technical-page .vb-section-cream { background: var(--bs-surface); }
 
 .technical-page .vb-section-head h2 {
-  font-size: clamp(36px, 4vw, 52px);
-  line-height: 1;
+  font-size: var(--bs-type-section);
+  line-height: 1.1;
 }
 
 .technical-page .vb-section-head p,
@@ -3466,17 +3463,18 @@ body.menu-open { overflow: hidden; }
   .challenge-state-review > div:last-child { grid-column: auto; }
   .challenge-state-review strong { line-height: 1.2; }
   .technical-page .page-hero h1,
-  .narrative-page .page-hero h1 { margin: 16px 0 12px; font-size: 42px; line-height: 0.98; }
-  .narrative-page .page-hero h1 { font-size: 38px; }
+  .narrative-page .page-hero h1 {
+    margin: 16px 0 12px;
+    font-size: var(--bs-type-hero-page);
+    line-height: 1.08;
+  }
   .technical-page .page-hero p,
-  .narrative-page .page-hero p { margin-bottom: 16px; font-size: 17px; }
-  .narrative-page .page-hero p { font-size: 16px; line-height: 1.5; }
+  .narrative-page .page-hero p { margin-bottom: 16px; font-size: 18px; line-height: 1.55; }
   .technical-page .page-hero .bs-hero-cta,
   .narrative-page .page-hero .bs-hero-cta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
   .technical-page .page-hero .bs-btn,
   .narrative-page .page-hero .bs-btn { width: 100%; min-width: 0; justify-content: center; white-space: normal; text-align: center; }
   .technical-page .vb-section { padding-block: 56px; }
-  .technical-page .vb-section-head h2 { font-size: 36px; }
   .board-status { grid-template-columns: 1fr; }
   .formal-block { padding: 20px; }
   .formal-block mjx-container[display="true"] { font-size: 94%; }

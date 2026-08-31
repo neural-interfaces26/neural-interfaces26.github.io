@@ -157,6 +157,12 @@ def check_typography(errors: list[str]) -> None:
         ("assets/css/landing.css", "campaign section cadence", r"\.campaign-section\s*\{[^}]*padding\s*:\s*96px 48px"),
         ("assets/css/landing.css", "campaign heading scale", r"\.campaign-section-head h2[^{]*\{[^}]*font-size\s*:\s*var\(--bs-type-section\)[^}]*font-weight\s*:\s*var\(--bs-weight-display\)[^}]*line-height\s*:\s*1\.1"),
         ("assets/css/landing.css", "track heading scale", r"\.track-card h3\s*\{[^}]*font-size\s*:\s*clamp\(24px,\s*2vw,\s*30px\)[^}]*font-weight\s*:\s*700[^}]*line-height\s*:\s*1\.2"),
+        ("assets/css/landing.css", "secondary hero scale", r"\.page-hero h1\s*\{[^}]*font-size\s*:\s*var\(--bs-type-hero-page\)[^}]*font-weight\s*:\s*var\(--bs-weight-display\)[^}]*line-height\s*:\s*1\.08"),
+        ("assets/css/landing.css", "secondary lead scale", r"\.page-hero p\s*\{[^}]*font-size\s*:\s*var\(--bs-type-lead\)[^}]*line-height\s*:\s*var\(--bs-leading-lead\)"),
+        ("assets/css/landing.css", "shared page heading weight", r"\.vb-hero-text h1,[^{]*\.formal-block h3\s*\{[^}]*font-weight\s*:\s*var\(--bs-weight-display\)"),
+        ("assets/css/landing.css", "technical section scale", r"\.technical-page \.vb-section-head h2\s*\{[^}]*font-size\s*:\s*var\(--bs-type-section\)[^}]*line-height\s*:\s*1\.1"),
+        ("assets/css/landing.css", "recovery heading scale", r"\.error-page h1\s*\{[^}]*font-size\s*:\s*var\(--bs-type-hero-page\)[^}]*font-weight\s*:\s*var\(--bs-weight-display\)"),
+        ("assets/css/organizers.css", "organizer section scale", r"\.org-section-head h2\s*\{[^}]*font-size\s*:\s*var\(--bs-type-section\)[^}]*font-weight\s*:\s*var\(--bs-weight-display\)[^}]*line-height\s*:\s*1\.1"),
     )
     for path, label, pattern in rules:
         if not re.search(pattern, styles[path], flags=re.DOTALL):
@@ -164,6 +170,9 @@ def check_typography(errors: list[str]) -> None:
     landing = styles["assets/css/landing.css"]
     if re.search(r"\.campaign-hero-copy h1\s*\{\s*font-size\s*:\s*80px", landing):
         errors.append("assets/css/landing.css: desktop 80px homepage hero override remains")
+    for path in ("assets/css/landing.css", "assets/css/organizers.css"):
+        if re.search(r"(?:h1|h2)[^{]*\{[^}]*font-weight\s*:\s*900", styles[path], flags=re.DOTALL):
+            errors.append(f"{path}: semantic H1/H2 still uses weight 900")
 
 
 def strip_css_comments(css: str) -> str:

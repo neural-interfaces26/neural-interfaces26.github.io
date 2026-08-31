@@ -3,7 +3,7 @@
 .organizers-page { font-size: 16px; }
 
 .org-section {
-  padding: 72px max(20px, calc((100% - 1344px) / 2));
+  padding: 80px max(20px, calc((100% - 1344px) / 2));
   border-bottom: 1px solid var(--bs-card-border);
 }
 
@@ -16,10 +16,10 @@
   margin: 12px 0 16px;
   color: var(--bs-text);
   font-family: var(--bs-fontdisplay);
-  font-size: clamp(36px, 4vw, 52px);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 1;
+  font-size: var(--bs-type-section);
+  font-weight: var(--bs-weight-display);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
   text-wrap: balance;
 }
 
@@ -28,7 +28,7 @@
   margin: 0;
   color: var(--bs-muted);
   font-size: 16px;
-  line-height: 1.65;
+  line-height: 1.5;
 }
 
 .org-section-side { display: none; }
@@ -120,7 +120,7 @@
   margin: 0;
   color: var(--bs-muted);
   font-size: 16px;
-  line-height: 1.65;
+  line-height: 1.5;
 }
 
 .org-card.lead .name { color: var(--bs-text); }
@@ -178,8 +178,7 @@
 }
 
 @media (max-width: 640px) {
-  .org-section { padding-block: 56px; }
-  .org-section-head h2 { font-size: 36px; }
+  .org-section { padding-block: 64px; }
   .org-card .head,
   .org-grid.tight .org-card .head { grid-template-columns: 72px minmax(0, 1fr); gap: 16px; }
   .org-card .avatar,
