@@ -2,6 +2,17 @@
   --bs-fontdisplay: "Noto Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --bs-fontsans: "Noto Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --bs-fontmono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --bs-type-body: 16px;
+  --bs-leading-body: 1.5;
+  --bs-type-action: 16px;
+  --bs-leading-action: 1.5;
+  --bs-type-lead: clamp(18px, 1.55vw, 20px);
+  --bs-leading-lead: 1.6;
+  --bs-type-hero-home: clamp(42px, 4.5vw, 64px);
+  --bs-type-hero-page: clamp(40px, 4vw, 56px);
+  --bs-type-section: clamp(32px, 3.4vw, 48px);
+  --bs-weight-display: 700;
+  --bs-tracking-display: -0.025em;
   --bs-bg: #ffffff;
   --bs-surface: #f7f5fc;
   --bs-text: #07101f;

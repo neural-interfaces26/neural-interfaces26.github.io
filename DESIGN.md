@@ -53,6 +53,17 @@ The PSD trophy may retain its native lilac and stone tones. Scientific figures, 
 - Large primary headings may end in one violet full stop. Use the motif deliberately, never on every heading.
 - Factual text stays fully readable: never distort it, screen it, or hide it behind an overlap.
 
+| Role | Fluid scale | Weight | Leading |
+| --- | --- | --- | --- |
+| Body | 16px | 400–600 | 1.5 |
+| Action and navigation | 16px | 600–700 | 1.5 |
+| Lead | 18–20px | 400 | 1.6 |
+| Homepage hero | 42–64px | 800 | 1.02 |
+| Secondary hero | 40–56px | 700 | 1.08 |
+| Section heading | 32–48px | 700 | 1.1 |
+
+Weight 900 is reserved for intentional numeric display figures, never semantic H1/H2 headings.
+
 ## Spacing and layout
 
 - Base unit: `4 px`. Use multiples of 4 for spacing and sizing unless a 1 px rule or optical adjustment is required.

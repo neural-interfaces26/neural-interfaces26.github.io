@@ -42,7 +42,7 @@
   min-width: 44px;
   min-height: 44px;
   color: var(--bs-text);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 800;
   letter-spacing: -0.015em;
   line-height: 1.2;
@@ -76,7 +76,7 @@
   min-height: 44px;
   padding-block: 10px;
   color: var(--bs-muted);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
@@ -108,7 +108,7 @@
   right: 0;
 }
 
-.site-menu > .bs-btn { min-height: 44px; font-size: 14px; }
+.site-menu > .bs-btn { min-height: 44px; font-size: var(--bs-type-action); }
 
 .site-menu-toggle {
   display: none;
@@ -3157,7 +3157,7 @@ body.menu-open { overflow: hidden; }
   align-items: center;
   padding: 8px 14px;
   color: var(--bs-muted);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;

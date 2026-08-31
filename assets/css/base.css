@@ -22,8 +22,8 @@ body {
   background: var(--bs-bg);
   color: var(--bs-text);
   font-family: var(--bs-fontsans);
-  font-size: 15px;
-  line-height: 1.55;
+  font-size: var(--bs-type-body);
+  line-height: var(--bs-leading-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -166,12 +166,13 @@ button.bs-pill.solid:hover {
   align-items: center;
   gap: 8px;
   padding: 12px 20px;
-  border-radius: var(--bs-radius-md);
+  border-radius: var(--bs-radius-sm);
   border: 1px solid transparent;
   background: transparent;
   font-weight: 700;
-  font-size: 13.5px;
-  letter-spacing: 0.1px;
+  font-size: var(--bs-type-action);
+  line-height: var(--bs-leading-action);
+  letter-spacing: 0;
   cursor: pointer;
   font-family: inherit;
   transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
@@ -181,7 +182,7 @@ button.bs-pill.solid:hover {
 .bs-btn.primary {
   background: var(--bs-violet);
   color: white;
-  box-shadow: var(--bs-shadow-card);
+  box-shadow: none;
 }
 
 .bs-btn.primary:hover {
@@ -194,7 +195,7 @@ button.bs-pill.solid:hover {
   background: #ffffff;
   color: var(--bs-text);
   border-color: var(--bs-card-border);
-  box-shadow: var(--bs-shadow-card);
+  box-shadow: none;
 }
 
 .bs-btn.ghost:hover {

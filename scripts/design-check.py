@@ -125,6 +125,39 @@ def check_tokens(errors: list[str]) -> None:
             errors.append(f"{page}: favicon must use exact #5332F4")
 
 
+def check_typography(errors: list[str]) -> None:
+    styles = {
+        name: strip_css_comments((ROOT / name).read_text(encoding="utf-8"))
+        for name in (
+            "assets/css/tokens.css",
+            "assets/css/base.css",
+            "assets/css/landing.css",
+            "assets/css/organizers.css",
+        )
+    }
+    rules = (
+        ("assets/css/tokens.css", "body token", r"--bs-type-body\s*:\s*16px\s*;"),
+        ("assets/css/tokens.css", "body leading", r"--bs-leading-body\s*:\s*1\.5\s*;"),
+        ("assets/css/tokens.css", "action token", r"--bs-type-action\s*:\s*16px\s*;"),
+        ("assets/css/tokens.css", "action leading", r"--bs-leading-action\s*:\s*1\.5\s*;"),
+        ("assets/css/tokens.css", "lead token", r"--bs-type-lead\s*:\s*clamp\(18px,\s*1\.55vw,\s*20px\)\s*;"),
+        ("assets/css/tokens.css", "lead leading", r"--bs-leading-lead\s*:\s*1\.6\s*;"),
+        ("assets/css/tokens.css", "home hero token", r"--bs-type-hero-home\s*:\s*clamp\(42px,\s*4\.5vw,\s*64px\)\s*;"),
+        ("assets/css/tokens.css", "page hero token", r"--bs-type-hero-page\s*:\s*clamp\(40px,\s*4vw,\s*56px\)\s*;"),
+        ("assets/css/tokens.css", "section token", r"--bs-type-section\s*:\s*clamp\(32px,\s*3\.4vw,\s*48px\)\s*;"),
+        ("assets/css/tokens.css", "display weight", r"--bs-weight-display\s*:\s*700\s*;"),
+        ("assets/css/tokens.css", "display tracking", r"--bs-tracking-display\s*:\s*-0\.025em\s*;"),
+        ("assets/css/base.css", "body scale", r"body\s*\{[^}]*font-size\s*:\s*var\(--bs-type-body\)[^}]*line-height\s*:\s*var\(--bs-leading-body\)"),
+        ("assets/css/base.css", "button scale", r"\.bs-btn\s*\{[^}]*font-size\s*:\s*var\(--bs-type-action\)[^}]*line-height\s*:\s*var\(--bs-leading-action\)"),
+        ("assets/css/landing.css", "brand scale", r"\.site-brand\s*\{[^}]*font-size\s*:\s*16px"),
+        ("assets/css/landing.css", "primary navigation scale", r"\.site-menu\s*>\s*a:not\(\.bs-btn\)\s*\{[^}]*font-size\s*:\s*16px"),
+        ("assets/css/landing.css", "local navigation scale", r"\.local-nav a\s*\{[^}]*font-size\s*:\s*16px"),
+    )
+    for path, label, pattern in rules:
+        if not re.search(pattern, styles[path], flags=re.DOTALL):
+            errors.append(f"{path}: missing typography contract: {label}")
+
+
 def strip_css_comments(css: str) -> str:
     return re.sub(r"/\*.*?\*/", "", css, flags=re.DOTALL)
 
@@ -796,13 +829,14 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--scope",
-        choices=("tokens", "detail", "shell", "home", "technical", "narrative", "metadata", "assets", "all"),
+        choices=("tokens", "typography", "detail", "shell", "home", "technical", "narrative", "metadata", "assets", "all"),
         default="all",
     )
     scope = parser.parse_args().scope
     errors: list[str] = []
     checks = {
         "tokens": check_tokens,
+        "typography": check_typography,
         "detail": check_detail_css,
         "shell": check_shell,
         "home": check_home,
