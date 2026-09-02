@@ -388,10 +388,10 @@ def check_home(errors: list[str]) -> None:
         str(image["attrs"].get("src") or image["attrs"].get("data-src"))
         for image in track_images
     }
-    if len(track_cards) != 1 or image_paths != {"assets/img/figures/emg-to-text.png"}:
-        errors.append("index.html: EMG-to-Pose must retain the approved existing Track 4 image")
+    if len(track_cards) != 1 or image_paths != {"assets/img/figures/emg-to-pose.png"}:
+        errors.append("index.html: EMG-to-Pose requires the approved Track 4 image")
     if any("pose" not in str(image["attrs"].get("alt", "")).lower() for image in track_images):
-        errors.append("index.html: retained Track 4 image needs EMG-to-Pose alternative text")
+        errors.append("index.html: Track 4 image needs EMG-to-Pose alternative text")
     institution_groups = parsed.find(class_name="sponsor-institutions")
     home_eth_marks = [
         image for image in parsed.find("img")
