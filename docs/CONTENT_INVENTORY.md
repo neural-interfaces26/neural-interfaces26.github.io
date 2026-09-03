@@ -18,6 +18,7 @@ Source: `competitions_neurips_2026.tex` (835 lines), `affiliations.tex` (20 line
 | C8 | Footnote URL form | Line 454 footnote: `neural-interfaces26.github.io/leaderboard.html` (hyphen + `s`) | **Keep as written** — *reversed 2026-08-28* | Third collision with C1; same resolution. The footnote was already using the form that actually resolves. |
 | C9 | Track-5 adaptation rule | Line 385: "adaptation mechanisms" permitted; lines 519-521: "separately-trained sub-encoders" forbidden | **Adaptation = per-task heads + organizer-fitted linear probes only; no per-track encoder fine-tuning** | Surface in FAQ Q1/Q11; flag in startkit submission section. |
 | C10 | "Suggested" vs "required" training rule | Line 516: "are suggested to be trained exclusively on data of their track"; line 529: "reproducible scripts from top submissions enforce it" | **Enforced for top-N audit; suggestion-only for the public leaderboard** | Surface in FAQ Q8 alongside the external-data policy. |
+| C11 | Sleep-track sponsor name | Lines 39-41 (`affiliations.tex`): organisers affiliated to 'InteraXon Inc., Canada'; Section 8: `InteraXon (Muse headband)` as sleep-track data provider | **Credit the sponsor as "Muse", never as "InteraXon"** — *added 2026-09-04* | The sponsor asked to be named by the headband brand rather than the legal entity. All eight site mentions and the sponsor-wall mark now read Muse (`assets/img/logos/muse.svg`, plus `muse-white.svg` for dark surfaces); the sponsor link points at `choosemuse.com`, not `interaxon.ca`. The legal entity and the `@interaxon.ca` addresses in Section 2 stay as the proposal wrote them — they are the record of the submission, not site copy. |
 
 ---
 
@@ -143,7 +144,7 @@ Establishing lines in the proposal:
 | Compute coordinator / platform operator | Yneuro | https://yneuro.com |
 | Platform engineering partner (Codabench scaling) | Deloitte | https://www.deloitte.com |
 | Submission platform (open-source) | Codabench | https://www.codabench.org |
-| Sleep track data provider | InteraXon (Muse headband) | https://choosemuse.com |
+| Sleep track data provider | Muse (headband); legal entity InteraXon Inc. — credit as "Muse" only, see C11 | https://choosemuse.com |
 | EMG track research (Track Leader affiliation) | Meta Reality Labs | https://about.meta.com/realitylabs/ |
 | IMG track data provider | Alljoined | https://alljoined.com |
 | IMG / Foundation track research | Meta FAIR Brain & AI | https://ai.meta.com/research/ |
