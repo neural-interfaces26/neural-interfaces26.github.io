@@ -6,14 +6,14 @@
 <meta name="theme-color" content="#5332F4" />
 
 <title>Start-kit & Baselines · EEG/EMG Foundation Challenge 2026</title>
-<meta name="description" content="Install NeuralBench, compare four track contracts, train official EEG and EMG baselines, and prepare a reproducible challenge submission." />
+<meta name="description" content="The NeuroAI guides that show how to train, evaluate locally and submit a model, plus the official baseline scores for every track." />
 
 <link rel="canonical" href="https://neural-interfaces26.github.io/startkit.html" />
 <meta name="author" content="Bruno Aristimunha and the EEG/EMG Foundation Challenge organising team" />
 <meta name="keywords" content="EEG baseline, start-kit, neuralbench, eegdash, braindecode, NeurIPS 2026 challenge submission" />
 
 <meta property="og:title" content="Start-kit &amp; Baselines · EEG/EMG Foundation Challenge 2026" />
-<meta property="og:description" content="Install NeuralBench, compare four track contracts, train official EEG and EMG baselines, and prepare a reproducible challenge submission." />
+<meta property="og:description" content="The NeuroAI guides that show how to train, evaluate locally and submit a model, plus the official baseline scores for every track." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://neural-interfaces26.github.io/startkit.html" />
 <meta property="og:site_name" content="EEG/EMG Foundation Challenge" />
@@ -25,7 +25,7 @@
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Start-kit & Baselines · EEG/EMG Foundation Challenge 2026" />
-<meta name="twitter:description" content="Install NeuralBench, compare four track contracts, train official EEG and EMG baselines, and prepare a reproducible challenge submission." />
+<meta name="twitter:description" content="The NeuroAI guides that show how to train, evaluate locally and submit a model, plus the official baseline scores for every track." />
 <meta name="twitter:image" content="https://neural-interfaces26.github.io/assets/img/og-card.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -71,18 +71,16 @@
       <div class="page-hero-copy">
         <span class="bs-eyebrow">Start kit and baselines</span>
         <h1 id="kit-heading">Start-kit &amp; baselines.</h1>
-        <p>One <code>pip install</code>, one <code>neuralbench</code> command, one submission file.</p>
+        <p>The start-kit is a set of guides in the NeuroAI repository. This page points you to them and lists the baseline scores to beat.</p>
         <div class="bs-hero-cta">
           <a class="bs-btn primary" href="https://github.com/facebookresearch/neuroai" target="_blank" rel="noreferrer noopener">Get the start-kit →</a>
           <a class="bs-btn ghost" href="#baselines">See the baselines</a>
         </div>
+        <p class="rules-note">
+          <svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 2.5H5.5a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V6.5z" /><path d="M11.5 2.5v4h4" /><path d="M7.5 10.5h5M7.5 13.5h3" /></svg>
+          <span><strong>The rules are not on this page.</strong> Submission caps, eligibility, external data, compute, the reproducibility audit and authorship all live on the <a href="faq.html#rules">Rules &amp; FAQ</a> page. Read them before your first upload.</span>
+        </p>
       </div>
-      <aside class="page-proof" aria-label="Start-kit at a glance">
-        <div><span>Runtime</span><strong>Python ≥ 3.12</strong></div>
-        <div><span>Framework</span><strong>PyTorch ≥ 2.2</strong></div>
-        <div><span>Data layout</span><strong>BIDS-first</strong></div>
-        <div><span>License</span><strong>MIT licensed</strong></div>
-      </aside>
     </div>
   </section>
 
@@ -92,228 +90,20 @@
     <div><span>Handoff</span><strong><a href="https://brainbodyfm-workshop.github.io" target="_blank" rel="noreferrer noopener">NeurIPS 2026 · Sydney</a></strong></div>
   </section>
 
-  <nav class="local-nav" aria-label="Start kit sections">
-    <a href="#contract">Track contract</a>
-    <a href="#steps">Five-step workflow</a>
-    <a href="#walkthrough">Code walkthrough</a>
-    <a href="#baselines">Baselines</a>
-  </nav>
-
-  <section class="technical-intro" aria-label="Start kit scope">
-    <div class="technical-intro-copy">
-      <p>The start-kit ships the same evaluation harness the organizers use, every baseline reported on the leaderboard, and a deterministic toy split you can iterate on before the warm-up opens.</p>
-      <p class="rules-note">
-        <svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 2.5H5.5a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V6.5z" /><path d="M11.5 2.5v4h4" /><path d="M7.5 10.5h5M7.5 13.5h3" /></svg>
-        <span><strong>The rules are not on this page.</strong> Submission caps, eligibility, external data, compute, the reproducibility audit and authorship all live on the <a href="faq.html#rules">Rules &amp; FAQ</a> page. Read them before your first upload.</span>
-      </p>
-    </div>
-    <div class="technical-facts" aria-label="Start kit requirements">
-      <span>Python ≥ 3.12</span>
-      <span>PyTorch ≥ 2.2</span>
-      <span>CUDA optional</span>
-      <span>BIDS-first</span>
-      <span>MIT licensed</span>
-    </div>
-  </section>
-
-  <section class="vb-section contract-section" id="contract" aria-labelledby="contract-heading">
-    <div class="vb-section-head">
-      <div>
-        <h2 id="contract-heading">Know the shift before you train.</h2>
-        <p>Every track uses the same harness, but each holds out a different source of variation. The official warm-up split scores arrive Sep 16, 2026.</p>
-      </div>
-    </div>
-    <div class="table-shell" role="region" aria-label="Four-track input, output, metric, baseline, and release contract" tabindex="0">
-      <table class="track-contract">
-        <caption>Four-track start-kit contract</caption>
-        <thead>
-          <tr>
-            <th scope="col">Track</th>
-            <th scope="col">Input</th>
-            <th scope="col">Held-out shift</th>
-            <th scope="col">Output</th>
-            <th scope="col">Metric</th>
-            <th scope="col">Baseline</th>
-            <th scope="col">Release state</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row"><span>01</span> EEG-to-IMG</th>
-            <td>Single EEG epoch</td>
-            <td>Unseen stimuli</td>
-            <td>Ranked candidate images</td>
-            <td>Top-5 retrieval accuracy</td>
-            <td><a href="#baselines">NeuralBench table</a></td>
-            <td>Seed data now; official split Sep 16, 2026</td>
-          </tr>
-          <tr>
-            <th scope="row"><span>02</span> BCI decoding</th>
-            <td>EEG from cued mental tasks</td>
-            <td>Later sessions, no recalibration</td>
-            <td>Cued command</td>
-            <td>Balanced accuracy</td>
-            <td><a href="#walkthrough"><code>neuralbench eeg motor_imagery</code></a></td>
-            <td>Seed data now; official split Sep 16, 2026</td>
-          </tr>
-          <tr>
-            <th scope="row"><span>03</span> Sleep onset</th>
-            <td>Muse wearable EEG</td>
-            <td>Cross-device</td>
-            <td>Seconds to stable N2</td>
-            <td>W-bMAE on onset (s)</td>
-            <td><a href="#baselines">NeuralBench table</a></td>
-            <td>Seed datasets now; Muse cohort Sep 16, 2026</td>
-          </tr>
-          <tr>
-            <th scope="row"><span>04</span> EMG-to-Pose</th>
-            <td>16-channel wrist surface EMG</td>
-            <td>Held-out users and movement stages</td>
-            <td>20 joint-angle trajectories</td>
-            <td>Mean absolute angular error (degrees)</td>
-            <td><a href="#walkthrough"><code>neuralbench emg pose -m neuropose</code></a></td>
-            <td>Public EMG2Pose data now; competition split Sep 16, 2026</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-
-    <!-- ============================== Steps ============================== -->
-    <section class="vb-section" id="steps" aria-labelledby="steps-heading">
+    <!-- ============================== Guides ============================== -->
+    <section class="vb-section" id="guides" aria-labelledby="guides-heading">
       <div class="vb-section-head">
         <div>
-          <h2 id="steps-heading">From <code>pip install</code> to a leaderboard entry.</h2>
-          <p>The path is identical for every track. Change the track flag, swap the model, and the rest of the pipeline stays the same.</p>
-        </div>
-        <div class="vb-section-side">
-          <div class="vb-tracks-meta">
-            <div><span class="bs-kicker">First install to first submission</span><strong>~ 15 minutes (toy split)</strong></div>
-            <div><span class="bs-kicker">Full warm-up training run</span><strong>2 – 6 GPU-hours</strong></div>
-            <div><span class="bs-kicker">Minimum hardware</span><strong>CPU works · 8 GB GPU recommended</strong></div>
-          </div>
+          <h2 id="guides-heading">Train, evaluate locally, submit.</h2>
+          <p>The guides live in the <a href="https://github.com/facebookresearch/neuroai" target="_blank" rel="noreferrer noopener">NeuroAI repository</a> and are published in the NeuralBench documentation. They show how to <strong>1) train</strong> a baseline, <strong>2) evaluate</strong> it locally with the official evaluator, and <strong>3) submit</strong> a model. Start with the overview, then open the guide for your track.</p>
         </div>
       </div>
 
-      <ol class="vb-timeline vb-steps steps-list" aria-label="Start-kit steps">
-        <li class="phase-card">
-          <span class="vb-step-num" aria-hidden="true">01</span>
-          <div class="phase-body">
-            <span class="phase-tag"><span class="badge">INSTALL</span></span>
-            <h3>Install neuralbench.</h3>
-            <span class="phase-date">~ 60 seconds · pip</span>
-            <p class="phase-desc"><code>pip install neuralbench</code> pulls in the benchmark runner, task registry, and evaluator; the <code>datasets</code> and <code>models</code> extras add dataset downloading (EEGDash) and the baseline model zoo (Braindecode). On first run, set <code>DATA_DIR</code>, <code>CACHE_DIR</code> and <code>SAVE_DIR</code> in <code>~/.neuralbench/config.json</code>.</p>
-          </div>
-          <div class="phase-meta">
-            <div class="row"><span>Python</span><span>≥ 3.12</span></div>
-            <div class="row"><span>PyTorch</span><span>≥ 2.2 (CUDA optional)</span></div>
-            <div class="row"><span>Config</span><span>~/.neuralbench/config.json</span></div>
-            <div class="row"><span>Disk</span><span>~ 4 GB for cached tasks</span></div>
-          </div>
-        </li>
-
-        <li class="phase-card">
-          <span class="vb-step-num" aria-hidden="true">02</span>
-          <div class="phase-body">
-            <span class="phase-tag"><span class="badge">DATA</span></span>
-            <h3>Download a track's data.</h3>
-            <span class="phase-date">streamed BIDS · seed corpora</span>
-            <p class="phase-desc">EEGDash streams the BIDS layout; only the recordings you reference are downloaded. Downloads land in the <code>DATA_DIR</code> of your NeuralBench config; preprocessed data is cached in <code>CACHE_DIR</code> and reused on every later run. The figures on the right are the full seed corpora per track — a warm-up split pulls only a fraction of that.</p>
-          </div>
-          <div class="phase-meta">
-            <div class="row"><span>Track 1 (EEG-to-IMG)</span><span>116 GB</span></div>
-            <div class="row"><span>Track 2 (BCI)</span><span>419 GB</span></div>
-            <div class="row"><span>Track 3 (Sleep)</span><span>439 GB</span></div>
-            <div class="row"><span>Track 4 (EMG)</span><span>370 h · 193 participants</span></div>
-          </div>
-        </li>
-
-        <li class="phase-card">
-          <span class="vb-step-num" aria-hidden="true">03</span>
-          <div class="phase-body">
-            <span class="phase-tag"><span class="badge">TRAIN</span></span>
-            <h3>Train a baseline.</h3>
-            <span class="phase-date">2 – 6 GPU-hours · warm-up split</span>
-            <p class="phase-desc">Every track ships at least one baseline you can train with a single <code>neuralbench eeg &lt;task&gt; -m &lt;model&gt;</code> call. Task and model names come from the registry: <code>from neuralbench.registry import TASKS, ALL_MODELS</code>.</p>
-          </div>
-          <div class="phase-meta">
-            <div class="row"><span>Default model</span><span>EEGNet · 0.04 M params</span></div>
-            <div class="row"><span>Optimizer</span><span>AdamW · cosine schedule</span></div>
-            <div class="row"><span>Seed</span><span>Fixed by config</span></div>
-          </div>
-        </li>
-
-        <li class="phase-card">
-          <span class="vb-step-num" aria-hidden="true">04</span>
-          <div class="phase-body">
-            <span class="phase-tag"><span class="badge">SCORE</span></span>
-            <h3>Score locally with the official evaluator.</h3>
-            <span class="phase-date">~ 1 minute · local</span>
-            <p class="phase-desc">The evaluator is the exact code we run on Codabench. Run the task locally first with <code>neuralbench eeg &lt;task&gt;</code>; the run writes a predictions Parquet with hyperparameters and the git SHA of your model code for the audit phase.</p>
-          </div>
-          <div class="phase-meta">
-            <div class="row"><span>Metric (T1)</span><span>Top-5 retrieval accuracy</span></div>
-            <div class="row"><span>Metric (T2)</span><span>Balanced accuracy</span></div>
-            <div class="row"><span>Metric (T3)</span><span>W-bMAE on onset (s)</span></div>
-            <div class="row"><span>Metric (T4)</span><span>Mean angular MAE (&deg;)</span></div>
-          </div>
-        </li>
-
-        <li class="phase-card">
-          <span class="vb-step-num" aria-hidden="true">05</span>
-          <div class="phase-body">
-            <span class="phase-tag"><span class="badge">SUBMIT</span></span>
-            <h3>Upload to Codabench.</h3>
-            <span class="phase-date">~ 30 seconds · web UI or API</span>
-            <p class="phase-desc">Drop the <code>submission.parquet</code> on the Codabench page for your track. The daily submission cap, the best-of-last-five ranking and the reproducibility audit are rules, not start-kit details: read them on the <a href="faq.html#rules">Rules &amp; FAQ</a> page before your first upload.</p>
-          </div>
-          <div class="phase-meta">
-            <div class="row"><span>Platform</span><span>Codabench</span></div>
-            <div class="row"><span>Before you upload</span><span><a href="faq.html#rules">Read the rules →</a></span></div>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <!-- ============================== Code: full walkthrough ============================== -->
-    <section class="vb-section vb-section-cream" id="walkthrough" aria-labelledby="walkthrough-heading">
-      <div class="vb-section-head">
-        <div>
-          <h2 id="walkthrough-heading">Your first baseline, in three commands.</h2>
-          <p>The Track 2 BCI example works in Python or the CLI. The same pattern applies to every track: load with EEGDash, train with Braindecode, score with NeuralBench. Swap the task and the model; the rest of the pipeline stays the same.</p>
-        </div>
-      </div>
-
-      <div class="vb-tracks two-col">
-        <figure class="bs-code" aria-label="Training script">
-          <figcaption class="bs-code-head">
-            <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
-            <span class="bs-kicker">python · train_baseline.py</span>
-            <button class="copy" type="button" data-copy>copy</button>
-          </figcaption>
-          <pre tabindex="0" aria-label="Training script code"><div class="line"><span class="ln"> 1</span><code><span class="kw">from</span> neuralbench.main <span class="kw">import</span> <span class="cls">Experiment</span></code></div><div class="line"><span class="ln"> 2</span><code> </code></div><div class="line"><span class="ln"> 3</span><code><span class="c1"># Modality + task + model identifiers from the NeuralBench task registry</span></code></div><div class="line"><span class="ln"> 4</span><code>exp = <span class="cls">Experiment</span>(</code></div><div class="line"><span class="ln"> 5</span><code>    modality=<span class="str">"eeg"</span>,</code></div><div class="line"><span class="ln"> 6</span><code>    task=<span class="str">"motor_imagery"</span>,</code></div><div class="line"><span class="ln"> 7</span><code>    model=<span class="str">"eegnet"</span>,</code></div><div class="line"><span class="ln"> 8</span><code>)</code></div><div class="line"><span class="ln"> 9</span><code>exp.run()</code></div><div class="line"><span class="ln">10</span><code> </code></div><div class="line"><span class="ln">11</span><code><span class="c1"># See: facebookresearch.github.io/neuroai/neuralbench/auto_examples/</span></code></div></pre>
-        </figure>
-
-        <figure class="bs-code" aria-label="CLI runbook">
-          <figcaption class="bs-code-head">
-            <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
-            <span class="bs-kicker">bash · same flow, no Python file</span>
-            <button class="copy" type="button" data-copy>copy</button>
-          </figcaption>
-          <pre tabindex="0" aria-label="CLI runbook code"><div class="line"><span class="ln"> 1</span><code><span class="c1"># 1. Download the task's data</span></code></div><div class="line"><span class="ln"> 2</span><code><span class="kw">$</span> neuralbench eeg motor_imagery <span class="op">--download</span></code></div><div class="line"><span class="ln"> 3</span><code> </code></div><div class="line"><span class="ln"> 4</span><code><span class="c1"># 2. (Optional) Warm the preprocessing cache</span></code></div><div class="line"><span class="ln"> 5</span><code><span class="kw">$</span> neuralbench eeg motor_imagery <span class="op">--prepare</span></code></div><div class="line"><span class="ln"> 6</span><code> </code></div><div class="line"><span class="ln"> 7</span><code><span class="c1"># 3. Run the benchmark with the EEGNet baseline</span></code></div><div class="line"><span class="ln"> 8</span><code><span class="kw">$</span> neuralbench eeg motor_imagery <span class="op">-m</span> <span class="str">eegnet</span></code></div><div class="line"><span class="ln"> 9</span><code> </code></div><div class="line"><span class="ln">10</span><code><span class="c1"># Try a foundation baseline instead</span></code></div><div class="line"><span class="ln">11</span><code><span class="kw">$</span> neuralbench eeg motor_imagery <span class="op">-m</span> <span class="str">reve</span></code></div></pre>
-        </figure>
-      </div>
-
-      <div class="doc-links-head">
-        <span class="bs-kicker">Detailed guides · neuralbench docs</span>
-        <p class="note-text wide">The full start-kit lives in the NeuralBench documentation: one page per track with the exact commands, datasets and metric, plus the overview and the submission guide.</p>
-      </div>
       <div class="doc-links">
         <a class="doc-link" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_overview.html" target="_blank" rel="noreferrer noopener">
           <span class="bs-kicker">Start here</span>
           <strong>Challenge overview</strong>
-          <span class="desc">The four tracks, their metrics, and the public stand-in datasets the start-kit runs on today.</span>
+          <span class="desc">The four tracks, their metrics, the public stand-in datasets, and the commands to train and evaluate every baseline locally.</span>
           <span class="arrow">Open guide →</span>
         </a>
         <a class="doc-link" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_submission_guide.html" target="_blank" rel="noreferrer noopener">
@@ -350,18 +140,11 @@
     </section>
 
     <!-- ============================== Baselines ============================== -->
-    <section class="vb-section" id="baselines" aria-labelledby="baselines-heading">
+    <section class="vb-section vb-section-cream" id="baselines" aria-labelledby="baselines-heading">
       <div class="vb-section-head">
         <div>
           <h2 id="baselines-heading">Pre-computed baselines on representative public datasets.</h2>
           <p>Numbers below are NeuralBench replications on representative public datasets, mean ± std, taken from the competition proposal's Table 1. They are the warm-up targets to beat. The official warm-up split scores arrive Sep 16, 2026.</p>
-        </div>
-        <div class="vb-section-side">
-          <div class="vb-tracks-meta">
-            <div><span class="bs-kicker">Baselines source</span><strong>NeuralBench (Banville et al., 2026)</strong></div>
-            <div><span class="bs-kicker">Hosted weights</span><strong>HuggingFace · neural-interfaces26</strong></div>
-            <div><span class="bs-kicker">License</span><strong>MIT</strong></div>
-          </div>
         </div>
       </div>
 
@@ -473,18 +256,6 @@
       <div class="ds-foot">
         <span class="bs-kicker">All values mean ± std from NeuralBench (Banville et al., 2026), Table 1. Sleep metric is W-bMAE (weighted-binned MAE) per the proposal §1.4.</span>
         <a href="leaderboard.html" class="track-link">See live leaderboard →</a>
-      </div>
-    </section>
-
-    <!-- ============================== CTA ============================== -->
-    <section class="vb-section vb-cta solo" id="cta" aria-labelledby="cta-heading">
-      <div>
-        <h2 id="cta-heading">Ready to run your first baseline?</h2>
-        <p>The competition runs Sep 16 – Nov 16, 2026, with more after summer. Clone the start-kit, run the toy split, and you're on the leaderboard in fifteen minutes. Everything is MIT-licensed: fork freely, but please cite the white paper and the <a href="https://eeg2025.github.io/" target="_blank" rel="noreferrer noopener">2025 challenge</a> that this work continues.</p>
-        <div class="bs-hero-cta">
-          <a class="bs-btn primary" href="https://github.com/facebookresearch/neuroai" target="_blank" rel="noreferrer noopener">Get the start-kit →</a>
-          <a class="bs-btn ghost" href="https://arxiv.org/abs/2506.19141" target="_blank" rel="noreferrer noopener">Read the white paper</a>
-        </div>
       </div>
     </section>
 
