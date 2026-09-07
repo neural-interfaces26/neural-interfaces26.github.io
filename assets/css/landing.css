@@ -3713,6 +3713,25 @@ body.menu-open { overflow: hidden; }
 .faq-answer p { margin: 0 0 16px; color: var(--bs-muted); }
 .faq-answer p:last-child { margin-bottom: 0; }
 
+/* The per-track Codabench entries in the submission answer: a plain stack of
+   links, no bullets, so they read as calls to action rather than as prose. */
+.faq-links {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.faq-links a {
+  color: var(--bs-violet);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.faq-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
 .rule-index {
   display: flex;
   gap: 4px;
@@ -3938,6 +3957,41 @@ body.menu-open { overflow: hidden; }
   font-size: 13px;
   font-weight: 700;
   color: var(--bs-violet);
+}
+
+/* A track card that carries both its guide and its Codabench entry: the card
+   itself stays the guide link, the two calls to action sit on one row below. */
+.doc-link-cell {
+  display: grid;
+  align-content: start;
+  min-width: 0;
+}
+
+.doc-link-cell .doc-link { padding-bottom: 10px; }
+
+.doc-link-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  padding-bottom: 24px;
+}
+
+.doc-link-actions a {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--bs-violet);
+  text-decoration: none;
+}
+
+.doc-link-actions a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Track cards on the landing page carry a second call to action; keep the pair
+   together on the right rather than letting space-between split them. */
+.track-card-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 18px;
 }
 
 @media (max-width: 900px) {
