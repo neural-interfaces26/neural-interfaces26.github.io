@@ -116,7 +116,7 @@
         <img data-src="assets/img/figures/eeg-to-img.png" data-srcset="assets/img/figures/eeg-to-img.png 335w, assets/img/figures/eeg-to-img@2x.png 670w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="335" height="218" alt="THINGS-EEG and Alljoined data feeding an EEG decoder ranked against a held-out image gallery" />
         <p>Decodes which image a subject is viewing from a single EEG epoch, evaluated as ranking against held-out candidates. Targets are frozen DINOv2-giant embeddings, so the difficulty is in the EEG side, not in re-learning the image space. The controlled shift is cross-stimulus: test stimuli are unseen during training.</p>
         <p class="track-facts">Visual retrieval, DINOv2, RSVP, object viewing</p>
-        <div class="track-card-footer"><span>Metric: Top-5 acc. Sponsor: Alljoined</span><a href="leaderboard.html#track-1">View track</a></div>
+        <div class="track-card-footer"><span>Metric: Top-5 acc. Sponsor: Alljoined</span><span class="track-card-links"><a href="https://www.codabench.org/competitions/17974/" target="_blank" rel="noreferrer noopener">Submit to Track 01 →</a><a href="leaderboard.html#track-1">View track</a></span></div>
       </article>
 
       <article class="track-card reveal">
@@ -128,7 +128,7 @@
         <img data-src="assets/img/figures/bci-track.png" data-srcset="assets/img/figures/bci-track.png 335w, assets/img/figures/bci-track@2x.png 669w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="335" height="218" alt="Cued mental commands decoded from EEG across later sessions of the same subject" />
         <p>Decodes a cued mental command (motor imagery, mental calculation, word association) from short EEG windows. The controlled shift is cross-session: models train on early sessions and are scored on later sessions of the same subject, with no per-session recalibration allowed.</p>
         <p class="track-facts">Motor imagery, mental math, word association, session drift</p>
-        <div class="track-card-footer"><span>Metric: Balanced acc. Sponsor: Meta FAIR Brain &amp; AI</span><a href="leaderboard.html#track-2">View track</a></div>
+        <div class="track-card-footer"><span>Metric: Balanced acc. Sponsor: Meta FAIR Brain &amp; AI</span><span class="track-card-links"><a href="https://www.codabench.org/competitions/17982/" target="_blank" rel="noreferrer noopener">Submit to Track 02 →</a><a href="leaderboard.html#track-2">View track</a></span></div>
       </article>
 
       <article class="track-card reveal">
@@ -140,7 +140,7 @@
         <img data-src="assets/img/figures/sleep_prediction.png" data-srcset="assets/img/figures/sleep_prediction.png 336w, assets/img/figures/sleep_prediction@2x.png 671w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="336" height="218" alt="Consumer-grade wearable EEG predicting seconds remaining until the first stable N2 epoch" />
         <p>Predicts the latency in seconds from recording start to the first stable N2 epoch, on consumer-grade wearable EEG. The controlled shift is cross-device: home-wearable channels and montages instead of the clinical polysomnography setups of the seed corpora. Precise timing replaces full staging because the wearable signal is too sparse to support per-epoch hypnogram reconstruction.</p>
         <p class="track-facts">Sleep onset, wearable EEG, Muse, home monitoring</p>
-        <div class="track-card-footer"><span>Metric: W-bMAE (s). Sponsor: Muse</span><a href="leaderboard.html#track-3">View track</a></div>
+        <div class="track-card-footer"><span>Metric: W-bMAE (s). Sponsor: Muse</span><span class="track-card-links"><a href="https://www.codabench.org/competitions/17983/" target="_blank" rel="noreferrer noopener">Submit to Track 03 →</a><a href="leaderboard.html#track-3">View track</a></span></div>
       </article>
 
       <article class="track-card reveal">
@@ -152,7 +152,7 @@
         <img data-src="assets/img/figures/emg-to-pose.png" data-srcset="assets/img/figures/emg-to-pose.png 336w, assets/img/figures/emg-to-pose@2x.png 672w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="336" height="217" alt="Wristband surface EMG decoded to 20-joint hand pose trajectories" />
         <p>Regresses 20 hand-joint angle trajectories from 16-channel wrist surface EMG. The controlled shift combines held-out users and movement stages, testing whether a model survives changes in anatomy, device placement, and hand kinematics.</p>
         <p class="track-facts">Hand pose, trajectory regression, wristbands, UmeTrack joints</p>
-        <div class="track-card-footer"><span>Metric: Mean angular MAE (&deg;). Sponsor: Meta Reality Labs</span><a href="leaderboard.html#track-4">View track</a></div>
+        <div class="track-card-footer"><span>Metric: Mean angular MAE (&deg;). Sponsor: Meta Reality Labs</span><span class="track-card-links"><a href="https://www.codabench.org/competitions/17984/" target="_blank" rel="noreferrer noopener">Submit to Track 04 →</a><a href="leaderboard.html#track-4">View track</a></span></div>
       </article>
     </div>
   </section>
