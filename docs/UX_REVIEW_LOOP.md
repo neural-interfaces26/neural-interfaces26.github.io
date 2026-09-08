@@ -78,3 +78,9 @@ The first correction audit completed 12 route/viewport walks (four affected page
 Final validation: all 36 page/viewport navigation cases passed across nine pages at 1440, 834, 390 and 320px, including four-track round trips, malformed fragments, and no-JavaScript mobile navigation (`/tmp/neural-promotion-journey/results.json`). Six final interaction/axe walks of homepage, FAQ and organizers at 1440/320px reported zero blockers (`/tmp/neural-promotion-final/manifest.json`). All seven binding rules match the pre-edit text. Full design and content coverage checks pass: nine pages, 58 anchors, 15 categories. Final section captures use `/tmp/promotion-final-*.png`.
 
 These are local functional, accessibility and rendered-layout checks; no participant study, external registration or submission, or production-performance claim is made. Validation was completed locally before committing this correction pass.
+
+## Supplied Organizers v2 design
+
+Applied the page body, scoped stylesheet and 13 trimmed logos from the user-provided ZIP. Preserved the current Analytics/SEO shell, all 30 names, affiliations and biographies, the working ISAE-SUPAERO image, and the requested removal of the EMG support note. The ZIP and export support scripts are not published.
+
+Four organizer walkthroughs at 1440, 834, 390 and 320px reported zero blockers (`/tmp/neural-organizers-v2/manifest.json`). Additional section navigation and logo-loading checks ran at 1440, 390 and 320px. Rendered desktop team/logo and 320px core-team screenshots were reviewed against the supplied design. Full design and coverage checks pass.

@@ -1,4 +1,7 @@
-/* Organizer portrait directory. Shared shell and atoms live in landing.css. */
+/* Organizer portrait directory. Shared shell and atoms live in landing.css.
+   2026-09-08 polish: one ruled card grammar (portrait column + text column),
+   aligned section heads for every team, numbered 01–06, separated
+   affiliations, normalized logo boxes, and a contact block on the same shell. */
 
 .organizers-page { font-size: 16px; }
 
@@ -6,6 +9,11 @@
   padding: 56px max(20px, calc((100% - 1344px) / 2));
   border-bottom: 1px solid var(--bs-card-border);
 }
+
+/* Alternate paper / lavender per team so long directories keep a rhythm. */
+.org-team:nth-of-type(even) { background: var(--bs-surface); }
+.org-institutions { background: var(--bs-surface); }
+.org-contact { background: var(--bs-bg); }
 
 .org-section-head {
   max-width: none;
@@ -35,23 +43,45 @@
   line-height: 1.5;
 }
 
-.org-team-nav a { gap: 12px; }
+/* ---- Hero ---- */
+.org-hero .track-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-left: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ---- Team jump links ---- */
+.org-team-nav a { gap: 10px; white-space: nowrap; }
 .org-team-nav a span { color: var(--bs-violet); font: 500 12px var(--bs-fontmono); }
 .org-team-nav a:last-child { margin-left: 0; }
 
-.org-track:nth-of-type(even) { background: var(--bs-surface); }
+/* ---- Section heads: numeral column + copy, meta on the eyebrow line ---- */
 .org-team-heading { display: flex; gap: 28px; min-width: 0; }
 .org-team-heading > div { min-width: 0; }
 .org-team-number {
-  padding-top: 4px;
+  flex: 0 0 64px;
+  padding-top: 2px;
   color: var(--bs-violet);
   font: 500 48px/1 var(--bs-fontmono);
   letter-spacing: -0.06em;
+  font-variant-numeric: tabular-nums;
 }
-.org-team-meta { display: grid; flex: 0 0 auto; justify-items: end; gap: 8px; }
-.org-team-count { color: var(--bs-muted); font: 500 12px/1.5 var(--bs-fontmono); }
+
+.org-team-meta {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 20px;
+  min-height: 20px;
+}
+.org-team-count { color: var(--bs-muted); font: 500 12px/1.5 var(--bs-fontmono); white-space: nowrap; }
+
 .org-section a.org-back,
-.org-section a.org-track-link {
+.org-section a.org-track-link,
+.org-section a.org-crosslink-target {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
@@ -59,8 +89,11 @@
   font-size: 16px;
   font-weight: 600;
   text-underline-offset: 4px;
+  white-space: nowrap;
 }
+.org-section a.org-back { margin-block: -12px; }
 
+/* ---- Directory: two ruled columns, one card grammar ---- */
 .org-directory {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -71,8 +104,10 @@
 .org-card,
 .org-grid.tight .org-card {
   display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
   grid-template-rows: auto 1fr;
-  gap: 16px;
+  gap: 10px 20px;
+  align-items: start;
   min-width: 0;
   padding: 24px 28px 26px 0;
   border: 0;
@@ -84,25 +119,31 @@
   transition: none;
 }
 
-.org-card:nth-child(even) {
+/* Right-hand column: rule + inset. Directories whose lead spans the first
+   row shift the column pattern by one. */
+.org-directory:not(.has-lead) .org-card:nth-child(even),
+.org-directory.has-lead .org-card:nth-child(odd):not(.lead) {
   padding-right: 0;
   padding-left: 28px;
   border-left: 1px solid var(--bs-card-border);
 }
 
+.org-directory .org-card.lead {
+  grid-column: 1 / -1;
+  padding-right: 0;
+}
+.org-directory .org-card.lead .bio { max-width: 72ch; }
+
 .org-card:hover,
 .org-card.lead { transform: none; border-color: var(--bs-card-border); background: transparent; box-shadow: none; }
 
 .org-card .head,
-.org-grid.tight .org-card .head {
-  display: grid;
-  grid-template-columns: 88px minmax(0, 1fr);
-  gap: 20px;
-  align-items: start;
-}
+.org-grid.tight .org-card .head { display: contents; }
 
 .org-card .avatar,
 .org-grid.tight .org-card .avatar {
+  grid-row: 1 / span 2;
+  grid-column: 1;
   width: 88px;
   height: 104px;
   overflow: hidden;
@@ -121,27 +162,7 @@
   object-position: center 25%;
 }
 
-.org-card .name-wrap { display: grid; gap: 6px; min-width: 0; }
-
-.org-card .name-wrap .affil,
-.org-grid.tight .org-card .name-wrap .affil {
-  display: flex;
-  min-height: 0;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px 10px;
-  margin-top: 2px;
-  padding: 0;
-  border: 0;
-}
-
-.org-card .name-wrap .affil span,
-.org-grid.tight .org-card .name-wrap .affil span {
-  color: var(--bs-muted);
-  font-family: var(--bs-fontmono);
-  font-size: 11px;
-  line-height: 1.35;
-}
+.org-card .name-wrap { grid-column: 2; display: grid; gap: 6px; min-width: 0; }
 
 .org-card .name,
 .org-grid.tight .org-card .name {
@@ -164,93 +185,139 @@
   text-transform: uppercase;
 }
 
+.org-card .affil,
+.org-card .name-wrap .affil,
+.org-grid.tight .org-card .affil,
+.org-grid.tight .org-card .name-wrap .affil {
+  display: flex;
+  min-height: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  margin: 2px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.org-card .affil span,
+.org-card .name-wrap .affil span,
+.org-grid.tight .org-card .name-wrap .affil span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--bs-muted);
+  font-family: var(--bs-fontsans);
+  font-size: 14px;
+  line-height: 1.45;
+}
+.org-card .affil span + span::before {
+  content: "·";
+  color: var(--bs-violet-soft);
+  font-weight: 700;
+}
+
 .org-card .bio,
 .org-grid.tight .org-card .bio,
 .org-card.lead .bio {
+  grid-column: 2;
   margin: 0;
   color: var(--bs-muted);
   font-size: 16px;
   line-height: 1.5;
 }
 
-.org-card.lead .name { color: var(--bs-text); }
-.org-card.lead .role { color: var(--bs-violet); }
-.org-card.lead { box-shadow: none; }
 .org-card:target { outline: 2px solid var(--bs-violet); outline-offset: 8px; }
 .organizers-page a:focus-visible { outline: 2px solid var(--bs-violet); outline-offset: 4px; }
 
-.org-card .affil,
-.org-grid.tight .org-card .affil {
-  display: flex;
-  min-height: 32px;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
-  margin-top: auto;
-  padding: 14px 0 0;
-  border-top: 1px solid var(--bs-card-border);
-}
-
-.org-card .affil span {
-  padding: 0;
-  border: 0;
-  background: transparent;
+/* Cross-link for responsibilities that live in another team. */
+.org-crosslink {
+  margin: 20px 0 0;
   color: var(--bs-muted);
-  font-family: var(--bs-fontmono);
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
 }
+.org-crosslink a { font-weight: 600; text-underline-offset: 3px; }
 
-.org-institutions { background: var(--bs-surface); }
-
+/* ---- Institutional logos: bounded boxes, optical normalisation ---- */
 .org-logo-stage {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   border-top: 1px solid var(--bs-text);
 }
 
-.org-logo-stage img {
-  width: 100%;
-  height: 72px;
-  padding: 18px;
+.org-logo {
+  display: grid;
+  place-items: center;
+  height: 104px;
+  padding: 20px 24px;
   border-right: 1px solid var(--bs-card-border);
   border-bottom: 1px solid var(--bs-card-border);
-  object-fit: contain;
+  background: var(--bs-bg);
 }
 
-.org-logo-stage img:nth-child(6n) { border-right: 0; }
+.org-logo img {
+  width: auto;
+  height: auto;
+  max-width: 70%;
+  max-height: 36px;
+  object-fit: contain;
+}
+.org-logo[data-fit="tall"] img { max-height: 48px; }
+.org-logo[data-fit="compact"] img { max-height: 30px; }
+/* Text mark for an institution whose logo asset is unavailable. */
+.org-logo-text {
+  color: var(--bs-text);
+  font-family: var(--bs-fontdisplay);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.org-logo:nth-child(6n) { border-right: 0; }
+
+/* ---- Contact: same shell as the sections above ---- */
+.org-contact .org-section-head { margin-bottom: 0; align-items: center; }
+.org-contact .org-section-head h2 { margin-top: 12px; max-width: 30ch; }
+.org-contact .org-section-head p { margin-top: 12px; max-width: 52ch; }
+.org-contact .bs-hero-cta { flex: 0 0 auto; display: flex; }
+.org-contact .bs-btn { white-space: nowrap; width: auto; }
 
 @media (max-width: 1024px) {
   .org-directory { grid-template-columns: 1fr; }
   .org-card,
   .org-grid.tight .org-card,
-  .org-card:nth-child(even) { padding: 24px 0 26px; border-left: 0; }
+  .org-directory:not(.has-lead) .org-card:nth-child(even),
+  .org-directory.has-lead .org-card:nth-child(odd):not(.lead) { padding: 24px 0 26px; border-left: 0; }
+  .org-directory .org-card.lead .bio { max-width: none; }
   .org-logo-stage { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .org-logo-stage img:nth-child(6n) { border-right: 1px solid var(--bs-card-border); }
-  .org-logo-stage img:nth-child(3n) { border-right: 0; }
+  .org-logo:nth-child(6n) { border-right: 1px solid var(--bs-card-border); }
+  .org-logo:nth-child(3n) { border-right: 0; }
 }
 
 @media (max-width: 768px) {
   .org-section { padding-block: 48px; }
-  .org-section-head { margin-bottom: 28px; }
-  .org-section-head { flex-direction: column; gap: 20px; }
-  .org-team-meta { display: flex; align-items: center; gap: 24px; }
+  .org-section-head { flex-direction: column; gap: 16px; margin-bottom: 28px; }
+  .org-team-meta { order: -1; }
+  .org-section a.org-back { margin-block: 0; }
   .org-team-heading { gap: 16px; }
-  .org-team-number { font-size: 32px; }
+  .org-team-number { flex-basis: 44px; font-size: 32px; padding-top: 0; }
+  .org-contact .org-section-head { align-items: flex-start; }
+  .org-contact .org-section-head h2 { max-width: none; }
 }
 
 @media (max-width: 640px) {
   .org-team-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; }
   .org-team-nav a { gap: 8px; padding-inline: 8px; }
   .org-team-nav a:last-child { margin-left: 0; }
-  .org-card .head,
-  .org-grid.tight .org-card .head { grid-template-columns: 72px minmax(0, 1fr); gap: 16px; }
+  .org-card,
+  .org-grid.tight .org-card { grid-template-columns: 72px minmax(0, 1fr); gap: 10px 16px; }
   .org-card .avatar,
   .org-grid.tight .org-card .avatar { width: 72px; height: 88px; }
+  .org-logo { height: 88px; padding: 16px; }
   .org-logo-stage { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .org-logo-stage img:nth-child(3n) { border-right: 1px solid var(--bs-card-border); }
-  .org-logo-stage img:nth-child(2n) { border-right: 0; }
+  .org-logo:nth-child(3n) { border-right: 1px solid var(--bs-card-border); }
+  .org-logo:nth-child(2n) { border-right: 0; }
 }
-
-.org-card .name-wrap .affil span,
-.org-grid.tight .org-card .name-wrap .affil span { font-family: var(--bs-fontsans); font-size: 14px; line-height: 1.45; }
