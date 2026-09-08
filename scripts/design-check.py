@@ -17,12 +17,8 @@ PAGES = [
 ALL_PAGES = PAGES + ["404.html"]
 SITE_ORIGIN = "https://neural-interfaces26.github.io"
 OG_IMAGE = f"{SITE_ORIGIN}/assets/img/og-card.png"
-UI_SCRIPT = "assets/js/ui.js?v=20260908ux"
-HOME_DESCRIPTION = (
-    "Open-source EEG/EMG decoding benchmark for the Brain and Body Workshop at NeurIPS 2026 in Sydney. "
-    "Neural Interfaces for Generalizable Decoding across EEG, EMG, sleep, and BCI tracks. "
-    "Submissions Sep 16 - Nov 16, 2026 (AoE)."
-)
+UI_SCRIPT = "assets/js/ui.js?v=20260908seo"
+HOME_DESCRIPTION = 'Compete in EEG, EMG, BCI and sleep decoding at the Brain and Body Workshop at NeurIPS 2026. Open baselines; submissions Sep 16-Nov 16.'
 TOKENS = {
     "--bs-violet": "#5332f4",
     "--bs-text": "#07101f",
@@ -129,9 +125,12 @@ def check_tokens(errors: list[str]) -> None:
     legacy = (ROOT / "assets/css/landing.css").read_text(encoding="utf-8").lower()
     if re.search(r"rgba\((?:107,\s*58,\s*240|91,\s*46,\s*229)|#(?:5b2ee5|6b3af0)|rgba\((?:0,\s*54,\s*159|238,\s*95,\s*91|204,\s*73,\s*0|126,\s*63,\s*152)", legacy):
         errors.append("tokens: legacy third-accent UI colors remain")
-    for page in ("index.html", "faq.html", "leaderboard.html", "startkit.html"):
-        if "%235332f4" not in (ROOT / page).read_text(encoding="utf-8").lower():
-            errors.append(f"{page}: favicon must use exact #5332F4")
+    for page in ALL_PAGES:
+        if 'href="/favicon.png"' not in (ROOT / page).read_text(encoding="utf-8"):
+            errors.append(f"{page}: favicon must use the crawlable brand icon")
+    favicon = (ROOT / "favicon.png").read_bytes()
+    if favicon[:8] != b"\x89PNG\r\n\x1a\n" or favicon[16:24] != (96).to_bytes(4, "big") * 2:
+        errors.append("favicon.png: requires a square 96px PNG")
 
 
 def check_typography(errors: list[str]) -> None:

@@ -3981,9 +3981,9 @@ body.menu-open { overflow: hidden; }
 }
 
 @media (max-width: 900px) {
-  .site-header:not(.menu-ready) { position: relative; flex-wrap: wrap; }
-  .site-header:not(.menu-ready) .site-menu-toggle { display: none; }
-  .site-header:not(.menu-ready) .site-menu { position: static; width: 100%; max-height: none; transform: none; opacity: 1; visibility: visible; pointer-events: auto; box-shadow: none; }
+  html:not(.js) .site-header { position: relative; flex-wrap: wrap; }
+  html:not(.js) .site-header .site-menu-toggle { display: none; }
+  html:not(.js) .site-header .site-menu { position: static; width: 100%; max-height: none; transform: none; opacity: 1; visibility: visible; pointer-events: auto; box-shadow: none; }
 }
 
 /* ============================================================

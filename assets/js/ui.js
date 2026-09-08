@@ -161,7 +161,6 @@
     const toggle = document.querySelector('.site-menu-toggle');
     const menu = document.getElementById('site-menu');
     if (!toggle || !menu) return;
-    toggle.closest('.site-header').classList.add('menu-ready');
 
     const setToggleLabel = (open) => {
       toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
