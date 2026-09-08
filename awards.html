@@ -34,7 +34,7 @@
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
 <link rel="stylesheet" href="assets/css/base.css?v=20260908ux" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260908ux" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20260908ux3" />
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235332F4'/%3E%3Cg stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5'/%3E%3Cpath d='M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24'/%3E%3C/g%3E%3C/svg%3E" />
 
@@ -70,207 +70,45 @@
       <div class="page-hero-inner">
         <div class="page-hero-copy">
           <span class="bs-eyebrow">Awards · compare by track</span>
-          <h1 id="aw-heading">Awards &amp; prizes.</h1>
-          <p>USD prizes by track: three cash tracks and two first-place internship options.</p>
+          <h1 id="aw-heading">Awards &amp; internships.</h1>
+          <p>Cash awards of $2,000 per prize place, plus internship opportunities in San Francisco and Toronto. Choose a track below to get started.</p>
         </div>
       </div>
     </section>
 
-<section class="award-compare" aria-labelledby="award-compare-heading">
-  <div class="award-compare-head">
-    <div>
-      <span class="bs-eyebrow">At a glance</span>
-      <h2 id="award-compare-heading">What each place receives.</h2>
-    </div>
-    <p>Amounts are USD per team. Track 1 has no cash prize; conditions and the allocation note follow below.</p>
-  </div>
+<section class="award-compare" id="track-prizes" aria-labelledby="award-compare-heading">
+  <h2 id="award-compare-heading">Prizes by track</h2>
+  <p class="award-units">Amounts in USD per team. Select a track for its guide and registration.</p>
   <div class="award-table-shell" role="region" aria-label="Prize comparison by track" tabindex="0">
     <table class="award-table">
-      <caption>Prize comparison by track, sponsor, and place</caption>
+      <caption class="sr-only">Prize comparison by track, sponsor, and place</caption>
       <thead><tr><th scope="col">Track and sponsor</th><th scope="col">1st</th><th scope="col">2nd</th><th scope="col">3rd</th></tr></thead>
-      <tbody>
-        <tr><th scope="row"><span>01</span> EEG-to-Image<small>Alljoined</small></th><td data-label="1st">Paid summer internship*</td><td data-label="2nd">No prize</td><td data-label="3rd">No prize</td></tr>
-        <tr><th scope="row"><span>02</span> BCI decoding<small>Meta Brain &amp; AI</small></th><td data-label="1st">$2,000</td><td data-label="2nd">$2,000</td><td data-label="3rd">$2,000</td></tr>
-        <tr><th scope="row"><span>03</span> Sleep onset<small>Muse</small></th><td data-label="1st">$2,000 or Toronto internship</td><td data-label="2nd">$2,000</td><td data-label="3rd">$2,000</td></tr>
-        <tr><th scope="row"><span>04</span> EMG-to-Pose<small>Meta Reality Labs</small></th><td data-label="1st">$2,000</td><td data-label="2nd">$2,000</td><td data-label="3rd">$2,000</td></tr>
+      <tbody class="award-breakdown">
+        <tr class="award-track" id="award-track-1"><th scope="row"><span>01</span> <a class="award-track-link" href="startkit.html#enter-1">EEG-to-Image →</a><small>Alljoined</small></th><td data-label="1st"><a href="#conditions">Paid summer internship ↗</a></td><td data-label="2nd">No prize</td><td data-label="3rd">No prize</td></tr>
+        <tr class="award-track" id="award-track-2"><th scope="row"><span>02</span> <a class="award-track-link" href="startkit.html#enter-2">BCI decoding →</a><small>Meta Brain &amp; AI</small></th><td data-label="1st">$2,000</td><td data-label="2nd">$2,000</td><td data-label="3rd">$2,000</td></tr>
+        <tr class="award-track" id="award-track-3"><th scope="row"><span>03</span> <a class="award-track-link" href="startkit.html#enter-3">Sleep onset →</a><small>Muse</small></th><td data-label="1st">$2,000 or Toronto internship</td><td data-label="2nd">$2,000</td><td data-label="3rd">$2,000</td></tr>
+        <tr class="award-track" id="award-track-4"><th scope="row"><span>04</span> <a class="award-track-link" href="startkit.html#enter-4">EMG-to-Pose →</a><small>Meta Reality Labs</small></th><td data-label="1st">$2,000</td><td data-label="2nd">$2,000</td><td data-label="3rd">$2,000</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="award-compare-note"><strong>* Track 1 condition:</strong> Alljoined is prepared to offer the first-place winner a paid summer internship in San Francisco when their top-3 accuracy is above 50% in the best quartile of subjects. This eligibility bar is separate from Track 1&rsquo;s top-5 competition ranking. Specific details are to be determined with the candidate. A score below the bar does not rule out consideration; above the bar guarantees that Alljoined will negotiate the internship with the candidate. Track 1 has no cash prize.</p>
+  <div class="award-conditions" id="conditions" aria-labelledby="conditions-heading">
+    <h2 id="conditions-heading">San Francisco · Alljoined</h2>
+    <p>Alljoined is prepared to offer the first-place winner a paid summer internship in San Francisco. Specific details are to be determined with the candidate.</p>
+    <ul>
+      <li><strong>Eligibility bar:</strong> top-3 accuracy above 50% in the best quartile of subjects.</li>
+      <li><strong>Separate from ranking:</strong> this bar is separate from Track 1&rsquo;s top-5 competition ranking.</li>
+      <li><strong>Consideration:</strong> a score below the bar does not rule out consideration; above the bar guarantees that Alljoined will negotiate the internship with the candidate.</li>
+    </ul>
+    <p>Track 1 has no cash prize.</p>
+  </div>
+  <div class="award-conditions"><h2>Toronto · Muse</h2><p>The Sleep onset winner chooses $2,000 or an internship in Toronto for their representative. Second and third place each receive $2,000. Internship details will be announced.</p></div>
   <p class="award-allocation-note"><strong>Cash allocation:</strong> $18,000 when the Track 3 winner chooses $2,000 cash; $16,000 when they choose the Toronto internship. Internships are outside the cash total.</p>
 </section>
 
-
-    <!-- ============================== Per-track prizes ============================== -->
-    <section class="vb-section" id="track-prizes" aria-labelledby="tp-heading">
-      <div class="vb-section-head">
-        <div>
-          <h2 id="tp-heading">Prize configuration by track.</h2>
-          <p>Cash prizes are in USD and are awarded per team. Each track is ranked independently. The sponsor, award for each place, and internship conditions are listed below.</p>
-        </div>
-        <div class="vb-section-side">
-          <div class="vb-tracks-meta">
-            <div><span class="bs-kicker">Internship details</span><strong>Negotiated with candidate</strong></div>
-            <div><span class="bs-kicker">Awarded</span><strong>BrainBodyFM workshop · Dec 11 or 12, 2026</strong></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="vb-tracks award-breakdown">
-
-        <article class="vb-track award-track">
-          <div class="track-head">
-            <span class="bs-kicker">Track 01</span>
-            <span class="bs-badge">EEG-to-IMG</span>
-          </div>
-          <h3>Alljoined · paid summer internship.</h3>
-          <p>Alljoined is prepared to offer the first-place winner a paid summer internship in San Francisco when their top-3 accuracy is above 50% in the best quartile of subjects. This eligibility bar is separate from Track 1&rsquo;s top-5 competition ranking. Specific details are to be determined with the candidate. A score below the bar does not rule out consideration; above the bar guarantees that Alljoined will negotiate the internship with the candidate. This track has no cash prize.</p>
-          <div class="vb-track-paradigms">
-            <span class="bs-pill">Sponsor: Alljoined</span>
-            <span class="bs-pill">Metric: Top-5 acc</span>
-          </div>
-          <div class="track-stats">
-            <div><span class="bs-kicker">1st</span><strong>Internship</strong></div>
-            <div><span class="bs-kicker">2nd</span><strong>No prize</strong></div>
-            <div><span class="bs-kicker">3rd</span><strong>No prize</strong></div>
-          </div>
-          <a class="track-link award-track-action" href="startkit.html#enter-1">Prepare EEG-to-Image →</a>
-        </article>
-
-        <article class="vb-track award-track">
-          <div class="track-head">
-            <span class="bs-kicker">Track 02</span>
-            <span class="bs-badge">BCI</span>
-          </div>
-          <h3>Meta Brain &amp; AI · $6,000.</h3>
-          <p>The Meta Brain &amp; AI team funds $2,000 each for first, second, and third place in BCI decoding. Ranking uses balanced accuracy.</p>
-          <div class="vb-track-paradigms">
-            <span class="bs-pill">Sponsor: Meta FAIR Brain &amp; AI</span>
-            <span class="bs-pill">Metric: Bal. Acc</span>
-          </div>
-          <div class="track-stats">
-            <div><span class="bs-kicker">1st</span><strong>$2,000</strong></div>
-            <div><span class="bs-kicker">2nd</span><strong>$2,000</strong></div>
-            <div><span class="bs-kicker">3rd</span><strong>$2,000</strong></div>
-          </div>
-          <a class="track-link award-track-action" href="startkit.html#enter-2">Prepare BCI decoding →</a>
-        </article>
-
-        <article class="vb-track award-track">
-          <div class="track-head">
-            <span class="bs-kicker">Track 03</span>
-            <span class="bs-badge">SLEEP</span>
-          </div>
-          <h3>Muse · cash or a Toronto internship.</h3>
-          <p>Muse offers the first-place team a choice: $2,000 or an internship in Toronto for its representative. Second and third place each receive $2,000. Ranking uses sleep-onset MAE; internship details will be announced.</p>
-          <div class="vb-track-paradigms">
-            <span class="bs-pill">Sponsor: Muse</span>
-            <span class="bs-pill">Metric: MAE (s)</span>
-          </div>
-          <div class="track-stats">
-            <div><span class="bs-kicker">1st</span><strong>$2,000</strong><span>or Toronto internship</span></div>
-            <div><span class="bs-kicker">2nd</span><strong>$2,000</strong></div>
-            <div><span class="bs-kicker">3rd</span><strong>$2,000</strong></div>
-          </div>
-          <a class="track-link award-track-action" href="startkit.html#enter-3">Prepare Sleep onset →</a>
-        </article>
-
-        <article class="vb-track award-track">
-          <div class="track-head">
-            <span class="bs-kicker">Track 04</span>
-            <span class="bs-badge">EMG</span>
-          </div>
-          <h3>Meta Reality Labs · $6,000.</h3>
-          <p>Meta Reality Labs funds $2,000 each for first, second, and third place in EMG-to-Pose. Ranking uses mean absolute angular error.</p>
-          <div class="vb-track-paradigms">
-            <span class="bs-pill">Sponsor: Meta Reality Labs</span>
-            <span class="bs-pill">Metric: angular MAE (&deg;)</span>
-          </div>
-          <div class="track-stats">
-            <div><span class="bs-kicker">1st</span><strong>$2,000</strong></div>
-            <div><span class="bs-kicker">2nd</span><strong>$2,000</strong></div>
-            <div><span class="bs-kicker">3rd</span><strong>$2,000</strong></div>
-          </div>
-          <a class="track-link award-track-action" href="startkit.html#enter-4">Prepare EMG-to-Pose →</a>
-        </article>
-
-
-      </div>
-    </section>
-
-    <!-- ============================== Ethics stub ============================== -->
-    <section class="vb-section" id="ethics-stub" aria-labelledby="ethics-stub-heading">
-      <div class="vb-section-head">
-        <div>
-          <h2 id="ethics-stub-heading">This competition follows the NeurIPS Code of Ethics.</h2>
-          <p>Consent, mental privacy, and dataset-controller chains are operational baselines, not afterthoughts. The ethics page carries the full statement, the empirical limits on non-invasive decoding, and the per-track consent posture.</p>
-        </div>
-        <div class="vb-section-side">
-          <a class="bs-btn ghost" href="ethics.html">Open ethics page →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== Sponsors strip ============================== -->
-    <section class="vb-sponsors award-sponsors" id="sponsors" aria-labelledby="sponsors-heading">
-      <div class="vb-sponsors-grid">
-        <div class="vb-sponsors-side">
-          <span class="bs-eyebrow">Funded by</span>
-          <h2 id="sponsors-heading">The people behind the prizes.</h2>
-        <p>Meta Brain &amp; AI funds BCI prizes, Muse funds sleep prizes, and Meta Reality Labs funds EMG prizes. Alljoined provides the paid summer internship for the Track 1 winner who clears its eligibility bar in San Francisco.</p>
-          <a class="bs-btn ghost" href="index.html#sponsors">All sponsors &amp; institutions →</a>
-        </div>
-        <div>
-          <div class="vb-logo-group">
-            <span class="bs-kicker">Compute partner</span>
-            <div class="vb-logo-grid">
-              <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark" title="Amazon Web Services">
-                <img src="assets/img/logos/aws.svg" alt="AWS">
-              </a>
-            </div>
-          </div>
-          <div class="vb-logo-group">
-            <span class="bs-kicker">Track sponsors</span>
-            <div class="vb-logo-grid">
-              <a href="https://www.alljoined.com/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark" title="Alljoined">
-                <img src="assets/img/logos/alljoined.png" alt="Alljoined">
-              </a>
-              <a href="https://ai.meta.com/research/brain-ai/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark" title="Meta FAIR Brain & AI">
-                <img src="assets/img/logos/meta_brainai.png" alt="Meta FAIR Brain & AI">
-              </a>
-              <a href="https://choosemuse.com/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark" title="Muse">
-                <img src="assets/img/logos/muse.svg" width="544" height="159" alt="Muse">
-              </a>
-              <a href="https://about.meta.com/reality-labs/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark" title="Meta Reality Labs">
-                <img src="assets/img/logos/meta_reality.png" alt="Meta Reality Labs">
-              </a>
-            </div>
-          </div>
-          <div class="vb-logo-group">
-            <span class="bs-kicker">Host &amp; diversity support</span>
-            <div class="vb-logo-grid">
-              <a href="https://www.yneuro.com/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark vb-logo-mark--xl" title="Yneuro">
-                <img src="assets/img/logos/yneuro.png" alt="Yneuro">
-              </a>
-              <a href="https://www.chalearn.org/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark" title="ChaLearn">
-                <img src="assets/img/logos/chalearn.png" alt="ChaLearn">
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== CTA ============================== -->
-    <section class="vb-section vb-cta" id="cta" aria-labelledby="cta-heading">
-      <div>
-        <h2 id="cta-heading">Choose a track. Compete for its award.</h2>
-        <p>Review your track’s prize conditions, start with a baseline, and pass the reproducibility audit. Winners present at the NeurIPS workshop in Sydney.</p>
-        <div class="bs-hero-cta">
-          <a class="bs-btn primary" href="startkit.html">Open the start-kit →</a>
-          <a class="bs-btn ghost" href="leaderboard.html">See current standings</a>
-        </div>
-      </div>
+    <section class="award-support" id="cta" aria-label="Prize eligibility and support">
+      <p id="ethics-stub">Prizes depend on eligibility and the reproducibility audit. Read the <a href="faq.html">rules</a> and <a href="ethics.html">ethics policy</a>. Winners present at the NeurIPS workshop in Sydney.</p>
+      <p id="sponsors">Awards are funded by the track sponsors listed above. <a href="index.html#sponsors">Meet the sponsors and organizing institutions →</a></p>
+      <a class="bs-btn primary" href="startkit.html#enter">Choose your track →</a>
     </section>
 
 </main>

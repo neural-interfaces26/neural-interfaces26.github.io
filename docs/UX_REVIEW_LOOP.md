@@ -60,3 +60,21 @@ To shorten the final verification after the user's request, the final checks tar
 Final results: four homepage/Start kit mobile walkthroughs passed with zero reported blockers (`/tmp/neural-ux-final/manifest.json`). The scoped journey run passed at 320/1440px, including all four track round trips, no-JavaScript navigation, and malformed-fragment handling. Full design and coverage checks passed (9 pages, 58 anchors, 15 categories).
 
 The final sponsor correction states a paid summer internship in San Francisco: above 50% top-3 accuracy in the best quartile of subjects guarantees negotiation with the winner. Specific details are determined with the candidate; lower scores do not rule out consideration. The internship eligibility bar is separate from the top-5 competition ranking.
+
+## User-rejected visual result: promotion and readability pass
+
+The user rejected the previous result after seeing the deployed layout. Earlier automated successes do not establish visual acceptance. This correction follows `superpowers/plans/2026-09-08-promotion-and-readability.md` and the user's four screenshots.
+
+Observed failures: dominant $18,000 headline instead of internship promotion; logos with inconsistent optical size and a mostly empty compute-partner row; historical participation figures buried at the bottom; duplicated prize breakdown and dense conditions; repeated FAQ introductions and oversized rule gutters; organizer affiliations separated from names, with an inconsistent full-width EMG lead.
+
+Baseline local captures: `/tmp/baseline-prize-heading.png`, `/tmp/baseline-sponsors.png`, `/tmp/baseline-track-prizes.png`, `/tmp/baseline-rules.png`, `/tmp/baseline-team-emg.png`. The previous homepage chooser correction is retained.
+
+Status: corrected implementation and final navigation regression complete; rendered desktop/mobile review complete. This section supersedes the earlier completion statement for visual acceptance.
+
+Implemented: historical statistics immediately after the hero; awards/internship promotion with a direct CTA; compact compute and sponsor row with optical logo sizing and centered wrapping institutions; a single prize comparison with direct track links; separate San Francisco/Toronto conditions; compact visible rules and native FAQ answers; uniform organizer cards with affiliations beneath names. All 30 names, affiliations and biographies compare exactly with the pre-edit snapshot.
+
+The first correction audit completed 12 route/viewport walks (four affected pages at 1440, 390 and 320px), with zero reported blockers: `/tmp/neural-promotion-review/manifest.json`. Rendered review additionally corrected the mobile horizontal rule index and the optical size of Reality Labs. Section screenshots are in `/tmp/promotion-*.png`. Source checks requiring deleted prize-card typography and fixed organizer padding were retired; organizer membership, content, link and accessibility requirements remain.
+
+Final validation: all 36 page/viewport navigation cases passed across nine pages at 1440, 834, 390 and 320px, including four-track round trips, malformed fragments, and no-JavaScript mobile navigation (`/tmp/neural-promotion-journey/results.json`). Six final interaction/axe walks of homepage, FAQ and organizers at 1440/320px reported zero blockers (`/tmp/neural-promotion-final/manifest.json`). All seven binding rules match the pre-edit text. Full design and content coverage checks pass: nine pages, 58 anchors, 15 categories. Final section captures use `/tmp/promotion-final-*.png`.
+
+These are local functional, accessibility and rendered-layout checks; no participant study, external registration or submission, or production-performance claim is made. Validation was completed locally before committing this correction pass.

@@ -35,7 +35,7 @@
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
 <link rel="stylesheet" href="assets/css/base.css?v=20260908ux" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260908ux" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20260908ux3" />
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235332F4'/%3E%3Cg stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5'/%3E%3Cpath d='M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24'/%3E%3C/g%3E%3C/svg%3E" />
 
@@ -82,6 +82,15 @@
       </div>
     </div>
   </section>
+
+  <aside class="proof-strip reveal home-stats" id="stats" aria-label="Historical 2025 EEG Foundation Challenge participation">
+    <a href="https://eeg2025.github.io/" target="_blank" rel="noreferrer noopener">2025 challenge · historical</a>
+    <div><strong>1,197</strong><span>teams</span></div>
+    <div><strong>247</strong><span>institutions</span></div>
+    <div><strong>50+</strong><span>countries</span></div>
+    <div><strong>8,622</strong><span>submissions</span></div>
+    <p>Promoted via EEGLAB, MNE-Python, and NeuroTechX.</p>
+  </aside>
 
   <nav class="home-track-compare" id="tracks" aria-label="Quick track comparison">
     <a href="startkit.html#enter-1">
@@ -428,9 +437,11 @@
 
   <section class="campaign-section prize-panel reveal" aria-labelledby="prize-heading">
     <div>
-      <h2 id="prize-heading"><span>$18,000</span> cash allocation.</h2>
-      <p><strong>$2,000 per top-three team in BCI, sleep, and EMG.</strong> The sleep winner can choose a Toronto internship instead of cash. Alljoined offers a paid summer internship in San Francisco to the Track 1 winner above its eligibility bar. Cash payout is $16,000 if the sleep winner chooses the internship.</p>
-      <a class="track-link" href="awards.html">View awards</a>
+      <span class="bs-eyebrow">Build the future of neural interfaces</span>
+      <h2 id="prize-heading">Awards &amp; internships.</h2>
+      <p>Compete for cash awards and research internship opportunities with neuro-interface companies in <strong>San Francisco and Toronto.</strong></p>
+      <p class="prize-panel-note">$2,000 for each top-three team in BCI, sleep, and EMG. The sleep winner can choose a Toronto internship instead; Alljoined offers a paid summer internship in San Francisco subject to its performance threshold.</p>
+      <a class="bs-btn primary" href="awards.html">Explore awards &amp; internships →</a>
     </div>
   </section>
 
@@ -445,7 +456,7 @@
         <div class="sponsor-groups reveal">
           <div class="vb-logo-group">
             <span class="bs-kicker">Compute partner</span>
-            <div class="vb-logo-grid">
+            <div class="vb-logo-grid vb-logo-grid--compute">
               <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark" title="Amazon Web Services">
                 <img src="assets/img/logos/aws.svg" alt="AWS" loading="lazy" decoding="async">
               </a>
@@ -453,7 +464,7 @@
           </div>
           <div class="vb-logo-group">
             <span class="bs-kicker">Track sponsors</span>
-            <div class="vb-logo-grid">
+            <div class="vb-logo-grid vb-logo-grid--tracks">
               <a href="https://www.alljoined.com/" target="_blank" rel="noopener noreferrer" class="vb-logo-mark" title="Alljoined">
                 <img src="assets/img/logos/alljoined.png" alt="Alljoined" loading="lazy" decoding="async">
               </a>
@@ -529,15 +540,6 @@
         </p>
       </div>
     </section>
-
-  <aside class="proof-strip reveal" id="stats" aria-label="NeurIPS 2025 EEG Foundation Challenge participation">
-    <a href="https://eeg2025.github.io/" target="_blank" rel="noreferrer noopener">2025 challenge</a>
-    <div><strong>1,197</strong><span>teams</span></div>
-    <div><strong>247</strong><span>institutions</span></div>
-    <div><strong>50+</strong><span>countries</span></div>
-    <div><strong>8,622</strong><span>submissions</span></div>
-    <p>Promoted via EEGLAB, MNE-Python, and NeuroTechX.</p>
-  </aside>
 
 </main>
 

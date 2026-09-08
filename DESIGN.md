@@ -141,6 +141,10 @@ Reference originality firewall: a reference is evidence for grammar, never a lay
 
 ## Participant journey — September 8, 2026
 
-Prioritize choosing a track, running a baseline, and registering. The start-kit page is the participation hub; `#enter` and `#enter-1` through `#enter-4` are stable entry anchors. Each track exposes its guide, Codabench registration, and leaderboard together. Registration must never require opening a FAQ accordion. Keep Prizes in the primary navigation and Dates in the homepage section navigation. On small screens, decorative hero artwork yields space to participant actions; previous-year statistics follow current challenge information.
+Prioritize choosing a track, running a baseline, and registering. The start-kit page is the participation hub; `#enter` and `#enter-1` through `#enter-4` are stable entry anchors. Each track exposes its guide, Codabench registration, and leaderboard together. Registration must never require opening a FAQ accordion. Keep Prizes in the primary navigation and Dates in the homepage section navigation. On small screens, decorative hero artwork yields space to participant actions; clearly labeled previous-year statistics sit directly after the current challenge hero, before the track chooser.
 
 Use Refero's Notion reference for content hierarchy and restrained surfaces, while retaining the project's existing violet palette and typography. The installed Vercel web-design-guidelines skill informs keyboard navigation and explicit link labels. Verify routes and visible outcomes with `scripts/journey-check.mjs`; visual assertions alone do not establish usability.
+
+## Promotion and readability correction — September 8, 2026
+
+This correction supersedes the earlier mandatory proof/state rails: add them only when they help a decision, and omit repeated introductions. Lead prize promotion with awards and internships in San Francisco and Toronto; keep cash allocation in supporting copy. Present each prize once, with explicit conditions nearby. Normalize sponsor marks by optical size within bounded boxes, preserving aspect ratio. Organizer names and affiliations belong together, with consistent portrait layouts for leads and members. Rules use a compact readable column; native disclosures are reserved for optional answers.

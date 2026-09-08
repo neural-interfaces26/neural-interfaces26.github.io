@@ -828,7 +828,7 @@ body.menu-open { overflow: hidden; }
 
 .prize-panel {
   position: relative;
-  min-height: 560px;
+  min-height: 0;
   display: grid;
   align-items: center;
   overflow: hidden;
@@ -842,7 +842,7 @@ body.menu-open { overflow: hidden; }
   background-image: url("../img/brand/hero-trophy.webp");
   background-position: 82% 50%;
   background-size: cover;
-  opacity: 0.14;
+  opacity: 0.08;
   pointer-events: none;
 }
 
@@ -850,28 +850,19 @@ body.menu-open { overflow: hidden; }
 
 .prize-panel h2 {
   max-width: 760px;
-  margin: 0 0 24px;
-}
-
-.prize-panel h2 > span {
-  display: block;
-  color: var(--bs-violet);
-  font-family: var(--bs-fontmono);
-  font-size: clamp(72px, 11vw, 154px);
-  font-weight: 600;
-  letter-spacing: -0.075em;
-  line-height: 0.8;
+  margin: 14px 0 18px;
 }
 
 .prize-panel p {
   max-width: 48ch;
-  margin: 0 0 24px;
+  margin: 0 0 14px;
   color: var(--bs-muted);
-  font-size: 17px;
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.55;
 }
 
 .prize-panel p strong { color: var(--bs-text); }
+.prize-panel .prize-panel-note { max-width: 62ch; margin-bottom: 0; font-size: 14px; }
 
 .sponsor-wall-layout {
   display: grid;
@@ -896,7 +887,9 @@ body.menu-open { overflow: hidden; }
 .sponsor-groups {
   grid-column: 6 / 13;
   display: grid;
-  gap: 48px;
+  grid-template-columns: minmax(140px, .55fr) minmax(0, 1.45fr);
+  gap: 20px;
+  align-items: start;
 }
 
 .sponsor-institutions { grid-column: 1 / 13; }
@@ -912,13 +905,25 @@ body.menu-open { overflow: hidden; }
   border-bottom: 1px solid var(--bs-text);
 }
 
+.sponsor-wall .vb-logo-grid--compute {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  border: 0;
+}
+
+.sponsor-wall .vb-logo-grid--tracks {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .sponsor-wall .vb-logo-grid--six-up { grid-template-columns: repeat(6, minmax(0, 1fr)); }
 
 .sponsor-wall .vb-logo-mark,
 .sponsor-wall .vb-logo-group .vb-logo-grid > .vb-logo-mark {
   width: 100%;
   min-width: 0;
-  min-height: 96px;
+  min-height: 76px;
+  height: 76px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -930,12 +935,19 @@ body.menu-open { overflow: hidden; }
   box-shadow: none;
 }
 
+.sponsor-wall .vb-logo-grid--compute > .vb-logo-mark {
+  width: 160px;
+  min-width: 0;
+}
+
 .sponsor-wall .vb-logo-mark:hover { transform: translateY(-2px); box-shadow: none; }
 .sponsor-wall .vb-logo-grid > :last-child { border-right: 0; }
-.sponsor-wall .vb-logo-mark img { max-width: 100%; max-height: 36px; }
-.sponsor-wall .vb-logo-mark--lg img { max-height: 44px; }
-.sponsor-wall .vb-logo-mark--xl img { max-height: 52px; }
-.sponsor-wall .vb-logo-mark--ucsd img { max-width: 190px; max-height: 40px; }
+.sponsor-wall .vb-logo-mark img,
+.sponsor-wall .vb-logo-mark--lg img,
+.sponsor-wall .vb-logo-mark--xl img { width: auto; max-width: 150px; max-height: 30px; object-fit: contain; }
+.sponsor-wall .vb-logo-mark[title="Alljoined"] img,
+.sponsor-wall .vb-logo-mark[title="Yneuro"] img { max-width: 164px; max-height: 32px; }
+.sponsor-wall .vb-logo-mark--ucsd img { max-width: 150px; max-height: 30px; }
 
 .sponsor-wall .vb-logo-grid--six-up .vb-logo-mark--ucsd {
   grid-column: auto;
@@ -1012,7 +1024,7 @@ body.menu-open { overflow: hidden; }
   .track-card > p:not(.track-facts),
   .track-facts { grid-column: 1; grid-row: auto; }
   .sponsor-wall-intro { grid-column: 1 / 6; }
-  .sponsor-groups { grid-column: 6 / 13; }
+  .sponsor-groups { grid-column: 6 / 13; grid-template-columns: 1fr; }
   .sponsor-wall .vb-logo-grid--six-up { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .sponsor-wall .vb-logo-grid--six-up > :nth-child(3n) { border-right: 0; }
 }
@@ -1065,9 +1077,8 @@ body.menu-open { overflow: hidden; }
   .timeline-panel li { padding: 0 0 40px 24px; }
   .timeline-panel li::before { top: 2px; left: -24px; }
   .timeline-panel li:last-child { padding-bottom: 0; }
-  .prize-panel { min-height: 480px; }
+  .prize-panel { min-height: 0; }
   .prize-panel::after { inset: 44% 0 0 35%; opacity: 0.1; }
-  .prize-panel h2 > span { font-size: clamp(64px, 22vw, 92px); }
   .sponsor-wall-intro,
   .sponsor-groups,
   .sponsor-institutions { grid-column: 1 / 13; }
@@ -1075,10 +1086,10 @@ body.menu-open { overflow: hidden; }
   .sponsor-wall .vb-logo-grid--six-up { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sponsor-wall .vb-logo-grid > :nth-child(2n),
   .sponsor-wall .vb-logo-grid--six-up > :nth-child(3n) { border-right: 0; }
-  .sponsor-wall .vb-logo-mark img { max-height: 30px; }
-  .sponsor-wall .vb-logo-mark--lg img { max-height: 36px; }
-  .sponsor-wall .vb-logo-mark--xl img { max-height: 42px; }
-  .sponsor-wall .vb-logo-mark--ucsd img { max-height: 36px; }
+  .sponsor-wall .vb-logo-mark img,
+  .sponsor-wall .vb-logo-mark--lg img,
+  .sponsor-wall .vb-logo-mark--xl img { max-width: 132px; max-height: 28px; }
+  .sponsor-wall .vb-logo-mark--ucsd img { max-height: 30px; }
   .register-panel > div { width: 100%; }
 }
 
@@ -2748,45 +2759,23 @@ body.menu-open { overflow: hidden; }
 
 .narrative-page .award-eligibility { max-width: 65ch; font-size: 16px; line-height: 1.5; }
 
-.award-breakdown {
-  display: block;
-  margin-top: 32px;
-  border-top: 1px solid var(--bs-text);
+.award-table tbody.award-breakdown { display: table-row-group; }
+.award-table .award-track { scroll-margin-top: 96px; }
+.award-track-link { color: var(--bs-text); text-decoration: none; text-underline-offset: 3px; }
+.award-track-link:hover { color: var(--bs-violet); text-decoration: underline; }
+
+.award-conditions {
+  max-width: 76ch;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--bs-card-border);
 }
 
-.award-breakdown .vb-track {
-  display: grid;
-  grid-template-columns: 150px minmax(0, 1fr) minmax(230px, 0.45fr);
-  gap: 16px 28px;
-  align-items: start;
-  margin: 0;
-  padding: 32px 0 36px;
-  border: 0;
-  border-bottom: 1px solid var(--bs-card-border);
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
-.award-breakdown .vb-track:hover { transform: none; box-shadow: none; }
-.award-breakdown .track-head { grid-column: 1; grid-row: 1 / span 4; display: grid; align-content: start; justify-items: start; }
-.award-breakdown .vb-track h3,
-.award-breakdown .vb-track > p,
-.award-breakdown .vb-track-paradigms { grid-column: 2; }
-.award-breakdown .vb-track h3 { margin: 0; font-size: clamp(24px, 3vw, 30px); }
-.award-breakdown .vb-track > p { margin: 0; font-size: 16px; line-height: 1.5; }
-.award-breakdown .track-stats { grid-column: 3; grid-row: 1 / span 4; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.award-breakdown .track-stats strong { font-family: var(--bs-fontmono); font-size: 16px; }
-
-.award-breakdown .bs-badge,
-.award-breakdown .bs-pill {
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  font-family: var(--bs-fontmono);
-  font-size: 11px;
-}
+.award-conditions h2 { margin: 0 0 10px; color: var(--bs-text); font-size: 20px; line-height: 1.25; }
+.award-conditions p { margin: 0 0 12px; color: var(--bs-muted); font-size: 14px; line-height: 1.55; }
+.award-conditions p:last-child { margin-bottom: 0; }
+.award-conditions ul { display: grid; gap: 8px; margin: 0 0 12px; padding-left: 20px; color: var(--bs-muted); font-size: 14px; line-height: 1.5; }
+.award-conditions li strong { color: var(--bs-text); }
 
 .award-internship {
   margin-top: 32px !important;
@@ -2984,8 +2973,6 @@ body.menu-open { overflow: hidden; }
 }
 
 @media (max-width: 768px) {
-  .award-breakdown .vb-track { grid-template-columns: 112px minmax(0, 1fr); }
-  .award-breakdown .track-stats { grid-column: 2; grid-row: auto; }
   .evidence-header { grid-template-columns: 64px minmax(0, 1fr); }
   .evidence-header > :last-child { grid-column: 2; }
   .track-record-page .year-entry .vb-section-head { grid-template-columns: 1fr; }
@@ -2994,12 +2981,6 @@ body.menu-open { overflow: hidden; }
 @media (max-width: 640px) {
   .award-declaration { grid-template-columns: 1fr; gap: 20px; }
   .award-total { font-size: 48px; }
-  .award-breakdown .vb-track { grid-template-columns: 1fr; }
-  .award-breakdown .track-head,
-  .award-breakdown .vb-track h3,
-  .award-breakdown .vb-track > p,
-  .award-breakdown .vb-track-paradigms,
-  .award-breakdown .track-stats { grid-column: 1; grid-row: auto; }
   .award-internship { padding-inline: 20px !important; }
   .ethics-page .vb-section { padding-block: 56px; }
   .commitment-list > li { grid-template-columns: 40px minmax(0, 1fr); gap: 4px 12px; }
@@ -3572,8 +3553,8 @@ body.menu-open { overflow: hidden; }
 
 .vb-rule {
   display: grid;
-  grid-template-columns: 112px minmax(0, 1fr);
-  column-gap: 28px;
+  grid-template-columns: 52px minmax(0, 1fr);
+  column-gap: 20px;
   padding: 36px 0 40px;
   border-top: 1px solid var(--bs-card-border);
   scroll-margin-top: 96px;
@@ -3582,9 +3563,9 @@ body.menu-open { overflow: hidden; }
 .vb-rule:first-child { border-top-color: var(--bs-text); }
 
 .vb-rule-num {
-  font-family: var(--bs-fontdisplay);
-  font-size: 64px;
-  font-weight: 900;
+  font-family: var(--bs-fontmono);
+  font-size: 24px;
+  font-weight: 600;
   line-height: 1;
   letter-spacing: -0.03em;
   color: var(--bs-violet);
@@ -3797,7 +3778,7 @@ body.menu-open { overflow: hidden; }
     row-gap: 10px;
     padding: 28px 0 32px;
   }
-  .vb-rule-num { font-size: 48px; }
+  .vb-rule-num { font-size: 24px; }
   .vb-rule-body h3 { font-size: 22px; }
   .faq-item summary { padding-right: 0; padding-bottom: 48px; }
   .faq-item summary::after { right: auto; bottom: 18px; left: 0; }
@@ -4082,8 +4063,8 @@ body.menu-open { overflow: hidden; }
   gap: 8px 14px;
   align-content: start;
   min-width: 0;
-  min-height: 138px;
-  padding: 20px 18px 18px;
+  min-height: 112px;
+  padding: 18px;
   border-right: 1px solid var(--bs-card-border);
   color: var(--bs-text);
   text-decoration: none;
@@ -4097,8 +4078,7 @@ body.menu-open { overflow: hidden; }
   font: 600 18px/1 var(--bs-fontmono);
 }
 
-.home-track-compare strong,
-.home-track-compare small,
+.home-track-compare a > span:nth-child(2) { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .home-track-compare b { grid-column: 2; }
 .home-track-compare strong { font-size: 17px; line-height: 1.25; }
 .home-track-compare small { color: var(--bs-muted); font-size: 12px; line-height: 1.4; }
@@ -4256,6 +4236,7 @@ body.menu-open { overflow: hidden; }
 .faq-quick-summary a { font-weight: 700; }
 .faq-page .vb-section-head { margin-bottom: 32px; }
 .faq-page .faq-answer { max-width: min(65ch, calc(72% - 24px)); margin-left: calc(28% + 24px); padding-left: 0; }
+.faq-page .vb-section { padding-block: 56px; }
 .ethics-page .page-hero { padding-bottom: 28px; }
 .ethics-page .local-nav { margin-bottom: 0; }
 
@@ -4313,10 +4294,7 @@ body.menu-open { overflow: hidden; }
   .home-track-compare a:nth-child(2) { min-height: 112px; grid-template-columns: 26px minmax(0, 1fr); align-content: start; padding: 14px 12px; gap: 6px 8px; border-right: 1px solid var(--bs-card-border); border-bottom: 1px solid var(--bs-card-border); }
   .home-track-compare a:nth-child(2n) { border-right: 0; }
   .home-track-compare a:nth-last-child(-n + 2) { border-bottom: 0; }
-  .home-track-compare strong,
-  .home-track-compare small,
-  .home-track-compare b { grid-column: 2; }
-  .home-track-compare span:nth-child(2) { display: grid; gap: 3px; }
+  .home-track-compare a > span:nth-child(2) { gap: 4px; }
   .home-track-compare small { font-size: 11px; }
   .home-track-compare b { align-self: end; justify-self: start; font-size: 11px; }
   .track-jump { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 18px; }
@@ -4359,3 +4337,66 @@ body.menu-open { overflow: hidden; }
   .current-challenge-actions { display: grid; grid-template-columns: 1fr; }
   .current-challenge-actions .bs-btn { width: 100%; justify-content: center; }
 }
+
+/* User-reviewed promotion and reading layouts. */
+.prize-panel h2 { font-size: clamp(32px, 4vw, 56px); line-height: 1.1; letter-spacing: -.025em; }
+.sponsor-wall-layout { grid-template-columns: 1fr; gap: 28px; }
+.sponsor-wall-intro, .sponsor-groups, .sponsor-institutions { grid-column: 1; }
+.sponsor-wall-intro { max-width: 76ch; }
+.sponsor-wall-intro h2 { margin-block: 12px 16px; }
+.sponsor-wall-intro p { margin-bottom: 10px; }
+.sponsor-groups { grid-template-columns: 160px minmax(0, 1fr); gap: 32px; }
+.sponsor-wall .vb-logo-grid--tracks { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.sponsor-wall .vb-logo-grid--six-up { display: flex; flex-wrap: wrap; justify-content: center; }
+.sponsor-wall .vb-logo-grid--six-up > .vb-logo-mark { flex: 0 0 calc(100% / 5); }
+.sponsor-wall .vb-logo-mark img { max-width: min(150px, 100%); max-height: 38px; width: auto; height: auto; }
+.sponsor-wall .vb-logo-mark[title="Alljoined"] img,
+.sponsor-wall .vb-logo-mark[title="Yneuro"] img { max-width: min(164px, 100%); max-height: 46px; }
+.awards-page .page-hero-inner, .award-compare, .award-support { width: min(100% - 40px, 1080px); margin-inline: auto; }
+.awards-page .page-hero-inner { grid-template-columns: 1fr; }
+.award-compare { padding-top: 12px; }
+.award-compare > h2 { font-size: 24px; margin: 0 0 8px; }
+.award-units { margin: 0 0 20px; color: var(--bs-muted); }
+.award-table th, .award-table td { font-size: 16px; padding: 18px 14px; }
+.award-table thead th:first-child { width: 30%; }
+.award-table thead th:nth-child(2) { width: 34%; }
+.award-table tbody td { color: var(--bs-text); }
+.award-track-link { display: inline-flex; min-height: 44px; align-items: center; color: var(--bs-violet); }
+.award-conditions { max-width: 76ch; padding: 24px; background: var(--bs-surface); border: 0; }
+.award-conditions p, .award-conditions ul { font-size: 16px; }
+.award-allocation-note { margin-top: 24px; }
+.award-support { padding-block: 24px 48px; }
+.award-support p { max-width: 76ch; color: var(--bs-muted); }
+.faq-page .page-hero-inner { grid-template-columns: 1fr; }
+.faq-page .page-hero-inner, .faq-page .local-nav { width: min(100% - 40px, 960px); margin-inline: auto; }
+.faq-page .vb-section { padding: 32px max(20px, calc((100% - 960px) / 2)); }
+.faq-page .vb-section-head { display: block; margin-bottom: 20px; }
+.faq-page .vb-section-head h2 { font-size: 28px; }
+.faq-page .vb-rule { padding-block: 24px; grid-template-columns: 32px minmax(0, 1fr); gap: 16px; }
+.faq-page .vb-rule-num { font-size: 20px; margin-top: 4px; }
+.faq-page .vb-rule-body { max-width: 76ch; }
+.faq-page .faq-item summary { grid-template-columns: 1fr; gap: 6px; padding-right: 36px; }
+.faq-page .faq-item summary::after { content: "+"; font-size: 24px; }
+.faq-page .faq-item[open] summary::after { content: "−"; }
+.faq-page .faq-answer { width: 100%; max-width: 76ch; margin: 0; padding: 0 36px 24px 0; }
+@media (max-width: 640px) {
+  .sponsor-groups { grid-template-columns: 1fr; gap: 24px; }
+  .sponsor-wall .vb-logo-grid--tracks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sponsor-wall .vb-logo-grid--six-up > .vb-logo-mark { flex-basis: 50%; }
+  .sponsor-wall .vb-logo-mark, .sponsor-wall .vb-logo-group .vb-logo-grid > .vb-logo-mark { padding: 14px; }
+  .award-table tbody.award-breakdown { display: block; }
+  .award-table th, .award-table td { padding: 12px 8px; }
+  .award-table tbody td, .award-table tbody td:nth-child(2) { grid-template-columns: 36px minmax(0, 1fr); }
+  .award-conditions { padding: 20px; }
+  .faq-page .faq-answer { padding-right: 0; }
+}
+.prize-panel .bs-btn { margin-top: 24px; }
+.sponsor-wall .vb-logo-mark[title="Meta Reality Labs"] img { max-height: 56px; max-width: min(150px, 100%); }
+.faq-page .rule-index { flex-wrap: wrap; overflow: visible; }
+.faq-page .rule-index a { white-space: normal; }
+@media (max-width: 640px) {
+  .faq-page .rule-index { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .faq-page .rule-index a { padding-inline: 8px; }
+}
+#prize-heading { scroll-margin-top: 96px; }
+.sponsor-wall .vb-logo-grid--compute > .vb-logo-mark { border-right: 0; }
