@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 import xml.etree.ElementTree as ET
@@ -18,7 +19,7 @@ SITE_ORIGIN = "https://neural-interfaces26.github.io"
 OG_IMAGE = f"{SITE_ORIGIN}/assets/img/og-card.png"
 UI_SCRIPT = "assets/js/ui.js?v=20260908ux"
 HOME_DESCRIPTION = (
-    "Open-source EEG/EMG decoding benchmark for NeurIPS 2026 in Sydney. "
+    "Open-source EEG/EMG decoding benchmark for the Brain and Body Workshop at NeurIPS 2026 in Sydney. "
     "Neural Interfaces for Generalizable Decoding across EEG, EMG, sleep, and BCI tracks. "
     "Submissions Sep 16 - Nov 16, 2026 (AoE)."
 )
@@ -818,11 +819,22 @@ def check_metadata(errors: list[str]) -> None:
         if len(og["og:image:alt"].split()) < 6:
             errors.append(f"{page}: og:image:alt must describe the social image")
 
-        if any(
-            script["attrs"].get("type") == "application/ld+json"
-            for script in parsed.find("script")
-        ):
-            errors.append(f"{page}: unsupported structured data must be omitted")
+        structured = [script for script in parsed.find("script")
+                      if script["attrs"].get("type") == "application/ld+json"]
+        for script in structured:
+            try:
+                data = json.loads("".join(script["text"]))
+            except (json.JSONDecodeError, TypeError):
+                errors.append(f"{page}: invalid structured-data JSON")
+                continue
+            if (page != "index.html" or not isinstance(data, dict)
+                    or data.get("@type") != "WebSite"
+                    or data.get("@context") != "https://schema.org"
+                    or data.get("url") != SITE_ORIGIN + "/"
+                    or not data.get("name")):
+                errors.append(f"{page}: only verified homepage WebSite metadata is supported")
+        if len(structured) > 1:
+            errors.append(f"{page}: duplicate site-name structured data")
 
     if len(set(titles.values())) != len(ALL_PAGES):
         errors.append("metadata: every route must have a unique title")
