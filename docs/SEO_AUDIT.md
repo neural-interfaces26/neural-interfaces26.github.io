@@ -39,7 +39,7 @@ No invented search-volume estimates, thin keyword pages, translations, event dat
 
 Before: production Lighthouse mobile performance 78/100, SEO 100/100, LCP 1.7s, CLS 0.531. Candidate on local server: performance 89/100, SEO 100/100, LCP 3.6s, CLS 0. These are separate lab samples, not field Core Web Vitals or a controlled speed comparison. Reports: `/tmp/neural-seo-before.json`, `/tmp/neural-seo-candidate.json`.
 
-All nine mobile route checks passed, including four-track round trips, menu/Escape focus, malformed fragments and no-JavaScript navigation. Full design and coverage checks passed (nine pages, 58 anchors, 15 categories). Production recheck follows deployment.
+All nine mobile route checks passed, including four-track round trips, menu/Escape focus, malformed fragments and no-JavaScript navigation. Full design and coverage checks passed (nine pages, 58 anchors, 15 categories). Production recheck completed after deployment of `c542285`.
 
 ## Account-dependent follow-up
 
@@ -54,3 +54,9 @@ Links from the workshop, NeuralBench, previous challenge and partner sites are a
 - [Google favicon requirements](https://developers.google.com/search/docs/appearance/favicon-in-search)
 - [Google-supported meta tags](https://developers.google.com/search/docs/crawling-indexing/special-tags)
 - [Google site-name structured data](https://developers.google.com/search/docs/appearance/site-names)
+
+## Production result
+
+The deployed mobile Lighthouse recheck scored **99/100 performance** and **100/100 SEO**. LCP was **2.0s**, CLS **0.003**, and total blocking time **10ms**. Before the fix, the corresponding production sample scored 78/100 performance with CLS 0.531. Lighthouse SEO was already 100/100 before the changes; this pass improves search presentation and page stability beyond that checklist. Report: `/tmp/neural-seo-after.json`.
+
+Verified the eight indexable live routes return HTTP 200 with the GA4 tag and crawlable favicon reference; `/favicon.png` returns HTTP 200 with `image/png`. GitHub Pages reported a successful build. Results are individual mobile lab runs, not field INP, guaranteed rankings, or proof of Google indexing.
