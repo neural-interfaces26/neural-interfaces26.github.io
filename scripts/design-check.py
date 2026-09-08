@@ -29,15 +29,23 @@ TOKENS = {
     "--bs-card-border": "#e3dbf4",
 }
 NARRATIVE_PAGES = ("awards.html", "organizers.html", "ethics.html", "track-record.html")
-ORGANIZER_NAMES = (
-    "Bruno Aristimunha", "Arnault Caillet", "Hubert Banville", "Pierre Guetschel",
-    "Jean-Rémi King", "Vinay Jayaram", "Ugo Nunes", "Simon Kojima",
-    "Pauline Dreyer", "Raphaëlle N. Roy", "Fabien Lotte", "Jiansheng Niu",
-    "Maurice Abou Jaoude", "Christopher Aimone", "Pranav Mamidanna", "Alex Gramfort",
-    "Cédric Rommel", "Thorir Mar Ingolfsson", "Marie-Constance Corsi", "Thomas Moreau", "Joséphine Raugel",
-    "Lionel Kusch", "Thomas Semah", "Seyed Yahya Shirazi", "Scott Makeig",
-    "Isabelle Guyon", "Terrence Sejnowski", "Sylvain Chevallier", "Arnaud Delorme",
-)
+ORGANIZER_GROUPS = {
+    "team-eeg": (
+        "Hubert Banville", "Jean-Rémi King", "Vinay Jayaram", "Ugo Nunes", "Joséphine Raugel",
+    ),
+    "team-bci": (
+        "Simon Kojima", "Pauline Dreyer", "Raphaëlle N. Roy", "Fabien Lotte",
+        "Thorir Mar Ingolfsson", "Marie-Constance Corsi",
+    ),
+    "team-sleep": ("Jiansheng Niu", "Maurice Abou Jaoude", "Christopher Aimone"),
+    "team-emg": ("Pranav Mamidanna", "Alex Gramfort", "Cédric Rommel", "Rick Warren", "Tiberiu Tesileanu"),
+    "team-core": (
+        "Bruno Aristimunha", "Arnault Caillet", "Pierre Guetschel", "Thomas Moreau",
+        "Lionel Kusch", "Thomas Semah", "Seyed Yahya Shirazi", "Sylvain Chevallier", "Arnaud Delorme",
+    ),
+    "team-advisors": ("Scott Makeig", "Isabelle Guyon", "Terrence Sejnowski"),
+}
+ORGANIZER_NAMES = tuple(name for names in ORGANIZER_GROUPS.values() for name in names)
 
 
 class PageParser(HTMLParser):
@@ -548,7 +556,7 @@ def check_narrative(errors: list[str]) -> None:
     proof_copy = {
         "awards.html": ("4 tracks", "3 prize places", "$2,500", "Sydney"),
         "ethics.html": ("Preview", "Provider approvals", "Explicit consent", "Read-only decoders"),
-        "organizers.html": ("29", "4", "15", "6"),
+        "organizers.html": ("31 organizers", "4 tracks", "15 institutions", "6 countries"),
         "track-record.html": ("2021", "2026", "4 competitions", "Same lead"),
     }
     for name, (_, parsed) in pages.items():
@@ -594,19 +602,34 @@ def check_narrative(errors: list[str]) -> None:
     if len(ethics_links) != 1:
         errors.append("awards.html: main content must link the ethics route once")
 
-    organizers_text, organizers = pages["organizers.html"]
+    _, organizers = pages["organizers.html"]
     people = organizers.find("article", "org-card")
-    if len(people) != 29:
-        errors.append("organizers.html: requires all 29 organizers")
-    if tuple(element_text(name) for name in organizers.find(class_name="name")) != ORGANIZER_NAMES:
-        errors.append("organizers.html: organizer proposal order changed")
+    names = [element_text(name) for name in organizers.find(class_name="name")]
+    if len(people) != len(ORGANIZER_NAMES):
+        errors.append("organizers.html: requires all 31 organizers")
+    if len(names) != len(ORGANIZER_NAMES) or set(names) != set(ORGANIZER_NAMES):
+        errors.append("organizers.html: requires each of the 31 organizer names exactly once")
     for person in people:
         for field in ("avatar", "name", "role", "bio", "affil"):
-            if not any(has_ancestor(item, person) for item in organizers.find(class_name=field)):
-                errors.append(f"organizers.html: organizer missing {field}")
+            if len([item for item in organizers.find(class_name=field) if has_ancestor(item, person)]) != 1:
+                errors.append(f"organizers.html: organizer requires one {field}")
                 break
-    if len(organizers.find(class_name="org-directory")) != 1:
-        errors.append("organizers.html: requires one ruled portrait directory")
+    directories = organizers.find(class_name="org-directory")
+    if len(directories) != len(ORGANIZER_GROUPS):
+        errors.append("organizers.html: requires six team portrait directories")
+    for section_id, expected_names in ORGANIZER_GROUPS.items():
+        sections = [section for section in organizers.find("section") if section["attrs"].get("id") == section_id]
+        if len(sections) != 1:
+            errors.append(f"organizers.html: requires one {section_id} section")
+            continue
+        section = sections[0]
+        section_names = [element_text(name) for name in organizers.find(class_name="name") if has_ancestor(name, section)]
+        if len(section_names) != len(expected_names) or set(section_names) != set(expected_names):
+            errors.append(f"organizers.html: incorrect organizer membership in {section_id}")
+        if len([directory for directory in directories if has_ancestor(directory, section)]) != 1:
+            errors.append(f"organizers.html: {section_id} requires one portrait directory")
+        if not any(link["attrs"].get("href") == f"#{section_id}" for link in organizers.find("a")):
+            errors.append(f"organizers.html: missing jump link to {section_id}")
     if len(organizers.find(class_name="org-institutions")) != 1:
         errors.append("organizers.html: institutional marks require a separate stage")
     person_affiliations = [
@@ -627,8 +650,32 @@ def check_narrative(errors: list[str]) -> None:
     institution_copy = element_text(organizers.find(class_name="org-institutions")[0]) if organizers.find(class_name="org-institutions") else ""
     if len(institution_marks) != 19 or "15 organizer institutions" not in institution_copy or "19 affiliation marks" not in institution_copy:
         errors.append("organizers.html: institution stage must distinguish 15 institutions from 19 affiliation marks")
-    if organizers_text.count('loading="lazy"') < 29:
-        errors.append("organizers.html: all portraits must lazy-load")
+    portraits = [
+        image for image in organizers.find("img")
+        if any(has_ancestor(image, avatar) for avatar in organizers.find(class_name="avatar"))
+    ]
+    if len(portraits) != len(ORGANIZER_NAMES) or any(image["attrs"].get("loading") != "lazy" for image in portraits):
+        errors.append("organizers.html: all 31 organizer portraits must lazy-load")
+    profile_sources = {
+        "Rick Warren": "https://richard-warren.github.io/about/",
+        "Tiberiu Tesileanu": "https://ttesileanu.com/about",
+    }
+    for name, source_url in profile_sources.items():
+        cards = [person for person in people if any(
+            element_text(item) == name and has_ancestor(item, person)
+            for item in organizers.find(class_name="name")
+        )]
+        if len(cards) != 1:
+            continue
+        person = cards[0]
+        roles = [element_text(role).lower() for role in organizers.find(class_name="role") if has_ancestor(role, person)]
+        if not any("test-data collection" in role for role in roles):
+            errors.append(f"organizers.html: {name} must be credited for test-data collection")
+        bios = [bio for bio in organizers.find(class_name="bio") if has_ancestor(bio, person)]
+        source_links = [link for link in organizers.find("a") if any(has_ancestor(link, bio) for bio in bios)
+                        and link["attrs"].get("href") == source_url]
+        if not source_links:
+            errors.append(f"organizers.html: {name} biography requires an official source link")
     thorir_cards = [person for person in people if "Thorir Mar Ingolfsson" in element_text(person)]
     thorir_links = [
         link for link in organizers.find("a")

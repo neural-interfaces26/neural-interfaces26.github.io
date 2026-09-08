@@ -118,6 +118,7 @@ Reference originality firewall: a reference is evidence for grammar, never a lay
 - **Technical pages — `editorial journal`:** one strong title/date, calm reading width, disciplined columns, and code/table content as the primary evidence. Do not force poster theatrics into long-form material.
 - **Track grid — `ruled information poster`:** the four numbered tracks form one ordered field with thin ink rules and one violet signal event.
 - **Awards — `type-led declaration`:** prize amounts control the hierarchy; smaller evidence and rules ground the statement without competing with it.
+- **Organizers — `team directory`:** show the four track teams in numerical order, followed by core/host and scientific advisors. Give every person one full profile with a semantic heading; cross-link additional responsibilities. Numbered section headers, team counts, authentic portraits, and plain-text affiliations establish the hierarchy. Keep the two EMG test-data contributors together on desktop, with the track lead in a separate row. Team jump links reflow into two columns on mobile so every group is visible without horizontal scrolling. Biographies and source links remain available without JavaScript.
 
 ## QA rubric
 

@@ -63,6 +63,11 @@ ANCHORS: dict[str, list[str]] = {
         # normaliser strips it for matching.
         "Josephine Raugel",
     ],
+    "EMG test-data collection contributors": [
+        "Rick Warren",
+        "Tiberiu Tesileanu",
+        "test-data collection",
+    ],
     "ethics terminology": [
         "NeurIPS Code of Ethics",
         "mental privacy",
@@ -97,6 +102,7 @@ ANCHORS: dict[str, list[str]] = {
         "Pranav Mamidanna",
         "Alex Gramfort",
         "Cedric Rommel",
+        "Thorir Mar Ingolfsson",
         "Marie-Constance Corsi",
         "Lionel Kusch",
         "Thomas Semah",

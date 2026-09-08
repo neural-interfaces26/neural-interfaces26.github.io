@@ -8,7 +8,11 @@
 }
 
 .org-section-head {
-  max-width: 760px;
+  max-width: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
   margin-bottom: 48px;
 }
 
@@ -31,7 +35,47 @@
   line-height: 1.5;
 }
 
-.org-section-side { display: none; }
+.org-team-nav a { gap: 12px; }
+.org-team-nav a span { color: var(--bs-violet); font: 500 12px var(--bs-fontmono); }
+.org-team-nav a:last-child { margin-left: auto; }
+
+.org-track:nth-of-type(even) { background: var(--bs-surface); }
+.org-team-heading { display: flex; gap: 28px; min-width: 0; }
+.org-team-heading > div { min-width: 0; }
+.org-team-number {
+  padding-top: 4px;
+  color: var(--bs-violet);
+  font: 500 48px/1 var(--bs-fontmono);
+  letter-spacing: -0.06em;
+}
+.org-team-meta { display: grid; flex: 0 0 auto; justify-items: end; gap: 8px; }
+.org-team-count { color: var(--bs-muted); font: 500 12px/1.5 var(--bs-fontmono); }
+.org-section a.org-back,
+.org-section a.org-track-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--bs-violet);
+  font-size: 16px;
+  font-weight: 600;
+  text-underline-offset: 4px;
+}
+.org-team-note {
+  margin: 0 0 32px;
+  padding: 20px 24px;
+  border-left: 3px solid var(--bs-violet);
+  background: var(--bs-violet-wash);
+  color: var(--bs-text);
+}
+.org-team-note a { color: var(--bs-violet); text-underline-offset: 3px; }
+.org-card .contribution {
+  margin: 0;
+  padding: 12px 16px;
+  border-left: 2px solid var(--bs-violet);
+  background: var(--bs-violet-wash);
+  color: var(--bs-text);
+  font-weight: 600;
+}
 
 .org-directory {
   display: grid;
@@ -43,8 +87,8 @@
 .org-card,
 .org-grid.tight .org-card {
   display: grid;
-  align-content: start;
-  gap: 18px;
+  grid-template-rows: auto 1fr auto;
+  gap: 20px;
   min-width: 0;
   padding: 28px 32px 32px 0;
   border: 0;
@@ -90,12 +134,14 @@
   display: block;
   border-radius: inherit;
   object-fit: cover;
+  object-position: center 25%;
 }
 
 .org-card .name-wrap { display: grid; gap: 6px; min-width: 0; }
 
 .org-card .name,
 .org-grid.tight .org-card .name {
+  margin: 0;
   color: var(--bs-text);
   font-size: 20px;
   font-weight: 700;
@@ -125,6 +171,9 @@
 
 .org-card.lead .name { color: var(--bs-text); }
 .org-card.lead .role { color: var(--bs-violet); }
+.org-card[data-contribution] { grid-template-rows: auto auto 1fr auto; }
+.org-card:target { outline: 2px solid var(--bs-violet); outline-offset: 8px; }
+.organizers-page a:focus-visible { outline: 2px solid var(--bs-violet); outline-offset: 4px; }
 
 .org-card .affil,
 .org-grid.tight .org-card .affil {
@@ -167,6 +216,20 @@
 
 .org-logo-stage img:nth-child(6n) { border-right: 0; }
 
+/* Keep the EMG lead distinct and the two data-collection profiles together. */
+@media (min-width: 1025px) {
+  #team-emg .org-card:first-child {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto auto;
+    gap: 20px 32px;
+    padding-right: 0;
+  }
+  #team-emg .org-card:first-child .affil { grid-column: 2; }
+  #team-emg .org-card:nth-child(even) { padding: 28px 32px 32px 0; border-left: 0; }
+  #team-emg .org-card:nth-child(odd):not(:first-child) { padding: 28px 0 32px 32px; border-left: 1px solid var(--bs-card-border); }
+}
+
 @media (max-width: 1024px) {
   .org-directory { grid-template-columns: 1fr; }
   .org-card,
@@ -180,9 +243,17 @@
 @media (max-width: 768px) {
   .org-section { padding-block: 64px; }
   .org-section-head { margin-bottom: 36px; }
+  .org-section-head { flex-direction: column; gap: 20px; }
+  .org-team-meta { display: flex; align-items: center; gap: 24px; }
+  .org-team-heading { gap: 16px; }
+  .org-team-number { font-size: 32px; }
+  .org-team-note { padding: 16px; }
 }
 
 @media (max-width: 640px) {
+  .org-team-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; }
+  .org-team-nav a { gap: 8px; padding-inline: 8px; }
+  .org-team-nav a:last-child { margin-left: 0; }
   .org-card .head,
   .org-grid.tight .org-card .head { grid-template-columns: 72px minmax(0, 1fr); gap: 16px; }
   .org-card .avatar,

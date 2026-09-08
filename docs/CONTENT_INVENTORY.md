@@ -56,6 +56,25 @@ Source: `competitions_neurips_2026.tex` (835 lines), `affiliations.tex` (20 line
 
 ---
 
+### Current website roster supplement (2026-09-07)
+
+The proposal table above remains a historical record. The website includes the existing additions Cédric Rommel (EMG) and Thorir Mar Ingolfsson (BCI), plus Rick Warren and Tiberiu Tesileanu, whose **emg2pose test-data collection** contribution was supplied by the challenge organizer on 2026-09-07.
+
+The directory now has 31 unique profiles, grouped by responsibility:
+
+| Website section | Profiles | Scope |
+|---|---:|---|
+| EEG team | 5 | Track 1, EEG-to-IMG |
+| BCI team | 6 | Track 2, BCI decoding |
+| Sleep team | 3 | Track 3, sleep onset |
+| EMG team | 5 | Track 4, EMG-to-Pose, including the two test-data contributors |
+| Core & host team | 9 | Shared platform, coordination, standards, and Yneuro hosting |
+| Scientific advisors | 3 | Scientific oversight and evaluation |
+
+Arnault Caillet also belongs to the EMG track; its section links to his full core-team profile. Track-lead labels for Hubert Banville, Simon Kojima, Jiansheng Niu, and Alex Gramfort follow the proposal roles above. Existing biographies and affiliations are retained. The institution/country totals and 19 affiliation marks are unchanged; the additions are Meta researchers.
+
+See [organizer profile sources](ORGANIZER_SOURCES.md) for the new biographies, portrait provenance, and the limits of photo-date verification.
+
 ## 3. Datasets
 
 | Track | Name (proposal spelling) | Citation key | Hardware | Subjects | Notes |
