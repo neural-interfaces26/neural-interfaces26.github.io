@@ -33,8 +33,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
-<link rel="stylesheet" href="assets/css/base.css?v=20260828a" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260830b" />
+<link rel="stylesheet" href="assets/css/base.css?v=20260908ux" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20260908ux" />
 
 <script>
   window.MathJax = {
@@ -66,12 +66,12 @@
   </button>
   <nav class="site-menu" id="site-menu" aria-label="Primary navigation">
     <a href="index.html#tracks">Tracks</a>
-    <a href="index.html#timeline">Timeline</a>
     <a href="startkit.html">Start kit</a>
+    <a href="awards.html">Prizes</a>
     <a href="leaderboard.html" aria-current="page">Leaderboard</a>
     <a href="faq.html">Rules</a>
     <a href="organizers.html">Organizers</a>
-    <a class="bs-btn primary sm" href="mailto:neurips2026-eeg-emg-competition@googlegroups.com?subject=Register%20team%20for%20EEG%2FEMG%20Foundation%20Challenge%202026">Register</a>
+    <a class="bs-btn primary sm" href="startkit.html#enter">Register</a>
   </nav>
 </header>
 
@@ -81,60 +81,33 @@
   <section class="page-hero" aria-labelledby="lb-heading">
     <div class="page-hero-inner">
       <div class="page-hero-copy">
-        <span class="bs-eyebrow">Public leaderboard</span>
+        <span class="bs-eyebrow">Results status · public leaderboard</span>
         <h1 id="lb-heading">Leaderboard.</h1>
-        <p>One ranking per track, with final positions gated by reproducibility audit.</p>
+        <p>Preview phase — no ranked submissions yet. Live boards begin Sep 16, 2026; final positions are gated by reproducibility audit.</p>
         <div class="bs-hero-cta">
-          <a class="bs-btn primary" href="startkit.html">Get on the board →</a>
-          <a class="bs-btn ghost" href="#methodology">Scoring methodology</a>
+          <a class="bs-btn primary" href="startkit.html#enter">Choose a track →</a>
+          <a class="bs-btn ghost" href="startkit.html#baselines">Run a baseline</a>
         </div>
       </div>
-      <aside class="page-proof" aria-label="Leaderboard at a glance">
-        <div><span>Boards</span><strong>4 track boards</strong></div>
-        <div><span>Phase</span><strong>Preview</strong></div>
-        <div><span>Updates</span><strong>Begin Sep 16</strong></div>
-        <div><span>Reference</span><strong>Baselines available</strong></div>
-      </aside>
     </div>
-  </section>
-
-  <section class="challenge-state" aria-label="Competition schedule and state">
-    <div><span>State</span><strong>Preview</strong></div>
-    <div><span>Submissions</span><strong>Sep 16 - Nov 16, 2026</strong></div>
-    <div><span>Handoff</span><strong><a href="https://brainbodyfm-workshop.github.io" target="_blank" rel="noreferrer noopener">NeurIPS 2026 · Sydney</a></strong></div>
   </section>
 
   <nav class="local-nav" aria-label="Leaderboard tracks and scoring">
-    <a href="#track-1">Track 01</a>
-    <a href="#track-2">Track 02</a>
-    <a href="#track-3">Track 03</a>
-    <a href="#track-4">Track 04</a>
+    <a href="#track-1">EEG-to-Image</a>
+    <a href="#track-2">BCI decoding</a>
+    <a href="#track-3">Sleep onset</a>
+    <a href="#track-4">EMG-to-Pose</a>
     <a href="#methodology">Methodology</a>
     <a href="#formal-scoring">Formal scoring</a>
   </nav>
-
-  <section class="leaderboard-overview" aria-label="Leaderboard phase and entry status">
-    <p>Refreshed every 15 minutes during the sealed phase. Top-3 per track go through a reproducibility audit at test-freeze; only audited entries appear in the final NeurIPS rankings.</p>
-    <div class="board-status">
-      <div><span>Track</span><strong>01-04</strong></div>
-      <div><span>Phase</span><strong>Preview</strong></div>
-      <div><span>Last updated</span><strong>Updates begin Sep 16</strong></div>
-      <div><span>Entries / baselines</span><strong>No ranked entries; <a href="startkit.html#baselines">baselines available</a></strong></div>
-      <div><span>Platform</span><strong>Codabench</strong></div>
-    </div>
-    <p class="rules-note">
-      <svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 2.5H5.5a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V6.5z" /><path d="M11.5 2.5v4h4" /><path d="M7.5 10.5h5M7.5 13.5h3" /></svg>
-      <span><strong>Before your first upload.</strong> The daily submission caps and the audit that gates the final ranking are defined on the <a href="faq.html">Rules &amp; FAQ</a> page.</span>
-    </p>
-  </section>
-
 
     <!-- ============================== Track 01 ============================== -->
     <section class="vb-section" id="track-1" aria-labelledby="t1-heading">
       <div class="vb-section-head">
         <div>
-          <h2 id="t1-heading">Track 01: evoked visual retrieval, top-5 accuracy.</h2>
+          <h2 id="t1-heading">EEG-to-Image · Track 01.</h2>
           <p>Rank held-out candidate images from a single EEG epoch. Targets are frozen DINOv2-giant embeddings, so the score isolates the EEG side. Controlled shift: test stimuli are unseen during training. Higher is better.</p>
+          <div class="track-next-actions" aria-label="EEG-to-Image next actions"><a class="bs-btn primary sm" href="startkit.html#enter-1">Prepare this track</a><a class="bs-btn ghost sm" href="https://www.codabench.org/competitions/17974/" target="_blank" rel="noreferrer noopener">Register on Codabench ↗</a></div>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">
@@ -150,7 +123,7 @@
           <caption>Track 1 leaderboard. Preview state with no ranked submissions.</caption>
           <thead><tr><th scope="col">Rank state</th><th scope="col">Submission</th><th scope="col">Affiliation</th><th scope="col">Top-5</th><th scope="col">Delta</th></tr></thead>
           <tbody class="unranked-rows">
-            <tr><th scope="row">Not ranked</th><td>No submissions yet</td><td>Warm-up opens Sep 16, 2026</td><td>Not scored</td><td>Not ranked</td></tr>
+            <tr><th scope="row">Not ranked</th><td>No submissions yet · <a href="startkit.html#enter-1">Run the baseline</a></td><td>Warm-up opens Sep 16, 2026</td><td>Not scored</td><td>Not ranked</td></tr>
           </tbody>
         </table>
       </div>
@@ -165,8 +138,9 @@
     <section class="vb-section vb-section-cream" id="track-2" aria-labelledby="t2-heading">
       <div class="vb-section-head">
         <div>
-          <h2 id="t2-heading">Track 02: calibration-stable command decoding.</h2>
+          <h2 id="t2-heading">BCI decoding · Track 02.</h2>
           <p>Predict the cued command (motor imagery, mental math, word association) on later sessions of the same subject, with no per-session recalibration. The score reflects calibration-free stability across session drift. Higher is better.</p>
+          <div class="track-next-actions" aria-label="BCI decoding next actions"><a class="bs-btn primary sm" href="startkit.html#enter-2">Prepare this track</a><a class="bs-btn ghost sm" href="https://www.codabench.org/competitions/17982/" target="_blank" rel="noreferrer noopener">Register on Codabench ↗</a></div>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">
@@ -182,7 +156,7 @@
           <caption>Track 2 leaderboard. Preview state with no ranked submissions.</caption>
           <thead><tr><th scope="col">Rank state</th><th scope="col">Submission</th><th scope="col">Affiliation</th><th scope="col">Balanced accuracy</th><th scope="col">Delta</th></tr></thead>
           <tbody class="unranked-rows">
-            <tr><th scope="row">Not ranked</th><td>No submissions yet</td><td>Warm-up opens Sep 16, 2026</td><td>Not scored</td><td>Not ranked</td></tr>
+            <tr><th scope="row">Not ranked</th><td>No submissions yet · <a href="startkit.html#enter-2">Run the baseline</a></td><td>Warm-up opens Sep 16, 2026</td><td>Not scored</td><td>Not ranked</td></tr>
           </tbody>
         </table>
       </div>
@@ -197,8 +171,9 @@
     <section class="vb-section" id="track-3" aria-labelledby="t3-heading">
       <div class="vb-section-head">
         <div>
-          <h2 id="t3-heading">Track 03: latency to stable N2 on wearable EEG.</h2>
+          <h2 id="t3-heading">Sleep onset · Track 03.</h2>
           <p>Predict seconds from recording start to the first stable N2 epoch, on consumer-grade wearable EEG. The controlled shift is cross-device: a sparse home-wearable montage, too narrow to support full per-epoch staging but still able to resolve onset timing. Lower is better.</p>
+          <div class="track-next-actions" aria-label="Sleep onset next actions"><a class="bs-btn primary sm" href="startkit.html#enter-3">Prepare this track</a><a class="bs-btn ghost sm" href="https://www.codabench.org/competitions/17983/" target="_blank" rel="noreferrer noopener">Register on Codabench ↗</a></div>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">
@@ -214,7 +189,7 @@
           <caption>Track 3 leaderboard. Preview state with no ranked submissions.</caption>
           <thead><tr><th scope="col">Rank state</th><th scope="col">Submission</th><th scope="col">Affiliation</th><th scope="col">MAE (s)</th><th scope="col">Delta</th></tr></thead>
           <tbody class="unranked-rows">
-            <tr><th scope="row">Not ranked</th><td>No submissions yet</td><td>Warm-up opens Sep 16, 2026</td><td>Not scored</td><td>Not ranked</td></tr>
+            <tr><th scope="row">Not ranked</th><td>No submissions yet · <a href="startkit.html#enter-3">Run the baseline</a></td><td>Warm-up opens Sep 16, 2026</td><td>Not scored</td><td>Not ranked</td></tr>
           </tbody>
         </table>
       </div>
@@ -229,8 +204,9 @@
     <section class="vb-section vb-section-cream" id="track-4" aria-labelledby="t4-heading">
       <div class="vb-section-head">
         <div>
-          <h2 id="t4-heading">Track 04: wristband EMG to hand pose.</h2>
+          <h2 id="t4-heading">EMG-to-Pose · Track 04.</h2>
           <p>Regress 20-joint angle trajectories from 16-channel wrist surface EMG. Held-out users and movement stages vary anatomy, device placement, and kinematics, so the score rewards robust pose representations rather than participant-specific templates. Lower is better.</p>
+          <div class="track-next-actions" aria-label="EMG-to-Pose next actions"><a class="bs-btn primary sm" href="startkit.html#enter-4">Prepare this track</a><a class="bs-btn ghost sm" href="https://www.codabench.org/competitions/17984/" target="_blank" rel="noreferrer noopener">Register on Codabench ↗</a></div>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">
@@ -246,7 +222,7 @@
           <caption>Track 4 leaderboard. Preview state with no ranked submissions.</caption>
           <thead><tr><th scope="col">Rank state</th><th scope="col">Submission</th><th scope="col">Affiliation</th><th scope="col">MAE (&deg;)</th><th scope="col">Delta</th></tr></thead>
           <tbody class="unranked-rows">
-            <tr><th scope="row">Not ranked</th><td>No submissions yet</td><td>Warm-up opens Sep 16, 2026</td><td>Not scored</td><td>Not ranked</td></tr>
+            <tr><th scope="row">Not ranked</th><td>No submissions yet · <a href="startkit.html#enter-4">Run the baseline</a></td><td>Warm-up opens Sep 16, 2026</td><td>Not scored</td><td>Not ranked</td></tr>
           </tbody>
         </table>
       </div>
@@ -265,6 +241,8 @@
         </div>
       </div>
 
+      <details class="scoring-details" open>
+        <summary>Open scoring methodology</summary>
       <ol class="methodology-list" aria-label="Leaderboard scoring methodology">
         <li class="methodology-item">
           <div class="methodology-copy">
@@ -312,6 +290,7 @@
         </li>
 
       </ol>
+      </details>
     </section>
 
     <!-- ============================== Formal definitions ============================== -->
@@ -323,6 +302,8 @@
         </div>
       </div>
 
+      <details class="scoring-details">
+        <summary>Open formal definitions and code</summary>
       <div class="formal-block">
         <h3>Prediction, unit score, and track score</h3>
         <p>A submission \(a\) receives a hidden signal \(X_{t,i}\) and metadata \(m_{t,i}\) for track \(t\), then writes a prediction \(\hat{y}_{a,t,i}\). The evaluator keeps \(y_{t,i}\) hidden and computes the score.</p>
@@ -444,6 +425,7 @@
           <pre tabindex="0" aria-label="Overall ranking code"><div class="line"><span class="ln"> 1</span><code><span class="kw">def</span> <span class="cls">rank_points</span>(rank, n_submissions):</code></div><div class="line"><span class="ln"> 2</span><code>    <span class="kw">return</span> <span class="str">1.0</span> <span class="kw">if</span> n_submissions <span class="op">==</span> <span class="str">1</span> <span class="kw">else</span> <span class="str">1.0</span> <span class="op">-</span> (rank <span class="op">-</span> <span class="str">1</span>) <span class="op">/</span> (n_submissions <span class="op">-</span> <span class="str">1</span>)</code></div><div class="line"><span class="ln"> 3</span><code></code></div><div class="line"><span class="ln"> 4</span><code><span class="kw">def</span> <span class="cls">submitted_track_score</span>(points_by_track, submitted_tracks):</code></div><div class="line"><span class="ln"> 5</span><code>    <span class="kw">return</span> sum(points_by_track[t] <span class="kw">for</span> t <span class="kw">in</span> submitted_tracks) <span class="op">/</span> len(submitted_tracks)</code></div><div class="line"><span class="ln"> 6</span><code></code></div><div class="line"><span class="ln"> 7</span><code><span class="kw">def</span> <span class="cls">all_track_score</span>(points_by_track, all_tracks<span class="op">=</span>(<span class="str">"img"</span>, <span class="str">"bci"</span>, <span class="str">"sleep"</span>, <span class="str">"emg"</span>)):</code></div><div class="line"><span class="ln"> 8</span><code>    <span class="str">"""Missing tracks get zero points."""</span></code></div><div class="line"><span class="ln"> 9</span><code>    <span class="kw">return</span> sum(points_by_track.get(t, <span class="str">0.0</span>) <span class="kw">for</span> t <span class="kw">in</span> all_tracks) <span class="op">/</span> len(all_tracks)</code></div></pre>
         </figure>
       </div>
+      </details>
     </section>
 
     <!-- ============================== CTA ============================== -->
@@ -464,16 +446,20 @@
   <div class="site-footer-inner page-shell">
     <a class="site-footer-brand" href="index.html">EEG/EMG Foundation Challenge 2026</a>
     <nav class="site-footer-links" aria-label="Footer navigation">
+      <a href="index.html#tracks">Tracks</a>
       <a href="startkit.html">Start kit</a>
+      <a href="awards.html">Prizes</a>
+      <a href="leaderboard.html" aria-current="page">Leaderboard</a>
       <a href="faq.html">Rules</a>
       <a href="ethics.html">Ethics</a>
+      <a href="organizers.html">Organizers</a>
       <a href="https://github.com/neural-interfaces26/neural-interfaces26.github.io" target="_blank" rel="noreferrer noopener">GitHub</a>
     </nav>
-    <a class="site-footer-email" href="mailto:neurips2026-eeg-emg-competition@googlegroups.com">neurips2026-eeg-emg-competition@googlegroups.com</a>
+    <a class="site-footer-email" href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Contact us on Discord</a>
   </div>
 </footer>
 
-<script src="assets/js/ui.js?v=20260831e" defer></script>
+<script src="assets/js/ui.js?v=20260908ux" defer></script>
 
 </body>
 </html>

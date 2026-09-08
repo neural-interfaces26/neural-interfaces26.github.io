@@ -56,22 +56,22 @@ Source: `competitions_neurips_2026.tex` (835 lines), `affiliations.tex` (20 line
 
 ---
 
-### Current website roster supplement (2026-09-07)
+### Current website roster supplement (2026-09-08)
 
 The proposal table above remains a historical record. The website includes the existing additions Cédric Rommel (EMG) and Thorir Mar Ingolfsson (BCI), plus Rick Warren and Tiberiu Tesileanu, whose **emg2pose test-data collection** contribution was supplied by the challenge organizer on 2026-09-07.
 
-The directory now has 31 unique profiles, grouped by responsibility:
+Ugo Nunes was removed from the website at the organizer’s request on 2026-09-08. The directory now has 30 unique profiles, grouped by responsibility:
 
 | Website section | Profiles | Scope |
 |---|---:|---|
-| EEG team | 5 | Track 1, EEG-to-IMG |
+| EEG team | 4 | Track 1, EEG-to-IMG |
 | BCI team | 6 | Track 2, BCI decoding |
 | Sleep team | 3 | Track 3, sleep onset |
 | EMG team | 5 | Track 4, EMG-to-Pose, including the two test-data contributors |
 | Core & host team | 9 | Shared platform, coordination, standards, and Yneuro hosting |
 | Scientific advisors | 3 | Scientific oversight and evaluation |
 
-Arnault Caillet also belongs to the EMG track; its section links to his full core-team profile. Track-lead labels for Hubert Banville, Simon Kojima, Jiansheng Niu, and Alex Gramfort follow the proposal roles above. Existing biographies and affiliations are retained. The institution/country totals and 19 affiliation marks are unchanged; the additions are Meta researchers.
+Arnault Caillet also belongs to the EMG track, as noted in his core-team profile. Track-lead labels for Hubert Banville, Simon Kojima, Jiansheng Niu, and Alex Gramfort follow the proposal roles above. Affiliations were audited on 2026-09-08; project labels and former affiliations were removed.
 
 See [organizer profile sources](ORGANIZER_SOURCES.md) for the new biographies, portrait provenance, and the limits of photo-date verification.
 
@@ -142,6 +142,19 @@ Establishing lines in the proposal:
 ---
 
 ## 7. Prize Structure
+
+Current website configuration, supplied by the organizer on 2026-09-08, supersedes the historical proposal amounts below:
+
+| Track | Sponsor | First place | Second place | Third place |
+|---|---|---|---|---|
+| EEG-to-Image | Alljoined | Paid summer internship in San Francisco: above 50% top-3 accuracy in the best quartile of subjects guarantees internship negotiation with the winner; specific details determined with the candidate. Lower scores do not rule out consideration | No prize | No prize |
+| BCI | Meta Brain & AI | USD $2,000 | USD $2,000 | USD $2,000 |
+| Sleep onset | Muse | USD $2,000 or Toronto internship | USD $2,000 | USD $2,000 |
+| EMG-to-Pose | Meta Reality Labs | USD $2,000 | USD $2,000 | USD $2,000 |
+
+Cash allocation: USD $18,000 across tracks 2-4; USD $16,000 paid in cash if the sleep winner chooses the internship. Internship values are excluded. The six-month duration from the historical proposal is not asserted in the current offers.
+
+Historical proposal:
 
 | Item | Amount / Description | Source line |
 |------|---------------------|-------------|

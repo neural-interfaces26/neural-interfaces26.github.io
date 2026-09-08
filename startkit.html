@@ -6,14 +6,14 @@
 <meta name="theme-color" content="#5332F4" />
 
 <title>Start-kit & Baselines · EEG/EMG Foundation Challenge 2026</title>
-<meta name="description" content="The NeuroAI guides that show how to train, evaluate locally and submit a model, plus the official baseline scores for every track." />
+<meta name="description" content="The NeuroAI guides that show how to train, evaluate locally and submit a model, with public reference scores and registration links for every track." />
 
 <link rel="canonical" href="https://neural-interfaces26.github.io/startkit.html" />
 <meta name="author" content="Bruno Aristimunha and the EEG/EMG Foundation Challenge organising team" />
 <meta name="keywords" content="EEG baseline, start-kit, neuralbench, eegdash, braindecode, NeurIPS 2026 challenge submission" />
 
 <meta property="og:title" content="Start-kit &amp; Baselines · EEG/EMG Foundation Challenge 2026" />
-<meta property="og:description" content="The NeuroAI guides that show how to train, evaluate locally and submit a model, plus the official baseline scores for every track." />
+<meta property="og:description" content="The NeuroAI guides that show how to train, evaluate locally and submit a model, with public reference scores and registration links for every track." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://neural-interfaces26.github.io/startkit.html" />
 <meta property="og:site_name" content="EEG/EMG Foundation Challenge" />
@@ -25,7 +25,7 @@
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Start-kit & Baselines · EEG/EMG Foundation Challenge 2026" />
-<meta name="twitter:description" content="The NeuroAI guides that show how to train, evaluate locally and submit a model, plus the official baseline scores for every track." />
+<meta name="twitter:description" content="The NeuroAI guides that show how to train, evaluate locally and submit a model, with public reference scores and registration links for every track." />
 <meta name="twitter:image" content="https://neural-interfaces26.github.io/assets/img/og-card.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,8 +33,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
-<link rel="stylesheet" href="assets/css/base.css?v=20260828a" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260830b" />
+<link rel="stylesheet" href="assets/css/base.css?v=20260908ux" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20260908ux" />
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235332F4'/%3E%3Cg stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5'/%3E%3Cpath d='M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24'/%3E%3C/g%3E%3C/svg%3E" />
 
@@ -54,48 +54,75 @@
   </button>
   <nav class="site-menu" id="site-menu" aria-label="Primary navigation">
     <a href="index.html#tracks">Tracks</a>
-    <a href="index.html#timeline">Timeline</a>
     <a href="startkit.html" aria-current="page">Start kit</a>
+    <a href="awards.html">Prizes</a>
     <a href="leaderboard.html">Leaderboard</a>
     <a href="faq.html">Rules</a>
     <a href="organizers.html">Organizers</a>
-    <a class="bs-btn primary sm" href="mailto:neurips2026-eeg-emg-competition@googlegroups.com?subject=Register%20team%20for%20EEG%2FEMG%20Foundation%20Challenge%202026">Register</a>
+    <a class="bs-btn primary sm" href="startkit.html#enter">Register</a>
   </nav>
 </header>
 
 <main class="site-main" id="main">
 
   <!-- ============================== Hero ============================== -->
-  <section class="page-hero" id="quickstart" aria-labelledby="kit-heading">
+  <section class="page-hero startkit-hero" id="quickstart" aria-labelledby="kit-heading">
     <div class="page-hero-inner">
       <div class="page-hero-copy">
         <span class="bs-eyebrow">Start kit and baselines</span>
-        <h1 id="kit-heading">Start-kit &amp; baselines.</h1>
-        <p>The start-kit is a set of guides in the NeuroAI repository. This page points you to them and lists the baseline scores to beat.</p>
+        <h1 id="kit-heading">Start your track.</h1>
+        <p>Choose a track, run its baseline, then register on Codabench. Submissions: Sep 16 - Nov 16, 2026 (AoE).</p>
+        <nav class="track-jump" id="enter" aria-label="Jump to a track">
+          <a href="#enter-1"><span>01</span> EEG-to-Image</a>
+          <a href="#enter-2"><span>02</span> BCI decoding</a>
+          <a href="#enter-3"><span>03</span> Sleep onset</a>
+          <a href="#enter-4"><span>04</span> EMG-to-Pose</a>
+        </nav>
         <div class="bs-hero-cta">
-          <a class="bs-btn primary" href="https://github.com/facebookresearch/neuroai" target="_blank" rel="noreferrer noopener">Get the start-kit →</a>
-          <a class="bs-btn ghost" href="#baselines">See the baselines</a>
+          <a class="bs-btn primary" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/index.html" target="_blank" rel="noreferrer noopener">Open starter kit →</a>
         </div>
-        <p class="rules-note">
-          <svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 2.5H5.5a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V6.5z" /><path d="M11.5 2.5v4h4" /><path d="M7.5 10.5h5M7.5 13.5h3" /></svg>
-          <span><strong>The rules are not on this page.</strong> Submission caps, eligibility, external data, compute, the reproducibility audit and authorship all live on the <a href="faq.html#rules">Rules &amp; FAQ</a> page. Read them before your first upload.</span>
-        </p>
+
       </div>
     </div>
   </section>
 
-  <section class="challenge-state" aria-label="Competition schedule and state">
-    <div><span>State</span><strong>Preview</strong></div>
-    <div><span>Submissions</span><strong>Sep 16 - Nov 16, 2026</strong></div>
-    <div><span>Handoff</span><strong><a href="https://brainbodyfm-workshop.github.io" target="_blank" rel="noreferrer noopener">NeurIPS 2026 · Sydney</a></strong></div>
+  <section class="vb-section" id="track-chooser" aria-labelledby="enter-heading">
+    <div class="vb-section-head"><div><h2 id="enter-heading">Choose your track.</h2><p>Choose one or more tracks. Run a baseline, register on Codabench, and check results on the matching leaderboard. <a href="awards.html#track-prizes">Compare prizes and conditions</a>.</p></div></div>
+    <div class="entry-grid">
+      <article class="entry-track" id="enter-1" aria-labelledby="enter-title-1">
+        <span class="bs-kicker">Track 01</span><h3 id="enter-title-1">EEG-to-Image</h3><p>Retrieve images from EEG. Ranked by top-5 accuracy.</p>
+        <div class="entry-actions"><a class="bs-btn primary" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track1_eeg_to_image.html">Read track 1 guide →</a><a class="bs-btn ghost" href="https://www.codabench.org/competitions/17974/">Register on Codabench ↗</a></div>
+        <a class="track-link" href="leaderboard.html#track-1">Track 1 leaderboard →</a>
+      </article>
+      <article class="entry-track" id="enter-2" aria-labelledby="enter-title-2">
+        <span class="bs-kicker">Track 02</span><h3 id="enter-title-2">BCI decoding</h3><p>Decode mental commands across sessions. Ranked by balanced accuracy.</p>
+        <div class="entry-actions"><a class="bs-btn primary" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track2_eeg_to_bci.html">Read track 2 guide →</a><a class="bs-btn ghost" href="https://www.codabench.org/competitions/17982/">Register on Codabench ↗</a></div>
+        <a class="track-link" href="leaderboard.html#track-2">Track 2 leaderboard →</a>
+      </article>
+      <article class="entry-track" id="enter-3" aria-labelledby="enter-title-3">
+        <span class="bs-kicker">Track 03</span><h3 id="enter-title-3">Sleep onset</h3><p>Predict sleep-onset latency. Ranked by weighted-binned MAE in seconds.</p>
+        <div class="entry-actions"><a class="bs-btn primary" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track3_sleep_onset.html">Read track 3 guide →</a><a class="bs-btn ghost" href="https://www.codabench.org/competitions/17983/">Register on Codabench ↗</a></div>
+        <a class="track-link" href="leaderboard.html#track-3">Track 3 leaderboard →</a>
+      </article>
+      <article class="entry-track" id="enter-4" aria-labelledby="enter-title-4">
+        <span class="bs-kicker">Track 04</span><h3 id="enter-title-4">EMG-to-Pose</h3><p>Predict 20 joint-angle trajectories. Mean absolute angular error (degrees).</p>
+        <div class="entry-actions"><a class="bs-btn primary" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track4_emg_to_pose.html">Read track 4 guide →</a><a class="bs-btn ghost" href="https://www.codabench.org/competitions/17984/">Register on Codabench ↗</a></div>
+        <a class="track-link" href="leaderboard.html#track-4">Track 4 leaderboard →</a>
+      </article>
+    </div>
   </section>
 
+  <nav class="local-nav" aria-label="Getting started sections">
+    <a href="#track-chooser">Track guides</a><a href="#track-guides">Setup</a><a href="#submission">Submission</a><a href="#baselines">Reference scores</a>
+  </nav>
+
     <!-- ============================== Guides ============================== -->
-    <section class="vb-section" id="guides" aria-labelledby="guides-heading">
+    <section class="vb-section" id="track-guides" aria-labelledby="guides-heading">
+      <span id="guides" class="section-anchor" aria-hidden="true"></span>
       <div class="vb-section-head">
         <div>
-          <h2 id="guides-heading">Train, evaluate locally, submit.</h2>
-          <p>The guides live in the <a href="https://github.com/facebookresearch/neuroai" target="_blank" rel="noreferrer noopener">NeuroAI repository</a> and are published in the NeuralBench documentation. They show how to <strong>1) train</strong> a baseline, <strong>2) evaluate</strong> it locally with the official evaluator, and <strong>3) submit</strong> a model. Start with the overview, then open the guide for your track.</p>
+          <h2 id="guides-heading">Run a baseline.</h2>
+          <p>Follow the overview to set up NeuralBench, then run the commands in your track guide. Public datasets let you develop and evaluate locally before the competition releases.</p>
         </div>
       </div>
 
@@ -106,34 +133,10 @@
           <span class="desc">The four tracks, their metrics, the public stand-in datasets, and the commands to train and evaluate every baseline locally.</span>
           <span class="arrow">Open guide →</span>
         </a>
-        <a class="doc-link" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_submission_guide.html" target="_blank" rel="noreferrer noopener">
+        <a class="doc-link" id="submission" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_submission_guide.html" target="_blank" rel="noreferrer noopener">
           <span class="bs-kicker">Submit</span>
           <strong>How to submit a model</strong>
-          <span class="desc">The expected train → package → upload workflow. Fills in when the submission portal opens.</span>
-          <span class="arrow">Open guide →</span>
-        </a>
-        <a class="doc-link" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track1_eeg_to_image.html" target="_blank" rel="noreferrer noopener">
-          <span class="bs-kicker">Track 1 · <code>neuralbench eeg image</code></span>
-          <strong>EEG-to-Image</strong>
-          <span class="desc">THINGS-EEG and Alljoined; top-5 retrieval accuracy in a frozen DINOv2 embedding space.</span>
-          <span class="arrow">Open guide →</span>
-        </a>
-        <a class="doc-link" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track2_eeg_to_bci.html" target="_blank" rel="noreferrer noopener">
-          <span class="bs-kicker">Track 2 · <code>neuralbench eeg motor_imagery</code></span>
-          <strong>EEG-to-BCI</strong>
-          <span class="desc">Stieger2021 as the stand-in cohort; balanced accuracy, within-user and cross-session.</span>
-          <span class="arrow">Open guide →</span>
-        </a>
-        <a class="doc-link" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track3_sleep_onset.html" target="_blank" rel="noreferrer noopener">
-          <span class="bs-kicker">Track 3 · <code>neuralbench eeg sleep_onset</code></span>
-          <strong>Sleep onset</strong>
-          <span class="desc">Sleep-EDF as the stand-in until the Muse cohort drops; binned MAE on onset latency, in seconds.</span>
-          <span class="arrow">Open guide →</span>
-        </a>
-        <a class="doc-link" href="https://github.com/bruAristimunha/neuroai/blob/emg-pose-neuralbench/docs/neuralbench/tasks/emg/pose.rst" target="_blank" rel="noreferrer noopener">
-          <span class="bs-kicker">Track 4 · <code>neuralbench emg pose -m neuropose</code></span>
-          <strong>EMG-to-Pose</strong>
-          <span class="desc">Salter2024 EMG2Pose: 16-channel wrist sEMG to 20 joint-angle trajectories, evaluated in degrees.</span>
+          <span class="desc">Prepare model weights and an inference script. This guide is a placeholder; the final package format is still to be announced.</span>
           <span class="arrow">Open guide →</span>
         </a>
       </div>
@@ -143,8 +146,8 @@
     <section class="vb-section vb-section-cream" id="baselines" aria-labelledby="baselines-heading">
       <div class="vb-section-head">
         <div>
-          <h2 id="baselines-heading">Pre-computed baselines on representative public datasets.</h2>
-          <p>Numbers below are NeuralBench replications on representative public datasets, mean ± std, taken from the competition proposal's Table 1. They are the warm-up targets to beat. The official warm-up split scores arrive Sep 16, 2026.</p>
+          <h2 id="baselines-heading">Compare reference scores.</h2>
+          <p>Proposal reference scores on public datasets (mean ± std), not competition leaderboard results. Official warm-up scores arrive September 16, 2026. The EMG baseline command is <code>neuralbench emg pose -m neuropose</code>.</p>
         </div>
       </div>
 
@@ -265,16 +268,20 @@
   <div class="site-footer-inner page-shell">
     <a class="site-footer-brand" href="index.html">EEG/EMG Foundation Challenge 2026</a>
     <nav class="site-footer-links" aria-label="Footer navigation">
+      <a href="index.html#tracks">Tracks</a>
       <a href="startkit.html" aria-current="page">Start kit</a>
+      <a href="awards.html">Prizes</a>
+      <a href="leaderboard.html">Leaderboard</a>
       <a href="faq.html">Rules</a>
       <a href="ethics.html">Ethics</a>
+      <a href="organizers.html">Organizers</a>
       <a href="https://github.com/neural-interfaces26/neural-interfaces26.github.io" target="_blank" rel="noreferrer noopener">GitHub</a>
     </nav>
-    <a class="site-footer-email" href="mailto:neurips2026-eeg-emg-competition@googlegroups.com">neurips2026-eeg-emg-competition@googlegroups.com</a>
+    <a class="site-footer-email" href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Contact us on Discord</a>
   </div>
 </footer>
 
-<script src="assets/js/ui.js?v=20260831e" defer></script>
+<script src="assets/js/ui.js?v=20260908ux" defer></script>
 
 </body>
 </html>

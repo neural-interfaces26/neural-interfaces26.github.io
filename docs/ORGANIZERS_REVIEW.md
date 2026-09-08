@@ -1,6 +1,8 @@
 # Organizer directory review
 
-Reviewed 2026-09-08 against baseline commit `719a4df`.
+Historical visual review against baseline commit `719a4df`, performed 2026-09-08.
+
+Subsequent content update: Ugo Nunes was removed at the organizer’s request; the current directory has 30 profiles and four EEG organizers. Affiliation labels were audited and the EMG collection notes removed. The visual results below describe the earlier 31-profile snapshot.
 
 ## Content and sources
 

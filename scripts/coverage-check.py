@@ -54,7 +54,7 @@ ANCHORS: dict[str, list[str]] = {
         "Codabench",
     ],
     "prize amount (P1)": [
-        "$2,500",
+        "$2,000",
     ],
     "previously-missing organizers (P1)": [
         "Christopher Aimone",
@@ -63,10 +63,9 @@ ANCHORS: dict[str, list[str]] = {
         # normaliser strips it for matching.
         "Josephine Raugel",
     ],
-    "EMG test-data collection contributors": [
+    "EMG organizers": [
         "Rick Warren",
         "Tiberiu Tesileanu",
-        "test-data collection",
     ],
     "ethics terminology": [
         "NeurIPS Code of Ethics",
@@ -92,7 +91,6 @@ ANCHORS: dict[str, list[str]] = {
         # "Jean-Rémi King" matches the ASCII anchor below.
         "Jean-Remi King",
         "Vinay Jayaram",
-        "Ugo Nunes",
         "Simon Kojima",
         "Pauline Dreyer",
         "Raphaelle N. Roy",

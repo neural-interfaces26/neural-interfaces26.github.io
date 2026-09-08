@@ -161,10 +161,17 @@
     const toggle = document.querySelector('.site-menu-toggle');
     const menu = document.getElementById('site-menu');
     if (!toggle || !menu) return;
+    toggle.closest('.site-header').classList.add('menu-ready');
+
+    const setToggleLabel = (open) => {
+      toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    };
+    setToggleLabel(false);
 
     const close = ({ restoreFocus = false } = {}) => {
       menu.classList.remove('is-open');
       toggle.setAttribute('aria-expanded', 'false');
+      setToggleLabel(false);
       document.body.classList.remove('menu-open');
       if (restoreFocus) toggle.focus();
     };
@@ -174,6 +181,7 @@
       if (open) return close();
       menu.classList.add('is-open');
       toggle.setAttribute('aria-expanded', 'true');
+      setToggleLabel(true);
       document.body.classList.add('menu-open');
     });
     menu.addEventListener('click', (event) => {
@@ -185,6 +193,27 @@
       }
     });
     window.matchMedia('(min-width: 901px)').addEventListener('change', close);
+  }
+
+  /* ---------- Native disclosures and deep links ---------- */
+  function initHashDisclosures() {
+    const openHashDisclosure = () => {
+      let hash = window.location.hash.slice(1);
+      if (!hash) return;
+      try {
+        hash = decodeURIComponent(hash);
+      } catch (err) {
+        return;
+      }
+      const target = document.getElementById(hash);
+      let parent = target && target.closest('details');
+      while (parent) {
+        parent.open = true;
+        parent = parent.parentElement && parent.parentElement.closest('details');
+      }
+    };
+    openHashDisclosure();
+    window.addEventListener('hashchange', openHashDisclosure);
   }
 
   /* ---------- Active homepage section ---------- */
@@ -326,6 +355,7 @@
     initMathJax();
     initCopyButtons();
     initSiteMenu();
+    initHashDisclosures();
     initSectionNavigation();
     initCountdown();
     initLeaderboardTabs();

@@ -16,7 +16,7 @@ PAGES = [
 ALL_PAGES = PAGES + ["404.html"]
 SITE_ORIGIN = "https://neural-interfaces26.github.io"
 OG_IMAGE = f"{SITE_ORIGIN}/assets/img/og-card.png"
-UI_SCRIPT = "assets/js/ui.js?v=20260831e"
+UI_SCRIPT = "assets/js/ui.js?v=20260908ux"
 HOME_DESCRIPTION = (
     "Open-source EEG/EMG decoding benchmark for NeurIPS 2026 in Sydney. "
     "Neural Interfaces for Generalizable Decoding across EEG, EMG, sleep, and BCI tracks. "
@@ -31,7 +31,7 @@ TOKENS = {
 NARRATIVE_PAGES = ("awards.html", "organizers.html", "ethics.html", "track-record.html")
 ORGANIZER_GROUPS = {
     "team-eeg": (
-        "Hubert Banville", "Jean-Rémi King", "Vinay Jayaram", "Ugo Nunes", "Joséphine Raugel",
+        "Hubert Banville", "Jean-Rémi King", "Vinay Jayaram", "Joséphine Raugel",
     ),
     "team-bci": (
         "Simon Kojima", "Pauline Dreyer", "Raphaëlle N. Roy", "Fabien Lotte",
@@ -413,25 +413,25 @@ def check_home(errors: list[str]) -> None:
 def check_technical(errors: list[str]) -> None:
     pages = {name: parse_page(name)[1] for name in ("startkit.html", "leaderboard.html", "faq.html")}
     proof_copy = {
-        "startkit.html": ("Python ≥ 3.12", "PyTorch ≥ 2.2", "BIDS-first", "MIT licensed"),
+        "startkit.html": ("Public baselines", "4 track portals", "Read the rules", "Ask on Discord"),
         "faq.html": ("7 rules", "4 optional questions", "Canonical rules source", "Reproducibility audit"),
         "leaderboard.html": ("4 track boards", "Preview", "Begin Sep 16", "Baselines available"),
     }
     for name, parsed in pages.items():
         proofs = parsed.find("aside", "page-proof")
         states = parsed.find("section", "challenge-state")
-        if len(proofs) != 1 or not proofs[0]["attrs"].get("aria-label"):
-            errors.append(f"{name}: requires one labelled page-proof aside")
-        if len(states) != 1 or not states[0]["attrs"].get("aria-label"):
-            errors.append(f"{name}: requires one labelled challenge-state section")
+        if len(proofs) > 1 or (proofs and not proofs[0]["attrs"].get("aria-label")):
+            errors.append(f"{name}: proof asides must be unique and labelled")
+        if len(states) > 1 or (states and not states[0]["attrs"].get("aria-label")):
+            errors.append(f"{name}: status sections must be unique and labelled")
         if parsed.find(class_name="announcement-strip"):
             errors.append(f"{name}: legacy announcement strip remains")
         proof_text = element_text(proofs[0]) if proofs else ""
-        for fact in proof_copy[name]:
+        for fact in (proof_copy[name] if proofs else ()):
             if fact not in proof_text:
                 errors.append(f"{name}: page proof missing {fact!r}")
     code_labels: list[str] = []
-    for name, expected in (("startkit.html", 2), ("leaderboard.html", 4)):
+    for name, expected in (("startkit.html", 0), ("leaderboard.html", 4)):
         parsed = pages[name]
         code_blocks = parsed.find(class_name="bs-code")
         code_regions = [
@@ -457,7 +457,7 @@ def check_technical(errors: list[str]) -> None:
             errors.append(f"{name}: requires one compact page hero")
         elif len([h1 for h1 in parsed.find("h1") if has_ancestor(h1, heroes[0])]) != 1:
             errors.append(f"{name}: page hero requires one h1")
-        eyebrows = parsed.find(class_name="bs-eyebrow")
+        eyebrows = [e for e in parsed.find(class_name="bs-eyebrow") if heroes and has_ancestor(e, heroes[0])]
         if len(eyebrows) != 1 or not heroes or not has_ancestor(eyebrows[0], heroes[0]):
             errors.append(f"{name}: keep exactly one eyebrow in the page hero")
         if parsed.find(class_name="dot"):
@@ -511,34 +511,20 @@ def check_technical(errors: list[str]) -> None:
             errors.append(f"startkit.html: Track 4 contract missing {fact!r}")
     if "EMG-to-Text" in startkit_copy:
         errors.append("startkit.html: legacy EMG-to-Text copy remains")
-    contracts = startkit.find("table", "track-contract")
-    if len(contracts) != 1:
-        errors.append("startkit.html: requires one native four-track contract")
-    else:
-        contract = contracts[0]
-        rows = [row for row in startkit.find("tr") if has_ancestor(row, contract)]
-        body_rows = [row for row in rows if any(a["tag"] == "tbody" for a in row["ancestors"])]
-        headers = {element_text(header).lower() for header in startkit.find("th") if has_ancestor(header, contract)}
-        required = {"track", "input", "held-out shift", "output", "metric", "baseline", "release state"}
-        if len(body_rows) != 4:
-            errors.append("startkit.html: track contract requires four body rows")
-        if not required.issubset(headers):
-            errors.append("startkit.html: track contract is missing required fields")
-        shells = [shell for shell in startkit.find("div", "table-shell") if has_ancestor(contract, shell)]
-        if len(shells) != 1 or not shells[0]["attrs"].get("aria-label") or shells[0]["attrs"].get("tabindex") != "0":
-            errors.append("startkit.html: track contract requires one labelled keyboard scroller")
-
-    leaderboard_copy = element_text(leaderboard.find("main")[0])
-    for fact in ("EMG-to-Pose", "20-joint angle trajectories", "Mean absolute angular error (degrees)"):
-        if fact not in leaderboard_copy:
-            errors.append(f"leaderboard.html: Track 4 contract missing {fact!r}")
-    if "EMG-to-Text" in leaderboard_copy:
-        errors.append("leaderboard.html: legacy EMG-to-Text copy remains")
+    entries = startkit.find("article", "entry-track")
+    if len(entries) != 4:
+        errors.append("startkit.html: requires four track entry cards")
+    guides = ("plot_track1_eeg_to_image.html", "plot_track2_eeg_to_bci.html", "plot_track3_sleep_onset.html", "plot_track4_emg_to_pose.html")
+    for number, (entry, portal, guide) in enumerate(zip(entries, (17974, 17982, 17983, 17984), guides), 1):
+        links = {link["attrs"].get("href") for link in startkit.find("a") if has_ancestor(link, entry)}
+        expected = {f"https://www.codabench.org/competitions/{portal}/", f"leaderboard.html#track-{number}", f"https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/{guide}"}
+        if not expected.issubset(links) or entry["attrs"].get("id") != f"enter-{number}" or not entry["attrs"].get("aria-labelledby"):
+            errors.append(f"startkit.html: track {number} requires a labeled, anchored guide/registration/leaderboard path")
 
     faq = pages["faq.html"]
     details = faq.find("details", "faq-item")
-    if len(details) != 4:
-        errors.append("faq.html: optional questions require four native disclosures")
+    if len(details) != 5:
+        errors.append("faq.html: optional questions require five native disclosures")
     for number, disclosure in enumerate(details, start=1):
         if not any(has_ancestor(summary, disclosure) for summary in faq.find("summary")):
             errors.append(f"faq.html: disclosure {number} missing summary")
@@ -554,22 +540,22 @@ def check_technical(errors: list[str]) -> None:
 def check_narrative(errors: list[str]) -> None:
     pages = {name: parse_page(name) for name in NARRATIVE_PAGES}
     proof_copy = {
-        "awards.html": ("4 tracks", "3 prize places", "$2,500", "Sydney"),
+        "awards.html": ("4 tracks", "BCI · Sleep · EMG", "$2,000", "Sydney"),
         "ethics.html": ("Preview", "Provider approvals", "Explicit consent", "Read-only decoders"),
-        "organizers.html": ("31 organizers", "4 tracks", "15 institutions", "6 countries"),
+        "organizers.html": ("30 organizers", "4 tracks", "15 institutions", "6 countries"),
         "track-record.html": ("2021", "2026", "4 competitions", "Same lead"),
     }
     for name, (_, parsed) in pages.items():
         proofs = parsed.find("aside", "page-proof")
         states = parsed.find("section", "challenge-state")
-        if len(proofs) != 1 or not proofs[0]["attrs"].get("aria-label"):
-            errors.append(f"{name}: requires one labelled page-proof aside")
-        if len(states) != 1 or not states[0]["attrs"].get("aria-label"):
-            errors.append(f"{name}: requires one labelled challenge-state section")
+        if len(proofs) > 1 or (proofs and not proofs[0]["attrs"].get("aria-label")):
+            errors.append(f"{name}: proof asides must be unique and labelled")
+        if len(states) > 1 or (states and not states[0]["attrs"].get("aria-label")):
+            errors.append(f"{name}: status sections must be unique and labelled")
         if parsed.find(class_name="announcement-strip"):
             errors.append(f"{name}: legacy announcement strip remains")
         proof_text = element_text(proofs[0]) if proofs else ""
-        for fact in proof_copy[name]:
+        for fact in (proof_copy[name] if proofs else ()):
             if fact not in proof_text:
                 errors.append(f"{name}: page proof missing {fact!r}")
     if pages["ethics.html"][1].find(class_name="review-state"):
@@ -586,14 +572,15 @@ def check_narrative(errors: list[str]) -> None:
             errors.append(f"{name}: visible copy must use regular hyphens")
 
     awards = pages["awards.html"][1]
-    if len(awards.find(class_name="award-total")) != 1 or "$30,000" not in element_text(awards.find(class_name="award-total")[0]):
-        errors.append("awards.html: requires one dominant $30,000 total")
+    awards_copy = element_text(awards.find("main")[0])
+    if "$18,000" not in awards_copy or "$16,000" not in awards_copy:
+        errors.append("awards.html: cash allocation and internship alternative must be explicit")
     if len(awards.find(class_name="award-breakdown")) != 1:
         errors.append("awards.html: requires one ruled award breakdown")
     if len(awards.find(class_name="award-track")) != 4:
         errors.append("awards.html: requires four track award rows")
-    if len(awards.find(class_name="award-eligibility")) != 1:
-        errors.append("awards.html: requires one eligibility caveat")
+    if not any(link["attrs"].get("href", "").startswith("faq.html") for link in awards.find("a")):
+        errors.append("awards.html: requires an eligibility/rules link")
     awards_main = awards.find("main")
     ethics_links = [
         link for link in awards.find("a")
@@ -606,9 +593,9 @@ def check_narrative(errors: list[str]) -> None:
     people = organizers.find("article", "org-card")
     names = [element_text(name) for name in organizers.find(class_name="name")]
     if len(people) != len(ORGANIZER_NAMES):
-        errors.append("organizers.html: requires all 31 organizers")
+        errors.append("organizers.html: requires all 30 organizers")
     if len(names) != len(ORGANIZER_NAMES) or set(names) != set(ORGANIZER_NAMES):
-        errors.append("organizers.html: requires each of the 31 organizer names exactly once")
+        errors.append("organizers.html: requires each of the 30 organizer names exactly once")
     for person in people:
         for field in ("avatar", "name", "role", "bio", "affil"):
             if len([item for item in organizers.find(class_name=field) if has_ancestor(item, person)]) != 1:
@@ -647,15 +634,14 @@ def check_narrative(errors: list[str]) -> None:
         image for image in organizers.find("img")
         if institution_stages and has_ancestor(image, institution_stages[0])
     ]
-    institution_copy = element_text(organizers.find(class_name="org-institutions")[0]) if organizers.find(class_name="org-institutions") else ""
-    if len(institution_marks) != 19 or "15 organizer institutions" not in institution_copy or "19 affiliation marks" not in institution_copy:
-        errors.append("organizers.html: institution stage must distinguish 15 institutions from 19 affiliation marks")
+    if not institution_marks or any(not image["attrs"].get("alt") for image in institution_marks):
+        errors.append("organizers.html: institution stage requires labelled affiliation marks")
     portraits = [
         image for image in organizers.find("img")
         if any(has_ancestor(image, avatar) for avatar in organizers.find(class_name="avatar"))
     ]
     if len(portraits) != len(ORGANIZER_NAMES) or any(image["attrs"].get("loading") != "lazy" for image in portraits):
-        errors.append("organizers.html: all 31 organizer portraits must lazy-load")
+        errors.append("organizers.html: all 30 organizer portraits must lazy-load")
     profile_sources = {
         "Rick Warren": "https://richard-warren.github.io/about/",
         "Tiberiu Tesileanu": "https://ttesileanu.com/about",
@@ -669,8 +655,8 @@ def check_narrative(errors: list[str]) -> None:
             continue
         person = cards[0]
         roles = [element_text(role).lower() for role in organizers.find(class_name="role") if has_ancestor(role, person)]
-        if not any("test-data collection" in role for role in roles):
-            errors.append(f"organizers.html: {name} must be credited for test-data collection")
+        if roles != ["track 04 · emg-to-pose"]:
+            errors.append(f"organizers.html: {name} requires the standard EMG track role")
         bios = [bio for bio in organizers.find(class_name="bio") if has_ancestor(bio, person)]
         source_links = [link for link in organizers.find("a") if any(has_ancestor(link, bio) for bio in bios)
                         and link["attrs"].get("href") == source_url]
@@ -736,7 +722,7 @@ def check_narrative(errors: list[str]) -> None:
     error_text, error_page = parse_page("404.html") if (ROOT / "404.html").is_file() else ("", PageParser())
     if error_page.tags.get("header") != 1 or error_page.tags.get("main") != 1 or error_page.tags.get("footer") != 1:
         errors.append("404.html: requires the shared shell")
-    for destination in ('href="index.html"', 'href="startkit.html"', 'href="faq.html"', 'href="mailto:neurips2026-eeg-emg-competition@googlegroups.com"'):
+    for destination in ('href="index.html"', 'href="startkit.html"', 'href="faq.html"', 'href="https://discord.gg/yZv8KqKMpH"'):
         if destination not in error_text:
             errors.append(f"404.html: missing recovery destination {destination}")
     trophies = error_page.find(class_name="error-trophy")

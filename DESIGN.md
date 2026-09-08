@@ -138,3 +138,9 @@ Reference originality firewall: a reference is evidence for grammar, never a lay
 - Factual proof values use 700 16px IBM Plex Mono; compact challenge-state values use 700 12px IBM Plex Mono. Neither value class inherits the sans stack or shrinks at mobile breakpoints.
 - Visible non-code text has a 10px computed-size floor. Density comes from spacing, measure, and alignment, never unreadably small type.
 - Secondary first-fold order is header → hero → competition state → existing local navigation → substantive content.
+
+## Participant journey — September 8, 2026
+
+Prioritize choosing a track, running a baseline, and registering. The start-kit page is the participation hub; `#enter` and `#enter-1` through `#enter-4` are stable entry anchors. Each track exposes its guide, Codabench registration, and leaderboard together. Registration must never require opening a FAQ accordion. Keep Prizes in the primary navigation and Dates in the homepage section navigation. On small screens, decorative hero artwork yields space to participant actions; previous-year statistics follow current challenge information.
+
+Use Refero's Notion reference for content hierarchy and restrained surfaces, while retaining the project's existing violet palette and typography. The installed Vercel web-design-guidelines skill informs keyboard navigation and explicit link labels. Verify routes and visible outcomes with `scripts/journey-check.mjs`; visual assertions alone do not establish usability.

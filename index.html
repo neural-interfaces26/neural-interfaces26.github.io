@@ -34,13 +34,13 @@
 <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet" /><style>img[data-src]{display:none}</style></noscript>
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
-<link rel="stylesheet" href="assets/css/base.css?v=20260828a" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260830b" />
+<link rel="stylesheet" href="assets/css/base.css?v=20260908ux" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20260908ux" />
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235332F4'/%3E%3Cg stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5'/%3E%3Cpath d='M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24'/%3E%3C/g%3E%3C/svg%3E" />
 
 </head>
-<body class="bs-root landing">
+<body class="bs-root landing home-page">
 
 <a class="skip-link" href="#main">Skip to content</a>
 
@@ -55,12 +55,12 @@
   </button>
   <nav class="site-menu" id="site-menu" aria-label="Primary navigation">
     <a href="index.html#tracks">Tracks</a>
-    <a href="index.html#timeline">Timeline</a>
     <a href="startkit.html">Start kit</a>
+    <a href="awards.html">Prizes</a>
     <a href="leaderboard.html">Leaderboard</a>
     <a href="faq.html">Rules</a>
     <a href="organizers.html">Organizers</a>
-    <a class="bs-btn primary sm" href="mailto:neurips2026-eeg-emg-competition@googlegroups.com?subject=Register%20team%20for%20EEG%2FEMG%20Foundation%20Challenge%202026">Register</a>
+    <a class="bs-btn primary sm" href="startkit.html#enter">Register</a>
   </nav>
 </header>
 
@@ -75,29 +75,47 @@
     <div class="campaign-hero-copy reveal">
       <p class="bs-eyebrow">EEG/EMG Foundation Challenge · NeurIPS 2026</p>
       <h1 id="hero-heading" aria-label="Train once. Generalize across signals.">Train once.<br />Generalize <br class="campaign-mobile-break" />across signals.</h1>
-      <p>Four decoding tracks test models across stimuli, sessions, devices, and people.</p>
+      <p>Four decoding tracks test models across stimuli, sessions, devices, and people. Pick one, run the public baseline, and submit between Sep 16 and Nov 16, 2026 (AoE).</p>
       <div class="bs-hero-cta">
-        <a class="bs-btn primary" href="mailto:neurips2026-eeg-emg-competition@googlegroups.com?subject=Register%20team%20for%20EEG%2FEMG%20Foundation%20Challenge%202026">Register your team</a>
+        <a class="bs-btn primary" href="startkit.html#enter">Choose a track &amp; start →</a>
         <a class="bs-btn ghost" href="#tracks">Explore the tracks</a>
       </div>
     </div>
   </section>
 
-  <aside class="proof-strip reveal" id="stats" aria-label="NeurIPS 2025 EEG Foundation Challenge participation">
-    <a href="https://eeg2025.github.io/" target="_blank" rel="noreferrer noopener">2025 challenge</a>
-    <div><strong>1,197</strong><span>teams</span></div>
-    <div><strong>247</strong><span>institutions</span></div>
-    <div><strong>50+</strong><span>countries</span></div>
-    <div><strong>8,622</strong><span>submissions</span></div>
-    <p>Promoted via EEGLAB, MNE-Python, and NeuroTechX.</p>
-  </aside>
+  <nav class="home-track-compare" id="tracks" aria-label="Quick track comparison">
+    <a href="startkit.html#enter-1">
+      <span class="track-compare-number">01</span>
+      <span><strong>EEG-to-Image</strong><small>Image retrieval from EEG</small></span>
+      <b>Start →</b>
+    </a>
+    <a href="startkit.html#enter-2">
+      <span class="track-compare-number">02</span>
+      <span><strong>BCI decoding</strong><small>Mental commands from EEG</small></span>
+      <b>Start →</b>
+    </a>
+    <a href="startkit.html#enter-3">
+      <span class="track-compare-number">03</span>
+      <span><strong>Sleep onset</strong><small>Predict sleep timing</small></span>
+      <b>Start →</b>
+    </a>
+    <a href="startkit.html#enter-4">
+      <span class="track-compare-number">04</span>
+      <span><strong>EMG-to-Pose</strong><small>Hand pose from EMG</small></span>
+      <b>Start →</b>
+    </a>
+  </nav>
 
-  <section class="challenge-thesis campaign-section" id="tracks" aria-labelledby="tracks-heading">
+  <nav class="local-nav" aria-label="Challenge sections"><a href="#tracks">Tracks</a><a href="#timeline">Dates</a><a href="awards.html">Prizes</a><a href="startkit.html">How to enter</a><a href="https://discord.gg/yZv8KqKMpH">Discord ↗</a></nav>
+
+
+
+  <section class="challenge-thesis campaign-section" id="track-details" aria-labelledby="tracks-heading">
     <div class="campaign-section-head reveal">
-      <h2 id="tracks-heading">One benchmark. Four real shifts.</h2>
+      <h2 id="tracks-heading">Find your track.</h2>
       <div class="challenge-thesis-copy">
-        <p>Biosignal foundation models claim to transfer across subjects, sessions, and devices with limited per-task training. This challenge tests that claim against strong task-specific baselines.</p>
-        <p>The four-track design separates two claims usually conflated in the literature: single-task performance and shift robustness. One harness and one reproducibility audit hold evaluation fixed, so a per-track score can be attributed to the model rather than the protocol.</p>
+        <p>Choose the task that fits your model. Each track has its own data, metric, leaderboard, and prize path.</p>
+        <p>Start with a public baseline, then register on that track's Codabench page. All tracks use the same reproducibility audit.</p>
       </div>
       <dl class="challenge-meta">
         <div><dt>Submissions</dt><dd>Sep 16 - Nov 16, 2026 (AoE)</dd></div>
@@ -105,6 +123,8 @@
         <div><dt>Rules</dt><dd><a href="faq.html">Read before you submit</a></dd></div>
       </dl>
     </div>
+
+    <p class="home-details-label">Read the task details, datasets, and track-specific setup below.</p>
 
     <div class="track-grid">
       <article class="track-card reveal">
@@ -116,7 +136,7 @@
         <img data-src="assets/img/figures/eeg-to-img.png" data-srcset="assets/img/figures/eeg-to-img.png 335w, assets/img/figures/eeg-to-img@2x.png 670w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="335" height="218" alt="THINGS-EEG and Alljoined data feeding an EEG decoder ranked against a held-out image gallery" />
         <p>Decodes which image a subject is viewing from a single EEG epoch, evaluated as ranking against held-out candidates. Targets are frozen DINOv2-giant embeddings, so the difficulty is in the EEG side, not in re-learning the image space. The controlled shift is cross-stimulus: test stimuli are unseen during training.</p>
         <p class="track-facts">Visual retrieval, DINOv2, RSVP, object viewing</p>
-        <div class="track-card-footer"><span>Metric: Top-5 acc. Sponsor: Alljoined</span><a href="leaderboard.html#track-1">View track</a></div>
+        <div class="track-card-footer"><span>Metric: Top-5 acc. Sponsor: Alljoined</span><a href="startkit.html#enter-1">Start this track →</a></div>
       </article>
 
       <article class="track-card reveal">
@@ -128,7 +148,7 @@
         <img data-src="assets/img/figures/bci-track.png" data-srcset="assets/img/figures/bci-track.png 335w, assets/img/figures/bci-track@2x.png 669w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="335" height="218" alt="Cued mental commands decoded from EEG across later sessions of the same subject" />
         <p>Decodes a cued mental command (motor imagery, mental calculation, word association) from short EEG windows. The controlled shift is cross-session: models train on early sessions and are scored on later sessions of the same subject, with no per-session recalibration allowed.</p>
         <p class="track-facts">Motor imagery, mental math, word association, session drift</p>
-        <div class="track-card-footer"><span>Metric: Balanced acc. Sponsor: Meta FAIR Brain &amp; AI</span><a href="leaderboard.html#track-2">View track</a></div>
+        <div class="track-card-footer"><span>Metric: Balanced acc. Sponsor: Meta FAIR Brain &amp; AI</span><a href="startkit.html#enter-2">Start this track →</a></div>
       </article>
 
       <article class="track-card reveal">
@@ -140,7 +160,7 @@
         <img data-src="assets/img/figures/sleep_prediction.png" data-srcset="assets/img/figures/sleep_prediction.png 336w, assets/img/figures/sleep_prediction@2x.png 671w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="336" height="218" alt="Consumer-grade wearable EEG predicting seconds remaining until the first stable N2 epoch" />
         <p>Predicts the latency in seconds from recording start to the first stable N2 epoch, on consumer-grade wearable EEG. The controlled shift is cross-device: home-wearable channels and montages instead of the clinical polysomnography setups of the seed corpora. Precise timing replaces full staging because the wearable signal is too sparse to support per-epoch hypnogram reconstruction.</p>
         <p class="track-facts">Sleep onset, wearable EEG, Muse, home monitoring</p>
-        <div class="track-card-footer"><span>Metric: W-bMAE (s). Sponsor: Muse</span><a href="leaderboard.html#track-3">View track</a></div>
+        <div class="track-card-footer"><span>Metric: W-bMAE (s). Sponsor: Muse</span><a href="startkit.html#enter-3">Start this track →</a></div>
       </article>
 
       <article class="track-card reveal">
@@ -152,7 +172,7 @@
         <img data-src="assets/img/figures/emg-to-pose.png" data-srcset="assets/img/figures/emg-to-pose.png 336w, assets/img/figures/emg-to-pose@2x.png 672w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="336" height="217" alt="Wristband surface EMG decoded to 20-joint hand pose trajectories" />
         <p>Regresses 20 hand-joint angle trajectories from 16-channel wrist surface EMG. The controlled shift combines held-out users and movement stages, testing whether a model survives changes in anatomy, device placement, and hand kinematics.</p>
         <p class="track-facts">Hand pose, trajectory regression, wristbands, UmeTrack joints</p>
-        <div class="track-card-footer"><span>Metric: Mean angular MAE (&deg;). Sponsor: Meta Reality Labs</span><a href="leaderboard.html#track-4">View track</a></div>
+        <div class="track-card-footer"><span>Metric: Mean angular MAE (&deg;). Sponsor: Meta Reality Labs</span><a href="startkit.html#enter-4">Start this track →</a></div>
       </article>
     </div>
   </section>
@@ -162,12 +182,6 @@
       <p class="bs-eyebrow">Evidence, held to one protocol</p>
       <h2 id="datasets-heading">Built to expose the shift.</h2>
       <p>Each track ships with a brand-new corpus alongside curated seed datasets. <a href="https://eegdash.org/dataset_summary.html" target="_blank" rel="noreferrer noopener">EEGDash</a> exposes 700+ additional EEG corpora through the same BIDS-first streaming interface.</p>
-    </div>
-    <div class="evidence-strip reveal" aria-label="Benchmark evidence">
-      <div><strong>14</strong><span>public datasets</span></div>
-      <div><strong>3,700+</strong><span>subjects</span></div>
-      <div><strong>BIDS-first</strong><span>one data interface</span></div>
-      <div><strong>sealed replay</strong><span>top-3 re-run by organizers</span></div>
     </div>
   </section>
 
@@ -414,8 +428,8 @@
 
   <section class="campaign-section prize-panel reveal" aria-labelledby="prize-heading">
     <div>
-      <h2 id="prize-heading"><span>$30,000</span> prize pool.</h2>
-      <p><strong>$2,500 / top-3 / track</strong>, sealed evaluation, and a workshop slot in Sydney.</p>
+      <h2 id="prize-heading"><span>$18,000</span> cash allocation.</h2>
+      <p><strong>$2,000 per top-three team in BCI, sleep, and EMG.</strong> The sleep winner can choose a Toronto internship instead of cash. Alljoined offers a paid summer internship in San Francisco to the Track 1 winner above its eligibility bar. Cash payout is $16,000 if the sleep winner chooses the internship.</p>
       <a class="track-link" href="awards.html">View awards</a>
     </div>
   </section>
@@ -505,9 +519,9 @@
     <section class="register-panel campaign-section" id="cta" aria-labelledby="cta-heading">
       <div class="reveal">
         <h2 id="cta-heading">Ready to test your model?</h2>
-        <p>Four tracks, sealed evaluation, a $30,000 prize pool ($2,500 per top-3 team per track), and a workshop slot in Sydney. Sign up to the mailing list for the start-kit and dataset links, submission access when the window opens Sep 16, and the post-summer announcement of audit, prizes, and workshop dates.</p>
+        <p>Four tracks, sealed evaluation, an $18,000 cash allocation across BCI, sleep, and EMG, and track-specific internship opportunities. See the <a href="awards.html">prize configuration and conditions</a>. Join <a href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Discord</a> for dataset releases, submission updates, and workshop announcements. Register through your track’s Codabench page.</p>
         <div class="bs-hero-cta">
-          <a class="bs-btn primary" href="mailto:neurips2026-eeg-emg-competition@googlegroups.com?subject=Register%20team%20for%20EEG%2FEMG%20Foundation%20Challenge%202026">Register your team</a>
+          <a class="bs-btn primary" href="startkit.html#enter">Choose a track &amp; start →</a>
           <a class="bs-btn ghost" href="startkit.html">Open the start-kit</a>
         </div>
         <p class="rules-note">
@@ -516,23 +530,36 @@
       </div>
     </section>
 
+  <aside class="proof-strip reveal" id="stats" aria-label="NeurIPS 2025 EEG Foundation Challenge participation">
+    <a href="https://eeg2025.github.io/" target="_blank" rel="noreferrer noopener">2025 challenge</a>
+    <div><strong>1,197</strong><span>teams</span></div>
+    <div><strong>247</strong><span>institutions</span></div>
+    <div><strong>50+</strong><span>countries</span></div>
+    <div><strong>8,622</strong><span>submissions</span></div>
+    <p>Promoted via EEGLAB, MNE-Python, and NeuroTechX.</p>
+  </aside>
+
 </main>
 
 <footer class="site-footer">
   <div class="site-footer-inner page-shell">
     <a class="site-footer-brand" href="index.html" aria-current="page">EEG/EMG Foundation Challenge 2026</a>
     <nav class="site-footer-links" aria-label="Footer navigation">
+      <a href="index.html#tracks">Tracks</a>
       <a href="startkit.html">Start kit</a>
+      <a href="awards.html">Prizes</a>
+      <a href="leaderboard.html">Leaderboard</a>
       <a href="faq.html">Rules</a>
       <a href="ethics.html">Ethics</a>
+      <a href="organizers.html">Organizers</a>
       <a href="https://github.com/neural-interfaces26/neural-interfaces26.github.io" target="_blank" rel="noreferrer noopener">GitHub</a>
     </nav>
-    <a class="site-footer-email" href="mailto:neurips2026-eeg-emg-competition@googlegroups.com">neurips2026-eeg-emg-competition@googlegroups.com</a>
+    <a class="site-footer-email" href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Contact us on Discord</a>
   </div>
 </footer>
 
 <script src="assets/js/eeg.js?v=20260521f" defer></script>
-<script src="assets/js/ui.js?v=20260831e" defer></script>
+<script src="assets/js/ui.js?v=20260908ux" defer></script>
 
 </body>
 </html>

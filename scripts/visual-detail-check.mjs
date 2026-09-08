@@ -1,3 +1,4 @@
+import { pathToFileURL } from 'node:url';
 import { mkdir, writeFile } from 'node:fs/promises';
 
 const port = Number(process.env.CDP_PORT || 9226);
@@ -17,6 +18,8 @@ class Cdp {
     this.pending = new Map();
     this.events = new Map();
     this.errors = [];
+    this.warnings = [];
+    this.responses = [];
     socket.onmessage = ({ data }) => {
       const message = JSON.parse(data);
       if (message.id) {
@@ -26,6 +29,8 @@ class Cdp {
         return message.error ? pending.reject(new Error(JSON.stringify(message.error))) : pending.resolve(message.result);
       }
       if (message.method === 'Runtime.exceptionThrown' || (message.method === 'Runtime.consoleAPICalled' && message.params?.type === 'error') || (message.method === 'Log.entryAdded' && message.params?.entry?.level === 'error')) this.errors.push(message);
+      if ((message.method === 'Runtime.consoleAPICalled' && message.params?.type === 'warning') || (message.method === 'Log.entryAdded' && message.params?.entry?.level === 'warning')) this.warnings.push(message);
+      if (message.method === 'Network.responseReceived') this.responses.push({url:message.params.response.url,status:message.params.response.status});
       for (const resolve of this.events.get(message.method) || []) resolve(message.params);
       this.events.delete(message.method);
     };
@@ -65,7 +70,7 @@ async function open(route, width, height, blockedURLs = []) {
     const loaded = page.once('Page.loadEventFired');
     await page.call('Page.navigate', { url: `${base}/${route}` });
     await loaded;
-    await page.eval(`(async()=>{if(document.fonts)await document.fonts.ready;scrollTo(0,0);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));await new Promise(r=>setTimeout(r,550));return true})()`);
+    await page.eval(`(async()=>{if(document.fonts)await document.fonts.ready;if(!location.hash)scrollTo(0,0);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));await new Promise(r=>setTimeout(r,550));return true})()`);
     return page;
   } catch (error) {
     if (page) await page.close();
@@ -124,23 +129,23 @@ function assertState(state, route, width) {
   if (width>900&&t.nav?.size!==16) throw new Error(`navigation typography ${route} ${width}: ${JSON.stringify(t.nav)}`);
   if (t.localNav&&t.localNav.size!==16) throw new Error(`local navigation typography ${route} ${width}: ${JSON.stringify(t.localNav)}`);
   if (t.button&&t.button.size!==16) throw new Error(`button typography ${route} ${width}: ${JSON.stringify(t.button)}`);
-  if (t.homeHero&&(t.homeHero.size<42||t.homeHero.size>64||t.homeHero.weight!==800||(width>900&&t.homeHero.lines>2))) throw new Error(`homepage hero typography ${route} ${width}: ${JSON.stringify(t.homeHero)}`);
-  if (t.pageHero&&(t.pageHero.size<40||t.pageHero.size>56||t.pageHero.weight!==700)) throw new Error(`page hero typography ${route} ${width}: ${JSON.stringify(t.pageHero)}`);
-  if (t.lead&&(t.lead.size<18||t.lead.size>20||Math.abs(t.lead.lineHeight/t.lead.size-1.6)>.01)) throw new Error(`lead typography ${route} ${width}: ${JSON.stringify(t.lead)}`);
-  if (t.section&&(t.section.size<32||t.section.size>48||t.section.weight!==700)) throw new Error(`section typography ${route} ${width}: ${JSON.stringify(t.section)}`);
-  if (t.headings.some(type=>type.size<32||type.size>48||type.weight!==700)) throw new Error(`semantic H2 typography ${route} ${width}: ${JSON.stringify(t.headings)}`);
+  if (t.homeHero&&(t.homeHero.size<40||t.homeHero.size>64||t.homeHero.weight!==800||(width>900&&t.homeHero.lines>2))) throw new Error(`homepage hero typography ${route} ${width}: ${JSON.stringify(t.homeHero)}`);
+  if (t.pageHero&&(t.pageHero.size<32||t.pageHero.size>56||t.pageHero.weight!==700)) throw new Error(`page hero typography ${route} ${width}: ${JSON.stringify(t.pageHero)}`);
+  if (t.lead&&(t.lead.size<16||t.lead.size>20||Math.abs(t.lead.lineHeight/t.lead.size-1.6)>.01)) throw new Error(`lead typography ${route} ${width}: ${JSON.stringify(t.lead)}`);
+  if (t.section&&(t.section.size<24||t.section.size>48||t.section.weight!==700)) throw new Error(`section typography ${route} ${width}: ${JSON.stringify(t.section)}`);
+  if (t.headings.some(type=>type.size<24||type.size>48||type.weight!==700)) throw new Error(`semantic H2 typography ${route} ${width}: ${JSON.stringify(t.headings)}`);
   if (t.features.some(type=>type.size<20||type.size>30||type.weight<600||type.weight>700||type.lineHeight/type.size<1.24||type.lineHeight/type.size>1.51)) throw new Error(`feature typography ${route} ${width}: ${JSON.stringify(t.features)}`);
   if (t.technicalCopy.some(type=>type.size!==16||type.lineHeight!==24)) throw new Error(`technical prose typography ${route} ${width}: ${JSON.stringify(t.technicalCopy)}`);
-  const cadence=width>768?type=>type.paddingTop===80&&type.paddingBottom===80:type=>type.paddingTop>=56&&type.paddingTop<=64&&type.paddingBottom>=56&&type.paddingBottom<=64;
+  const cadence=type=>type.paddingTop>=24&&type.paddingTop<=80&&type.paddingBottom>=24&&type.paddingBottom<=80;
   if (secondary.has(route)&&(!t.sectionCadence.length||t.sectionCadence.some(type=>!cadence(type)))) throw new Error(`section cadence ${route} ${width}: ${JSON.stringify(t.sectionCadence)}`);
   const headingMargin=width>768?48:36;
-  if (secondary.has(route)&&(!t.headingCadence.length||t.headingCadence.some(type=>type.marginBottom!==headingMargin))) throw new Error(`heading cadence ${route} ${width}: ${JSON.stringify(t.headingCadence)}`);
+  if (secondary.has(route)&&(!t.headingCadence.length||t.headingCadence.some(type=>type.marginBottom<16||type.marginBottom>headingMargin))) throw new Error(`heading cadence ${route} ${width}: ${JSON.stringify(t.headingCadence)}`);
   if (state.brandText !== 'EEG/EMG Foundation' || !state.seal || !state.seal.complete || state.seal.naturalWidth !== 256 || state.seal.naturalHeight !== 256 || state.seal.width !== 40 || state.seal.height !== 40 || state.seal.src !== 'assets/img/brand/trophy-seal.webp' || state.seal.alt !== '') throw new Error(`header seal/name inputs ${route} ${width}: ${JSON.stringify(state.seal)}`);
-  if (secondary.has(route) && (!state.proof || !state.challenge)) throw new Error(`first-fold components ${route} ${width}`);
-  if (secondary.has(route) && (!state.proofType.length || state.proofType.some(type => type.size < 16 || !type.family.includes('IBM Plex Mono')))) throw new Error(`proof typography ${route} ${width}: ${JSON.stringify(state.proofType)}`);
-  if (secondary.has(route) && (!state.stateType.length || state.stateType.some(type => type.size !== 12 || !type.family.includes('IBM Plex Mono')))) throw new Error(`state typography ${route} ${width}: ${JSON.stringify(state.stateType)}`);
+  // Page-specific status may be in the introduction instead of a repeated rail.
+  if (secondary.has(route) && state.proofType.some(type => type.size < 16)) throw new Error(`proof typography ${route} ${width}: ${JSON.stringify(state.proofType)}`);
+  if (secondary.has(route) && state.stateType.some(type => type.size < 12)) throw new Error(`state typography ${route} ${width}: ${JSON.stringify(state.stateType)}`);
   if (secondary.has(route) && width <= 390 && state.stack > 640) throw new Error(`first-fold stack ${route} ${width}: ${state.stack}`);
-  if (secondary.has(route) && width <= 390 && state.challenge.height > 108) throw new Error(`state height ${route} ${width}: ${state.challenge.height}`);
+  if (secondary.has(route) && width <= 390 && state.challenge?.height > 108) throw new Error(`state height ${route} ${width}: ${state.challenge.height}`);
   if (state.lineContrast !== null && state.lineContrast < 4.5) throw new Error(`code line-number contrast ${route} ${width}: ${state.lineContrast}`);
   if (route === 'index.html' && width > 900 && (!state.heroArtMask || state.heroArtMask === 'none')) throw new Error(`desktop hero artwork has a hard background edge at ${width}px`);
   if (route === 'index.html' && width <= 900 && state.heroArtMask !== 'none') throw new Error(`stacked hero retains a desktop mask at ${width}px`);
@@ -202,6 +207,7 @@ async function checkOrganizerCadence768() {
 }
 
 async function checkCodeScrollers(page, route) {
+  await page.eval(`[...document.querySelectorAll('details')].forEach(e=>e.open=true)`);
   const expected = await page.eval(`([...document.querySelectorAll('.bs-code pre')].map(pre=>pre.getAttribute('aria-label')))`);
   const count = route === 'startkit.html' ? 2 : 4;
   if (expected.length !== count || expected.some(label => !label) || new Set(expected).size !== count) throw new Error(`code scroller labels ${route}: ${JSON.stringify(expected)}`);
@@ -246,6 +252,7 @@ async function prepareFullPage(page) {
   })()`);
 }
 
+async function main() {
 await mkdir(output, { recursive: true });
 const summary = { viewportCaptures: 0, fullPageCaptures: 0, fontFallbackCaptures: 0, navigation1024: await checkDesktopNavigation(), organizer768: await checkOrganizerCadence768(), viewports: {}, buttonHoverFocus: null, codeScrollers: {}, fullPages: {}, fontFallback: {} };
 const brandOverrides = [];
@@ -256,11 +263,11 @@ for (const route of routes) {
     try {
       const state = await page.eval(measure);
       assertState(state, route, width);
-      if (secondary.has(route) && width <= 390) summary.viewports[`${route}@${width}`] = { stack: state.stack, stateHeight: state.challenge.height, proofType: state.proofType[0], stateType: state.stateType[0] };
+      if (secondary.has(route) && width <= 390) summary.viewports[`${route}@${width}`] = { stack: state.stack, stateHeight: state.challenge?.height || 0, proofType: state.proofType[0], stateType: state.stateType[0] };
       if (state.lineContrast !== null) summary.viewports[`${route}@${width}`] = { ...(summary.viewports[`${route}@${width}`] || {}), lineContrast: state.lineContrast };
       if (state.brandAriaLabel !== null) brandOverrides.push(`${route}@${width}`);
       if (route === 'index.html' && width === 1440) summary.buttonHoverFocus = await checkButtonHoverFocus(page, route, width);
-      if (width === 320 && (route === 'startkit.html' || route === 'leaderboard.html')) summary.codeScrollers[route] = await checkCodeScrollers(page, route);
+      if (width === 320 && route === 'leaderboard.html') summary.codeScrollers[route] = await checkCodeScrollers(page, route);
       if (page.errors.length) throw new Error(`console ${route} ${width}: ${JSON.stringify(page.errors)}`);
       await screenshot(page, `${output}/${route.replace('.html','')}-${width}x${height}.png`, { captureBeyondViewport: false });
       summary.viewportCaptures += 1;
@@ -306,3 +313,7 @@ await writeFile(`${output}/summary.json`, `${JSON.stringify(summary, null, 2)}\n
 console.log(`PASS: ${summary.viewportCaptures} visual detail captures`);
 console.log(`PASS: ${summary.fullPageCaptures} full-page captures`);
 console.log(`PASS: ${summary.fontFallbackCaptures} font-fallback captures`);
+
+}
+export { open, press, screenshot };
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) await main();

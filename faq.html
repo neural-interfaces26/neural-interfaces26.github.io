@@ -32,8 +32,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
-<link rel="stylesheet" href="assets/css/base.css?v=20260828a" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260830b" />
+<link rel="stylesheet" href="assets/css/base.css?v=20260908ux" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20260908ux" />
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235332F4'/%3E%3Cg stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'%3E%3Cpath d='M 7 21 q -3 -1 -3 -5 q 0 -4 4 -5 q 0 -3 4 -3 q 3 0 4 2 q 4 -1 6 2 q 3 0 3 4 q 0 4 -4 5'/%3E%3Cpath d='M 5 24 L 9 24 L 11 20 L 14 28 L 17 22 L 20 25 L 23 23 L 27 24'/%3E%3C/g%3E%3C/svg%3E" />
 
@@ -53,12 +53,12 @@
   </button>
   <nav class="site-menu" id="site-menu" aria-label="Primary navigation">
     <a href="index.html#tracks">Tracks</a>
-    <a href="index.html#timeline">Timeline</a>
     <a href="startkit.html">Start kit</a>
+    <a href="awards.html">Prizes</a>
     <a href="leaderboard.html">Leaderboard</a>
     <a href="faq.html" aria-current="page">Rules</a>
     <a href="organizers.html">Organizers</a>
-    <a class="bs-btn primary sm" href="mailto:neurips2026-eeg-emg-competition@googlegroups.com?subject=Register%20team%20for%20EEG%2FEMG%20Foundation%20Challenge%202026">Register</a>
+    <a class="bs-btn primary sm" href="startkit.html#enter">Register</a>
   </nav>
 </header>
 
@@ -76,12 +76,6 @@
           <a class="bs-btn ghost" href="#contact">Reach the organisers</a>
         </div>
       </div>
-      <aside class="page-proof" aria-label="Rules at a glance">
-        <div><span>Binding</span><strong>7 rules</strong></div>
-        <div><span>Optional help</span><strong>4 optional questions</strong></div>
-        <div><span>Authority</span><strong>Canonical rules source</strong></div>
-        <div><span>Finalists</span><strong>Reproducibility audit</strong></div>
-      </aside>
     </div>
   </section>
 
@@ -92,13 +86,20 @@
   </section>
 
   <nav class="local-nav" aria-label="Rules and FAQ sections">
+    <a href="startkit.html#enter">Prepare a track</a>
     <a href="#rules">Seven rules</a>
     <a href="#faq">Questions people ask</a>
+    <a href="ethics.html">Ethics and consent</a>
     <a href="#contact">Contact</a>
   </nav>
 
   <section class="technical-intro faq-intro" aria-label="Required reading">
-    <p>Eligibility, tracks, submission caps, external data, compute, the reproducibility audit, and authorship are binding. Every participant is expected to have read the rules before submitting.</p>
+    <div class="faq-quick-summary">
+      <div><strong>Who can enter</strong><span>Anyone: industry, academia, students, and independent teams.</span></div>
+      <div><strong>What you can enter</strong><span>One team may enter all four tracks; each has its own board.</span></div>
+      <div><strong>When to submit</strong><span>Sep 16 - Nov 16, 2026 (AoE). Five warm-up uploads per day, then two in the sealed final.</span></div>
+      <div><strong>Before uploading</strong><span>Read the seven binding rules, then <a href="startkit.html#enter">open the track guides and portals</a>.</span></div>
+    </div>
   </section>
 
 
@@ -111,7 +112,7 @@
         </div>
         <div class="vb-section-side">
           <span class="bs-kicker">Canonical</span>
-          <p class="note-text">If this page contradicts something you read elsewhere on the site, this page wins — and please tell us, by email or Discord.</p>
+          <p class="note-text">If this page contradicts something you read elsewhere on the site, this page wins — and please tell us, on Discord.</p>
         </div>
       </div>
 
@@ -221,6 +222,20 @@
       </div>
 
       <div class="faq-list">
+        <details class="faq-item" id="faq-submit" open>
+          <summary><span class="faq-topic">Registration</span><span class="faq-question">Where do I register and submit?</span></summary>
+          <div class="faq-answer">
+            <p>Each track has its own Codabench page. Choose the tracks you want to enter; submissions open September 16, 2026.</p>
+            <ul>
+              <li><a href="https://www.codabench.org/competitions/17974/" target="_blank" rel="noreferrer noopener">Track 1: EEG-to-Image →</a></li>
+              <li><a href="https://www.codabench.org/competitions/17982/" target="_blank" rel="noreferrer noopener">Track 2: BCI decoding →</a></li>
+              <li><a href="https://www.codabench.org/competitions/17983/" target="_blank" rel="noreferrer noopener">Track 3: Sleep onset →</a></li>
+              <li><a href="https://www.codabench.org/competitions/17984/" target="_blank" rel="noreferrer noopener">Track 4: EMG-to-Pose →</a></li>
+            </ul>
+            <p>See the <a href="startkit.html#guides">start-kit guides</a> for preparation and <a href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Discord</a> for help.</p>
+          </div>
+        </details>
+
         <details class="faq-item" id="faq-muse">
           <summary><span class="faq-topic">Datasets</span><span class="faq-question">When is the Track 3 Muse Sleep-Onset dataset available, and how do I access it?</span></summary>
           <div class="faq-answer">
@@ -257,11 +272,10 @@
       <div class="vb-section-head">
         <div>
           <h2 id="contact-heading">Reach the organising team.</h2>
-          <p>Email or Discord. Same response time either way.</p>
+          <p>Contact the organising team on Discord.</p>
         </div>
         <div class="vb-section-side">
           <div class="bs-hero-cta">
-            <a class="bs-btn primary" href="mailto:neurips2026-eeg-emg-competition@googlegroups.com">neurips2026-eeg-emg-competition@googlegroups.com</a>
             <a class="bs-btn ghost" href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Open Discord →</a>
           </div>
         </div>
@@ -274,16 +288,20 @@
   <div class="site-footer-inner page-shell">
     <a class="site-footer-brand" href="index.html">EEG/EMG Foundation Challenge 2026</a>
     <nav class="site-footer-links" aria-label="Footer navigation">
+      <a href="index.html#tracks">Tracks</a>
       <a href="startkit.html">Start kit</a>
+      <a href="awards.html">Prizes</a>
+      <a href="leaderboard.html">Leaderboard</a>
       <a href="faq.html" aria-current="page">Rules</a>
       <a href="ethics.html">Ethics</a>
+      <a href="organizers.html">Organizers</a>
       <a href="https://github.com/neural-interfaces26/neural-interfaces26.github.io" target="_blank" rel="noreferrer noopener">GitHub</a>
     </nav>
-    <a class="site-footer-email" href="mailto:neurips2026-eeg-emg-competition@googlegroups.com">neurips2026-eeg-emg-competition@googlegroups.com</a>
+    <a class="site-footer-email" href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Contact us on Discord</a>
   </div>
 </footer>
 
-<script src="assets/js/ui.js?v=20260831e" defer></script>
+<script src="assets/js/ui.js?v=20260908ux" defer></script>
 
 </body>
 </html>

@@ -60,22 +60,6 @@
   font-weight: 600;
   text-underline-offset: 4px;
 }
-.org-team-note {
-  margin: 0 0 32px;
-  padding: 20px 24px;
-  border-left: 3px solid var(--bs-violet);
-  background: var(--bs-violet-wash);
-  color: var(--bs-text);
-}
-.org-team-note a { color: var(--bs-violet); text-underline-offset: 3px; }
-.org-card .contribution {
-  margin: 0;
-  padding: 12px 16px;
-  border-left: 2px solid var(--bs-violet);
-  background: var(--bs-violet-wash);
-  color: var(--bs-text);
-  font-weight: 600;
-}
 
 .org-directory {
   display: grid;
@@ -171,7 +155,6 @@
 
 .org-card.lead .name { color: var(--bs-text); }
 .org-card.lead .role { color: var(--bs-violet); }
-.org-card[data-contribution] { grid-template-rows: auto auto 1fr auto; }
 .org-card:target { outline: 2px solid var(--bs-violet); outline-offset: 8px; }
 .organizers-page a:focus-visible { outline: 2px solid var(--bs-violet); outline-offset: 4px; }
 
@@ -216,7 +199,7 @@
 
 .org-logo-stage img:nth-child(6n) { border-right: 0; }
 
-/* Keep the EMG lead distinct and the two data-collection profiles together. */
+/* Keep the EMG lead distinct from the other team members. */
 @media (min-width: 1025px) {
   #team-emg .org-card:first-child {
     grid-column: 1 / -1;
@@ -247,7 +230,6 @@
   .org-team-meta { display: flex; align-items: center; gap: 24px; }
   .org-team-heading { gap: 16px; }
   .org-team-number { font-size: 32px; }
-  .org-team-note { padding: 16px; }
 }
 
 @media (max-width: 640px) {
