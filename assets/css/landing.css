@@ -4921,6 +4921,7 @@ body.menu-open { overflow: hidden; }
 .sponsor-wall .sponsor-groups .vb-logo-group > .bs-kicker { white-space: nowrap; }
 .sponsor-wall .sponsor-groups .vb-logo-mark { padding-inline: 2px; }
 .sponsor-wall .sponsor-groups .vb-logo-mark img { max-width: 100%; transform: scale(1.1); }
+.sponsor-wall .sponsor-groups .vb-logo-mark[title="Inria"] img { transform: translateY(-5px) scale(1.1); }
 .sponsor-wall .sponsor-groups .vb-logo-mark[title="Amazon Web Services"] img { max-width: 88%; transform: scale(.86); }
 .sponsor-wall .sponsor-institutions .vb-logo-mark img { max-width: min(125px, 68%); max-height: 52px; }
 

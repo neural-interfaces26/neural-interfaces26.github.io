@@ -16,7 +16,7 @@ PAGES = [
 ]
 ALL_PAGES = PAGES + ["404.html"]
 SITE_ORIGIN = "https://neural-interfaces26.github.io"
-OG_IMAGE = f"{SITE_ORIGIN}/assets/img/og-card.png"
+OG_IMAGE = f"{SITE_ORIGIN}/assets/img/og-card.jpg"
 UI_SCRIPT = "assets/js/ui.js?v=20260909content3"
 HOME_DESCRIPTION = 'Compete in EEG, EMG, BCI and sleep decoding at the Brain and Body Workshop at NeurIPS 2026. Registration is open. Competition Sep 21-Nov 15.'
 TOKENS = {
@@ -968,7 +968,7 @@ def check_assets(errors: list[str]) -> None:
     limits = {
         "assets/img/brand/hero-trophy.webp": 716_800,
         "assets/img/brand/hero-trophy-mobile.webp": 512_000,
-        "assets/img/og-card.png": 716_800,
+        "assets/img/og-card.jpg": 716_800,
     }
     for name, limit in limits.items():
         path = ROOT / name
