@@ -43,7 +43,7 @@
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
 <link rel="stylesheet" href="assets/css/base.css?v=20260908ux" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260908seo" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20260909refine7" />
 
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
 
@@ -54,22 +54,22 @@
 
 <header class="site-header">
   <a class="site-brand" href="index.html">
-    <img class="site-brand-mark" src="assets/img/brand/trophy-seal.webp" alt="" width="32" height="32" />
-    <span>EEG/EMG Foundation</span>
+    <span>EEG/EMG Foundation Challenge · NeurIPS 2026</span>
   </a>
   <button class="site-menu-toggle" type="button" aria-controls="site-menu" aria-expanded="false">
     <span class="sr-only">Open navigation</span>
     <span aria-hidden="true"></span><span aria-hidden="true"></span>
   </button>
   <nav class="site-menu" id="site-menu" aria-label="Primary navigation">
-    <a href="index.html#tracks">Tracks</a>
-    <a href="startkit.html">Start kit</a>
+    <a href="index.html">Home</a>
+    <a href="tracks.html">Tracks</a>
+    <a href="startkit.html">Get prepared</a>
     <a href="awards.html">Prizes</a>
     <a href="leaderboard.html">Leaderboard</a>
     <a href="faq.html">Rules</a>
     <a href="organizers.html">Organizers</a>
     <a href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Discord ↗</a>
-    <a class="bs-btn primary sm" href="startkit.html#enter">Register</a>
+    <a class="bs-btn primary sm" href="register.html">Register</a>
   </nav>
 </header>
 
@@ -81,10 +81,10 @@
         <div class="page-hero-copy">
           <span class="bs-eyebrow">Historical record · 2021 to 2025</span>
           <h1 id="track-record-heading">Track record.</h1>
-          <p>Previous competitions explain the platform behind the current 2026 challenge. This page is historical context; use the current routes to choose and prepare a track.</p>
+          <p>Previous competitions explain the platform behind the current 2026 challenge. This page is historical context. Use the current routes to choose and prepare a track.</p>
           <div class="bs-hero-cta">
-            <a class="bs-btn primary" href="index.html#tracks">See the 2026 tracks →</a>
-            <a class="bs-btn ghost" href="startkit.html#enter">Open the start kit</a>
+            <a class="bs-btn primary" href="tracks.html">See the 2026 tracks →</a>
+            <a class="bs-btn ghost" href="startkit.html">Get prepared with NeuralBench</a>
           </div>
         </div>
       </div>
@@ -92,7 +92,7 @@
 
 <section class="challenge-state" aria-label="Competition schedule and state">
   <div><span>State</span><strong>Preview</strong></div>
-  <div><span>Submissions</span><strong>Sep 16 - Nov 16, 2026</strong></div>
+  <div><span>Competition</span><strong>Sep 21 - Nov 15, 2026</strong></div>
   <div><span>Handoff</span><strong><a href="https://brainbodyfm-workshop.github.io" target="_blank" rel="noreferrer noopener">Brain and Body Workshop at NeurIPS 2026 · Sydney</a></strong></div>
 </section>
 
@@ -162,7 +162,7 @@
       <div class="vb-section-head">
         <div>
           <h2 id="sleep-heading">Sleep States.</h2>
-          <p>Sleep-stage classification across PhysioNet, Sleep-EDF, and HMC sources. Wearable-grade data plus expert-scored hidden labels; the same recipe the 2026 Sleep track uses, scaled up to 1,000+ subjects and the Muse Sleep-Onset corpus.</p>
+          <p>Sleep-stage classification across PhysioNet, Sleep-EDF, and HMC sources. Wearable-grade data plus expert-scored hidden labels follow the same recipe the 2026 Sleep track uses, scaled up to 1,000+ subjects and the Muse Sleep-Onset corpus.</p>
           <div class="vb-tracks-meta inline-stats">
             <div><strong>80</strong> teams</div>
             <div><strong>20</strong> countries</div>
@@ -211,7 +211,7 @@
         <time datetime="2026">2026</time>
         <span>Brain and Body Workshop at NeurIPS · Four EEG/EMG tracks</span>
         <span>EMG added · Three additions</span>
-        <a href="index.html#tracks">Open the 2026 tracks</a>
+        <a href="tracks.html">Open the 2026 tracks</a>
         <span>Extends the same competition design with a parallel modality and fixed track evaluation.</span>
       </div>
     <section class="vb-section" id="changes" aria-labelledby="changes-heading">
@@ -230,7 +230,7 @@
             <span class="bs-badge">ADD</span>
           </div>
           <h3>EMG as a parallel modality.</h3>
-          <p>For the first time, surface EMG hand-pose regression sits inside the same sealed benchmark as EEG. EMG2Pose pairs 16-channel wrist signals with 20 joint-angle trajectories across held-out users and movement stages. The harness, splits, and audit are identical across modalities, so EEG and EMG results are directly comparable - a setup the <a href="https://eeg2025.github.io/" target="_blank" rel="noreferrer noopener">2025 edition</a> did not include.</p>
+          <p>For the first time, surface EMG hand-pose regression sits inside the same sealed benchmark as EEG. EMG2Pose pairs 16-channel wrist signals with 20 joint-angle trajectories and evaluates generalization to held-out users. The harness, splits, and audit are identical across modalities, so EEG and EMG results are directly comparable - a setup the <a href="https://eeg2025.github.io/" target="_blank" rel="noreferrer noopener">2025 edition</a> did not include.</p>
         </article>
 
         <article class="vb-track">
@@ -248,7 +248,7 @@
             <span class="bs-badge">ADD</span>
           </div>
           <h3>Per-track primary shift.</h3>
-          <p>Each task-specific track isolates one primary shift (cross-stimulus, cross-session, cross-device, cross-user) so post-competition analysis can be shift-specific rather than leaderboard-only.</p>
+          <p>Each task-specific track isolates one primary shift: cross-stimulus for Track 1, cross-session for Track 2, and cross-user for Tracks 3 and 4. That keeps post-competition analysis shift-specific rather than leaderboard-only.</p>
         </article>
 
       </div>
@@ -304,8 +304,8 @@
     <p>Compare the four current tracks, run a baseline, and register for the one you want.</p>
   </div>
   <div class="current-challenge-actions">
-    <a class="bs-btn primary" href="index.html#tracks">Compare tracks</a>
-    <a class="bs-btn ghost" href="startkit.html#enter">Choose a track</a>
+    <a class="bs-btn primary" href="tracks.html">Compare tracks</a>
+    <a class="bs-btn ghost" href="register.html#enter">Choose a track</a>
   </div>
 </section>
 
@@ -319,7 +319,7 @@
         <div class="vb-section-side">
           <div class="bs-hero-cta">
             <a class="bs-btn primary" href="index.html#cta">Register →</a>
-            <a class="bs-btn ghost" href="startkit.html">Read the start-kit</a>
+            <a class="bs-btn ghost" href="startkit.html">Get prepared with NeuralBench</a>
           </div>
         </div>
       </div>
@@ -329,10 +329,11 @@
 
 <footer class="site-footer">
   <div class="site-footer-inner page-shell">
-    <a class="site-footer-brand" href="index.html">EEG/EMG Foundation Challenge 2026</a>
+    <a class="site-footer-brand" href="index.html">EEG/EMG Foundation Challenge · NeurIPS 2026</a>
     <nav class="site-footer-links" aria-label="Footer navigation">
-      <a href="index.html#tracks">Tracks</a>
-      <a href="startkit.html">Start kit</a>
+      <a href="index.html">Home</a>
+      <a href="tracks.html">Tracks</a>
+      <a href="startkit.html">Get prepared</a>
       <a href="awards.html">Prizes</a>
       <a href="leaderboard.html">Leaderboard</a>
       <a href="faq.html">Rules</a>
@@ -344,7 +345,7 @@
   </div>
 </footer>
 
-<script src="assets/js/ui.js?v=20260908seo" defer></script>
+<script src="assets/js/ui.js?v=20260909content3" defer></script>
 
 </body>
 </html>

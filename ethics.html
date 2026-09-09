@@ -43,7 +43,7 @@
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
 <link rel="stylesheet" href="assets/css/base.css?v=20260908ux" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260908seo" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20260909refine7" />
 
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
 
@@ -54,22 +54,22 @@
 
 <header class="site-header">
   <a class="site-brand" href="index.html">
-    <img class="site-brand-mark" src="assets/img/brand/trophy-seal.webp" alt="" width="32" height="32" />
-    <span>EEG/EMG Foundation</span>
+    <span>EEG/EMG Foundation Challenge · NeurIPS 2026</span>
   </a>
   <button class="site-menu-toggle" type="button" aria-controls="site-menu" aria-expanded="false">
     <span class="sr-only">Open navigation</span>
     <span aria-hidden="true"></span><span aria-hidden="true"></span>
   </button>
   <nav class="site-menu" id="site-menu" aria-label="Primary navigation">
-    <a href="index.html#tracks">Tracks</a>
-    <a href="startkit.html">Start kit</a>
+    <a href="index.html">Home</a>
+    <a href="tracks.html">Tracks</a>
+    <a href="startkit.html">Get prepared</a>
     <a href="awards.html">Prizes</a>
     <a href="leaderboard.html">Leaderboard</a>
     <a href="faq.html">Rules</a>
     <a href="organizers.html">Organizers</a>
     <a href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Discord ↗</a>
-    <a class="bs-btn primary sm" href="startkit.html#enter">Register</a>
+    <a class="bs-btn primary sm" href="register.html">Register</a>
   </nav>
 </header>
 
@@ -93,12 +93,12 @@
     <section class="challenge-state challenge-state-review" aria-label="Competition schedule and ethics review state">
       <div><span>State</span><strong>Preview</strong></div>
       <div><span>Launch gate</span><strong>Provider approvals pending</strong></div>
-      <div><span>Submissions</span><strong>Sep 16 - Nov 16, 2026</strong></div>
+      <div><span>Competition</span><strong>Sep 21 - Nov 15, 2026</strong></div>
       <div><span>Handoff</span><strong><a href="https://brainbodyfm-workshop.github.io" target="_blank" rel="noreferrer noopener">Brain and Body Workshop at NeurIPS 2026 · Sydney</a></strong></div>
     </section>
 
     <nav class="local-nav" aria-label="On this page">
-      <a href="startkit.html#enter">Prepare a track</a>
+      <a href="startkit.html#track-guides">Prepare a track</a>
       <a href="faq.html#rules">Rules</a>
       <a href="#commitments">Consent commitments</a>
       <a href="#privacy">Mental privacy</a>
@@ -158,9 +158,9 @@
           <p>Every human-subject dataset comes from its original data controller. We use it only after confirming that recordings, annotations, and competition use satisfy the relevant consent, ethics approval, de-identification, and data-use terms, alongside the NeurIPS Code of Ethics.</p>
           <ul class="policy-list">
             <li><strong>Track 1, EEG-to-IMG.</strong> THINGS-EEG1/2 (THINGS consortium), Alljoined-1, Alljoined-1.6M (Alljoined).</li>
-            <li><strong>Track 2, BCI decoding.</strong> Stieger 2021, Dreyer 2023, Zyma 2019, Scherer 2015 (original lab data controllers); 20-subject Graz/BrainHero release (Inria Bordeaux, NEARBY/PROTEUS projects).</li>
+            <li><strong>Track 2, BCI decoding.</strong> Stieger 2021, Dreyer 2023, Zyma 2019, and Scherer 2015 are controlled by the original labs. The 20-subject Graz/BrainHero release comes from Inria Bordeaux and the NEARBY/PROTEUS projects.</li>
             <li><strong>Track 3, Sleep onset.</strong> Sleep-EDF Extended (PhysioNet), PhysioNet Challenge 2018 (PhysioNet), HMC Sleep Staging (Haaglanden Medisch Centrum), Muse Sleep-Onset (Muse).</li>
-            <li><strong>Track 4, EMG-to-Pose.</strong> Salter2024 EMG2Pose (Meta Reality Labs); held-out participant and movement-stage evaluation splits.</li>
+            <li><strong>Track 4, EMG-to-Pose.</strong> Salter2024 EMG2Pose comes from Meta Reality Labs, with held-out participant and movement-stage evaluation splits.</li>
           </ul>
         </div>
         <div class="vb-section-side">
@@ -175,7 +175,7 @@
       <div class="vb-section-head">
         <div>
           <h2 id="hidden-heading">Tracks do not launch until provider approvals are finalised.</h2>
-          <p>For unreleased hidden data, the corresponding track does not launch until data-use permission, anonymisation, and approval for competition use are finalised. No personally identifying information is exposed to participants at any phase. The datasets are not intended to be demographically representative of all users or clinical populations; claims are limited to the generalisation axes explicitly tested by each track.</p>
+          <p>For unreleased hidden data, the corresponding track does not launch until data-use permission, anonymisation, and approval for competition use are finalised. No personally identifying information is exposed to participants at any phase. The datasets are not intended to be demographically representative of all users or clinical populations. Claims are limited to the generalisation axes explicitly tested by each track.</p>
         </div>
         <div class="vb-section-side">
           <span class="bs-kicker">Scope of claims</span>
@@ -220,7 +220,7 @@
             <span class="bs-badge">NO</span>
           </div>
           <h3>No resale of any released dataset.</h3>
-          <p>Released data carries the original provider's licence. Re-use is permitted under that licence; resale and re-licensing are not.</p>
+          <p>Released data carries the original provider's licence. Re-use is permitted under that licence. Resale and re-licensing are not.</p>
         </li>
 
       </ol>
@@ -246,10 +246,11 @@
 
 <footer class="site-footer">
   <div class="site-footer-inner page-shell">
-    <a class="site-footer-brand" href="index.html">EEG/EMG Foundation Challenge 2026</a>
+    <a class="site-footer-brand" href="index.html">EEG/EMG Foundation Challenge · NeurIPS 2026</a>
     <nav class="site-footer-links" aria-label="Footer navigation">
-      <a href="index.html#tracks">Tracks</a>
-      <a href="startkit.html">Start kit</a>
+      <a href="index.html">Home</a>
+      <a href="tracks.html">Tracks</a>
+      <a href="startkit.html">Get prepared</a>
       <a href="awards.html">Prizes</a>
       <a href="leaderboard.html">Leaderboard</a>
       <a href="faq.html">Rules</a>
@@ -261,7 +262,7 @@
   </div>
 </footer>
 
-<script src="assets/js/ui.js?v=20260908seo" defer></script>
+<script src="assets/js/ui.js?v=20260909content3" defer></script>
 
 </body>
 </html>
