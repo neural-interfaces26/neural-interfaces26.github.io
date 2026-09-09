@@ -253,50 +253,113 @@
     locations.forEach(({ target }) => observer.observe(target));
   }
 
-  /* ---------- Countdown to warm-up ---------- */
+  /* ---------- Competition opening countdowns ---------- */
   function initCountdown() {
-    const root = document.querySelector('[data-countdown-to]');
-    if (!root) return;
-    const target = new Date(root.dataset.countdownTo).getTime();
-    if (!Number.isFinite(target)) return;
-    const daysEl = root.querySelector('[data-cd-days]');
-    const hoursEl = root.querySelector('[data-cd-hours]');
-    const minsEl = root.querySelector('[data-cd-mins]');
-    const secsEl = root.querySelector('[data-cd-secs]');
-    const daysUnitEl = root.querySelector('[data-cd-days-unit]');
-    const pad = (n) => String(n).padStart(2, '0');
+    document.querySelectorAll('[data-countdown-to]').forEach((root) => {
+      const target = new Date(root.dataset.countdownTo).getTime();
+      if (!Number.isFinite(target)) return;
+      const daysEl = root.querySelector('[data-cd-days]');
+      const hoursEl = root.querySelector('[data-cd-hours]');
+      const minsEl = root.querySelector('[data-cd-mins]');
+      const secsEl = root.querySelector('[data-cd-secs]');
+      const daysUnitEl = root.querySelector('[data-cd-days-unit]');
+      const labelEl = root.querySelector('[data-cd-label]');
+      const pad = (n) => String(n).padStart(2, '0');
 
-    let intervalId = null;
-    const tick = () => {
-      const diff = target - Date.now();
-      if (diff <= 0) {
-        if (daysEl) daysEl.textContent = '0';
-        if (hoursEl) hoursEl.textContent = '00';
-        if (minsEl) minsEl.textContent = '00';
-        if (secsEl) secsEl.textContent = '00';
-        root.setAttribute('aria-label', 'Warm-up phase is open');
-        if (intervalId) clearInterval(intervalId);
-        return false;
+      let intervalId = null;
+      const tick = () => {
+        const diff = target - Date.now();
+        if (diff <= 0) {
+          if (daysEl) daysEl.textContent = '0';
+          if (hoursEl) hoursEl.textContent = '00';
+          if (minsEl) minsEl.textContent = '00';
+          if (secsEl) secsEl.textContent = '00';
+          if (labelEl) labelEl.textContent = 'Competition is open';
+          root.classList.add('is-open');
+          root.setAttribute('aria-label', 'Competition is open');
+          if (intervalId) clearInterval(intervalId);
+          return false;
+        }
+        const totalSecs = Math.floor(diff / 1000);
+        const days = Math.floor(totalSecs / 86400);
+        const hours = Math.floor((totalSecs % 86400) / 3600);
+        const mins = Math.floor((totalSecs % 3600) / 60);
+        const secs = totalSecs % 60;
+        if (daysEl) daysEl.textContent = String(days);
+        if (hoursEl) hoursEl.textContent = pad(hours);
+        if (minsEl) minsEl.textContent = pad(mins);
+        if (secsEl) secsEl.textContent = pad(secs);
+        if (daysUnitEl) daysUnitEl.textContent = days === 1 ? 'day' : 'days';
+        root.setAttribute(
+          'aria-label',
+          `${days} days, ${hours} hours, ${mins} minutes, ${secs} seconds until the competition opens`,
+        );
+        return true;
+      };
+
+      if (tick()) intervalId = setInterval(tick, 1000);
+    });
+  }
+
+  /* ---------- Date-driven competition timeline ---------- */
+  function initTimelineProgress() {
+    const root = document.querySelector('[data-timeline-progress]');
+    if (!root) return;
+
+    const dates = [
+      root.dataset.start,
+      root.dataset.warmupEnd,
+      root.dataset.finalEnd,
+      root.dataset.ceremonyEnd,
+    ].map((value) => new Date(value).getTime());
+    const ceremonyStart = new Date(root.dataset.ceremonyStart).getTime();
+    if (dates.some((value) => !Number.isFinite(value)) || !Number.isFinite(ceremonyStart)) return;
+
+    const positions = [0, 25, 50, 75, 100];
+    const label = root.querySelector('[data-timeline-label]');
+    const update = () => {
+      const now = Date.now();
+      let progress = 0;
+      let status = 'Registration open';
+
+      if (now >= dates[3]) {
+        progress = 100;
+        status = 'Ceremony complete';
+      } else if (now >= ceremonyStart) {
+        progress = positions[3] + ((now - ceremonyStart) / (dates[3] - ceremonyStart)) * (positions[4] - positions[3]);
+        status = 'Winners’ ceremony';
+      } else if (now >= dates[2]) {
+        progress = positions[2] + ((now - dates[2]) / (ceremonyStart - dates[2])) * (positions[3] - positions[2]);
+        status = 'Final evaluation';
+      } else if (now >= dates[1]) {
+        progress = positions[1] + ((now - dates[1]) / (dates[2] - dates[1])) * (positions[2] - positions[1]);
+        status = 'Sealed final now';
+      } else if (now >= dates[0]) {
+        progress = ((now - dates[0]) / (dates[1] - dates[0])) * positions[1];
+        status = 'Warm-up now';
       }
-      const totalSecs = Math.floor(diff / 1000);
-      const days = Math.floor(totalSecs / 86400);
-      const hours = Math.floor((totalSecs % 86400) / 3600);
-      const mins = Math.floor((totalSecs % 3600) / 60);
-      const secs = totalSecs % 60;
-      if (daysEl) daysEl.textContent = String(days);
-      if (hoursEl) hoursEl.textContent = pad(hours);
-      if (minsEl) minsEl.textContent = pad(mins);
-      if (secsEl) secsEl.textContent = pad(secs);
-      if (daysUnitEl) daysUnitEl.textContent = days === 1 ? 'day' : 'days';
-      root.setAttribute(
-        'aria-label',
-        `${days} days, ${hours} hours, ${mins} minutes, ${secs} seconds until warm-up phase opens`,
-      );
-      return true;
+
+      progress = Math.max(0, Math.min(100, progress));
+      root.style.setProperty('--timeline-progress', `${progress}%`);
+      root.dataset.edge = progress < 7 ? 'start' : progress > 93 ? 'end' : 'middle';
+      if (label) label.textContent = status;
+      root.setAttribute('aria-label', `Competition timeline progress: ${status}.`);
     };
 
-    if (tick()) intervalId = setInterval(tick, 1000);
+    update();
+    window.setInterval(update, 60 * 60 * 1000);
   }
+
+  function openRuleFromHash() {
+    if (!window.location.hash) return;
+    let id;
+    try { id = decodeURIComponent(window.location.hash.slice(1)); } catch (_) { return; }
+    const target = document.getElementById(id);
+    if (target?.matches('details.vb-rule')) target.open = true;
+  }
+
+  openRuleFromHash();
+  window.addEventListener('hashchange', openRuleFromHash);
 
   /* ---------- Display full stop ----------
      Every headline in the 2026 artwork set closes on a violet period
@@ -357,6 +420,7 @@
     initHashDisclosures();
     initSectionNavigation();
     initCountdown();
+    initTimelineProgress();
     initLeaderboardTabs();
     initDisplayStops();
   }
