@@ -4,7 +4,7 @@ import {open,press,screenshot} from './visual-detail-check.mjs';
 import {click} from './journey-check.mjs';
 
 const output=process.env.OUTPUT_DIR || '/tmp/neural-ux-audit';
-const routes=(process.env.UX_ROUTES || 'index.html,startkit.html,awards.html,leaderboard.html,faq.html,organizers.html,ethics.html,track-record.html,404.html').split(',');
+const routes=(process.env.UX_ROUTES || 'index.html,tracks.html,register.html,startkit.html,awards.html,leaderboard.html,faq.html,organizers.html,ethics.html,track-record.html,404.html').split(',');
 const widths=(process.env.UX_WIDTHS || '1440,390').split(',').map(Number);
 if(widths.some(w=>!Number.isInteger(w)||w<320||w>1920))throw Error('UX_WIDTHS must contain integer widths from 320 to1920');
 const report={started:new Date().toISOString(),persona:'First-time ML researcher choosing a track, preparing a model, and finding registration; returning researcher resuming a track.',scope:'Local static-site interaction audit. Forms, accounts, destructive actions, and submission uploads are not present locally.',pages:[],findings:[]};
@@ -26,12 +26,12 @@ for (const width of widths) for (const route of routes) {
     record.navigationGeometry=await page.eval(`([...document.querySelectorAll('.local-nav a,.track-jump a')].filter(${visibility}).map(e=>{const box=e.getBoundingClientRect(),range=document.createRange();range.selectNodeContents(e);const text=range.getBoundingClientRect();return {label:e.textContent.trim(),left:box.left,right:box.right,textLeft:text.left,textRight:text.right}}))`);
     for(const n of record.navigationGeometry)if(n.textLeft<n.left-1||n.textRight>n.right+1)report.findings.push({surface:label,type:'navigation-overlap',impact:'serious',measurement:n});
     if(route==='index.html'){
-      record.homeGeometry=await page.eval(`(()=>{const stats=document.querySelector('#stats'),chooser=document.querySelector('.home-track-compare'),title=document.querySelector('#prize-heading');return {statsAtBottom:stats===document.querySelector("main").lastElementChild,prizeTitle:title.textContent.trim(),prizeFont:parseFloat(getComputedStyle(title).fontSize),cards:[...chooser.querySelectorAll('a')].map(a=>{const t=a.querySelector('strong').getBoundingClientRect(),d=a.querySelector('small').getBoundingClientRect(),r=a.getBoundingClientRect();return {gap:d.top-t.bottom,inside:d.left>=r.left&&d.right<=r.right}})}})()`);
-      if(!record.homeGeometry.statsAtBottom||record.homeGeometry.prizeTitle.includes('$18,000')||record.homeGeometry.prizeFont>64||record.homeGeometry.cards.some(c=>c.gap<3||!c.inside))report.findings.push({surface:label,type:'home-hierarchy',impact:'serious',measurement:record.homeGeometry});
+      record.homeGeometry=await page.eval(`(()=>{const stats=document.querySelector('#stats'),title=document.querySelector('#journey-heading'),routes=[...document.querySelectorAll('.journey-overview-grid a')];return {statsAtBottom:stats===document.querySelector("main").lastElementChild,journeyTitle:title?.textContent.trim(),journeyFont:title?parseFloat(getComputedStyle(title).fontSize):null,routeLabels:routes.map(e=>e.querySelector('strong')?.textContent.trim()),tracksRemoved:!document.querySelector('.home-track-compare,.track-grid')}})()`);
+      if(!record.homeGeometry.statsAtBottom||!record.homeGeometry.tracksRemoved||record.homeGeometry.routeLabels.join('|')!=='Tracks|Prepare|Prizes|Register'||record.homeGeometry.journeyFont>64)report.findings.push({surface:label,type:'home-hierarchy',impact:'serious',measurement:record.homeGeometry});
     }
-    if(route==='startkit.html'&&width<=390){
-      record.choiceGeometry=await page.eval(`([...document.querySelectorAll('.track-jump a')].map(e=>{const r=e.getBoundingClientRect();return {label:e.textContent.trim(),top:r.top,bottom:r.bottom,left:r.left,right:r.right}}))`);
-      if(record.choiceGeometry.length!==4||record.choiceGeometry.some(c=>c.top<72||c.bottom>844||c.left<0||c.right>width))report.findings.push({surface:label,type:'first-decision',impact:'serious',message:'All four track choices must be visible together on the entry screen',measurement:record.choiceGeometry});
+    if(route==='register.html'&&width<=390){
+      record.choiceGeometry=await page.eval(`([...document.querySelectorAll('.entry-track')].map(e=>{const r=e.getBoundingClientRect();return {label:e.querySelector('h3')?.textContent.trim(),left:r.left,right:r.right,width:r.width}}))`);
+      if(record.choiceGeometry.length!==4||record.choiceGeometry.some(c=>c.left<0||c.right>width||c.width<280))report.findings.push({surface:label,type:'track-choice-layout',impact:'serious',message:'All four registration choices must remain readable without horizontal overflow',measurement:record.choiceGeometry});
     }
     if(route==='awards.html'&&width<=640){
       record.prizeGeometry=await page.eval(`([...document.querySelectorAll('.award-table tbody td')].map(e=>({text:e.textContent.trim(),width:e.getBoundingClientRect().width})))`);
@@ -43,10 +43,9 @@ for (const width of widths) for (const route of routes) {
     for(const v of record.axe.violations)report.findings.push({surface:label,type:'accessibility',...v});
     if(route==='index.html'&&width===1440){
       await page.eval(`(()=>{window.uxPerf={lcp:null,cls:0,eventDurations:[]};new PerformanceObserver(l=>{for(const e of l.getEntries())uxPerf.lcp=e.startTime}).observe({type:'largest-contentful-paint',buffered:true});new PerformanceObserver(l=>{for(const e of l.getEntries())if(!e.hadRecentInput)uxPerf.cls+=e.value}).observe({type:'layout-shift',buffered:true});new PerformanceObserver(l=>{for(const e of l.getEntries())if(e.interactionId)uxPerf.eventDurations.push(e.duration)}).observe({type:'event',buffered:true,durationThreshold:16})})()`);
-      await click(page,'a[href="#tracks"]');
       report.performance={route,width,throttled:false,...await page.eval('uxPerf'),note:'Local sample; event durations are an interaction-latency proxy, not field INP. No event entries means below reporting threshold or unavailable, not a measured zero.'};
       if(report.performance.lcp>4000||report.performance.cls>0.25||report.performance.eventDurations.some(n=>n>500))report.findings.push({surface:label,type:'performance',impact:'serious',measurement:report.performance});
-      await step('Opened track section; recorded local rendering and interaction metrics','a[href="#tracks"]');
+      await step('Recorded local rendering and interaction metrics','index.html');
     }
     const action=await page.eval(`(()=>{const visible=${visibility};const links=[...document.querySelectorAll('main a')].filter(visible);const e=links.find(a=>a.matches('.primary')&&(a.getAttribute('href').startsWith('#')||!new URL(a.href).host||new URL(a.href).origin===location.origin))||links.find(a=>a.getAttribute('href').startsWith('#'))||links.find(a=>new URL(a.href).origin===location.origin);if(!e)return null;return {href:e.getAttribute('href'),label:e.textContent.trim()}})()`);
     if(!action)throw Error('No local task or recovery action in main content');

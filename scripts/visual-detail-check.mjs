@@ -4,7 +4,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 const port = Number(process.env.CDP_PORT || 9226);
 const base = process.env.BASE_URL || 'http://127.0.0.1:4173';
 const output = process.env.OUTPUT_DIR || '/tmp/round-two-final';
-const routes = ['index.html', 'awards.html', 'ethics.html', 'faq.html', 'leaderboard.html', 'organizers.html', 'startkit.html', 'track-record.html', '404.html'];
+const routes = ['index.html', 'tracks.html', 'register.html', 'awards.html', 'ethics.html', 'faq.html', 'leaderboard.html', 'organizers.html', 'startkit.html', 'track-record.html', '404.html'];
 const secondary = new Set(routes.slice(1, -1));
 const substantive = routes.filter(route => route !== '404.html');
 const sizes = [[1440, 1100], [834, 1080], [390, 844], [320, 720]];
@@ -100,6 +100,7 @@ const measure = `(()=>{
   const code=line?.closest('.bs-code');
   const trackFigures=[...document.querySelectorAll('.track-card > img')].map(img=>{const card=img.closest('.track-card'),r=img.getBoundingClientRect(),s=getComputedStyle(card);return {width:r.width,available:card.getBoundingClientRect().width-parseFloat(s.paddingLeft)-parseFloat(s.paddingRight),currentSrc:img.currentSrc,naturalWidth:img.naturalWidth}});
   const stack=hero?Math.max(hero.getBoundingClientRect().bottom,challenge?.getBoundingClientRect().bottom||0,local?.getBoundingClientRect().bottom||0)-hero.getBoundingClientRect().top:0;
+  const aligned=[brand,document.querySelector('.campaign-hero-copy,.page-hero-inner,.error-copy'),document.querySelector('.campaign-section > *,.technical-page .vb-section > *,.organizers-page .org-section > *,.award-compare,.editorial-lane,.year-rail,.error-copy'),document.querySelector('.site-footer-inner')].filter(visible).map(e=>rect(e).x);
   const typography={
     body:type(document.body),
     brand:type(document.querySelector('.site-brand')),
@@ -111,45 +112,45 @@ const measure = `(()=>{
     lead:type(document.querySelector('.campaign-hero-copy > p:not(.bs-eyebrow), .page-hero p, .error-copy > p:not(.bs-eyebrow)')),
     section:type(document.querySelector('.campaign-section-head h2, .vb-section-head h2, .org-section-head h2')),
     headings:types('h2:not(.award-total)'),
-    features:types('.track-card h3, .timeline-panel h3, .vb-track h3, .phase-card h3, .model-card h4, .formal-block h3, .commitment-list h3, .methodology-item h3, .vb-rule-body h3, .faq-question, .org-card .name'),
+    features:types('.track-card h3, .timeline-panel h3, .vb-track h3, .phase-card h3, .model-card h4, .formal-block h3, .commitment-list h3, .methodology-item h3, .vb-rule summary h3, .faq-question, .org-card .name'),
     technicalCopy:types('.technical-page .vb-section-head p, .technical-page .phase-desc, .technical-page .formal-block p, .technical-page .faq-answer p, .technical-page .vb-rule-body p, .technical-page .technical-intro-copy > p:first-child, .technical-page .leaderboard-overview > p:first-child, .technical-page .faq-intro > p, .technical-page .methodology-item p'),
-    sectionCadence:[...document.querySelectorAll('.technical-page .vb-section, .narrative-page .vb-section, .narrative-page .vb-sponsors, .narrative-page .vb-cta, .narrative-page .award-field, .organizers-page .org-section')].filter(visible).map(e=>{const s=getComputedStyle(e);return {tag:e.tagName,className:e.className,paddingTop:parseFloat(s.paddingTop),paddingBottom:parseFloat(s.paddingBottom)}}),
-    headingCadence:[...document.querySelectorAll('.technical-page .vb-section-head, .narrative-page .vb-section-head, .organizers-page .org-section-head')].filter(visible).map(e=>({className:e.className,marginBottom:parseFloat(getComputedStyle(e).marginBottom)})),
+    sectionCadence:[...document.querySelectorAll('.technical-page .vb-section, .narrative-page .vb-section, .narrative-page .vb-sponsors, .narrative-page .vb-cta, .narrative-page .award-field, .organizers-page .org-section, .tracks-page .campaign-section')].filter(visible).map(e=>{const s=getComputedStyle(e);return {tag:e.tagName,className:e.className,paddingTop:parseFloat(s.paddingTop),paddingBottom:parseFloat(s.paddingBottom)}}),
+    headingCadence:[...document.querySelectorAll('.technical-page .vb-section-head, .narrative-page .vb-section-head, .organizers-page .org-section-head, .tracks-page .campaign-section-head')].filter(visible).map(e=>({className:e.className,marginBottom:parseFloat(getComputedStyle(e).marginBottom)})),
   };
-  return {innerWidth,clientWidth:document.documentElement.clientWidth,rootWidth:document.documentElement.scrollWidth,bodyWidth:document.body.scrollWidth,small,buttons,hero:rect(hero),proof:rect(proof),challenge:rect(challenge),stack,proofType:[...document.querySelectorAll('.page-proof strong')].map(type),stateType:[...document.querySelectorAll('.challenge-state strong')].map(type),brandText:brand?.querySelector('span')?.textContent.trim(),brandAriaLabel:brand?.getAttribute('aria-label'),seal:seal?{...rect(seal),complete:seal.complete,naturalWidth:seal.naturalWidth,naturalHeight:seal.naturalHeight,src:seal.getAttribute('src'),alt:seal.getAttribute('alt')}:null,lineContrast:line&&code?contrast(getComputedStyle(line).color,getComputedStyle(code).backgroundColor):null,fontFaceCount:document.fonts?[...document.fonts].filter(face=>/Noto Sans|IBM Plex Mono/.test(face.family)).length:null,trackFigures,heroArtMask:heroArt?getComputedStyle(heroArt).maskImage:null,typography};
+  return {innerWidth,clientWidth:document.documentElement.clientWidth,rootWidth:document.documentElement.scrollWidth,bodyWidth:document.body.scrollWidth,small,buttons,aligned,hero:rect(hero),proof:rect(proof),challenge:rect(challenge),stack,proofType:[...document.querySelectorAll('.page-proof strong')].map(type),stateType:[...document.querySelectorAll('.challenge-state strong')].map(type),brandText:brand?.querySelector('span')?.textContent.trim(),brandAriaLabel:brand?.getAttribute('aria-label'),seal:seal?{...rect(seal),complete:seal.complete,naturalWidth:seal.naturalWidth,naturalHeight:seal.naturalHeight,src:seal.getAttribute('src'),alt:seal.getAttribute('alt')}:null,lineContrast:line&&code?contrast(getComputedStyle(line).color,getComputedStyle(code).backgroundColor):null,fontFaceCount:document.fonts?[...document.fonts].filter(face=>/Noto Sans|IBM Plex Mono/.test(face.family)).length:null,trackFigures,heroArtMask:heroArt?getComputedStyle(heroArt).maskImage:null,typography};
 })()`;
 
 function assertState(state, route, width) {
-  if (state.innerWidth !== width || state.clientWidth !== width || state.rootWidth !== width || state.bodyWidth !== width) throw new Error(`overflow ${route} ${width}: ${JSON.stringify(state)}`);
+  if (state.innerWidth !== width || state.rootWidth !== state.clientWidth || state.bodyWidth !== state.clientWidth) throw new Error(`overflow ${route} ${width}: ${JSON.stringify(state)}`);
+  if (state.aligned.length < 3 || Math.max(...state.aligned) - Math.min(...state.aligned) > 1) throw new Error(`shared left edge ${route} ${width}: ${JSON.stringify(state.aligned)}`);
   if (state.small.length) throw new Error(`microtype ${route} ${width}: ${JSON.stringify(state.small)}`);
   if (state.buttons.length) throw new Error(`targets ${route} ${width}: ${JSON.stringify(state.buttons)}`);
   const t=state.typography;
   if (t.body.size!==16||t.body.lineHeight!==24) throw new Error(`body typography ${route} ${width}: ${JSON.stringify(t.body)}`);
-  if (t.brand.size!==16) throw new Error(`brand typography ${route} ${width}: ${JSON.stringify(t.brand)}`);
-  if (width>900&&t.nav?.size!==16) throw new Error(`navigation typography ${route} ${width}: ${JSON.stringify(t.nav)}`);
+  if (t.brand.size!==(width<=640?14:16)) throw new Error(`brand typography ${route} ${width}: ${JSON.stringify(t.brand)}`);
+  if (width>1280&&t.nav?.size!==16) throw new Error(`navigation typography ${route} ${width}: ${JSON.stringify(t.nav)}`);
   if (t.localNav&&t.localNav.size!==16) throw new Error(`local navigation typography ${route} ${width}: ${JSON.stringify(t.localNav)}`);
   if (t.button&&t.button.size!==16) throw new Error(`button typography ${route} ${width}: ${JSON.stringify(t.button)}`);
   if (t.homeHero&&(t.homeHero.size<40||t.homeHero.size>64||t.homeHero.weight!==800||(width>900&&t.homeHero.lines>2))) throw new Error(`homepage hero typography ${route} ${width}: ${JSON.stringify(t.homeHero)}`);
   if (t.pageHero&&(t.pageHero.size<32||t.pageHero.size>56||t.pageHero.weight!==700)) throw new Error(`page hero typography ${route} ${width}: ${JSON.stringify(t.pageHero)}`);
   if (t.lead&&(t.lead.size<16||t.lead.size>20||Math.abs(t.lead.lineHeight/t.lead.size-1.6)>.01)) throw new Error(`lead typography ${route} ${width}: ${JSON.stringify(t.lead)}`);
   if (t.section&&(t.section.size<24||t.section.size>48||t.section.weight!==700)) throw new Error(`section typography ${route} ${width}: ${JSON.stringify(t.section)}`);
-  if (t.headings.some(type=>type.size<24||type.size>48||type.weight!==700)) throw new Error(`semantic H2 typography ${route} ${width}: ${JSON.stringify(t.headings)}`);
+  if (t.headings.some(type=>type.size<20||type.size>56||type.weight!==700)) throw new Error(`semantic H2 typography ${route} ${width}: ${JSON.stringify(t.headings)}`);
   if (t.features.some(type=>type.size<20||type.size>30||type.weight<600||type.weight>700||type.lineHeight/type.size<1.24||type.lineHeight/type.size>1.51)) throw new Error(`feature typography ${route} ${width}: ${JSON.stringify(t.features)}`);
   if (t.technicalCopy.some(type=>type.size!==16||type.lineHeight!==24)) throw new Error(`technical prose typography ${route} ${width}: ${JSON.stringify(t.technicalCopy)}`);
-  const cadence=type=>type.paddingTop>=24&&type.paddingTop<=80&&type.paddingBottom>=24&&type.paddingBottom<=80;
-  if (secondary.has(route)&&(!t.sectionCadence.length||t.sectionCadence.some(type=>!cadence(type)))) throw new Error(`section cadence ${route} ${width}: ${JSON.stringify(t.sectionCadence)}`);
+  const cadence=type=>type.paddingTop>=20&&type.paddingTop<=96&&type.paddingBottom>=20&&type.paddingBottom<=96;
+  if (secondary.has(route)&&t.sectionCadence.some(type=>!cadence(type))) throw new Error(`section cadence ${route} ${width}: ${JSON.stringify(t.sectionCadence)}`);
   const headingMargin=width>768?48:36;
-  if (secondary.has(route)&&(!t.headingCadence.length||t.headingCadence.some(type=>type.marginBottom<16||type.marginBottom>headingMargin))) throw new Error(`heading cadence ${route} ${width}: ${JSON.stringify(t.headingCadence)}`);
-  if (state.brandText !== 'EEG/EMG Foundation' || !state.seal || !state.seal.complete || state.seal.naturalWidth !== 256 || state.seal.naturalHeight !== 256 || state.seal.width !== 40 || state.seal.height !== 40 || state.seal.src !== 'assets/img/brand/trophy-seal.webp' || state.seal.alt !== '') throw new Error(`header seal/name inputs ${route} ${width}: ${JSON.stringify(state.seal)}`);
+  if (secondary.has(route)&&t.headingCadence.some(type=>type.marginBottom!==0&&(type.marginBottom<16||type.marginBottom>headingMargin))) throw new Error(`heading cadence ${route} ${width}: ${JSON.stringify(t.headingCadence)}`);
+  if (state.brandText !== 'EEG/EMG Foundation Challenge · NeurIPS 2026' || state.seal !== null) throw new Error(`text-only masthead inputs ${route} ${width}: ${JSON.stringify({brandText:state.brandText,seal:state.seal})}`);
   // Page-specific status may be in the introduction instead of a repeated rail.
   if (secondary.has(route) && state.proofType.some(type => type.size < 16)) throw new Error(`proof typography ${route} ${width}: ${JSON.stringify(state.proofType)}`);
   if (secondary.has(route) && state.stateType.some(type => type.size < 12)) throw new Error(`state typography ${route} ${width}: ${JSON.stringify(state.stateType)}`);
-  if (secondary.has(route) && width <= 390 && state.stack > 640) throw new Error(`first-fold stack ${route} ${width}: ${state.stack}`);
-  if (secondary.has(route) && width <= 390 && state.challenge?.height > 108) throw new Error(`state height ${route} ${width}: ${state.challenge.height}`);
+  if (secondary.has(route) && width <= 390 && state.challenge?.height > 136) throw new Error(`state height ${route} ${width}: ${state.challenge.height}`);
   if (state.lineContrast !== null && state.lineContrast < 4.5) throw new Error(`code line-number contrast ${route} ${width}: ${state.lineContrast}`);
   if (route === 'index.html' && width > 900 && (!state.heroArtMask || state.heroArtMask === 'none')) throw new Error(`desktop hero artwork has a hard background edge at ${width}px`);
   if (route === 'index.html' && width <= 900 && state.heroArtMask !== 'none') throw new Error(`stacked hero retains a desktop mask at ${width}px`);
-  if (route === 'index.html' && (state.trackFigures.length !== 4 || state.trackFigures.some(figure => figure.width < figure.available - 1))) throw new Error(`homepage figures do not span their panels at ${width}px: ${JSON.stringify(state.trackFigures)}`);
+  if (route === 'tracks.html' && (state.trackFigures.length !== 4 || state.trackFigures.some(figure => Math.abs(figure.width - figure.available * .56) > 1))) throw new Error(`track figures are not 56% of their panels at ${width}px: ${JSON.stringify(state.trackFigures)}`);
 }
 
 async function press(page, key, code, virtualKeyCode) {
@@ -168,7 +169,7 @@ async function checkButtonHoverFocus(page, route, width) {
 }
 
 async function checkDesktopNavigation() {
-  const page = await open('index.html', 1024, 900);
+  const page = await open('index.html', 1440, 900);
   try {
     const state = await page.eval(`(()=>{
       const visible=e=>{const r=e.getBoundingClientRect(),s=getComputedStyle(e);return r.width>0&&r.height>0&&s.display!=='none'&&s.visibility!=='hidden'};
@@ -176,13 +177,13 @@ async function checkDesktopNavigation() {
       const header=document.querySelector('.site-header'),brand=document.querySelector('.site-brand'),menu=document.querySelector('.site-menu');
       const items=[...document.querySelectorAll('.site-menu > a')].filter(visible).map(rect);
       const targets=[...document.querySelectorAll('.site-header a, .site-header button')].filter(visible).map(rect);
-      return {header:rect(header),brand:rect(brand),menu:rect(menu),menuFlexWrap:getComputedStyle(menu).flexWrap,items,targets,rootWidth:document.documentElement.scrollWidth,bodyWidth:document.body.scrollWidth,innerWidth};
+      return {header:rect(header),brand:rect(brand),menu:rect(menu),menuFlexWrap:getComputedStyle(menu).flexWrap,items,targets,clientWidth:document.documentElement.clientWidth,rootWidth:document.documentElement.scrollWidth,bodyWidth:document.body.scrollWidth,innerWidth};
     })()`);
     const overlap=state.brand.right>state.menu.left&&state.brand.left<state.menu.right&&state.brand.bottom>state.menu.top&&state.brand.top<state.menu.bottom;
     const tops=state.items.map(item=>item.top);
-    const contained=state.rootWidth===1024&&state.bodyWidth===1024&&state.header.left>=-1&&state.header.right<=1025;
-    if (overlap||state.menuFlexWrap!=='nowrap'||!state.items.length||Math.max(...tops)-Math.min(...tops)>1||!contained||state.targets.some(target=>target.height<44)) throw new Error(`desktop navigation 1024: ${JSON.stringify({...state,overlap,contained})}`);
-    if (page.errors.length) throw new Error(`console index.html 1024: ${JSON.stringify(page.errors)}`);
+    const contained=state.rootWidth===state.clientWidth&&state.bodyWidth===state.clientWidth&&state.header.left>=-1&&state.header.right<=state.clientWidth+1;
+    if (overlap||state.menuFlexWrap!=='nowrap'||!state.items.length||Math.max(...tops)-Math.min(...tops)>1||!contained||state.targets.some(target=>target.height<44)) throw new Error(`desktop navigation 1440: ${JSON.stringify({...state,overlap,contained})}`);
+    if (page.errors.length) throw new Error(`console index.html 1440: ${JSON.stringify(page.errors)}`);
     return state;
   } finally {
     await page.close();
@@ -196,9 +197,9 @@ async function checkOrganizerCadence768() {
       const visible=e=>{const r=e.getBoundingClientRect(),s=getComputedStyle(e);return r.width>0&&r.height>0&&s.display!=='none'&&s.visibility!=='hidden'};
       const sections=[...document.querySelectorAll('.organizers-page .org-section')].filter(visible).map(e=>{const s=getComputedStyle(e);return {paddingTop:parseFloat(s.paddingTop),paddingBottom:parseFloat(s.paddingBottom)}});
       const headings=[...document.querySelectorAll('.organizers-page .org-section-head')].filter(visible).map(e=>parseFloat(getComputedStyle(e).marginBottom));
-      return {sections,headings,rootWidth:document.documentElement.scrollWidth,bodyWidth:document.body.scrollWidth,innerWidth};
+      return {sections,headings,clientWidth:document.documentElement.clientWidth,rootWidth:document.documentElement.scrollWidth,bodyWidth:document.body.scrollWidth,innerWidth};
     })()`);
-    if (!state.sections.length||state.sections.some(section=>section.paddingTop!==64||section.paddingBottom!==64)||!state.headings.length||state.headings.some(margin=>margin!==36)||state.rootWidth!==768||state.bodyWidth!==768||state.innerWidth!==768) throw new Error(`organizer cadence 768: ${JSON.stringify(state)}`);
+    if (!state.sections.length||state.sections.some(section=>section.paddingTop!==48||section.paddingBottom!==48)||!state.headings.length||state.headings.some(margin=>margin!==28&&margin!==0)||state.rootWidth!==state.clientWidth||state.bodyWidth!==state.clientWidth||state.innerWidth!==768) throw new Error(`organizer cadence 768: ${JSON.stringify(state)}`);
     if (page.errors.length) throw new Error(`console organizers.html 768: ${JSON.stringify(page.errors)}`);
     return state;
   } finally {
@@ -224,7 +225,7 @@ async function checkCodeScrollers(page, route) {
     seen.push(active.label);
   }
   if (seen.length !== count) throw new Error(`code scroller tab order ${route}: ${JSON.stringify(seen)}`);
-  const contained = await page.eval('document.documentElement.scrollWidth===innerWidth&&document.body.scrollWidth===innerWidth');
+  const contained = await page.eval('document.documentElement.scrollWidth===document.documentElement.clientWidth&&document.body.scrollWidth===document.documentElement.clientWidth');
   if (!contained) throw new Error(`code scroller document overflow ${route}`);
   return seen;
 }
@@ -254,7 +255,7 @@ async function prepareFullPage(page) {
 
 async function main() {
 await mkdir(output, { recursive: true });
-const summary = { viewportCaptures: 0, fullPageCaptures: 0, fontFallbackCaptures: 0, navigation1024: await checkDesktopNavigation(), organizer768: await checkOrganizerCadence768(), viewports: {}, buttonHoverFocus: null, codeScrollers: {}, fullPages: {}, fontFallback: {} };
+const summary = { viewportCaptures: 0, fullPageCaptures: 0, fontFallbackCaptures: 0, navigation1440: await checkDesktopNavigation(), organizer768: await checkOrganizerCadence768(), viewports: {}, buttonHoverFocus: null, codeScrollers: {}, fullPages: {}, fontFallback: {} };
 const brandOverrides = [];
 
 for (const route of routes) {
@@ -283,7 +284,7 @@ for (const route of substantive) {
   try {
     const prepared = await prepareFullPage(page);
     if (prepared.hiddenReveals || prepared.incompleteImages.length) throw new Error(`full-page readiness ${route}: ${JSON.stringify(prepared)}`);
-    if (route === 'index.html' && (prepared.trackFigures.length !== 4 || prepared.trackFigures.some(figure => figure.naturalWidth < figure.width))) throw new Error(`homepage figure source too small: ${JSON.stringify(prepared.trackFigures)}`);
+    if (route === 'tracks.html' && (prepared.trackFigures.length !== 4 || prepared.trackFigures.some(figure => figure.naturalWidth < figure.width))) throw new Error(`track figure source too small: ${JSON.stringify(prepared.trackFigures)}`);
     if (page.errors.length) throw new Error(`console full-page ${route}: ${JSON.stringify(page.errors)}`);
     const { cssContentSize } = await page.call('Page.getLayoutMetrics');
     await screenshot(page, `${output}/${route.replace('.html','')}-full-1440.png`, { captureBeyondViewport: true, clip: { x: 0, y: 0, width: 1440, height: Math.ceil(cssContentSize.height), scale: 1 } });

@@ -11,14 +11,14 @@ from urllib.parse import unquote, urljoin, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = [
-    "index.html", "startkit.html", "faq.html", "leaderboard.html",
+    "index.html", "tracks.html", "register.html", "startkit.html", "faq.html", "leaderboard.html",
     "awards.html", "organizers.html", "ethics.html", "track-record.html",
 ]
 ALL_PAGES = PAGES + ["404.html"]
 SITE_ORIGIN = "https://neural-interfaces26.github.io"
 OG_IMAGE = f"{SITE_ORIGIN}/assets/img/og-card.png"
-UI_SCRIPT = "assets/js/ui.js?v=20260908seo"
-HOME_DESCRIPTION = 'Compete in EEG, EMG, BCI and sleep decoding at the Brain and Body Workshop at NeurIPS 2026. Open baselines; submissions Sep 16-Nov 16.'
+UI_SCRIPT = "assets/js/ui.js?v=20260909content3"
+HOME_DESCRIPTION = 'Compete in EEG, EMG, BCI and sleep decoding at the Brain and Body Workshop at NeurIPS 2026. Registration is open. Competition Sep 21-Nov 15.'
 TOKENS = {
     "--bs-violet": "#5332f4",
     "--bs-text": "#07101f",
@@ -175,7 +175,7 @@ def check_typography(errors: list[str]) -> None:
         ("assets/css/landing.css", "sponsor heading scale", r"\.vb-sponsors-side h2\s*\{[^}]*font-size\s*:\s*var\(--bs-type-section\)[^}]*font-weight\s*:\s*700[^}]*line-height\s*:\s*1\.1"),
         ("assets/css/landing.css", "sponsor body scale", r"\.vb-sponsors-side p\s*\{[^}]*font-size\s*:\s*16px[^}]*line-height\s*:\s*1\.5"),
         ("assets/css/landing.css", "methodology heading scale", r"\.methodology-item h3\s*\{[^}]*font-size\s*:\s*24px[^}]*font-weight\s*:\s*700[^}]*line-height\s*:\s*1\.25"),
-        ("assets/css/landing.css", "rule heading scale", r"\.vb-rule-body h3\s*\{[^}]*font-size\s*:\s*22px[^}]*font-weight\s*:\s*700[^}]*line-height\s*:\s*1\.25"),
+        ("assets/css/landing.css", "rule heading scale", r"\.faq-page \.vb-rule summary h3\s*\{[^}]*font-size\s*:\s*20px[^}]*font-weight\s*:\s*700[^}]*line-height\s*:\s*1\.3"),
         ("assets/css/landing.css", "FAQ heading scale", r"\.faq-question\s*\{[^}]*font-size\s*:\s*20px[^}]*font-weight\s*:\s*700[^}]*line-height\s*:\s*1\.25"),
         ("assets/css/landing.css", "technical prose rhythm", r"\.technical-page \.vb-section-head p,[^{]*\.technical-page \.vb-rule-body p\s*\{[^}]*font-size\s*:\s*16px[^}]*line-height\s*:\s*1\.5"),
         ("assets/css/landing.css", "methodology prose rhythm", r"\.methodology-item p\s*\{[^}]*line-height\s*:\s*1\.5"),
@@ -284,18 +284,12 @@ def check_detail_css(errors: list[str]) -> None:
         if selector not in styles["assets/css/landing.css"]:
             errors.append(f"assets/css/landing.css: missing shared detail selector {selector}")
 
-    seal_path = ROOT / "assets/img/brand/trophy-seal.webp"
-    if not seal_path.exists():
-        errors.append("assets/img/brand/trophy-seal.webp: missing exported pedestal seal")
-
     for page in ALL_PAGES:
         html, parsed = parse_page(page)
         if "∿" in html:
             errors.append(f"{page}: placeholder header glyph remains")
-        if html.count('class="site-brand-mark"') != 1:
-            errors.append(f"{page}: requires exactly one shared site-brand-mark")
-        if html.count('src="assets/img/brand/trophy-seal.webp"') != 1:
-            errors.append(f"{page}: requires exactly one pedestal-seal asset")
+        if 'class="site-brand-mark"' in html or 'src="assets/img/brand/trophy-seal.webp"' in html:
+            errors.append(f"{page}: decorative masthead logo must be removed")
         brands = parsed.find("a", "site-brand")
         if len(brands) != 1:
             errors.append(f"{page}: requires exactly one site-brand link")
@@ -303,14 +297,8 @@ def check_detail_css(errors: list[str]) -> None:
         brand = brands[0]
         if "aria-label" in brand["attrs"]:
             errors.append(f"{page}: site-brand must use its visible text as the accessible name")
-        if element_text(brand) != "EEG/EMG Foundation":
-            errors.append(f"{page}: site-brand visible text must be exactly 'EEG/EMG Foundation'")
-        seals = [
-            image for image in parsed.find("img", "site-brand-mark")
-            if has_ancestor(image, brand)
-        ]
-        if len(seals) != 1 or seals[0]["attrs"].get("src") != "assets/img/brand/trophy-seal.webp" or seals[0]["attrs"].get("alt") != "":
-            errors.append(f"{page}: site-brand must retain the exact decorative pedestal seal")
+        if element_text(brand) != "EEG/EMG Foundation Challenge · NeurIPS 2026":
+            errors.append(f"{page}: site-brand must use the complete challenge title")
 
     if any(parse_page(name)[1].find(class_name="announcement-strip") for name in NARRATIVE_PAGES):
         scoped_announcement = (
@@ -366,27 +354,39 @@ def check_shell(errors: list[str]) -> None:
 
 def check_home(errors: list[str]) -> None:
     text, parsed = parse_page("index.html")
-    for anchor in ("tracks", "timeline", "datasets", "sponsors", "cta"):
+    for anchor in ("timeline", "sponsors", "cta"):
         if anchor not in parsed.ids:
             errors.append(f"index.html: missing #{anchor}")
     for asset in ("hero-trophy.webp", "hero-trophy-mobile.webp"):
         if asset not in text:
             errors.append(f"index.html: missing {asset}")
-    if "Train once. Generalize across signals." not in text:
+    if "Decode biosignals. Generalize across conditions." not in text:
         errors.append("index.html: approved hero heading missing")
     if "bs-code" in text[text.find('<section class="campaign-hero"'):text.find("</section>")]:
         errors.append("index.html: code sample remains inside hero")
-    main = parsed.find("main")
-    main_copy = element_text(main[0]) if main else ""
-    if "EMG-to-Pose" not in main_copy or "EMG-to-Text" in main_copy:
-        errors.append("index.html: Track 4 must present EMG-to-Pose without legacy EMG-to-Text copy")
-    track_headings = [heading for heading in parsed.find("h3") if element_text(heading) == "EMG-to-Pose"]
+    if parsed.find(class_name="home-track-compare") or parsed.find("article", "track-card"):
+        errors.append("index.html: track comparison and task cards must live on tracks.html")
+
+    track_text, tracks = parse_page("tracks.html")
+    track_main = tracks.find("main")
+    track_copy = element_text(track_main[0]) if track_main else ""
+    if "EMG-to-Pose" not in track_copy or "EMG-to-Text" in track_copy:
+        errors.append("tracks.html: Track 4 must present EMG-to-Pose without legacy EMG-to-Text copy")
+    if tracks.find(class_name="home-track-compare") or len(tracks.find("article", "track-card")) != 4:
+        errors.append("tracks.html: requires four task cards without the redundant comparison strip")
+    if "datasets" not in tracks.ids or not tracks.find("section", "dataset-directory"):
+        errors.append("tracks.html: dataset directory and 2026 releases are missing")
+    if tracks.find("details", "dataset-directory"):
+        errors.append("tracks.html: dataset directory must be visible without a disclosure")
+    if "datasets" in parsed.ids or parsed.find("details", "dataset-directory"):
+        errors.append("index.html: dataset directory must live on tracks.html")
+    track_headings = [heading for heading in tracks.find("h3") if element_text(heading) == "EMG-to-Pose"]
     track_cards = [
         ancestor for heading in track_headings for ancestor in heading["ancestors"]
         if ancestor["tag"] == "article" and "track-card" in str(ancestor["attrs"].get("class", "")).split()
     ]
     track_images = [
-        image for image in parsed.find("img")
+        image for image in tracks.find("img")
         if track_cards and has_ancestor(image, track_cards[0])
     ]
     image_paths = {
@@ -394,9 +394,9 @@ def check_home(errors: list[str]) -> None:
         for image in track_images
     }
     if len(track_cards) != 1 or image_paths != {"assets/img/figures/emg-to-pose.png"}:
-        errors.append("index.html: EMG-to-Pose requires the approved Track 4 image")
+        errors.append("tracks.html: EMG-to-Pose requires the approved Track 4 image")
     if any("pose" not in str(image["attrs"].get("alt", "")).lower() for image in track_images):
-        errors.append("index.html: Track 4 image needs EMG-to-Pose alternative text")
+        errors.append("tracks.html: Track 4 image needs EMG-to-Pose alternative text")
     institution_groups = parsed.find(class_name="sponsor-institutions")
     home_eth_marks = [
         image for image in parsed.find("img")
@@ -408,11 +408,11 @@ def check_home(errors: list[str]) -> None:
 
 
 def check_technical(errors: list[str]) -> None:
-    pages = {name: parse_page(name)[1] for name in ("startkit.html", "leaderboard.html", "faq.html")}
+    pages = {name: parse_page(name)[1] for name in ("register.html", "startkit.html", "leaderboard.html", "faq.html")}
     proof_copy = {
         "startkit.html": ("Public baselines", "4 track portals", "Read the rules", "Ask on Discord"),
         "faq.html": ("7 rules", "4 optional questions", "Canonical rules source", "Reproducibility audit"),
-        "leaderboard.html": ("4 track boards", "Preview", "Begin Sep 16", "Baselines available"),
+        "leaderboard.html": ("4 track boards", "Preview", "Begin Sep 21", "Baselines available"),
     }
     for name, parsed in pages.items():
         proofs = parsed.find("aside", "page-proof")
@@ -424,7 +424,7 @@ def check_technical(errors: list[str]) -> None:
         if parsed.find(class_name="announcement-strip"):
             errors.append(f"{name}: legacy announcement strip remains")
         proof_text = element_text(proofs[0]) if proofs else ""
-        for fact in (proof_copy[name] if proofs else ()):
+        for fact in (proof_copy.get(name, ()) if proofs else ()):
             if fact not in proof_text:
                 errors.append(f"{name}: page proof missing {fact!r}")
     code_labels: list[str] = []
@@ -459,7 +459,7 @@ def check_technical(errors: list[str]) -> None:
             errors.append(f"{name}: keep exactly one eyebrow in the page hero")
         if parsed.find(class_name="dot"):
             errors.append(f"{name}: decorative pulsing dots are not allowed on technical pages")
-        if len(parsed.find("nav", "local-nav")) != 1:
+        if name != "register.html" and len(parsed.find("nav", "local-nav")) != 1:
             errors.append(f"{name}: requires one local navigation")
 
     leaderboard = pages["leaderboard.html"]
@@ -498,25 +498,40 @@ def check_technical(errors: list[str]) -> None:
 
     startkit = pages["startkit.html"]
     startkit_copy = element_text(startkit.find("main")[0])
-    for fact in (
-        "EMG-to-Pose",
-        "20 joint-angle trajectories",
-        "Mean absolute angular error (degrees)",
-        "neuralbench emg pose -m neuropose",
+    if "neuralbench emg pose -m vemg2pose" not in startkit_copy:
+        errors.append("startkit.html: Track 4 baseline command is missing")
+    if startkit.find("article", "entry-track"):
+        errors.append("startkit.html: registration cards must live on register.html")
+    for number in range(1, 5):
+        if f"baseline-track-{number}" not in startkit.ids:
+            errors.append(f"startkit.html: missing baseline anchor for track {number}")
+    for anchor in ("install", "track-guides", "run-baseline", "baselines", "submit"):
+        if anchor not in startkit.ids:
+            errors.append(f"startkit.html: missing preparation step #{anchor}")
+    if len(startkit.find("span", "prepare-step-number")) != 5 or len(startkit.find("article", "prepare-guide-card")) != 4:
+        errors.append("startkit.html: preparation requires five numbered steps and four track guides")
+    if not any(
+        link["attrs"].get("href", "").endswith("plot_submission_guide.html")
+        for link in startkit.find("a")
     ):
-        if fact not in startkit_copy:
-            errors.append(f"startkit.html: Track 4 contract missing {fact!r}")
-    if "EMG-to-Text" in startkit_copy:
-        errors.append("startkit.html: legacy EMG-to-Text copy remains")
-    entries = startkit.find("article", "entry-track")
+        errors.append("startkit.html: official NeuralBench submission guide is missing")
+
+    register = pages["register.html"]
+    register_copy = element_text(register.find("main")[0])
+    if "EMG-to-Pose" not in register_copy or "EMG-to-Text" in register_copy:
+        errors.append("register.html: Track 4 must use EMG-to-Pose")
+    entries = register.find("article", "entry-track")
     if len(entries) != 4:
-        errors.append("startkit.html: requires four track entry cards")
+        errors.append("register.html: requires four track entry cards")
     guides = ("plot_track1_eeg_to_image.html", "plot_track2_eeg_to_bci.html", "plot_track3_sleep_onset.html", "plot_track4_emg_to_pose.html")
     for number, (entry, portal, guide) in enumerate(zip(entries, (17974, 17982, 17983, 17984), guides), 1):
-        links = {link["attrs"].get("href") for link in startkit.find("a") if has_ancestor(link, entry)}
-        expected = {f"https://www.codabench.org/competitions/{portal}/", f"leaderboard.html#track-{number}", f"https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/{guide}"}
-        if not expected.issubset(links) or entry["attrs"].get("id") != f"enter-{number}" or not entry["attrs"].get("aria-labelledby"):
-            errors.append(f"startkit.html: track {number} requires a labeled, anchored guide/registration/leaderboard path")
+        links = {link["attrs"].get("href") for link in register.find("a") if has_ancestor(link, entry)}
+        expected = {f"https://www.codabench.org/competitions/{portal}/", f"https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/{guide}"}
+        if links != expected or entry["attrs"].get("id") != f"enter-{number}" or not entry["attrs"].get("aria-labelledby"):
+            errors.append(f"register.html: track {number} must contain only its guide and Codabench registration")
+    register_main = register.find("main")[0]
+    if any((link["attrs"].get("href") or "").startswith("leaderboard.html") for link in register.find("a") if has_ancestor(link, register_main)):
+        errors.append("register.html: leaderboard links do not belong in registration content")
 
     faq = pages["faq.html"]
     details = faq.find("details", "faq-item")
@@ -525,9 +540,11 @@ def check_technical(errors: list[str]) -> None:
     for number, disclosure in enumerate(details, start=1):
         if not any(has_ancestor(summary, disclosure) for summary in faq.find("summary")):
             errors.append(f"faq.html: disclosure {number} missing summary")
-    rules = faq.find("li", "vb-rule")
-    if len(rules) != 7 or any(any(a["tag"] == "details" for a in rule["ancestors"]) for rule in rules):
-        errors.append("faq.html: all seven binding rules must remain visible")
+    rules = faq.find("details", "vb-rule")
+    if len(rules) != 7 or any("open" in rule["attrs"] for rule in rules):
+        errors.append("faq.html: seven binding rules must start as collapsed native disclosures")
+    if any(len([summary for summary in faq.find("summary") if has_ancestor(summary, rule)]) != 1 for rule in rules):
+        errors.append("faq.html: every rule disclosure requires one title summary")
 
     for name, parsed in pages.items():
         if any(button["tag"] != "button" for button in parsed.find(class_name="copy")):
@@ -539,7 +556,7 @@ def check_narrative(errors: list[str]) -> None:
     proof_copy = {
         "awards.html": ("4 tracks", "BCI · Sleep · EMG", "$2,000", "Sydney"),
         "ethics.html": ("Preview", "Provider approvals", "Explicit consent", "Read-only decoders"),
-        "organizers.html": ("30 organizers", "4 tracks", "15 institutions", "6 countries"),
+        "organizers.html": ("30 organizers", "4 tracks", "15 institutions", "8 countries"),
         "track-record.html": ("2021", "2026", "4 competitions", "Same lead"),
     }
     for name, (_, parsed) in pages.items():
@@ -570,8 +587,8 @@ def check_narrative(errors: list[str]) -> None:
 
     awards = pages["awards.html"][1]
     awards_copy = element_text(awards.find("main")[0])
-    if "$18,000" not in awards_copy or "$16,000" not in awards_copy:
-        errors.append("awards.html: cash allocation and internship alternative must be explicit")
+    if "$20,000" not in awards_copy or "best all-round" not in awards_copy.lower():
+        errors.append("awards.html: $20,000 pool and best all-round award must be explicit")
     if len(awards.find(class_name="award-breakdown")) != 1:
         errors.append("awards.html: requires one ruled award breakdown")
     if len(awards.find(class_name="award-track")) != 4:
@@ -761,6 +778,13 @@ def check_metadata(errors: list[str]) -> None:
             elif page != "index.html" and not 120 <= len(description) <= 160:
                 errors.append(f"{page}: description must be 120-160 characters (found {len(description)})")
 
+        main = parsed.find("main")
+        visible_copy = element_text(main[0]) if main else ""
+        if "—" in visible_copy or "–" in visible_copy or ";" in visible_copy:
+            errors.append(f"{page}: visible copy must avoid long dashes and semicolons")
+        if "—" in description or "–" in description or ";" in description:
+            errors.append(f"{page}: metadata copy must avoid long dashes and semicolons")
+
         if not one_attr(page, parsed, "meta", "name", "viewport"):
             errors.append(f"{page}: viewport content must not be empty")
         if one_attr(page, parsed, "meta", "name", "theme-color") != "#5332F4":
@@ -891,7 +915,7 @@ def check_links(errors: list[str]) -> None:
     regression_cases = (
         ("index.html", "faq.html?from=home#rule%2Ddata", ("faq.html", "rule-data")),
         ("index.html", "?preview=1#main", ("index.html", "main")),
-        ("faq.html", f"{SITE_ORIGIN}?preview=1#tracks", ("index.html", "tracks")),
+        ("faq.html", f"{SITE_ORIGIN}/tracks.html?preview=1#track%2D1", ("tracks.html", "track-1")),
         ("index.html", "leaderboard%2Ehtml#track%2D1", ("leaderboard.html", "track-1")),
         ("index.html", ".", ("index.html", "")),
         ("index.html", "./", ("index.html", "")),
