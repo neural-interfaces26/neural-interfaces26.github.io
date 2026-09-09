@@ -43,8 +43,8 @@
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
 <link rel="stylesheet" href="assets/css/base.css?v=20260908ux" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260908seo" />
-<link rel="stylesheet" href="assets/css/organizers.css?v=20260908v2" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20260909refine7" />
+<link rel="stylesheet" href="assets/css/organizers.css?v=20260909refine3" />
 
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
 
@@ -55,22 +55,22 @@
 
 <header class="site-header">
   <a class="site-brand" href="index.html">
-    <img class="site-brand-mark" src="assets/img/brand/trophy-seal.webp" alt="" width="32" height="32" />
-    <span>EEG/EMG Foundation</span>
+    <span>EEG/EMG Foundation Challenge · NeurIPS 2026</span>
   </a>
   <button class="site-menu-toggle" type="button" aria-controls="site-menu" aria-expanded="false">
     <span class="sr-only">Open navigation</span>
     <span aria-hidden="true"></span><span aria-hidden="true"></span>
   </button>
   <nav class="site-menu" id="site-menu" aria-label="Primary navigation">
-    <a href="index.html#tracks">Tracks</a>
-    <a href="startkit.html">Start kit</a>
+    <a href="index.html">Home</a>
+    <a href="tracks.html">Tracks</a>
+    <a href="startkit.html">Get prepared</a>
     <a href="awards.html">Prizes</a>
     <a href="leaderboard.html">Leaderboard</a>
     <a href="faq.html">Rules</a>
     <a href="organizers.html" aria-current="page">Organizers</a>
     <a href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Discord ↗</a>
-    <a class="bs-btn primary sm" href="startkit.html#enter">Register</a>
+    <a class="bs-btn primary sm" href="register.html">Register</a>
   </nav>
 </header>
 
@@ -79,45 +79,40 @@
     <section class="org-hero page-hero narrative-hero" aria-labelledby="org-heading">
       <div class="page-hero-inner">
         <div class="page-hero-copy">
-          <span class="bs-eyebrow">About · the team behind the benchmark</span>
+          <span class="bs-eyebrow">Behind the challenge</span>
           <h1 id="org-heading">Organizers.</h1>
           <p>Meet the 30 organizers behind the four tracks, datasets, and evaluation. Choose a team below or ask the organizers on Discord.</p>
           <div class="bs-hero-cta">
-            <a class="bs-btn primary" href="startkit.html#enter">Prepare a track →</a>
-            <a class="bs-btn ghost" href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Ask on Discord ↗</a>
-            <a class="track-link" href="track-record.html">Read the historical track record</a>
+            <a class="bs-btn primary" href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Ask on Discord ↗</a>
+            <a class="bs-btn ghost" href="track-record.html">Challenge history →</a>
           </div>
         </div>
       </div>
     </section>
 
     <nav class="local-nav org-team-nav" id="team-heading" aria-label="Organizing teams">
+      <a href="#team-core"><span>00</span> Core &amp; host</a>
       <a href="#team-eeg"><span>01</span> EEG team</a>
       <a href="#team-bci"><span>02</span> BCI team</a>
       <a href="#team-sleep"><span>03</span> Sleep team</a>
       <a href="#team-emg"><span>04</span> EMG team</a>
-      <a href="#team-core"><span>05</span> Core &amp; host</a>
-      <a href="#team-advisors"><span>06</span> Advisors</a>
+      <a href="#team-advisors"><span>05</span> Advisors</a>
     </nav>
 
     <section class="org-section org-team org-track" id="team-eeg" aria-labelledby="team-eeg-heading">
       <div class="org-section-head">
         <div class="org-team-heading">
           <span class="org-team-number" aria-hidden="true">01</span>
-          <div>
-            <span class="bs-eyebrow">Track 01 · EEG-to-IMG</span>
-            <h2 id="team-eeg-heading">EEG team</h2>
-            <p>Image-aligned EEG datasets, representation learning, and visual decoding across stimuli.</p>
-            <a class="org-track-link" href="leaderboard.html#track-1">Explore EEG-to-IMG <span aria-hidden="true">&nbsp;→</span></a>
+          <div class="org-team-copy">
+            <div class="org-team-title-row">
+            <h2 id="team-eeg-heading">Track 01 · EEG-to-IMG team</h2>
+              <a class="bs-btn ghost sm org-track-link" href="tracks.html#track-1">View Track 01 <span aria-hidden="true">→</span></a>
+            </div>
           </div>
         </div>
-        <div class="org-team-meta">
-          <span class="org-team-count">4 organizers</span>
-          <a class="org-back" href="#team-heading">All teams <span aria-hidden="true">&nbsp;↑</span></a>
-        </div>
       </div>
-      <div class="org-grid tight org-directory has-lead">
-        <article class="org-card lead">
+      <div class="org-grid tight org-directory">
+        <article class="org-card">
           <div class="head">
             <div class="avatar"><img src="assets/img/people/hubert.jpg" alt="Hubert Banville" loading="lazy" width="176" height="208" decoding="async" /></div>
             <div class="name-wrap">
@@ -144,7 +139,7 @@
               </div>
             </div>
           </div>
-          <p class="bio">CNRS researcher (ENS, detached) leading the Brain &amp; AI team at Meta AI. Studies the brain and computational bases of human intelligence; develops models that decode brain activity from MEG, EEG, electrophysiology, and fMRI.</p>
+          <p class="bio">CNRS researcher (ENS, detached) leading the Brain &amp; AI team at Meta AI. Studies the brain and computational bases of human intelligence. Develops models that decode brain activity from MEG, EEG, electrophysiology, and fMRI.</p>
         </article>
 
         <article class="org-card">
@@ -173,7 +168,7 @@
               </div>
             </div>
           </div>
-          <p class="bio">PhD candidate at ENS and Meta FAIR. Aligns deep-network and neural-data representations; co-author of NeuralSet (Python neuro-AI package) and TRIBEv2 (foundation brain encoder).</p>
+          <p class="bio">PhD candidate at ENS and Meta FAIR. Aligns deep-network and neural-data representations. Co-author of NeuralSet, a Python neuro-AI package, and TRIBEv2, a foundation brain encoder.</p>
         </article>
       </div>
     </section>
@@ -182,20 +177,16 @@
       <div class="org-section-head">
         <div class="org-team-heading">
           <span class="org-team-number" aria-hidden="true">02</span>
-          <div>
-            <span class="bs-eyebrow">Track 02 · BCI decoding</span>
-            <h2 id="team-bci-heading">BCI team</h2>
-            <p>Motor imagery, mental-task decoding, and robust brain-computer interfaces across sessions.</p>
-            <a class="org-track-link" href="leaderboard.html#track-2">Explore BCI decoding <span aria-hidden="true">&nbsp;→</span></a>
+          <div class="org-team-copy">
+            <div class="org-team-title-row">
+            <h2 id="team-bci-heading">Track 02 · BCI decoding team</h2>
+              <a class="bs-btn ghost sm org-track-link" href="tracks.html#track-2">View Track 02 <span aria-hidden="true">→</span></a>
+            </div>
           </div>
         </div>
-        <div class="org-team-meta">
-          <span class="org-team-count">6 organizers</span>
-          <a class="org-back" href="#team-heading">All teams <span aria-hidden="true">&nbsp;↑</span></a>
-        </div>
       </div>
-      <div class="org-grid tight org-directory has-lead">
-        <article class="org-card lead">
+      <div class="org-grid tight org-directory">
+        <article class="org-card">
           <div class="head">
             <div class="avatar"><img src="assets/img/people/simon.jpg" alt="Simon Kojima" loading="lazy" width="176" height="208" decoding="async" /></div>
             <div class="name-wrap">
@@ -234,7 +225,7 @@
               </div>
             </div>
           </div>
-          <p class="bio">Professor of neuroergonomics &amp; physiological computing at ISAE-SUPAERO. Co-founder &amp; vice-president of the French BCI association; organised the first passive-BCI competition. Adds the operator-state perspective to BCI evaluation.</p>
+          <p class="bio">Professor of neuroergonomics &amp; physiological computing at ISAE-SUPAERO. Co-founder &amp; vice-president of the French BCI association and organiser of the first passive-BCI competition. Adds the operator-state perspective to BCI evaluation.</p>
         </article>
 
         <article class="org-card">
@@ -250,7 +241,7 @@
               </div>
             </div>
           </div>
-          <p class="bio">Research Director at Inria Bordeaux &amp; LaBRI, leading project-team Potioc on Brain-Computer Interfaces. PI of ANR REBEL/PROTEUS and ERC BrainConquest/SPEARS. USERN Prize 2022; Lovelace-Babbage prize 2023.</p>
+          <p class="bio">Research Director at Inria Bordeaux &amp; LaBRI, leading project-team Potioc on Brain-Computer Interfaces. PI of ANR REBEL/PROTEUS and ERC BrainConquest/SPEARS. USERN Prize 2022 and Lovelace-Babbage prize 2023.</p>
         </article>
 
         <article class="org-card">
@@ -288,20 +279,16 @@
       <div class="org-section-head">
         <div class="org-team-heading">
           <span class="org-team-number" aria-hidden="true">03</span>
-          <div>
-            <span class="bs-eyebrow">Track 03 · Sleep onset</span>
-            <h2 id="team-sleep-heading">Sleep team</h2>
-            <p>Wearable EEG, recording protocols, and sleep-onset prediction across devices.</p>
-            <a class="org-track-link" href="leaderboard.html#track-3">Explore Sleep onset <span aria-hidden="true">&nbsp;→</span></a>
+          <div class="org-team-copy">
+            <div class="org-team-title-row">
+            <h2 id="team-sleep-heading">Track 03 · Sleep onset team</h2>
+              <a class="bs-btn ghost sm org-track-link" href="tracks.html#track-3">View Track 03 <span aria-hidden="true">→</span></a>
+            </div>
           </div>
         </div>
-        <div class="org-team-meta">
-          <span class="org-team-count">3 organizers</span>
-          <a class="org-back" href="#team-heading">All teams <span aria-hidden="true">&nbsp;↑</span></a>
-        </div>
       </div>
-      <div class="org-grid tight org-directory has-lead">
-        <article class="org-card lead">
+      <div class="org-grid tight org-directory">
+        <article class="org-card">
           <div class="head">
             <div class="avatar"><img src="assets/img/people/jiansheng.jpg" alt="Jiansheng Niu" loading="lazy" width="176" height="208" decoding="async" /></div>
             <div class="name-wrap">
@@ -340,7 +327,7 @@
               </div>
             </div>
           </div>
-          <p class="bio">Chief Innovation Officer and co-founder of Muse. Leads R&amp;D advancing wearable neurotech with sleep science and AI; background spans VR/AR, humanistic intelligence, computer vision, and robotics.</p>
+          <p class="bio">Chief Innovation Officer and co-founder of Muse. Leads R&amp;D advancing wearable neurotech with sleep science and AI. His background spans VR/AR, humanistic intelligence, computer vision, and robotics.</p>
         </article>
       </div>
     </section>
@@ -349,20 +336,16 @@
       <div class="org-section-head">
         <div class="org-team-heading">
           <span class="org-team-number" aria-hidden="true">04</span>
-          <div>
-            <span class="bs-eyebrow">Track 04 · EMG-to-Pose</span>
-            <h2 id="team-emg-heading">EMG team</h2>
-            <p>Wrist surface EMG and hand-pose decoding.</p>
-            <a class="org-track-link" href="leaderboard.html#track-4">Explore EMG-to-Pose <span aria-hidden="true">&nbsp;→</span></a>
+          <div class="org-team-copy">
+            <div class="org-team-title-row">
+            <h2 id="team-emg-heading">Track 04 · EMG-to-Pose team</h2>
+              <a class="bs-btn ghost sm org-track-link" href="tracks.html#track-4">View Track 04 <span aria-hidden="true">→</span></a>
+            </div>
           </div>
         </div>
-        <div class="org-team-meta">
-          <span class="org-team-count">5 organizers</span>
-          <a class="org-back" href="#team-heading">All teams <span aria-hidden="true">&nbsp;↑</span></a>
-        </div>
       </div>
-      <div class="org-grid tight org-directory has-lead">
-        <article class="org-card lead">
+      <div class="org-grid tight org-directory">
+        <article class="org-card">
           <div class="head">
             <div class="avatar"><img src="assets/img/people/gramfort.jpg" alt="Alex Gramfort" loading="lazy" width="176" height="208" decoding="async" /></div>
             <div class="name-wrap">
@@ -437,20 +420,16 @@
     <section class="org-section org-team" id="team-core" aria-labelledby="team-core-heading">
       <div class="org-section-head">
         <div class="org-team-heading">
-          <span class="org-team-number" aria-hidden="true">05</span>
-          <div>
-            <span class="bs-eyebrow">Platform &amp; coordination</span>
+          <span class="org-team-number" aria-hidden="true">00</span>
+          <div class="org-team-copy">
+            <span class="bs-eyebrow">Competition origin &amp; infrastructure</span>
             <h2 id="team-core-heading">Core &amp; host team</h2>
-            <p>Challenge coordination, submission infrastructure, data standards, and reproducible evaluation. Hosted by Yneuro.</p>
+            <p>Originators and hosts of the challenge, providing its coordination, submission platform, data standards, and reproducible evaluation.</p>
           </div>
         </div>
-        <div class="org-team-meta">
-          <span class="org-team-count">9 organizers</span>
-          <a class="org-back" href="#team-heading">All teams <span aria-hidden="true">&nbsp;↑</span></a>
-        </div>
       </div>
-      <div class="org-grid tight org-directory has-lead">
-        <article class="org-card lead">
+      <div class="org-grid tight org-directory">
+        <article class="org-card">
           <div class="head">
             <div class="avatar"><img src="assets/img/people/bruno.png" alt="Bruno Aristimunha" loading="lazy" width="176" height="208" decoding="async" /></div>
             <div class="name-wrap">
@@ -470,14 +449,14 @@
             <div class="avatar"><img src="assets/img/people/arnault.jpg" alt="Arnault Caillet" loading="lazy" width="176" height="208" decoding="async" /></div>
             <div class="name-wrap">
               <h3 class="name">Arnault Caillet</h3>
-              <span class="role">Core · operations · EMG support</span>
+              <span class="role">Organizer · core · operations</span>
               <div class="affil" aria-label="Affiliations">
                 <span>Yneuro</span>
                 <span>Imperial College London</span>
               </div>
             </div>
           </div>
-          <p class="bio">Chief Scientific Officer at Yneuro and Honorary Research Officer at Imperial College London. PhD work on EMG biomechanics modelling. Core team for the EEG/EMG Foundation Challenge: runs day-to-day platform operations and connects the Yneuro engineering side with the academic track teams.</p>
+          <p class="bio">Chief Scientific Officer at Yneuro and Honorary Research Officer at Imperial College London. PhD work on EMG biomechanics modelling. Coordinates the challenge’s day-to-day execution alongside the lead organizer and contributes to Braindecode and Codabench. <a href="https://cailletarnault.github.io/" target="_blank" rel="noreferrer noopener">Personal site →</a></p>
         </article>
 
         <article class="org-card">
@@ -505,7 +484,7 @@
               </div>
             </div>
           </div>
-          <p class="bio">Research scientist at Inria, MIND Team. Statistical ML, optimization, and signal processing for M/EEG decoding; maintainer of benchopt; contributor to braindecode, MNE-Python, MOABB.</p>
+          <p class="bio">Research scientist at Inria, MIND Team. Works on statistical ML, optimization, and signal processing for M/EEG decoding. Maintainer of benchopt and contributor to braindecode, MNE-Python, and MOABB.</p>
         </article>
 
         <article class="org-card">
@@ -520,6 +499,20 @@
             </div>
           </div>
           <p class="bio">Machine-learning infrastructure engineer at Yneuro. Cloud deployment, software engineering, and computational-neuroscience research projects. Owns the AWS submission and ranking pipeline.</p>
+        </article>
+
+        <article class="org-card">
+          <div class="head">
+            <div class="avatar"><img src="assets/img/people/thomas.jpg" alt="Thomas Semah" loading="lazy" width="176" height="208" decoding="async" /></div>
+            <div class="name-wrap">
+              <h3 class="name">Thomas Semah</h3>
+              <span class="role">Core · strategy &amp; partnerships</span>
+              <div class="affil" aria-label="Affiliations">
+                <span>Yneuro</span>
+              </div>
+            </div>
+          </div>
+          <p class="bio">Founder and CEO of Yneuro. CentraleSupélec and ESPCI Paris-PSL alumnus with a Stanford School of Medicine master’s degree. Supports the challenge’s neurotechnology strategy, partnerships, and long-term development.</p>
         </article>
 
         <article class="org-card">
@@ -566,35 +559,16 @@
           <p class="bio">Leads the EEGLAB project. Research Director at CNRS and Research Scientist at UC San Diego. Owns the reproducibility audit at test-freeze, which is what lets any top entry be replayed byte-for-byte from another team's pipeline.</p>
         </article>
 
-        <article class="org-card">
-          <div class="head">
-            <div class="avatar"><img src="assets/img/people/thomas.jpg" alt="Thomas Semah" loading="lazy" width="176" height="208" decoding="async" /></div>
-            <div class="name-wrap">
-              <h3 class="name">Thomas Semah</h3>
-              <span class="role">Host · Yneuro CEO</span>
-              <div class="affil" aria-label="Affiliations">
-                <span>Yneuro</span>
-              </div>
-            </div>
-          </div>
-          <p class="bio">Founder &amp; CEO of Yneuro, the host organisation for the EEG/EMG Foundation Challenge. CentraleSupélec / ESPCI Paris-PSL alum, Stanford School of Medicine master's. Yneuro provides infrastructure and operational support for the challenge.</p>
-        </article>
       </div>
     </section>
 
     <section class="org-section org-team" id="team-advisors" aria-labelledby="team-advisors-heading">
       <div class="org-section-head">
         <div class="org-team-heading">
-          <span class="org-team-number" aria-hidden="true">06</span>
-          <div>
-            <span class="bs-eyebrow">Scientific oversight</span>
+          <span class="org-team-number" aria-hidden="true">05</span>
+          <div class="org-team-copy">
             <h2 id="team-advisors-heading">Scientific advisors</h2>
-            <p>Experience in neural-signal analysis, machine learning, and open scientific competitions.</p>
           </div>
-        </div>
-        <div class="org-team-meta">
-          <span class="org-team-count">3 organizers</span>
-          <a class="org-back" href="#team-heading">All teams <span aria-hidden="true">&nbsp;↑</span></a>
         </div>
       </div>
       <div class="org-grid tight org-directory ">
@@ -609,7 +583,7 @@
               </div>
             </div>
           </div>
-          <p class="bio">Founding director of the Swartz Center at UCSD. Pioneer in EEG analysis and the development of Independent Component Analysis (ICA) for brain-signal decomposition; leader in mobile brain/body imaging (MoBI).</p>
+          <p class="bio">Founding director of the Swartz Center at UCSD. Pioneer in EEG analysis and the development of Independent Component Analysis (ICA) for brain-signal decomposition. Leader in mobile brain/body imaging (MoBI).</p>
         </article>
 
         <article class="org-card">
@@ -639,37 +613,37 @@
               </div>
             </div>
           </div>
-          <p class="bio">Co-developed the Boltzmann machine; foundational work in deep learning. Connects neuroscience and machine learning. Carries forty years of context on what the field has and hasn't already tried.</p>
+          <p class="bio">Co-developed the Boltzmann machine and contributed foundational work in deep learning. Connects neuroscience and machine learning. Carries forty years of context on what the field has and hasn't already tried.</p>
         </article>
+
       </div>
     </section>
 
     <section class="org-section org-institutions" aria-labelledby="institutions-heading">
       <div class="org-section-head">
         <div>
-          <span class="bs-eyebrow">Institutional network</span>
-          <h2 id="institutions-heading">Affiliations behind the organizing team.</h2>
-          <p>A selection of institutions represented by the track teams, core organizers, and scientific advisors. Each profile above lists the organizer’s affiliations.</p>
+          <span class="bs-eyebrow">Affiliated institutions</span>
+          <h2 id="institutions-heading">The organizing network.</h2>
         </div>
       </div>
       <div class="org-logo-stage" aria-label="Organizer affiliations">
         <div class="org-logo" data-fit="tall"><img src="assets/img/logos/trim/yneuro.png" alt="Yneuro" loading="lazy" /></div>
-        <div class="org-logo"><img src="assets/img/logos/ucsd.svg" alt="UC San Diego" loading="lazy" /></div>
-        <div class="org-logo"><img src="assets/img/logos/trim/paris-saclay.png" alt="Université Paris-Saclay" loading="lazy" /></div>
-        <div class="org-logo"><img src="assets/img/logos/trim/imperial.png" alt="Imperial College London" loading="lazy" /></div>
-        <div class="org-logo"><img src="assets/img/logos/trim/meta_brainai.png" alt="Meta FAIR Brain &amp; AI" loading="lazy" /></div>
         <div class="org-logo"><img src="assets/img/logos/trim/inria.png" alt="Inria" loading="lazy" /></div>
-        <div class="org-logo"><img src="assets/img/logos/muse.svg" alt="Muse" loading="lazy" /></div>
-        <div class="org-logo"><img src="assets/img/logos/trim/donders.png" alt="Donders Institute" loading="lazy" /></div>
-        <div class="org-logo" data-fit="tall"><img src="assets/img/logos/trim/cnrs.png" alt="CNRS" loading="lazy" /></div>
+        <div class="org-logo"><img src="assets/img/logos/ucsd.svg" alt="UC San Diego" loading="lazy" /></div>
+        <div class="org-logo"><img src="assets/img/logos/trim/meta_brainai.png" alt="Meta FAIR Brain &amp; AI" loading="lazy" /></div>
         <div class="org-logo" data-fit="compact"><img src="assets/img/logos/trim/alljoined.png" alt="Alljoined" loading="lazy" /></div>
         <div class="org-logo"><img src="assets/img/logos/isae-supaero.svg" alt="ISAE-SUPAERO" loading="lazy" /></div>
+        <div class="org-logo"><img src="assets/img/logos/trim/paris-saclay.png" alt="Université Paris-Saclay" loading="lazy" /></div>
         <div class="org-logo"><img src="assets/img/logos/trim/bordeaux.png" alt="LaBRI and University of Bordeaux" loading="lazy" /></div>
-        <div class="org-logo" data-fit="tall"><img src="assets/img/logos/trim/meta_reality.png" alt="Meta Reality Labs" loading="lazy" /></div>
         <div class="org-logo"><img src="assets/img/logos/trim/icm.png" alt="Paris Brain Institute" loading="lazy" /></div>
+        <div class="org-logo"><img src="assets/img/logos/eth-zurich.svg" alt="ETH Zürich" loading="lazy" /></div>
+        <div class="org-logo"><img src="assets/img/logos/muse.svg" alt="Muse" loading="lazy" /></div>
+        <div class="org-logo" data-fit="tall"><img src="assets/img/logos/trim/meta_reality.png" alt="Meta Reality Labs" loading="lazy" /></div>
+        <div class="org-logo"><img src="assets/img/logos/trim/imperial.png" alt="Imperial College London" loading="lazy" /></div>
+        <div class="org-logo"><img src="assets/img/logos/trim/donders.png" alt="Donders Institute" loading="lazy" /></div>
+        <div class="org-logo" data-fit="tall"><img src="assets/img/logos/trim/cnrs.png" alt="CNRS" loading="lazy" /></div>
         <div class="org-logo"><img src="assets/img/logos/trim/chalearn.png" alt="ChaLearn" loading="lazy" /></div>
         <div class="org-logo" data-fit="tall"><img src="assets/img/logos/trim/salk.png" alt="Salk Institute" loading="lazy" /></div>
-        <div class="org-logo"><img src="assets/img/logos/eth-zurich.svg" alt="ETH Zürich" loading="lazy" /></div>
       </div>
     </section>
 
@@ -690,10 +664,11 @@
 
 <footer class="site-footer">
   <div class="site-footer-inner page-shell">
-    <a class="site-footer-brand" href="index.html">EEG/EMG Foundation Challenge 2026</a>
+    <a class="site-footer-brand" href="index.html">EEG/EMG Foundation Challenge · NeurIPS 2026</a>
     <nav class="site-footer-links" aria-label="Footer navigation">
-      <a href="index.html#tracks">Tracks</a>
-      <a href="startkit.html">Start kit</a>
+      <a href="index.html">Home</a>
+      <a href="tracks.html">Tracks</a>
+      <a href="startkit.html">Get prepared</a>
       <a href="awards.html">Prizes</a>
       <a href="leaderboard.html">Leaderboard</a>
       <a href="faq.html">Rules</a>
@@ -705,7 +680,7 @@
   </div>
 </footer>
 
-<script src="assets/js/ui.js?v=20260908seo" defer></script>
+<script src="assets/js/ui.js?v=20260909content3" defer></script>
 
 </body>
 </html>

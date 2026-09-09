@@ -6,7 +6,7 @@
 .organizers-page { font-size: 16px; }
 
 .org-section {
-  padding: 56px max(20px, calc((100% - 1344px) / 2));
+  padding: 56px var(--site-gutter);
   border-bottom: 1px solid var(--bs-card-border);
 }
 
@@ -61,6 +61,14 @@
 /* ---- Section heads: numeral column + copy, meta on the eyebrow line ---- */
 .org-team-heading { display: flex; gap: 28px; min-width: 0; }
 .org-team-heading > div { min-width: 0; }
+.org-team-copy { flex: 1; }
+.org-team-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.org-team-title-row h2 { margin: 0; }
 .org-team-number {
   flex: 0 0 64px;
   padding-top: 2px;
@@ -92,6 +100,16 @@
   white-space: nowrap;
 }
 .org-section a.org-back { margin-block: -12px; }
+.org-section a.bs-btn.org-track-link {
+  min-height: 44px;
+  padding: 9px 14px;
+  border: 1px solid var(--bs-card-border);
+  border-radius: var(--bs-radius-md);
+  background: var(--bs-bg);
+  color: var(--bs-violet);
+  font-size: 13px;
+  text-decoration: none;
+}
 
 /* ---- Directory: two ruled columns, one card grammar ---- */
 .org-directory {
@@ -304,6 +322,7 @@
   .org-section a.org-back { margin-block: 0; }
   .org-team-heading { gap: 16px; }
   .org-team-number { flex-basis: 44px; font-size: 32px; padding-top: 0; }
+  .org-team-title-row { align-items: flex-start; flex-direction: column; gap: 12px; }
   .org-contact .org-section-head { align-items: flex-start; }
   .org-contact .org-section-head h2 { max-width: none; }
 }
@@ -321,3 +340,27 @@
   .org-logo:nth-child(3n) { border-right: 1px solid var(--bs-card-border); }
   .org-logo:nth-child(2n) { border-right: 0; }
 }
+
+/* Directory order follows the participant's decision path: hosts, tracks,
+   then scientific oversight. Track headings link back to their task pages. */
+.organizers-page .site-main { display: flex; flex-direction: column; }
+.org-hero { order: 0; }
+.org-team-nav { order: 1; }
+#team-core { order: 2; }
+#team-eeg { order: 3; }
+#team-bci { order: 4; }
+#team-sleep { order: 5; }
+#team-emg { order: 6; }
+#team-advisors { order: 7; }
+.org-institutions { order: 8; }
+.org-contact { order: 9; }
+.org-track .org-section-head h2,
+#team-advisors .org-section-head h2 { margin-top: 0; }
+
+/* Explicit alternation follows the visual team order above. */
+#team-core { background: var(--bs-surface); }
+#team-eeg { background: var(--bs-bg); }
+#team-bci { background: var(--bs-surface); }
+#team-sleep { background: var(--bs-bg); }
+#team-emg { background: var(--bs-surface); }
+#team-advisors { background: var(--bs-bg); }
