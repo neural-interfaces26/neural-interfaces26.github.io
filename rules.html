@@ -16,13 +16,13 @@
 <meta name="theme-color" content="#5332F4" />
 
 <title>Rules &amp; FAQ · EEG/EMG Foundation Challenge 2026</title>
-<meta name="description" content="Read the seven binding challenge rules covering eligibility, submissions, data, compute, audit, and authorship, plus participant answers." />
+<meta name="description" content="Read the eight binding challenge rules covering eligibility, submissions, data, compute, conduct, audit, and results, plus participant answers." />
 
 <link rel="canonical" href="https://neural-interfaces26.github.io/rules.html" />
 <meta name="author" content="Bruno Aristimunha and the EEG/EMG Foundation Challenge organising team" />
 
 <meta property="og:title" content="Rules &amp; FAQ · EEG/EMG Foundation Challenge 2026" />
-<meta property="og:description" content="Read the seven binding challenge rules covering eligibility, submissions, data, compute, audit, and authorship, plus participant answers." />
+<meta property="og:description" content="Read the eight binding challenge rules covering eligibility, submissions, data, compute, conduct, audit, and results, plus participant answers." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://neural-interfaces26.github.io/rules.html" />
 <meta property="og:site_name" content="EEG/EMG Foundation Challenge" />
@@ -34,7 +34,7 @@
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Rules &amp; FAQ · EEG/EMG Foundation Challenge 2026" />
-<meta name="twitter:description" content="Read the seven binding challenge rules covering eligibility, submissions, data, compute, audit, and authorship, plus participant answers." />
+<meta name="twitter:description" content="Read the eight binding challenge rules covering eligibility, submissions, data, compute, conduct, audit, and results, plus participant answers." />
 <meta name="twitter:image" content="https://neural-interfaces26.github.io/assets/img/og-card.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -81,7 +81,7 @@
       <div class="page-hero-copy">
         <span class="bs-eyebrow">Rules and FAQ</span>
         <h1 id="faq-heading">Rules &amp; FAQ.</h1>
-        <p>Check the seven competition rules before submitting. For practical help, see the questions below or ask on Discord.</p>
+        <p>Check the eight competition rules before submitting. For practical help, see the questions below or ask on Discord.</p>
         <div class="bs-hero-cta">
           <a class="bs-btn ghost" href="#contact">Get help</a>
         </div>
@@ -91,7 +91,7 @@
 
   <nav class="local-nav" aria-label="Rules and FAQ sections">
     <a href="get-prepared.html">Prepare a track</a>
-    <a href="#rules">Seven rules</a>
+    <a href="#rules">Eight rules</a>
     <a href="#faq">Questions people ask</a>
     <a href="ethics.html">Ethics and consent</a>
     <a href="#contact">Contact</a>
@@ -101,20 +101,21 @@
     <section class="vb-section" id="rules" aria-labelledby="rules-heading">
       <div class="vb-section-head">
         <div>
-          <h2 id="rules-heading">Seven binding rules.</h2>
+          <h2 id="rules-heading">Eight binding rules.</h2>
           <p>Read these before submitting. They govern every track and take precedence over informal guidance elsewhere on the site.</p>
         </div>
 
       </div>
 
-      <nav class="rule-index" aria-label="Seven rule anchors">
+      <nav class="rule-index" aria-label="Eight rule anchors">
         <a href="#rule-eligibility">01 Eligibility</a>
         <a href="#rule-tracks">02 Tracks</a>
         <a href="#rule-caps">03 Submission cap</a>
         <a href="#rule-data">04 External data</a>
         <a href="#rule-compute">05 Compute</a>
-        <a href="#rule-audit">06 Reproducibility audit</a>
-        <a href="#rule-authorship">07 Authorship</a>
+        <a href="#rule-conduct">06 Conduct</a>
+        <a href="#rule-audit">07 Reproducibility audit</a>
+        <a href="#rule-authorship">08 Results</a>
       </nav>
 
       <div class="vb-rules rules-list" aria-label="Competition rules">
@@ -122,7 +123,7 @@
         <details class="vb-rule" id="rule-eligibility">
           <summary><h3>Anyone can enter. Organisers cannot win prizes.</h3></summary>
           <div class="vb-rule-body">
-            <p>Industry, academia, students, and independents are all eligible, and cross-institution teams are encouraged. Organisers and their direct lab members may submit, but their entries appear as <code>Organizers · reference</code> on the leaderboard and are ineligible for cash prizes.</p>
+            <p>Industry, academia, students, and independents are all eligible, and cross-institution teams are encouraged. Organisers and their direct team members may submit, but their entries appear as <code>Organizers</code> on the leaderboard and are ineligible for cash prizes.</p>
           </div>
         </details>
 
@@ -134,16 +135,16 @@
         </details>
 
         <details class="vb-rule" id="rule-caps">
-          <summary><h3>Five submissions a day in warm-up, two in the sealed final.</h3></summary>
+          <summary><h3>Five submissions a day in warm-up, one in the sealed final.</h3></summary>
           <div class="vb-rule-body">
-            <p>Warm-up (Sep 21 to Oct 18, 2026): 5 submissions per team per day. Sealed final (Oct 18 to Nov 15, 2026): 2 per team per day, so the prize roster reflects deliberate iteration rather than lottery search. The final workshop ranking takes the best of your last five sealed submissions.</p>
+            <p>Warm-up (Sep 16 to Oct 15, 2026): 5 submissions per team per day. Sealed final (Oct 16 to Nov 16, 2026, AoE): 1 per team per day, so the prize roster reflects deliberate iteration rather than lottery search. The final NeurIPS ranking takes the sealed submissions.</p>
           </div>
         </details>
 
         <details class="vb-rule" id="rule-data">
           <summary><h3>Pre-train on any public dataset. Declare all of it.</h3></summary>
           <div class="vb-rule-body">
-            <p>Training data is <em>suggested</em> to stay within the track, but pre-training on any publicly available, redistributable dataset is allowed. The sealed test split and closed clinical datasets are not allowed. Declare every external corpus, and a compute estimate, in the method description that ships with your final submission. The audit cross-checks it against a re-run of <code>neuralbench eeg &lt;task&gt;</code> from your committed config.</p>
+            <p>Training data is <em>suggested</em> to stay within the track, but pre-training on any publicly available, redistributable dataset is allowed. The sealed test split is never allowed, and closed clinical datasets are not allowed. Declare every external corpus, and a compute estimate, in the method description that ships with your final submission. The audit cross-checks it against a re-run of <code>neuralbench eeg</code> from your committed config.</p>
             <div class="vb-rule-facts">
               <div><span class="bs-kicker">OK</span><strong>OpenNeuro · MOABB · public BIDS</strong></div>
               <div><span class="bs-kicker">Not OK</span><strong>Sealed test · private clinical</strong></div>
@@ -163,22 +164,29 @@
           </div>
         </details>
 
+        <details class="vb-rule" id="rule-conduct">
+          <summary><h3>Any attempt to cheat means immediate disqualification.</h3></summary>
+          <div class="vb-rule-body">
+            <p>Any attempt to cheat, including but not limited to using closed clinical data, accessing the sealed test split, or modifying the scoring harness, results in immediate disqualification from the competition. This decision is made by the organising committee and is final.</p>
+          </div>
+        </details>
+
         <details class="vb-rule" id="rule-audit">
           <summary><h3>The top three per track must replay within ±2σ.</h3></summary>
           <div class="vb-rule-body">
-            <p>After the sealed final closes on Nov 15, the top-3 of every track go through a reproducibility audit: we re-run your training pipeline from the committed config and re-score the resulting weights against the sealed split. Scores within ±2σ of your submitted number stay on the prize roster. Scores outside the tolerance drop off the prize roster but remain on the public board for context. Arnaud Delorme (EEGLAB) chairs the audit.</p>
+            <p>After the sealed final closes, the top-3 of every track go through a reproducibility audit: we re-run your training pipeline from the committed config and re-score the resulting weights against the sealed split. Scores within ±2σ of your submitted number stay on the prize roster. Scores outside the tolerance drop off the prize roster but remain on the public board for context. The organising committee chairs the audit.</p>
             <div class="vb-rule-facts">
               <div><span class="bs-kicker">Tolerance</span><strong>±2σ on metric</strong></div>
-              <div><span class="bs-kicker">Audit lead</span><strong>Arnaud Delorme (EEGLAB)</strong></div>
-              <div><span class="bs-kicker">Window</span><strong>After Nov 15</strong></div>
+              <div><span class="bs-kicker">Audit lead</span><strong>Organising committee</strong></div>
+              <div><span class="bs-kicker">Window</span><strong>Date announced after the summer</strong></div>
             </div>
           </div>
         </details>
 
         <details class="vb-rule" id="rule-authorship">
-          <summary><h3>Reproducible top teams are named authors on the competition report.</h3></summary>
+          <summary><h3>Reproducible top teams are announced during the NeurIPS workshop.</h3></summary>
           <div class="vb-rule-body">
-            <p>Top-ranked teams that pass the audit and submit a method description, training and inference code, and pre-training disclosures are invited as named authors on the PMLR competition report. Consortium authorship is offered to teams with complete, reproducible artifacts.</p>
+            <p>Top-ranked teams that pass the audit and submit a method description, training and inference code, and pre-training disclosures are announced during the NeurIPS workshop. This opportunity is offered to teams with complete, reproducible artifacts.</p>
           </div>
         </details>
 
@@ -190,7 +198,7 @@
       <div class="vb-section-head">
         <div>
           <h2 id="faq-list-heading">Questions people ask.</h2>
-          <p>Answers, not rules: nothing here overrides the seven rules above.</p>
+          <p>Answers, not rules: nothing here overrides the eight rules above.</p>
         </div>
 
       </div>
