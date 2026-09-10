@@ -139,18 +139,23 @@
           .map((c) => c.textContent.replace(/ /g, ' '))
           .join('\n');
 
+        const original = btn.textContent;
+        btn.disabled = true;
         try {
           await navigator.clipboard.writeText(lines);
-          const original = btn.textContent;
           btn.textContent = 'copied';
           btn.classList.add('copied');
           setTimeout(() => {
             btn.textContent = original;
             btn.classList.remove('copied');
+            btn.disabled = false;
           }, 1400);
         } catch (err) {
-          btn.textContent = 'press ⌘C';
-          setTimeout(() => { btn.textContent = 'copy'; }, 1600);
+          btn.textContent = 'Select and copy manually';
+          setTimeout(() => {
+            btn.textContent = original;
+            btn.disabled = false;
+          }, 2400);
         }
       });
     });

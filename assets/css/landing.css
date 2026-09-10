@@ -4460,7 +4460,8 @@ body.menu-open { overflow: hidden; }
 }
 
 .prepare-command-card { padding: 22px; border-right: 1px solid var(--bs-card-border); border-bottom: 1px solid var(--bs-card-border); border-left: 1px solid var(--bs-card-border); }
-.prepare-command-card code { display: block; margin: 18px 0 14px; padding: 14px 16px; overflow-x: auto; border-radius: 5px; color: var(--bs-text); background: var(--bs-surface); font-size: 15px; white-space: nowrap; }
+.prepare-command-card { min-width: 0; }
+.prepare-command-card .bs-code { margin: 18px 0 14px; }
 .prepare-command-card p { margin: 0; color: var(--bs-muted); font-size: 14px; line-height: 1.55; }
 
 .prepare-resource-links { display: grid; border-left: 1px solid var(--bs-card-border); }
@@ -4471,7 +4472,8 @@ body.menu-open { overflow: hidden; }
 .prepare-guide-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--bs-text); border-left: 1px solid var(--bs-card-border); }
 .prepare-guide-card { display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 10px 14px; align-items: start; padding: 20px; border-right: 1px solid var(--bs-card-border); border-bottom: 1px solid var(--bs-card-border); background: var(--bs-bg); scroll-margin-top: 90px; }
 .prepare-guide-card h3 { margin: 1px 0 8px; font-size: 20px; line-height: 1.25; }
-.prepare-guide-card code { color: var(--bs-muted); font-size: 12px; overflow-wrap: anywhere; }
+.prepare-guide-card > div { min-width: 0; }
+.startkit-page .bs-code-head .copy:focus-visible { outline: 2px solid var(--bs-violet-soft); outline-offset: 2px; }
 .prepare-guide-card > a { grid-column: 2; display: inline-flex; width: fit-content; min-height: 44px; align-items: center; color: var(--bs-violet); font-size: 13px; font-weight: 800; text-underline-offset: 4px; }
 
 .prepare-note { max-width: 86ch; margin: 22px 0 0; color: var(--bs-muted); font-size: 14px; line-height: 1.55; }

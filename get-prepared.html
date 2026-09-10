@@ -43,7 +43,7 @@
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
 <link rel="stylesheet" href="assets/css/base.css?v=20260908ux" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260909refine7" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20260910copy" />
 
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
 
@@ -107,7 +107,13 @@
       <div class="prepare-install-grid">
         <div class="prepare-command-card">
           <span class="bs-kicker">Install from PyPI</span>
-          <code>pip install neuralbench</code>
+          <figure class="bs-code" aria-label="pip install neuralbench">
+            <figcaption class="bs-code-head">
+              <span class="bs-kicker">Terminal</span>
+              <button class="copy" type="button" data-copy aria-live="polite">copy</button>
+            </figcaption>
+            <pre tabindex="0"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench</code></span></pre>
+          </figure>
           <p>Use Python 3.12 or newer, preferably in a clean virtual environment. The base install is enough to download data, run the public tasks, load model weights, and save scores.</p>
         </div>
         <div class="prepare-resource-links" aria-label="NeuralBench setup documentation">
@@ -132,22 +138,46 @@
       <div class="prepare-guide-grid">
         <article class="prepare-guide-card" id="prepare-track-1">
           <span class="track-tag"><span class="sr-only">Track </span>01</span>
-          <div><h3>EEG-to-Image</h3><code>neuralbench eeg image</code></div>
+          <div><h3>EEG-to-Image</h3><figure class="bs-code" aria-label="neuralbench eeg image">
+            <figcaption class="bs-code-head">
+              <span class="bs-kicker">Terminal</span>
+              <button class="copy" type="button" data-copy aria-live="polite">copy</button>
+            </figcaption>
+            <pre tabindex="0"><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg image</code></span></pre>
+          </figure></div>
           <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track1_eeg_to_image.html" target="_blank" rel="noreferrer noopener">Open NeuralBench guide ↗</a>
         </article>
         <article class="prepare-guide-card" id="prepare-track-2">
           <span class="track-tag"><span class="sr-only">Track </span>02</span>
-          <div><h3>BCI decoding</h3><code>neuralbench eeg motor_imagery</code></div>
+          <div><h3>BCI decoding</h3><figure class="bs-code" aria-label="neuralbench eeg motor_imagery">
+            <figcaption class="bs-code-head">
+              <span class="bs-kicker">Terminal</span>
+              <button class="copy" type="button" data-copy aria-live="polite">copy</button>
+            </figcaption>
+            <pre tabindex="0"><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg motor_imagery</code></span></pre>
+          </figure></div>
           <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track2_eeg_to_bci.html" target="_blank" rel="noreferrer noopener">Open NeuralBench guide ↗</a>
         </article>
         <article class="prepare-guide-card" id="prepare-track-3">
           <span class="track-tag"><span class="sr-only">Track </span>03</span>
-          <div><h3>Sleep onset</h3><code>neuralbench eeg sleep_onset</code></div>
+          <div><h3>Sleep onset</h3><figure class="bs-code" aria-label="neuralbench eeg sleep_onset">
+            <figcaption class="bs-code-head">
+              <span class="bs-kicker">Terminal</span>
+              <button class="copy" type="button" data-copy aria-live="polite">copy</button>
+            </figcaption>
+            <pre tabindex="0"><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg sleep_onset</code></span></pre>
+          </figure></div>
           <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track3_sleep_onset.html" target="_blank" rel="noreferrer noopener">Open NeuralBench guide ↗</a>
         </article>
         <article class="prepare-guide-card" id="prepare-track-4">
           <span class="track-tag"><span class="sr-only">Track </span>04</span>
-          <div><h3>EMG-to-Pose</h3><code>neuralbench emg pose -m vemg2pose</code></div>
+          <div><h3>EMG-to-Pose</h3><figure class="bs-code" aria-label="neuralbench emg pose -m vemg2pose">
+            <figcaption class="bs-code-head">
+              <span class="bs-kicker">Terminal</span>
+              <button class="copy" type="button" data-copy aria-live="polite">copy</button>
+            </figcaption>
+            <pre tabindex="0"><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench emg pose -m vemg2pose</code></span></pre>
+          </figure></div>
           <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track4_emg_to_pose.html" target="_blank" rel="noreferrer noopener">Open NeuralBench guide ↗</a>
         </article>
       </div>
@@ -353,7 +383,7 @@
   </div>
 </footer>
 
-<script src="assets/js/ui.js?v=20260909content3" defer></script>
+<script src="assets/js/ui.js?v=20260910copy" defer></script>
 
 </body>
 </html>
