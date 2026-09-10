@@ -396,8 +396,8 @@ def check_home(errors: list[str]) -> None:
         for figure in figures
     ):
         errors.append("tracks.html: EMG-to-Pose requires its labelled hand-pose illustration")
-    if len(tracks.find("button", "track-motion-toggle")) != 1:
-        errors.append("tracks.html: animated figures require a pause control")
+    if tracks.find("button", "track-motion-toggle"):
+        errors.append("tracks.html: animation toggle should not appear in the track introduction")
     institution_groups = parsed.find(class_name="sponsor-institutions")
     home_eth_marks = [
         image for image in parsed.find("img")
@@ -412,7 +412,7 @@ def check_technical(errors: list[str]) -> None:
     pages = {name: parse_page(name)[1] for name in ("register.html", "get-prepared.html", "leaderboard.html", "rules.html")}
     proof_copy = {
         "get-prepared.html": ("Public baselines", "4 track portals", "Read the rules", "Ask on Discord"),
-        "rules.html": ("7 rules", "4 optional questions", "Canonical rules source", "Reproducibility audit"),
+        "rules.html": ("8 rules", "4 optional questions", "Canonical rules source", "Reproducibility audit"),
         "leaderboard.html": ("4 track boards", "Preview", "Begin Sep 21", "Baselines available"),
     }
     for name, parsed in pages.items():
@@ -542,8 +542,8 @@ def check_technical(errors: list[str]) -> None:
         if not any(has_ancestor(summary, disclosure) for summary in faq.find("summary")):
             errors.append(f"rules.html: disclosure {number} missing summary")
     rules = faq.find("details", "vb-rule")
-    if len(rules) != 7 or any("open" in rule["attrs"] for rule in rules):
-        errors.append("rules.html: seven binding rules must start as collapsed native disclosures")
+    if len(rules) != 8 or any("open" in rule["attrs"] for rule in rules):
+        errors.append("rules.html: eight binding rules must start as collapsed native disclosures")
     if any(len([summary for summary in faq.find("summary") if has_ancestor(summary, rule)]) != 1 for rule in rules):
         errors.append("rules.html: every rule disclosure requires one title summary")
 

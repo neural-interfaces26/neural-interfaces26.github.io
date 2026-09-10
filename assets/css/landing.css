@@ -176,6 +176,18 @@
   font-size: 13px;
 }
 
+.dataset-release-highlight {
+  margin: -8px 0 28px;
+  padding: 18px 20px;
+  border-top: 1px solid var(--bs-violet);
+  border-bottom: 1px solid var(--bs-violet);
+  color: var(--bs-text);
+  font-size: clamp(18px, 2vw, 26px);
+  line-height: 1.4;
+}
+
+.dataset-release-highlight strong { color: var(--bs-violet); }
+
 .policy-list.flush-top { margin-top: 0; }
 .privacy-evidence { margin-bottom: 16px; }
 .edition-note { margin: 12px 0 14px; }
