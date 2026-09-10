@@ -280,7 +280,7 @@
               </div>
 
           </figure>
-        <p>Reliable sleep-onset estimates from lightweight home headbands could make longitudinal sleep monitoring less dependent on full laboratory polysomnography. Predict seconds remaining until the first stable N2 epoch from continuous four-channel wearable EEG collected at home. Models are evaluated on unseen sleepers, with night-to-night variation, motion artifacts, impedance changes, and channel dropout. The cross-user setting asks whether sleep-transition dynamics learned from other participants transfer to everyday recordings. It targets causal onset estimation rather than full hypnogram reconstruction, which is poorly supported by sparse wearable montages. <strong>Metric:</strong> Binned mean absolute error (bMAE) in seconds, averaged equally across four time-to-onset ranges so short and long latencies count equally, with lower scores indicating better performance.</p>
+        <p>Reliable sleep-onset estimates from lightweight home headbands could make longitudinal sleep monitoring less dependent on full laboratory polysomnography. The task is to predict, at each point in a continuous four-channel home EEG recording, the number of seconds remaining until the first stable N2 epoch. Because recordings are collected in everyday settings, models must remain robust to night-to-night variability, motion artifacts, changes in electrode impedance, and occasional channel dropout. Evaluation is performed on unseen participants to test whether patterns associated with the transition from wakefulness to sleep generalize across individuals rather than relying on participant-specific characteristics. <strong>Metric:</strong> Binned mean absolute error (bMAE) in seconds, computed with equal weighting across four time-to-onset ranges so that performance at short and long prediction horizons contributes equally. Lower scores indicate better performance.</p>
         <a class="track-guide-button" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track3_sleep_onset.html" target="_blank" rel="noreferrer noopener">Read Track 03 NeuralBench guide ↗</a>
         <nav class="track-card-footer" aria-label="Sleep onset track links"><a class="track-card-action primary" href="register.html#enter-3">Register <span aria-hidden="true">→</span></a><a class="track-card-action" href="get-prepared.html">Prepare <span aria-hidden="true">→</span></a><a class="track-card-action" href="#dataset-track-3">Dataset <span aria-hidden="true">→</span></a><a class="track-card-action" href="prizes.html#award-track-3">Prizes <span aria-hidden="true">→</span></a><a class="track-card-action" href="organizers.html#team-sleep">Track leaders <span aria-hidden="true">→</span></a></nav>
       </article>
@@ -356,7 +356,7 @@
     <div class="campaign-section-head reveal">
       <p class="bs-eyebrow">Track datasets · public development data + 2026 competition cohorts</p>
       <h2 id="datasets-heading">The data behind every track.</h2>
-      <p>All competition data use BIDS. The datasets listed below combine direct training counterparts to the hidden evaluation cohorts, matched by protocol, hardware, or objective, with additional public datasets selected by the organizers for closely related recording conditions (see track card below for more information). For broader strategies, including foundation-model pretraining, <a href="https://eegdash.org/dataset_summary.html" target="_blank" rel="noreferrer noopener">EEGDash</a> provides 700+ additional EEG corpora through the same BIDS-first streaming interface.</p>
+      <p>All competition data use BIDS. The datasets listed below combine direct training counterparts to the hidden evaluation cohorts, matched by protocol, hardware, or objective, with additional public datasets selected by the organizers for closely related recording conditions (see track card below for more information). For broader strategies, including foundation-model pretraining, <a href="https://eegdash.org/dataset_summary.html" target="_blank" rel="noreferrer noopener">EEGDash</a> provides 700+ additional EEG corpora through the same BIDS-first streaming interface. A <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_pretrain_mae.html" target="_blank" rel="noreferrer noopener">tutorial example of self-supervised learning foundation-model pretraining</a> is available on NeuralBench.</p>
     </div>
 
       <p class="dataset-release-highlight"><strong>Four tracks, four major data releases for 2026:</strong> Alljoined, Inria Bordeaux, Muse, and Meta Reality Labs each contribute dedicated data to test models under realistic generalization shifts.</p>
@@ -383,7 +383,7 @@
             <span class="bs-kicker">Track 03 · 2026 matched training + hidden evaluation datasets</span>
           </div>
           <h3 class="dataset-release-heading">Muse Sleep-Onset EEG</h3>
-          <p class="dataset-release-copy">Two matched datasets use the same four-channel Muse hardware, home-recording protocol, and sleep-onset target. Approximately 1,000 participants with <code>n2_onset</code> annotations form the training dataset. A separate, similarly sized cohort of unseen sleepers is reserved entirely for hidden evaluation. Provided by Muse.</p>
+          <p class="dataset-release-copy">Two matched datasets use the same four-channel Muse hardware, home-recording protocol, and sleep-onset target. Number of participants TBC across the training and hidden-evaluation cohorts, with multiple recordings per participant. The evaluation cohort contains unseen participants and remains reserved for hidden evaluation. Provided by Muse.</p>
         </article>
 
         <article class="vb-track dataset-release-card" id="dataset-track-4">
@@ -540,9 +540,9 @@
           </div>
           <div class="ds-row ds-row--new" role="row">
             <span class="track-tag" role="cell"><span class="sr-only">Track </span>03</span>
-            <span class="nm" role="cell"><strong>Muse Sleep-Onset training set <span class="ds-new-tag">2026</span></strong><small>Labeled training · Muse home-wearable protocol</small></span>
+            <span class="nm" role="cell"><strong>Muse Sleep-Onset training set <span class="ds-new-tag">2026</span></strong><small>Labeled training</small></span>
             <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">~1,000</span>
+            <span class="num" role="cell">TBC</span>
             <span class="num" role="cell">-</span>
             <span class="num" role="cell">4</span>
             <span class="num" role="cell">256 Hz</span>
@@ -550,9 +550,9 @@
           </div>
           <div class="ds-row ds-row--new" role="row">
             <span class="track-tag" role="cell"><span class="sr-only">Track </span>03</span>
-            <span class="nm" role="cell"><strong>Muse Sleep-Onset evaluation set <span class="ds-new-tag">2026</span></strong><small>Hidden evaluation · Same hardware and protocol</small></span>
+            <span class="nm" role="cell"><strong>Muse Sleep-Onset evaluation set <span class="ds-new-tag">2026</span></strong><small>Hidden evaluation · Part of the same combined participant target</small></span>
             <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">~1,000</span>
+            <span class="num" role="cell">TBC</span>
             <span class="num" role="cell">-</span>
             <span class="num" role="cell">4</span>
             <span class="num" role="cell">256 Hz</span>
