@@ -297,7 +297,7 @@ def check_detail_css(errors: list[str]) -> None:
         brand = brands[0]
         if "aria-label" in brand["attrs"]:
             errors.append(f"{page}: site-brand must use its visible text as the accessible name")
-        if element_text(brand) != "EEG/EMG Foundation Challenge":
+        if element_text(brand) != "EEG/EMG Foundation Challenge 2026":
             errors.append(f"{page}: site-brand must use the complete challenge title")
 
     if any(parse_page(name)[1].find(class_name="announcement-strip") for name in NARRATIVE_PAGES):

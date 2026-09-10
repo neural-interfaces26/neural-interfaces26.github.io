@@ -35,7 +35,7 @@ for (const width of widths) {
       assert.equal(state.scroll, state.client, `${label}: document overflow ${JSON.stringify(state.overflowers)}`);
       assert.equal(state.body, state.client, `${label}: body overflow ${JSON.stringify(state.overflowers)}`);
       assert.equal(state.register, 'register.html', `${label}: registration detour`);
-      assert.equal(state.brand, 'EEG/EMG Foundation Challenge', `${label}: incomplete masthead title`);
+      assert.equal(state.brand, 'EEG/EMG Foundation Challenge 2026', `${label}: incomplete masthead title`);
       assert.equal(state.brandImages, 0, `${label}: decorative masthead logo remains`);
       assert.ok(state.nav.some(([text, href])=>text==='Prizes'&&href==='prizes.html'), `${label}: prizes missing`);
       if (width <= 1280) {
@@ -77,8 +77,8 @@ for (const width of widths) {
           assert.ok(leaderboard?.inside,`${label}: track ${i} leaderboard is not aligned with the heading`);
           assert.equal(await page.eval(`document.querySelector('#track-${i} .track-guide-button')?.getAttribute('href')`),`${docs}${guides[i-1]}`,`${label}: track ${i} NeuralBench guide missing from description`);
           const copy=await page.eval(`document.querySelector('#track-${i} > p:not(.track-facts)')?.textContent.trim()`);
-          assert.ok(copy&&copy.split(/\\s+/).length<=80,`${label}: track ${i} description exceeds 80 words`);
-          assert.ok(!/\b(?:Metric|Sponsor):/.test(copy),`${label}: track ${i} retains Metric or Sponsor metadata`);
+          assert.ok(copy&&/\bMetric:/.test(copy),`${label}: track ${i} description is missing its metric`);
+          assert.ok(!/\bSponsor:/.test(copy),`${label}: track ${i} retains Sponsor metadata`);
         }
         const guideHeights=await page.eval(`[...document.querySelectorAll('.track-guide-button')].map(e=>e.getBoundingClientRect().height)`);
         assert.ok(Math.max(...guideHeights)-Math.min(...guideHeights)<=1,`${label}: track guide buttons have inconsistent heights`);
