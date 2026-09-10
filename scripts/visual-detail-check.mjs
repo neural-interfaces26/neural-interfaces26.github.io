@@ -98,7 +98,7 @@ const measure = `(()=>{
   const heroArt=document.querySelector('.campaign-hero-art');
   const line=document.querySelector('.bs-code .ln');
   const code=line?.closest('.bs-code');
-  const trackFigures=[...document.querySelectorAll('.track-card > img')].map(img=>{const card=img.closest('.track-card'),r=img.getBoundingClientRect(),s=getComputedStyle(card);return {width:r.width,available:card.getBoundingClientRect().width-parseFloat(s.paddingLeft)-parseFloat(s.paddingRight),currentSrc:img.currentSrc,naturalWidth:img.naturalWidth}});
+  const trackFigures=[...document.querySelectorAll('[data-track-figure]')].map(img=>{const card=img.closest('.track-card'),r=img.getBoundingClientRect(),s=getComputedStyle(card);return {width:r.width,available:card.getBoundingClientRect().width-parseFloat(s.paddingLeft)-parseFloat(s.paddingRight),label:img.getAttribute('aria-label')}});
   const stack=hero?Math.max(hero.getBoundingClientRect().bottom,challenge?.getBoundingClientRect().bottom||0,local?.getBoundingClientRect().bottom||0)-hero.getBoundingClientRect().top:0;
   const aligned=[brand,document.querySelector('.campaign-hero-copy,.page-hero-inner,.error-copy'),document.querySelector('.campaign-section > *,.technical-page .vb-section > *,.organizers-page .org-section > *,.award-compare,.editorial-lane,.year-rail,.error-copy'),document.querySelector('.site-footer-inner')].filter(visible).map(e=>rect(e).x);
   const typography={
@@ -150,7 +150,7 @@ function assertState(state, route, width) {
   if (state.lineContrast !== null && state.lineContrast < 4.5) throw new Error(`code line-number contrast ${route} ${width}: ${state.lineContrast}`);
   if (route === 'index.html' && width > 900 && (!state.heroArtMask || state.heroArtMask === 'none')) throw new Error(`desktop hero artwork has a hard background edge at ${width}px`);
   if (route === 'index.html' && width <= 900 && state.heroArtMask !== 'none') throw new Error(`stacked hero retains a desktop mask at ${width}px`);
-  if (route === 'tracks.html' && (state.trackFigures.length !== 4 || state.trackFigures.some(figure => Math.abs(figure.width - figure.available * .56) > 1))) throw new Error(`track figures are not 56% of their panels at ${width}px: ${JSON.stringify(state.trackFigures)}`);
+  if (route === 'tracks.html' && (state.trackFigures.length !== 4 || state.trackFigures.some(figure => Math.abs(figure.width - figure.available) > 1))) throw new Error(`track figures do not fill their panels at ${width}px: ${JSON.stringify(state.trackFigures)}`);
 }
 
 async function press(page, key, code, virtualKeyCode) {
@@ -248,7 +248,7 @@ async function prepareFullPage(page) {
     const stickyHeader=document.querySelector('.site-header');
     if(stickyHeader)stickyHeader.style.setProperty('position','static','important');
     scrollTo(0,0);await frame();
-    const trackFigures=[...document.querySelectorAll('.track-card > img')].map(img=>({width:img.getBoundingClientRect().width,naturalWidth:img.naturalWidth,currentSrc:img.currentSrc}));
+    const trackFigures=[...document.querySelectorAll('[data-track-figure]')].map(img=>({width:img.getBoundingClientRect().width,label:img.getAttribute('aria-label'),vectors:img.querySelectorAll('svg').length}));
     return {hiddenReveals,incompleteImages,contentVisibilityOverrides:auto.length,stickyHeaderNeutralized:!!stickyHeader,height:document.documentElement.scrollHeight,trackFigures};
   })()`);
 }
@@ -284,7 +284,7 @@ for (const route of substantive) {
   try {
     const prepared = await prepareFullPage(page);
     if (prepared.hiddenReveals || prepared.incompleteImages.length) throw new Error(`full-page readiness ${route}: ${JSON.stringify(prepared)}`);
-    if (route === 'tracks.html' && (prepared.trackFigures.length !== 4 || prepared.trackFigures.some(figure => figure.naturalWidth < figure.width))) throw new Error(`track figure source too small: ${JSON.stringify(prepared.trackFigures)}`);
+    if (route === 'tracks.html' && (prepared.trackFigures.length !== 4 || prepared.trackFigures.some(figure => !figure.label || !figure.vectors))) throw new Error(`track figure vector artwork missing: ${JSON.stringify(prepared.trackFigures)}`);
     if (page.errors.length) throw new Error(`console full-page ${route}: ${JSON.stringify(page.errors)}`);
     const { cssContentSize } = await page.call('Page.getLayoutMetrics');
     await screenshot(page, `${output}/${route.replace('.html','')}-full-1440.png`, { captureBeyondViewport: true, clip: { x: 0, y: 0, width: 1440, height: Math.ceil(cssContentSize.height), scale: 1 } });

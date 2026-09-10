@@ -385,18 +385,19 @@ def check_home(errors: list[str]) -> None:
         ancestor for heading in track_headings for ancestor in heading["ancestors"]
         if ancestor["tag"] == "article" and "track-card" in str(ancestor["attrs"].get("class", "")).split()
     ]
-    track_images = [
-        image for image in tracks.find("img")
-        if track_cards and has_ancestor(image, track_cards[0])
-    ]
-    image_paths = {
-        str(image["attrs"].get("src") or image["attrs"].get("data-src"))
-        for image in track_images
-    }
-    if len(track_cards) != 1 or image_paths != {"assets/img/figures/emg-to-pose.png"}:
-        errors.append("tracks.html: EMG-to-Pose requires the approved Track 4 image")
-    if any("pose" not in str(image["attrs"].get("alt", "")).lower() for image in track_images):
-        errors.append("tracks.html: Track 4 image needs EMG-to-Pose alternative text")
+    figures = [figure for figure in tracks.find("figure") if "data-track-figure" in figure["attrs"]]
+    if len(figures) != 4 or any(
+        figure["attrs"].get("role") != "img" or not figure["attrs"].get("aria-label")
+        for figure in figures
+    ):
+        errors.append("tracks.html: requires four accessible track illustrations")
+    if len(track_cards) != 1 or not any(
+        has_ancestor(figure, track_cards[0]) and "pose" in figure["attrs"].get("aria-label", "").lower()
+        for figure in figures
+    ):
+        errors.append("tracks.html: EMG-to-Pose requires its labelled hand-pose illustration")
+    if len(tracks.find("button", "track-motion-toggle")) != 1:
+        errors.append("tracks.html: animated figures require a pause control")
     institution_groups = parsed.find(class_name="sponsor-institutions")
     home_eth_marks = [
         image for image in parsed.find("img")
