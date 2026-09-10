@@ -4,7 +4,7 @@ import {open,press,screenshot} from './visual-detail-check.mjs';
 import {click} from './journey-check.mjs';
 
 const output=process.env.OUTPUT_DIR || '/tmp/neural-ux-audit';
-const routes=(process.env.UX_ROUTES || 'index.html,tracks.html,register.html,startkit.html,awards.html,leaderboard.html,faq.html,organizers.html,ethics.html,track-record.html,404.html').split(',');
+const routes=(process.env.UX_ROUTES || 'index.html,tracks.html,register.html,get-prepared.html,prizes.html,leaderboard.html,rules.html,organizers.html,ethics.html,track-record.html,404.html').split(',');
 const widths=(process.env.UX_WIDTHS || '1440,390').split(',').map(Number);
 if(widths.some(w=>!Number.isInteger(w)||w<320||w>1920))throw Error('UX_WIDTHS must contain integer widths from 320 to1920');
 const report={started:new Date().toISOString(),persona:'First-time ML researcher choosing a track, preparing a model, and finding registration; returning researcher resuming a track.',scope:'Local static-site interaction audit. Forms, accounts, destructive actions, and submission uploads are not present locally.',pages:[],findings:[]};
@@ -33,7 +33,7 @@ for (const width of widths) for (const route of routes) {
       record.choiceGeometry=await page.eval(`([...document.querySelectorAll('.entry-track')].map(e=>{const r=e.getBoundingClientRect();return {label:e.querySelector('h3')?.textContent.trim(),left:r.left,right:r.right,width:r.width}}))`);
       if(record.choiceGeometry.length!==4||record.choiceGeometry.some(c=>c.left<0||c.right>width||c.width<280))report.findings.push({surface:label,type:'track-choice-layout',impact:'serious',message:'All four registration choices must remain readable without horizontal overflow',measurement:record.choiceGeometry});
     }
-    if(route==='awards.html'&&width<=640){
+    if(route==='prizes.html'&&width<=640){
       record.prizeGeometry=await page.eval(`([...document.querySelectorAll('.award-table tbody td')].map(e=>({text:e.textContent.trim(),width:e.getBoundingClientRect().width})))`);
       for(const p of record.prizeGeometry)if(p.text.length>12&&p.width<140)report.findings.push({surface:label,type:'prize-readability',impact:'serious',measurement:p});
     }
@@ -77,7 +77,7 @@ for (const width of widths) for (const route of routes) {
       await click(page,sel);
       if(!await page.eval(`document.querySelector(${JSON.stringify(sel)}).parentElement.open`))throw Error('Details did not open');
       await step('Opened supporting details',sel);
-      if(route==='faq.html'&&width>=1024){
+      if(route==='rules.html'&&width>=1024){
         const answer=await page.eval(`(()=>{const e=document.querySelector(${JSON.stringify(sel)}).parentElement.querySelector('.faq-answer p');return e?e.getBoundingClientRect().width:null})()`);
         if(answer!==null&&answer<500)report.findings.push({surface:label,type:'answer-readability',impact:'serious',width:answer});
       }

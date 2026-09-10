@@ -7,7 +7,7 @@ const output = process.env.OUTPUT_DIR || '/tmp/neural-journey';
 const docs = 'https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/';
 const portals = [17974, 17982, 17983, 17984];
 const guides = ['plot_track1_eeg_to_image.html', 'plot_track2_eeg_to_bci.html', 'plot_track3_sleep_onset.html', 'plot_track4_emg_to_pose.html'];
-const routes = (process.env.JOURNEY_ROUTES || 'index.html,tracks.html,register.html,startkit.html,awards.html,faq.html,leaderboard.html,organizers.html,ethics.html,track-record.html,404.html').split(',');
+const routes = (process.env.JOURNEY_ROUTES || 'index.html,tracks.html,register.html,get-prepared.html,prizes.html,rules.html,leaderboard.html,organizers.html,ethics.html,track-record.html,404.html').split(',');
 const widths = (process.env.JOURNEY_WIDTHS || '1440,834,390,320').split(',').map(Number);
 const results = [];
 
@@ -37,7 +37,7 @@ for (const width of widths) {
       assert.equal(state.register, 'register.html', `${label}: registration detour`);
       assert.equal(state.brand, 'EEG/EMG Foundation Challenge · NeurIPS 2026', `${label}: incomplete masthead title`);
       assert.equal(state.brandImages, 0, `${label}: decorative masthead logo remains`);
-      assert.ok(state.nav.some(([text, href])=>text==='Prizes'&&href==='awards.html'), `${label}: prizes missing`);
+      assert.ok(state.nav.some(([text, href])=>text==='Prizes'&&href==='prizes.html'), `${label}: prizes missing`);
       if (width <= 1280) {
         await click(page, '.site-menu-toggle');
         assert.equal(await page.eval("document.querySelector('.site-menu-toggle').getAttribute('aria-expanded')"), 'true', `${label}: menu did not open`);
@@ -68,7 +68,7 @@ for (const width of widths) {
         const expectedOrganizers=['team-eeg','team-bci','team-sleep','team-emg'];
         for (let i=1; i<=4; i++) {
           const actions=await page.eval(`[...document.querySelectorAll('#track-${i} .track-card-footer a')].map(a=>({text:a.textContent.trim(),href:a.getAttribute('href')}))`);
-          assert.deepEqual(actions.map(a=>a.href),[`register.html#enter-${i}`,`startkit.html`,`#dataset-track-${i}`,`awards.html#award-track-${i}`,`organizers.html#${expectedOrganizers[i-1]}`],`${label}: wrong track ${i} links`);
+          assert.deepEqual(actions.map(a=>a.href),[`register.html#enter-${i}`,`get-prepared.html`,`#dataset-track-${i}`,`prizes.html#award-track-${i}`,`organizers.html#${expectedOrganizers[i-1]}`],`${label}: wrong track ${i} links`);
           assert.deepEqual(actions.map(a=>a.text),['Register →','Prepare →','Dataset →','Prizes →','Track leaders →'],`${label}: wrong track ${i} action labels`);
           assert.ok(actions.every(a=>a.text.endsWith('→')),`${label}: track ${i} actions need directional arrows`);
           const leaderboard=await page.eval(`(()=>{const card=document.querySelector('#track-${i}');const heading=card?.querySelector('.track-card-heading');const link=card?.querySelector('.track-leaderboard-button');if(!heading||!link)return null;const h=heading.getBoundingClientRect(),l=link.getBoundingClientRect();return {href:link.getAttribute('href'),text:link.textContent.trim(),inside:l.top>=h.top-1&&l.bottom<=h.bottom+1}})()`);
@@ -92,7 +92,7 @@ for (const width of widths) {
         assert.equal(datasets.scroll, datasets.client, `${label}: dataset directory overflows the page`);
         assert.equal(await page.eval(`document.querySelectorAll('.track-facts').length`),0,`${label}: redundant track fact rows remain`);
         const introLinks=await page.eval(`[...document.querySelectorAll('.tracks-hero .page-hero-copy > p a')].map(a=>[a.textContent.trim(),a.getAttribute('href')])`);
-        assert.deepEqual(introLinks,[['register','register.html#enter'],['get prepared','startkit.html']],`${label}: track introduction must keep only the two primary handoffs`);
+        assert.deepEqual(introLinks,[['register','register.html#enter'],['get prepared','get-prepared.html']],`${label}: track introduction must keep only the two primary handoffs`);
       }
       if (route === 'register.html') {
         assert.equal(await page.eval(`document.querySelectorAll('.register-hero .page-hero-copy > p').length`),1,`${label}: registration introduction is redundant`);
@@ -106,7 +106,7 @@ for (const width of widths) {
         assert.equal(await page.eval(`document.querySelectorAll('.entry-track').length`),4,`${label}: register page needs four track cards`);
         assert.equal(await page.eval(`document.querySelectorAll('main a[href^="leaderboard.html"]').length`),0,`${label}: registration content links to a leaderboard`);
       }
-      if (route === 'startkit.html') {
+      if (route === 'get-prepared.html') {
         assert.equal(await page.eval(`document.querySelector('.startkit-hero h1')?.textContent.trim()`),'Get prepared with NeuralBench.',`${label}: preparation page naming`);
         assert.ok(await page.eval(`!!document.querySelector('a[href="${docs}index.html"]')`), `${label}: NeuralBench challenge hub URL`);
         assert.equal(await page.eval(`document.querySelectorAll('.entry-track').length`),0,`${label}: registration cards remain in preparation page`);
@@ -122,14 +122,14 @@ for (const width of widths) {
         const baselineRows=await page.eval(`[...document.querySelectorAll('#baselines .ds-row:not(.head)')].map(r=>r.querySelectorAll('[role="cell"]').length)`);
         assert.ok(baselineRows.length>=4&&baselineRows.every(n=>n===7),`${label}: baseline table columns are misaligned`);
       }
-      if (route === 'faq.html') {
+      if (route === 'rules.html') {
         assert.equal(await page.eval(`document.querySelectorAll('details.vb-rule').length`),7,`${label}: seven rule disclosures`);
         assert.equal(await page.eval(`document.querySelectorAll('details.vb-rule[open]').length`),0,`${label}: rules should start collapsed`);
-        assert.equal(await page.eval(`document.querySelector('.local-nav a')?.getAttribute('href')`),'startkit.html',`${label}: prepare navigation target`);
+        assert.equal(await page.eval(`document.querySelector('.local-nav a')?.getAttribute('href')`),'get-prepared.html',`${label}: prepare navigation target`);
         await click(page,'#rule-eligibility summary');
         assert.ok(await page.eval(`document.querySelector('#rule-eligibility').open`),`${label}: rule disclosure did not open`);
       }
-      if (route === 'awards.html') {
+      if (route === 'prizes.html') {
         assert.ok(await page.eval(`document.querySelector('#all-round')?.textContent.includes('$2,000')`),`${label}: Yneuro all-round award`);
         assert.ok(await page.eval(`document.querySelector('main')?.textContent.includes('$20,000')`),`${label}: prize pool total`);
         assert.equal(await page.eval(`document.querySelectorAll('.award-table .award-track-identity img').length`),4,`${label}: four track sponsor logos must be inside the table`);
@@ -144,7 +144,7 @@ for (const width of widths) {
         assert.ok(metaTransform!=='none'&&metaTransform.includes('1.5'),`${label}: Meta Reality Labs logo is not enlarged`);
       }
       if (route === 'organizers.html') {
-        assert.equal(await page.eval(`document.querySelectorAll('main a[href^="startkit.html"]').length`),0,`${label}: prepare-a-track button remains`);
+        assert.equal(await page.eval(`document.querySelectorAll('main a[href^="get-prepared.html"]').length`),0,`${label}: prepare-a-track button remains`);
         const organization=await page.eval(`(()=>{const ids=['team-core','team-eeg','team-bci','team-sleep','team-emg','team-advisors'],logos=[...document.querySelectorAll('.org-logo-stage img')].map(i=>i.alt);return {tops:ids.map(id=>document.getElementById(id).getBoundingClientRect().top),backgrounds:ids.map(id=>getComputedStyle(document.getElementById(id)).backgroundColor),leads:document.querySelectorAll('.org-directory .lead').length,meta:document.querySelectorAll('.org-team-meta').length,links:[...document.querySelectorAll('.org-track-link')].map(a=>a.getAttribute('href')),arnault:[...document.querySelectorAll('#arnault-caillet a')].map(a=>a.getAttribute('href')),thomas:document.querySelector('.name')&&[...document.querySelectorAll('.name')].find(e=>e.textContent.trim()==='Thomas Semah')?.closest('section')?.id,logos,logoUnique:new Set(logos).size}})()`);
         assert.ok(organization.tops.every((top,index,array)=>index===0||top>array[index-1]),`${label}: organizer section order`);
         assert.ok(organization.backgrounds.every((color,index,array)=>index===0||color!==array[index-1]),`${label}: organizer section backgrounds do not alternate`);
@@ -177,7 +177,7 @@ for (const width of widths) {
 }
 // Navigation must remain usable when client-side JavaScript is unavailable.
 {
-  const page = await open('startkit.html',320,900);
+  const page = await open('get-prepared.html',320,900);
   try {
     await page.call('Emulation.setScriptExecutionDisabled', {value:true});
     const loaded=page.once('Page.loadEventFired');
@@ -189,7 +189,7 @@ for (const width of widths) {
     console.log('PASS: no-JS mobile navigation');
   } finally { await page.close(); }
 }
-for (const width of [1440,390]) for (const route of ['index.html','tracks.html','register.html#enter','startkit.html#baselines']) {
+for (const width of [1440,390]) for (const route of ['index.html','tracks.html','register.html#enter','get-prepared.html#baselines']) {
   const page=await open(route,width,1600);
   try { await screenshot(page, `${output}/${route.replace(/[.#]/g,'-')}-${width}.png`); }
   finally { await page.close(); }

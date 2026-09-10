@@ -4,7 +4,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 const port = Number(process.env.CDP_PORT || 9226);
 const base = process.env.BASE_URL || 'http://127.0.0.1:4173';
 const output = process.env.OUTPUT_DIR || '/tmp/round-two-final';
-const routes = ['index.html', 'tracks.html', 'register.html', 'awards.html', 'ethics.html', 'faq.html', 'leaderboard.html', 'organizers.html', 'startkit.html', 'track-record.html', '404.html'];
+const routes = ['index.html', 'tracks.html', 'register.html', 'prizes.html', 'ethics.html', 'rules.html', 'leaderboard.html', 'organizers.html', 'get-prepared.html', 'track-record.html', '404.html'];
 const secondary = new Set(routes.slice(1, -1));
 const substantive = routes.filter(route => route !== '404.html');
 const sizes = [[1440, 1100], [834, 1080], [390, 844], [320, 720]];
@@ -210,7 +210,7 @@ async function checkOrganizerCadence768() {
 async function checkCodeScrollers(page, route) {
   await page.eval(`[...document.querySelectorAll('details')].forEach(e=>e.open=true)`);
   const expected = await page.eval(`([...document.querySelectorAll('.bs-code pre')].map(pre=>pre.getAttribute('aria-label')))`);
-  const count = route === 'startkit.html' ? 2 : 4;
+  const count = route === 'get-prepared.html' ? 2 : 4;
   if (expected.length !== count || expected.some(label => !label) || new Set(expected).size !== count) throw new Error(`code scroller labels ${route}: ${JSON.stringify(expected)}`);
   const seen = [];
   for (let step = 0; step < 160 && seen.length < count; step += 1) {

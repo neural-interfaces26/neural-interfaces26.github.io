@@ -11,8 +11,8 @@ from urllib.parse import unquote, urljoin, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = [
-    "index.html", "tracks.html", "register.html", "startkit.html", "faq.html", "leaderboard.html",
-    "awards.html", "organizers.html", "ethics.html", "track-record.html",
+    "index.html", "tracks.html", "register.html", "get-prepared.html", "rules.html", "leaderboard.html",
+    "prizes.html", "organizers.html", "ethics.html", "track-record.html",
 ]
 ALL_PAGES = PAGES + ["404.html"]
 SITE_ORIGIN = "https://neural-interfaces26.github.io"
@@ -25,7 +25,7 @@ TOKENS = {
     "--bs-surface": "#f7f5fc",
     "--bs-card-border": "#e3dbf4",
 }
-NARRATIVE_PAGES = ("awards.html", "organizers.html", "ethics.html", "track-record.html")
+NARRATIVE_PAGES = ("prizes.html", "organizers.html", "ethics.html", "track-record.html")
 ORGANIZER_GROUPS = {
     "team-eeg": (
         "Hubert Banville", "Jean-Rémi King", "Vinay Jayaram", "Joséphine Raugel",
@@ -408,10 +408,10 @@ def check_home(errors: list[str]) -> None:
 
 
 def check_technical(errors: list[str]) -> None:
-    pages = {name: parse_page(name)[1] for name in ("register.html", "startkit.html", "leaderboard.html", "faq.html")}
+    pages = {name: parse_page(name)[1] for name in ("register.html", "get-prepared.html", "leaderboard.html", "rules.html")}
     proof_copy = {
-        "startkit.html": ("Public baselines", "4 track portals", "Read the rules", "Ask on Discord"),
-        "faq.html": ("7 rules", "4 optional questions", "Canonical rules source", "Reproducibility audit"),
+        "get-prepared.html": ("Public baselines", "4 track portals", "Read the rules", "Ask on Discord"),
+        "rules.html": ("7 rules", "4 optional questions", "Canonical rules source", "Reproducibility audit"),
         "leaderboard.html": ("4 track boards", "Preview", "Begin Sep 21", "Baselines available"),
     }
     for name, parsed in pages.items():
@@ -428,7 +428,7 @@ def check_technical(errors: list[str]) -> None:
             if fact not in proof_text:
                 errors.append(f"{name}: page proof missing {fact!r}")
     code_labels: list[str] = []
-    for name, expected in (("startkit.html", 0), ("leaderboard.html", 4)):
+    for name, expected in (("get-prepared.html", 0), ("leaderboard.html", 4)):
         parsed = pages[name]
         code_blocks = parsed.find(class_name="bs-code")
         code_regions = [
@@ -496,25 +496,25 @@ def check_technical(errors: list[str]) -> None:
     if len(methodology) != 1 or len(methodology_lists) != 1 or len(methodology_items) != 3:
         errors.append("leaderboard.html: methodology requires one open three-step list")
 
-    startkit = pages["startkit.html"]
+    startkit = pages["get-prepared.html"]
     startkit_copy = element_text(startkit.find("main")[0])
     if "neuralbench emg pose -m vemg2pose" not in startkit_copy:
-        errors.append("startkit.html: Track 4 baseline command is missing")
+        errors.append("get-prepared.html: Track 4 baseline command is missing")
     if startkit.find("article", "entry-track"):
-        errors.append("startkit.html: registration cards must live on register.html")
+        errors.append("get-prepared.html: registration cards must live on register.html")
     for number in range(1, 5):
         if f"baseline-track-{number}" not in startkit.ids:
-            errors.append(f"startkit.html: missing baseline anchor for track {number}")
+            errors.append(f"get-prepared.html: missing baseline anchor for track {number}")
     for anchor in ("install", "track-guides", "run-baseline", "baselines", "submit"):
         if anchor not in startkit.ids:
-            errors.append(f"startkit.html: missing preparation step #{anchor}")
+            errors.append(f"get-prepared.html: missing preparation step #{anchor}")
     if len(startkit.find("span", "prepare-step-number")) != 5 or len(startkit.find("article", "prepare-guide-card")) != 4:
-        errors.append("startkit.html: preparation requires five numbered steps and four track guides")
+        errors.append("get-prepared.html: preparation requires five numbered steps and four track guides")
     if not any(
         link["attrs"].get("href", "").endswith("plot_submission_guide.html")
         for link in startkit.find("a")
     ):
-        errors.append("startkit.html: official NeuralBench submission guide is missing")
+        errors.append("get-prepared.html: official NeuralBench submission guide is missing")
 
     register = pages["register.html"]
     register_copy = element_text(register.find("main")[0])
@@ -533,18 +533,18 @@ def check_technical(errors: list[str]) -> None:
     if any((link["attrs"].get("href") or "").startswith("leaderboard.html") for link in register.find("a") if has_ancestor(link, register_main)):
         errors.append("register.html: leaderboard links do not belong in registration content")
 
-    faq = pages["faq.html"]
+    faq = pages["rules.html"]
     details = faq.find("details", "faq-item")
     if len(details) != 5:
-        errors.append("faq.html: optional questions require five native disclosures")
+        errors.append("rules.html: optional questions require five native disclosures")
     for number, disclosure in enumerate(details, start=1):
         if not any(has_ancestor(summary, disclosure) for summary in faq.find("summary")):
-            errors.append(f"faq.html: disclosure {number} missing summary")
+            errors.append(f"rules.html: disclosure {number} missing summary")
     rules = faq.find("details", "vb-rule")
     if len(rules) != 7 or any("open" in rule["attrs"] for rule in rules):
-        errors.append("faq.html: seven binding rules must start as collapsed native disclosures")
+        errors.append("rules.html: seven binding rules must start as collapsed native disclosures")
     if any(len([summary for summary in faq.find("summary") if has_ancestor(summary, rule)]) != 1 for rule in rules):
-        errors.append("faq.html: every rule disclosure requires one title summary")
+        errors.append("rules.html: every rule disclosure requires one title summary")
 
     for name, parsed in pages.items():
         if any(button["tag"] != "button" for button in parsed.find(class_name="copy")):
@@ -554,7 +554,7 @@ def check_technical(errors: list[str]) -> None:
 def check_narrative(errors: list[str]) -> None:
     pages = {name: parse_page(name) for name in NARRATIVE_PAGES}
     proof_copy = {
-        "awards.html": ("4 tracks", "BCI · Sleep · EMG", "$2,000", "Sydney"),
+        "prizes.html": ("4 tracks", "BCI · Sleep · EMG", "$2,000", "Sydney"),
         "ethics.html": ("Preview", "Provider approvals", "Explicit consent", "Read-only decoders"),
         "organizers.html": ("30 organizers", "4 tracks", "15 institutions", "8 countries"),
         "track-record.html": ("2021", "2026", "4 competitions", "Same lead"),
@@ -585,23 +585,23 @@ def check_narrative(errors: list[str]) -> None:
         if "—" in text or "–" in text:
             errors.append(f"{name}: visible copy must use regular hyphens")
 
-    awards = pages["awards.html"][1]
+    awards = pages["prizes.html"][1]
     awards_copy = element_text(awards.find("main")[0])
     if "$20,000" not in awards_copy or "best all-round" not in awards_copy.lower():
-        errors.append("awards.html: $20,000 pool and best all-round award must be explicit")
+        errors.append("prizes.html: $20,000 pool and best all-round award must be explicit")
     if len(awards.find(class_name="award-breakdown")) != 1:
-        errors.append("awards.html: requires one ruled award breakdown")
+        errors.append("prizes.html: requires one ruled award breakdown")
     if len(awards.find(class_name="award-track")) != 4:
-        errors.append("awards.html: requires four track award rows")
-    if not any(link["attrs"].get("href", "").startswith("faq.html") for link in awards.find("a")):
-        errors.append("awards.html: requires an eligibility/rules link")
+        errors.append("prizes.html: requires four track award rows")
+    if not any(link["attrs"].get("href", "").startswith("rules.html") for link in awards.find("a")):
+        errors.append("prizes.html: requires an eligibility/rules link")
     awards_main = awards.find("main")
     ethics_links = [
         link for link in awards.find("a")
         if link["attrs"].get("href") == "ethics.html" and awards_main and has_ancestor(link, awards_main[0])
     ]
     if len(ethics_links) != 1:
-        errors.append("awards.html: main content must link the ethics route once")
+        errors.append("prizes.html: main content must link the ethics route once")
 
     _, organizers = pages["organizers.html"]
     people = organizers.find("article", "org-card")
@@ -687,7 +687,7 @@ def check_narrative(errors: list[str]) -> None:
     eth_marks = [image for image in institution_marks if image["attrs"].get("src") == "assets/img/logos/eth-zurich.svg"]
     if len(eth_marks) != 1 or eth_marks[0]["attrs"].get("alt") != "ETH Zürich":
         errors.append("organizers.html: institutional stage requires one labelled ETH Zürich mark")
-    for name in ("awards.html", "ethics.html", "organizers.html"):
+    for name in ("prizes.html", "ethics.html", "organizers.html"):
         main = pages[name][1].find("main")
         if main and "EMG-to-Text" in element_text(main[0]):
             errors.append(f"{name}: legacy EMG-to-Text copy remains")
@@ -734,7 +734,7 @@ def check_narrative(errors: list[str]) -> None:
     error_text, error_page = parse_page("404.html") if (ROOT / "404.html").is_file() else ("", PageParser())
     if error_page.tags.get("header") != 1 or error_page.tags.get("main") != 1 or error_page.tags.get("footer") != 1:
         errors.append("404.html: requires the shared shell")
-    for destination in ('href="index.html"', 'href="startkit.html"', 'href="faq.html"', 'href="https://discord.gg/yZv8KqKMpH"'):
+    for destination in ('href="index.html"', 'href="get-prepared.html"', 'href="rules.html"', 'href="https://discord.gg/yZv8KqKMpH"'):
         if destination not in error_text:
             errors.append(f"404.html: missing recovery destination {destination}")
     trophies = error_page.find(class_name="error-trophy")
@@ -913,21 +913,21 @@ def check_links(errors: list[str]) -> None:
     target_pages = parsed_pages.copy()
 
     regression_cases = (
-        ("index.html", "faq.html?from=home#rule%2Ddata", ("faq.html", "rule-data")),
+        ("index.html", "rules.html?from=home#rule%2Ddata", ("rules.html", "rule-data")),
         ("index.html", "?preview=1#main", ("index.html", "main")),
-        ("faq.html", f"{SITE_ORIGIN}/tracks.html?preview=1#track%2D1", ("tracks.html", "track-1")),
+        ("rules.html", f"{SITE_ORIGIN}/tracks.html?preview=1#track%2D1", ("tracks.html", "track-1")),
         ("index.html", "leaderboard%2Ehtml#track%2D1", ("leaderboard.html", "track-1")),
         ("index.html", ".", ("index.html", "")),
         ("index.html", "./", ("index.html", "")),
-        ("faq.html", "/", ("index.html", "")),
-        ("index.html", f"{SITE_ORIGIN}/faq.html#rules", ("faq.html", "rules")),
+        ("rules.html", "/", ("index.html", "")),
+        ("index.html", f"{SITE_ORIGIN}/rules.html#rules", ("rules.html", "rules")),
         (
             "index.html",
-            "https://neural-interfaces26.github.io:443/faq.html#rules",
-            ("faq.html", "rules"),
+            "https://neural-interfaces26.github.io:443/rules.html#rules",
+            ("rules.html", "rules"),
         ),
-        ("index.html", "https://neural-interfaces26.github.io:444/faq.html", None),
-        ("index.html", "http://neural-interfaces26.github.io/faq.html", None),
+        ("index.html", "https://neural-interfaces26.github.io:444/rules.html", None),
+        ("index.html", "http://neural-interfaces26.github.io/rules.html", None),
     )
     for source, href, expected in regression_cases:
         resolved = resolve_same_site_href(source, href)

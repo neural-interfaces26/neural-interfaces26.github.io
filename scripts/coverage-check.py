@@ -74,10 +74,10 @@ ANCHORS: dict[str, list[str]] = {
     "new pages": [
         "ethics.html",
         "track-record.html",
-        "faq.html",
+        "rules.html",
     ],
     # "affinity-group naming" anchors removed: the diversity-grant row was
-    # deleted from awards.html (proposal does not commit to affinity-network
+    # deleted from prizes.html (proposal does not commit to affinity-network
     # grants; only travel support per top-3 is in the proposal).
     "internship reinstated (P1)": [
         "internship",

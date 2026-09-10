@@ -64,10 +64,10 @@
   <nav class="site-menu" id="site-menu" aria-label="Primary navigation">
     <a href="index.html">Home</a>
     <a href="tracks.html" aria-current="page">Tracks</a>
-    <a href="startkit.html">Get prepared</a>
-    <a href="awards.html">Prizes</a>
+    <a href="get-prepared.html">Get prepared</a>
+    <a href="prizes.html">Prizes</a>
     <a href="leaderboard.html">Leaderboard</a>
-    <a href="faq.html">Rules</a>
+    <a href="rules.html">Rules</a>
     <a href="organizers.html">Organizers</a>
     <a href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Discord ↗</a>
     <a class="bs-btn primary sm" href="register.html">Register</a>
@@ -81,7 +81,7 @@
       <div class="page-hero-copy">
         <span class="bs-eyebrow">Four tasks · four generalization shifts</span>
         <h1 id="tracks-page-heading">Choose your track.</h1>
-        <p>Choose the task that fits your model. Each track has its own data, scientific question, evaluation metrics, leaderboard, and prize paths. All tracks use the same reproducibility audit. Then, <a href="register.html#enter">register</a> on Codabench and <a href="startkit.html">get prepared</a> by running the start kits and reproducing baselines with NeuralBench.</p>
+        <p>Choose the task that fits your model. Each track has its own data, scientific question, evaluation metrics, leaderboard, and prize paths. All tracks use the same reproducibility audit. Then, <a href="register.html#enter">register</a> on Codabench and <a href="get-prepared.html">get prepared</a> by running the start kits and reproducing baselines with NeuralBench.</p>
       </div>
     </div>
   </section>
@@ -99,9 +99,9 @@
         </div>
         <noscript><img src="assets/img/figures/eeg-to-img.png" srcset="assets/img/figures/eeg-to-img.png 335w, assets/img/figures/eeg-to-img@2x.png 670w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="335" height="218" alt="THINGS-EEG and Alljoined data feeding an EEG decoder ranked against a held-out image gallery" loading="lazy" /></noscript>
         <img data-src="assets/img/figures/eeg-to-img.png" data-srcset="assets/img/figures/eeg-to-img.png 335w, assets/img/figures/eeg-to-img@2x.png 670w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="335" height="218" alt="THINGS-EEG and Alljoined data feeding an EEG decoder ranked against a held-out image gallery" />
-        <p>Given a single EEG epoch recorded during natural-image viewing, identify the viewed image by ranking held-out candidates in a frozen DINOv2 embedding space. Training and test images do not overlap, so the cross-stimulus shift probes whether neural representations transfer beyond memorized concepts. Research-grade and consumer-grade datasets add source and hardware variability while keeping the task anchored to time-locked visual responses.</p>
+        <p>Visual decoding is most useful when it recognizes novel content rather than a fixed catalogue learned during training. Given a single EEG epoch recorded during natural-image viewing, identify the viewed image by ranking held-out candidates in a frozen DINOv2 embedding space. Training and test images do not overlap, so the cross-stimulus shift probes whether neural representations transfer beyond memorized concepts. Research-grade and consumer-grade datasets add source and hardware variability while keeping the task anchored to time-locked visual responses. <strong>Metric:</strong> Top-5 retrieval accuracy against the held-out candidate set, with higher scores indicating better performance.</p>
         <a class="track-guide-button" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track1_eeg_to_image.html" target="_blank" rel="noreferrer noopener">Read Track 01 NeuralBench guide ↗</a>
-        <nav class="track-card-footer" aria-label="EEG-to-Image track links"><a class="track-card-action primary" href="register.html#enter-1">Register <span aria-hidden="true">→</span></a><a class="track-card-action" href="startkit.html">Prepare <span aria-hidden="true">→</span></a><a class="track-card-action" href="#dataset-track-1">Dataset <span aria-hidden="true">→</span></a><a class="track-card-action" href="awards.html#award-track-1">Prizes <span aria-hidden="true">→</span></a><a class="track-card-action" href="organizers.html#team-eeg">Track leaders <span aria-hidden="true">→</span></a></nav>
+        <nav class="track-card-footer" aria-label="EEG-to-Image track links"><a class="track-card-action primary" href="register.html#enter-1">Register <span aria-hidden="true">→</span></a><a class="track-card-action" href="get-prepared.html">Prepare <span aria-hidden="true">→</span></a><a class="track-card-action" href="#dataset-track-1">Dataset <span aria-hidden="true">→</span></a><a class="track-card-action" href="prizes.html#award-track-1">Prizes <span aria-hidden="true">→</span></a><a class="track-card-action" href="organizers.html#team-eeg">Track leaders <span aria-hidden="true">→</span></a></nav>
       </article>
 
       <article class="track-card reveal" id="track-2">
@@ -112,9 +112,9 @@
         </div>
         <noscript><img src="assets/img/figures/bci-track.png" srcset="assets/img/figures/bci-track.png 335w, assets/img/figures/bci-track@2x.png 669w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="335" height="218" alt="Cued mental commands decoded from EEG across later sessions of the same subject" loading="lazy" /></noscript>
         <img data-src="assets/img/figures/bci-track.png" data-srcset="assets/img/figures/bci-track.png 335w, assets/img/figures/bci-track@2x.png 669w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="335" height="218" alt="Cued mental commands decoded from EEG across later sessions of the same subject" />
-        <p>Decode one of three cued mental commands: kinesthetic motor imagery, mental calculation, or word association. The longitudinal corpus follows participants across six sessions and varied Graz and BrainHero contexts. Models train on earlier labeled sessions and predict later sessions without recalibration. This within-user, cross-session design isolates drift from time of day, electrode replacement, physiology, and mental strategy while preserving subject-specific calibration.</p>
+        <p>A practical BCI must remain reliable as the same user returns on different days without requiring a new calibration each time. Decode one of three cued mental commands: kinesthetic motor imagery, mental calculation, or word association. The longitudinal corpus follows participants across six sessions and varied Graz and BrainHero contexts. Models train on earlier labeled sessions and predict later sessions. This within-user, cross-session design isolates drift from time of day, electrode replacement, physiology, and mental strategy while preserving subject-specific calibration. <strong>Metric:</strong> Balanced accuracy averaged across subject, session, and context cells, with higher scores indicating better performance.</p>
         <a class="track-guide-button" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track2_eeg_to_bci.html" target="_blank" rel="noreferrer noopener">Read Track 02 NeuralBench guide ↗</a>
-        <nav class="track-card-footer" aria-label="BCI decoding track links"><a class="track-card-action primary" href="register.html#enter-2">Register <span aria-hidden="true">→</span></a><a class="track-card-action" href="startkit.html">Prepare <span aria-hidden="true">→</span></a><a class="track-card-action" href="#dataset-track-2">Dataset <span aria-hidden="true">→</span></a><a class="track-card-action" href="awards.html#award-track-2">Prizes <span aria-hidden="true">→</span></a><a class="track-card-action" href="organizers.html#team-bci">Track leaders <span aria-hidden="true">→</span></a></nav>
+        <nav class="track-card-footer" aria-label="BCI decoding track links"><a class="track-card-action primary" href="register.html#enter-2">Register <span aria-hidden="true">→</span></a><a class="track-card-action" href="get-prepared.html">Prepare <span aria-hidden="true">→</span></a><a class="track-card-action" href="#dataset-track-2">Dataset <span aria-hidden="true">→</span></a><a class="track-card-action" href="prizes.html#award-track-2">Prizes <span aria-hidden="true">→</span></a><a class="track-card-action" href="organizers.html#team-bci">Track leaders <span aria-hidden="true">→</span></a></nav>
       </article>
 
       <article class="track-card reveal" id="track-3">
@@ -125,9 +125,9 @@
         </div>
         <noscript><img src="assets/img/figures/sleep_prediction.png" srcset="assets/img/figures/sleep_prediction.png 336w, assets/img/figures/sleep_prediction@2x.png 671w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="336" height="218" alt="Consumer-grade wearable EEG predicting seconds remaining until the first stable N2 epoch" loading="lazy" /></noscript>
         <img data-src="assets/img/figures/sleep_prediction.png" data-srcset="assets/img/figures/sleep_prediction.png 336w, assets/img/figures/sleep_prediction@2x.png 671w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="336" height="218" alt="Consumer-grade wearable EEG predicting seconds remaining until the first stable N2 epoch" />
-        <p>Predict seconds remaining until the first stable N2 epoch from continuous four-channel wearable EEG collected at home. Models are evaluated on unseen sleepers, with night-to-night variation, motion artifacts, impedance changes, and channel dropout. The cross-user setting asks whether sleep-transition dynamics learned from other participants transfer to everyday recordings. It targets causal onset estimation rather than full hypnogram reconstruction, which is poorly supported by sparse wearable montages.</p>
+        <p>Reliable sleep-onset estimates from lightweight home headbands could make longitudinal sleep monitoring less dependent on full laboratory polysomnography. Predict seconds remaining until the first stable N2 epoch from continuous four-channel wearable EEG collected at home. Models are evaluated on unseen sleepers, with night-to-night variation, motion artifacts, impedance changes, and channel dropout. The cross-user setting asks whether sleep-transition dynamics learned from other participants transfer to everyday recordings. It targets causal onset estimation rather than full hypnogram reconstruction, which is poorly supported by sparse wearable montages. <strong>Metric:</strong> Binned mean absolute error (bMAE) in seconds, averaged equally across four time-to-onset ranges so short and long latencies count equally, with lower scores indicating better performance.</p>
         <a class="track-guide-button" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track3_sleep_onset.html" target="_blank" rel="noreferrer noopener">Read Track 03 NeuralBench guide ↗</a>
-        <nav class="track-card-footer" aria-label="Sleep onset track links"><a class="track-card-action primary" href="register.html#enter-3">Register <span aria-hidden="true">→</span></a><a class="track-card-action" href="startkit.html">Prepare <span aria-hidden="true">→</span></a><a class="track-card-action" href="#dataset-track-3">Dataset <span aria-hidden="true">→</span></a><a class="track-card-action" href="awards.html#award-track-3">Prizes <span aria-hidden="true">→</span></a><a class="track-card-action" href="organizers.html#team-sleep">Track leaders <span aria-hidden="true">→</span></a></nav>
+        <nav class="track-card-footer" aria-label="Sleep onset track links"><a class="track-card-action primary" href="register.html#enter-3">Register <span aria-hidden="true">→</span></a><a class="track-card-action" href="get-prepared.html">Prepare <span aria-hidden="true">→</span></a><a class="track-card-action" href="#dataset-track-3">Dataset <span aria-hidden="true">→</span></a><a class="track-card-action" href="prizes.html#award-track-3">Prizes <span aria-hidden="true">→</span></a><a class="track-card-action" href="organizers.html#team-sleep">Track leaders <span aria-hidden="true">→</span></a></nav>
       </article>
 
       <article class="track-card reveal" id="track-4">
@@ -138,9 +138,9 @@
         </div>
         <noscript><img src="assets/img/figures/emg-to-pose.png" srcset="assets/img/figures/emg-to-pose.png 336w, assets/img/figures/emg-to-pose@2x.png 672w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="336" height="217" alt="Wristband surface EMG decoded to 20-joint hand pose trajectories" loading="lazy" /></noscript>
         <img data-src="assets/img/figures/emg-to-pose.png" data-srcset="assets/img/figures/emg-to-pose.png 336w, assets/img/figures/emg-to-pose@2x.png 672w" sizes="(min-width: 768px) 608px, calc(100vw - 40px)" width="336" height="217" alt="Wristband surface EMG decoded to 20-joint hand pose trajectories" />
-        <p>Predict trajectories of 20 hand-joint angles from 16-channel wrist sEMG recorded during everyday movement. Data span 193 participants, 29 movement stages, and 370 hours. Evaluation holds out users and user-stage combinations, testing robustness to anatomy, wristband placement, and kinematic context. This tests whether a wearable interface intended for daily, out-of-the-lab use can transfer to a new user without person-specific retraining.</p>
+        <p>Translating wrist muscle activity into hand motion is a core challenge for wearable control systems that must work beyond a calibrated laboratory setup. Predict trajectories of 20 hand-joint angles from 16-channel wrist sEMG recorded during everyday movement. Evaluation holds out users, movement stages, and user-stage combinations, testing robustness to anatomy, wristband placement, and kinematic context. This asks whether a wearable interface intended for daily, out-of-the-lab use can transfer to a new user without person-specific retraining. <strong>Metric:</strong> Mean absolute angular error across the predicted joint trajectories, reported in degrees, with lower scores indicating better performance.</p>
         <a class="track-guide-button" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track4_emg_to_pose.html" target="_blank" rel="noreferrer noopener">Read Track 04 NeuralBench guide ↗</a>
-        <nav class="track-card-footer" aria-label="EMG-to-Pose track links"><a class="track-card-action primary" href="register.html#enter-4">Register <span aria-hidden="true">→</span></a><a class="track-card-action" href="startkit.html">Prepare <span aria-hidden="true">→</span></a><a class="track-card-action" href="#dataset-track-4">Dataset <span aria-hidden="true">→</span></a><a class="track-card-action" href="awards.html#award-track-4">Prizes <span aria-hidden="true">→</span></a><a class="track-card-action" href="organizers.html#team-emg">Track leaders <span aria-hidden="true">→</span></a></nav>
+        <nav class="track-card-footer" aria-label="EMG-to-Pose track links"><a class="track-card-action primary" href="register.html#enter-4">Register <span aria-hidden="true">→</span></a><a class="track-card-action" href="get-prepared.html">Prepare <span aria-hidden="true">→</span></a><a class="track-card-action" href="#dataset-track-4">Dataset <span aria-hidden="true">→</span></a><a class="track-card-action" href="prizes.html#award-track-4">Prizes <span aria-hidden="true">→</span></a><a class="track-card-action" href="organizers.html#team-emg">Track leaders <span aria-hidden="true">→</span></a></nav>
       </article>
     </div>
   </section>
@@ -364,7 +364,7 @@
 
       <aside class="dataset-protocol-note" aria-label="Dataset release and evaluation protocol">
         <div><span class="bs-eyebrow">Release + evaluation protocol</span><p>The exclusive releases become available through NeuralBench when submissions open on Sep 21, 2026. Original licenses remain in force. Subject, session, and stimulus splits control leakage. Hidden ground truth stays confidential, and organizers re-run the top three submissions.</p></div>
-        <a href="startkit.html" class="bs-btn primary">Get prepared with NeuralBench →</a>
+        <a href="get-prepared.html" class="bs-btn primary">Get prepared with NeuralBench →</a>
       </aside>
   </section>
 
@@ -374,7 +374,7 @@
       <p>Run a public baseline, review the rules, and register on the Codabench page for your chosen track.</p>
       <div class="bs-hero-cta">
         <a class="bs-btn primary" href="register.html#enter">Choose a track &amp; register →</a>
-        <a class="bs-btn ghost" href="faq.html">Read the rules</a>
+        <a class="bs-btn ghost" href="rules.html">Read the rules</a>
       </div>
     </div>
   </section>
@@ -387,10 +387,10 @@
     <nav class="site-footer-links" aria-label="Footer navigation">
       <a href="index.html">Home</a>
       <a href="tracks.html" aria-current="page">Tracks</a>
-      <a href="startkit.html">Get prepared</a>
-      <a href="awards.html">Prizes</a>
+      <a href="get-prepared.html">Get prepared</a>
+      <a href="prizes.html">Prizes</a>
       <a href="leaderboard.html">Leaderboard</a>
-      <a href="faq.html">Rules</a>
+      <a href="rules.html">Rules</a>
       <a href="ethics.html">Ethics</a>
       <a href="organizers.html">Organizers</a>
       <a href="https://github.com/neural-interfaces26/neural-interfaces26.github.io" target="_blank" rel="noreferrer noopener">GitHub</a>
