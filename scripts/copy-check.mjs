@@ -4,7 +4,7 @@ import { open } from './visual-detail-check.mjs';
 for (const width of [1440, 390, 320]) {
   const page = await open('get-prepared.html', width, 900);
   try {
-    assert.equal(await page.eval('document.documentElement.scrollWidth === innerWidth'), true, `${width}: page overflow`);
+    assert.equal(await page.eval('document.documentElement.scrollWidth <= innerWidth'), true, `${width}: page overflow`);
     const result = await page.eval(`(async () => {
       const copied = [];
       Object.defineProperty(navigator, 'clipboard', { configurable: true, value: {

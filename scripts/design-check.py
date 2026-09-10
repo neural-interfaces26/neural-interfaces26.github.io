@@ -17,7 +17,7 @@ PAGES = [
 ALL_PAGES = PAGES + ["404.html"]
 SITE_ORIGIN = "https://neural-interfaces26.github.io"
 OG_IMAGE = f"{SITE_ORIGIN}/assets/img/og-card.jpg"
-UI_SCRIPT = "assets/js/ui.js?v=20260909content3"
+UI_SCRIPT = "assets/js/ui.js?v=20260910copy"
 HOME_DESCRIPTION = 'Compete in EEG, EMG, BCI and sleep decoding at the Brain and Body Workshop at NeurIPS 2026. Registration is open. Competition Sep 21-Nov 15.'
 TOKENS = {
     "--bs-violet": "#5332f4",
@@ -429,7 +429,7 @@ def check_technical(errors: list[str]) -> None:
             if fact not in proof_text:
                 errors.append(f"{name}: page proof missing {fact!r}")
     code_labels: list[str] = []
-    for name, expected in (("get-prepared.html", 0), ("leaderboard.html", 4)):
+    for name, expected in (("get-prepared.html", 5), ("leaderboard.html", 4)):
         parsed = pages[name]
         code_blocks = parsed.find(class_name="bs-code")
         code_regions = [
