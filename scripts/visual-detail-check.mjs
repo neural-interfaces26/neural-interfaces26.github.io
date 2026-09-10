@@ -142,7 +142,7 @@ function assertState(state, route, width) {
   if (secondary.has(route)&&t.sectionCadence.some(type=>!cadence(type))) throw new Error(`section cadence ${route} ${width}: ${JSON.stringify(t.sectionCadence)}`);
   const headingMargin=width>768?48:36;
   if (secondary.has(route)&&t.headingCadence.some(type=>type.marginBottom!==0&&(type.marginBottom<16||type.marginBottom>headingMargin))) throw new Error(`heading cadence ${route} ${width}: ${JSON.stringify(t.headingCadence)}`);
-  if (state.brandText !== 'EEG/EMG Foundation Challenge · NeurIPS 2026' || state.seal !== null) throw new Error(`text-only masthead inputs ${route} ${width}: ${JSON.stringify({brandText:state.brandText,seal:state.seal})}`);
+  if (state.brandText !== 'EEG/EMG Foundation Challenge' || state.seal !== null) throw new Error(`text-only masthead inputs ${route} ${width}: ${JSON.stringify({brandText:state.brandText,seal:state.seal})}`);
   // Page-specific status may be in the introduction instead of a repeated rail.
   if (secondary.has(route) && state.proofType.some(type => type.size < 16)) throw new Error(`proof typography ${route} ${width}: ${JSON.stringify(state.proofType)}`);
   if (secondary.has(route) && state.stateType.some(type => type.size < 12)) throw new Error(`state typography ${route} ${width}: ${JSON.stringify(state.stateType)}`);

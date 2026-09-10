@@ -18,7 +18,7 @@ ALL_PAGES = PAGES + ["404.html"]
 SITE_ORIGIN = "https://neural-interfaces26.github.io"
 OG_IMAGE = f"{SITE_ORIGIN}/assets/img/og-card.jpg"
 UI_SCRIPT = "assets/js/ui.js?v=20260910copy"
-HOME_DESCRIPTION = 'Compete in EEG, EMG, BCI and sleep decoding at the Brain and Body Workshop at NeurIPS 2026. Registration is open. Competition Sep 21-Nov 15.'
+HOME_DESCRIPTION = 'Compete in EEG, EMG, BCI and sleep decoding at the Brain and Body Workshop at NeurIPS 2026. Registration is open. Competition Sep 21-Nov 21.'
 TOKENS = {
     "--bs-violet": "#5332f4",
     "--bs-text": "#07101f",
@@ -297,7 +297,7 @@ def check_detail_css(errors: list[str]) -> None:
         brand = brands[0]
         if "aria-label" in brand["attrs"]:
             errors.append(f"{page}: site-brand must use its visible text as the accessible name")
-        if element_text(brand) != "EEG/EMG Foundation Challenge · NeurIPS 2026":
+        if element_text(brand) != "EEG/EMG Foundation Challenge":
             errors.append(f"{page}: site-brand must use the complete challenge title")
 
     if any(parse_page(name)[1].find(class_name="announcement-strip") for name in NARRATIVE_PAGES):

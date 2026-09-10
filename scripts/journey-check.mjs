@@ -35,7 +35,7 @@ for (const width of widths) {
       assert.equal(state.scroll, state.client, `${label}: document overflow ${JSON.stringify(state.overflowers)}`);
       assert.equal(state.body, state.client, `${label}: body overflow ${JSON.stringify(state.overflowers)}`);
       assert.equal(state.register, 'register.html', `${label}: registration detour`);
-      assert.equal(state.brand, 'EEG/EMG Foundation Challenge · NeurIPS 2026', `${label}: incomplete masthead title`);
+      assert.equal(state.brand, 'EEG/EMG Foundation Challenge', `${label}: incomplete masthead title`);
       assert.equal(state.brandImages, 0, `${label}: decorative masthead logo remains`);
       assert.ok(state.nav.some(([text, href])=>text==='Prizes'&&href==='prizes.html'), `${label}: prizes missing`);
       if (width <= 1280) {
