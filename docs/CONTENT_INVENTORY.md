@@ -285,7 +285,6 @@ Verbatim sentences with source line numbers:
 
 | Channel | Value | Source line |
 |---------|-------|-------------|
-| Email list | neurips2026-eeg-emg-competition@googlegroups.com | 145, 535 |
 | Discord | https://discord.gg/yZv8KqKMpH (provided out-of-band; proposal line 535 only says 'Discord Channel') | 535 |
 | Website | https://neural-interfaces26.github.io | 535 |
 | GitHub (starter kit / baselines) | https://github.com/neural-interfaces26 | 463 |

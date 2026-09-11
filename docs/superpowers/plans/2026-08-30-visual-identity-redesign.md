@@ -562,7 +562,7 @@ Use this exact structure on every page, changing only `aria-current="page"` on t
     <a href="leaderboard.html">Leaderboard</a>
     <a href="faq.html">Rules</a>
     <a href="organizers.html">Organizers</a>
-    <a class="bs-btn primary sm" href="mailto:neurips2026-eeg-emg-competition@googlegroups.com?subject=Register%20team%20for%20EEG%2FEMG%20Foundation%20Challenge%202026">Register</a>
+    <a class="bs-btn primary sm" href="register.html">Register</a>
   </nav>
 </header>
 ```
@@ -571,7 +571,7 @@ Every page keeps `<a class="skip-link" href="#main">Skip to content</a>` before 
 
 - [ ] **Step 3: Standardize the footer**
 
-Use one footer pattern with the challenge name, `Start kit`, `Rules`, `Ethics`, `GitHub`, and organizer email. Keep sponsor logos in the dedicated homepage section rather than duplicating them in every footer.
+Use one footer pattern with the challenge name, `Start kit`, `Rules`, `Ethics`, `GitHub`, and the Discord contact link. Keep sponsor logos in the dedicated homepage section rather than duplicating them in every footer.
 
 - [ ] **Step 4: Replace `landing.css` with one coherent shell**
 
@@ -713,7 +713,7 @@ Replace the current hero with:
     <h1 id="hero-heading">Train once.<br />Generalize across signals.</h1>
     <p>Four decoding tracks test models across stimuli, sessions, devices, and people.</p>
     <div class="bs-hero-cta">
-      <a class="bs-btn primary" href="mailto:neurips2026-eeg-emg-competition@googlegroups.com?subject=Register%20team%20for%20EEG%2FEMG%20Foundation%20Challenge%202026">Register your team</a>
+      <a class="bs-btn primary" href="register.html">Register your team</a>
       <a class="bs-btn ghost" href="#tracks">Explore the tracks</a>
     </div>
   </div>
