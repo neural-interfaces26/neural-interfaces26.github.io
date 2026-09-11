@@ -3,7 +3,7 @@
 .track-art-2 { display:grid;grid-template-columns:minmax(0,1fr) 58px minmax(0,1fr);align-items:stretch;gap:0;padding:14px;min-height:214px }
 .track-art-3 { display:grid;grid-template-rows:auto 1fr auto;gap:7px;min-width:0 }
 .track-art-4 { font:600 10px/1.4 'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;letter-spacing:.08em;text-transform:uppercase;color:#2a689e }
-.track-art-5 { width:100%;height:138px;display:block;overflow:hidden;align-self:center }
+.track-art-5 { width:100%;height:166px;display:block;overflow:hidden;align-self:center }
 .track-art-6 { animation:om-scroll 11s linear infinite }
 .track-art-7 { font:500 10px/1.4 'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;letter-spacing:.06em;color:#666b84 }
 .track-art-8 { display:grid;justify-items:center;align-content:center;gap:5px }
@@ -23,8 +23,8 @@
 .track-art-22 { animation:om-scroll 12s linear infinite }
 .track-art-23 { animation:om-flow 2.2s cubic-bezier(.4,0,.6,1) infinite }
 .track-art-24 { font:600 10px/1.4 'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;letter-spacing:.08em;text-transform:uppercase;color:#3c7a3e;text-align:right }
-.track-art-25 { display:grid;gap:8px;align-self:center }
-.track-art-26 { position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;border:1px solid rgba(74,143,76,.35);border-radius:5px;background:#fff;overflow:hidden }
+.track-art-25 { display:grid;gap:10px;align-self:center }
+.track-art-26 { position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:13px 10px;border:1px solid rgba(74,143,76,.35);border-radius:5px;background:#fff;overflow:hidden }
 .track-art-27 { position:relative;z-index:1;font:600 11px/1.2 'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;color:#07101f }
 .track-art-28 { position:relative;z-index:1;font:600 11px/1.2 'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;color:#3c7a3e }
 .track-art-29 { position:absolute;inset:0;background:rgba(74,143,76,.12);animation:om-sel 5.4s linear infinite }
@@ -41,11 +41,11 @@
 .track-art-40 { animation:om-flow 3s cubic-bezier(.4,0,.6,1) infinite }
 .track-art-41 { font:600 10px/1.4 'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;letter-spacing:.08em;text-transform:uppercase;color:#7d4f97;text-align:right }
 .track-art-42 { align-self:center;display:grid;grid-template-columns:30px minmax(0,1fr);gap:0 6px }
-.track-art-43 { display:grid;grid-template-rows:repeat(4,1fr);justify-items:end;align-items:center;height:82px }
+.track-art-43 { display:grid;grid-template-rows:repeat(4,1fr);justify-items:end;align-items:center;height:107px }
 .track-art-44 { font:500 10px/1 'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;letter-spacing:.04em;color:#666b84 }
 .track-art-45 { font:700 10px/1 'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;letter-spacing:.04em;color:#7d4f97 }
 .track-art-46 { position:relative;padding-bottom:14px }
-.track-art-47 { width:100%;height:82px;display:block }
+.track-art-47 { width:100%;height:107px;display:block }
 .track-art-48 { position:absolute;left:0;top:0;bottom:14px;width:2px;background:#8b5da5;animation:om-sweep2 4.8s cubic-bezier(.35,0,.65,1) infinite }
 .track-art-49 { position:absolute;left:43%;bottom:0;transform:translateX(-50%);font:700 10px/1.2 'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;letter-spacing:.06em;text-transform:uppercase;color:#7d4f97;white-space:nowrap }
 .track-art-50 { position:absolute;right:0;bottom:0;font:500 10px/1.2 'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;letter-spacing:.06em;color:#666b84 }
@@ -83,11 +83,20 @@
 
 .track-motion-toggle { margin-top: 16px; }
 .track-motion-toggle[hidden] { display: none; }
-[data-track-figure] { min-width: 0; }
+[data-track-figure] {
+  min-width: 0;
+  aspect-ratio: 640 / 300;
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+[data-track-figure] > [data-figure-grid] { min-height: 0; }
 [data-track-figure] svg { max-width: 100%; display: block; }
 [data-track-figure] img { display: block; height: auto; }
 body:not([data-track-motion="alive"]) [data-track-figure] * { animation-play-state: paused; }
+@media (min-width: 901px) {
+  .track-art-20 .track-art-8 { transform: translateY(7px); }
+}
 @media (max-width: 900px) {
+  [data-track-figure] { height: 580px; aspect-ratio: auto; }
   [data-figure-grid] { grid-template-columns: minmax(0, 1fr); row-gap: 14px; min-height: 0; }
   [data-figure-arrow] { grid-auto-flow: column; align-items: center; gap: 9px; justify-self: center; padding: 2px 0; }
   [data-figure-arrow] > svg { transform: rotate(90deg); width: 30px; height: 12px; }
