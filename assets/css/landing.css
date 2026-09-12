@@ -4862,7 +4862,9 @@ body.menu-open { overflow: hidden; }
 .campaign-period { display: block; margin-top: 5px; color: var(--bs-text); font-weight: 600; }
 
 .launch-alert { display: inline-flex; grid-column: 1 / -1; width: min(820px, 100%); min-height: 80px; align-items: center; justify-content: center; justify-self: start; gap: 32px; margin: 18px 0 48px; padding: 17px 24px; border: 1px solid rgba(190, 30, 45, .42); border-left: 7px solid #bd1e2d; border-radius: 7px; background: rgba(255, 240, 242, .94); color: #991b2b; box-shadow: 0 12px 34px rgba(153, 27, 43, .1); }
+.launch-alert-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
 .launch-alert-label { display: inline-flex; min-height: 30px; align-items: center; gap: 14px; font: 700 18px/1 var(--bs-fontmono); letter-spacing: .045em; text-transform: uppercase; white-space: nowrap; }
+.launch-alert-registration { padding-left: 29px; font: 600 12px/1.3 var(--bs-fontmono); letter-spacing: .025em; }
 .launch-alert-label i { width: 15px; height: 15px; flex: 0 0 auto; border-radius: 50%; background: #c92535; box-shadow: 0 0 0 8px rgba(201, 37, 53, .11); animation: launch-pulse 1.8s ease-in-out infinite; }
 .launch-alert-clock { display: flex; min-height: 30px; align-items: center; gap: 20px; }
 .launch-alert-clock > span { display: inline-flex; align-items: baseline; gap: 5px; }
@@ -5011,6 +5013,7 @@ body.menu-open { overflow: hidden; }
   .launch-alert { width: 100%; min-height: 0; align-items: flex-start; flex-direction: column; gap: 15px; margin: 4px 0 32px; padding: 16px 15px 15px; border-left-width: 5px; }
   .launch-alert-label { gap: 10px; font-size: 14px; white-space: normal; }
   .launch-alert-label i { width: 11px; height: 11px; box-shadow: 0 0 0 6px rgba(201, 37, 53, .11); }
+  .launch-alert-registration { padding-left: 21px; font-size: 11px; }
   .launch-alert-clock { width: 100%; justify-content: space-between; gap: 7px; }
   .launch-alert-clock b { font-size: 14px; }
   .launch-alert-clock small { font-size: 10px; }

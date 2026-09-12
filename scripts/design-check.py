@@ -18,6 +18,7 @@ ALL_PAGES = PAGES + ["404.html"]
 SITE_ORIGIN = "https://neural-interfaces26.github.io"
 OG_IMAGE = f"{SITE_ORIGIN}/assets/img/og-card.jpg"
 UI_SCRIPT = "assets/js/ui.js?v=20260910copy"
+HOME_UI_SCRIPT = "assets/js/ui.js?v=20260912registration"
 HOME_DESCRIPTION = 'Compete in EEG, EMG, BCI and sleep decoding at the Brain and Body Workshop at NeurIPS 2026. Registration is open. Competition Sep 21-Nov 21.'
 TOKENS = {
     "--bs-violet": "#5332f4",
@@ -990,8 +991,9 @@ def check_assets(errors: list[str]) -> None:
             for element in parsed.find("script")
             if "assets/js/ui.js" in str(element["attrs"].get("src", ""))
         ]
-        if ui_scripts != [UI_SCRIPT]:
-            errors.append(f"{page}: requires exactly {UI_SCRIPT}, found {ui_scripts!r}")
+        expected_ui_script = HOME_UI_SCRIPT if page == "index.html" else UI_SCRIPT
+        if ui_scripts != [expected_ui_script]:
+            errors.append(f"{page}: requires exactly {expected_ui_script}, found {ui_scripts!r}")
 
 
 def main() -> int:

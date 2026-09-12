@@ -269,6 +269,7 @@
       const secsEl = root.querySelector('[data-cd-secs]');
       const daysUnitEl = root.querySelector('[data-cd-days-unit]');
       const labelEl = root.querySelector('[data-cd-label]');
+      const registrationNote = root.querySelector('.launch-alert-registration');
       const pad = (n) => String(n).padStart(2, '0');
 
       let intervalId = null;
@@ -281,7 +282,7 @@
           if (secsEl) secsEl.textContent = '00';
           if (labelEl) labelEl.textContent = 'Competition is open';
           root.classList.add('is-open');
-          root.setAttribute('aria-label', 'Competition is open');
+          root.setAttribute('aria-label', registrationNote ? `Competition is open. ${registrationNote.textContent.trim()}` : 'Competition is open');
           if (intervalId) clearInterval(intervalId);
           return false;
         }
@@ -297,7 +298,7 @@
         if (daysUnitEl) daysUnitEl.textContent = days === 1 ? 'day' : 'days';
         root.setAttribute(
           'aria-label',
-          `${days} days, ${hours} hours, ${mins} minutes, ${secs} seconds until the competition opens`,
+          `${days} days, ${hours} hours, ${mins} minutes, ${secs} seconds until the competition opens${registrationNote ? `. ${registrationNote.textContent.trim()}` : ''}`,
         );
         return true;
       };
