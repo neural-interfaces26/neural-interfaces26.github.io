@@ -18,7 +18,7 @@ ALL_PAGES = PAGES + ["404.html"]
 SITE_ORIGIN = "https://neural-interfaces26.github.io"
 OG_IMAGE = f"{SITE_ORIGIN}/assets/img/og-card.jpg"
 UI_SCRIPT = "assets/js/ui.js?v=20260910copy"
-HOME_UI_SCRIPT = "assets/js/ui.js?v=20260912registration"
+HOME_UI_SCRIPT = "assets/js/ui.js?v=20260917timeline"
 HOME_DESCRIPTION = 'Compete in EEG, EMG, BCI and sleep decoding at the Brain and Body Workshop at NeurIPS 2026. Registration is open. Competition Sep 21-Nov 21.'
 TOKENS = {
     "--bs-violet": "#5332f4",

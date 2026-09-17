@@ -312,36 +312,41 @@
     const root = document.querySelector('[data-timeline-progress]');
     if (!root) return;
 
-    const dates = [
-      root.dataset.start,
-      root.dataset.warmupEnd,
-      root.dataset.finalEnd,
-      root.dataset.ceremonyEnd,
-    ].map((value) => new Date(value).getTime());
-    const ceremonyStart = new Date(root.dataset.ceremonyStart).getTime();
-    if (dates.some((value) => !Number.isFinite(value)) || !Number.isFinite(ceremonyStart)) return;
+    const dates = {
+      start: new Date(root.dataset.start).getTime(),
+      warmupEnd: new Date(root.dataset.warmupEnd).getTime(),
+      finalStart: new Date(root.dataset.finalStart).getTime(),
+      finalEnd: new Date(root.dataset.finalEnd).getTime(),
+      ceremonyStart: new Date(root.dataset.ceremonyStart).getTime(),
+      ceremonyEnd: new Date(root.dataset.ceremonyEnd).getTime(),
+    };
+    if (Object.values(dates).some((value) => !Number.isFinite(value))) return;
 
     const positions = [0, 25, 50, 75, 100];
+    const interpolate = (now, start, end, from, to) => from + ((now - start) / (end - start)) * (to - from);
     const label = root.querySelector('[data-timeline-label]');
     const update = () => {
       const now = Date.now();
       let progress = 0;
       let status = 'Registration open';
 
-      if (now >= dates[3]) {
+      if (now >= dates.ceremonyEnd) {
         progress = 100;
         status = 'Ceremony complete';
-      } else if (now >= ceremonyStart) {
-        progress = positions[3] + ((now - ceremonyStart) / (dates[3] - ceremonyStart)) * (positions[4] - positions[3]);
+      } else if (now >= dates.ceremonyStart) {
+        progress = interpolate(now, dates.ceremonyStart, dates.ceremonyEnd, positions[3], positions[4]);
         status = 'Winners’ ceremony';
-      } else if (now >= dates[2]) {
-        progress = positions[2] + ((now - dates[2]) / (ceremonyStart - dates[2])) * (positions[3] - positions[2]);
+      } else if (now >= dates.finalEnd) {
+        progress = positions[3];
         status = 'Final evaluation';
-      } else if (now >= dates[1]) {
-        progress = positions[1] + ((now - dates[1]) / (dates[2] - dates[1])) * (positions[2] - positions[1]);
+      } else if (now >= dates.finalStart) {
+        progress = interpolate(now, dates.finalStart, dates.finalEnd, positions[2], positions[3]);
         status = 'Sealed final now';
-      } else if (now >= dates[0]) {
-        progress = ((now - dates[0]) / (dates[1] - dates[0])) * positions[1];
+      } else if (now >= dates.warmupEnd) {
+        progress = positions[2];
+        status = 'Warm-up complete';
+      } else if (now >= dates.start) {
+        progress = interpolate(now, dates.start, dates.warmupEnd, positions[1], positions[2]);
         status = 'Warm-up now';
       }
 
