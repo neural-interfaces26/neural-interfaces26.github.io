@@ -36,7 +36,7 @@ ORGANIZER_GROUPS = {
         "Thorir Mar Ingolfsson", "Marie-Constance Corsi",
     ),
     "team-sleep": ("Jiansheng Niu", "Maurice Abou Jaoude", "Christopher Aimone"),
-    "team-emg": ("Pranav Mamidanna", "Alex Gramfort", "Cédric Rommel", "Rick Warren", "Tiberiu Tesileanu"),
+    "team-emg": ("Pranav Mamidanna", "Alex Gramfort", "Cédric Rommel", "Rick Warren", "Tiberiu Tesileanu", "Sasha Salter"),
     "team-core": (
         "Bruno Aristimunha", "Arnault Caillet", "Pierre Guetschel", "Thomas Moreau",
         "Lionel Kusch", "Thomas Semah", "Seyed Yahya Shirazi", "Sylvain Chevallier", "Arnaud Delorme",
@@ -558,7 +558,7 @@ def check_narrative(errors: list[str]) -> None:
     proof_copy = {
         "prizes.html": ("4 tracks", "BCI · Sleep · EMG", "$2,000", "Sydney"),
         "ethics.html": ("Preview", "Provider approvals", "Explicit consent", "Read-only decoders"),
-        "organizers.html": ("30 organizers", "4 tracks", "15 institutions", "8 countries"),
+        "organizers.html": ("31 organizers", "4 tracks", "15 institutions", "8 countries"),
         "track-record.html": ("2021", "2026", "4 competitions", "Same lead"),
     }
     for name, (_, parsed) in pages.items():
@@ -609,9 +609,9 @@ def check_narrative(errors: list[str]) -> None:
     people = organizers.find("article", "org-card")
     names = [element_text(name) for name in organizers.find(class_name="name")]
     if len(people) != len(ORGANIZER_NAMES):
-        errors.append("organizers.html: requires all 30 organizers")
+        errors.append("organizers.html: requires all 31 organizers")
     if len(names) != len(ORGANIZER_NAMES) or set(names) != set(ORGANIZER_NAMES):
-        errors.append("organizers.html: requires each of the 30 organizer names exactly once")
+        errors.append("organizers.html: requires each of the 31 organizer names exactly once")
     for person in people:
         for field in ("avatar", "name", "role", "bio", "affil"):
             if len([item for item in organizers.find(class_name=field) if has_ancestor(item, person)]) != 1:
@@ -657,7 +657,7 @@ def check_narrative(errors: list[str]) -> None:
         if any(has_ancestor(image, avatar) for avatar in organizers.find(class_name="avatar"))
     ]
     if len(portraits) != len(ORGANIZER_NAMES) or any(image["attrs"].get("loading") != "lazy" for image in portraits):
-        errors.append("organizers.html: all 30 organizer portraits must lazy-load")
+        errors.append("organizers.html: all 31 organizer portraits must lazy-load")
     profile_sources = {
         "Rick Warren": "https://richard-warren.github.io/about/",
         "Tiberiu Tesileanu": "https://ttesileanu.com/about",

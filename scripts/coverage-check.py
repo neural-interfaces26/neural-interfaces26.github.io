@@ -66,6 +66,7 @@ ANCHORS: dict[str, list[str]] = {
     "EMG organizers": [
         "Rick Warren",
         "Tiberiu Tesileanu",
+        "Sasha Salter",
     ],
     "ethics terminology": [
         "NeurIPS Code of Ethics",
