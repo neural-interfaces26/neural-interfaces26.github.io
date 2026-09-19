@@ -4585,13 +4585,77 @@ body.menu-open { overflow: hidden; }
 .prepare-resource-links a:hover { color: var(--bs-violet); background: var(--bs-violet-wash); }
 .prepare-resource-links a span { color: var(--bs-muted); font-size: 13px; line-height: 1.45; }
 
-.prepare-guide-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--bs-text); border-left: 1px solid var(--bs-card-border); }
+.prepare-guide-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 16px; }
 .prepare-guide-grid--visible { margin-top: 0; }
-.prepare-guide-card { display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 10px 14px; align-items: start; padding: 20px; border-right: 1px solid var(--bs-card-border); border-bottom: 1px solid var(--bs-card-border); background: var(--bs-bg); scroll-margin-top: 90px; }
-.prepare-guide-card h3 { margin: 1px 0 8px; font-size: 20px; line-height: 1.25; }
+.prepare-guide-card { display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 10px 14px; align-items: start; padding: 20px; border: 1px solid var(--bs-card-border); border-top: 2px solid var(--bs-text); border-radius: 12px; background: var(--bs-bg); box-shadow: 0 10px 26px rgba(22, 18, 61, .045); scroll-margin-top: 90px; }
+.prepare-guide-card > .track-tag { display: inline-grid; width: 38px; height: 32px; place-items: center; border: 1px solid rgba(83, 50, 244, .24); border-radius: 7px; background: var(--bs-violet-wash); color: var(--bs-violet); font: 700 12px/1 var(--bs-fontmono); }
+.prepare-guide-card h3 { margin: 2px 0 8px; font-size: 22px; line-height: 1.2; }
 .prepare-guide-card > div { min-width: 0; }
 .startkit-page .bs-code-head .copy:focus-visible { outline: 2px solid var(--bs-violet-soft); outline-offset: 2px; }
-.prepare-guide-card > a { grid-column: 2; display: inline-flex; width: fit-content; min-height: 44px; align-items: center; color: var(--bs-violet); font-size: 13px; font-weight: 800; text-underline-offset: 4px; }
+.prepare-guide-card > a { grid-column: 2; display: inline-flex; width: fit-content; min-height: 42px; align-items: center; padding: 9px 13px; border: 1px solid var(--bs-violet); border-radius: 8px; background: var(--bs-violet); color: #fff; font-size: 13px; font-weight: 800; line-height: 1.25; text-decoration: none; }
+.prepare-guide-card > a:hover { border-color: var(--bs-violet-dark, #3f22d5); background: var(--bs-violet-dark, #3f22d5); }
+.prepare-guide-card > a:focus-visible { outline: 3px solid var(--bs-violet-soft); outline-offset: 3px; }
+
+.prepare-guide-tools {
+  display: grid;
+  grid-column: 1 / -1;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.prepare-track-disclosure {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--bs-card-border);
+  border-top: 2px solid rgba(91, 55, 255, .62);
+  border-radius: 10px;
+  background: var(--bs-bg);
+  box-shadow: 0 5px 16px rgba(22, 18, 61, .045);
+}
+
+.prepare-track-disclosure > summary {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) auto;
+  min-height: 76px;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 14px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.prepare-track-disclosure > summary::-webkit-details-marker { display: none; }
+.prepare-track-disclosure > summary::marker { content: ""; }
+.prepare-track-disclosure > summary:hover { background: rgba(91, 55, 255, .055); }
+.prepare-track-disclosure > summary:focus-visible { outline: 3px solid var(--bs-violet-soft); outline-offset: -3px; }
+.prepare-track-disclosure[open] > summary { color: var(--bs-violet); background: var(--bs-violet-wash); }
+.prepare-track-disclosure .prepare-disclosure-mark { width: 38px; height: 38px; border-radius: 8px; font-size: 10px; }
+.prepare-track-disclosure .prepare-disclosure-copy { gap: 3px; }
+.prepare-track-disclosure .prepare-disclosure-copy strong { font-size: 15px; line-height: 1.25; }
+.prepare-track-disclosure .prepare-disclosure-copy small { font-size: 10px; }
+.prepare-track-disclosure .prepare-disclosure-action { min-height: 34px; padding: 6px 10px; font-size: 10px; }
+.prepare-track-disclosure[open] .prepare-disclosure-open { display: none; }
+.prepare-track-disclosure[open] .prepare-disclosure-close { display: inline; }
+.prepare-track-disclosure[open] .prepare-disclosure-action i { transform: translateY(2px) rotate(225deg); }
+.prepare-track-disclosure-body { min-width: 0; padding: 16px; overflow-x: auto; border-top: 1px solid var(--bs-card-border); background: rgba(255, 255, 255, .58); }
+.prepare-track-disclosure-body .bs-code { margin: 0 0 12px; }
+.prepare-track-disclosure-body > p { margin: 0; color: var(--bs-muted); font-size: 13px; line-height: 1.5; }
+.prepare-track-disclosure-body .prepare-track-reference { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--bs-card-border); }
+
+.prepare-track-table { min-width: 920px; border-top: 1px solid var(--bs-text); }
+.prepare-track-table-row {
+  display: grid;
+  grid-template-columns: 1.15fr .75fr .55fr .9fr 1.25fr 1.5fr;
+  align-items: center;
+  border-bottom: 1px solid var(--bs-card-border);
+}
+
+.prepare-track-table-row > span { min-width: 0; padding: 10px 9px; color: var(--bs-muted); font-size: 12px; line-height: 1.4; overflow-wrap: anywhere; }
+.prepare-track-table-row > span + span { border-left: 1px solid var(--bs-card-border); }
+.prepare-track-table-row.head > span { color: var(--bs-text); font: 700 10px/1.2 var(--bs-fontmono); letter-spacing: .08em; text-transform: uppercase; }
+.prepare-track-table-row strong { color: var(--bs-text); font-size: 13px; }
+.prepare-track-table-row small { display: block; margin-top: 3px; font-size: 10px; }
+.prepare-track-table-row code { font-size: 10px; }
 
 .prepare-note { max-width: 86ch; margin: 22px 0 0; color: var(--bs-muted); font-size: 14px; line-height: 1.55; }
 .prepare-note strong { color: var(--bs-text); }
@@ -4868,6 +4932,10 @@ body.menu-open { overflow: hidden; }
   .prepare-disclosure-copy strong { font-size: 18px; }
   .prepare-guide-grid { grid-template-columns: 1fr; }
   .prepare-guide-card { padding: 18px 16px; }
+  .prepare-guide-tools { margin-top: 8px; }
+  .prepare-track-disclosure > summary { grid-template-columns: 38px minmax(0, 1fr); padding: 12px; }
+  .prepare-track-disclosure .prepare-disclosure-action { grid-column: 2; width: fit-content; }
+  .prepare-track-disclosure-body { padding: 14px 16px 16px; }
   .prepare-portal-grid { grid-template-columns: 1fr; }
   .prepare-portal-card {
     grid-template-columns: 1fr;

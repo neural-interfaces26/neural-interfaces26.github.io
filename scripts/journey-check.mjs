@@ -121,29 +121,33 @@ for (const width of widths) {
         assert.equal(await page.eval(`document.querySelectorAll('#track-guides .prepare-guide-card').length`),4,`${label}: preparation page needs four optional start kits`);
         assert.equal(await page.eval(`document.querySelectorAll('#submit .prepare-portal-card').length`),4,`${label}: preparation page needs four Codabench portals`);
         assert.equal(await page.eval(`document.querySelectorAll('#submit .prepare-portal-card img[src^="exports/"][src$=".gif"]').length`),4,`${label}: Codabench portals need four track animations`);
-        assert.equal(await page.eval(`document.querySelectorAll('#track-guides .bs-code').length`),2,`${label}: NeuralBench quick start should contain two compact commands`);
-        assert.equal(await page.eval(`document.querySelectorAll('#track-guides > details.prepare-disclosure').length`),2,`${label}: commands and baselines should be separate disclosures`);
-        assert.equal(await page.eval(`document.querySelectorAll('#track-guides > details.prepare-disclosure[open]').length`),0,`${label}: Step 02 disclosures should start collapsed`);
-        assert.ok(await page.eval(`document.querySelector('#neuralbench-commands > summary')?.textContent.includes('Open the setup')`),`${label}: commands disclosure is not inviting`);
-        assert.ok(await page.eval(`document.querySelector('#baselines > summary')?.textContent.includes('Open the baseline results')`),`${label}: baselines disclosure is not inviting`);
-        assert.equal(await page.eval(`!!document.querySelector('.prepare-guide-grid--visible')?.closest('details')`),false,`${label}: track guide cards must remain visible outside disclosures`);
-        assert.ok(await page.eval(`(()=>{const section=document.querySelector('#track-guides');const grid=section.querySelector('.prepare-guide-grid--visible');const actions=section.querySelector('.prepare-submission-actions');const commands=section.querySelector('#neuralbench-commands');const baselines=section.querySelector('#baselines');const children=[...section.children];return children.indexOf(grid)<children.indexOf(actions)&&children.indexOf(actions)<children.indexOf(commands)&&children.indexOf(commands)<children.indexOf(baselines)})()`),`${label}: NeuralBench commands must follow the track cards and main links`);
+        assert.equal(await page.eval(`document.querySelectorAll('#track-guides .prepare-guide-card .bs-code').length`),4,`${label}: each track needs its own quick-start commands`);
+        assert.equal(await page.eval(`document.querySelectorAll('#track-guides .prepare-track-disclosure').length`),8,`${label}: each track needs quick-start and baseline disclosures`);
+        assert.equal(await page.eval(`document.querySelectorAll('#track-guides .prepare-track-disclosure[open]').length`),0,`${label}: track tools should start collapsed`);
+        assert.ok(await page.eval(`[...document.querySelectorAll('#track-guides .prepare-guide-card')].every(card=>card.querySelectorAll('.prepare-track-disclosure').length===2)`),`${label}: track tools are not contained in their matching cards`);
+        assert.equal(await page.eval(`document.querySelectorAll('#track-guides .prepare-track-table-row:not(.head)').length`),10,`${label}: original public baseline results are incomplete`);
+        assert.equal(await page.eval(`document.querySelectorAll('#track-guides .prepare-track-table-row.head [role="columnheader"]').length`),24,`${label}: track-specific baseline metadata is incomplete`);
+        assert.equal(await page.eval(`document.querySelectorAll('#track-guides .prepare-track-reference').length`),4,`${label}: baseline sources must live inside each track disclosure`);
+        assert.ok(await page.eval(`document.querySelector('#baseline-track-3 .prepare-track-reference')?.textContent.includes('weighted-binned mean absolute error')`),`${label}: sleep metric definition is missing from its baseline disclosure`);
+        assert.ok(await page.eval(`[...document.querySelectorAll('#track-guides .prepare-guide-card > a')].every(link=>{const box=link.getBoundingClientRect(),style=getComputedStyle(link);return box.height>=42&&style.backgroundColor!=='rgba(0, 0, 0, 0)'})`),`${label}: NeuralBench links must remain visually prominent buttons`);
         if (width > 900) {
           const portalSizes=await page.eval(`[...document.querySelectorAll('#submit .prepare-portal-card')].map(card=>({card:card.getBoundingClientRect().height,visual:card.querySelector('.prepare-portal-visual').getBoundingClientRect().height}))`);
           assert.ok(portalSizes.every(({card,visual})=>card<=240&&visual<=120),`${label}: Codabench animations dominate the compact portal cards`);
+          assert.ok(await page.eval(`(()=>{const cards=[...document.querySelectorAll('#track-guides .prepare-guide-card')].map(card=>card.getBoundingClientRect());return cards[1].left-cards[0].right>=12})()`),`${label}: track quadrants need visible separation`);
         }
-        await click(page, '#neuralbench-commands > summary');
-        assert.ok(await page.eval(`document.querySelector('#neuralbench-commands')?.open`),`${label}: commands disclosure does not open`);
-        await click(page, '#neuralbench-commands > summary');
-        await click(page, '#baselines > summary');
-        assert.ok(await page.eval(`document.querySelector('#baselines')?.open`),`${label}: baselines disclosure does not open`);
-        assert.equal(await page.eval(`document.documentElement.scrollWidth`),await page.eval(`document.documentElement.clientWidth`),`${label}: opened baseline table causes page overflow`);
-        await click(page, '#baselines > summary');
-        assert.equal(await page.eval(`document.querySelectorAll('#baselines .ds-row:not(.head)').length`),10,`${label}: original public baseline table is incomplete`);
-        assert.equal(await page.eval(`document.querySelectorAll('#baselines .ds-row.head [role="columnheader"]').length`),7,`${label}: original baseline metadata columns are incomplete`);
+        await click(page, '#prepare-track-1 .prepare-track-disclosure:first-child > summary');
+        assert.ok(await page.eval(`document.querySelector('#prepare-track-1 .prepare-track-disclosure:first-child')?.open`),`${label}: track quick start does not open`);
+        await click(page, '#prepare-track-1 .prepare-track-disclosure:first-child > summary');
+        await click(page, '#baseline-track-1 > summary');
+        assert.ok(await page.eval(`document.querySelector('#baseline-track-1')?.open`),`${label}: track baseline results do not open`);
+        assert.equal(await page.eval(`document.documentElement.scrollWidth`),await page.eval(`document.documentElement.clientWidth`),`${label}: opened track baseline causes page overflow`);
+        if (width > 900) {
+          assert.ok(await page.eval(`(()=>{const card=document.querySelector('#prepare-track-1').getBoundingClientRect(),panel=document.querySelector('#baseline-track-1').getBoundingClientRect(),grid=document.querySelector('.prepare-guide-grid').getBoundingClientRect();return panel.left-card.left>=12&&card.right-panel.right>=12&&card.width<grid.width*.6})()`),`${label}: opened tools must be inset inside their track quadrant`);
+        }
+        await click(page, '#baseline-track-1 > summary');
         assert.equal(await page.eval(`document.querySelectorAll('a[href$="plot_submission_guide.html"]').length`),0,`${label}: obsolete NeuralBench packaging guide remains`);
         assert.equal(await page.eval(`document.querySelectorAll('#build .prepare-phase-card').length`),2,`${label}: two training paths are unclear`);
-        assert.ok(await page.eval(`(()=>{const text=document.querySelector('#submit .prepare-step-head p')?.textContent||'';return text.includes('Participation tab')&&text.includes('submission contract')})()`),`${label}: Codabench source of truth is unclear`);
+        assert.ok(await page.eval(`(()=>{const text=document.querySelector('#submit')?.textContent||'';return text.includes('Participation tab')&&text.includes('submission contract')&&text.includes('Get Started')})()`),`${label}: Codabench contract location is unclear`);
         for (let i=1; i<=4; i++) {
           assert.ok(await page.eval(`!!document.querySelector('#baseline-track-${i}')`),`${label}: baseline track ${i} anchor missing`);
           assert.ok(await page.eval(`!!document.querySelector('#submit a[href="https://www.codabench.org/competitions/${portals[i-1]}/#/participate-tab"]')`),`${label}: track ${i} Codabench Participation page missing`);
