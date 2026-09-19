@@ -11,7 +11,7 @@ from urllib.parse import unquote, urljoin, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = [
-    "index.html", "tracks.html", "register.html", "get-prepared.html", "rules.html", "leaderboard.html",
+    "index.html", "tracks.html", "register.html", "participant-guide.html", "rules.html", "leaderboard.html",
     "prizes.html", "organizers.html", "ethics.html", "track-record.html",
 ]
 ALL_PAGES = PAGES + ["404.html"]
@@ -410,9 +410,9 @@ def check_home(errors: list[str]) -> None:
 
 
 def check_technical(errors: list[str]) -> None:
-    pages = {name: parse_page(name)[1] for name in ("register.html", "get-prepared.html", "leaderboard.html", "rules.html")}
+    pages = {name: parse_page(name)[1] for name in ("register.html", "participant-guide.html", "leaderboard.html", "rules.html")}
     proof_copy = {
-        "get-prepared.html": ("Public baselines", "4 track portals", "Read the rules", "Ask on Discord"),
+        "participant-guide.html": ("Public baselines", "4 track portals", "Read the rules", "Ask on Discord"),
         "rules.html": ("8 rules", "4 optional questions", "Canonical rules source", "Reproducibility audit"),
         "leaderboard.html": ("4 track boards", "Preview", "Begin Sep 21", "Baselines available"),
     }
@@ -430,7 +430,7 @@ def check_technical(errors: list[str]) -> None:
             if fact not in proof_text:
                 errors.append(f"{name}: page proof missing {fact!r}")
     code_labels: list[str] = []
-    for name, expected in (("get-prepared.html", 5), ("leaderboard.html", 4)):
+    for name, expected in (("participant-guide.html", 2), ("leaderboard.html", 4)):
         parsed = pages[name]
         code_blocks = parsed.find(class_name="bs-code")
         code_regions = [
@@ -498,25 +498,22 @@ def check_technical(errors: list[str]) -> None:
     if len(methodology) != 1 or len(methodology_lists) != 1 or len(methodology_items) != 3:
         errors.append("leaderboard.html: methodology requires one open three-step list")
 
-    startkit = pages["get-prepared.html"]
+    startkit = pages["participant-guide.html"]
     startkit_copy = element_text(startkit.find("main")[0])
-    if "neuralbench emg pose -m vemg2pose" not in startkit_copy:
-        errors.append("get-prepared.html: Track 4 baseline command is missing")
     if startkit.find("article", "entry-track"):
-        errors.append("get-prepared.html: registration cards must live on register.html")
+        errors.append("participant-guide.html: registration cards must live on register.html")
     for number in range(1, 5):
         if f"baseline-track-{number}" not in startkit.ids:
-            errors.append(f"get-prepared.html: missing baseline anchor for track {number}")
-    for anchor in ("install", "track-guides", "run-baseline", "baselines", "submit"):
+            errors.append(f"participant-guide.html: missing baseline anchor for track {number}")
+    for anchor in ("workflow", "track-guides", "build", "submit"):
         if anchor not in startkit.ids:
-            errors.append(f"get-prepared.html: missing preparation step #{anchor}")
-    if len(startkit.find("span", "prepare-step-number")) != 5 or len(startkit.find("article", "prepare-guide-card")) != 4:
-        errors.append("get-prepared.html: preparation requires five numbered steps and four track guides")
-    if not any(
-        link["attrs"].get("href", "").endswith("plot_submission_guide.html")
-        for link in startkit.find("a")
+            errors.append(f"participant-guide.html: missing preparation step #{anchor}")
+    if (
+        len(startkit.find("span", "prepare-step-number")) != 4
+        or len(startkit.find("article", "prepare-guide-card")) != 4
+        or len(startkit.find("article", "prepare-portal-card")) != 4
     ):
-        errors.append("get-prepared.html: official NeuralBench submission guide is missing")
+        errors.append("participant-guide.html: participant workflow requires four numbered steps, four start-kit links, and four Codabench portals")
 
     register = pages["register.html"]
     register_copy = element_text(register.find("main")[0])
@@ -736,7 +733,7 @@ def check_narrative(errors: list[str]) -> None:
     error_text, error_page = parse_page("404.html") if (ROOT / "404.html").is_file() else ("", PageParser())
     if error_page.tags.get("header") != 1 or error_page.tags.get("main") != 1 or error_page.tags.get("footer") != 1:
         errors.append("404.html: requires the shared shell")
-    for destination in ('href="index.html"', 'href="get-prepared.html"', 'href="rules.html"', 'href="https://discord.gg/yZv8KqKMpH"'):
+    for destination in ('href="index.html"', 'href="participant-guide.html"', 'href="rules.html"', 'href="https://discord.gg/yZv8KqKMpH"'):
         if destination not in error_text:
             errors.append(f"404.html: missing recovery destination {destination}")
     trophies = error_page.find(class_name="error-trophy")

@@ -4,7 +4,7 @@ import {open,press,screenshot} from './visual-detail-check.mjs';
 import {click} from './journey-check.mjs';
 
 const output=process.env.OUTPUT_DIR || '/tmp/neural-ux-audit';
-const routes=(process.env.UX_ROUTES || 'index.html,tracks.html,register.html,get-prepared.html,prizes.html,leaderboard.html,rules.html,organizers.html,ethics.html,track-record.html,404.html').split(',');
+const routes=(process.env.UX_ROUTES || 'index.html,tracks.html,register.html,participant-guide.html,prizes.html,leaderboard.html,rules.html,organizers.html,ethics.html,track-record.html,404.html').split(',');
 const widths=(process.env.UX_WIDTHS || '1440,390').split(',').map(Number);
 if(widths.some(w=>!Number.isInteger(w)||w<320||w>1920))throw Error('UX_WIDTHS must contain integer widths from 320 to1920');
 const report={started:new Date().toISOString(),persona:'First-time ML researcher choosing a track, preparing a model, and finding registration; returning researcher resuming a track.',scope:'Local static-site interaction audit. Forms, accounts, destructive actions, and submission uploads are not present locally.',pages:[],findings:[]};

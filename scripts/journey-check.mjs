@@ -7,7 +7,7 @@ const output = process.env.OUTPUT_DIR || '/tmp/neural-journey';
 const docs = 'https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/';
 const portals = [17974, 17982, 17983, 17984];
 const guides = ['plot_track1_eeg_to_image.html', 'plot_track2_eeg_to_bci.html', 'plot_track3_sleep_onset.html', 'plot_track4_emg_to_pose.html'];
-const routes = (process.env.JOURNEY_ROUTES || 'index.html,tracks.html,register.html,get-prepared.html,prizes.html,rules.html,leaderboard.html,organizers.html,ethics.html,track-record.html,404.html').split(',');
+const routes = (process.env.JOURNEY_ROUTES || 'index.html,tracks.html,register.html,participant-guide.html,prizes.html,rules.html,leaderboard.html,organizers.html,ethics.html,track-record.html,404.html').split(',');
 const widths = (process.env.JOURNEY_WIDTHS || '1440,834,390,320').split(',').map(Number);
 const results = [];
 
@@ -71,8 +71,8 @@ for (const width of widths) {
         const expectedOrganizers=['team-eeg','team-bci','team-sleep','team-emg'];
         for (let i=1; i<=4; i++) {
           const actions=await page.eval(`[...document.querySelectorAll('#track-${i} .track-card-footer a')].map(a=>({text:a.textContent.trim(),href:a.getAttribute('href')}))`);
-          assert.deepEqual(actions.map(a=>a.href),[`register.html#enter-${i}`,`get-prepared.html`,`#dataset-track-${i}`,`prizes.html#award-track-${i}`,`organizers.html#${expectedOrganizers[i-1]}`],`${label}: wrong track ${i} links`);
-          assert.deepEqual(actions.map(a=>a.text),['Register →','Prepare →','Dataset →','Prizes →','Track leaders →'],`${label}: wrong track ${i} action labels`);
+          assert.deepEqual(actions.map(a=>a.href),[`register.html#enter-${i}`,`participant-guide.html`,`#dataset-track-${i}`,`prizes.html#award-track-${i}`,`organizers.html#${expectedOrganizers[i-1]}`],`${label}: wrong track ${i} links`);
+          assert.deepEqual(actions.map(a=>a.text),['Register →','Guide →','Dataset →','Prizes →','Track leaders →'],`${label}: wrong track ${i} action labels`);
           assert.ok(actions.every(a=>a.text.endsWith('→')),`${label}: track ${i} actions need directional arrows`);
           const leaderboard=await page.eval(`(()=>{const card=document.querySelector('#track-${i}');const heading=card?.querySelector('.track-card-heading');const link=card?.querySelector('.track-leaderboard-button');if(!heading||!link)return null;const h=heading.getBoundingClientRect(),l=link.getBoundingClientRect();return {href:link.getAttribute('href'),text:link.textContent.trim(),inside:l.top>=h.top-1&&l.bottom<=h.bottom+1}})()`);
           assert.equal(leaderboard?.href,`leaderboard.html#track-${i}`,`${label}: track ${i} leaderboard destination`);
@@ -81,6 +81,7 @@ for (const width of widths) {
           assert.equal(await page.eval(`document.querySelector('#track-${i} .track-guide-button')?.getAttribute('href')`),`${docs}${guides[i-1]}`,`${label}: track ${i} NeuralBench guide missing from description`);
           const copy=await page.eval(`document.querySelector('#track-${i} > p:not(.track-facts)')?.textContent.trim()`);
           assert.ok(copy&&/\bMetric:/.test(copy),`${label}: track ${i} description is missing its metric`);
+          assert.equal(await page.eval(`document.querySelector('#track-${i} > p:not(.track-facts) strong')?.previousElementSibling?.tagName`),'BR',`${label}: track ${i} metric must begin on a new line`);
           assert.ok(!/\bSponsor:/.test(copy),`${label}: track ${i} retains Sponsor metadata`);
         }
         const guideHeights=await page.eval(`[...document.querySelectorAll('.track-guide-button')].map(e=>e.getBoundingClientRect().height)`);
@@ -95,7 +96,7 @@ for (const width of widths) {
         assert.equal(datasets.scroll, datasets.client, `${label}: dataset directory overflows the page`);
         assert.equal(await page.eval(`document.querySelectorAll('.track-facts').length`),0,`${label}: redundant track fact rows remain`);
         const introLinks=await page.eval(`[...document.querySelectorAll('.tracks-hero .page-hero-copy > p a')].map(a=>[a.textContent.trim(),a.getAttribute('href')])`);
-        assert.deepEqual(introLinks,[['register','register.html#enter'],['get prepared','get-prepared.html']],`${label}: track introduction must keep only the two primary handoffs`);
+        assert.deepEqual(introLinks,[['registering','register.html#enter']],`${label}: track introduction should route readers to registration only after comparison`);
       }
       if (route === 'register.html') {
         assert.equal(await page.eval(`document.querySelectorAll('.register-hero .page-hero-copy > p').length`),1,`${label}: registration introduction is redundant`);
@@ -110,27 +111,49 @@ for (const width of widths) {
         assert.equal(await page.eval(`document.querySelectorAll('.entry-track').length`),4,`${label}: register page needs four track cards`);
         assert.equal(await page.eval(`document.querySelectorAll('main a[href^="leaderboard.html"]').length`),0,`${label}: registration content links to a leaderboard`);
       }
-      if (route === 'get-prepared.html') {
-        assert.equal(await page.eval(`document.querySelector('.startkit-hero h1')?.textContent.trim()`),'Get prepared with NeuralBench.',`${label}: preparation page naming`);
+      if (route === 'participant-guide.html') {
+        assert.equal(await page.eval(`document.querySelector('.startkit-hero h1')?.textContent.trim()`),'Your participant guide.',`${label}: participant guide naming`);
+        assert.ok(await page.eval(`document.querySelector('.startkit-hero p')?.textContent.includes('you may use your own pipeline')`),`${label}: independent training path is unclear`);
         assert.ok(await page.eval(`!!document.querySelector('a[href="${docs}index.html"]')`), `${label}: NeuralBench challenge hub URL`);
         assert.equal(await page.eval(`document.querySelectorAll('.entry-track').length`),0,`${label}: registration cards remain in preparation page`);
-        assert.equal(await page.eval(`document.querySelectorAll('.prepare-step-number').length`),5,`${label}: preparation flow is not numbered`);
-        assert.equal(await page.eval(`document.querySelectorAll('.prepare-guide-card').length`),4,`${label}: preparation page needs four track guides`);
-        assert.equal(await page.eval(`document.querySelectorAll('.startkit-hero a[href="#install"]').length`),0,`${label}: redundant step 01 hero button remains`);
-        assert.ok(await page.eval(`!!document.querySelector('a[href="${docs}plot_submission_guide.html"]')`),`${label}: submission guide missing`);
-        assert.equal(await page.eval(`document.querySelectorAll('.prepare-phase-card').length`),2,`${label}: preparation phases are unclear`);
-        assert.ok(await page.eval(`[...document.querySelectorAll('#install .prepare-step-head p,#track-guides .prepare-step-head p,#run-baseline .prepare-step-head p')].every(p=>p.textContent.trim().split(/\\s+/).length>=24)`),`${label}: first three preparation steps need didactic guidance`);
-        for (let i=1; i<=4; i++) {
-          assert.ok(await page.eval(`!!document.querySelector('#baseline-track-${i} .track-tag')`),`${label}: baseline track ${i} anchor missing`);
+        assert.equal(await page.eval(`document.querySelectorAll('.prepare-step-number').length`),4,`${label}: preparation flow should contain four numbered steps`);
+        assert.equal(await page.eval(`document.querySelectorAll('.prepare-role-card').length`),3,`${label}: platform roles are unclear`);
+        assert.equal(await page.eval(`document.querySelectorAll('#track-guides .prepare-guide-card').length`),4,`${label}: preparation page needs four optional start kits`);
+        assert.equal(await page.eval(`document.querySelectorAll('#submit .prepare-portal-card').length`),4,`${label}: preparation page needs four Codabench portals`);
+        assert.equal(await page.eval(`document.querySelectorAll('#submit .prepare-portal-card img[src^="exports/"][src$=".gif"]').length`),4,`${label}: Codabench portals need four track animations`);
+        assert.equal(await page.eval(`document.querySelectorAll('#track-guides .bs-code').length`),2,`${label}: NeuralBench quick start should contain two compact commands`);
+        assert.equal(await page.eval(`document.querySelectorAll('#track-guides > details.prepare-disclosure').length`),2,`${label}: commands and baselines should be separate disclosures`);
+        assert.equal(await page.eval(`document.querySelectorAll('#track-guides > details.prepare-disclosure[open]').length`),0,`${label}: Step 02 disclosures should start collapsed`);
+        assert.ok(await page.eval(`document.querySelector('#neuralbench-commands > summary')?.textContent.includes('Open the setup')`),`${label}: commands disclosure is not inviting`);
+        assert.ok(await page.eval(`document.querySelector('#baselines > summary')?.textContent.includes('Open the baseline results')`),`${label}: baselines disclosure is not inviting`);
+        assert.equal(await page.eval(`!!document.querySelector('.prepare-guide-grid--visible')?.closest('details')`),false,`${label}: track guide cards must remain visible outside disclosures`);
+        assert.ok(await page.eval(`(()=>{const section=document.querySelector('#track-guides');const grid=section.querySelector('.prepare-guide-grid--visible');const actions=section.querySelector('.prepare-submission-actions');const commands=section.querySelector('#neuralbench-commands');const baselines=section.querySelector('#baselines');const children=[...section.children];return children.indexOf(grid)<children.indexOf(actions)&&children.indexOf(actions)<children.indexOf(commands)&&children.indexOf(commands)<children.indexOf(baselines)})()`),`${label}: NeuralBench commands must follow the track cards and main links`);
+        if (width > 900) {
+          const portalSizes=await page.eval(`[...document.querySelectorAll('#submit .prepare-portal-card')].map(card=>({card:card.getBoundingClientRect().height,visual:card.querySelector('.prepare-portal-visual').getBoundingClientRect().height}))`);
+          assert.ok(portalSizes.every(({card,visual})=>card<=240&&visual<=120),`${label}: Codabench animations dominate the compact portal cards`);
         }
-        const baselineRows=await page.eval(`[...document.querySelectorAll('#baselines .ds-row:not(.head)')].map(r=>r.querySelectorAll('[role="cell"]').length)`);
-        assert.ok(baselineRows.length>=4&&baselineRows.every(n=>n===7),`${label}: baseline table columns are misaligned`);
+        await click(page, '#neuralbench-commands > summary');
+        assert.ok(await page.eval(`document.querySelector('#neuralbench-commands')?.open`),`${label}: commands disclosure does not open`);
+        await click(page, '#neuralbench-commands > summary');
+        await click(page, '#baselines > summary');
+        assert.ok(await page.eval(`document.querySelector('#baselines')?.open`),`${label}: baselines disclosure does not open`);
+        assert.equal(await page.eval(`document.documentElement.scrollWidth`),await page.eval(`document.documentElement.clientWidth`),`${label}: opened baseline table causes page overflow`);
+        await click(page, '#baselines > summary');
+        assert.equal(await page.eval(`document.querySelectorAll('#baselines .ds-row:not(.head)').length`),10,`${label}: original public baseline table is incomplete`);
+        assert.equal(await page.eval(`document.querySelectorAll('#baselines .ds-row.head [role="columnheader"]').length`),7,`${label}: original baseline metadata columns are incomplete`);
+        assert.equal(await page.eval(`document.querySelectorAll('a[href$="plot_submission_guide.html"]').length`),0,`${label}: obsolete NeuralBench packaging guide remains`);
+        assert.equal(await page.eval(`document.querySelectorAll('#build .prepare-phase-card').length`),2,`${label}: two training paths are unclear`);
+        assert.ok(await page.eval(`(()=>{const text=document.querySelector('#submit .prepare-step-head p')?.textContent||'';return text.includes('Participation tab')&&text.includes('submission contract')})()`),`${label}: Codabench source of truth is unclear`);
+        for (let i=1; i<=4; i++) {
+          assert.ok(await page.eval(`!!document.querySelector('#baseline-track-${i}')`),`${label}: baseline track ${i} anchor missing`);
+          assert.ok(await page.eval(`!!document.querySelector('#submit a[href="https://www.codabench.org/competitions/${portals[i-1]}/#/participate-tab"]')`),`${label}: track ${i} Codabench Participation page missing`);
+        }
       }
       if (route === 'rules.html') {
         assert.equal(await page.eval(`document.querySelectorAll('details.vb-rule').length`),8,`${label}: eight rule disclosures`);
         assert.ok(await page.eval(`document.querySelector('#faq-submit .faq-answer')?.textContent.includes('October 24')`),`${label}: registration FAQ deadline missing`);
         assert.equal(await page.eval(`document.querySelectorAll('details.vb-rule[open]').length`),0,`${label}: rules should start collapsed`);
-        assert.equal(await page.eval(`document.querySelector('.local-nav a')?.getAttribute('href')`),'get-prepared.html',`${label}: prepare navigation target`);
+        assert.equal(await page.eval(`document.querySelector('.local-nav a')?.getAttribute('href')`),'participant-guide.html',`${label}: prepare navigation target`);
         await click(page,'#rule-eligibility summary');
         assert.ok(await page.eval(`document.querySelector('#rule-eligibility').open`),`${label}: rule disclosure did not open`);
       }
@@ -149,7 +172,7 @@ for (const width of widths) {
         assert.ok(metaTransform!=='none'&&metaTransform.includes('1.5'),`${label}: Meta Reality Labs logo is not enlarged`);
       }
       if (route === 'organizers.html') {
-        assert.equal(await page.eval(`document.querySelectorAll('main a[href^="get-prepared.html"]').length`),0,`${label}: prepare-a-track button remains`);
+        assert.equal(await page.eval(`document.querySelectorAll('main a[href^="participant-guide.html"]').length`),0,`${label}: prepare-a-track button remains`);
         const organization=await page.eval(`(()=>{const ids=['team-core','team-eeg','team-bci','team-sleep','team-emg','team-advisors'],logos=[...document.querySelectorAll('.org-logo-stage img')].map(i=>i.alt);return {tops:ids.map(id=>document.getElementById(id).getBoundingClientRect().top),backgrounds:ids.map(id=>getComputedStyle(document.getElementById(id)).backgroundColor),leads:document.querySelectorAll('.org-directory .lead').length,meta:document.querySelectorAll('.org-team-meta').length,links:[...document.querySelectorAll('.org-track-link')].map(a=>a.getAttribute('href')),arnault:[...document.querySelectorAll('#arnault-caillet a')].map(a=>a.getAttribute('href')),thomas:document.querySelector('.name')&&[...document.querySelectorAll('.name')].find(e=>e.textContent.trim()==='Thomas Semah')?.closest('section')?.id,logos,logoUnique:new Set(logos).size}})()`);
         assert.ok(organization.tops.every((top,index,array)=>index===0||top>array[index-1]),`${label}: organizer section order`);
         assert.ok(organization.backgrounds.every((color,index,array)=>index===0||color!==array[index-1]),`${label}: organizer section backgrounds do not alternate`);
@@ -182,7 +205,7 @@ for (const width of widths) {
 }
 // Navigation must remain usable when client-side JavaScript is unavailable.
 {
-  const page = await open('get-prepared.html',320,900);
+  const page = await open('participant-guide.html',320,900);
   try {
     await page.call('Emulation.setScriptExecutionDisabled', {value:true});
     const loaded=page.once('Page.loadEventFired');
@@ -194,7 +217,7 @@ for (const width of widths) {
     console.log('PASS: no-JS mobile navigation');
   } finally { await page.close(); }
 }
-for (const width of [1440,390]) for (const route of ['index.html','tracks.html','register.html#enter','get-prepared.html#baselines']) {
+for (const width of [1440,390]) for (const route of ['index.html','tracks.html','register.html#enter','participant-guide.html']) {
   const page=await open(route,width,1600);
   try { await screenshot(page, `${output}/${route.replace(/[.#]/g,'-')}-${width}.png`); }
   finally { await page.close(); }
