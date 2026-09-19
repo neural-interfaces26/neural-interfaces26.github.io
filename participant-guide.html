@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X6NYQJMNJ9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-X6NYQJMNJ9');
+</script>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#5332F4" />
+
+<title>Participant guide | EEG/EMG Foundation Challenge 2026</title>
+<meta name="description" content="Understand the challenge workflow, use the optional NeuralBench start kits, train your model, and submit it through Codabench." />
+
+<link rel="canonical" href="https://neural-interfaces26.github.io/participant-guide.html" />
+<meta name="author" content="Bruno Aristimunha and the EEG/EMG Foundation Challenge organising team" />
+
+<meta property="og:title" content="Participant guide | EEG/EMG Foundation Challenge 2026" />
+<meta property="og:description" content="Understand the challenge workflow, use the optional NeuralBench start kits, train your model, and submit it through Codabench." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://neural-interfaces26.github.io/participant-guide.html" />
+<meta property="og:site_name" content="EEG/EMG Foundation Challenge 2026" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://neural-interfaces26.github.io/assets/img/og-card.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="627" />
+<meta property="og:image:alt" content="Violet neural-signal trophy for the EEG/EMG Foundation Challenge 2026." />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Participant guide | EEG/EMG Foundation Challenge 2026" />
+<meta name="twitter:description" content="Understand the challenge workflow, use the optional NeuralBench start kits, train your model, and submit it through Codabench." />
+<meta name="twitter:image" content="https://neural-interfaces26.github.io/assets/img/og-card.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
+<link rel="stylesheet" href="assets/css/base.css?v=20260908ux" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20260910copy" />
+
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
+
+</head>
+<body class="bs-root landing technical-page startkit-page">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <a class="site-brand" href="index.html">
+    <span>EEG/EMG Foundation Challenge 2026</span>
+  </a>
+  <button class="site-menu-toggle" type="button" aria-controls="site-menu" aria-expanded="false">
+    <span class="sr-only">Open navigation</span>
+    <span aria-hidden="true"></span><span aria-hidden="true"></span>
+  </button>
+  <nav class="site-menu" id="site-menu" aria-label="Primary navigation">
+    <a href="index.html">Home</a>
+    <a href="tracks.html">Tracks</a>
+    <a href="participant-guide.html" aria-current="page">Participant guide</a>
+    <a href="prizes.html">Prizes</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="rules.html">Rules</a>
+    <a href="organizers.html">Organizers</a>
+    <a href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Discord ↗</a>
+    <a class="bs-btn primary sm" href="register.html">Register</a>
+  </nav>
+</header>
+
+<main class="site-main" id="main">
+
+  <!-- ============================== Hero ============================== -->
+  <section class="page-hero startkit-hero" id="quickstart" aria-labelledby="kit-heading">
+    <div class="page-hero-inner">
+      <div class="page-hero-copy">
+        <span class="bs-eyebrow">Preparation map · start kits + submissions</span>
+        <h1 id="kit-heading">Your participant guide.</h1>
+        <p>This guide takes you from choosing a track to submitting a trained model. NeuralBench offers optional start kits, public baselines, and a development environment, but you may use your own pipeline. Registration, submission rules, uploads, and official evaluation are handled on Codabench.</p>
+        <div class="bs-hero-cta">
+          <a class="bs-btn primary" href="#workflow">See the workflow ↓</a>
+          <a class="bs-btn ghost" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/index.html" target="_blank" rel="noreferrer noopener">Explore NeuralBench start kits ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="local-nav" aria-label="Getting prepared sections">
+    <a href="#workflow">01 · Workflow</a><a href="#track-guides">02 · Start kits</a><a href="#build">03 · Build</a><a href="#submit">04 · Submit</a>
+  </nav>
+
+  <!-- ============================== Step 01 ============================== -->
+  <section class="vb-section prepare-step" id="workflow" aria-labelledby="workflow-heading">
+    <div class="prepare-step-head">
+      <span class="prepare-step-number" aria-hidden="true">01</span>
+      <div>
+        <span class="bs-kicker">Three interfaces · one workflow</span>
+        <h2 id="workflow-heading">Know where to go.</h2>
+        <p>This website is your map. NeuralBench is the recommended optional preparation environment. Codabench is the official participation and evaluation platform.</p>
+      </div>
+    </div>
+    <div class="prepare-role-grid">
+      <article class="prepare-role-card">
+        <span class="bs-kicker">Competition website</span>
+        <h3>Understand the challenge.</h3>
+        <p>Compare tracks, datasets, metrics, prizes, rules, dates, and organizers. Use this site to find the right next destination.</p>
+        <a href="tracks.html">Explore the tracks →</a>
+      </article>
+      <article class="prepare-role-card prepare-role-card--featured">
+        <span class="bs-kicker">NeuralBench · recommended path</span>
+        <h3>Start from a reference.</h3>
+        <p>Use the NeuralBench start kits to access public task examples, reproduce baselines, and develop or train models in a common environment.</p>
+        <a href="#track-guides">Choose a NeuralBench start kit ↓</a>
+      </article>
+      <article class="prepare-role-card">
+        <span class="bs-kicker">Codabench · official submission</span>
+        <h3>Register and submit.</h3>
+        <p>Read the Participation guidelines, register for each track, upload your trained model package, and receive official scores.</p>
+        <a href="#submit">Open a Codabench track portal ↓</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================== Step 02 ============================== -->
+  <section class="vb-section vb-section-cream prepare-step" id="track-guides" aria-labelledby="guides-heading">
+    <span id="guides" class="section-anchor" aria-hidden="true"></span>
+    <span id="run-baseline" class="section-anchor" aria-hidden="true"></span>
+    <div class="prepare-step-head">
+      <span class="prepare-step-number" aria-hidden="true">02</span>
+      <div>
+        <span class="bs-kicker">Recommended · optional</span>
+        <h2 id="guides-heading">Warm up with the NeuralBench start kits.</h2>
+        <p>Each NeuralBench guide is a track-specific start kit. It points to the current setup, public development data, baseline, metric, and reference result. Following it once gives you a verified pipeline before you introduce your own model, but it is not required for entering the competition.</p>
+      </div>
+    </div>
+
+    <div class="prepare-guide-grid prepare-guide-grid--visible">
+      <article class="prepare-guide-card" id="prepare-track-1">
+        <span class="track-tag"><span class="sr-only">Track </span>01</span>
+        <div><span class="bs-kicker">Optional start kit</span><h3>EEG-to-Image</h3></div>
+        <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track1_eeg_to_image.html" target="_blank" rel="noreferrer noopener">Open Track 01 on NeuralBench ↗</a>
+      </article>
+      <article class="prepare-guide-card" id="prepare-track-2">
+        <span class="track-tag"><span class="sr-only">Track </span>02</span>
+        <div><span class="bs-kicker">Optional start kit</span><h3>BCI decoding</h3></div>
+        <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track2_eeg_to_bci.html" target="_blank" rel="noreferrer noopener">Open Track 02 on NeuralBench ↗</a>
+      </article>
+      <article class="prepare-guide-card" id="prepare-track-3">
+        <span class="track-tag"><span class="sr-only">Track </span>03</span>
+        <div><span class="bs-kicker">Optional start kit</span><h3>Sleep onset</h3></div>
+        <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track3_sleep_onset.html" target="_blank" rel="noreferrer noopener">Open Track 03 on NeuralBench ↗</a>
+      </article>
+      <article class="prepare-guide-card" id="prepare-track-4">
+        <span class="track-tag"><span class="sr-only">Track </span>04</span>
+        <div><span class="bs-kicker">Optional start kit</span><h3>EMG-to-Pose</h3></div>
+        <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track4_emg_to_pose.html" target="_blank" rel="noreferrer noopener">Open Track 04 on NeuralBench ↗</a>
+      </article>
+    </div>
+    <div class="prepare-submission-actions">
+      <a class="bs-btn primary" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/index.html" target="_blank" rel="noreferrer noopener">Open the NeuralBench challenge hub ↗</a>
+      <a class="bs-btn ghost" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/quickstart/01_run_first_task.html" target="_blank" rel="noreferrer noopener">New to NeuralBench? Start here ↗</a>
+    </div>
+
+    <details class="prepare-disclosure" id="neuralbench-commands">
+      <summary>
+        <span class="prepare-disclosure-mark" aria-hidden="true">&gt;_</span>
+        <span class="prepare-disclosure-copy">
+          <span class="bs-kicker">NeuralBench quick start</span>
+          <strong>Open the setup and test commands.</strong>
+          <small>Install NeuralBench and run a short end-to-end check using this Track 01 example.</small>
+        </span>
+        <span class="prepare-disclosure-action" aria-hidden="true">
+          <span class="prepare-disclosure-open">Open commands</span>
+          <span class="prepare-disclosure-close">Close commands</span>
+          <i></i>
+        </span>
+      </summary>
+      <div class="prepare-disclosure-body">
+        <div class="prepare-install-grid prepare-command-pair" aria-label="NeuralBench quick start">
+          <div class="prepare-command-card">
+            <span class="bs-kicker">1 · Install NeuralBench</span>
+            <figure class="bs-code" aria-label="Install NeuralBench">
+              <figcaption class="bs-code-head">
+                <span class="bs-kicker">Terminal</span>
+                <button class="copy" type="button" data-copy aria-live="polite">copy</button>
+              </figcaption>
+              <pre tabindex="0" aria-label="Install NeuralBench command"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench</code></span></pre>
+            </figure>
+            <p>Install it once in your development environment, then open the guide for your track.</p>
+          </div>
+          <div class="prepare-command-card">
+            <span class="bs-kicker">2 · Run a small check</span>
+            <figure class="bs-code" aria-label="Run a NeuralBench debug baseline">
+              <figcaption class="bs-code-head">
+                <span class="bs-kicker">Track 01 example</span>
+                <button class="copy" type="button" data-copy aria-live="polite">copy</button>
+              </figcaption>
+              <pre tabindex="0" aria-label="Track 01 NeuralBench setup and debug commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg image --download</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg image --prepare</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg image -m eegnet --debug</code></span></pre>
+            </figure>
+            <p>Download the public data, prepare the cache, then run a short pipeline check. Use the corresponding commands from your own track guide.</p>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="prepare-disclosure prepare-disclosure--table" id="baselines">
+      <summary>
+        <span class="prepare-disclosure-mark" aria-hidden="true">REF</span>
+        <span class="prepare-disclosure-copy">
+          <span class="bs-kicker">Public-data reference</span>
+          <strong id="baseline-reference-heading">Open the baseline results to reproduce.</strong>
+          <small>Compare all published scores, model families, parameter counts, training costs, and configurations.</small>
+        </span>
+        <span class="prepare-disclosure-action" aria-hidden="true">
+          <span class="prepare-disclosure-open">Open results</span>
+          <span class="prepare-disclosure-close">Close results</span>
+          <i></i>
+        </span>
+      </summary>
+      <div class="prepare-disclosure-body">
+    <div class="baseline-reference" aria-labelledby="baseline-reference-heading">
+      <div class="ds-table-wrap table-shell" role="region" aria-label="Per-track baseline scores" tabindex="0">
+        <div class="ds-table" role="table" aria-label="Per-track baselines">
+          <div class="ds-row head" role="row">
+            <span role="columnheader">Track</span>
+            <span role="columnheader">Baseline</span>
+            <span role="columnheader">Family</span>
+            <span role="columnheader">Params</span>
+            <span role="columnheader">Train (GPU-h)</span>
+            <span role="columnheader">Reference score</span>
+            <span role="columnheader">Configuration</span>
+          </div>
+
+          <div class="ds-row track-group-start" id="baseline-track-1" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>01</span>
+            <span class="nm" role="cell"><strong>Chance</strong><small>EEG-to-Image</small></span>
+            <span class="mod mod-eeg" role="cell">reference</span>
+            <span class="num" role="cell">0</span>
+            <span class="num" role="cell">0</span>
+            <span class="num" role="cell">Top-5 2.22 ± 0.31</span>
+            <span class="num" role="cell">Not applicable</span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>01</span>
+            <span class="nm" role="cell"><strong>EEGNet</strong><small>EEG-to-Image · Lawhern et al., 2018</small></span>
+            <span class="mod mod-eeg" role="cell">CNN</span>
+            <span class="num" role="cell">0.04 M</span>
+            <span class="num" role="cell">2</span>
+            <span class="num" role="cell">Top-5 28.13 ± 0.14</span>
+            <span class="num" role="cell">configs/img/eegnet.yaml</span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>01</span>
+            <span class="nm" role="cell"><strong>REVE</strong><small>EEG-to-Image · Elouahidi et al., 2025</small></span>
+            <span class="mod mod-eeg" role="cell">Foundation</span>
+            <span class="num" role="cell">14 M</span>
+            <span class="num" role="cell">0.5 (probe)</span>
+            <span class="num" role="cell">Top-5 84.75 ± 0.38</span>
+            <span class="num" role="cell">configs/img/reve_frozen.yaml</span>
+          </div>
+
+          <div class="ds-row track-group-start" id="baseline-track-2" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
+            <span class="nm" role="cell"><strong>Chance</strong><small>BCI decoding</small></span>
+            <span class="mod mod-eeg" role="cell">reference</span>
+            <span class="num" role="cell">0</span>
+            <span class="num" role="cell">0</span>
+            <span class="num" role="cell">Bal. Acc 24.81 ± 1.03</span>
+            <span class="num" role="cell">Not applicable</span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
+            <span class="nm" role="cell"><strong>EEGNet</strong><small>BCI decoding</small></span>
+            <span class="mod mod-eeg" role="cell">CNN</span>
+            <span class="num" role="cell">0.04 M</span>
+            <span class="num" role="cell">4</span>
+            <span class="num" role="cell">Bal. Acc 58.58 ± 0.34</span>
+            <span class="num" role="cell">configs/bci/eegnet.yaml</span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
+            <span class="nm" role="cell"><strong>REVE</strong><small>BCI decoding</small></span>
+            <span class="mod mod-eeg" role="cell">Foundation</span>
+            <span class="num" role="cell">14 M</span>
+            <span class="num" role="cell">1 (probe)</span>
+            <span class="num" role="cell">Bal. Acc 68.04 ± 0.73</span>
+            <span class="num" role="cell">configs/bci/reve.yaml</span>
+          </div>
+
+          <div class="ds-row track-group-start" id="baseline-track-3" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>03</span>
+            <span class="nm" role="cell"><strong>Chance</strong><small>Sleep onset</small></span>
+            <span class="mod mod-eeg" role="cell">reference</span>
+            <span class="num" role="cell">0</span>
+            <span class="num" role="cell">0</span>
+            <span class="num" role="cell">W-bMAE 205.42 ± 0.01 s</span>
+            <span class="num" role="cell">Not applicable</span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>03</span>
+            <span class="nm" role="cell"><strong>EEGNet-sleep</strong><small>Sleep onset</small></span>
+            <span class="mod mod-eeg" role="cell">CNN</span>
+            <span class="num" role="cell">0.04 M</span>
+            <span class="num" role="cell">4</span>
+            <span class="num" role="cell">W-bMAE 143.30 ± 0.40 s</span>
+            <span class="num" role="cell">configs/sleep/eegnet.yaml</span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>03</span>
+            <span class="nm" role="cell"><strong>REVE-sleep</strong><small>Sleep onset</small></span>
+            <span class="mod mod-eeg" role="cell">Foundation</span>
+            <span class="num" role="cell">14 M</span>
+            <span class="num" role="cell">1 (probe)</span>
+            <span class="num" role="cell">W-bMAE 134.89 ± 2.02 s</span>
+            <span class="num" role="cell">configs/sleep/reve.yaml</span>
+          </div>
+
+          <div class="ds-row track-group-start" id="baseline-track-4" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>04</span>
+            <span class="nm" role="cell"><strong>NeuroPose</strong><small>EMG-to-Pose · Liu et al., 2021</small></span>
+            <span class="mod mod-emg" role="cell">Pose CNN</span>
+            <span class="num" role="cell">-</span>
+            <span class="num" role="cell">paper</span>
+            <span class="num" role="cell">MAE 17.5 ± 1.5°</span>
+            <span class="num" role="cell">tasks/emg/pose/config.yaml</span>
+          </div>
+        </div>
+      </div>
+      <div class="ds-foot">
+        <span class="bs-kicker">All values mean ± std from NeuralBench (Banville et al., 2026), Table 1. Sleep metric is W-bMAE (weighted-binned MAE) per the proposal §1.4.</span>
+        <a href="register.html#enter" class="track-link">Register on Codabench →</a>
+      </div>
+    </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============================== Step 03 ============================== -->
+  <section class="vb-section prepare-step" id="build" aria-labelledby="build-heading">
+    <div class="prepare-step-head">
+      <span class="prepare-step-number" aria-hidden="true">03</span>
+      <div>
+        <span class="bs-kicker">Your model · your pipeline</span>
+        <h2 id="build-heading">Train where you work best.</h2>
+        <p>Both paths are valid. What matters is that you finish with a trained model that respects the task and can be exposed through the Codabench submission contract.</p>
+      </div>
+    </div>
+    <div class="prepare-phase-grid">
+      <article class="prepare-phase-card prepare-phase-card--live">
+        <span class="bs-kicker">Recommended path</span>
+        <h3>Build with NeuralBench.</h3>
+        <p>Reuse its data access, task definitions, metrics, and reference baselines. You can reproduce a published model, add your own architecture, or build upon the provided workflow.</p>
+        <a class="track-link" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/index.html" target="_blank" rel="noreferrer noopener">Explore NeuralBench ↗</a>
+      </article>
+      <article class="prepare-phase-card">
+        <span class="bs-kicker">Independent path</span>
+        <h3>Use your own pipeline.</h3>
+        <p>Train with your preferred codebase and permitted data. NeuralBench does not need to be part of your training stack or final submission, provided your trained model satisfies the track input, output, and packaging contract.</p>
+        <a class="track-link" href="tracks.html#track-details">Review track requirements →</a>
+      </article>
+    </div>
+    <p class="prepare-note"><strong>Same destination:</strong> Whatever the training path, Codabench receives a trained model for final evaluation.</p>
+  </section>
+
+  <!-- ============================== Step 04 ============================== -->
+  <section class="vb-section vb-section-cream prepare-step" id="submit" aria-labelledby="submit-heading">
+    <div class="prepare-step-head">
+      <span class="prepare-step-number" aria-hidden="true">04</span>
+      <div>
+        <span class="bs-kicker">From trained model to leaderboard</span>
+        <h2 id="submit-heading">Package and submit on Codabench.</h2>
+        <p>Once your model is trained, open the Codabench Participation tab for your track. It introduces you to the submission contract. Follow it to package your model, upload it through My Submissions, and confirm that your score reaches the leaderboard.</p>
+      </div>
+    </div>
+    <ol class="prepare-run-sequence">
+      <li><span>1</span><strong>Open Participation</strong><small>Use the dedicated tab for your chosen track below.</small></li>
+      <li><span>2</span><strong>Follow the contract</strong><small>Package the trained model and required inference files.</small></li>
+      <li><span>3</span><strong>Upload the ZIP</strong><small>Submit it through My Submissions during warm-up.</small></li>
+      <li><span>4</span><strong>Check the result</strong><small>Confirm that evaluation succeeds and the score appears.</small></li>
+    </ol>
+    <div class="prepare-portal-grid" aria-label="Codabench Participation pages by track">
+      <article class="prepare-portal-card">
+        <div class="prepare-portal-head"><span class="track-tag"><span class="sr-only">Track </span>01</span><div><span class="bs-kicker">Codabench Participation</span><h3>EEG-to-Image</h3></div></div>
+        <figure class="prepare-portal-visual"><img src="exports/eeg-to-image.gif" width="1280" height="600" loading="lazy" alt="EEG activity matched to a viewed image"></figure>
+        <a class="bs-btn primary" href="https://www.codabench.org/competitions/17974/#/participate-tab" target="_blank" rel="noreferrer noopener">Open Track 01 Participation ↗</a>
+      </article>
+      <article class="prepare-portal-card">
+        <div class="prepare-portal-head"><span class="track-tag"><span class="sr-only">Track </span>02</span><div><span class="bs-kicker">Codabench Participation</span><h3>BCI decoding</h3></div></div>
+        <figure class="prepare-portal-visual"><img src="exports/bci-decoding.gif" width="1280" height="600" loading="lazy" alt="Mental commands decoded from EEG across sessions"></figure>
+        <a class="bs-btn primary" href="https://www.codabench.org/competitions/17982/#/participate-tab" target="_blank" rel="noreferrer noopener">Open Track 02 Participation ↗</a>
+      </article>
+      <article class="prepare-portal-card">
+        <div class="prepare-portal-head"><span class="track-tag"><span class="sr-only">Track </span>03</span><div><span class="bs-kicker">Codabench Participation</span><h3>Sleep onset</h3></div></div>
+        <figure class="prepare-portal-visual"><img src="exports/sleep-onset.gif" width="1280" height="600" loading="lazy" alt="Time to stable sleep onset predicted from home EEG"></figure>
+        <a class="bs-btn primary" href="https://www.codabench.org/competitions/17983/#/participate-tab" target="_blank" rel="noreferrer noopener">Open Track 03 Participation ↗</a>
+      </article>
+      <article class="prepare-portal-card">
+        <div class="prepare-portal-head"><span class="track-tag"><span class="sr-only">Track </span>04</span><div><span class="bs-kicker">Codabench Participation</span><h3>EMG-to-Pose</h3></div></div>
+        <figure class="prepare-portal-visual"><img src="exports/emg-to-pose.gif" width="1280" height="600" loading="lazy" alt="Hand-pose trajectories predicted from wrist EMG"></figure>
+        <a class="bs-btn primary" href="https://www.codabench.org/competitions/17984/#/participate-tab" target="_blank" rel="noreferrer noopener">Open Track 04 Participation ↗</a>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner page-shell">
+    <a class="site-footer-brand" href="index.html">EEG/EMG Foundation Challenge 2026</a>
+    <nav class="site-footer-links" aria-label="Footer navigation">
+      <a href="index.html">Home</a>
+      <a href="tracks.html">Tracks</a>
+      <a href="participant-guide.html" aria-current="page">Participant guide</a>
+      <a href="prizes.html">Prizes</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="rules.html">Rules</a>
+      <a href="ethics.html">Ethics</a>
+      <a href="organizers.html">Organizers</a>
+      <a href="https://github.com/neural-interfaces26/neural-interfaces26.github.io" target="_blank" rel="noreferrer noopener">GitHub</a>
+    </nav>
+    <a class="site-footer-email" href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Contact us on Discord</a>
+  </div>
+</footer>
+
+<script src="assets/js/ui.js?v=20260910copy" defer></script>
+
+</body>
+</html>
