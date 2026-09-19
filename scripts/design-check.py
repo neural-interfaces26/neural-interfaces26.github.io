@@ -430,7 +430,7 @@ def check_technical(errors: list[str]) -> None:
             if fact not in proof_text:
                 errors.append(f"{name}: page proof missing {fact!r}")
     code_labels: list[str] = []
-    for name, expected in (("participant-guide.html", 2), ("leaderboard.html", 4)):
+    for name, expected in (("participant-guide.html", 8), ("leaderboard.html", 4)):
         parsed = pages[name]
         code_blocks = parsed.find(class_name="bs-code")
         code_regions = [

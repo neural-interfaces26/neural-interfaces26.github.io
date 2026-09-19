@@ -210,7 +210,7 @@ async function checkOrganizerCadence768() {
 async function checkCodeScrollers(page, route) {
   await page.eval(`[...document.querySelectorAll('details')].forEach(e=>e.open=true)`);
   const expected = await page.eval(`([...document.querySelectorAll('.bs-code pre')].map(pre=>pre.getAttribute('aria-label')))`);
-  const count = route === 'participant-guide.html' ? 2 : 4;
+  const count = route === 'participant-guide.html' ? 8 : 4;
   if (expected.length !== count || expected.some(label => !label) || new Set(expected).size !== count) throw new Error(`code scroller labels ${route}: ${JSON.stringify(expected)}`);
   const seen = [];
   for (let step = 0; step < 160 && seen.length < count; step += 1) {

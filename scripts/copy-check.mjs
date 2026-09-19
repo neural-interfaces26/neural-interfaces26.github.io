@@ -17,7 +17,16 @@ for (const width of [1440, 390, 320]) {
       }
       return { copied, feedback: buttons.every(b => b.textContent === 'copied' && b.disabled) };
     })()`);
-    assert.deepEqual(result.copied, ['pip install neuralbench', 'neuralbench eeg image --download\nneuralbench eeg image --prepare\nneuralbench eeg image -m eegnet --debug']);
+    assert.deepEqual(result.copied, [
+      'pip install neuralbench',
+      'neuralbench eeg image --download\nneuralbench eeg image --prepare\nneuralbench eeg image -m eegnet --debug',
+      "pip install neuralbench 'moabb>=1.7.1'",
+      'neuralbench eeg motor_imagery --download\nneuralbench eeg motor_imagery --prepare\nneuralbench eeg motor_imagery -m eegnet --debug',
+      'pip install neuralbench',
+      'neuralbench eeg sleep_onset --download\nneuralbench eeg sleep_onset --prepare\nneuralbench eeg sleep_onset -m eegnet --debug',
+      "pip install neuralbench 'eegdash>=0.8.2'",
+      'neuralbench emg pose -m vemg2pose --download\nneuralbench emg pose -m vemg2pose --prepare\nneuralbench emg pose -m vemg2pose --debug',
+    ]);
     assert.equal(result.feedback, true);
     assert.equal(await page.eval(`(async () => {
       await new Promise(r => setTimeout(r, 1500));

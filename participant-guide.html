@@ -43,7 +43,7 @@
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
 <link rel="stylesheet" href="assets/css/base.css?v=20260908ux" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260910copy" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20260919startkits" />
 
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
 
@@ -130,214 +130,346 @@
   <section class="vb-section vb-section-cream prepare-step" id="track-guides" aria-labelledby="guides-heading">
     <span id="guides" class="section-anchor" aria-hidden="true"></span>
     <span id="run-baseline" class="section-anchor" aria-hidden="true"></span>
+    <span id="baselines" class="section-anchor" aria-hidden="true"></span>
     <div class="prepare-step-head">
       <span class="prepare-step-number" aria-hidden="true">02</span>
       <div>
         <span class="bs-kicker">Recommended · optional</span>
         <h2 id="guides-heading">Warm up with the NeuralBench start kits.</h2>
-        <p>Each NeuralBench guide is a track-specific start kit. It points to the current setup, public development data, baseline, metric, and reference result. Following it once gives you a verified pipeline before you introduce your own model, but it is not required for entering the competition.</p>
+        <p>Each track has its own NeuralBench start kit: the full guide, a quick start, and the baseline scores to reproduce. Following it once gives you a verified pipeline before you introduce your own model, but it is not required for entering the competition.</p>
       </div>
     </div>
 
     <div class="prepare-guide-grid prepare-guide-grid--visible">
       <article class="prepare-guide-card" id="prepare-track-1">
         <span class="track-tag"><span class="sr-only">Track </span>01</span>
-        <div><span class="bs-kicker">Optional start kit</span><h3>EEG-to-Image</h3></div>
+        <div><h3>EEG-to-Image</h3></div>
         <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track1_eeg_to_image.html" target="_blank" rel="noreferrer noopener">Open Track 01 on NeuralBench ↗</a>
+
+        <details class="prepare-disclosure" id="commands-track-1">
+          <summary><span class="prepare-disclosure-title">Quick start<span class="sr-only">, Track 01</span></span><span class="prepare-disclosure-toggle" aria-hidden="true"></span></summary>
+          <div class="prepare-disclosure-body">
+            <p class="prepare-disclosure-lead">Install NeuralBench and run a short end-to-end check using this Track 01 example.</p>
+            <div class="prepare-install-grid prepare-command-pair" aria-label="Track 01 NeuralBench quick start">
+              <div class="prepare-command-card">
+                <span class="bs-kicker">1 · Install NeuralBench</span>
+                <figure class="bs-code" aria-label="Install NeuralBench for Track 01">
+                  <figcaption class="bs-code-head">
+                    <span class="bs-kicker">Terminal</span>
+                    <button class="copy" type="button" data-copy aria-live="polite">copy</button>
+                  </figcaption>
+                  <pre tabindex="0" aria-label="Track 01 install command"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench</code></span></pre>
+                </figure>
+                <p>Install it once in your development environment, then open the guide for your track.</p>
+              </div>
+              <div class="prepare-command-card">
+                <span class="bs-kicker">2 · Run a small check</span>
+                <figure class="bs-code" aria-label="Run the Track 01 debug baseline">
+                  <figcaption class="bs-code-head">
+                    <span class="bs-kicker">Terminal</span>
+                    <button class="copy" type="button" data-copy aria-live="polite">copy</button>
+                  </figcaption>
+                  <pre tabindex="0" aria-label="Track 01 NeuralBench setup and debug commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg image --download</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg image --prepare</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg image -m eegnet --debug</code></span></pre>
+                </figure>
+                <p>Download the public data, prepare the cache, then run a short pipeline check.</p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details class="prepare-disclosure prepare-disclosure--table" id="baseline-track-1">
+          <summary><span class="prepare-disclosure-title">Baselines<span class="sr-only">, Track 01</span></span><span class="prepare-disclosure-toggle" aria-hidden="true"></span></summary>
+          <div class="prepare-disclosure-body">
+            <p class="prepare-disclosure-lead">Baseline results to reproduce on public data. Compare the published Track 01 scores, model families, parameter counts, training costs, and configurations.</p>
+            <div class="baseline-reference">
+              <div class="ds-table-wrap table-shell" role="region" aria-label="Track 01 baseline scores" tabindex="0">
+                <div class="ds-table" role="table" aria-label="Track 01 baselines">
+                  <div class="ds-row head" role="row">
+                    <span role="columnheader">Baseline</span>
+                    <span role="columnheader">Reference score</span>
+                    <span role="columnheader">Family</span>
+                    <span role="columnheader">Params</span>
+                    <span role="columnheader">Train (GPU-h)</span>
+                    <span role="columnheader">Configuration</span>
+                  </div>
+                  <div class="ds-row" role="row">
+                    <span class="nm" role="cell"><strong>Chance</strong></span>
+                    <span class="num" role="cell">Top-5 2.22 ± 0.31</span>
+                    <span class="mod mod-eeg" role="cell">reference</span>
+                    <span class="num" role="cell">0</span>
+                    <span class="num" role="cell">0</span>
+                    <span class="num" role="cell">Not applicable</span>
+                  </div>
+                  <div class="ds-row" role="row">
+                    <span class="nm" role="cell"><strong>EEGNet</strong><small>Lawhern et al., 2018</small></span>
+                    <span class="num" role="cell">Top-5 28.13 ± 0.14</span>
+                    <span class="mod mod-eeg" role="cell">CNN</span>
+                    <span class="num" role="cell">0.04 M</span>
+                    <span class="num" role="cell">2</span>
+                    <span class="num" role="cell">configs/img/eegnet.yaml</span>
+                  </div>
+                  <div class="ds-row" role="row">
+                    <span class="nm" role="cell"><strong>REVE</strong><small>Elouahidi et al., 2025</small></span>
+                    <span class="num" role="cell">Top-5 84.75 ± 0.38</span>
+                    <span class="mod mod-eeg" role="cell">Foundation</span>
+                    <span class="num" role="cell">14 M</span>
+                    <span class="num" role="cell">0.5 (probe)</span>
+                    <span class="num" role="cell">configs/img/reve_frozen.yaml</span>
+                  </div>
+                </div>
+              </div>
+              <div class="ds-foot">
+                <span class="bs-kicker">All values mean ± std from NeuralBench (Banville et al., 2026), Table 1.</span>
+                <a href="register.html#enter-1" class="track-link">Register on Codabench →</a>
+              </div>
+            </div>
+          </div>
+        </details>
       </article>
       <article class="prepare-guide-card" id="prepare-track-2">
         <span class="track-tag"><span class="sr-only">Track </span>02</span>
-        <div><span class="bs-kicker">Optional start kit</span><h3>BCI decoding</h3></div>
+        <div><h3>BCI decoding</h3></div>
         <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track2_eeg_to_bci.html" target="_blank" rel="noreferrer noopener">Open Track 02 on NeuralBench ↗</a>
+
+        <details class="prepare-disclosure" id="commands-track-2">
+          <summary><span class="prepare-disclosure-title">Quick start<span class="sr-only">, Track 02</span></span><span class="prepare-disclosure-toggle" aria-hidden="true"></span></summary>
+          <div class="prepare-disclosure-body">
+            <p class="prepare-disclosure-lead">Install NeuralBench and run a short end-to-end check using this Track 02 example.</p>
+            <div class="prepare-install-grid prepare-command-pair" aria-label="Track 02 NeuralBench quick start">
+              <div class="prepare-command-card">
+                <span class="bs-kicker">1 · Install NeuralBench</span>
+                <figure class="bs-code" aria-label="Install NeuralBench for Track 02">
+                  <figcaption class="bs-code-head">
+                    <span class="bs-kicker">Terminal</span>
+                    <button class="copy" type="button" data-copy aria-live="polite">copy</button>
+                  </figcaption>
+                  <pre tabindex="0" aria-label="Track 02 install command"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench 'moabb&gt;=1.7.1'</code></span></pre>
+                </figure>
+                <p>Install it once in your development environment, then open the guide for your track. MOABB, which serves the public motor-imagery datasets, is not part of the base install.</p>
+              </div>
+              <div class="prepare-command-card">
+                <span class="bs-kicker">2 · Run a small check</span>
+                <figure class="bs-code" aria-label="Run the Track 02 debug baseline">
+                  <figcaption class="bs-code-head">
+                    <span class="bs-kicker">Terminal</span>
+                    <button class="copy" type="button" data-copy aria-live="polite">copy</button>
+                  </figcaption>
+                  <pre tabindex="0" aria-label="Track 02 NeuralBench setup and debug commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg motor_imagery --download</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg motor_imagery --prepare</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg motor_imagery -m eegnet --debug</code></span></pre>
+                </figure>
+                <p>Download the public data, prepare the cache, then run a short pipeline check.</p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details class="prepare-disclosure prepare-disclosure--table" id="baseline-track-2">
+          <summary><span class="prepare-disclosure-title">Baselines<span class="sr-only">, Track 02</span></span><span class="prepare-disclosure-toggle" aria-hidden="true"></span></summary>
+          <div class="prepare-disclosure-body">
+            <p class="prepare-disclosure-lead">Baseline results to reproduce on public data. Compare the published Track 02 scores, model families, parameter counts, training costs, and configurations.</p>
+            <div class="baseline-reference">
+              <div class="ds-table-wrap table-shell" role="region" aria-label="Track 02 baseline scores" tabindex="0">
+                <div class="ds-table" role="table" aria-label="Track 02 baselines">
+                  <div class="ds-row head" role="row">
+                    <span role="columnheader">Baseline</span>
+                    <span role="columnheader">Reference score</span>
+                    <span role="columnheader">Family</span>
+                    <span role="columnheader">Params</span>
+                    <span role="columnheader">Train (GPU-h)</span>
+                    <span role="columnheader">Configuration</span>
+                  </div>
+                  <div class="ds-row" role="row">
+                    <span class="nm" role="cell"><strong>Chance</strong></span>
+                    <span class="num" role="cell">Bal. Acc 24.81 ± 1.03</span>
+                    <span class="mod mod-eeg" role="cell">reference</span>
+                    <span class="num" role="cell">0</span>
+                    <span class="num" role="cell">0</span>
+                    <span class="num" role="cell">Not applicable</span>
+                  </div>
+                  <div class="ds-row" role="row">
+                    <span class="nm" role="cell"><strong>EEGNet</strong></span>
+                    <span class="num" role="cell">Bal. Acc 58.58 ± 0.34</span>
+                    <span class="mod mod-eeg" role="cell">CNN</span>
+                    <span class="num" role="cell">0.04 M</span>
+                    <span class="num" role="cell">4</span>
+                    <span class="num" role="cell">configs/bci/eegnet.yaml</span>
+                  </div>
+                  <div class="ds-row" role="row">
+                    <span class="nm" role="cell"><strong>REVE</strong></span>
+                    <span class="num" role="cell">Bal. Acc 68.04 ± 0.73</span>
+                    <span class="mod mod-eeg" role="cell">Foundation</span>
+                    <span class="num" role="cell">14 M</span>
+                    <span class="num" role="cell">1 (probe)</span>
+                    <span class="num" role="cell">configs/bci/reve.yaml</span>
+                  </div>
+                </div>
+              </div>
+              <div class="ds-foot">
+                <span class="bs-kicker">All values mean ± std from NeuralBench (Banville et al., 2026), Table 1.</span>
+                <a href="register.html#enter-2" class="track-link">Register on Codabench →</a>
+              </div>
+            </div>
+          </div>
+        </details>
       </article>
       <article class="prepare-guide-card" id="prepare-track-3">
         <span class="track-tag"><span class="sr-only">Track </span>03</span>
-        <div><span class="bs-kicker">Optional start kit</span><h3>Sleep onset</h3></div>
+        <div><h3>Sleep onset</h3></div>
         <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track3_sleep_onset.html" target="_blank" rel="noreferrer noopener">Open Track 03 on NeuralBench ↗</a>
+
+        <details class="prepare-disclosure" id="commands-track-3">
+          <summary><span class="prepare-disclosure-title">Quick start<span class="sr-only">, Track 03</span></span><span class="prepare-disclosure-toggle" aria-hidden="true"></span></summary>
+          <div class="prepare-disclosure-body">
+            <p class="prepare-disclosure-lead">Install NeuralBench and run a short end-to-end check using this Track 03 example.</p>
+            <div class="prepare-install-grid prepare-command-pair" aria-label="Track 03 NeuralBench quick start">
+              <div class="prepare-command-card">
+                <span class="bs-kicker">1 · Install NeuralBench</span>
+                <figure class="bs-code" aria-label="Install NeuralBench for Track 03">
+                  <figcaption class="bs-code-head">
+                    <span class="bs-kicker">Terminal</span>
+                    <button class="copy" type="button" data-copy aria-live="polite">copy</button>
+                  </figcaption>
+                  <pre tabindex="0" aria-label="Track 03 install command"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench</code></span></pre>
+                </figure>
+                <p>Install it once in your development environment, then open the guide for your track.</p>
+              </div>
+              <div class="prepare-command-card">
+                <span class="bs-kicker">2 · Run a small check</span>
+                <figure class="bs-code" aria-label="Run the Track 03 debug baseline">
+                  <figcaption class="bs-code-head">
+                    <span class="bs-kicker">Terminal</span>
+                    <button class="copy" type="button" data-copy aria-live="polite">copy</button>
+                  </figcaption>
+                  <pre tabindex="0" aria-label="Track 03 NeuralBench setup and debug commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg sleep_onset --download</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg sleep_onset --prepare</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg sleep_onset -m eegnet --debug</code></span></pre>
+                </figure>
+                <p>Download the public data, prepare the cache, then run a short pipeline check.</p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details class="prepare-disclosure prepare-disclosure--table" id="baseline-track-3">
+          <summary><span class="prepare-disclosure-title">Baselines<span class="sr-only">, Track 03</span></span><span class="prepare-disclosure-toggle" aria-hidden="true"></span></summary>
+          <div class="prepare-disclosure-body">
+            <p class="prepare-disclosure-lead">Baseline results to reproduce on public data. Compare the published Track 03 scores, model families, parameter counts, training costs, and configurations.</p>
+            <div class="baseline-reference">
+              <div class="ds-table-wrap table-shell" role="region" aria-label="Track 03 baseline scores" tabindex="0">
+                <div class="ds-table" role="table" aria-label="Track 03 baselines">
+                  <div class="ds-row head" role="row">
+                    <span role="columnheader">Baseline</span>
+                    <span role="columnheader">Reference score</span>
+                    <span role="columnheader">Family</span>
+                    <span role="columnheader">Params</span>
+                    <span role="columnheader">Train (GPU-h)</span>
+                    <span role="columnheader">Configuration</span>
+                  </div>
+                  <div class="ds-row" role="row">
+                    <span class="nm" role="cell"><strong>Chance</strong></span>
+                    <span class="num" role="cell">W-bMAE 205.42 ± 0.01 s</span>
+                    <span class="mod mod-eeg" role="cell">reference</span>
+                    <span class="num" role="cell">0</span>
+                    <span class="num" role="cell">0</span>
+                    <span class="num" role="cell">Not applicable</span>
+                  </div>
+                  <div class="ds-row" role="row">
+                    <span class="nm" role="cell"><strong>EEGNet-sleep</strong></span>
+                    <span class="num" role="cell">W-bMAE 143.30 ± 0.40 s</span>
+                    <span class="mod mod-eeg" role="cell">CNN</span>
+                    <span class="num" role="cell">0.04 M</span>
+                    <span class="num" role="cell">4</span>
+                    <span class="num" role="cell">configs/sleep/eegnet.yaml</span>
+                  </div>
+                  <div class="ds-row" role="row">
+                    <span class="nm" role="cell"><strong>REVE-sleep</strong></span>
+                    <span class="num" role="cell">W-bMAE 134.89 ± 2.02 s</span>
+                    <span class="mod mod-eeg" role="cell">Foundation</span>
+                    <span class="num" role="cell">14 M</span>
+                    <span class="num" role="cell">1 (probe)</span>
+                    <span class="num" role="cell">configs/sleep/reve.yaml</span>
+                  </div>
+                </div>
+              </div>
+              <div class="ds-foot">
+                <span class="bs-kicker">All values mean ± std from NeuralBench (Banville et al., 2026), Table 1. Sleep metric is W-bMAE (weighted-binned MAE) per the proposal §1.4.</span>
+                <a href="register.html#enter-3" class="track-link">Register on Codabench →</a>
+              </div>
+            </div>
+          </div>
+        </details>
       </article>
       <article class="prepare-guide-card" id="prepare-track-4">
         <span class="track-tag"><span class="sr-only">Track </span>04</span>
-        <div><span class="bs-kicker">Optional start kit</span><h3>EMG-to-Pose</h3></div>
+        <div><h3>EMG-to-Pose</h3></div>
         <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track4_emg_to_pose.html" target="_blank" rel="noreferrer noopener">Open Track 04 on NeuralBench ↗</a>
+
+        <details class="prepare-disclosure" id="commands-track-4">
+          <summary><span class="prepare-disclosure-title">Quick start<span class="sr-only">, Track 04</span></span><span class="prepare-disclosure-toggle" aria-hidden="true"></span></summary>
+          <div class="prepare-disclosure-body">
+            <p class="prepare-disclosure-lead">Install NeuralBench and run a short end-to-end check using this Track 04 example.</p>
+            <div class="prepare-install-grid prepare-command-pair" aria-label="Track 04 NeuralBench quick start">
+              <div class="prepare-command-card">
+                <span class="bs-kicker">1 · Install NeuralBench</span>
+                <figure class="bs-code" aria-label="Install NeuralBench for Track 04">
+                  <figcaption class="bs-code-head">
+                    <span class="bs-kicker">Terminal</span>
+                    <button class="copy" type="button" data-copy aria-live="polite">copy</button>
+                  </figcaption>
+                  <pre tabindex="0" aria-label="Track 04 install command"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench 'eegdash&gt;=0.8.2'</code></span></pre>
+                </figure>
+                <p>Install it once in your development environment, then open the guide for your track. EEG-Dash, which serves the emg2pose data, is not part of the base install.</p>
+              </div>
+              <div class="prepare-command-card">
+                <span class="bs-kicker">2 · Run a small check</span>
+                <figure class="bs-code" aria-label="Run the Track 04 debug baseline">
+                  <figcaption class="bs-code-head">
+                    <span class="bs-kicker">Terminal</span>
+                    <button class="copy" type="button" data-copy aria-live="polite">copy</button>
+                  </figcaption>
+                  <pre tabindex="0" aria-label="Track 04 NeuralBench setup and debug commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench emg pose -m vemg2pose --download</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench emg pose -m vemg2pose --prepare</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench emg pose -m vemg2pose --debug</code></span></pre>
+                </figure>
+                <p>Download the public data, prepare the cache, then run a short pipeline check. Keep <code>-m vemg2pose</code> on every command: it sets the window length the cache is built with.</p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details class="prepare-disclosure prepare-disclosure--table" id="baseline-track-4">
+          <summary><span class="prepare-disclosure-title">Baselines<span class="sr-only">, Track 04</span></span><span class="prepare-disclosure-toggle" aria-hidden="true"></span></summary>
+          <div class="prepare-disclosure-body">
+            <p class="prepare-disclosure-lead">Baseline results to reproduce on public data. Compare the published Track 04 scores, model families, parameter counts, training costs, and configurations.</p>
+            <div class="baseline-reference">
+              <div class="ds-table-wrap table-shell" role="region" aria-label="Track 04 baseline scores" tabindex="0">
+                <div class="ds-table" role="table" aria-label="Track 04 baselines">
+                  <div class="ds-row head" role="row">
+                    <span role="columnheader">Baseline</span>
+                    <span role="columnheader">Reference score</span>
+                    <span role="columnheader">Family</span>
+                    <span role="columnheader">Params</span>
+                    <span role="columnheader">Train (GPU-h)</span>
+                    <span role="columnheader">Configuration</span>
+                  </div>
+                  <div class="ds-row" role="row">
+                    <span class="nm" role="cell"><strong>NeuroPose</strong><small>Liu et al., 2021</small></span>
+                    <span class="num" role="cell">MAE 17.5 ± 1.5°</span>
+                    <span class="mod mod-emg" role="cell">Pose CNN</span>
+                    <span class="num" role="cell">-</span>
+                    <span class="num" role="cell">paper</span>
+                    <span class="num" role="cell">tasks/emg/pose/config.yaml</span>
+                  </div>
+                </div>
+              </div>
+              <div class="ds-foot">
+                <span class="bs-kicker">All values mean ± std from NeuralBench (Banville et al., 2026), Table 1.</span>
+                <a href="register.html#enter-4" class="track-link">Register on Codabench →</a>
+              </div>
+            </div>
+          </div>
+        </details>
       </article>
     </div>
     <div class="prepare-submission-actions">
       <a class="bs-btn primary" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/index.html" target="_blank" rel="noreferrer noopener">Open the NeuralBench challenge hub ↗</a>
       <a class="bs-btn ghost" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/quickstart/01_run_first_task.html" target="_blank" rel="noreferrer noopener">New to NeuralBench? Start here ↗</a>
     </div>
-
-    <details class="prepare-disclosure" id="neuralbench-commands">
-      <summary>
-        <span class="prepare-disclosure-mark" aria-hidden="true">&gt;_</span>
-        <span class="prepare-disclosure-copy">
-          <span class="bs-kicker">NeuralBench quick start</span>
-          <strong>Open the setup and test commands.</strong>
-          <small>Install NeuralBench and run a short end-to-end check using this Track 01 example.</small>
-        </span>
-        <span class="prepare-disclosure-action" aria-hidden="true">
-          <span class="prepare-disclosure-open">Open commands</span>
-          <span class="prepare-disclosure-close">Close commands</span>
-          <i></i>
-        </span>
-      </summary>
-      <div class="prepare-disclosure-body">
-        <div class="prepare-install-grid prepare-command-pair" aria-label="NeuralBench quick start">
-          <div class="prepare-command-card">
-            <span class="bs-kicker">1 · Install NeuralBench</span>
-            <figure class="bs-code" aria-label="Install NeuralBench">
-              <figcaption class="bs-code-head">
-                <span class="bs-kicker">Terminal</span>
-                <button class="copy" type="button" data-copy aria-live="polite">copy</button>
-              </figcaption>
-              <pre tabindex="0" aria-label="Install NeuralBench command"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench</code></span></pre>
-            </figure>
-            <p>Install it once in your development environment, then open the guide for your track.</p>
-          </div>
-          <div class="prepare-command-card">
-            <span class="bs-kicker">2 · Run a small check</span>
-            <figure class="bs-code" aria-label="Run a NeuralBench debug baseline">
-              <figcaption class="bs-code-head">
-                <span class="bs-kicker">Track 01 example</span>
-                <button class="copy" type="button" data-copy aria-live="polite">copy</button>
-              </figcaption>
-              <pre tabindex="0" aria-label="Track 01 NeuralBench setup and debug commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg image --download</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg image --prepare</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg image -m eegnet --debug</code></span></pre>
-            </figure>
-            <p>Download the public data, prepare the cache, then run a short pipeline check. Use the corresponding commands from your own track guide.</p>
-          </div>
-        </div>
-      </div>
-    </details>
-
-    <details class="prepare-disclosure prepare-disclosure--table" id="baselines">
-      <summary>
-        <span class="prepare-disclosure-mark" aria-hidden="true">REF</span>
-        <span class="prepare-disclosure-copy">
-          <span class="bs-kicker">Public-data reference</span>
-          <strong id="baseline-reference-heading">Open the baseline results to reproduce.</strong>
-          <small>Compare all published scores, model families, parameter counts, training costs, and configurations.</small>
-        </span>
-        <span class="prepare-disclosure-action" aria-hidden="true">
-          <span class="prepare-disclosure-open">Open results</span>
-          <span class="prepare-disclosure-close">Close results</span>
-          <i></i>
-        </span>
-      </summary>
-      <div class="prepare-disclosure-body">
-    <div class="baseline-reference" aria-labelledby="baseline-reference-heading">
-      <div class="ds-table-wrap table-shell" role="region" aria-label="Per-track baseline scores" tabindex="0">
-        <div class="ds-table" role="table" aria-label="Per-track baselines">
-          <div class="ds-row head" role="row">
-            <span role="columnheader">Track</span>
-            <span role="columnheader">Baseline</span>
-            <span role="columnheader">Family</span>
-            <span role="columnheader">Params</span>
-            <span role="columnheader">Train (GPU-h)</span>
-            <span role="columnheader">Reference score</span>
-            <span role="columnheader">Configuration</span>
-          </div>
-
-          <div class="ds-row track-group-start" id="baseline-track-1" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>01</span>
-            <span class="nm" role="cell"><strong>Chance</strong><small>EEG-to-Image</small></span>
-            <span class="mod mod-eeg" role="cell">reference</span>
-            <span class="num" role="cell">0</span>
-            <span class="num" role="cell">0</span>
-            <span class="num" role="cell">Top-5 2.22 ± 0.31</span>
-            <span class="num" role="cell">Not applicable</span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>01</span>
-            <span class="nm" role="cell"><strong>EEGNet</strong><small>EEG-to-Image · Lawhern et al., 2018</small></span>
-            <span class="mod mod-eeg" role="cell">CNN</span>
-            <span class="num" role="cell">0.04 M</span>
-            <span class="num" role="cell">2</span>
-            <span class="num" role="cell">Top-5 28.13 ± 0.14</span>
-            <span class="num" role="cell">configs/img/eegnet.yaml</span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>01</span>
-            <span class="nm" role="cell"><strong>REVE</strong><small>EEG-to-Image · Elouahidi et al., 2025</small></span>
-            <span class="mod mod-eeg" role="cell">Foundation</span>
-            <span class="num" role="cell">14 M</span>
-            <span class="num" role="cell">0.5 (probe)</span>
-            <span class="num" role="cell">Top-5 84.75 ± 0.38</span>
-            <span class="num" role="cell">configs/img/reve_frozen.yaml</span>
-          </div>
-
-          <div class="ds-row track-group-start" id="baseline-track-2" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
-            <span class="nm" role="cell"><strong>Chance</strong><small>BCI decoding</small></span>
-            <span class="mod mod-eeg" role="cell">reference</span>
-            <span class="num" role="cell">0</span>
-            <span class="num" role="cell">0</span>
-            <span class="num" role="cell">Bal. Acc 24.81 ± 1.03</span>
-            <span class="num" role="cell">Not applicable</span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
-            <span class="nm" role="cell"><strong>EEGNet</strong><small>BCI decoding</small></span>
-            <span class="mod mod-eeg" role="cell">CNN</span>
-            <span class="num" role="cell">0.04 M</span>
-            <span class="num" role="cell">4</span>
-            <span class="num" role="cell">Bal. Acc 58.58 ± 0.34</span>
-            <span class="num" role="cell">configs/bci/eegnet.yaml</span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
-            <span class="nm" role="cell"><strong>REVE</strong><small>BCI decoding</small></span>
-            <span class="mod mod-eeg" role="cell">Foundation</span>
-            <span class="num" role="cell">14 M</span>
-            <span class="num" role="cell">1 (probe)</span>
-            <span class="num" role="cell">Bal. Acc 68.04 ± 0.73</span>
-            <span class="num" role="cell">configs/bci/reve.yaml</span>
-          </div>
-
-          <div class="ds-row track-group-start" id="baseline-track-3" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>03</span>
-            <span class="nm" role="cell"><strong>Chance</strong><small>Sleep onset</small></span>
-            <span class="mod mod-eeg" role="cell">reference</span>
-            <span class="num" role="cell">0</span>
-            <span class="num" role="cell">0</span>
-            <span class="num" role="cell">W-bMAE 205.42 ± 0.01 s</span>
-            <span class="num" role="cell">Not applicable</span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>03</span>
-            <span class="nm" role="cell"><strong>EEGNet-sleep</strong><small>Sleep onset</small></span>
-            <span class="mod mod-eeg" role="cell">CNN</span>
-            <span class="num" role="cell">0.04 M</span>
-            <span class="num" role="cell">4</span>
-            <span class="num" role="cell">W-bMAE 143.30 ± 0.40 s</span>
-            <span class="num" role="cell">configs/sleep/eegnet.yaml</span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>03</span>
-            <span class="nm" role="cell"><strong>REVE-sleep</strong><small>Sleep onset</small></span>
-            <span class="mod mod-eeg" role="cell">Foundation</span>
-            <span class="num" role="cell">14 M</span>
-            <span class="num" role="cell">1 (probe)</span>
-            <span class="num" role="cell">W-bMAE 134.89 ± 2.02 s</span>
-            <span class="num" role="cell">configs/sleep/reve.yaml</span>
-          </div>
-
-          <div class="ds-row track-group-start" id="baseline-track-4" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>04</span>
-            <span class="nm" role="cell"><strong>NeuroPose</strong><small>EMG-to-Pose · Liu et al., 2021</small></span>
-            <span class="mod mod-emg" role="cell">Pose CNN</span>
-            <span class="num" role="cell">-</span>
-            <span class="num" role="cell">paper</span>
-            <span class="num" role="cell">MAE 17.5 ± 1.5°</span>
-            <span class="num" role="cell">tasks/emg/pose/config.yaml</span>
-          </div>
-        </div>
-      </div>
-      <div class="ds-foot">
-        <span class="bs-kicker">All values mean ± std from NeuralBench (Banville et al., 2026), Table 1. Sleep metric is W-bMAE (weighted-binned MAE) per the proposal §1.4.</span>
-        <a href="register.html#enter" class="track-link">Register on Codabench →</a>
-      </div>
-    </div>
-      </div>
-    </details>
   </section>
 
   <!-- ============================== Step 03 ============================== -->

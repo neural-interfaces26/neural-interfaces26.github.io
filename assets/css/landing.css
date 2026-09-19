@@ -1936,39 +1936,43 @@ body.menu-open { overflow: hidden; }
   transition: background 0.15s;
 }
 
-/* The baseline and dataset tables share the same track-first reading order:
-   compact track badge, descriptive name, then technical values. */
-#baselines .ds-row {
-  grid-template-columns: 54px minmax(230px, 1.45fr) 90px 72px 108px 190px minmax(210px, 1.2fr);
+/* Each start-kit card lists only its own track's baselines. The score comes
+   right after the model name so it stays visible in a half-width card; the
+   technical values scroll horizontally after it. The id scope keeps the header
+   alignment above the generic dataset-table rule. */
+#track-guides .ds-row {
+  grid-template-columns: minmax(140px, 1.2fr) 170px 90px 64px 96px minmax(190px, 1.2fr);
   gap: 12px;
-  min-width: 980px;
+  min-width: 842px;
   padding: 13px 16px;
 }
 
-#baselines .ds-row .nm,
-#baselines .ds-row .num:nth-child(7) {
+#track-guides .ds-table-wrap.table-shell .ds-table { min-width: 842px; }
+
+#track-guides .ds-row .nm,
+#track-guides .ds-row .num:nth-child(6) {
   white-space: normal;
 }
 
-#baselines .ds-row .nm {
+#track-guides .ds-row .nm {
   display: grid;
   gap: 2px;
   overflow: visible;
   text-overflow: clip;
 }
 
-#baselines .ds-row .nm strong {
+#track-guides .ds-row .nm strong {
   color: var(--bs-text);
   font-size: 13px;
   line-height: 1.3;
 }
 
-#baselines .ds-row .nm small {
+#track-guides .ds-row .nm small {
   color: var(--bs-faint);
   font: 500 10px/1.4 var(--bs-fontmono);
 }
 
-#baselines .ds-row .num:nth-child(7) {
+#track-guides .ds-row .num:nth-child(6) {
   font-family: var(--bs-fontmono);
   font-size: 11px;
   color: var(--bs-muted);
@@ -1976,10 +1980,10 @@ body.menu-open { overflow: hidden; }
   word-break: break-word;
 }
 
-#baselines .ds-row.head > span { text-align: left; }
-#baselines .ds-row.head > span:nth-child(4),
-#baselines .ds-row.head > span:nth-child(5),
-#baselines .ds-row.head > span:nth-child(6) { text-align: right; }
+#track-guides .ds-row.head > span { text-align: left; }
+#track-guides .ds-row.head > span:nth-child(2),
+#track-guides .ds-row.head > span:nth-child(4),
+#track-guides .ds-row.head > span:nth-child(5) { text-align: right; }
 
 .ds-row > span {
   min-width: 0;
@@ -2102,7 +2106,7 @@ body.menu-open { overflow: hidden; }
   font: 500 10px/1.4 var(--bs-fontmono);
 }
 
-:is(.dataset-directory, #baselines) .track-tag {
+.dataset-directory .track-tag {
   display: inline-grid;
   width: 34px;
   height: 28px;
@@ -2114,8 +2118,7 @@ body.menu-open { overflow: hidden; }
   font: 700 11px/1 var(--bs-fontmono);
 }
 
-.dataset-directory .track-group-start:not(:first-child),
-#baselines .track-group-start:not(:first-child) { border-top: 2px solid var(--bs-text); }
+.dataset-directory .track-group-start:not(:first-child) { border-top: 2px solid var(--bs-text); }
 .dataset-directory .ds-new-tag { margin-left: 5px; vertical-align: 1px; }
 
 .dataset-protocol-note {
@@ -4500,84 +4503,52 @@ body.menu-open { overflow: hidden; }
 .prepare-command-card { min-width: 0; }
 .prepare-command-card .bs-code { margin: 18px 0 14px; }
 .prepare-command-card p { margin: 0; color: var(--bs-muted); font-size: 14px; line-height: 1.55; }
-.prepare-command-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 24px; }
+.prepare-command-pair { grid-template-columns: minmax(0, 1fr); margin-bottom: 24px; }
 
+/* Start-kit disclosures reuse the FAQ accordion: a short label on a hairline
+   row and a round +/- toggle, so each card title keeps the visual lead. */
 .prepare-disclosure {
   margin: 0;
-  overflow: hidden;
-  border: 1px solid var(--bs-card-border);
-  border-top: 3px solid var(--bs-violet);
-  border-radius: 12px;
-  background: var(--bs-bg);
-  box-shadow: 0 12px 30px rgba(22, 18, 61, .07);
+  border-top: 1px solid var(--bs-card-border);
   scroll-margin-top: 90px;
 }
 
-.prepare-disclosure--table { margin-top: 22px; }
+.prepare-disclosure + .prepare-disclosure { margin-top: -10px; }
+.prepare-disclosure:last-of-type { border-bottom: 1px solid var(--bs-card-border); }
+
 .prepare-disclosure > summary {
   display: grid;
-  grid-template-columns: 54px minmax(0, 1fr) auto;
-  gap: 16px;
+  grid-template-columns: minmax(0, 1fr) 32px;
+  gap: 14px;
   align-items: center;
-  padding: 20px 22px;
+  min-height: 52px;
+  padding: 8px 0;
   cursor: pointer;
   list-style: none;
 }
 
 .prepare-disclosure > summary::-webkit-details-marker { display: none; }
 .prepare-disclosure > summary::marker { content: ""; }
-.prepare-disclosure > summary:hover { background: rgba(91, 55, 255, .055); }
-.prepare-disclosure[open] > summary { background: var(--bs-violet-wash); }
-.prepare-disclosure > summary:focus-visible { outline: 3px solid var(--bs-violet-soft); outline-offset: -3px; }
-.prepare-disclosure-mark {
+.prepare-disclosure > summary:hover .prepare-disclosure-title { color: var(--bs-violet); }
+.prepare-disclosure > summary:focus-visible { outline: 3px solid var(--bs-violet-soft); outline-offset: 2px; }
+.prepare-disclosure-title { font-size: 16px; font-weight: 700; line-height: 1.3; }
+.prepare-disclosure-toggle {
   display: grid;
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
   place-items: center;
-  border: 1px solid rgba(91, 55, 255, .22);
-  border-radius: 10px;
-  background: var(--bs-violet-wash);
+  border: 1px solid var(--bs-card-border);
+  border-radius: 50%;
   color: var(--bs-violet);
-  font: 800 12px/1 var(--bs-fontmono);
-  letter-spacing: -.02em;
-}
-.prepare-disclosure-copy { display: grid; gap: 5px; min-width: 0; }
-.prepare-disclosure-copy strong { font-size: 21px; line-height: 1.22; }
-.prepare-disclosure-copy small { max-width: 72ch; color: var(--bs-muted); font-size: 13px; line-height: 1.45; }
-.prepare-disclosure-action {
-  display: inline-flex;
-  min-width: max-content;
-  align-items: center;
-  gap: 10px;
-  min-height: 40px;
-  padding: 8px 13px;
-  border: 1px solid rgba(91, 55, 255, .3);
-  border-radius: 999px;
-  background: var(--bs-bg);
-  color: var(--bs-violet);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: .02em;
+  font: 700 18px/1 var(--bs-fontmono);
 }
 
-.prepare-disclosure-action i {
-  width: 9px;
-  height: 9px;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
-  transform: translateY(-2px) rotate(45deg);
-  transition: transform 160ms ease;
-}
-
-.prepare-disclosure-close { display: none; }
-.prepare-disclosure[open] .prepare-disclosure-open { display: none; }
-.prepare-disclosure[open] .prepare-disclosure-close { display: inline; }
-.prepare-disclosure[open] .prepare-disclosure-action i { transform: translateY(2px) rotate(225deg); }
-.prepare-disclosure-body { padding: 22px; border-top: 1px solid var(--bs-card-border); background: rgba(255, 255, 255, .58); }
+.prepare-disclosure-toggle::before { content: "+"; }
+.prepare-disclosure[open] .prepare-disclosure-toggle::before { content: "\2212"; }
+.prepare-disclosure-body { padding: 4px 0 20px; }
+.prepare-disclosure-lead { max-width: 72ch; margin: 0 0 14px; color: var(--bs-muted); line-height: 1.55; }
 .prepare-disclosure .prepare-command-card { padding: 18px; }
 .prepare-disclosure .prepare-command-pair { margin-bottom: 0; }
-.prepare-disclosure .prepare-guide-card { padding: 16px 18px; }
-.prepare-disclosure .prepare-submission-actions { margin-top: 18px; }
 .prepare-disclosure .baseline-reference { margin: 0; padding: 0; border-top: 0; }
 
 .prepare-resource-links { display: grid; border-left: 1px solid var(--bs-card-border); }
@@ -4587,11 +4558,18 @@ body.menu-open { overflow: hidden; }
 
 .prepare-guide-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--bs-text); border-left: 1px solid var(--bs-card-border); }
 .prepare-guide-grid--visible { margin-top: 0; }
-.prepare-guide-card { display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 10px 14px; align-items: start; padding: 20px; border-right: 1px solid var(--bs-card-border); border-bottom: 1px solid var(--bs-card-border); background: var(--bs-bg); scroll-margin-top: 90px; }
-.prepare-guide-card h3 { margin: 1px 0 8px; font-size: 20px; line-height: 1.25; }
+.prepare-guide-card { display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 10px 14px; align-content: start; align-items: start; padding: 20px; border-right: 1px solid var(--bs-card-border); border-bottom: 1px solid var(--bs-card-border); background: var(--bs-bg); scroll-margin-top: 90px; }
+.prepare-guide-card h3 { margin: 1px 0 0; font-size: 20px; line-height: 1.25; }
 .prepare-guide-card > div { min-width: 0; }
 .startkit-page .bs-code-head .copy:focus-visible { outline: 2px solid var(--bs-violet-soft); outline-offset: 2px; }
 .prepare-guide-card > a { grid-column: 2; display: inline-flex; width: fit-content; min-height: 44px; align-items: center; color: var(--bs-violet); font-size: 13px; font-weight: 800; text-underline-offset: 4px; }
+.prepare-guide-card > .prepare-disclosure { grid-column: 1 / -1; }
+
+/* Each start-kit card holds its own commands and baseline table, which need
+   more room than half of a narrow viewport. */
+@media (max-width: 1100px) {
+  .prepare-guide-grid { grid-template-columns: 1fr; }
+}
 
 .prepare-note { max-width: 86ch; margin: 22px 0 0; color: var(--bs-muted); font-size: 14px; line-height: 1.55; }
 .prepare-note strong { color: var(--bs-text); }
@@ -4615,7 +4593,6 @@ body.menu-open { overflow: hidden; }
 .prepare-phase-card ol { margin: 0; padding-left: 21px; color: var(--bs-muted); font-size: 14px; line-height: 1.55; }
 .prepare-phase-card li + li { margin-top: 8px; }
 .prepare-submission-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
-#neuralbench-commands { margin-top: 22px; }
 
 .prepare-portal-grid {
   display: grid;
@@ -4861,12 +4838,6 @@ body.menu-open { overflow: hidden; }
   .prepare-step-number { font-size: 36px; }
   .prepare-step-head h2 { font-size: 30px; }
   .prepare-step-head p { font-size: 15px; line-height: 1.5; }
-  .prepare-disclosure > summary { grid-template-columns: 44px minmax(0, 1fr); gap: 12px; padding: 16px; }
-  .prepare-disclosure-mark { width: 40px; height: 40px; border-radius: 8px; }
-  .prepare-disclosure-action { grid-column: 2; width: fit-content; justify-content: space-between; }
-  .prepare-disclosure-body { padding: 14px; }
-  .prepare-disclosure-copy strong { font-size: 18px; }
-  .prepare-guide-grid { grid-template-columns: 1fr; }
   .prepare-guide-card { padding: 18px 16px; }
   .prepare-portal-grid { grid-template-columns: 1fr; }
   .prepare-portal-card {
