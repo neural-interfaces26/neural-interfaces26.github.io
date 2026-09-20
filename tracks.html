@@ -15,14 +15,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#5332F4" />
 
-<title>Competition Tracks | EEG/EMG Foundation Challenge 2026</title>
-<meta name="description" content="Compare the four EEG and EMG Foundation Challenge tracks: EEG-to-Image, BCI decoding, sleep onset prediction, and EMG-to-Pose." />
+<title>Tracks &amp; Data | EEG/EMG Foundation Challenge 2026</title>
+<meta name="description" content="Compare the four EEG and EMG Foundation Challenge tracks, their scientific tasks, metrics, development data, and evaluation datasets." />
 
 <link rel="canonical" href="https://neural-interfaces26.github.io/tracks.html" />
 <meta name="author" content="Bruno Aristimunha and the EEG/EMG Foundation Challenge organising team" />
 
-<meta property="og:title" content="Competition Tracks | EEG/EMG Foundation Challenge 2026" />
-<meta property="og:description" content="Compare the four EEG and EMG Foundation Challenge tracks: EEG-to-Image, BCI decoding, sleep onset prediction, and EMG-to-Pose." />
+<meta property="og:title" content="Tracks &amp; Data | EEG/EMG Foundation Challenge 2026" />
+<meta property="og:description" content="Compare the four EEG and EMG Foundation Challenge tracks, their scientific tasks, metrics, development data, and evaluation datasets." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://neural-interfaces26.github.io/tracks.html" />
 <meta property="og:site_name" content="EEG/EMG Foundation Challenge 2026" />
@@ -33,8 +33,8 @@
 <meta property="og:image:alt" content="Violet neural-signal trophy for the EEG/EMG Foundation Challenge 2026." />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Competition Tracks | EEG/EMG Foundation Challenge 2026" />
-<meta name="twitter:description" content="Compare the four EEG and EMG Foundation Challenge tracks: EEG-to-Image, BCI decoding, sleep onset prediction, and EMG-to-Pose." />
+<meta name="twitter:title" content="Tracks &amp; Data | EEG/EMG Foundation Challenge 2026" />
+<meta name="twitter:description" content="Compare the four EEG and EMG Foundation Challenge tracks, their scientific tasks, metrics, development data, and evaluation datasets." />
 <meta name="twitter:image" content="https://neural-interfaces26.github.io/assets/img/og-card.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -44,7 +44,7 @@
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
 <link rel="stylesheet" href="assets/css/base.css?v=20260908ux" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260910datasets1" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20260920tracksdata" />
 
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
 
@@ -64,7 +64,7 @@
   </button>
   <nav class="site-menu" id="site-menu" aria-label="Primary navigation">
     <a href="index.html">Home</a>
-    <a href="tracks.html" aria-current="page">Tracks</a>
+    <a href="tracks.html" aria-current="page">Tracks &amp; Data</a>
     <a href="participant-guide.html">Participant guide</a>
     <a href="prizes.html">Prizes</a>
     <a href="leaderboard.html">Leaderboard</a>
@@ -81,8 +81,12 @@
     <div class="page-hero-inner">
       <div class="page-hero-copy">
         <span class="bs-eyebrow">Four tasks · four generalization shifts</span>
-        <h1 id="tracks-page-heading">Choose your track.</h1>
+        <h1 id="tracks-page-heading">Tracks &amp; data.</h1>
         <p>Four tracks are available: EEG-to-Image, BCI decoding, Sleep onset, and EMG-to-Pose. You may enter one, several, or all four. Explore them below before <a href="register.html#enter">registering</a>. Each track has its own data, scientific question, evaluation metric, leaderboard, and prize path. All tracks use the same reproducibility audit.</p>
+        <nav class="tracks-page-index" aria-label="On this page">
+          <a href="#track-details">Compare tracks <span aria-hidden="true">↓</span></a>
+          <a class="data-link" href="#datasets">Jump to data <span aria-hidden="true">↓</span></a>
+        </nav>
       </div>
     </div>
   </section>
@@ -146,7 +150,7 @@
               </div>
 
           </figure>
-        <p>Visual decoding is most useful when it recognizes novel content rather than a fixed catalogue learned during training. Given a single EEG epoch recorded during natural-image viewing, identify the viewed image by ranking held-out candidates in a frozen DINOv2 embedding space. Training and test images do not overlap, so the cross-stimulus shift probes whether neural representations transfer beyond memorized concepts. Research-grade and consumer-grade datasets add source and hardware variability while keeping the task anchored to time-locked visual responses.<br><strong>Metric:</strong> Top-5 retrieval accuracy against the held-out candidate set, with higher scores indicating better performance.</p>
+        <p>Visual decoding is most useful when it recognizes novel content rather than a fixed catalogue learned during training. Given a single EEG epoch recorded during natural-image viewing, identify the viewed image by ranking held-out candidates in a frozen DINOv2 embedding space. Training and test images do not overlap, so the cross-stimulus shift probes whether neural representations transfer beyond memorized concepts. Research-grade and consumer-grade datasets add source and hardware variability while keeping the task anchored to time-locked visual responses.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Top-5 retrieval accuracy against the held-out candidate set, with higher scores indicating better performance.</span><span class="track-data-summary"><strong>Warm-up evaluation:</strong> THINGS-EEG2 test set <span aria-hidden="true">·</span> <strong>Start kit and baseline:</strong> THINGS-EEG2</span></span></p>
         <a class="track-guide-button" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track1_eeg_to_image.html" target="_blank" rel="noreferrer noopener">Open optional start kit on NeuralBench ↗</a>
         <nav class="track-card-footer" aria-label="EEG-to-Image track links"><a class="track-card-action primary" href="register.html#enter-1">Register <span aria-hidden="true">→</span></a><a class="track-card-action" href="participant-guide.html">Guide <span aria-hidden="true">→</span></a><a class="track-card-action" href="#dataset-track-1">Dataset <span aria-hidden="true">→</span></a><a class="track-card-action" href="prizes.html#award-track-1">Prizes <span aria-hidden="true">→</span></a><a class="track-card-action" href="organizers.html#team-eeg">Track leaders <span aria-hidden="true">→</span></a></nav>
       </article>
@@ -211,7 +215,7 @@
               </div>
 
           </figure>
-        <p>A practical BCI must remain reliable as the same user returns on different days without requiring a new calibration each time. Decode one of three cued mental commands: kinesthetic motor imagery, mental calculation, or word association. The longitudinal corpus follows participants across six sessions and varied Graz and BrainHero contexts. Models train on earlier labeled sessions and predict later sessions. This within-user, cross-session design isolates drift from time of day, electrode replacement, physiology, and mental strategy while preserving subject-specific calibration.<br><strong>Metric:</strong> Balanced accuracy averaged across subject, session, and context cells, with higher scores indicating better performance.</p>
+        <p>A practical BCI must remain reliable as the same user returns on different days without requiring a new calibration each time. Decode one of three cued mental commands: kinesthetic motor imagery, mental calculation, or word association. The longitudinal corpus follows participants across six sessions and varied Graz and BrainHero contexts. Models train on earlier labeled sessions and predict later sessions. This within-user, cross-session design isolates drift from time of day, electrode replacement, physiology, and mental strategy while preserving subject-specific calibration.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Balanced accuracy averaged across subject, session, and context cells, with higher scores indicating better performance.</span><span class="track-data-summary"><strong>Warm-up evaluation:</strong> Dreyer 2023 test set <span aria-hidden="true">·</span> <strong>Start kit and baseline:</strong> Stieger 2021</span><span class="track-data-alert"><strong>Dataset release:</strong> New Graz and BrainHero data for training and warm-up evaluation are coming soon. Until then, Stieger 2021 is the start-kit proxy and Dreyer 2023 the warm-up proxy.</span></span></p>
         <a class="track-guide-button" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track2_eeg_to_bci.html" target="_blank" rel="noreferrer noopener">Open optional start kit on NeuralBench ↗</a>
         <nav class="track-card-footer" aria-label="BCI decoding track links"><a class="track-card-action primary" href="register.html#enter-2">Register <span aria-hidden="true">→</span></a><a class="track-card-action" href="participant-guide.html">Guide <span aria-hidden="true">→</span></a><a class="track-card-action" href="#dataset-track-2">Dataset <span aria-hidden="true">→</span></a><a class="track-card-action" href="prizes.html#award-track-2">Prizes <span aria-hidden="true">→</span></a><a class="track-card-action" href="organizers.html#team-bci">Track leaders <span aria-hidden="true">→</span></a></nav>
       </article>
@@ -280,7 +284,7 @@
               </div>
 
           </figure>
-        <p>Reliable sleep-onset estimates from lightweight home headbands could make longitudinal sleep monitoring less dependent on full laboratory polysomnography. The task is to predict, at each point in a continuous four-channel home EEG recording, the number of seconds remaining until the first stable N2 epoch. Because recordings are collected in everyday settings, models must remain robust to night-to-night variability, motion artifacts, changes in electrode impedance, and occasional channel dropout. Evaluation is performed on unseen participants to test whether patterns associated with the transition from wakefulness to sleep generalize across individuals rather than relying on participant-specific characteristics.<br><strong>Metric:</strong> Binned mean absolute error (bMAE) in seconds, computed with equal weighting across four time-to-onset ranges so that performance at short and long prediction horizons contributes equally. Lower scores indicate better performance.</p>
+        <p>Reliable sleep-onset estimates from lightweight home headbands could make longitudinal sleep monitoring less dependent on full laboratory polysomnography. The task is to predict, at each point in a continuous four-channel home EEG recording, the number of seconds remaining until the first stable N2 epoch. Because recordings are collected in everyday settings, models must remain robust to night-to-night variability, motion artifacts, changes in electrode impedance, and occasional channel dropout. Evaluation is performed on unseen participants to test whether patterns associated with the transition from wakefulness to sleep generalize across individuals rather than relying on participant-specific characteristics.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Binned mean absolute error (bMAE) in seconds, computed with equal weighting across four time-to-onset ranges. Lower scores indicate better performance.</span><span class="track-data-summary"><strong>Warm-up evaluation:</strong> Sleep-EDF test set <span aria-hidden="true">·</span> <strong>Start kit and baseline:</strong> Sleep-EDF</span><span class="track-data-alert"><strong>Dataset release:</strong> New Muse data for training and warm-up evaluation are coming soon. Until then, Sleep-EDF is the proxy for both.</span></span></p>
         <a class="track-guide-button" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track3_sleep_onset.html" target="_blank" rel="noreferrer noopener">Open optional start kit on NeuralBench ↗</a>
         <nav class="track-card-footer" aria-label="Sleep onset track links"><a class="track-card-action primary" href="register.html#enter-3">Register <span aria-hidden="true">→</span></a><a class="track-card-action" href="participant-guide.html">Guide <span aria-hidden="true">→</span></a><a class="track-card-action" href="#dataset-track-3">Dataset <span aria-hidden="true">→</span></a><a class="track-card-action" href="prizes.html#award-track-3">Prizes <span aria-hidden="true">→</span></a><a class="track-card-action" href="organizers.html#team-sleep">Track leaders <span aria-hidden="true">→</span></a></nav>
       </article>
@@ -345,7 +349,7 @@
               </div>
 
           </figure>
-        <p>Translating wrist muscle activity into hand motion is a core challenge for wearable control systems that must work beyond a calibrated laboratory setup. Predict trajectories of 20 hand-joint angles from 16-channel wrist sEMG recorded during everyday movement. Evaluation includes users and movement stages never seen during training, plus unseen combinations of known users and stages. This tests robustness to anatomy, wristband placement, and kinematic context, and asks whether a daily wearable interface can transfer to a new user without person-specific retraining.<br><strong>Metric:</strong> Mean absolute angular error across the predicted joint trajectories, reported in degrees, with lower scores indicating better performance.</p>
+        <p>Translating wrist muscle activity into hand motion is a core challenge for wearable control systems that must work beyond a calibrated laboratory setup. Predict trajectories of 20 hand-joint angles from 16-channel wrist sEMG recorded during everyday movement. Evaluation includes users and movement stages never seen during training, plus unseen combinations of known users and stages. This tests robustness to anatomy, wristband placement, and kinematic context, and asks whether a daily wearable interface can transfer to a new user without person-specific retraining.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Mean absolute angular error across the predicted joint trajectories, reported in degrees, with lower scores indicating better performance.</span><span class="track-data-summary"><strong>Warm-up evaluation:</strong> EMG2Pose user-stage test set <span aria-hidden="true">·</span> <strong>Start kit and baseline:</strong> EMG2Pose</span></span></p>
         <a class="track-guide-button" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track4_emg_to_pose.html" target="_blank" rel="noreferrer noopener">Open optional start kit on NeuralBench ↗</a>
         <nav class="track-card-footer" aria-label="EMG-to-Pose track links"><a class="track-card-action primary" href="register.html#enter-4">Register <span aria-hidden="true">→</span></a><a class="track-card-action" href="participant-guide.html">Guide <span aria-hidden="true">→</span></a><a class="track-card-action" href="#dataset-track-4">Dataset <span aria-hidden="true">→</span></a><a class="track-card-action" href="prizes.html#award-track-4">Prizes <span aria-hidden="true">→</span></a><a class="track-card-action" href="organizers.html#team-emg">Track leaders <span aria-hidden="true">→</span></a></nav>
       </article>
@@ -354,10 +358,236 @@
 
   <section class="dataset-directory campaign-section" id="datasets" aria-labelledby="datasets-heading">
     <div class="campaign-section-head reveal">
-      <p class="bs-eyebrow">Track datasets · public development data + 2026 competition cohorts</p>
+      <p class="bs-eyebrow">Development data · warm-up evaluation · sealed evaluation</p>
       <h2 id="datasets-heading">The data behind every track.</h2>
-      <p>All competition data use BIDS. The datasets listed below combine direct training counterparts to the hidden evaluation cohorts, matched by protocol, hardware, or objective, with additional public datasets selected by the organizers for closely related recording conditions (see track card below for more information). For broader strategies, including foundation-model pretraining, <a href="https://eegdash.org/dataset_summary.html" target="_blank" rel="noreferrer noopener">EEGDash</a> provides 700+ additional EEG corpora through the same BIDS-first streaming interface. A <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_pretrain_mae.html" target="_blank" rel="noreferrer noopener">tutorial example of self-supervised learning foundation-model pretraining</a> is available on NeuralBench.</p>
     </div>
+
+      <div class="dataset-role-grid" aria-label="Roles of competition datasets">
+        <article class="dataset-role-card">
+          <span class="bs-kicker">01 · Training data</span>
+          <h3>Build your model on permitted data.</h3>
+          <p>Train in your own environment, with or without NeuralBench, using the public datasets recommended in the table below or other data permitted by the rules. NeuralBench documents the train, validation, and test splits used by its optional start kits, with the corresponding test splits used for Codabench warm-up evaluation. For broader strategies, <a href="https://eegdash.org/dataset_summary.html" target="_blank" rel="noreferrer noopener">EEGDash</a> provides 700+ additional EEG corpora and NeuralBench provides a <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_pretrain_mae.html" target="_blank" rel="noreferrer noopener">foundation-model pretraining tutorial</a>. All competition datasets use BIDS.</p>
+        </article>
+        <article class="dataset-role-card dataset-role-card--warmup">
+          <span class="bs-kicker">02 · Warm-up evaluation data</span>
+          <h3>Test submissions on public data.</h3>
+          <p>During warm-up, Codabench scores your model on the public test partitions of THINGS-EEG2, Dreyer 2023, Sleep-EDF, and EMG2Pose, using the splits documented in the <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/index.html" target="_blank" rel="noreferrer noopener">NeuralBench competition start kits</a>. Because the evaluation data are public, leakage is possible and scores are indicative only.</p>
+        </article>
+        <article class="dataset-role-card dataset-role-card--sealed">
+          <span class="bs-kicker">03 · Sealed evaluation data</span>
+          <h3>Compete on private 2026 data.</h3>
+          <p>The track leaders' private cohorts are uploaded to Codabench only for the sealed phase. Their examples and labels remain hidden, and only sealed scores determine the final ranking.</p>
+        </article>
+      </div>
+
+      <aside class="dataset-update-banner" role="note" aria-label="Upcoming Track 02 and Track 03 dataset releases">
+        <span class="bs-kicker">Upcoming data release</span>
+        <p><strong>Entirely new public training data, made available by the track leaders, will be released soon: Graz and BrainHero EEG for Track 02 and Muse Sleep-Onset EEG for Track 03.</strong> Until then, Codabench warm-up evaluation uses Dreyer 2023 for Track 02 and Sleep-EDF for Track 03. Warm-up evaluation will switch to the new track datasets after their release.</p>
+      </aside>
+
+      <div class="ds-table-wrap">
+        <div class="ds-table" role="table" aria-label="Dataset directory">
+          <div class="ds-row head" role="row">
+            <span role="columnheader">Track</span>
+            <span role="columnheader">Dataset</span>
+            <span role="columnheader">Competition use</span>
+            <span role="columnheader">Modality</span>
+            <span role="columnheader">Participants</span>
+            <span role="columnheader">Hours</span>
+            <span role="columnheader">Channels</span>
+            <span role="columnheader">Sampling</span>
+            <span role="columnheader">Size</span>
+          </div>
+
+          <div class="ds-row track-group-start" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>01</span>
+            <span class="nm" role="cell"><strong>THINGS-EEG1</strong></span>
+            <span class="dataset-use" role="cell" aria-label="No designated competition use"></span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">50</span>
+            <span class="num" role="cell">46h</span>
+            <span class="num" role="cell">63/128</span>
+            <span class="num" role="cell">1000 Hz</span>
+            <span class="num" role="cell">44 GB</span>
+          </div>
+          <div class="ds-row ds-row--warmup" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>01</span>
+            <span class="nm" role="cell"><strong>THINGS-EEG2</strong></span>
+            <span class="dataset-use" role="cell">Start kit · Baseline · Warm-up evaluation</span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">10</span>
+            <span class="num" role="cell">87h</span>
+            <span class="num" role="cell">63</span>
+            <span class="num" role="cell">1000 Hz</span>
+            <span class="num" role="cell">59 GB</span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>01</span>
+            <span class="nm" role="cell"><strong>Alljoined-1</strong></span>
+            <span class="dataset-use" role="cell" aria-label="No designated competition use"></span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">8</span>
+            <span class="num" role="cell">-</span>
+            <span class="num" role="cell">64</span>
+            <span class="num" role="cell">512 Hz</span>
+            <span class="num" role="cell">4.4 GB</span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>01</span>
+            <span class="nm" role="cell"><strong>Alljoined-1.6M</strong></span>
+            <span class="dataset-use" role="cell" aria-label="No designated competition use"></span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">20</span>
+            <span class="num" role="cell">130h</span>
+            <span class="num" role="cell">32</span>
+            <span class="num" role="cell">256 Hz</span>
+            <span class="num" role="cell">7.7 GB</span>
+          </div>
+          <div class="ds-row ds-row--new ds-row--sealed" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>01</span>
+            <span class="nm" role="cell"><strong>Alljoined evaluation cohort <span class="ds-new-tag">NEW 2026</span></strong></span>
+            <span class="dataset-use" role="cell">Sealed evaluation</span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">11</span>
+            <span class="num" role="cell">-</span>
+            <span class="num" role="cell">32</span>
+            <span class="num" role="cell">256 Hz</span>
+            <span class="num" role="cell">-</span>
+          </div>
+          <div class="ds-row track-group-start" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
+            <span class="nm" role="cell"><strong>Stieger 2021</strong></span>
+            <span class="dataset-use" role="cell">Start kit · Baseline</span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">62</span>
+            <span class="num" role="cell">615h</span>
+            <span class="num" role="cell">60</span>
+            <span class="num" role="cell">1000 Hz</span>
+            <span class="num" role="cell">399 GB</span>
+          </div>
+          <div class="ds-row ds-row--warmup" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
+            <span class="nm" role="cell"><strong>Dreyer 2023</strong></span>
+            <span class="dataset-use" role="cell">Warm-up evaluation</span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">87</span>
+            <span class="num" role="cell">127h</span>
+            <span class="num" role="cell">27</span>
+            <span class="num" role="cell">512 Hz</span>
+            <span class="num" role="cell">19 GB</span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
+            <span class="nm" role="cell"><strong>Zyma 2019</strong></span>
+            <span class="dataset-use" role="cell" aria-label="No designated competition use"></span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">36</span>
+            <span class="num" role="cell">2.4h</span>
+            <span class="num" role="cell">21</span>
+            <span class="num" role="cell">500 Hz</span>
+            <span class="num" role="cell">0.18 GB</span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
+            <span class="nm" role="cell"><strong>Scherer 2015</strong></span>
+            <span class="dataset-use" role="cell" aria-label="No designated competition use"></span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">9</span>
+            <span class="num" role="cell">14h</span>
+            <span class="num" role="cell">30</span>
+            <span class="num" role="cell">256 Hz</span>
+            <span class="num" role="cell">1.1 GB</span>
+          </div>
+          <div class="ds-row ds-row--new ds-row--sealed" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
+            <span class="nm" role="cell"><strong>Graz and BrainHero EEG <span class="ds-new-tag">NEW 2026</span></strong></span>
+            <span class="dataset-use" role="cell">Warm-up evaluation (soon) · Sealed evaluation</span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">20</span>
+            <span class="num" role="cell">80h</span>
+            <span class="num" role="cell">47</span>
+            <span class="num" role="cell">500 Hz</span>
+            <span class="num" role="cell">-</span>
+          </div>
+          <div class="ds-row track-group-start ds-row--warmup" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>03</span>
+            <span class="nm" role="cell"><strong>Sleep-EDF</strong></span>
+            <span class="dataset-use" role="cell">Start kit · Baseline · Warm-up evaluation</span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">78</span>
+            <span class="num" role="cell">3,849h</span>
+            <span class="num" role="cell">5/7</span>
+            <span class="num" role="cell">100 Hz</span>
+            <span class="num" role="cell">8.7 GB</span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>03</span>
+            <span class="nm" role="cell"><strong>PhysioNet Challenge 2018</strong></span>
+            <span class="dataset-use" role="cell" aria-label="No designated competition use"></span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">1,983</span>
+            <span class="num" role="cell">15,261h</span>
+            <span class="num" role="cell">13</span>
+            <span class="num" role="cell">200 Hz</span>
+            <span class="num" role="cell">431 GB</span>
+          </div>
+          <div class="ds-row" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>03</span>
+            <span class="nm" role="cell"><strong>HMC Sleep Staging</strong></span>
+            <span class="dataset-use" role="cell" aria-label="No designated competition use"></span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">151</span>
+            <span class="num" role="cell">1200h</span>
+            <span class="num" role="cell">4</span>
+            <span class="num" role="cell">256 Hz</span>
+            <span class="num" role="cell">-</span>
+          </div>
+          <div class="ds-row ds-row--warmup" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>03</span>
+            <span class="nm" role="cell"><strong>Muse Sleep-Onset training set <span class="ds-new-tag">NEW 2026</span></strong></span>
+            <span class="dataset-use" role="cell">Warm-up evaluation (soon)</span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">TBC</span>
+            <span class="num" role="cell">-</span>
+            <span class="num" role="cell">4</span>
+            <span class="num" role="cell">256 Hz</span>
+            <span class="num" role="cell">-</span>
+          </div>
+          <div class="ds-row ds-row--new ds-row--sealed" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>03</span>
+            <span class="nm" role="cell"><strong>Muse Sleep-Onset evaluation set <span class="ds-new-tag">NEW 2026</span></strong></span>
+            <span class="dataset-use" role="cell">Sealed evaluation</span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">TBC</span>
+            <span class="num" role="cell">-</span>
+            <span class="num" role="cell">4</span>
+            <span class="num" role="cell">256 Hz</span>
+            <span class="num" role="cell">-</span>
+          </div>
+          <div class="ds-row track-group-start ds-row--warmup" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>04</span>
+            <span class="nm" role="cell"><strong>EMG2Pose</strong></span>
+            <span class="dataset-use" role="cell">Start kit · Baseline · Warm-up evaluation</span>
+            <span class="mod mod-emg" role="cell">EMG</span>
+            <span class="num" role="cell">193</span>
+            <span class="num" role="cell">370h</span>
+            <span class="num" role="cell">16</span>
+            <span class="num" role="cell">2000 Hz</span>
+            <span class="num" role="cell">-</span>
+          </div>
+          <div class="ds-row ds-row--new ds-row--sealed" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>04</span>
+            <span class="nm" role="cell"><strong>EMG2Pose evaluation cohort <span class="ds-new-tag">NEW 2026</span></strong></span>
+            <span class="dataset-use" role="cell">Sealed evaluation</span>
+            <span class="mod mod-emg" role="cell">EMG</span>
+            <span class="num" role="cell">193</span>
+            <span class="num" role="cell">370h</span>
+            <span class="num" role="cell">16</span>
+            <span class="num" role="cell">2000 Hz</span>
+            <span class="num" role="cell">-</span>
+          </div>
+        </div>
+      </div>
 
       <p class="dataset-release-highlight"><strong>Four tracks, four major data releases for 2026:</strong> Alljoined, Inria Bordeaux, Muse, and Meta Reality Labs each contribute dedicated data to test models under realistic generalization shifts.</p>
 
@@ -394,205 +624,15 @@
           <p class="dataset-release-copy">This new cohort is reserved entirely for hidden evaluation. Its direct training counterpart is the public <strong>EMG2Pose</strong> dataset, and both follow the same protocol pairing 16-channel wrist sEMG with 20 UmeTrack joint angles. Evaluation covers unseen users, movement stages, and user-stage combinations. Provided by Meta Reality Labs.</p>
         </article>
       </div>
-
-      <div class="ds-table-wrap">
-        <div class="ds-table" role="table" aria-label="Dataset directory">
-          <div class="ds-row head" role="row">
-            <span role="columnheader">Track</span>
-            <span role="columnheader">Dataset</span>
-            <span role="columnheader">Modality</span>
-            <span role="columnheader">Participants</span>
-            <span role="columnheader">Hours</span>
-            <span role="columnheader">Channels</span>
-            <span role="columnheader">Sampling</span>
-            <span role="columnheader">Size</span>
-          </div>
-
-          <div class="ds-row track-group-start" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>01</span>
-            <span class="nm" role="cell"><strong>THINGS-EEG1</strong><small>things-eeg1 · Object viewing</small></span>
-            <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">50</span>
-            <span class="num" role="cell">46h</span>
-            <span class="num" role="cell">63/128</span>
-            <span class="num" role="cell">1000 Hz</span>
-            <span class="num" role="cell">44 GB</span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>01</span>
-            <span class="nm" role="cell"><strong>THINGS-EEG2</strong><small>things-eeg2 · Object viewing</small></span>
-            <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">10</span>
-            <span class="num" role="cell">87h</span>
-            <span class="num" role="cell">63</span>
-            <span class="num" role="cell">1000 Hz</span>
-            <span class="num" role="cell">59 GB</span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>01</span>
-            <span class="nm" role="cell"><strong>Alljoined-1</strong><small>alljoined-1 · Natural images</small></span>
-            <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">8</span>
-            <span class="num" role="cell">-</span>
-            <span class="num" role="cell">64</span>
-            <span class="num" role="cell">512 Hz</span>
-            <span class="num" role="cell">4.4 GB</span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>01</span>
-            <span class="nm" role="cell"><strong>Alljoined-1.6M</strong><small>alljoined-1.6 · Natural images</small></span>
-            <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">20</span>
-            <span class="num" role="cell">130h</span>
-            <span class="num" role="cell">32</span>
-            <span class="num" role="cell">256 Hz</span>
-            <span class="num" role="cell">7.7 GB</span>
-          </div>
-          <div class="ds-row ds-row--new" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>01</span>
-            <span class="nm" role="cell"><strong>Alljoined evaluation cohort <span class="ds-new-tag">2026</span></strong><small>Hidden evaluation · Train on Alljoined-1.6M</small></span>
-            <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">11</span>
-            <span class="num" role="cell">-</span>
-            <span class="num" role="cell">32</span>
-            <span class="num" role="cell">256 Hz</span>
-            <span class="num" role="cell">-</span>
-          </div>
-          <div class="ds-row track-group-start" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
-            <span class="nm" role="cell"><strong>Stieger 2021</strong><small>stieger2021 · Continuous MI</small></span>
-            <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">62</span>
-            <span class="num" role="cell">615h</span>
-            <span class="num" role="cell">60</span>
-            <span class="num" role="cell">1000 Hz</span>
-            <span class="num" role="cell">399 GB</span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
-            <span class="nm" role="cell"><strong>Dreyer 2023</strong><small>dreyer2023 · Large MI cohort</small></span>
-            <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">87</span>
-            <span class="num" role="cell">127h</span>
-            <span class="num" role="cell">27</span>
-            <span class="num" role="cell">512 Hz</span>
-            <span class="num" role="cell">19 GB</span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
-            <span class="nm" role="cell"><strong>Zyma 2019</strong><small>zyma2019 · Mental tasks</small></span>
-            <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">36</span>
-            <span class="num" role="cell">2.4h</span>
-            <span class="num" role="cell">21</span>
-            <span class="num" role="cell">500 Hz</span>
-            <span class="num" role="cell">0.18 GB</span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
-            <span class="nm" role="cell"><strong>Scherer 2015</strong><small>scherer2015 · Individually tuned BCI</small></span>
-            <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">9</span>
-            <span class="num" role="cell">14h</span>
-            <span class="num" role="cell">30</span>
-            <span class="num" role="cell">256 Hz</span>
-            <span class="num" role="cell">1.1 GB</span>
-          </div>
-          <div class="ds-row ds-row--new" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
-            <span class="nm" role="cell"><strong>Graz and BrainHero EEG <span class="ds-new-tag">2026</span></strong><small>Labeled training sessions + hidden later sessions</small></span>
-            <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">20</span>
-            <span class="num" role="cell">80h</span>
-            <span class="num" role="cell">47</span>
-            <span class="num" role="cell">500 Hz</span>
-            <span class="num" role="cell">-</span>
-          </div>
-          <div class="ds-row track-group-start" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>03</span>
-            <span class="nm" role="cell"><strong>Sleep-EDF Extended</strong><small>sleepedf-ext</small></span>
-            <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">100</span>
-            <span class="num" role="cell">3,849h</span>
-            <span class="num" role="cell">5/7</span>
-            <span class="num" role="cell">100 Hz</span>
-            <span class="num" role="cell">8.7 GB</span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>03</span>
-            <span class="nm" role="cell"><strong>PhysioNet Challenge 2018</strong><small>physionet2018</small></span>
-            <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">1,983</span>
-            <span class="num" role="cell">15,261h</span>
-            <span class="num" role="cell">13</span>
-            <span class="num" role="cell">200 Hz</span>
-            <span class="num" role="cell">431 GB</span>
-          </div>
-          <div class="ds-row" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>03</span>
-            <span class="nm" role="cell"><strong>HMC Sleep Staging</strong><small>hmc-sleep</small></span>
-            <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">151</span>
-            <span class="num" role="cell">1200h</span>
-            <span class="num" role="cell">4</span>
-            <span class="num" role="cell">256 Hz</span>
-            <span class="num" role="cell">-</span>
-          </div>
-          <div class="ds-row ds-row--new" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>03</span>
-            <span class="nm" role="cell"><strong>Muse Sleep-Onset training set <span class="ds-new-tag">2026</span></strong><small>Labeled training</small></span>
-            <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">TBC</span>
-            <span class="num" role="cell">-</span>
-            <span class="num" role="cell">4</span>
-            <span class="num" role="cell">256 Hz</span>
-            <span class="num" role="cell">-</span>
-          </div>
-          <div class="ds-row ds-row--new" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>03</span>
-            <span class="nm" role="cell"><strong>Muse Sleep-Onset evaluation set <span class="ds-new-tag">2026</span></strong><small>Hidden evaluation · Part of the same combined participant target</small></span>
-            <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">TBC</span>
-            <span class="num" role="cell">-</span>
-            <span class="num" role="cell">4</span>
-            <span class="num" role="cell">256 Hz</span>
-            <span class="num" role="cell">-</span>
-          </div>
-          <div class="ds-row track-group-start" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>04</span>
-            <span class="nm" role="cell"><strong>EMG2Pose</strong><small>Salter2024Emg2pose · Joint-angle regression</small></span>
-            <span class="mod mod-emg" role="cell">EMG</span>
-            <span class="num" role="cell">193</span>
-            <span class="num" role="cell">370h</span>
-            <span class="num" role="cell">16</span>
-            <span class="num" role="cell">2000 Hz</span>
-            <span class="num" role="cell">-</span>
-          </div>
-          <div class="ds-row ds-row--new" role="row">
-            <span class="track-tag" role="cell"><span class="sr-only">Track </span>04</span>
-            <span class="nm" role="cell"><strong>EMG2Pose evaluation cohort <span class="ds-new-tag">2026</span></strong><small>Hidden evaluation · Train on public EMG2Pose</small></span>
-            <span class="mod mod-emg" role="cell">EMG</span>
-            <span class="num" role="cell">193</span>
-            <span class="num" role="cell">370h</span>
-            <span class="num" role="cell">16</span>
-            <span class="num" role="cell">2000 Hz</span>
-            <span class="num" role="cell">-</span>
-          </div>
-        </div>
-      </div>
-
-      <aside class="dataset-protocol-note" aria-label="Dataset release and evaluation protocol">
-        <div><span class="bs-eyebrow">Data access + evaluation protocol</span><p>Use the NeuralBench track guides and Codabench Participation tabs for current data-access and evaluation instructions. Original licenses remain in force. Participant, session, and stimulus splits control leakage. Evaluation labels stay confidential, and organizers re-run the top three submissions.</p></div>
-        <a href="participant-guide.html" class="bs-btn primary">Open the participant guide →</a>
-      </aside>
   </section>
 
   <section class="register-panel campaign-section" aria-labelledby="tracks-cta-heading">
     <div class="reveal">
-      <h2 id="tracks-cta-heading">Ready to test your model?</h2>
-      <p>Review the rules, choose a preparation path, and register on the Codabench page for your track.</p>
+      <h2 id="tracks-cta-heading">Ready to train and submit your model?</h2>
+      <p>Use the NeuralBench start kits for their public train, validation, and test split definitions, or train with your own permitted pipeline. For the active warm-up dataset, sealed evaluation, submission contract, and uploads, use the Competition and Participation tabs on your track's Codabench page. Original dataset licenses and competition rules remain in force.</p>
       <div class="bs-hero-cta">
         <a class="bs-btn primary" href="register.html#enter">Choose a track &amp; register →</a>
+        <a class="bs-btn ghost" href="participant-guide.html">Open the participant guide</a>
         <a class="bs-btn ghost" href="rules.html">Read the rules</a>
       </div>
     </div>
@@ -605,7 +645,7 @@
     <a class="site-footer-brand" href="index.html">EEG/EMG Foundation Challenge 2026</a>
     <nav class="site-footer-links" aria-label="Footer navigation">
       <a href="index.html">Home</a>
-      <a href="tracks.html" aria-current="page">Tracks</a>
+      <a href="tracks.html" aria-current="page">Tracks &amp; Data</a>
       <a href="participant-guide.html">Participant guide</a>
       <a href="prizes.html">Prizes</a>
       <a href="leaderboard.html">Leaderboard</a>

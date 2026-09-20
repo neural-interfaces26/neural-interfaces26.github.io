@@ -4,6 +4,8 @@
   --site-gutter: max(clamp(20px, 3.333vw, 48px), calc((100vw - 1440px) / 2));
 }
 
+html { scroll-behavior: smooth; }
+
 .landing {
   display: block;
   min-width: 0;
@@ -177,7 +179,7 @@
 }
 
 .dataset-release-highlight {
-  margin: -8px 0 28px;
+  margin: 32px 0 28px;
   padding: 18px 20px;
   border-top: 1px solid var(--bs-violet);
   border-bottom: 1px solid var(--bs-violet);
@@ -187,6 +189,48 @@
 }
 
 .dataset-release-highlight strong { color: var(--bs-violet); }
+
+.dataset-role-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 4px 0 20px;
+  border-top: 1px solid var(--bs-text);
+  border-bottom: 1px solid var(--bs-text);
+}
+
+.dataset-role-card {
+  min-width: 0;
+  padding: 20px;
+  border-right: 1px solid var(--bs-card-border);
+  background: var(--bs-bg);
+}
+
+.dataset-role-card:last-child { border-right: 0; }
+.dataset-role-card--warmup { background: var(--bs-violet-wash); }
+.dataset-role-card--sealed { background: rgba(16, 20, 24, .035); }
+.dataset-role-card h3 { margin: 10px 0 8px; font-size: 19px; line-height: 1.2; }
+.dataset-role-card p { margin: 0; color: var(--bs-muted); font-size: 13px; line-height: 1.55; }
+
+.dataset-update-banner {
+  display: grid;
+  grid-template-columns: minmax(150px, .28fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  margin: 0 0 28px;
+  padding: 16px 20px;
+  border: 1px solid rgba(165, 31, 45, .34);
+  border-left: 4px solid #a51f2d;
+  border-radius: 10px;
+  background: rgba(165, 31, 45, .055);
+}
+
+.dataset-update-banner .bs-kicker {
+  color: #a51f2d;
+  font-size: 14px;
+  line-height: 1.25;
+}
+.dataset-update-banner p { margin: 0; color: #861827; font-size: 16px; line-height: 1.5; }
+.dataset-update-banner strong { color: #a51f2d; }
 
 .policy-list.flush-top { margin-top: 0; }
 .privacy-evidence { margin-bottom: 16px; }
@@ -701,6 +745,37 @@ body.menu-open { overflow: hidden; }
 }
 
 .track-card > p:not(.track-facts) strong { color: var(--bs-text); }
+
+.track-data-meta {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.track-metric,
+.track-data-summary {
+  display: block;
+  color: var(--bs-muted);
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.track-data-summary { margin-top: 2px; }
+
+.track-data-alert {
+  display: block;
+  margin-top: 8px;
+  padding: 6px 9px;
+  border-left: 2px solid #c82236;
+  border-radius: 2px;
+  background: rgba(200, 34, 54, 0.055);
+  color: #9f1c2d;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.track-card > p:not(.track-facts) .track-data-alert strong { color: inherit; }
 
 .track-guide-button {
   display: inline-flex;
@@ -1271,6 +1346,7 @@ body.menu-open { overflow: hidden; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   .reveal,
   .reveal-ready .reveal { opacity: 1; transform: none; transition: none; }
   .timeline-progress-fill,
@@ -2040,6 +2116,17 @@ body.menu-open { overflow: hidden; }
   background: rgba(83, 50, 244, 0.08);
 }
 
+/* Public datasets mounted for warm-up evaluation. Sealed evaluation rows
+   retain the purple 2026-release treatment above. */
+.ds-row--warmup {
+  position: relative;
+  background: rgba(40, 145, 91, 0.055);
+  box-shadow: inset 3px 0 0 #29915b;
+}
+
+.ds-row--warmup:hover:not(.head) { background: rgba(40, 145, 91, 0.1); }
+.ds-row--warmup .ds-new-tag { background: #237a4e; }
+
 .ds-new-tag {
   display: inline-block;
   margin-left: 8px;
@@ -2072,16 +2159,18 @@ body.menu-open { overflow: hidden; }
 
 /* The Tracks dataset directory uses an explicit track column and combines
    display names with IDs, leaving enough room for every value to read cleanly. */
+.dataset-directory .ds-table { min-width: 1080px; }
+
 .dataset-directory .ds-row {
-  grid-template-columns: 54px minmax(250px, 1.7fr) 76px 74px 72px 74px 94px 76px;
+  grid-template-columns: 54px minmax(210px, 1.35fr) minmax(170px, 1.05fr) 76px 74px 72px 74px 94px 76px;
   gap: 12px;
-  min-width: 900px;
+  min-width: 1080px;
   padding: 13px 16px;
 }
 
 .dataset-directory .ds-row.head { padding-block: 11px; }
 .dataset-directory .ds-row.head > span { text-align: left; }
-.dataset-directory .ds-row.head > span:nth-child(n + 4) { text-align: right; }
+.dataset-directory .ds-row.head > span:nth-child(n + 5) { text-align: right; }
 
 .dataset-directory .ds-row .nm {
   display: grid;
@@ -2102,6 +2191,12 @@ body.menu-open { overflow: hidden; }
   font: 500 10px/1.4 var(--bs-fontmono);
 }
 
+.dataset-directory .dataset-use {
+  color: var(--bs-muted);
+  font: 600 10px/1.4 var(--bs-fontmono);
+  letter-spacing: .15px;
+}
+
 :is(.dataset-directory, #baselines) .track-tag {
   display: inline-grid;
   width: 34px;
@@ -2117,29 +2212,6 @@ body.menu-open { overflow: hidden; }
 .dataset-directory .track-group-start:not(:first-child),
 #baselines .track-group-start:not(:first-child) { border-top: 2px solid var(--bs-text); }
 .dataset-directory .ds-new-tag { margin-left: 5px; vertical-align: 1px; }
-
-.dataset-protocol-note {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 32px;
-  align-items: center;
-  margin-top: 22px;
-  padding: 24px;
-  border: 1px solid var(--bs-card-border);
-  border-left: 4px solid var(--bs-violet);
-  border-radius: var(--bs-radius-card);
-  background: var(--bs-surface);
-}
-
-.dataset-protocol-note p {
-  max-width: 92ch;
-  margin: 8px 0 0;
-  color: var(--bs-muted);
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-.dataset-protocol-note .bs-btn { white-space: nowrap; }
 
 .ds-row .bar {
   height: 5px;
@@ -4378,6 +4450,34 @@ body.menu-open { overflow: hidden; }
 .tracks-page .page-hero-copy > p { margin-bottom: 12px; }
 .tracks-page .page-hero-copy > p:last-of-type { margin-bottom: 20px; }
 .tracks-page .page-hero-copy > p a { color: var(--bs-violet); font-weight: 700; text-underline-offset: 3px; }
+.tracks-page-index {
+  display: inline-flex;
+  align-items: stretch;
+  overflow: hidden;
+  border: 1px solid var(--bs-card-border);
+  border-radius: 8px;
+  background: var(--bs-bg);
+}
+.tracks-page-index a {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  padding: 10px 17px;
+  font-size: 15px;
+  line-height: 1.2;
+}
+.tracks-page-index a {
+  gap: 8px;
+  color: var(--bs-text);
+  font-weight: 800;
+  text-decoration: none;
+}
+.tracks-page-index a + a { border-left: 1px solid var(--bs-card-border); }
+.tracks-page-index a:hover,
+.tracks-page-index a:focus-visible { color: var(--bs-violet); background: var(--bs-surface); }
+.tracks-page-index .data-link { color: var(--bs-violet); background: rgba(83, 50, 244, .06); }
+.tracks-page #track-details,
+.tracks-page #datasets { scroll-margin-top: 88px; }
 .tracks-hero-actions { flex-wrap: wrap; }
 .tracks-hero-actions .bs-btn { min-width: max-content; }
 .tracks-page .home-track-compare { margin-top: 24px; margin-bottom: 0; }
@@ -4640,6 +4740,13 @@ body.menu-open { overflow: hidden; }
 .prepare-track-disclosure-body { min-width: 0; padding: 16px; overflow-x: auto; border-top: 1px solid var(--bs-card-border); background: rgba(255, 255, 255, .58); }
 .prepare-track-disclosure-body .bs-code { margin: 0 0 12px; }
 .prepare-track-disclosure-body > p { margin: 0; color: var(--bs-muted); font-size: 13px; line-height: 1.5; }
+.prepare-track-disclosure-body .prepare-track-dataset {
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  border-left: 3px solid var(--bs-violet);
+  background: var(--bs-violet-wash);
+  color: var(--bs-text);
+}
 .prepare-track-disclosure-body .prepare-track-reference { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--bs-card-border); }
 
 .prepare-track-table { min-width: 920px; border-top: 1px solid var(--bs-text); }
@@ -4858,6 +4965,9 @@ body.menu-open { overflow: hidden; }
 .current-challenge-actions { display: flex; flex-wrap: wrap; gap: 8px; }
 
 @media (max-width: 900px) {
+  .dataset-role-grid { grid-template-columns: 1fr; }
+  .dataset-role-card { border-right: 0; border-bottom: 1px solid var(--bs-card-border); }
+  .dataset-role-card:last-child { border-bottom: 0; }
   .home-track-compare { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .track-compare-item:nth-child(2) { border-right: 0; }
   .track-compare-item:nth-child(-n + 2) { border-bottom: 1px solid var(--bs-card-border); }
@@ -4907,9 +5017,13 @@ body.menu-open { overflow: hidden; }
   .track-compare-actions { gap: 3px 10px; }
   .track-compare-actions a { font-size: 11px; }
   .tracks-hero-actions .bs-btn { width: 100%; min-width: 0; }
+  .tracks-page-index { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
+  .tracks-page-index a { justify-content: space-between; border-left: 0; }
+  .tracks-page-index a + a { border-left: 1px solid var(--bs-card-border); }
   .tracks-page .tracks-catalog { padding-top: 24px; }
   .dataset-protocol-note { grid-template-columns: 1fr; gap: 18px; padding: 20px; }
   .dataset-protocol-note .bs-btn { width: 100%; }
+  .dataset-update-banner { grid-template-columns: 1fr; gap: 8px; padding: 16px; }
   .track-jump { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 18px; }
   .track-jump a,
   .track-jump a:nth-child(2) { border-right: 1px solid var(--bs-card-border); border-bottom: 1px solid var(--bs-card-border); }

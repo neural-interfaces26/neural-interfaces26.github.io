@@ -43,7 +43,7 @@
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
 <link rel="stylesheet" href="assets/css/base.css?v=20260908ux" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260910copy" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20260920datasets2" />
 
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
 
@@ -62,7 +62,7 @@
   </button>
   <nav class="site-menu" id="site-menu" aria-label="Primary navigation">
     <a href="index.html">Home</a>
-    <a href="tracks.html">Tracks</a>
+    <a href="tracks.html">Tracks &amp; Data</a>
     <a href="participant-guide.html" aria-current="page">Participant guide</a>
     <a href="prizes.html">Prizes</a>
     <a href="leaderboard.html">Leaderboard</a>
@@ -135,7 +135,7 @@
       <div>
         <span class="bs-kicker">Recommended · optional</span>
         <h2 id="guides-heading">Warm up with the NeuralBench start kits.</h2>
-        <p>Each NeuralBench guide is a track-specific start kit. It points to the current setup, public development data, baseline, metric, and reference result. Following it once gives you a verified pipeline before you introduce your own model, but it is not required for entering the competition.</p>
+        <p>Each NeuralBench guide is a track-specific start kit with public development data, explicit train, validation, and test splits, a baseline, and a reference result. Following it once gives you a verified pipeline before you introduce your own model, but it is not required. The reference results below belong to the named development datasets and are not Codabench warm-up leaderboard scores.</p>
       </div>
     </div>
 
@@ -167,6 +167,7 @@
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
+              <p class="prepare-track-dataset"><strong>Baseline results obtained on THINGS-EEG2 (<code>Gifford2022Large</code>)</strong>, using the split defined in the <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track1_eeg_to_image.html" target="_blank" rel="noreferrer noopener">Track 01 NeuralBench start kit</a>.</p>
               <div class="prepare-track-table" role="table" aria-label="Track 01 baseline results">
                 <div class="prepare-track-table-row head" role="row"><span role="columnheader">Baseline</span><span role="columnheader">Family</span><span role="columnheader">Params</span><span role="columnheader">Train</span><span role="columnheader">Reference score</span><span role="columnheader">Configuration</span></div>
                 <div class="prepare-track-table-row" role="row"><span role="cell"><strong>Chance</strong></span><span role="cell">reference</span><span role="cell">0</span><span role="cell">0 GPU-h</span><span role="cell">Top-5 2.22 ± 0.31</span><span role="cell">Not applicable</span></div>
@@ -205,6 +206,7 @@
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
+              <p class="prepare-track-dataset"><strong>Baseline results obtained on Stieger 2021 (<code>Stieger2021Continuous</code>)</strong>, a four-class motor-imagery dataset, using the split defined in the <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track2_eeg_to_bci.html" target="_blank" rel="noreferrer noopener">Track 02 NeuralBench start kit</a>. Codabench currently uses Dreyer 2023 for warm-up evaluation, so these are not Codabench warm-up scores.</p>
               <div class="prepare-track-table" role="table" aria-label="Track 02 baseline results">
                 <div class="prepare-track-table-row head" role="row"><span role="columnheader">Baseline</span><span role="columnheader">Family</span><span role="columnheader">Params</span><span role="columnheader">Train</span><span role="columnheader">Reference score</span><span role="columnheader">Configuration</span></div>
                 <div class="prepare-track-table-row" role="row"><span role="cell"><strong>Chance</strong></span><span role="cell">reference</span><span role="cell">0</span><span role="cell">0 GPU-h</span><span role="cell">Bal. Acc 24.81 ± 1.03</span><span role="cell">Not applicable</span></div>
@@ -243,6 +245,7 @@
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
+              <p class="prepare-track-dataset"><strong>Baseline results obtained on Sleep-EDF (<code>Kemp2000Analysis</code>)</strong>, using the participant-level split defined in the <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track3_sleep_onset.html" target="_blank" rel="noreferrer noopener">Track 03 NeuralBench start kit</a>.</p>
               <div class="prepare-track-table" role="table" aria-label="Track 03 baseline results">
                 <div class="prepare-track-table-row head" role="row"><span role="columnheader">Baseline</span><span role="columnheader">Family</span><span role="columnheader">Params</span><span role="columnheader">Train</span><span role="columnheader">Reference score</span><span role="columnheader">Configuration</span></div>
                 <div class="prepare-track-table-row" role="row"><span role="cell"><strong>Chance</strong></span><span role="cell">reference</span><span role="cell">0</span><span role="cell">0 GPU-h</span><span role="cell">W-bMAE 205.42 ± 0.01 s</span><span role="cell">Not applicable</span></div>
@@ -281,6 +284,7 @@
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
+              <p class="prepare-track-dataset"><strong>Baseline result obtained on public EMG2Pose (<code>Salter2024Emg2pose</code>)</strong>, using the task split defined in the <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track4_emg_to_pose.html" target="_blank" rel="noreferrer noopener">Track 04 NeuralBench start kit</a>.</p>
               <div class="prepare-track-table" role="table" aria-label="Track 04 baseline result">
                 <div class="prepare-track-table-row head" role="row"><span role="columnheader">Baseline</span><span role="columnheader">Family</span><span role="columnheader">Params</span><span role="columnheader">Train</span><span role="columnheader">Reference score</span><span role="columnheader">Configuration</span></div>
                 <div class="prepare-track-table-row" role="row"><span role="cell"><strong>NeuroPose</strong><small>Liu et al., 2021</small></span><span role="cell">Pose CNN</span><span role="cell">-</span><span role="cell">paper</span><span role="cell">MAE 17.5 ± 1.5°</span><span role="cell"><code>tasks/emg/pose/config.yaml</code></span></div>
@@ -340,6 +344,7 @@
       <li><span>3</span><strong>Upload the ZIP</strong><small>Submit it through My Submissions during warm-up.</small></li>
       <li><span>4</span><strong>Check the result</strong><small>Confirm that evaluation succeeds and the score appears.</small></li>
     </ol>
+    <p class="prepare-note"><strong>Two evaluation stages:</strong> Warm-up scores use public test data and are indicative. Codabench switches to the private 2026 cohorts for the sealed phase, and only sealed scores determine the final ranking.</p>
     <div class="prepare-portal-grid" aria-label="Codabench Participation pages by track">
       <article class="prepare-portal-card">
         <div class="prepare-portal-head"><span class="track-tag"><span class="sr-only">Track </span>01</span><div><span class="bs-kicker">Codabench Participation</span><h3>EEG-to-Image</h3></div></div>
@@ -371,7 +376,7 @@
     <a class="site-footer-brand" href="index.html">EEG/EMG Foundation Challenge 2026</a>
     <nav class="site-footer-links" aria-label="Footer navigation">
       <a href="index.html">Home</a>
-      <a href="tracks.html">Tracks</a>
+      <a href="tracks.html">Tracks &amp; Data</a>
       <a href="participant-guide.html" aria-current="page">Participant guide</a>
       <a href="prizes.html">Prizes</a>
       <a href="leaderboard.html">Leaderboard</a>

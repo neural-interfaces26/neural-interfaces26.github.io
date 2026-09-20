@@ -68,6 +68,7 @@ for (const width of widths) {
       }
       if (route === 'tracks.html') {
         assert.equal(await page.eval(`document.querySelectorAll('.tracks-hero-actions,.home-track-compare').length`),0,`${label}: redundant track navigation remains`);
+        assert.deepEqual(await page.eval(`[...document.querySelectorAll('.tracks-page-index a')].map(a=>[a.textContent.trim(),a.getAttribute('href')])`),[['Compare tracks ↓','#track-details'],['Jump to data ↓','#datasets']],`${label}: tracks and data shortcuts are incomplete`);
         const expectedOrganizers=['team-eeg','team-bci','team-sleep','team-emg'];
         for (let i=1; i<=4; i++) {
           const actions=await page.eval(`[...document.querySelectorAll('#track-${i} .track-card-footer a')].map(a=>({text:a.textContent.trim(),href:a.getAttribute('href')}))`);
@@ -81,7 +82,7 @@ for (const width of widths) {
           assert.equal(await page.eval(`document.querySelector('#track-${i} .track-guide-button')?.getAttribute('href')`),`${docs}${guides[i-1]}`,`${label}: track ${i} NeuralBench guide missing from description`);
           const copy=await page.eval(`document.querySelector('#track-${i} > p:not(.track-facts)')?.textContent.trim()`);
           assert.ok(copy&&/\bMetric:/.test(copy),`${label}: track ${i} description is missing its metric`);
-          assert.equal(await page.eval(`document.querySelector('#track-${i} > p:not(.track-facts) strong')?.previousElementSibling?.tagName`),'BR',`${label}: track ${i} metric must begin on a new line`);
+          assert.ok(await page.eval(`(()=>{const meta=document.querySelector('#track-${i} .track-data-meta');return meta&&getComputedStyle(meta).display==='block'&&parseFloat(getComputedStyle(meta).fontSize)===13})()`),`${label}: track ${i} metadata must use its compact block`);
           assert.ok(!/\bSponsor:/.test(copy),`${label}: track ${i} retains Sponsor metadata`);
         }
         const guideHeights=await page.eval(`[...document.querySelectorAll('.track-guide-button')].map(e=>e.getBoundingClientRect().height)`);
@@ -92,11 +93,14 @@ for (const width of widths) {
         assert.ok(await page.eval(`!document.querySelector('.dataset-table-heading')`),`${label}: redundant dataset-table heading remains`);
         assert.ok(datasets.modalities.every(m=>m==='EEG'||m==='EMG'),`${label}: dataset modalities must be EEG or EMG`);
         assert.deepEqual([...new Set(datasets.tracks)],['Track 01','Track 02','Track 03','Track 04'],`${label}: dataset track mapping incomplete`);
-        assert.ok(datasets.cells.every(n=>n===8),`${label}: dataset rows must align to eight columns`);
+        assert.ok(datasets.cells.every(n=>n===9),`${label}: dataset rows must align to nine columns`);
         assert.equal(datasets.scroll, datasets.client, `${label}: dataset directory overflows the page`);
         assert.equal(await page.eval(`document.querySelectorAll('.track-facts').length`),0,`${label}: redundant track fact rows remain`);
         const introLinks=await page.eval(`[...document.querySelectorAll('.tracks-hero .page-hero-copy > p a')].map(a=>[a.textContent.trim(),a.getAttribute('href')])`);
         assert.deepEqual(introLinks,[['registering','register.html#enter']],`${label}: track introduction should route readers to registration only after comparison`);
+        await click(page,'.tracks-page-index .data-link');
+        assert.equal(await page.eval(`location.hash`),'#datasets',`${label}: data shortcut does not target the dataset directory`);
+        assert.equal(await page.eval(`getComputedStyle(document.documentElement).scrollBehavior`),'smooth',`${label}: section shortcuts should scroll smoothly`);
       }
       if (route === 'register.html') {
         assert.equal(await page.eval(`document.querySelectorAll('.register-hero .page-hero-copy > p').length`),1,`${label}: registration introduction is redundant`);
