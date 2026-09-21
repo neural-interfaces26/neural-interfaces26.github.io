@@ -26,7 +26,7 @@ Installation: `npx skills add coreyhaines31/marketingskills --skill seo-audit -g
 | --- | --- |
 | Home | EEG/EMG challenge at the Brain and Body Workshop at NeurIPS 2026 |
 | Start kit | NeuralBench EEG/EMG baselines and Codabench registration |
-| Awards | Challenge cash awards and San Francisco/Toronto internships |
+| Awards | Challenge cash awards and remote internship opportunities |
 | Leaderboard | EEG, BCI, sleep and EMG metrics and standings |
 | FAQ | Eligibility, submission caps, external data and audit rules |
 | Organizers | Track teams and verified affiliations |

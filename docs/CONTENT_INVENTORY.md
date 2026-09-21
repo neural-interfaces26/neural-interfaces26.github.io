@@ -87,8 +87,8 @@ See [organizer profile sources](ORGANIZER_SOURCES.md) for the new biographies, p
 | Sleep (Track 3) — public | SleepEDF-Extended | `kemp2000analysis` | — | Part of 1,223 total | Standard sleep-staging benchmark; IEEE TBME 2000 |
 | Sleep (Track 3) — public | Physionet Challenge 2018 | `ghassemi2018you` | — | Part of 1,223 total | 'You Snooze, You Win' challenge dataset |
 | Sleep (Track 3) — public | HMC-Sleep-staging | `alvarez2022haaglanden` | — | Part of 1,223 total | Haaglanden Medisch Centrum; PhysioNet |
-| Sleep (Track 3) — new public | Muse sleep-onset training set | `aboujaoude2023automated`, `lanthier2026portable` | 4-channel Muse headband EEG (consumer-grade) | ~1,000 subjects | Nocturnal + unintentional onset; `n2_onset` labels from Muse automated algorithm; released for training (line 314) |
-| Sleep (Track 3) — hidden eval | Extended Muse sleep hidden set | — | Muse headband EEG | ~1,000 additional subjects | Within-subject session drift + unseen subjects; expert-scored labels (line 318) |
+| Sleep (Track 3) — new public | Muse sleep-onset training set | `aboujaoude2023automated`, `lanthier2026portable` | 4-channel, 128 Hz Muse headband EEG (consumer-grade) | TBC | Repeated home recordings; seconds to the first N2 epoch; released for training |
+| Sleep (Track 3) — hidden eval | Muse sleep-onset evaluation set | — | 4-channel, 128 Hz Muse headband EEG | TBC | New recordings from seen subjects plus entirely unseen subjects; labels remain hidden |
 | BCI (Track 2) — public | Stieger2021 | `stieger2021continuous` | — | Part of 193 total | Large-population continuous sensorimotor rhythm BCI |
 | BCI (Track 2) — public | Dreyer2023 | `dreyer2023large` | — | Part of 193 total | Large EEG DB for motor imagery BCI research |
 | BCI (Track 2) — public | Zyma2019 | `zyma2019electroencephalograms` | — | Part of 193 total | EEG during mental arithmetic task performance |
@@ -149,7 +149,7 @@ Current website configuration, supplied by the organizer on 2026-09-08, supersed
 |---|---|---|---|---|
 | EEG-to-Image | Alljoined | Paid summer internship in San Francisco: above 50% top-3 accuracy in the best quartile of subjects guarantees internship negotiation with the winner; specific details determined with the candidate. Lower scores do not rule out consideration | No prize | No prize |
 | BCI | Meta Brain & AI | USD $2,000 | USD $2,000 | USD $2,000 |
-| Sleep onset | Muse | USD $2,000 or Toronto internship | USD $2,000 | USD $2,000 |
+| Sleep onset | Muse | USD $2,000 or remote internship | USD $2,000 | USD $2,000 |
 | EMG-to-Pose | Meta Reality Labs | USD $2,000 | USD $2,000 | USD $2,000 |
 
 Cash allocation: USD $18,000 across tracks 2-4; USD $16,000 paid in cash if the sleep winner chooses the internship. Internship values are excluded. The six-month duration from the historical proposal is not asserted in the current offers.

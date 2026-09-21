@@ -182,13 +182,13 @@
       <div class="vb-section-head">
         <div>
           <h2 id="t3-heading">Sleep onset · Track 03.</h2>
-          <p>Predict seconds from recording start to the first stable N2 epoch on consumer-grade wearable EEG. The controlled shift is cross-user: models are scored on participants unseen during training. The sparse home-wearable montage is too narrow to support full per-epoch staging but can still resolve onset timing. Lower is better.</p>
+          <p>From each point in a continuous wearable EEG recording, predict the seconds remaining until the first N2 epoch. Models are evaluated on new recordings from participants represented in training and on recordings from completely unseen participants. Weighted errors emphasize predictions closer to sleep onset, and the final score macro-averages performance across the seen- and unseen-subject groups. Lower is better.</p>
           <div class="track-next-actions" aria-label="Sleep onset next actions"><a class="bs-btn primary sm" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track3_sleep_onset.html" target="_blank" rel="noreferrer noopener">Prepare this track ↗</a><a class="bs-btn ghost sm" href="https://www.codabench.org/competitions/17983/" target="_blank" rel="noreferrer noopener">Register on Codabench ↗</a></div>
         </div>
         <div class="vb-section-side">
           <div class="vb-tracks-meta">
-            <div><span class="bs-kicker">Metric</span><strong>Mean absolute error (s)</strong></div>
-            <div><span class="bs-kicker">Tie-break</span><strong>Median absolute error</strong></div>
+            <div><span class="bs-kicker">Metric</span><strong>Macro W-bMAE (s)</strong></div>
+            <div><span class="bs-kicker">Groups</span><strong>Seen + unseen subjects</strong></div>
             <div><span class="bs-kicker">Sponsor</span><strong>Muse</strong></div>
           </div>
         </div>

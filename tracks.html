@@ -223,10 +223,10 @@
       <article class="track-card reveal" id="track-3">
         <div class="track-card-heading">
           <span class="track-number">03</span>
-          <div><p class="track-shift">Cross-user</p><h3>Sleep onset</h3></div>
+          <div><p class="track-shift">Seen + unseen participants</p><h3>Sleep onset</h3></div>
           <a class="track-leaderboard-button" href="leaderboard.html#track-3"><span aria-hidden="true">🏆</span> Leaderboard <span aria-hidden="true">→</span></a>
         </div>
-        <figure data-track-figure role="img" aria-label="Consumer-grade wearable EEG predicting seconds remaining until the first stable N2 epoch" class="track-art-37">
+        <figure data-track-figure role="img" aria-label="Consumer-grade wearable EEG predicting seconds remaining until the first N2 epoch" class="track-art-37">
             <div data-figure-grid="true" class="track-art-2">
               <div class="track-art-3">
                 <span class="track-art-38">Wearable EEG · 4 ch</span>
@@ -238,7 +238,7 @@
                     <path fill="none" stroke="#8b5da5" stroke-width="1.1" vector-effect="non-scaling-stroke" d="M0 167 L5 166 L10 168 L15 167 L20 166 L25 167 L30 167 L35 165 L40 166 L45 166 L50 165 L55 163 L60 164 L65 165 L70 163 L75 165 L80 165 L85 166 L90 165 L95 166 L100 165 L105 167 L110 165 L115 166 L120 166 L125 164 L130 165 L135 162 L140 163 L145 161 L150 159 L155 158 L160 155 L165 154 L170 153 L175 152 L180 154 L185 153 L190 151 L195 153 L200 152 L205 153 L210 156 L215 153 L220 157 L225 164 L230 158 L235 157 L240 165 L245 168 L250 163 L255 165 L260 169 L265 169 L270 170 L275 169 L280 169 L285 171 L290 169 L295 169 L300 171 L305 169 L310 171 L315 172 L320 172 L325 172 L330 172 L335 174 L340 175 L345 175 L350 177 L355 173 L360 171 L365 167 L370 169 L375 175 L380 177 L385 179 L390 178 L395 177 L400 176 L405 175 L410 174 L415 173 L420 170 L425 170 L430 169 L435 166 L440 167 L445 166 L450 168 L455 167 L460 166 L465 167 L470 167 L475 165 L480 166 L485 166 L490 165 L495 163 L500 164 L505 165 L510 163 L515 165 L520 165 L525 166 L530 165 L535 166 L540 165 L545 167 L550 165 L555 166 L560 166 L565 164 L570 165 L575 162 L580 163 L585 161 L590 159 L595 158 L600 155 L605 154 L610 153 L615 152 L620 154 L625 153 L630 151 L635 153 L640 152 L645 153 L650 156 L655 153 L660 157 L665 164 L670 158 L675 157 L680 165 L685 168 L690 163 L695 165 L700 169 L705 169 L710 170 L715 169 L720 169 L725 171 L730 169 L735 169 L740 171 L745 169 L750 171 L755 172 L760 172 L765 172 L770 172 L775 174 L780 175 L785 175 L790 177 L795 173 L800 171 L805 167 L810 169 L815 175 L820 177 L825 179 L830 178 L835 177 L840 176 L845 175 L850 174 L855 173 L860 170 L865 170 L870 169 L875 166 L880 167"></path>
                   </g>
                 </svg>
-                <span class="track-art-7">Muse · at home · unseen sleeper</span>
+                <span class="track-art-7">Muse · at home · seen + unseen participants</span>
               </div>
               <div data-figure-arrow="true" class="track-art-8">
                 <svg viewBox="0 0 48 16" aria-hidden="true" class="track-art-9">
@@ -249,7 +249,7 @@
                 <span class="track-art-11">predict</span>
               </div>
               <div class="track-art-3">
-                <span class="track-art-41">Seconds to first stable N2</span>
+                <span class="track-art-41">Seconds to first N2</span>
                 <div class="track-art-42">
                   <div class="track-art-43">
                     <span class="track-art-44">Wake</span>
@@ -279,12 +279,12 @@
             </div>
 
               <div class="track-art-51">
-                <span class="track-art-18">Evaluated on sleepers never seen in training</span>
-                <span class="track-art-52">bMAE (s) ↓</span>
+                <span class="track-art-18">New nights from seen and unseen participants</span>
+                <span class="track-art-52">W-bMAE (s) ↓</span>
               </div>
 
           </figure>
-        <p>Reliable sleep-onset estimates from lightweight home headbands could make longitudinal sleep monitoring less dependent on full laboratory polysomnography. The task is to predict, at each point in a continuous four-channel home EEG recording, the number of seconds remaining until the first stable N2 epoch. Because recordings are collected in everyday settings, models must remain robust to night-to-night variability, motion artifacts, changes in electrode impedance, and occasional channel dropout. Evaluation is performed on unseen participants to test whether patterns associated with the transition from wakefulness to sleep generalize across individuals rather than relying on participant-specific characteristics.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Binned mean absolute error (bMAE) in seconds, computed with equal weighting across four time-to-onset ranges. Lower scores indicate better performance.</span><span class="track-data-summary"><strong>Warm-up evaluation:</strong> Sleep-EDF test set <span aria-hidden="true">·</span> <strong>Start kit and baseline:</strong> Sleep-EDF</span><span class="track-data-alert"><strong>Dataset release:</strong> New Muse data for training and warm-up evaluation are coming soon. Until then, Sleep-EDF is the proxy for both.</span></span></p>
+        <p>Reliable sleep-onset estimates from lightweight home headbands could make longitudinal sleep monitoring less dependent on full laboratory polysomnography. The task is to predict, at each point in a continuous four-channel home EEG recording, the number of seconds remaining until the first N2 epoch. Because recordings are collected in everyday settings, models must remain robust to night-to-night variability, motion artifacts, changes in electrode impedance, and occasional channel dropout. Evaluation uses new recordings from participants represented in training as well as recordings from completely unseen participants, testing robustness to both night-to-night and inter-person variability.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Weighted binned mean absolute error (W-bMAE) in seconds, with greater weight on errors closer to sleep onset. Seen-subject and unseen-subject W-bMAE are macro-averaged for the final ranking. Lower scores indicate better performance.</span><span class="track-data-summary"><strong>Warm-up evaluation:</strong> Sleep-EDF test set <span aria-hidden="true">·</span> <strong>Start kit and baseline:</strong> Sleep-EDF</span><span class="track-data-alert"><strong>Dataset release:</strong> New Muse data for training and warm-up evaluation are coming soon. Until then, Sleep-EDF is the proxy for both.</span></span></p>
         <a class="track-guide-button" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track3_sleep_onset.html" target="_blank" rel="noreferrer noopener">Open optional start kit on NeuralBench ↗</a>
         <nav class="track-card-footer" aria-label="Sleep onset track links"><a class="track-card-action primary" href="register.html#enter-3">Register <span aria-hidden="true">→</span></a><a class="track-card-action" href="participant-guide.html">Guide <span aria-hidden="true">→</span></a><a class="track-card-action" href="#dataset-track-3">Dataset <span aria-hidden="true">→</span></a><a class="track-card-action" href="prizes.html#award-track-3">Prizes <span aria-hidden="true">→</span></a><a class="track-card-action" href="organizers.html#team-sleep">Track leaders <span aria-hidden="true">→</span></a></nav>
       </article>
@@ -545,12 +545,12 @@
           <div class="ds-row ds-row--warmup" role="row">
             <span class="track-tag" role="cell"><span class="sr-only">Track </span>03</span>
             <span class="nm" role="cell"><strong>Muse Sleep-Onset training set <span class="ds-new-tag">NEW 2026</span></strong></span>
-            <span class="dataset-use" role="cell">Warm-up evaluation (soon)</span>
+            <span class="dataset-use" role="cell">Training · Warm-up evaluation (soon)</span>
             <span class="mod mod-eeg" role="cell">EEG</span>
             <span class="num" role="cell">TBC</span>
             <span class="num" role="cell">-</span>
             <span class="num" role="cell">4</span>
-            <span class="num" role="cell">256 Hz</span>
+            <span class="num" role="cell">128 Hz</span>
             <span class="num" role="cell">-</span>
           </div>
           <div class="ds-row ds-row--new ds-row--sealed" role="row">
@@ -561,7 +561,7 @@
             <span class="num" role="cell">TBC</span>
             <span class="num" role="cell">-</span>
             <span class="num" role="cell">4</span>
-            <span class="num" role="cell">256 Hz</span>
+            <span class="num" role="cell">128 Hz</span>
             <span class="num" role="cell">-</span>
           </div>
           <div class="ds-row track-group-start ds-row--warmup" role="row">
@@ -613,7 +613,7 @@
             <span class="bs-kicker">Track 03 · 2026 matched training + hidden evaluation datasets</span>
           </div>
           <h3 class="dataset-release-heading">Muse Sleep-Onset EEG</h3>
-          <p class="dataset-release-copy">Two matched datasets use the same four-channel Muse hardware, home-recording protocol, and sleep-onset target. Number of participants TBC across the training and hidden-evaluation cohorts, with multiple recordings per participant. The evaluation cohort contains unseen participants and remains reserved for hidden evaluation. Provided by Muse.</p>
+          <p class="dataset-release-copy">Two matched datasets use the same four-channel, 128 Hz Muse hardware, home-recording protocol, and first-N2 target. Number of participants TBC across the training and hidden-evaluation cohorts, with multiple recordings per participant. Hidden evaluation combines new recordings from participants represented in training with recordings from completely unseen participants. Provided by Muse.</p>
         </article>
 
         <article class="vb-track dataset-release-card" id="dataset-track-4">
