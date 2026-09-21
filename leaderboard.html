@@ -197,7 +197,7 @@
       <div class="table-shell" role="region" aria-label="Track 3 leaderboard" tabindex="0">
         <table class="leaderboard-table">
           <caption>Track 3 leaderboard. Preview state with no ranked submissions.</caption>
-          <thead><tr><th scope="col">Rank state</th><th scope="col">Submission</th><th scope="col">Affiliation</th><th scope="col">MAE (s)</th><th scope="col">Delta</th></tr></thead>
+          <thead><tr><th scope="col">Rank state</th><th scope="col">Submission</th><th scope="col">Affiliation</th><th scope="col">Macro W-bMAE (s)</th><th scope="col">Delta</th></tr></thead>
           <tbody class="unranked-rows">
             <tr><th scope="row">Not ranked</th><td>No submissions yet · <a href="participant-guide.html#baseline-track-3">Run the baseline</a></td><td>Warm-up opens Sep 21, 2026</td><td>Not scored</td><td>Not ranked</td></tr>
           </tbody>
@@ -257,11 +257,11 @@
         <li class="methodology-item">
           <div class="methodology-copy">
             <div class="track-head">
-              <span class="bs-kicker">Refresh cadence</span>
-              <span class="bs-badge">15 min</span>
+              <span class="bs-kicker">Official results</span>
+              <span class="bs-badge">CODABENCH</span>
             </div>
-            <h3>Live during the final phase.</h3>
-            <p>Codabench evaluates each upload immediately. The leaderboard page on this site is regenerated every 15 minutes, so there can be a short lag between submission and what you see here.</p>
+            <h3>Codabench is authoritative.</h3>
+            <p>Codabench queues each upload, evaluates it when a worker is available, and publishes the official score. This page summarises the ranking rules. Use your track's Codabench leaderboard for live results.</p>
           </div>
           <div class="track-stats">
             <div><span class="bs-kicker">Final phase</span><strong>Oct 28 to Nov 21, 2026</strong></div>
@@ -307,8 +307,8 @@
     <section class="vb-section formal-section" id="formal-scoring" aria-labelledby="form-heading" data-mathjax-src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
       <div class="vb-section-head">
         <div>
-          <h2 id="form-heading">Scoring math, mirrored from the proposal.</h2>
-          <p>These are the equations the evaluator actually runs. They match the proposal sections on error bars, test-set sizing, and overall ranking, and are reproduced here for participants who want to reason about score variance and ranking before submitting.</p>
+          <h2 id="form-heading">Planned statistical analysis, mirrored from the proposal.</h2>
+          <p>Official track rankings use the point metric published on Codabench. The equations below describe the complementary uncertainty, rank-stability, and cross-track analyses planned after evaluation. They do not replace the track ranking metric.</p>
         </div>
       </div>
 
@@ -316,7 +316,7 @@
         <summary>Open formal definitions and code</summary>
       <div class="formal-block">
         <h3>Prediction, unit score, and track score</h3>
-        <p>A submission \(a\) receives a hidden signal \(X_{t,i}\) and metadata \(m_{t,i}\) for track \(t\), then writes a prediction \(\hat{y}_{a,t,i}\). The evaluator keeps \(y_{t,i}\) hidden and computes the score.</p>
+        <p>A submission \(a\) receives a hidden signal \(X_{t,i}\) and metadata \(m_{t,i}\) for track \(t\), then writes a prediction \(\hat{y}_{a,t,i}\). Codabench keeps \(y_{t,i}\) hidden and computes the official point score.</p>
         \[
         \hat{y}_{a,t,i} = f_a(X_{t,i}, m_{t,i})
         \]
@@ -340,7 +340,7 @@
 
       <div class="formal-block">
         <h3>Confidence interval, p-value, and rank stability</h3>
-        <p>For bootstrap draw \(b\), the evaluator resamples independent units \(U_t^{(b)}\) and recomputes each team's score. Pairwise uncertainty is calculated on the paired score difference, not from two separate confidence intervals.</p>
+        <p>For bootstrap draw \(b\), the post-evaluation analysis resamples independent units \(U_t^{(b)}\) and recomputes each team's score. Pairwise uncertainty is calculated on the paired score difference, not from two separate confidence intervals.</p>
         \[
         \mathcal{S}^{(b)}_{a,t} =
         \frac{1}{|U_t^{(b)}|}\sum_{u \in U_t^{(b)}} s_{a,t,u}

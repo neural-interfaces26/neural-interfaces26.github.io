@@ -120,7 +120,7 @@
       <article class="prepare-role-card">
         <span class="bs-kicker">Codabench · official submission</span>
         <h3>Register and submit.</h3>
-        <p>Read the Participation guidelines, register for each track, upload your trained model package, and receive official scores.</p>
+        <p>Read the Submission Guide, register for each track, upload your trained model package, and receive official scores.</p>
         <a href="#submit">Open a Codabench track portal ↓</a>
       </article>
     </div>
@@ -194,9 +194,9 @@
             <div class="prepare-track-disclosure-body">
               <figure class="bs-code" aria-label="Track 02 NeuralBench quick start">
                 <figcaption class="bs-code-head"><span class="bs-kicker">Terminal</span><button class="copy" type="button" data-copy aria-live="polite">copy</button></figcaption>
-                <pre tabindex="0" aria-label="Track 02 NeuralBench setup and test commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench 'moabb&gt;=1.7.1'</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg motor_imagery --download</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg motor_imagery --prepare</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg motor_imagery -m eegnet --debug</code></span></pre>
+                <pre tabindex="0" aria-label="Track 02 NeuralBench setup and test commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench 'moabb&gt;=1.7.1'</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg motor_imagery --dataset dreyer2023 --download</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg motor_imagery --dataset dreyer2023 --prepare</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg motor_imagery --dataset dreyer2023 -m eegnet --debug</code></span></pre>
               </figure>
-              <p>Install the MOABB data dependency, download the public analogue, prepare its cache, and verify the EEGNet pipeline.</p>
+              <p>Install the MOABB data dependency, download the Dreyer 2023 warm-up proxy, prepare its cache, and verify the EEGNet pipeline.</p>
             </div>
           </details>
           <details class="prepare-track-disclosure prepare-track-disclosure--results" id="baseline-track-2">
@@ -335,12 +335,12 @@
       <div>
         <span class="bs-kicker">From trained model to leaderboard</span>
         <h2 id="submit-heading">Package and submit on Codabench.</h2>
-        <p>Once your model is trained, open the Codabench Participation tab for your track. It introduces you to the submission contract. Follow it to package your model, upload it through My Submissions, and confirm that your score reaches the leaderboard.</p>
+        <p>Once your model is trained, open the Codabench Submission Guide for your track. It defines the submission contract. Follow it to package your model, upload it through My Submissions, and confirm that your score reaches the leaderboard.</p>
       </div>
     </div>
     <ol class="prepare-run-sequence">
-      <li><span>1</span><strong>Open Participation</strong><small>Use the dedicated tab for your chosen track below.</small></li>
-      <li><span>2</span><strong>Follow the contract</strong><small>Find the details on Codabench under Get Started → Participation, then package the trained model and required inference files.</small></li>
+      <li><span>1</span><strong>Open the Submission Guide</strong><small>Use the dedicated tab for your chosen track below.</small></li>
+      <li><span>2</span><strong>Follow the contract</strong><small>Find the details on Codabench under Get Started → Submission Guide, then package the trained model and required inference files.</small></li>
       <li><span>3</span><strong>Upload the ZIP</strong><small>Submit it through My Submissions during warm-up.</small></li>
       <li><span>4</span><strong>Check the result</strong><small>Confirm that evaluation succeeds and the score appears.</small></li>
     </ol>

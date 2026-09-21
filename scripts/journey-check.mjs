@@ -56,12 +56,12 @@ for (const width of widths) {
         assert.equal(sponsors.unique,17,`${label}: home sponsor wall must include the complete 17-institution organizer set`);
         assert.equal(sponsors.countdownRoots,2,`${label}: homepage needs hero and timeline countdowns`);
         assert.equal(sponsors.countdownParts,8,`${label}: competition countdowns are incomplete`);
-        assert.ok(sponsors.countdown?.includes('competition'),`${label}: launch countdown is not announced accessibly`);
+        assert.ok(sponsors.countdown?.toLowerCase().includes('competition'),`${label}: launch status is not announced accessibly`);
         assert.ok(sponsors.countdown?.includes('October 24'),`${label}: registration deadline is missing from the launch announcement`);
         assert.ok(await page.eval(`document.querySelector('.timeline-panel li:nth-child(2) p')?.textContent.includes('Oct 24')`),`${label}: warm-up phase does not mention continued registration`);
         assert.ok(await page.eval(`document.querySelector('.timeline-panel li:nth-child(3)')?.textContent.includes('Oct 28')`),`${label}: sealed phase start is incorrect`);
-        assert.ok(sponsors.timelineInside&&sponsors.timelineColor==='rgb(165, 31, 45)',`${label}: red countdown is not aligned with Competition opens`);
-        if(width>900){assert.ok(sponsors.alertWidth>=(width>=1200?780:600),`${label}: launch announcement is too small`);assert.ok(sponsors.alertHeight>=78&&sponsors.alertLeftAligned&&sponsors.alertRight<width*.8,`${label}: launch announcement is not aligned within the text side`);assert.equal(sponsors.pulse,'launch-pulse',`${label}: launch indicator does not pulse`);assert.ok(Math.max(...sponsors.tops)-Math.min(...sponsors.tops)<=1&&Math.max(...sponsors.bottoms)-Math.min(...sponsors.bottoms)<=1,`${label}: sponsor role groups are not aligned on one row`);assert.ok(sponsors.dividers.every(n=>n===0),`${label}: sponsor logo dividers remain`);assert.ok(sponsors.participatingRules.every(n=>n===1),`${label}: participating-institution row rule is missing`);}
+        assert.ok(sponsors.timelineInside,`${label}: competition status is not aligned with Competition opens`);
+        if(width>900){assert.ok(sponsors.alertWidth>=(width>=1200?780:600),`${label}: launch announcement is too small`);assert.ok(sponsors.alertHeight>=78&&sponsors.alertLeftAligned&&sponsors.alertRight<width*.8,`${label}: launch announcement is not aligned within the text side`);assert.ok(Math.max(...sponsors.tops)-Math.min(...sponsors.tops)<=1&&Math.max(...sponsors.bottoms)-Math.min(...sponsors.bottoms)<=1,`${label}: sponsor role groups are not aligned on one row`);assert.ok(sponsors.dividers.every(n=>n===0),`${label}: sponsor logo dividers remain`);assert.ok(sponsors.participatingRules.every(n=>n===1),`${label}: participating-institution row rule is missing`);}
         assert.ok(await page.eval("(()=>{const r=document.querySelector('.campaign-hero .primary').getBoundingClientRect();return r.top>=0&&r.bottom<=innerHeight})()"), `${label}: entry CTA below first screen`);
         await click(page, '.campaign-hero .primary', true);
         assert.equal(await page.eval('location.pathname+location.hash'), '/tracks.html', `${label}: homepage tracks entry failed`);
@@ -124,7 +124,7 @@ for (const width of widths) {
         assert.equal(await page.eval(`document.querySelectorAll('.prepare-role-card').length`),3,`${label}: platform roles are unclear`);
         assert.equal(await page.eval(`document.querySelectorAll('#track-guides .prepare-guide-card').length`),4,`${label}: preparation page needs four optional start kits`);
         assert.equal(await page.eval(`document.querySelectorAll('#submit .prepare-portal-card').length`),4,`${label}: preparation page needs four Codabench portals`);
-        assert.equal(await page.eval(`document.querySelectorAll('#submit .prepare-portal-card img[src^="exports/"][src$=".gif"]').length`),4,`${label}: Codabench portals need four track animations`);
+        assert.equal(await page.eval(`document.querySelectorAll('#submit .prepare-portal-card img[src^="exports/"][src*=".gif"]').length`),4,`${label}: Codabench portals need four track animations`);
         assert.equal(await page.eval(`document.querySelectorAll('#track-guides .prepare-guide-card .bs-code').length`),4,`${label}: each track needs its own quick-start commands`);
         assert.equal(await page.eval(`document.querySelectorAll('#track-guides .prepare-track-disclosure').length`),8,`${label}: each track needs quick-start and baseline disclosures`);
         assert.equal(await page.eval(`document.querySelectorAll('#track-guides .prepare-track-disclosure[open]').length`),0,`${label}: track tools should start collapsed`);
@@ -132,7 +132,7 @@ for (const width of widths) {
         assert.equal(await page.eval(`document.querySelectorAll('#track-guides .prepare-track-table-row:not(.head)').length`),10,`${label}: original public baseline results are incomplete`);
         assert.equal(await page.eval(`document.querySelectorAll('#track-guides .prepare-track-table-row.head [role="columnheader"]').length`),24,`${label}: track-specific baseline metadata is incomplete`);
         assert.equal(await page.eval(`document.querySelectorAll('#track-guides .prepare-track-reference').length`),4,`${label}: baseline sources must live inside each track disclosure`);
-        assert.ok(await page.eval(`document.querySelector('#baseline-track-3 .prepare-track-reference')?.textContent.includes('weighted-binned mean absolute error')`),`${label}: sleep metric definition is missing from its baseline disclosure`);
+        assert.ok(await page.eval(`document.querySelector('#baseline-track-3 .prepare-track-reference')?.textContent.includes('unweighted mean')`),`${label}: sleep proxy metric definition is missing from its baseline disclosure`);
         assert.ok(await page.eval(`[...document.querySelectorAll('#track-guides .prepare-guide-card > a')].every(link=>{const box=link.getBoundingClientRect(),style=getComputedStyle(link);return box.height>=42&&style.backgroundColor!=='rgba(0, 0, 0, 0)'})`),`${label}: NeuralBench links must remain visually prominent buttons`);
         if (width > 900) {
           const portalSizes=await page.eval(`[...document.querySelectorAll('#submit .prepare-portal-card')].map(card=>({card:card.getBoundingClientRect().height,visual:card.querySelector('.prepare-portal-visual').getBoundingClientRect().height}))`);
@@ -151,7 +151,7 @@ for (const width of widths) {
         await click(page, '#baseline-track-1 > summary');
         assert.equal(await page.eval(`document.querySelectorAll('a[href$="plot_submission_guide.html"]').length`),0,`${label}: obsolete NeuralBench packaging guide remains`);
         assert.equal(await page.eval(`document.querySelectorAll('#build .prepare-phase-card').length`),2,`${label}: two training paths are unclear`);
-        assert.ok(await page.eval(`(()=>{const text=document.querySelector('#submit')?.textContent||'';return text.includes('Participation tab')&&text.includes('submission contract')&&text.includes('Get Started')})()`),`${label}: Codabench contract location is unclear`);
+        assert.ok(await page.eval(`(()=>{const text=document.querySelector('#submit')?.textContent||'';return text.includes('Submission Guide')&&text.includes('submission contract')&&text.includes('Get Started')})()`),`${label}: Codabench contract location is unclear`);
         for (let i=1; i<=4; i++) {
           assert.ok(await page.eval(`!!document.querySelector('#baseline-track-${i}')`),`${label}: baseline track ${i} anchor missing`);
           assert.ok(await page.eval(`!!document.querySelector('#submit a[href="https://www.codabench.org/competitions/${portals[i-1]}/#/participate-tab"]')`),`${label}: track ${i} Codabench Participation page missing`);

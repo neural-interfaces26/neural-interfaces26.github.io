@@ -88,6 +88,10 @@
           <a class="data-link" href="#datasets">Jump to data <span aria-hidden="true">↓</span></a>
         </nav>
       </div>
+      <aside class="tracks-warmup-notice" aria-labelledby="tracks-warmup-heading">
+        <strong class="tracks-warmup-notice-label" id="tracks-warmup-heading"><i aria-hidden="true"></i>Upcoming data release</strong>
+        <p>The new <strong>Graz and BrainHero EEG</strong> dataset from Inria Bordeaux and <strong>Muse Sleep-Onset EEG</strong> dataset will soon be released for public training and Codabench warm-up evaluation. Until then, Track 02 uses <strong>Dreyer 2023</strong> and Track 03 uses <strong>Sleep-EDF</strong>.</p>
+      </aside>
     </div>
   </section>
 
@@ -215,7 +219,7 @@
               </div>
 
           </figure>
-        <p>A practical BCI must remain reliable as the same user returns on different days without requiring a new calibration each time. Decode one of three cued mental commands: kinesthetic motor imagery, mental calculation, or word association. The longitudinal corpus follows participants across six sessions and varied Graz and BrainHero contexts. Models train on earlier labeled sessions and predict later sessions. This within-user, cross-session design isolates drift from time of day, electrode replacement, physiology, and mental strategy while preserving subject-specific calibration.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Balanced accuracy averaged across subject, session, and context cells, with higher scores indicating better performance.</span><span class="track-data-summary"><strong>Warm-up evaluation:</strong> Dreyer 2023 test set <span aria-hidden="true">·</span> <strong>Start kit and baseline:</strong> Stieger 2021</span><span class="track-data-alert"><strong>Dataset release:</strong> New Graz and BrainHero data for training and warm-up evaluation are coming soon. Until then, Stieger 2021 is the start-kit proxy and Dreyer 2023 the warm-up proxy.</span></span></p>
+        <p>A practical BCI must remain reliable as the same user returns on different days without requiring a new calibration each time. Decode one of three cued mental commands: kinesthetic motor imagery, mental calculation, or word association. The longitudinal corpus follows participants across six sessions and varied Graz and BrainHero contexts. Models train on earlier labeled sessions and predict later sessions. This within-user, cross-session design isolates drift from time of day, electrode replacement, physiology, and mental strategy while preserving subject-specific calibration.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Balanced accuracy averaged across subject, session, and context cells, with higher scores indicating better performance.</span><span class="track-data-summary"><strong>Warm-up evaluation and start kit:</strong> Dreyer 2023 test set <span aria-hidden="true">·</span> <strong>Published baseline:</strong> Stieger 2021</span><span class="track-data-alert"><strong>Dataset release:</strong> New Graz and BrainHero data for training and warm-up evaluation are coming soon. Until then, Dreyer 2023 is the start-kit and warm-up proxy. Stieger 2021 remains the published baseline reference.</span></span></p>
         <a class="track-guide-button" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track2_eeg_to_bci.html" target="_blank" rel="noreferrer noopener">Open optional start kit on NeuralBench ↗</a>
         <nav class="track-card-footer" aria-label="BCI decoding track links"><a class="track-card-action primary" href="register.html#enter-2">Register <span aria-hidden="true">→</span></a><a class="track-card-action" href="participant-guide.html">Guide <span aria-hidden="true">→</span></a><a class="track-card-action" href="#dataset-track-2">Dataset <span aria-hidden="true">→</span></a><a class="track-card-action" href="prizes.html#award-track-2">Prizes <span aria-hidden="true">→</span></a><a class="track-card-action" href="organizers.html#team-bci">Track leaders <span aria-hidden="true">→</span></a></nav>
       </article>
@@ -457,7 +461,7 @@
           <div class="ds-row track-group-start" role="row">
             <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
             <span class="nm" role="cell"><strong>Stieger 2021</strong></span>
-            <span class="dataset-use" role="cell">Start kit · Baseline</span>
+            <span class="dataset-use" role="cell">Published baseline</span>
             <span class="mod mod-eeg" role="cell">EEG</span>
             <span class="num" role="cell">62</span>
             <span class="num" role="cell">615h</span>
@@ -468,7 +472,7 @@
           <div class="ds-row ds-row--warmup" role="row">
             <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
             <span class="nm" role="cell"><strong>Dreyer 2023</strong></span>
-            <span class="dataset-use" role="cell">Warm-up evaluation</span>
+            <span class="dataset-use" role="cell">Start kit · Warm-up evaluation</span>
             <span class="mod mod-eeg" role="cell">EEG</span>
             <span class="num" role="cell">87</span>
             <span class="num" role="cell">127h</span>
@@ -580,8 +584,8 @@
             <span class="nm" role="cell"><strong>EMG2Pose evaluation cohort <span class="ds-new-tag">NEW 2026</span></strong></span>
             <span class="dataset-use" role="cell">Sealed evaluation</span>
             <span class="mod mod-emg" role="cell">EMG</span>
-            <span class="num" role="cell">193</span>
-            <span class="num" role="cell">370h</span>
+            <span class="num" role="cell">TBC</span>
+            <span class="num" role="cell">-</span>
             <span class="num" role="cell">16</span>
             <span class="num" role="cell">2000 Hz</span>
             <span class="num" role="cell">-</span>
@@ -629,7 +633,7 @@
   <section class="register-panel campaign-section" aria-labelledby="tracks-cta-heading">
     <div class="reveal">
       <h2 id="tracks-cta-heading">Ready to train and submit your model?</h2>
-      <p>Use the NeuralBench start kits for their public train, validation, and test split definitions, or train with your own permitted pipeline. For the active warm-up dataset, sealed evaluation, submission contract, and uploads, use the Competition and Participation tabs on your track's Codabench page. Original dataset licenses and competition rules remain in force.</p>
+      <p>Use the NeuralBench start kits for their public train, validation, and test split definitions, or train with your own permitted pipeline. For the active warm-up dataset and sealed evaluation, read the Track description on Codabench. For the submission contract and uploads, use Get Started → Submission Guide and My Submissions. Original dataset licenses and competition rules remain in force.</p>
       <div class="bs-hero-cta">
         <a class="bs-btn primary" href="register.html#enter">Choose a track &amp; register →</a>
         <a class="bs-btn ghost" href="participant-guide.html">Open the participant guide</a>

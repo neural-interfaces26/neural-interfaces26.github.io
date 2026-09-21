@@ -48,7 +48,7 @@ ANCHORS: dict[str, list[str]] = {
         "W-bMAE",
     ],
     "gpu class (P0)": [
-        "H100", "H200",
+        "A100",
     ],
     "submission infrastructure (P0)": [
         "Codabench",

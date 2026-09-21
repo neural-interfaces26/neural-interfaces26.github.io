@@ -27,7 +27,7 @@ for (const width of widths) for (const route of routes) {
     for(const n of record.navigationGeometry)if(n.textLeft<n.left-1||n.textRight>n.right+1)report.findings.push({surface:label,type:'navigation-overlap',impact:'serious',measurement:n});
     if(route==='index.html'){
       record.homeGeometry=await page.eval(`(()=>{const stats=document.querySelector('#stats'),title=document.querySelector('#journey-heading'),routes=[...document.querySelectorAll('.journey-overview-grid a')];return {statsAtBottom:stats===document.querySelector("main").lastElementChild,journeyTitle:title?.textContent.trim(),journeyFont:title?parseFloat(getComputedStyle(title).fontSize):null,routeLabels:routes.map(e=>e.querySelector('strong')?.textContent.trim()),tracksRemoved:!document.querySelector('.home-track-compare,.track-grid')}})()`);
-      if(!record.homeGeometry.statsAtBottom||!record.homeGeometry.tracksRemoved||record.homeGeometry.routeLabels.join('|')!=='Tracks|Prepare|Prizes|Register'||record.homeGeometry.journeyFont>64)report.findings.push({surface:label,type:'home-hierarchy',impact:'serious',measurement:record.homeGeometry});
+      if(!record.homeGeometry.statsAtBottom||!record.homeGeometry.tracksRemoved||record.homeGeometry.routeLabels.join('|')!=='Tracks & Data|Participant guide|Prizes|Register'||record.homeGeometry.journeyFont>64)report.findings.push({surface:label,type:'home-hierarchy',impact:'serious',measurement:record.homeGeometry});
     }
     if(route==='register.html'&&width<=390){
       record.choiceGeometry=await page.eval(`([...document.querySelectorAll('.entry-track')].map(e=>{const r=e.getBoundingClientRect();return {label:e.querySelector('h3')?.textContent.trim(),left:r.left,right:r.right,width:r.width}}))`);

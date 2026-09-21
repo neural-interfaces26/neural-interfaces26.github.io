@@ -258,55 +258,6 @@
     locations.forEach(({ target }) => observer.observe(target));
   }
 
-  /* ---------- Competition opening countdowns ---------- */
-  function initCountdown() {
-    document.querySelectorAll('[data-countdown-to]').forEach((root) => {
-      const target = new Date(root.dataset.countdownTo).getTime();
-      if (!Number.isFinite(target)) return;
-      const daysEl = root.querySelector('[data-cd-days]');
-      const hoursEl = root.querySelector('[data-cd-hours]');
-      const minsEl = root.querySelector('[data-cd-mins]');
-      const secsEl = root.querySelector('[data-cd-secs]');
-      const daysUnitEl = root.querySelector('[data-cd-days-unit]');
-      const labelEl = root.querySelector('[data-cd-label]');
-      const registrationNote = root.querySelector('.launch-alert-registration');
-      const pad = (n) => String(n).padStart(2, '0');
-
-      let intervalId = null;
-      const tick = () => {
-        const diff = target - Date.now();
-        if (diff <= 0) {
-          if (daysEl) daysEl.textContent = '0';
-          if (hoursEl) hoursEl.textContent = '00';
-          if (minsEl) minsEl.textContent = '00';
-          if (secsEl) secsEl.textContent = '00';
-          if (labelEl) labelEl.textContent = 'Competition is open';
-          root.classList.add('is-open');
-          root.setAttribute('aria-label', registrationNote ? `Competition is open. ${registrationNote.textContent.trim()}` : 'Competition is open');
-          if (intervalId) clearInterval(intervalId);
-          return false;
-        }
-        const totalSecs = Math.floor(diff / 1000);
-        const days = Math.floor(totalSecs / 86400);
-        const hours = Math.floor((totalSecs % 86400) / 3600);
-        const mins = Math.floor((totalSecs % 3600) / 60);
-        const secs = totalSecs % 60;
-        if (daysEl) daysEl.textContent = String(days);
-        if (hoursEl) hoursEl.textContent = pad(hours);
-        if (minsEl) minsEl.textContent = pad(mins);
-        if (secsEl) secsEl.textContent = pad(secs);
-        if (daysUnitEl) daysUnitEl.textContent = days === 1 ? 'day' : 'days';
-        root.setAttribute(
-          'aria-label',
-          `${days} days, ${hours} hours, ${mins} minutes, ${secs} seconds until the competition opens${registrationNote ? `. ${registrationNote.textContent.trim()}` : ''}`,
-        );
-        return true;
-      };
-
-      if (tick()) intervalId = setInterval(tick, 1000);
-    });
-  }
-
   /* ---------- Date-driven competition timeline ---------- */
   function initTimelineProgress() {
     const root = document.querySelector('[data-timeline-progress]');
@@ -430,7 +381,6 @@
     initSiteMenu();
     initHashDisclosures();
     initSectionNavigation();
-    initCountdown();
     initTimelineProgress();
     initLeaderboardTabs();
     initDisplayStops();
