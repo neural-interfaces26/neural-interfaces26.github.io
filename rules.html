@@ -153,11 +153,13 @@
         </details>
 
         <details class="vb-rule" id="rule-compute">
-          <summary><h3>Training compute is uncapped. Inference is 60 minutes on one GPU.</h3></summary>
+          <summary><h3>Training compute is uncapped. Inference is 60 minutes on one GPU. Submission size is capped.</h3></summary>
           <div class="vb-rule-body">
-            <p>Train on whatever you have. The single constraint is inference: the scoring container must complete a full test pass in under 60 minutes on one A100 GPU, so that audit cost stays bounded and per-team runtime stays comparable. AWS, the compute partner, provides complimentary instance hours to finalists.</p>
+            <p>Train on whatever you have. The scoring container must complete a full test pass in under 60 minutes on one A100 GPU, so that audit cost stays bounded and per-team runtime stays comparable. AWS, the compute partner, provides complimentary instance hours to finalists.</p>
+            <p>Codabench also limits each profile to 15 GB of submission storage shared across all tracks and uploads. This makes 15 GB the theoretical maximum for one submission, but your practical limit is the space remaining in your profile. If needed, delete unused archived submissions under <strong>Profile → Resources</strong>. A submission displayed on a leaderboard cannot be deleted.</p>
             <div class="vb-rule-facts">
               <div><span class="bs-kicker">Inference budget</span><strong>60 min · one A100</strong></div>
+              <div><span class="bs-kicker">Submission storage</span><strong>15 GB · per profile</strong></div>
               <div><span class="bs-kicker">Training</span><strong>No cap</strong></div>
               <div><span class="bs-kicker">Audit hardware</span><strong>Codabench container</strong></div>
             </div>
@@ -175,6 +177,7 @@
           <summary><h3>The top three per track must replay within ±2σ.</h3></summary>
           <div class="vb-rule-body">
             <p>After the sealed final closes, the top-3 of every track go through a reproducibility audit: we re-run your training pipeline from the committed config and re-score the resulting weights against the sealed split. Scores within ±2σ of your submitted number stay on the prize roster. Scores outside the tolerance drop off the prize roster but remain on the public board for context. The organising committee chairs the audit.</p>
+            <p>Participants retain the intellectual property rights they hold in their submitted code, models, and related materials. Finalists must provide the materials required for the audit and grant the auditing committee permission to access and run them solely to verify the submission and detect cheating. This limited audit permission does not allow the organisers to publish, share, modify, commercialise, or otherwise use those materials outside the audit. Open-source release after the competition is encouraged, but remains entirely the participant's choice.</p>
             <div class="vb-rule-facts">
               <div><span class="bs-kicker">Tolerance</span><strong>±2σ on metric</strong></div>
               <div><span class="bs-kicker">Audit lead</span><strong>Organising committee</strong></div>
