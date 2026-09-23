@@ -4736,9 +4736,10 @@ body.menu-open { overflow: hidden; }
 .prepare-guide-card h3 { margin: 2px 0 8px; font-size: 22px; line-height: 1.2; }
 .prepare-guide-card > div { min-width: 0; }
 .startkit-page .bs-code-head .copy:focus-visible { outline: 2px solid var(--bs-violet-soft); outline-offset: 2px; }
-.prepare-guide-card > a { grid-column: 2; display: inline-flex; width: fit-content; min-height: 42px; align-items: center; padding: 9px 13px; border: 1px solid var(--bs-violet); border-radius: 8px; background: var(--bs-violet); color: #fff; font-size: 13px; font-weight: 800; line-height: 1.25; text-decoration: none; }
-.prepare-guide-card > a:hover { border-color: var(--bs-violet-dark, #3f22d5); background: var(--bs-violet-dark, #3f22d5); }
-.prepare-guide-card > a:focus-visible { outline: 3px solid var(--bs-violet-soft); outline-offset: 3px; }
+.prepare-guide-card > .prepare-guide-links { grid-column: 2; display: flex; flex-wrap: wrap; gap: 8px; }
+.prepare-guide-card > a, .prepare-guide-links > a { grid-column: 2; display: inline-flex; width: fit-content; min-height: 42px; align-items: center; padding: 9px 13px; border: 1px solid var(--bs-violet); border-radius: 8px; background: var(--bs-violet); color: #fff; font-size: 13px; font-weight: 800; line-height: 1.25; text-decoration: none; }
+.prepare-guide-card > a:hover, .prepare-guide-links > a:hover { border-color: var(--bs-violet-dark, #3f22d5); background: var(--bs-violet-dark, #3f22d5); }
+.prepare-guide-card > a:focus-visible, .prepare-guide-links > a:focus-visible { outline: 3px solid var(--bs-violet-soft); outline-offset: 3px; }
 
 .prepare-guide-tools {
   display: grid;
