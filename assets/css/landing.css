@@ -802,6 +802,14 @@ body.menu-open { overflow: hidden; }
   transform: translateY(-1px);
 }
 
+.track-guide-buttons {
+  grid-column: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-self: start;
+}
+
 .track-facts {
   grid-column: 1;
   margin: 0;
