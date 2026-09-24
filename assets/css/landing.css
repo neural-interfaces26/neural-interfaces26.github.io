@@ -4623,7 +4623,7 @@ body.menu-open { overflow: hidden; }
 .prepare-role-card {
   display: flex;
   min-width: 0;
-  min-height: 210px;
+  min-height: 260px;
   flex-direction: column;
   padding: 20px;
   border-right: 1px solid var(--bs-card-border);
@@ -4632,7 +4632,8 @@ body.menu-open { overflow: hidden; }
 
 .prepare-role-card:last-child { border-right: 0; }
 .prepare-role-card--featured { background: var(--bs-violet-wash); }
-.prepare-role-card h3 { margin: 14px 0 10px; font-size: 22px; line-height: 1.2; }
+.prepare-role-card h3 { margin: 13px 0 7px; color: var(--bs-violet); font-size: 29px; line-height: 1.05; letter-spacing: -.025em; }
+.prepare-role-purpose { display: block; margin-bottom: 11px; font-size: 15px; line-height: 1.35; }
 .prepare-role-card p { margin: 0; color: var(--bs-muted); font-size: 14px; line-height: 1.55; }
 .prepare-role-card a { width: fit-content; margin-top: auto; padding-top: 18px; color: var(--bs-violet); font-size: 13px; font-weight: 800; text-underline-offset: 4px; }
 
@@ -4740,8 +4741,12 @@ body.menu-open { overflow: hidden; }
 .prepare-guide-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 16px; }
 .prepare-guide-grid--visible { margin-top: 0; }
 .prepare-guide-card { display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 10px 14px; align-items: start; padding: 20px; border: 1px solid var(--bs-card-border); border-top: 2px solid var(--bs-text); border-radius: 12px; background: var(--bs-bg); box-shadow: 0 10px 26px rgba(22, 18, 61, .045); scroll-margin-top: 90px; }
+#prepare-track-1 { border-color: #c8dbee; background: #f9fbfe; }
+#prepare-track-2 { border-color: #c9dfc7; background: #f9fcf9; }
+#prepare-track-3 { border-color: #ddcfea; background: #fcfafd; }
+#prepare-track-4 { border-color: #efd3bb; background: #fffbf8; }
 .prepare-guide-card > .track-tag { display: inline-grid; width: 38px; height: 32px; place-items: center; border: 1px solid rgba(83, 50, 244, .24); border-radius: 7px; background: var(--bs-violet-wash); color: var(--bs-violet); font: 700 12px/1 var(--bs-fontmono); }
-.prepare-guide-card h3 { margin: 2px 0 8px; font-size: 22px; line-height: 1.2; }
+.prepare-guide-card h3 { margin: 2px 0 8px; font-size: 25px; line-height: 1.16; letter-spacing: -.015em; }
 .prepare-guide-card > div { min-width: 0; }
 .startkit-page .bs-code-head .copy:focus-visible { outline: 2px solid var(--bs-violet-soft); outline-offset: 2px; }
 .prepare-guide-card > .prepare-guide-links { grid-column: 2; display: flex; flex-wrap: wrap; gap: 8px; }
@@ -4762,8 +4767,19 @@ body.menu-open { overflow: hidden; }
   border: 1px solid var(--bs-card-border);
   border-top: 2px solid rgba(91, 55, 255, .62);
   border-radius: 10px;
-  background: var(--bs-bg);
+  background: #fff;
   box-shadow: 0 5px 16px rgba(22, 18, 61, .045);
+}
+
+.prepare-track-disclosure--neuralbench {
+  border-top-color: #4f46e5;
+  background: #fff;
+}
+
+.prepare-track-disclosure--neuralbench .prepare-disclosure-mark {
+  border-color: rgba(79, 70, 229, .28);
+  background: #eef2ff;
+  color: #4338ca;
 }
 
 .prepare-track-disclosure > summary {
@@ -4790,7 +4806,7 @@ body.menu-open { overflow: hidden; }
 .prepare-track-disclosure[open] .prepare-disclosure-open { display: none; }
 .prepare-track-disclosure[open] .prepare-disclosure-close { display: inline; }
 .prepare-track-disclosure[open] .prepare-disclosure-action i { transform: translateY(2px) rotate(225deg); }
-.prepare-track-disclosure-body { min-width: 0; padding: 16px; overflow-x: auto; border-top: 1px solid var(--bs-card-border); background: rgba(255, 255, 255, .58); }
+.prepare-track-disclosure-body { min-width: 0; padding: 16px; overflow-x: auto; border-top: 1px solid var(--bs-card-border); background: #fff; }
 .prepare-track-disclosure-body .bs-code { margin: 0 0 12px; }
 .prepare-track-disclosure-body > p { margin: 0; color: var(--bs-muted); font-size: 13px; line-height: 1.5; }
 .prepare-track-disclosure-body .prepare-track-dataset {
@@ -4819,6 +4835,9 @@ body.menu-open { overflow: hidden; }
 
 .prepare-note { max-width: 86ch; margin: 22px 0 0; color: var(--bs-muted); font-size: 14px; line-height: 1.55; }
 .prepare-note strong { color: var(--bs-text); }
+.prepare-next-step { margin: 16px 0 0; }
+.prepare-next-step a { display: inline-flex; align-items: center; gap: 7px; color: var(--bs-text); font-size: 14px; line-height: 1.45; text-decoration-color: var(--bs-violet); text-underline-offset: 4px; }
+.prepare-next-step a span { color: var(--bs-violet); font-size: 18px; font-weight: 800; }
 
 .prepare-run-sequence { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; padding: 0; border-top: 1px solid var(--bs-text); border-bottom: 1px solid var(--bs-text); list-style: none; }
 .prepare-run-sequence li { display: flex; min-width: 0; min-height: 118px; flex-direction: column; gap: 8px; padding: 16px; border-right: 1px solid var(--bs-card-border); }
@@ -4830,11 +4849,12 @@ body.menu-open { overflow: hidden; }
 .prepare-run-sequence small { margin-top: 4px; }
 .prepare-run-sequence code { margin-top: auto; }
 
-.prepare-phase-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--bs-text); border-bottom: 1px solid var(--bs-text); }
+.prepare-phase-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--bs-text); border-bottom: 1px solid var(--bs-text); }
 .prepare-phase-card { padding: 20px; border-right: 1px solid var(--bs-card-border); background: var(--bs-bg); }
 .prepare-phase-card:last-child { border-right: 0; }
 .prepare-phase-card--live { background: var(--bs-violet-wash); }
-.prepare-phase-card h3 { margin: 10px 0 16px; font-size: 21px; line-height: 1.25; }
+.prepare-phase-card h3 { margin: 0 0 7px; color: var(--bs-violet); font-size: 27px; line-height: 1.1; letter-spacing: -.025em; }
+.prepare-phase-purpose { display: block; margin-bottom: 13px; font-size: 15px; line-height: 1.35; }
 .prepare-phase-card p { margin: 0 0 18px; color: var(--bs-muted); font-size: 14px; line-height: 1.55; }
 .prepare-phase-card ol { margin: 0; padding-left: 21px; color: var(--bs-muted); font-size: 14px; line-height: 1.55; }
 .prepare-phase-card li + li { margin-top: 8px; }

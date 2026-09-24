@@ -12,7 +12,7 @@ from urllib.parse import unquote, urljoin, urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = [
     "index.html", "tracks.html", "register.html", "participant-guide.html", "rules.html", "leaderboard.html",
-    "prizes.html", "organizers.html", "ethics.html", "track-record.html",
+    "prizes.html", "organizers.html", "ethics.html", "track-record.html", "ecosystem.html",
 ]
 ALL_PAGES = PAGES + ["404.html"]
 SITE_ORIGIN = "https://neural-interfaces26.github.io"
@@ -430,7 +430,7 @@ def check_technical(errors: list[str]) -> None:
             if fact not in proof_text:
                 errors.append(f"{name}: page proof missing {fact!r}")
     code_labels: list[str] = []
-    for name, expected in (("participant-guide.html", 4), ("leaderboard.html", 4)):
+    for name, expected in (("participant-guide.html", 8), ("leaderboard.html", 4)):
         parsed = pages[name]
         code_blocks = parsed.find(class_name="bs-code")
         code_regions = [
