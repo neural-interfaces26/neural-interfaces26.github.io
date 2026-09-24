@@ -5492,3 +5492,18 @@ body.menu-open { overflow: hidden; }
 .oss-mark img { max-height: 28px; max-width: 122px; width: auto; height: auto; }
 .oss-wordmark { font-weight: 800; font-size: 17px; color: var(--bs-violet); }
 .eco-card-logo img.eco-logo-lg { max-height: 66px; max-width: 215px; }
+
+/* ---- Quick-start tool tabs (Benchopt / NeuralBench) ---- */
+.prepare-track-disclosure-body.qs-tabs { position: relative; }
+.qs-radio { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.qs-tablist { display: inline-flex; gap: 4px; padding: 4px; margin-bottom: 12px; border-radius: 9px; background: var(--bs-violet-wash); }
+.qs-tab { cursor: pointer; padding: 6px 15px; border-radius: 6px; font-size: 13px; font-weight: 800; line-height: 1.2; color: var(--bs-violet); user-select: none; transition: background .14s ease, color .14s ease; }
+.qs-tab:hover { background: rgba(83, 50, 244, 0.10); }
+.qs-panel { display: none; }
+.qs-radio.is-benchopt:checked ~ .qs-panel--benchopt,
+.qs-radio.is-neuralbench:checked ~ .qs-panel--neuralbench { display: block; }
+.qs-radio.is-benchopt:checked ~ .qs-tablist .qs-tab--benchopt,
+.qs-radio.is-neuralbench:checked ~ .qs-tablist .qs-tab--neuralbench { background: var(--bs-violet); color: #fff; }
+.qs-radio:focus-visible ~ .qs-tablist { outline: 2px solid var(--bs-violet-soft); outline-offset: 2px; border-radius: 9px; }
+/* home strip enlarged marks */
+.oss-mark img.oss-logo-lg { max-height: 42px; max-width: 150px; }
