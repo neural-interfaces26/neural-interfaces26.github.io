@@ -5171,7 +5171,7 @@ body.menu-open { overflow: hidden; }
 /* User-reviewed promotion and reading layouts. */
 .prize-panel h2 { font-size: clamp(32px, 4vw, 56px); line-height: 1.1; letter-spacing: -.025em; }
 .sponsor-wall-layout { grid-template-columns: 1fr; gap: 28px; }
-.sponsor-wall-intro, .sponsor-groups, .sponsor-institutions { grid-column: 1; }
+.sponsor-wall-intro, .sponsor-groups, .sponsor-institutions, .sponsor-opensource { grid-column: 1; }
 .sponsor-wall-intro { max-width: 76ch; }
 .sponsor-wall-intro h2 { margin-block: 12px 16px; }
 .sponsor-wall-intro p { margin-bottom: 10px; }
@@ -5369,6 +5369,20 @@ body.menu-open { overflow: hidden; }
 .sponsor-wall .sponsor-groups .vb-logo-mark[title="Inria"] img { transform: translateY(-5px) scale(1.1); }
 .sponsor-wall .sponsor-groups .vb-logo-mark[title="Amazon Web Services"] img { max-width: 88%; transform: scale(.86); }
 .sponsor-wall .sponsor-institutions .vb-logo-mark img { max-width: min(125px, 68%); max-height: 52px; }
+.sponsor-wall { padding-bottom: 68px; }
+.sponsor-opensource { margin-top: 2px; }
+.sponsor-opensource .oss-head { min-height: 24px; }
+.sponsor-wall .vb-logo-grid--opensource { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); border-top: 1px solid var(--bs-text); border-bottom: 0; }
+.sponsor-wall .vb-logo-grid--opensource .vb-logo-mark { flex-direction: column; gap: 8px; overflow: hidden; text-decoration: none; }
+.oss-logo-frame { display: flex; width: 100%; height: 52px; flex: 0 0 52px; align-items: center; justify-content: center; overflow: hidden; }
+.sponsor-wall .vb-logo-grid--opensource .oss-logo-frame img { width: auto; height: auto; max-width: min(132px, 100%); max-height: 48px; object-fit: contain; }
+.sponsor-wall .vb-logo-grid--opensource .vb-logo-mark[title="NeuralBench"] img,
+.sponsor-wall .vb-logo-grid--opensource .vb-logo-mark[title="NEMAR"] img { max-width: 48px; max-height: 48px; }
+.sponsor-wall .vb-logo-grid--opensource .vb-logo-mark[title="MOABB"] img { max-width: 54px; max-height: 54px; }
+.sponsor-wall .vb-logo-grid--opensource .vb-logo-mark[title="Benchopt"] img { max-width: min(112px, 100%); max-height: 48px; }
+.sponsor-wall .vb-logo-grid--opensource .vb-logo-mark[title="braindecode"] img { max-width: min(108px, 100%); max-height: 52px; }
+.sponsor-wall .vb-logo-grid--opensource .vb-logo-mark[title="EEGDash"] img { max-width: min(148px, 92%); transform: scale(1.08); }
+.oss-name { color: var(--bs-muted); font-size: 11px; font-weight: 600; line-height: 1.2; text-align: center; text-decoration: none; }
 
 .awards-page .page-hero { padding-block: 44px 40px; }
 .awards-page .page-hero-copy { max-width: 64ch; }
@@ -5434,6 +5448,8 @@ body.menu-open { overflow: hidden; }
   .journey-overview-grid a:nth-child(2) { border-right: 0; }
   .journey-overview-grid a:nth-child(-n + 2) { border-bottom: 1px solid var(--bs-card-border); }
   .sponsor-groups { grid-template-columns: 1fr; }
+  .sponsor-wall { padding-bottom: 56px; }
+  .sponsor-wall .vb-logo-grid--opensource { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .award-all-round { grid-template-columns: 100px minmax(0, 1fr); }
 }
 
@@ -5455,17 +5471,21 @@ body.menu-open { overflow: hidden; }
   .timeline-panel li { min-height: 156px; padding: 17px 14px 18px; }
   .journey-overview-grid a { min-height: 162px; padding: 15px; }
   .journey-overview-grid strong { font-size: 18px; }
+  .sponsor-wall { padding-bottom: 45px; }
   .sponsor-wall .vb-logo-grid--core,
   .sponsor-wall .vb-logo-grid--tracks,
-  .sponsor-wall .vb-logo-grid--six-up { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sponsor-wall .vb-logo-grid--six-up,
+  .sponsor-wall .vb-logo-grid--opensource { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sponsor-wall .vb-logo-grid--compute { grid-template-columns: 1fr; }
   .sponsor-wall .vb-logo-grid--compute > .vb-logo-mark { grid-column: 1; }
   .sponsor-wall .vb-logo-grid--core > :nth-child(3n),
   .sponsor-wall .vb-logo-grid--tracks > :nth-child(5n),
-  .sponsor-wall .vb-logo-grid--six-up > :nth-child(5n) { border-right: 0; }
+  .sponsor-wall .vb-logo-grid--six-up > :nth-child(5n),
+  .sponsor-wall .vb-logo-grid--opensource > :nth-child(7n) { border-right: 0; }
   .sponsor-wall .vb-logo-grid--core > :nth-child(2n),
   .sponsor-wall .vb-logo-grid--tracks > :nth-child(2n),
   .sponsor-wall .vb-logo-grid--six-up > :nth-child(2n),
+  .sponsor-wall .vb-logo-grid--opensource > :nth-child(2n),
   .sponsor-wall .vb-logo-grid > :last-child { border-right: 0; }
   .sponsor-wall .vb-logo-mark,
   .sponsor-wall .vb-logo-group .vb-logo-grid > .vb-logo-mark { height: 108px; padding: 16px; }
