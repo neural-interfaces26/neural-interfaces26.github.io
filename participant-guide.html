@@ -16,13 +16,13 @@
 <meta name="theme-color" content="#5332F4" />
 
 <title>Participant guide | EEG/EMG Foundation Challenge 2026</title>
-<meta name="description" content="Understand the challenge workflow, use the optional NeuralBench start kits, train your model, and submit it through Codabench." />
+<meta name="description" content="Learn how NeuralBench and Benchopt connect, choose a local training route, package your trained model, and submit it through Codabench." />
 
 <link rel="canonical" href="https://neural-interfaces26.github.io/participant-guide.html" />
 <meta name="author" content="Bruno Aristimunha and the EEG/EMG Foundation Challenge organising team" />
 
 <meta property="og:title" content="Participant guide | EEG/EMG Foundation Challenge 2026" />
-<meta property="og:description" content="Understand the challenge workflow, use the optional NeuralBench start kits, train your model, and submit it through Codabench." />
+<meta property="og:description" content="Learn how NeuralBench and Benchopt connect, choose a local training route, package your trained model, and submit it through Codabench." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://neural-interfaces26.github.io/participant-guide.html" />
 <meta property="og:site_name" content="EEG/EMG Foundation Challenge 2026" />
@@ -34,7 +34,7 @@
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Participant guide | EEG/EMG Foundation Challenge 2026" />
-<meta name="twitter:description" content="Understand the challenge workflow, use the optional NeuralBench start kits, train your model, and submit it through Codabench." />
+<meta name="twitter:description" content="Learn how NeuralBench and Benchopt connect, choose a local training route, package your trained model, and submit it through Codabench." />
 <meta name="twitter:image" content="https://neural-interfaces26.github.io/assets/img/og-card.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -43,7 +43,7 @@
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
 <link rel="stylesheet" href="assets/css/base.css?v=20260908ux" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260920datasets2" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20260924oss" />
 
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
 
@@ -65,9 +65,9 @@
     <a href="tracks.html">Tracks &amp; Data</a>
     <a href="participant-guide.html" aria-current="page">Participant guide</a>
     <a href="prizes.html">Prizes</a>
-    <a href="leaderboard.html">Leaderboard</a>
     <a href="rules.html">Rules</a>
     <a href="organizers.html">Organizers</a>
+    <a href="ecosystem.html">Ecosystem</a>
     <a href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Discord ↗</a>
     <a class="bs-btn primary sm" href="register.html">Register</a>
   </nav>
@@ -79,19 +79,19 @@
   <section class="page-hero startkit-hero" id="quickstart" aria-labelledby="kit-heading">
     <div class="page-hero-inner">
       <div class="page-hero-copy">
-        <span class="bs-eyebrow">Preparation map · start kits + submissions</span>
+        <span class="bs-eyebrow">One shared stack · several valid routes</span>
         <h1 id="kit-heading">Your participant guide.</h1>
-        <p>This guide takes you from choosing a track to submitting a trained model. NeuralBench offers optional start kits, public baselines, and a development environment, but you may use your own pipeline. Registration, submission rules, uploads, and official evaluation are handled on Codabench.</p>
+        <p>Go from choosing a track to submitting a trained model. Develop with NeuralBench, Benchopt, both, or your own pipeline, then submit the trained model to <strong>Codabench</strong> for official evaluation. Each track provides two complementary worked examples: a <strong>NeuralBench</strong> start kit to explore the task and data through a neuro-specific model-development and evaluation framework, and a <strong>Benchopt</strong> competition kit to develop and validate against the submission workflow. Both are recommended, not required.</p>
         <div class="bs-hero-cta">
           <a class="bs-btn primary" href="#workflow">See the workflow ↓</a>
-          <a class="bs-btn ghost" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/index.html" target="_blank" rel="noreferrer noopener">Explore NeuralBench start kits ↗</a>
+          <a class="bs-btn ghost" href="#track-guides">Open the worked examples ↓</a>
         </div>
       </div>
     </div>
   </section>
 
   <nav class="local-nav" aria-label="Getting prepared sections">
-    <a href="#workflow">01 · Workflow</a><a href="#track-guides">02 · Start kits</a><a href="#build">03 · Build</a><a href="#submit">04 · Submit</a>
+    <a href="#workflow">01 · Workflow</a><a href="#track-guides">02 · Kits and baselines</a><a href="#build">03 · Build</a><a href="#submit">04 · Submit</a>
   </nav>
 
   <!-- ============================== Step 01 ============================== -->
@@ -99,28 +99,31 @@
     <div class="prepare-step-head">
       <span class="prepare-step-number" aria-hidden="true">01</span>
       <div>
-        <span class="bs-kicker">Three interfaces · one workflow</span>
-        <h2 id="workflow-heading">Know where to go.</h2>
-        <p>This website is your map. NeuralBench is the recommended optional preparation environment. Codabench is the official participation and evaluation platform.</p>
+        <span class="bs-kicker">Connected tools · distinct responsibilities</span>
+        <h2 id="workflow-heading">Understand the competition ecosystem.</h2>
+        <p>Three complementary tools support different parts of your path from public data to the leaderboard. NeuralBench and Benchopt are strongly recommended but optional. Codabench is required for registration, submission, and official evaluation.</p>
       </div>
     </div>
     <div class="prepare-role-grid">
       <article class="prepare-role-card">
-        <span class="bs-kicker">Competition website</span>
-        <h3>Understand the challenge.</h3>
-        <p>Compare tracks, datasets, metrics, prizes, rules, dates, and organizers. Use this site to find the right next destination.</p>
-        <a href="tracks.html">Explore the tracks →</a>
+        <span class="bs-kicker">01 · Tasks, data &amp; baselines</span>
+        <h3>NeuralBench</h3>
+        <strong class="prepare-role-purpose">Neurophysiology task and model environment.</strong>
+        <p>Defines the public tasks, datasets, preprocessing, splits, and reference baselines. Use it to explore a task and run a catalogue model — a task-specific network or a pretrained foundation model (probed or fine-tuned).</p>
+        <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/index.html" target="_blank" rel="noreferrer noopener">Open the NeuralBench guides ↗</a>
       </article>
       <article class="prepare-role-card prepare-role-card--featured">
-        <span class="bs-kicker">NeuralBench · recommended path</span>
-        <h3>Start from a reference.</h3>
-        <p>Use the NeuralBench start kits to access public task examples, reproduce baselines, and develop or train models in a common environment.</p>
-        <a href="#track-guides">Choose a NeuralBench start kit ↓</a>
+        <span class="bs-kicker">02 · Develop and package</span>
+        <h3>Benchopt</h3>
+        <strong class="prepare-role-purpose">Reproducible experimentation and competition preparation.</strong>
+        <p>Use it to <strong>develop your own model</strong> and compare methods reproducibly. A new architecture lives in your <code>submission.py</code> as plain PyTorch; Benchopt reuses the NeuralBench task and data layer to train, validate, and package it into a submission.</p>
+        <a href="https://github.com/neural-interfaces26/2026-competition#develop--train-your-model-with-benchopt" target="_blank" rel="noreferrer noopener">Open the Benchopt competition kit ↗</a>
       </article>
       <article class="prepare-role-card">
-        <span class="bs-kicker">Codabench · official submission</span>
-        <h3>Register and submit.</h3>
-        <p>Read the Submission Guide, register for each track, upload your trained model package, and receive official scores.</p>
+        <span class="bs-kicker">03 · Submit and score</span>
+        <h3>Codabench</h3>
+        <strong class="prepare-role-purpose">Official participation and evaluation platform.</strong>
+        <p>Use it to register, read the current submission requirements, upload your trained model package, and receive official scores on the track leaderboards.</p>
         <a href="#submit">Open a Codabench track portal ↓</a>
       </article>
     </div>
@@ -133,9 +136,9 @@
     <div class="prepare-step-head">
       <span class="prepare-step-number" aria-hidden="true">02</span>
       <div>
-        <span class="bs-kicker">Recommended · optional</span>
-        <h2 id="guides-heading">Warm up with the NeuralBench start kits.</h2>
-        <p>Each NeuralBench guide is a track-specific start kit with public development data, explicit train, validation, and test splits, a baseline, and a reference result. Following it once gives you a verified pipeline before you introduce your own model, but it is not required. The reference results below belong to the named development datasets and are not Codabench warm-up leaderboard scores.</p>
+        <span class="bs-kicker">Optional but recommended · two complementary entry points</span>
+        <h2 id="guides-heading">Start with worked examples.</h2>
+        <p>Each track offers a <strong>NeuralBench start kit</strong> to explore the task and test a model, plus a <strong>Benchopt competition kit</strong> to exercise the competition workflow and submission contract. <strong>Try the entry point closest to your immediate goal.</strong> This does not lock in how you train your final model.</p>
       </div>
     </div>
 
@@ -143,21 +146,38 @@
     <div class="prepare-guide-grid prepare-guide-grid--visible">
       <article class="prepare-guide-card" id="prepare-track-1">
         <span class="track-tag"><span class="sr-only">Track </span>01</span>
-        <div class="prepare-guide-title"><span class="bs-kicker">Optional start kit</span><h3>EEG-to-Image</h3></div>
-        <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track1_eeg_to_image.html" target="_blank" rel="noreferrer noopener">Open Track 01 on NeuralBench ↗</a>
+        <div class="prepare-guide-title"><span class="bs-kicker">Track worked examples and baselines</span><h3>EEG-to-Image</h3></div>
+        <div class="prepare-guide-links">
+          <a href="https://github.com/neural-interfaces26/2026-competition/tree/main/tracks/image_decoding" target="_blank" rel="noreferrer noopener">Open the Track 01 competition kit ↗</a>
+          <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track1_eeg_to_image.html" target="_blank" rel="noreferrer noopener">Open Track 01 on NeuralBench ↗</a>
+        </div>
         <div class="prepare-guide-tools">
           <details class="prepare-track-disclosure">
             <summary>
               <span class="prepare-disclosure-mark" aria-hidden="true">&gt;_</span>
-              <span class="prepare-disclosure-copy"><small>Quick start</small><strong>Setup and test commands</strong></span>
+              <span class="prepare-disclosure-copy"><small>Benchopt competition kit</small><strong>Train and package a simple baseline with Benchopt</strong></span>
+              <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
+            </summary>
+            <div class="prepare-track-disclosure-body">
+              <figure class="bs-code" aria-label="Track 01 Benchopt quick start">
+                <figcaption class="bs-code-head"><span class="bs-kicker">Terminal · Benchopt</span><button class="copy" type="button" data-copy aria-live="polite">copy</button></figcaption>
+                <pre tabindex="0" aria-label="Track 01 Benchopt setup and test commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install benchopt</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>git clone https://github.com/neural-interfaces26/2026-competition</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt install 2026-competition/tracks/image_decoding</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt prepare 2026-competition/tracks/image_decoding --config 2026-competition/tracks/image_decoding/starter.yml</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt run 2026-competition/tracks/image_decoding --config 2026-competition/tracks/image_decoding/starter.yml</code></span></pre>
+              </figure>
+              <p>This installs the track dependencies, prepares THINGS-EEG2 through the NeuralBench data pipeline, trains the Torch linear solver, evaluates it on the public split, and writes a submission folder. Zip that folder before uploading it to Codabench.</p>
+            </div>
+          </details>
+          <details class="prepare-track-disclosure prepare-track-disclosure--neuralbench">
+            <summary>
+              <span class="prepare-disclosure-mark" aria-hidden="true">NB</span>
+              <span class="prepare-disclosure-copy"><small>NeuralBench start kit</small><strong>Check EEGNet with NeuralBench</strong></span>
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
               <figure class="bs-code" aria-label="Track 01 NeuralBench quick start">
-                <figcaption class="bs-code-head"><span class="bs-kicker">Terminal</span><button class="copy" type="button" data-copy aria-live="polite">copy</button></figcaption>
-                <pre tabindex="0" aria-label="Track 01 NeuralBench setup and test commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg image --download</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg image --prepare</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg image -m eegnet --debug</code></span></pre>
+                <figcaption class="bs-code-head"><span class="bs-kicker">Terminal · NeuralBench</span><button class="copy" type="button" data-copy aria-live="polite">copy</button></figcaption>
+                <pre tabindex="0" aria-label="Track 01 NeuralBench commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg image --download</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg image --prepare</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg image -m eegnet --debug</code></span></pre>
               </figure>
-              <p>Install NeuralBench once, download the public data, prepare the cache, and verify the pipeline with a short EEGNet run.</p>
+              <p>The <code>--debug</code> command quickly checks the NeuralBench task and EEGNet pipeline. Choose this start kit to explore the neuro-specific task, adaptation strategies, and evaluation of catalogue models.</p>
             </div>
           </details>
           <details class="prepare-track-disclosure prepare-track-disclosure--results" id="baseline-track-1">
@@ -167,7 +187,7 @@
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
-              <p class="prepare-track-dataset"><strong>Baseline results obtained on THINGS-EEG2 (<code>Gifford2022Large</code>)</strong>, using the split defined in the <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track1_eeg_to_image.html" target="_blank" rel="noreferrer noopener">Track 01 NeuralBench start kit</a>.</p>
+              <p class="prepare-track-dataset"><strong>Baseline results obtained on THINGS-EEG2 (<code>Gifford2022Large</code>)</strong>, using the split documented in the <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track1_eeg_to_image.html" target="_blank" rel="noreferrer noopener">Track 01 NeuralBench reference guide</a>.</p>
               <div class="prepare-track-table" role="table" aria-label="Track 01 baseline results">
                 <div class="prepare-track-table-row head" role="row"><span role="columnheader">Baseline</span><span role="columnheader">Family</span><span role="columnheader">Params</span><span role="columnheader">Train</span><span role="columnheader">Reference score</span><span role="columnheader">Configuration</span></div>
                 <div class="prepare-track-table-row" role="row"><span role="cell"><strong>Chance</strong></span><span role="cell">reference</span><span role="cell">0</span><span role="cell">0 GPU-h</span><span role="cell">Top-5 2.22 ± 0.31</span><span role="cell">Not applicable</span></div>
@@ -182,21 +202,38 @@
 
       <article class="prepare-guide-card" id="prepare-track-2">
         <span class="track-tag"><span class="sr-only">Track </span>02</span>
-        <div class="prepare-guide-title"><span class="bs-kicker">Optional start kit</span><h3>BCI decoding</h3></div>
-        <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track2_eeg_to_bci.html" target="_blank" rel="noreferrer noopener">Open Track 02 on NeuralBench ↗</a>
+        <div class="prepare-guide-title"><span class="bs-kicker">Track worked examples and baselines</span><h3>BCI decoding</h3></div>
+        <div class="prepare-guide-links">
+          <a href="https://github.com/neural-interfaces26/2026-competition/tree/main/tracks/bci_decoding" target="_blank" rel="noreferrer noopener">Open the Track 02 competition kit ↗</a>
+          <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track2_eeg_to_bci.html" target="_blank" rel="noreferrer noopener">Open Track 02 on NeuralBench ↗</a>
+        </div>
         <div class="prepare-guide-tools">
           <details class="prepare-track-disclosure">
             <summary>
               <span class="prepare-disclosure-mark" aria-hidden="true">&gt;_</span>
-              <span class="prepare-disclosure-copy"><small>Quick start</small><strong>Setup and test commands</strong></span>
+              <span class="prepare-disclosure-copy"><small>Benchopt competition kit</small><strong>Train and package a simple baseline with Benchopt</strong></span>
+              <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
+            </summary>
+            <div class="prepare-track-disclosure-body">
+              <figure class="bs-code" aria-label="Track 02 Benchopt quick start">
+                <figcaption class="bs-code-head"><span class="bs-kicker">Terminal · Benchopt</span><button class="copy" type="button" data-copy aria-live="polite">copy</button></figcaption>
+                <pre tabindex="0" aria-label="Track 02 Benchopt setup and test commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install benchopt</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>git clone https://github.com/neural-interfaces26/2026-competition</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt install 2026-competition/tracks/bci_decoding</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt prepare 2026-competition/tracks/bci_decoding --config 2026-competition/tracks/bci_decoding/starter.yml</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt run 2026-competition/tracks/bci_decoding --config 2026-competition/tracks/bci_decoding/starter.yml</code></span></pre>
+              </figure>
+              <p>This installs the track dependencies, prepares Dreyer 2023 through the NeuralBench data pipeline, trains the Torch linear solver, evaluates it on the public split, and writes a submission folder. Zip that folder before uploading it to Codabench.</p>
+            </div>
+          </details>
+          <details class="prepare-track-disclosure prepare-track-disclosure--neuralbench">
+            <summary>
+              <span class="prepare-disclosure-mark" aria-hidden="true">NB</span>
+              <span class="prepare-disclosure-copy"><small>NeuralBench start kit</small><strong>Check EEGNet with NeuralBench</strong></span>
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
               <figure class="bs-code" aria-label="Track 02 NeuralBench quick start">
-                <figcaption class="bs-code-head"><span class="bs-kicker">Terminal</span><button class="copy" type="button" data-copy aria-live="polite">copy</button></figcaption>
-                <pre tabindex="0" aria-label="Track 02 NeuralBench setup and test commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench 'moabb&gt;=1.7.1'</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg motor_imagery --dataset dreyer2023 --download</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg motor_imagery --dataset dreyer2023 --prepare</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg motor_imagery --dataset dreyer2023 -m eegnet --debug</code></span></pre>
+                <figcaption class="bs-code-head"><span class="bs-kicker">Terminal · NeuralBench</span><button class="copy" type="button" data-copy aria-live="polite">copy</button></figcaption>
+                <pre tabindex="0" aria-label="Track 02 NeuralBench commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench 'moabb&gt;=1.7.1'</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg motor_imagery --dataset dreyer2023 --download</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg motor_imagery --dataset dreyer2023 --prepare</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg motor_imagery --dataset dreyer2023 -m eegnet --debug</code></span></pre>
               </figure>
-              <p>Install the MOABB data dependency, download the Dreyer 2023 warm-up proxy, prepare its cache, and verify the EEGNet pipeline.</p>
+              <p>The <code>--debug</code> command quickly checks the NeuralBench task and EEGNet pipeline on Dreyer 2023. Choose this start kit to explore the neuro-specific task, adaptation strategies, and evaluation of catalogue models.</p>
             </div>
           </details>
           <details class="prepare-track-disclosure prepare-track-disclosure--results" id="baseline-track-2">
@@ -206,7 +243,7 @@
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
-              <p class="prepare-track-dataset"><strong>Baseline results obtained on Stieger 2021 (<code>Stieger2021Continuous</code>)</strong>, a four-class motor-imagery dataset, using the split defined in the <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track2_eeg_to_bci.html" target="_blank" rel="noreferrer noopener">Track 02 NeuralBench start kit</a>. Codabench currently uses Dreyer 2023 for warm-up evaluation, so these are not Codabench warm-up scores.</p>
+              <p class="prepare-track-dataset"><strong>Baseline results obtained on Stieger 2021 (<code>Stieger2021Continuous</code>)</strong>, a four-class motor-imagery dataset, using the split documented in the <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track2_eeg_to_bci.html" target="_blank" rel="noreferrer noopener">Track 02 NeuralBench reference guide</a>. Codabench currently uses Dreyer 2023 for warm-up evaluation, so these are not Codabench warm-up scores.</p>
               <div class="prepare-track-table" role="table" aria-label="Track 02 baseline results">
                 <div class="prepare-track-table-row head" role="row"><span role="columnheader">Baseline</span><span role="columnheader">Family</span><span role="columnheader">Params</span><span role="columnheader">Train</span><span role="columnheader">Reference score</span><span role="columnheader">Configuration</span></div>
                 <div class="prepare-track-table-row" role="row"><span role="cell"><strong>Chance</strong></span><span role="cell">reference</span><span role="cell">0</span><span role="cell">0 GPU-h</span><span role="cell">Bal. Acc 24.81 ± 1.03</span><span role="cell">Not applicable</span></div>
@@ -221,21 +258,38 @@
 
       <article class="prepare-guide-card" id="prepare-track-3">
         <span class="track-tag"><span class="sr-only">Track </span>03</span>
-        <div class="prepare-guide-title"><span class="bs-kicker">Optional start kit</span><h3>Sleep onset</h3></div>
-        <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track3_sleep_onset.html" target="_blank" rel="noreferrer noopener">Open Track 03 on NeuralBench ↗</a>
+        <div class="prepare-guide-title"><span class="bs-kicker">Track worked examples and baselines</span><h3>Sleep onset</h3></div>
+        <div class="prepare-guide-links">
+          <a href="https://github.com/neural-interfaces26/2026-competition/tree/main/tracks/sleep_onset" target="_blank" rel="noreferrer noopener">Open the Track 03 competition kit ↗</a>
+          <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track3_sleep_onset.html" target="_blank" rel="noreferrer noopener">Open Track 03 on NeuralBench ↗</a>
+        </div>
         <div class="prepare-guide-tools">
           <details class="prepare-track-disclosure">
             <summary>
               <span class="prepare-disclosure-mark" aria-hidden="true">&gt;_</span>
-              <span class="prepare-disclosure-copy"><small>Quick start</small><strong>Setup and test commands</strong></span>
+              <span class="prepare-disclosure-copy"><small>Benchopt competition kit</small><strong>Train and package a simple baseline with Benchopt</strong></span>
+              <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
+            </summary>
+            <div class="prepare-track-disclosure-body">
+              <figure class="bs-code" aria-label="Track 03 Benchopt quick start">
+                <figcaption class="bs-code-head"><span class="bs-kicker">Terminal · Benchopt</span><button class="copy" type="button" data-copy aria-live="polite">copy</button></figcaption>
+                <pre tabindex="0" aria-label="Track 03 Benchopt setup and test commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install benchopt</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>git clone https://github.com/neural-interfaces26/2026-competition</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt install 2026-competition/tracks/sleep_onset</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt prepare 2026-competition/tracks/sleep_onset --config 2026-competition/tracks/sleep_onset/starter.yml</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt run 2026-competition/tracks/sleep_onset --config 2026-competition/tracks/sleep_onset/starter.yml</code></span></pre>
+              </figure>
+              <p>This installs the track dependencies, prepares Sleep-EDF through the NeuralBench data pipeline, trains the Torch linear solver, evaluates it on the public split, and writes a submission folder. Zip that folder before uploading it to Codabench.</p>
+            </div>
+          </details>
+          <details class="prepare-track-disclosure prepare-track-disclosure--neuralbench">
+            <summary>
+              <span class="prepare-disclosure-mark" aria-hidden="true">NB</span>
+              <span class="prepare-disclosure-copy"><small>NeuralBench start kit</small><strong>Check EEGNet with NeuralBench</strong></span>
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
               <figure class="bs-code" aria-label="Track 03 NeuralBench quick start">
-                <figcaption class="bs-code-head"><span class="bs-kicker">Terminal</span><button class="copy" type="button" data-copy aria-live="polite">copy</button></figcaption>
-                <pre tabindex="0" aria-label="Track 03 NeuralBench setup and test commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg sleep_onset --download</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg sleep_onset --prepare</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg sleep_onset -m eegnet --debug</code></span></pre>
+                <figcaption class="bs-code-head"><span class="bs-kicker">Terminal · NeuralBench</span><button class="copy" type="button" data-copy aria-live="polite">copy</button></figcaption>
+                <pre tabindex="0" aria-label="Track 03 NeuralBench commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg sleep_onset --download</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg sleep_onset --prepare</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg sleep_onset -m eegnet --debug</code></span></pre>
               </figure>
-              <p>Install NeuralBench once, download Sleep-EDF, prepare the cache, and verify the sleep-onset pipeline with a short EEGNet run.</p>
+              <p>The <code>--debug</code> command quickly checks the NeuralBench task and EEGNet pipeline. Choose this start kit to explore the neuro-specific task, adaptation strategies, and evaluation of catalogue models.</p>
             </div>
           </details>
           <details class="prepare-track-disclosure prepare-track-disclosure--results" id="baseline-track-3">
@@ -245,7 +299,7 @@
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
-              <p class="prepare-track-dataset"><strong>Baseline results obtained on Sleep-EDF (<code>Kemp2000Analysis</code>)</strong>, using the participant-level split defined in the <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track3_sleep_onset.html" target="_blank" rel="noreferrer noopener">Track 03 NeuralBench start kit</a>.</p>
+              <p class="prepare-track-dataset"><strong>Baseline results obtained on Sleep-EDF (<code>Kemp2000Analysis</code>)</strong>, using the participant-level split documented in the <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track3_sleep_onset.html" target="_blank" rel="noreferrer noopener">Track 03 NeuralBench reference guide</a>.</p>
               <div class="prepare-track-table" role="table" aria-label="Track 03 baseline results">
                 <div class="prepare-track-table-row head" role="row"><span role="columnheader">Baseline</span><span role="columnheader">Family</span><span role="columnheader">Params</span><span role="columnheader">Train</span><span role="columnheader">Reference score</span><span role="columnheader">Configuration</span></div>
                 <div class="prepare-track-table-row" role="row"><span role="cell"><strong>Chance</strong></span><span role="cell">reference</span><span role="cell">0</span><span role="cell">0 GPU-h</span><span role="cell">bMAE 205.42 ± 0.01 s</span><span role="cell">Not applicable</span></div>
@@ -260,21 +314,38 @@
 
       <article class="prepare-guide-card" id="prepare-track-4">
         <span class="track-tag"><span class="sr-only">Track </span>04</span>
-        <div class="prepare-guide-title"><span class="bs-kicker">Optional start kit</span><h3>EMG-to-Pose</h3></div>
-        <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track4_emg_to_pose.html" target="_blank" rel="noreferrer noopener">Open Track 04 on NeuralBench ↗</a>
+        <div class="prepare-guide-title"><span class="bs-kicker">Track worked examples and baselines</span><h3>EMG-to-Pose</h3></div>
+        <div class="prepare-guide-links">
+          <a href="https://github.com/neural-interfaces26/2026-competition/tree/main/tracks/emg_pose" target="_blank" rel="noreferrer noopener">Open the Track 04 competition kit ↗</a>
+          <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track4_emg_to_pose.html" target="_blank" rel="noreferrer noopener">Open Track 04 on NeuralBench ↗</a>
+        </div>
         <div class="prepare-guide-tools">
           <details class="prepare-track-disclosure">
             <summary>
               <span class="prepare-disclosure-mark" aria-hidden="true">&gt;_</span>
-              <span class="prepare-disclosure-copy"><small>Quick start</small><strong>Setup and test commands</strong></span>
+              <span class="prepare-disclosure-copy"><small>Benchopt competition kit</small><strong>Train and package a simple baseline with Benchopt</strong></span>
+              <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
+            </summary>
+            <div class="prepare-track-disclosure-body">
+              <figure class="bs-code" aria-label="Track 04 Benchopt quick start">
+                <figcaption class="bs-code-head"><span class="bs-kicker">Terminal · Benchopt</span><button class="copy" type="button" data-copy aria-live="polite">copy</button></figcaption>
+                <pre tabindex="0" aria-label="Track 04 Benchopt setup and test commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install benchopt</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>git clone https://github.com/neural-interfaces26/2026-competition</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt install 2026-competition/tracks/emg_pose</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt prepare 2026-competition/tracks/emg_pose --config 2026-competition/tracks/emg_pose/starter.yml</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt run 2026-competition/tracks/emg_pose --config 2026-competition/tracks/emg_pose/starter.yml</code></span></pre>
+              </figure>
+              <p>This installs the track dependencies, prepares EMG2Pose through the NeuralBench data pipeline, trains the Torch linear solver, evaluates it on the public split, and writes a submission folder. Zip that folder before uploading it to Codabench. The dataset preparation is large and requires substantial local storage.</p>
+            </div>
+          </details>
+          <details class="prepare-track-disclosure prepare-track-disclosure--neuralbench">
+            <summary>
+              <span class="prepare-disclosure-mark" aria-hidden="true">NB</span>
+              <span class="prepare-disclosure-copy"><small>NeuralBench start kit</small><strong>Check VEMG2Pose with NeuralBench</strong></span>
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
               <figure class="bs-code" aria-label="Track 04 NeuralBench quick start">
-                <figcaption class="bs-code-head"><span class="bs-kicker">Terminal</span><button class="copy" type="button" data-copy aria-live="polite">copy</button></figcaption>
-                <pre tabindex="0" aria-label="Track 04 NeuralBench setup and test commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench 'eegdash&gt;=0.8.2'</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench emg pose -m vemg2pose --download</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench emg pose -m vemg2pose --prepare</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench emg pose -m vemg2pose --debug</code></span></pre>
+                <figcaption class="bs-code-head"><span class="bs-kicker">Terminal · NeuralBench</span><button class="copy" type="button" data-copy aria-live="polite">copy</button></figcaption>
+                <pre tabindex="0" aria-label="Track 04 NeuralBench commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench 'eegdash&gt;=0.8.2'</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench emg pose -m vemg2pose --download</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench emg pose -m vemg2pose --prepare</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench emg pose -m vemg2pose --debug</code></span></pre>
               </figure>
-              <p>Install the EEGDash data dependency, then use VEMG2Pose for downloading, caching, and the debug run so every window has the required context.</p>
+              <p>The <code>--debug</code> command quickly checks the NeuralBench task and VEMG2Pose pipeline. Choose this start kit to explore the neuro-specific task, adaptation strategies, and evaluation of catalogue models.</p>
             </div>
           </details>
           <details class="prepare-track-disclosure prepare-track-disclosure--results" id="baseline-track-4">
@@ -284,7 +355,7 @@
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
-              <p class="prepare-track-dataset"><strong>Baseline result obtained on public EMG2Pose (<code>Salter2024Emg2pose</code>)</strong>, using the task split defined in the <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track4_emg_to_pose.html" target="_blank" rel="noreferrer noopener">Track 04 NeuralBench start kit</a>.</p>
+              <p class="prepare-track-dataset"><strong>Baseline result obtained on public EMG2Pose (<code>Salter2024Emg2pose</code>)</strong>, using the task split documented in the <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track4_emg_to_pose.html" target="_blank" rel="noreferrer noopener">Track 04 NeuralBench reference guide</a>.</p>
               <div class="prepare-track-table" role="table" aria-label="Track 04 baseline result">
                 <div class="prepare-track-table-row head" role="row"><span role="columnheader">Baseline</span><span role="columnheader">Family</span><span role="columnheader">Params</span><span role="columnheader">Train</span><span role="columnheader">Reference score</span><span role="columnheader">Configuration</span></div>
                 <div class="prepare-track-table-row" role="row"><span role="cell"><strong>NeuroPose</strong><small>Liu et al., 2021</small></span><span role="cell">Pose CNN</span><span role="cell">-</span><span role="cell">paper</span><span role="cell">MAE 17.5 ± 1.5°</span><span role="cell"><code>tasks/emg/pose/config.yaml</code></span></div>
@@ -295,10 +366,6 @@
         </div>
       </article>
     </div>
-    <div class="prepare-submission-actions">
-      <a class="bs-btn primary" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/index.html" target="_blank" rel="noreferrer noopener">Open the NeuralBench challenge hub ↗</a>
-      <a class="bs-btn ghost" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/quickstart/01_run_first_task.html" target="_blank" rel="noreferrer noopener">New to NeuralBench? Start here ↗</a>
-    </div>
   </section>
 
   <!-- ============================== Step 03 ============================== -->
@@ -306,26 +373,33 @@
     <div class="prepare-step-head">
       <span class="prepare-step-number" aria-hidden="true">03</span>
       <div>
-        <span class="bs-kicker">Your model · your pipeline</span>
-        <h2 id="build-heading">Train where you work best.</h2>
-        <p>Both paths are valid. What matters is that you finish with a trained model that respects the task and can be exposed through the Codabench submission contract.</p>
+        <span class="bs-kicker">Your model · three development routes</span>
+        <h2 id="build-heading">Choose where to develop and train your model.</h2>
+        <p>All three routes can use your own architecture. Choose according to the workflow you need.</p>
       </div>
     </div>
     <div class="prepare-phase-grid">
       <article class="prepare-phase-card prepare-phase-card--live">
-        <span class="bs-kicker">Recommended path</span>
-        <h3>Build with NeuralBench.</h3>
-        <p>Reuse its data access, task definitions, metrics, and reference baselines. You can reproduce a published model, add your own architecture, or build upon the provided workflow.</p>
-        <a class="track-link" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/index.html" target="_blank" rel="noreferrer noopener">Explore NeuralBench ↗</a>
+        <h3>NeuralBench</h3>
+        <strong class="prepare-phase-purpose">Use the neuro-specific environment.</strong>
+        <p>Best for developing within neuro-specific tasks, data pipelines, preprocessing, metrics, adaptation strategies, and scientific comparisons. Train or evaluate a built-in or custom PyTorch model, then keep the trained checkpoint.</p>
+        <a class="track-link" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/index.html" target="_blank" rel="noreferrer noopener">Develop with NeuralBench ↗</a>
+      </article>
+      <article class="prepare-phase-card prepare-phase-card--live">
+        <h3>Benchopt</h3>
+        <strong class="prepare-phase-purpose">Work directly against the competition.</strong>
+        <p>Best for developing directly against the submission contract with the same core benchmark code Codabench runs. Add your own method, compare configurations, train on public data, and export a submission folder. On real data, Benchopt reuses the NeuralBench task and data layer.</p>
+        <a class="track-link" href="https://github.com/neural-interfaces26/2026-competition#develop--train-your-model-with-benchopt" target="_blank" rel="noreferrer noopener">Develop with Benchopt ↗</a>
       </article>
       <article class="prepare-phase-card">
-        <span class="bs-kicker">Independent path</span>
-        <h3>Use your own pipeline.</h3>
-        <p>Train with your preferred codebase and permitted data. NeuralBench does not need to be part of your training stack or final submission, provided your trained model satisfies the track input, output, and packaging contract.</p>
+        <h3>Independent path</h3>
+        <strong class="prepare-phase-purpose">Use your own pipeline.</strong>
+        <p>Train with your preferred codebase and permitted data. Neither NeuralBench nor Benchopt must control training, provided you save everything needed to reproduce inference and satisfy the track contract.</p>
         <a class="track-link" href="tracks.html#track-details">Review track requirements →</a>
       </article>
     </div>
-    <p class="prepare-note"><strong>Same destination:</strong> Whatever the training path, Codabench receives a trained model for final evaluation.</p>
+    <p class="prepare-note"><strong>These routes are complementary, not cumulative requirements.</strong> You can develop in NeuralBench and use Benchopt only to validate and package the result, develop and package directly in Benchopt, train in your own pipeline and use Benchopt only for final validation, or handle training, contract validation, and packaging entirely yourself. You never need to train the same model twice.</p>
+    <p class="prepare-next-step"><a href="#submit"><strong>Same destination:</strong> whatever the training path, you upload a trained model to Codabench. <span aria-hidden="true">↓</span></a></p>
   </section>
 
   <!-- ============================== Step 04 ============================== -->
@@ -335,36 +409,36 @@
       <div>
         <span class="bs-kicker">From trained model to leaderboard</span>
         <h2 id="submit-heading">Package and submit on Codabench.</h2>
-        <p>Once your model is trained, open the Codabench Submission Guide for your track. It defines the submission contract. Follow it to package your model, upload it through My Submissions, and confirm that your score reaches the leaderboard.</p>
+        <p>Whatever training route you used, the final artifact is the same: a trained model wrapped in the required submission class, called a <code>Solver</code>. Before packaging it, read the <a href="https://github.com/neural-interfaces26/2026-competition/blob/main/codabench/pages/participate.md" target="_blank" rel="noreferrer noopener">shared submission guide</a> and open <strong>Get Started → Submission Guide</strong> on <a href="#codabench-submission-guides">your Codabench track below</a>. They define how to package, validate, and upload it.</p>
       </div>
     </div>
     <ol class="prepare-run-sequence">
-      <li><span>1</span><strong>Open the Submission Guide</strong><small>Use the dedicated tab for your chosen track below.</small></li>
-      <li><span>2</span><strong>Follow the contract</strong><small>Find the details on Codabench under Get Started → Submission Guide, then package the trained model and required inference files.</small></li>
-      <li><span>3</span><strong>Upload the ZIP</strong><small>Submit it through My Submissions during warm-up.</small></li>
-      <li><span>4</span><strong>Check the result</strong><small>Confirm that evaluation succeeds and the score appears.</small></li>
+      <li><span>1</span><strong>Read the contract</strong><small>Open Get Started → Submission Guide on your Codabench track.</small></li>
+      <li><span>2</span><strong>Build the submission</strong><small>Wrap the architecture, inference preprocessing, trained weights, and any optional files in the required <code>Solver</code>.</small></li>
+      <li><span>3</span><strong>Validate and ZIP</strong><small>Test inference locally with Benchopt, then zip the contents of the submission folder.</small></li>
+      <li><span>4</span><strong>Upload and check</strong><small>Submit through My Submissions and confirm that evaluation succeeds.</small></li>
     </ol>
     <p class="prepare-note"><strong>Two evaluation stages:</strong> Warm-up scores use public test data and are indicative. Codabench switches to the private 2026 cohorts for the sealed phase, and only sealed scores determine the final ranking.</p>
-    <div class="prepare-portal-grid" aria-label="Codabench Participation pages by track">
+    <div class="prepare-portal-grid" id="codabench-submission-guides" aria-label="Codabench Submission Guide pages by track">
       <article class="prepare-portal-card">
-        <div class="prepare-portal-head"><span class="track-tag"><span class="sr-only">Track </span>01</span><div><span class="bs-kicker">Codabench Participation</span><h3>EEG-to-Image</h3></div></div>
+        <div class="prepare-portal-head"><span class="track-tag"><span class="sr-only">Track </span>01</span><div><span class="bs-kicker">Codabench Submission Guide</span><h3>EEG-to-Image</h3></div></div>
         <figure class="prepare-portal-visual"><img src="exports/eeg-to-image.gif" width="1280" height="600" loading="lazy" alt="EEG activity matched to a viewed image"></figure>
-        <a class="bs-btn primary" href="https://www.codabench.org/competitions/17974/#/participate-tab" target="_blank" rel="noreferrer noopener">Open Track 01 Participation ↗</a>
+        <a class="bs-btn primary" href="https://www.codabench.org/competitions/17974/#/participate-tab" target="_blank" rel="noreferrer noopener">Open Track 01 Submission Guide ↗</a>
       </article>
       <article class="prepare-portal-card">
-        <div class="prepare-portal-head"><span class="track-tag"><span class="sr-only">Track </span>02</span><div><span class="bs-kicker">Codabench Participation</span><h3>BCI decoding</h3></div></div>
+        <div class="prepare-portal-head"><span class="track-tag"><span class="sr-only">Track </span>02</span><div><span class="bs-kicker">Codabench Submission Guide</span><h3>BCI decoding</h3></div></div>
         <figure class="prepare-portal-visual"><img src="exports/bci-decoding.gif" width="1280" height="600" loading="lazy" alt="Mental commands decoded from EEG across sessions"></figure>
-        <a class="bs-btn primary" href="https://www.codabench.org/competitions/17982/#/participate-tab" target="_blank" rel="noreferrer noopener">Open Track 02 Participation ↗</a>
+        <a class="bs-btn primary" href="https://www.codabench.org/competitions/17982/#/participate-tab" target="_blank" rel="noreferrer noopener">Open Track 02 Submission Guide ↗</a>
       </article>
       <article class="prepare-portal-card">
-        <div class="prepare-portal-head"><span class="track-tag"><span class="sr-only">Track </span>03</span><div><span class="bs-kicker">Codabench Participation</span><h3>Sleep onset</h3></div></div>
+        <div class="prepare-portal-head"><span class="track-tag"><span class="sr-only">Track </span>03</span><div><span class="bs-kicker">Codabench Submission Guide</span><h3>Sleep onset</h3></div></div>
         <figure class="prepare-portal-visual"><img src="exports/sleep-onset.gif?v=20260921muse" width="1280" height="600" loading="lazy" alt="Time to the first N2 epoch predicted from home EEG"></figure>
-        <a class="bs-btn primary" href="https://www.codabench.org/competitions/17983/#/participate-tab" target="_blank" rel="noreferrer noopener">Open Track 03 Participation ↗</a>
+        <a class="bs-btn primary" href="https://www.codabench.org/competitions/17983/#/participate-tab" target="_blank" rel="noreferrer noopener">Open Track 03 Submission Guide ↗</a>
       </article>
       <article class="prepare-portal-card">
-        <div class="prepare-portal-head"><span class="track-tag"><span class="sr-only">Track </span>04</span><div><span class="bs-kicker">Codabench Participation</span><h3>EMG-to-Pose</h3></div></div>
+        <div class="prepare-portal-head"><span class="track-tag"><span class="sr-only">Track </span>04</span><div><span class="bs-kicker">Codabench Submission Guide</span><h3>EMG-to-Pose</h3></div></div>
         <figure class="prepare-portal-visual"><img src="exports/emg-to-pose.gif" width="1280" height="600" loading="lazy" alt="Hand-pose trajectories predicted from wrist EMG"></figure>
-        <a class="bs-btn primary" href="https://www.codabench.org/competitions/17984/#/participate-tab" target="_blank" rel="noreferrer noopener">Open Track 04 Participation ↗</a>
+        <a class="bs-btn primary" href="https://www.codabench.org/competitions/17984/#/participate-tab" target="_blank" rel="noreferrer noopener">Open Track 04 Submission Guide ↗</a>
       </article>
     </div>
   </section>
@@ -383,6 +457,7 @@
       <a href="rules.html">Rules</a>
       <a href="ethics.html">Ethics</a>
       <a href="organizers.html">Organizers</a>
+      <a href="ecosystem.html">Ecosystem</a>
       <a href="https://github.com/neural-interfaces26/neural-interfaces26.github.io" target="_blank" rel="noreferrer noopener">GitHub</a>
     </nav>
     <a class="site-footer-email" href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Contact us on Discord</a>
