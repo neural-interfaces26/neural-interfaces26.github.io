@@ -5467,3 +5467,27 @@ body.menu-open { overflow: hidden; }
   .launch-alert-label i,
   .tracks-warmup-notice-label i { animation: none; }
 }
+
+/* ---- Open-source ecosystem page + front-page strip ---- */
+.eco-intro { max-width: 62ch; }
+.eco-groups { display: grid; gap: 30px; margin-top: 26px; }
+.eco-group > .bs-kicker { display: block; margin-bottom: 14px; }
+.eco-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 16px; }
+.eco-card { display: flex; flex-direction: column; gap: 12px; padding: 20px; min-height: 176px; border: 1px solid rgba(83, 50, 244, 0.18); border-radius: 12px; background: var(--bs-bg); text-decoration: none; color: inherit; transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease; }
+.eco-card:hover { border-color: var(--bs-violet); box-shadow: 0 8px 22px rgba(83, 50, 244, 0.10); transform: translateY(-2px); }
+.eco-card-logo { display: flex; align-items: center; min-height: 44px; }
+.eco-card-logo img { max-height: 38px; max-width: 165px; width: auto; height: auto; }
+.eco-card-wordmark { font-weight: 800; font-size: 21px; letter-spacing: -0.01em; color: var(--bs-violet); }
+.eco-card h3 { margin: 0; font-size: 16px; }
+.eco-card p { margin: 0; font-size: 13.5px; line-height: 1.5; color: rgba(28, 21, 59, 0.72); }
+.eco-card-visit { margin-top: auto; font-size: 13px; font-weight: 800; color: var(--bs-violet); }
+/* front-page strip */
+.oss-section .page-shell { display: flex; flex-direction: column; gap: 16px; }
+.oss-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; }
+.oss-more { font-size: 14px; font-weight: 800; color: var(--bs-violet); text-decoration: none; }
+.oss-more:hover { text-decoration: underline; }
+.oss-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
+.oss-mark { display: inline-flex; align-items: center; min-height: 34px; opacity: .82; transition: opacity .16s ease; }
+.oss-mark:hover { opacity: 1; }
+.oss-mark img { max-height: 28px; max-width: 122px; width: auto; height: auto; }
+.oss-wordmark { font-weight: 800; font-size: 17px; color: var(--bs-violet); }

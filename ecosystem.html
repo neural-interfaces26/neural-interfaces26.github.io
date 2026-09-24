@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X6NYQJMNJ9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-X6NYQJMNJ9');
+</script>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#5332F4" />
+
+<title>Open-source stack · EEG/EMG Foundation Challenge 2026</title>
+<meta name="description" content="The open-source ecosystem behind the challenge: NeuralBench, Benchopt, and Codabench for benchmarking and hosting, and braindecode, MOABB, EEGDash, and NEMAR for models and data." />
+
+<link rel="canonical" href="https://neural-interfaces26.github.io/ecosystem.html" />
+<meta name="author" content="The EEG/EMG Foundation Challenge organising team" />
+
+<meta property="og:title" content="Open-source stack · EEG/EMG Foundation Challenge 2026" />
+<meta property="og:description" content="The open-source ecosystem that powers the challenge: NeuralBench, Benchopt, Codabench, braindecode, MOABB, EEGDash, and NEMAR." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://neural-interfaces26.github.io/ecosystem.html" />
+<meta property="og:site_name" content="EEG/EMG Foundation Challenge 2026" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://neural-interfaces26.github.io/assets/img/og-card.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="627" />
+<meta property="og:image:alt" content="Violet neural-signal trophy for the EEG/EMG Foundation Challenge 2026." />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Open-source stack · EEG/EMG Foundation Challenge 2026" />
+<meta name="twitter:description" content="The open-source ecosystem that powers the challenge: NeuralBench, Benchopt, Codabench, braindecode, MOABB, EEGDash, and NEMAR." />
+<meta name="twitter:image" content="https://neural-interfaces26.github.io/assets/img/og-card.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
+<link rel="stylesheet" href="assets/css/base.css?v=20260908ux" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20260924oss" />
+
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
+
+</head>
+<body class="bs-root landing technical-page ecosystem-page">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <a class="site-brand" href="index.html">
+    <span>EEG/EMG Foundation Challenge 2026</span>
+  </a>
+  <button class="site-menu-toggle" type="button" aria-controls="site-menu" aria-expanded="false">
+    <span class="sr-only">Open navigation</span>
+    <span aria-hidden="true"></span><span aria-hidden="true"></span>
+  </button>
+  <nav class="site-menu" id="site-menu" aria-label="Primary navigation">
+    <a href="index.html">Home</a>
+    <a href="tracks.html">Tracks &amp; Data</a>
+    <a href="participant-guide.html">Participant guide</a>
+    <a href="prizes.html">Prizes</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="rules.html">Rules</a>
+    <a href="organizers.html">Organizers</a>
+    <a href="ecosystem.html" aria-current="page">Open source</a>
+    <a href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Discord ↗</a>
+    <a class="bs-btn primary sm" href="register.html">Register</a>
+  </nav>
+</header>
+
+<main class="site-main" id="main">
+
+  <!-- ============================== Hero ============================== -->
+  <section class="page-hero" aria-labelledby="eco-heading">
+    <div class="page-hero-inner">
+      <div class="page-hero-copy">
+        <span class="bs-eyebrow">Built on open source</span>
+        <h1 id="eco-heading">The open-source stack.</h1>
+        <p>Every layer of this challenge is open. NeuralBench defines the tasks, datasets, and reference baselines; Benchopt is the evaluation framework and starting kits; Codabench hosts submissions and leaderboards. Underneath, braindecode, MOABB, EEGDash, and NEMAR supply the models and the public data. Nothing here is a black box — you can read, run, and extend all of it.</p>
+        <div class="bs-hero-cta">
+          <a class="bs-btn primary" href="participant-guide.html">Start with the participant guide →</a>
+          <a class="bs-btn ghost" href="https://github.com/neural-interfaces26/2026-competition" target="_blank" rel="noreferrer noopener">Competition code ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Benchmark, evaluation & hosting ===================== -->
+  <section class="vb-section" id="benchmark" aria-labelledby="benchmark-heading">
+    <div class="vb-section-head">
+      <div>
+        <h2 id="benchmark-heading">Benchmark, evaluation &amp; hosting.</h2>
+        <p>The spine of the challenge: what defines the tasks, what runs the evaluation, and what hosts the submissions.</p>
+      </div>
+    </div>
+    <div class="eco-groups">
+      <div class="eco-group">
+        <div class="eco-grid">
+          <a class="eco-card" href="https://facebookresearch.github.io/neuroai/neuralbench/" target="_blank" rel="noreferrer noopener" title="NeuralBench">
+            <span class="eco-card-logo"><span class="eco-card-wordmark">NeuralBench</span></span>
+            <h3>NeuralBench</h3>
+            <p>Meta FAIR's NeuroAI benchmark — it defines the tasks, public datasets, train/validation/test splits, and reference baselines.</p>
+            <span class="eco-card-visit">Visit ↗</span>
+          </a>
+          <a class="eco-card" href="https://benchopt.github.io" target="_blank" rel="noreferrer noopener" title="Benchopt">
+            <span class="eco-card-logo"><img src="https://raw.githubusercontent.com/benchopt/benchopt/main/doc/_static/logo_benchopt.png" alt="Benchopt" loading="lazy" decoding="async"></span>
+            <h3>Benchopt</h3>
+            <p>The evaluation framework: reproducible benchmarks, the per-track starting kits, and local runs that mirror the leaderboard and package your submission.</p>
+            <span class="eco-card-visit">Visit ↗</span>
+          </a>
+          <a class="eco-card" href="https://www.codabench.org" target="_blank" rel="noreferrer noopener" title="Codabench">
+            <span class="eco-card-logo"><img src="https://raw.githubusercontent.com/codalab/codabench/master/src/static/img/codabench_black.png" alt="Codabench" loading="lazy" decoding="async"></span>
+            <h3>Codabench</h3>
+            <p>The open platform hosting code submissions, the self-hosted compute workers, scoring, and the public leaderboards.</p>
+            <span class="eco-card-visit">Visit ↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Models & data ===================== -->
+  <section class="vb-section vb-section-cream" id="models-data" aria-labelledby="models-heading">
+    <div class="vb-section-head">
+      <div>
+        <h2 id="models-heading">Models &amp; data.</h2>
+        <p>The substrate the baselines and public datasets are built on — all open, all reusable in your own pipeline.</p>
+      </div>
+    </div>
+    <div class="eco-groups">
+      <div class="eco-group">
+        <div class="eco-grid">
+          <a class="eco-card" href="https://braindecode.org" target="_blank" rel="noreferrer noopener" title="braindecode">
+            <span class="eco-card-logo"><img src="https://raw.githubusercontent.com/braindecode/braindecode/master/docs/_static/braindecode.svg" alt="braindecode" loading="lazy" decoding="async"></span>
+            <h3>braindecode</h3>
+            <p>Deep-learning models for raw EEG/MEG in PyTorch — the EEGNet and REVE baselines build directly on it.</p>
+            <span class="eco-card-visit">Visit ↗</span>
+          </a>
+          <a class="eco-card" href="https://moabb.neurotechx.com" target="_blank" rel="noreferrer noopener" title="MOABB">
+            <span class="eco-card-logo"><img src="https://raw.githubusercontent.com/NeuroTechX/moabb/master/docs/source/_static/moabb_logo.svg" alt="MOABB" loading="lazy" decoding="async"></span>
+            <h3>MOABB</h3>
+            <p>Mother of All BCI Benchmarks — standardized EEG/BCI datasets and pipelines, the source of the Track 02 motor-imagery data (Stieger 2021, Dreyer 2023).</p>
+            <span class="eco-card-visit">Visit ↗</span>
+          </a>
+          <a class="eco-card" href="https://eegdash.org" target="_blank" rel="noreferrer noopener" title="EEGDash">
+            <span class="eco-card-logo"><img src="https://raw.githubusercontent.com/sccn/EEGDash/main/docs/source/_static/eegdash.svg" alt="EEGDash" loading="lazy" decoding="async"></span>
+            <h3>EEGDash</h3>
+            <p>Open access to 700+ BIDS-formatted EEG/MEG datasets, exposed as ML-ready PyTorch objects for broader training data.</p>
+            <span class="eco-card-visit">Visit ↗</span>
+          </a>
+          <a class="eco-card" href="https://nemar.org" target="_blank" rel="noreferrer noopener" title="NEMAR">
+            <span class="eco-card-logo"><img src="https://nemar.org/favicon.svg" alt="NEMAR" loading="lazy" decoding="async"></span>
+            <h3>NEMAR</h3>
+            <p>NIH BRAIN-funded open archive mirroring OpenNeuro EEG/MEG/iEEG data in BIDS, with tools and compute (SCCN · San Diego Supercomputer Center).</p>
+            <span class="eco-card-visit">Visit ↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== Closing ============================== -->
+  <section class="vb-section" id="eco-cta" aria-labelledby="eco-cta-heading">
+    <div class="vb-section-head">
+      <div>
+        <h2 id="eco-cta-heading">Use it, extend it, cite it.</h2>
+        <p>Pick the tools that fit how you already work: NeuralBench for the tasks and datasets, Benchopt to run experiments and package a submission, or your own pipeline. Each project is independently maintained — please credit them if they help your work.</p>
+      </div>
+    </div>
+    <div class="bs-hero-cta">
+      <a class="bs-btn primary" href="participant-guide.html">Train &amp; submit — participant guide →</a>
+      <a class="bs-btn ghost" href="tracks.html">Explore the tracks →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner page-shell">
+    <a class="site-footer-brand" href="index.html">EEG/EMG Foundation Challenge 2026</a>
+    <nav class="site-footer-links" aria-label="Footer navigation">
+      <a href="index.html">Home</a>
+      <a href="tracks.html">Tracks &amp; Data</a>
+      <a href="participant-guide.html">Participant guide</a>
+      <a href="prizes.html">Prizes</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="rules.html">Rules</a>
+      <a href="ethics.html">Ethics</a>
+      <a href="organizers.html">Organizers</a>
+      <a href="ecosystem.html" aria-current="page">Open source</a>
+      <a href="https://github.com/neural-interfaces26/neural-interfaces26.github.io" target="_blank" rel="noreferrer noopener">GitHub</a>
+    </nav>
+    <a class="site-footer-email" href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Contact us on Discord</a>
+  </div>
+</footer>
+
+<script src="assets/js/ui.js?v=20260910copy" defer></script>
+</body>
+</html>
