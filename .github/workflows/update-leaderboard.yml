@@ -1,0 +1,28 @@
+name: Update leaderboard
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # daily, 06:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install matplotlib
+      - run: python3 scripts/leaderboard-progress.py
+      - name: Commit if changed
+        run: |
+          git add leaderboard.html assets/data/leaderboard.json exports/leaderboard/leaderboard.csv exports/leaderboard/progress.svg
+          if git diff --cached --quiet; then echo "No changes."; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: update leaderboard $(date -u +%F)"
+          git push

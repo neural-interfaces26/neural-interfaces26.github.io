@@ -5725,3 +5725,5 @@ body.menu-open { overflow: hidden; }
 .oss-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; }
 .oss-more { font-size: 14px; font-weight: 800; color: var(--bs-violet); text-decoration: none; }
 .oss-more:hover { text-decoration: underline; }
+
+.lb-chart { min-height: 420px; margin: 0 0 20px; border: 1px solid var(--bs-card-border); border-radius: var(--bs-radius-md); background: var(--bs-bg); }
