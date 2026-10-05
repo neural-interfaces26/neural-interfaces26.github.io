@@ -104,7 +104,7 @@
       <article class="track-card reveal" id="track-1">
         <div class="track-card-heading">
           <span class="track-number">01</span>
-          <div><p class="track-shift">Cross-stimulus</p><h3>EEG-to-IMG</h3></div>
+          <div><p class="track-shift">Cross-subject + stimulus</p><h3>EEG-to-IMG</h3></div>
           <a class="track-leaderboard-button" href="leaderboard.html#track-1"><span aria-hidden="true">🏆</span> Leaderboard <span aria-hidden="true">→</span></a>
         </div>
         <figure data-track-figure role="img" aria-label="A single EEG epoch from THINGS-EEG and Alljoined is ranked against a held-out image gallery in a frozen DINOv2 embedding space" class="track-art-1">
@@ -150,17 +150,17 @@
             </div>
 
               <div class="track-art-17">
-                <span class="track-art-18">Train and test images do not overlap</span>
+                <span class="track-art-18">Sealed participants and images are unseen</span>
                 <span class="track-art-19">Top-5 acc ↑</span>
               </div>
 
           </figure>
-        <p>Visual decoding is most useful when it recognizes novel content rather than a fixed catalogue learned during training. Given a single EEG epoch recorded during natural-image viewing, identify the viewed image by ranking held-out candidates in a frozen DINOv2 embedding space. Training and test images do not overlap, so the cross-stimulus shift probes whether neural representations transfer beyond memorized concepts. Research-grade and consumer-grade datasets add source and hardware variability while keeping the task anchored to time-locked visual responses.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Top-5 retrieval accuracy against the held-out candidate set, with higher scores indicating better performance.</span><span class="track-data-summary"><strong>Warm-up evaluation:</strong> THINGS-EEG2 test set <span aria-hidden="true">·</span> <strong>Start kit and baseline:</strong> THINGS-EEG2</span></span></p>
+        <p>Visual decoding is most useful when it recognizes novel content rather than a fixed catalogue learned during training. Given a single EEG epoch recorded during natural-image viewing, identify the viewed image by ranking held-out candidates in a frozen DINOv2 embedding space. The sealed final uses participants and images absent from the public development data, testing cross-subject and cross-stimulus transfer. Warm-up isolates the unseen-image shift on THINGS-EEG2. Research-grade and consumer-grade datasets add source and hardware variability while keeping the task anchored to time-locked visual responses.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Top-5 retrieval accuracy against the held-out candidate set, with higher scores indicating better performance.</span><span class="track-data-summary"><strong>Warm-up evaluation:</strong> THINGS-EEG2 test set <span aria-hidden="true">·</span> <strong>Sealed evaluation:</strong> private 2026 Alljoined cohort <span aria-hidden="true">·</span> <strong>Start kit and baseline:</strong> THINGS-EEG2</span></span></p>
         <div class="track-guide-buttons">
           <a class="track-guide-button" href="https://github.com/neural-interfaces26/2026-competition/tree/main/tracks/image_decoding" target="_blank" rel="noreferrer noopener">Open competition starting kit ↗</a>
           <a class="track-guide-button" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track1_eeg_to_image.html" target="_blank" rel="noreferrer noopener">Open Track 01 on NeuralBench ↗</a>
         </div>
-        <nav class="track-card-footer" aria-label="EEG-to-Image track links"><a class="track-card-action primary" href="register.html#enter-1">Register <span aria-hidden="true">→</span></a><a class="track-card-action" href="participant-guide.html">Guide <span aria-hidden="true">→</span></a><a class="track-card-action" href="#dataset-track-1">Dataset <span aria-hidden="true">→</span></a><a class="track-card-action" href="prizes.html#award-track-1">Prizes <span aria-hidden="true">→</span></a><a class="track-card-action" href="organizers.html#team-eeg">Track leaders <span aria-hidden="true">→</span></a></nav>
+        <nav class="track-card-footer" aria-label="EEG-to-Image track links"><a class="track-card-action primary" href="register.html#enter-1">Register <span aria-hidden="true">→</span></a><a class="track-card-action" href="participant-guide.html">Guide <span aria-hidden="true">→</span></a><a class="track-card-action" href="#dataset-track-1">Dataset <span aria-hidden="true">→</span></a><a class="track-card-action" href="https://github.com/neural-interfaces26/2026-competition/blob/main/codabench/pages/scientific_faq_image.md" target="_blank" rel="noreferrer noopener">Scientific FAQ <span aria-hidden="true">↗</span></a><a class="track-card-action" href="prizes.html#award-track-1">Prizes <span aria-hidden="true">→</span></a><a class="track-card-action" href="organizers.html#team-eeg">Track leaders <span aria-hidden="true">→</span></a></nav>
       </article>
 
       <article class="track-card reveal" id="track-2">
@@ -452,7 +452,7 @@
           <div class="ds-row" role="row">
             <span class="track-tag" role="cell"><span class="sr-only">Track </span>01</span>
             <span class="nm" role="cell"><strong>Alljoined-1.6M</strong></span>
-            <span class="dataset-use" role="cell" aria-label="No designated competition use"></span>
+            <span class="dataset-use" role="cell">Closest public match to sealed cohort</span>
             <span class="mod mod-eeg" role="cell">EEG</span>
             <span class="num" role="cell">20</span>
             <span class="num" role="cell">130h</span>
@@ -463,7 +463,7 @@
           <div class="ds-row ds-row--new ds-row--sealed" role="row">
             <span class="track-tag" role="cell"><span class="sr-only">Track </span>01</span>
             <span class="nm" role="cell"><strong>Alljoined evaluation cohort <span class="ds-new-tag">NEW 2026</span></strong></span>
-            <span class="dataset-use" role="cell">Sealed evaluation</span>
+            <span class="dataset-use" role="cell">Sealed evaluation · Same acquisition protocol</span>
             <span class="mod mod-eeg" role="cell">EEG</span>
             <span class="num" role="cell">11</span>
             <span class="num" role="cell">-</span>
