@@ -306,7 +306,7 @@
       <article class="track-card reveal" id="track-4">
         <div class="track-card-heading">
           <span class="track-number">04</span>
-          <div><p class="track-shift">Cross-user</p><h3>EMG-to-Pose</h3></div>
+          <div><p class="track-shift">Cross-user + stage</p><h3>EMG-to-Pose</h3></div>
           <a class="track-leaderboard-button" href="leaderboard.html#track-4"><span aria-hidden="true">🏆</span> Leaderboard <span aria-hidden="true">→</span></a>
         </div>
         <figure data-track-figure role="img" aria-label="Wristband surface EMG decoded to 20-joint hand pose trajectories" class="track-art-53">
@@ -358,17 +358,17 @@
             </div>
 
               <div class="track-art-61">
-                <span class="track-art-18">Evaluated on new users and unseen user-stage combinations</span>
+                <span class="track-art-18">New users, stages, and user-stage combinations</span>
                 <span class="track-art-62">Angular error (°) ↓</span>
               </div>
 
           </figure>
-        <p>Translating wrist muscle activity into hand motion is a core challenge for wearable control systems that must work beyond a calibrated laboratory setup. Predict trajectories of 20 hand-joint angles from 16-channel wrist sEMG recorded during everyday movement. Evaluation includes users and movement stages never seen during training, plus unseen combinations of known users and stages. This tests robustness to anatomy, wristband placement, and kinematic context, and asks whether a daily wearable interface can transfer to a new user without person-specific retraining.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Mean absolute angular error across the predicted joint trajectories, reported in degrees, with lower scores indicating better performance.</span><span class="track-data-summary"><strong>Warm-up evaluation:</strong> EMG2Pose user-stage test set <span aria-hidden="true">·</span> <strong>Start kit and baseline:</strong> EMG2Pose</span></span></p>
+        <p>Translating wrist muscle activity into hand motion is a core challenge for wearable control systems that must work beyond a calibrated laboratory setup. Predict trajectories of 20 hand-joint angles from 16-channel wrist sEMG recorded during everyday movement. Evaluation includes users and movement stages never seen during training, plus unseen combinations of known users and stages. This tests robustness to anatomy, wristband placement, and kinematic context, and asks whether a daily wearable interface can transfer to a new user without person-specific retraining.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Models return joint angles in radians. Codabench reports their mean absolute angular error in degrees, with lower scores indicating better performance.</span><span class="track-data-summary"><strong>Warm-up evaluation:</strong> EMG2Pose user-stage test set <span aria-hidden="true">·</span> <strong>Sealed evaluation:</strong> private 2026 Meta Reality Labs cohort <span aria-hidden="true">·</span> <strong>Start kit and baseline:</strong> EMG2Pose</span></span></p>
         <div class="track-guide-buttons">
           <a class="track-guide-button" href="https://github.com/neural-interfaces26/2026-competition/tree/main/tracks/emg_pose" target="_blank" rel="noreferrer noopener">Open competition starting kit ↗</a>
           <a class="track-guide-button" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track4_emg_to_pose.html" target="_blank" rel="noreferrer noopener">Open Track 04 on NeuralBench ↗</a>
         </div>
-        <nav class="track-card-footer" aria-label="EMG-to-Pose track links"><a class="track-card-action primary" href="register.html#enter-4">Register <span aria-hidden="true">→</span></a><a class="track-card-action" href="participant-guide.html">Guide <span aria-hidden="true">→</span></a><a class="track-card-action" href="#dataset-track-4">Dataset <span aria-hidden="true">→</span></a><a class="track-card-action" href="prizes.html#award-track-4">Prizes <span aria-hidden="true">→</span></a><a class="track-card-action" href="organizers.html#team-emg">Track leaders <span aria-hidden="true">→</span></a></nav>
+        <nav class="track-card-footer" aria-label="EMG-to-Pose track links"><a class="track-card-action primary" href="register.html#enter-4">Register <span aria-hidden="true">→</span></a><a class="track-card-action" href="participant-guide.html">Guide <span aria-hidden="true">→</span></a><a class="track-card-action" href="#dataset-track-4">Dataset <span aria-hidden="true">→</span></a><a class="track-card-action" href="https://github.com/neural-interfaces26/2026-competition/blob/main/codabench/pages/scientific_faq_emg.md" target="_blank" rel="noreferrer noopener">Scientific FAQ <span aria-hidden="true">↗</span></a><a class="track-card-action" href="prizes.html#award-track-4">Prizes <span aria-hidden="true">→</span></a><a class="track-card-action" href="organizers.html#team-emg">Track leaders <span aria-hidden="true">→</span></a></nav>
       </article>
     </div>
   </section>
@@ -584,7 +584,7 @@
           <div class="ds-row track-group-start ds-row--warmup" role="row">
             <span class="track-tag" role="cell"><span class="sr-only">Track </span>04</span>
             <span class="nm" role="cell"><strong>EMG2Pose</strong></span>
-            <span class="dataset-use" role="cell">Start kit · Baseline · Warm-up evaluation</span>
+            <span class="dataset-use" role="cell">Training counterpart · Start kit · Baseline · Warm-up</span>
             <span class="mod mod-emg" role="cell">EMG</span>
             <span class="num" role="cell">193</span>
             <span class="num" role="cell">370h</span>
@@ -595,7 +595,7 @@
           <div class="ds-row ds-row--new ds-row--sealed" role="row">
             <span class="track-tag" role="cell"><span class="sr-only">Track </span>04</span>
             <span class="nm" role="cell"><strong>EMG2Pose evaluation cohort <span class="ds-new-tag">NEW 2026</span></strong></span>
-            <span class="dataset-use" role="cell">Sealed evaluation</span>
+            <span class="dataset-use" role="cell">Sealed evaluation · Same acquisition protocol</span>
             <span class="mod mod-emg" role="cell">EMG</span>
             <span class="num" role="cell">TBC</span>
             <span class="num" role="cell">-</span>
