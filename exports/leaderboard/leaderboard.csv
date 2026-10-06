@@ -1,4 +1,5 @@
 track,metric,team,user,model,score,date
+Track 1: EEG-to-Image,top5_acc,Shenzhen Campus of Sun Yat-sen University,easonyan123,,0.52,2026-10-05 18:43:44.138709
 Track 1: EEG-to-Image,top5_acc,ponpopon,ponpopon,,0.52,2026-10-04 23:00:49.100535
 Track 1: EEG-to-Image,top5_acc,abe_lincoln,abe_lincoln,,0.51,2026-10-04 14:39:10.292274
 Track 1: EEG-to-Image,top5_acc,_ares_,_ares_,,0.5,2026-10-04 13:04:12.577102
@@ -8,9 +9,11 @@ Track 1: EEG-to-Image,top5_acc,cheesypasta,cheesypasta,,0.45,2026-10-04 06:59:56
 Track 1: EEG-to-Image,top5_acc,fmashrur,fmashrur,,0.43,2026-09-26 04:39:05.255724
 Track 1: EEG-to-Image,top5_acc,speedwagon,mahdi_ben_ameur,,0.43,2026-10-05 12:16:01.147443
 Track 1: EEG-to-Image,top5_acc,neuro168,neuro168,NAN,0.42,2026-09-27 05:19:57.113449
+Track 1: EEG-to-Image,top5_acc,visualtranslators,Leafy._.Chan,,0.41,2026-10-06 08:16:46.873676
 Track 1: EEG-to-Image,top5_acc,DTU-org,holme,,0.39,2026-09-28 19:19:17.819776
+Track 1: EEG-to-Image,top5_acc,rohit_kumar_varma,rohit_kumar_varma,,0.39,2026-10-06 06:11:10.739877
 Track 1: EEG-to-Image,top5_acc,zhuc0626,zhuc0626,,0.38,2026-09-23 13:40:16.205868
-Track 1: EEG-to-Image,top5_acc,Shenzhen Campus of Sun Yat-sen University,easonyan123,,0.38,2026-10-04 16:04:54.692040
+Track 1: EEG-to-Image,top5_acc,charvi_bayana,charvi_bayana,,0.38,2026-10-05 17:48:41.834669
 Track 1: EEG-to-Image,top5_acc,rajsinghbani,rajsinghbani,,0.38,2026-10-01 18:53:46.941351
 Track 1: EEG-to-Image,top5_acc,shyamaldharia,shyamaldharia,REVE_B,0.38,2026-09-22 05:59:58.227079
 Track 1: EEG-to-Image,top5_acc,fduwei,fduwei,,0.38,2026-09-22 05:45:09.323796
@@ -20,10 +23,9 @@ Track 1: EEG-to-Image,top5_acc,cuong_trinh,cuong_trinh,,0.34,2026-10-01 06:28:15
 Track 1: EEG-to-Image,top5_acc,Rajat,Rajat,reve_v1,0.33,2026-09-28 02:46:47.574633
 Track 1: EEG-to-Image,top5_acc,soikim,soikim,,0.33,2026-09-30 08:18:14.724496
 Track 1: EEG-to-Image,top5_acc,tommoral,tommoral,,0.31,2026-09-10 14:06:52.112147
-Track 1: EEG-to-Image,top5_acc,Leafy._.Chan,Leafy._.Chan,,0.3,2026-10-02 04:10:39.873193
-Track 1: EEG-to-Image,top5_acc,omarshaban,omarshaban,,0.29,2026-10-04 12:45:18.449584
-Track 1: EEG-to-Image,top5_acc,rohit_kumar_varma,rohit_kumar_varma,,0.29,2026-10-05 13:00:19.433199
 Track 1: EEG-to-Image,top5_acc,vzeman,vzeman,,0.28,2026-09-28 01:21:07.705384
+Track 1: EEG-to-Image,top5_acc,BNEL,omarshaban,,0.26,2026-10-06 11:14:48.388739
+Track 1: EEG-to-Image,top5_acc,xzjsxzx,xzjsxzx,,0.23,2026-10-05 17:53:39.207849
 Track 1: EEG-to-Image,top5_acc,MindLab.,seojaeseok,,0.23,2026-09-30 15:01:36.126597
 Track 1: EEG-to-Image,top5_acc,gereon,gereon,PNPL session-stable subject experts v15,0.23,2026-09-24 17:57:49.010405
 Track 1: EEG-to-Image,top5_acc,tom_ml,tom_ml,,0.21,2026-10-03 08:05:02.470558
@@ -32,7 +34,7 @@ Track 1: EEG-to-Image,top5_acc,DTU-org,osquera,test reve 3 epochs,0.13,2026-09-2
 Track 1: EEG-to-Image,top5_acc,adolfo_ramirez,adolfo_ramirez,,0.13,2026-10-01 05:16:30.106059
 Track 1: EEG-to-Image,top5_acc,arnaultcaillet,arnaultcaillet,,0.12,2026-09-25 09:25:41.821922
 Track 1: EEG-to-Image,top5_acc,JustusMzB,JustusMzB,,0.07,2026-09-29 10:09:34.093810
-Track 1: EEG-to-Image,top5_acc,charvi_bayana,charvi_bayana,,0.05,2026-10-04 15:41:35.900771
+Track 1: EEG-to-Image,top5_acc,Coconut Lassi,anne16,,0.05,2026-10-06 07:31:20.477896
 Track 1: EEG-to-Image,top5_acc,sazeglio,sazeglio,,0.04,2026-09-30 00:58:01.651582
 Track 1: EEG-to-Image,top5_acc,aimarsilvan,aimarsilvan,,0.04,2026-09-25 18:34:49.965600
 Track 1: EEG-to-Image,top5_acc,omar4a,omar4a,,0.03,2026-09-30 20:16:00.696465
@@ -47,21 +49,21 @@ Track 2: BCI Decoding,balanced_accuracy,speedwagon,mahdi_ben_ameur,bytes-the-dus
 Track 2: BCI Decoding,balanced_accuracy,cheesypasta,cheesypasta,,0.93,2026-10-05 06:15:49.429915
 Track 2: BCI Decoding,balanced_accuracy,天色天歌天籁音,universe24,CleanVM-44 (zero test-pool labels),0.93,2026-09-26 03:24:57.432507
 Track 2: BCI Decoding,balanced_accuracy,shamadei,shamadei,,0.92,2026-09-28 07:06:15.499606
+Track 2: BCI Decoding,balanced_accuracy,jiahuian1,jiahuian1,,0.92,2026-10-05 07:09:58.637133
 Track 2: BCI Decoding,balanced_accuracy,sjhan,sjhan,,0.92,2026-10-04 13:40:24.022023
 Track 2: BCI Decoding,balanced_accuracy,abe_lincoln,abe_lincoln,,0.92,2026-10-02 13:43:51.797418
 Track 2: BCI Decoding,balanced_accuracy,period,period,,0.91,2026-10-04 07:19:13.895112
 Track 2: BCI Decoding,balanced_accuracy,h5371h,h5371h,Cao-NI-MAE (https://doi.org/10.1145/3774906.3802770),0.91,2026-09-25 12:21:29.092205
 Track 2: BCI Decoding,balanced_accuracy,上海念通智能科技有限公司,zakirullah,N-AI-3-Transcendence,0.91,2026-09-25 12:34:35.596768
 Track 2: BCI Decoding,balanced_accuracy,choosec,choosec,,0.91,2026-09-26 03:41:03.341938
+Track 2: BCI Decoding,balanced_accuracy,Ethan,Ethan,,0.91,2026-10-05 23:50:09.749360
 Track 2: BCI Decoding,balanced_accuracy,nyanziba,nyanziba,,0.91,2026-09-29 14:21:09.506434
 Track 2: BCI Decoding,balanced_accuracy,sheng-binduan,sheng-binduan,,0.9,2026-09-23 12:36:01.754860
 Track 2: BCI Decoding,balanced_accuracy,siu777,siu777,,0.9,2026-09-24 05:39:59.224873
 Track 2: BCI Decoding,balanced_accuracy,不知道装什么,ddddd,,0.9,2026-09-23 12:49:19.538764
 Track 2: BCI Decoding,balanced_accuracy,fmashrur,fmashrur,,0.89,2026-09-29 01:30:04.771240
-Track 2: BCI Decoding,balanced_accuracy,Ethan,Ethan,,0.89,2026-10-04 00:07:24.262328
 Track 2: BCI Decoding,balanced_accuracy,bionic_human,bionic_human,,0.89,2026-09-30 07:19:20.853554
 Track 2: BCI Decoding,balanced_accuracy,ETRI_EnSeption,seohee,,0.88,2026-09-29 23:27:47.029877
-Track 2: BCI Decoding,balanced_accuracy,jiahuian1,jiahuian1,,0.88,2026-10-02 07:01:19.934557
 Track 2: BCI Decoding,balanced_accuracy,Rajat,Rajat,mirror,0.88,2026-09-29 13:45:27.514631
 Track 2: BCI Decoding,balanced_accuracy,obarskyi,obarskyi,,0.88,2026-09-24 01:20:20.992479
 Track 2: BCI Decoding,balanced_accuracy,konstantin_preusser,konstantin_preusser,120,0.87,2026-09-25 11:20:03.087755
@@ -69,6 +71,7 @@ Track 2: BCI Decoding,balanced_accuracy,HUST-BCI Niantong NeuroDecode,Huanyu Wu,
 Track 2: BCI Decoding,balanced_accuracy,chris_vas,chris_vas,"Unweighted-mean ensemble of cross-subject decoders over the provided 4 s windows, each self-normalising on the 64-window prediction batch. Member families: Riemannian tangent space on band-limited covariances, xDAWN ERP covariances, low-frequency phase-locked time-domain logistic regression, feature-level fusions of these, and compact convolutional nets trained from scratch (EEGNet/ShallowConvNet/Deep4Net). Members selected on a subject-disjoint validation split. External pre-training data: Dreyer2023 (OSF 8tdk5, CC-BY-4.0). No pretrained model weights. AI-assisted, human-directed.",0.85,2026-09-24 16:08:18.216951
 Track 2: BCI Decoding,balanced_accuracy,neuro168,neuro168,NAN,0.85,2026-09-23 02:00:54.480838
 Track 2: BCI Decoding,balanced_accuracy,s_awazish,s_awazish,,0.85,2026-09-30 07:24:02.831869
+Track 2: BCI Decoding,balanced_accuracy,joeuser,joeuser,,0.84,2026-10-06 07:54:14.630372
 Track 2: BCI Decoding,balanced_accuracy,luojingwei-hust,luojingwei-hust,,0.84,2026-09-29 11:13:33.218705
 Track 2: BCI Decoding,balanced_accuracy,tuzhiyang,tuzhiyang,,0.84,2026-10-05 12:29:46.900508
 Track 2: BCI Decoding,balanced_accuracy,chaudhryr01,chaudhryr01,,0.83,2026-09-30 17:30:58.494584
@@ -89,7 +92,6 @@ Track 2: BCI Decoding,balanced_accuracy,Phaedrus,Phaedrus,eegnet,0.77,2026-09-22
 Track 2: BCI Decoding,balanced_accuracy,gereon,gereon,PNPL cue-locked ERP v2,0.76,2026-09-28 12:45:43.277077
 Track 2: BCI Decoding,balanced_accuracy,Team Zenith,keerthi_kumar_k_j,,0.74,2026-10-05 05:53:11.205004
 Track 2: BCI Decoding,balanced_accuracy,tom_ml,tom_ml,,0.67,2026-10-02 20:53:04.506246
-Track 2: BCI Decoding,balanced_accuracy,joeuser,joeuser,,0.66,2026-09-24 13:18:07.941853
 Track 2: BCI Decoding,balanced_accuracy,tommoral,tommoral,,0.65,2026-09-11 09:35:43.080891
 Track 2: BCI Decoding,balanced_accuracy,adoroodchi,adoroodchi,,0.62,2026-10-02 14:32:18.065982
 Track 2: BCI Decoding,balanced_accuracy,theotherguy,theotherguy,,0.6,2026-09-24 11:27:37.709690
@@ -98,12 +100,14 @@ Track 3: Sleep Onset,bmae,ahmadabdelaal,ahmadabdelaal,,66.95,2026-10-02 01:12:37
 Track 3: Sleep Onset,bmae,wooluck98,wooluck98,,75.42,2026-10-01 12:32:04.431951
 Track 3: Sleep Onset,bmae,MannasAI,Mahir,,83.3,2026-09-29 09:51:49.874749
 Track 3: Sleep Onset,bmae,LIN-BTU-AI,biolippi,DuMa-Sleep,83.44,2026-09-23 16:00:46.050772
+Track 3: Sleep Onset,bmae,purvkabaria,purvkabaria,,86.38,2026-10-06 10:41:15.388404
 Track 3: Sleep Onset,bmae,mehular,mehular,,86.43,2026-09-29 05:21:30.094142
 Track 3: Sleep Onset,bmae,fmashrur,fmashrur,,95.73,2026-09-20 02:06:45.490124
 Track 3: Sleep Onset,bmae,eugenehp,eugenehp,SleepEH_20260928-221259,99.17,2026-09-29 03:10:56.227630
 Track 3: Sleep Onset,bmae,fmashrur,fmashrur,,101.8,2026-09-19 07:17:04.755252
 Track 3: Sleep Onset,bmae,azzzeret,azzzeret,,101.95,2026-09-27 21:48:32.815015
 Track 3: Sleep Onset,bmae,HUST-BCI Niantong NeuroDecode,Huanyu Wu,,102.91,2026-09-24 14:30:23.316573
+Track 3: Sleep Onset,bmae,capella_t4,capella_t4,,103.17,2026-10-05 16:31:55.358911
 Track 3: Sleep Onset,bmae,zhangbo299026,zhangbo299026,,103.61,2026-10-02 15:37:46.270950
 Track 3: Sleep Onset,bmae,speedwagon,yosr ghanmi,SleepPose,106.37,2026-09-26 16:42:14.629461
 Track 3: Sleep Onset,bmae,viranovskaya,viranovskaya,,106.7,2026-10-01 14:31:37.658891
@@ -113,16 +117,17 @@ Track 3: Sleep Onset,bmae,Ethan,Ethan,,107.99,2026-10-03 20:38:26.208918
 Track 3: Sleep Onset,bmae,Hardik,Hardik,,109.57,2026-09-30 12:41:31.885893
 Track 3: Sleep Onset,bmae,aimarsilvan,aimarsilvan,,112.44,2026-09-23 23:41:16.744553
 Track 3: Sleep Onset,bmae,HYLGZ,ivanliu,,112.76,2026-09-25 14:12:05.846720
+Track 3: Sleep Onset,bmae,evaaa,evaaa,,113.22,2026-10-05 16:33:00.178290
 Track 3: Sleep Onset,bmae,obarskyi,obarskyi,,113.99,2026-09-20 18:12:48.679867
 Track 3: Sleep Onset,bmae,Team Yuyu,kaneyxx,,114.89,2026-09-23 06:22:08.188305
 Track 3: Sleep Onset,bmae,ehimennathan,ehimennathan,,115.5,2026-10-02 17:16:13.518148
 Track 3: Sleep Onset,bmae,HYLGZ,liliayh,,118.86,2026-09-23 23:56:31.383842
 Track 3: Sleep Onset,bmae,Yudai531,Yudai531,,119.52,2026-09-28 04:58:38.563615
 Track 3: Sleep Onset,bmae,mahdi_ben_ameur,mahdi_ben_ameur,,120.32,2026-09-19 19:36:11.793808
-Track 3: Sleep Onset,bmae,evaaa,evaaa,,120.59,2026-10-05 10:20:31.851861
 Track 3: Sleep Onset,bmae,efelez15,efelez15,,120.67,2026-10-02 07:57:41.149868
 Track 3: Sleep Onset,bmae,clazyt,clazyt,,121.67,2026-09-26 14:05:42.605639
 Track 3: Sleep Onset,bmae,shyamaldharia,shyamaldharia,,121.71,2026-09-25 15:53:15.617208
+Track 3: Sleep Onset,bmae,Coconut Lassi,harizz076,,123.93,2026-10-05 17:17:35.490119
 Track 3: Sleep Onset,bmae,adolfo_ramirez,adolfo_ramirez,,124.3,2026-10-01 21:42:08.155393
 Track 3: Sleep Onset,bmae,kwonhyojun,kwonhyojun,,125.15,2026-10-03 09:27:31.536611
 Track 3: Sleep Onset,bmae,guangqi,guangqi,lasla,125.8,2026-09-22 13:00:39.023628
@@ -144,12 +149,12 @@ Track 4: EMG-to-Pose,angular_mae,tom_ml,tom_ml,,10.74,2026-10-04 05:06:09.322777
 Track 4: EMG-to-Pose,angular_mae,Ethan,Ethan,,10.79,2026-10-05 03:05:28.086423
 Track 4: EMG-to-Pose,angular_mae,makoshan,makoshan,,11.44,2026-10-04 12:54:15.529438
 Track 4: EMG-to-Pose,angular_mae,sjhan,sjhan,,12.08,2026-09-29 07:04:44.380104
+Track 4: EMG-to-Pose,angular_mae,Team Yuyu,kaneyxx,,12.21,2026-10-06 09:01:10.748584
 Track 4: EMG-to-Pose,angular_mae,Rajat,Rajat,v5,12.35,2026-10-01 13:34:17.894762
 Track 4: EMG-to-Pose,angular_mae,BNEL,mohamed72,,12.76,2026-10-01 09:55:55.013460
+Track 4: EMG-to-Pose,angular_mae,abe_lincoln,abe_lincoln,,12.78,2026-10-05 02:48:45.443216
 Track 4: EMG-to-Pose,angular_mae,aimarsilvan,aimarsilvan,,12.83,2026-09-30 01:38:31.262966
-Track 4: EMG-to-Pose,angular_mae,abe_lincoln,abe_lincoln,,13.14,2026-10-03 22:42:01.342842
 Track 4: EMG-to-Pose,angular_mae,braininahat,braininahat,,13.26,2026-10-02 17:35:57.622412
-Track 4: EMG-to-Pose,angular_mae,Team Yuyu,kaneyxx,,13.51,2026-10-02 10:57:19.577059
 Track 4: EMG-to-Pose,angular_mae,fmashrur,fmashrur,,13.58,2026-09-29 04:21:35.804957
 Track 4: EMG-to-Pose,angular_mae,Phaedrus,Phaedrus,,13.85,2026-10-01 11:33:15.328397
 Track 4: EMG-to-Pose,angular_mae,kingkung,kingkung,,13.89,2026-10-05 01:09:14.181831
@@ -161,19 +166,20 @@ Track 4: EMG-to-Pose,angular_mae,Young,Young,,14.78,2026-09-26 14:31:03.029564
 Track 4: EMG-to-Pose,angular_mae,bionic_human,bionic_human,,14.91,2026-09-30 17:21:19.949313
 Track 4: EMG-to-Pose,angular_mae,theotherguy,theotherguy,,15.01,2026-09-23 19:43:37.014948
 Track 4: EMG-to-Pose,angular_mae,flashingcat,flashingcat,,15.13,2026-09-26 16:47:14.401891
+Track 4: EMG-to-Pose,angular_mae,HUST-BCI Niantong NeuroDecode,Huanyu Wu,,15.49,2026-10-06 11:14:03.626806
 Track 4: EMG-to-Pose,angular_mae,rlovecchio,rlovecchio,,15.67,2026-09-30 22:04:24.788165
-Track 4: EMG-to-Pose,angular_mae,HUST-BCI Niantong NeuroDecode,Huanyu Wu,,15.83,2026-10-03 00:23:50.311887
 Track 4: EMG-to-Pose,angular_mae,msiip,bushu,,16.07,2026-09-30 03:30:49.991651
+Track 4: EMG-to-Pose,angular_mae,jinhan_liu,jinhan_liu,,16.49,2026-10-06 07:13:20.769824
 Track 4: EMG-to-Pose,angular_mae,zhizhi-applexxx,zhizhi-applexxx,,16.51,2026-10-03 13:34:19.379622
-Track 4: EMG-to-Pose,angular_mae,chimpsfight,chimpsfight,,17.02,2026-10-05 11:58:02.939469
+Track 4: EMG-to-Pose,angular_mae,chimpsfight,chimpsfight,,16.77,2026-10-06 08:13:39.346384
 Track 4: EMG-to-Pose,angular_mae,ettorem,ettorem,,17.1,2026-09-22 21:32:31.902487
 Track 4: EMG-to-Pose,angular_mae,obarskyi,obarskyi,,17.15,2026-09-24 00:03:13.785620
+Track 4: EMG-to-Pose,angular_mae,adolfo_ramirez,adolfo_ramirez,,18.24,2026-10-05 18:36:41.119697
 Track 4: EMG-to-Pose,angular_mae,arnaultcaillet,arnaultcaillet,,18.37,2026-09-25 09:26:11.006864
 Track 4: EMG-to-Pose,angular_mae,ebkernel,ebkernel,,18.38,2026-09-28 01:39:19.141630
 Track 4: EMG-to-Pose,angular_mae,zhwa2003,zhwa2003,benchmark,18.58,2026-09-23 23:53:55.402650
 Track 4: EMG-to-Pose,angular_mae,grvkhnl,grvkhnl,,18.62,2026-09-28 06:48:46.909436
 Track 4: EMG-to-Pose,angular_mae,durgamabhilash,durgamabhilash,,18.93,2026-09-29 20:30:31.869239
-Track 4: EMG-to-Pose,angular_mae,jinhan_liu,jinhan_liu,,19.21,2026-10-05 12:11:31.212886
 Track 4: EMG-to-Pose,angular_mae,tommoral,tommoral,,21.6,2026-09-10 14:10:40.757645
 Track 4: EMG-to-Pose,angular_mae,jiananli,jiananli,,22.58,2026-09-29 16:06:10.366238
 Track 4: EMG-to-Pose,angular_mae,brass-meridian-ops,brass-meridian-ops,,22.67,2026-09-30 18:25:26.858341
