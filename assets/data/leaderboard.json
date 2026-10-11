@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-10T12:11",
+ "updated": "2026-10-11T12:25",
  "tracks": [
   {
    "id": 1,
@@ -8,13 +8,20 @@
    "higher": true,
    "color": "#0072B2",
    "leader": {
-    "team": "louisliu",
-    "user": "louisliu",
+    "team": "hairking",
+    "user": "hairking",
     "model": "",
-    "score": 0.58,
-    "date": "2026-10-09T06:40"
+    "score": 0.83,
+    "date": "2026-10-11T05:28"
    },
    "rows": [
+    {
+     "team": "hairking",
+     "user": "hairking",
+     "model": "",
+     "score": 0.83,
+     "date": "2026-10-11T05:28"
+    },
     {
      "team": "louisliu",
      "user": "louisliu",
@@ -26,8 +33,8 @@
      "team": "evo-brain",
      "user": "evo-brain",
      "model": "",
-     "score": 0.55,
-     "date": "2026-10-10T09:48"
+     "score": 0.57,
+     "date": "2026-10-11T09:56"
     },
     {
      "team": "Shenzhen Campus of Sun Yat-sen University",
@@ -90,7 +97,7 @@
      "user": "Leafy._.Chan",
      "model": "",
      "score": 0.45,
-     "date": "2026-10-09T13:14"
+     "date": "2026-10-10T04:58"
     },
     {
      "team": "speedwagon",
@@ -128,6 +135,13 @@
      "date": "2026-10-06T18:09"
     },
     {
+     "team": "24521046",
+     "user": "24521046",
+     "model": "",
+     "score": 0.4,
+     "date": "2026-10-10T13:57"
+    },
+    {
      "team": "DTU-org",
      "user": "holme",
      "model": "",
@@ -163,6 +177,13 @@
      "date": "2026-10-01T18:53"
     },
     {
+     "team": "ricardosantana",
+     "user": "ricardosantana",
+     "model": "",
+     "score": 0.38,
+     "date": "2026-10-09T18:10"
+    },
+    {
      "team": "shyamaldharia",
      "user": "shyamaldharia",
      "model": "REVE_B",
@@ -175,13 +196,6 @@
      "model": "",
      "score": 0.38,
      "date": "2026-09-22T05:45"
-    },
-    {
-     "team": "hairking",
-     "user": "hairking",
-     "model": "",
-     "score": 0.37,
-     "date": "2026-10-09T13:41"
     },
     {
      "team": "Inspire Lab",
@@ -203,6 +217,13 @@
      "model": "",
      "score": 0.36,
      "date": "2026-10-08T03:04"
+    },
+    {
+     "team": "temiro",
+     "user": "temiro",
+     "model": "",
+     "score": 0.35,
+     "date": "2026-10-11T09:29"
     },
     {
      "team": "gabin_bruniaux",
@@ -343,27 +364,6 @@
      "model": "",
      "score": 0.06,
      "date": "2026-10-08T08:10"
-    },
-    {
-     "team": "Coconut Lassi",
-     "user": "anne16",
-     "model": "",
-     "score": 0.05,
-     "date": "2026-10-06T07:31"
-    },
-    {
-     "team": "sazeglio",
-     "user": "sazeglio",
-     "model": "",
-     "score": 0.04,
-     "date": "2026-09-30T00:58"
-    },
-    {
-     "team": "aimarsilvan",
-     "user": "aimarsilvan",
-     "model": "",
-     "score": 0.04,
-     "date": "2026-10-08T00:37"
     }
    ],
    "record": [
@@ -406,6 +406,11 @@
      "date": "2026-10-09T06:40",
      "score": 0.58,
      "team": "louisliu"
+    },
+    {
+     "date": "2026-10-11T05:28",
+     "score": 0.83,
+     "team": "hairking"
     }
    ]
   },
@@ -435,7 +440,7 @@
      "user": "Ethan",
      "model": "",
      "score": 0.94,
-     "date": "2026-10-09T00:21"
+     "date": "2026-10-10T22:40"
     },
     {
      "team": "speedwagon",
@@ -599,6 +604,13 @@
      "date": "2026-09-24T01:20"
     },
     {
+     "team": "tuzhiyang",
+     "user": "tuzhiyang",
+     "model": "",
+     "score": 0.88,
+     "date": "2026-10-10T19:18"
+    },
+    {
      "team": "rohit_kumar_varma",
      "user": "rohit_kumar_varma",
      "model": "",
@@ -618,13 +630,6 @@
      "model": "",
      "score": 0.87,
      "date": "2026-10-07T02:43"
-    },
-    {
-     "team": "tuzhiyang",
-     "user": "tuzhiyang",
-     "model": "",
-     "score": 0.86,
-     "date": "2026-10-06T05:57"
     },
     {
      "team": "dunktra",
@@ -725,6 +730,13 @@
      "date": "2026-09-23T11:34"
     },
     {
+     "team": "abehass",
+     "user": "abehass",
+     "model": "",
+     "score": 0.82,
+     "date": "2026-10-10T15:28"
+    },
+    {
      "team": "arqin",
      "user": "arqin",
      "model": "",
@@ -765,13 +777,6 @@
      "model": "",
      "score": 0.79,
      "date": "2026-10-01T08:01"
-    },
-    {
-     "team": "arvasu",
-     "user": "arvasu",
-     "model": "",
-     "score": 0.78,
-     "date": "2026-10-02T07:54"
     }
    ],
    "record": [
@@ -806,9 +811,9 @@
      "team": "\u5929\u8272\u5929\u6b4c\u5929\u7c41\u97f3"
     },
     {
-     "date": "2026-10-09T00:21",
+     "date": "2026-10-10T00:55",
      "score": 0.94,
-     "team": "Ethan"
+     "team": "cheesypasta"
     }
    ]
   },
@@ -1002,6 +1007,13 @@
      "date": "2026-10-09T09:35"
     },
     {
+     "team": "dunktra",
+     "user": "dunktra",
+     "model": "",
+     "score": 112.46,
+     "date": "2026-10-10T21:57"
+    },
+    {
      "team": "HYLGZ",
      "user": "ivanliu",
      "model": "",
@@ -1014,6 +1026,13 @@
      "model": "",
      "score": 113.22,
      "date": "2026-10-05T16:33"
+    },
+    {
+     "team": "abehass",
+     "user": "abehass",
+     "model": "",
+     "score": 113.23,
+     "date": "2026-10-10T15:28"
     },
     {
      "team": "obarskyi",
@@ -1042,13 +1061,6 @@
      "model": "",
      "score": 115.5,
      "date": "2026-10-02T17:16"
-    },
-    {
-     "team": "dunktra",
-     "user": "dunktra",
-     "model": "",
-     "score": 117.59,
-     "date": "2026-10-10T11:53"
     },
     {
      "team": "HYLGZ",
@@ -1168,13 +1180,6 @@
      "model": "",
      "score": 127.95,
      "date": "2026-10-06T13:17"
-    },
-    {
-     "team": "hollyakt",
-     "user": "hollyakt",
-     "model": "",
-     "score": 128.54,
-     "date": "2026-10-07T18:16"
     }
    ],
    "record": [
@@ -1333,6 +1338,13 @@
      "date": "2026-10-09T17:40"
     },
     {
+     "team": "bartemannekes",
+     "user": "bartemannekes",
+     "model": "",
+     "score": 13.47,
+     "date": "2026-10-11T09:09"
+    },
+    {
      "team": "fmashrur",
      "user": "fmashrur",
      "model": "",
@@ -1345,13 +1357,6 @@
      "model": "",
      "score": 13.85,
      "date": "2026-10-01T11:33"
-    },
-    {
-     "team": "bartemannekes",
-     "user": "bartemannekes",
-     "model": "",
-     "score": 13.86,
-     "date": "2026-10-08T07:22"
     },
     {
      "team": "jbx56789",
@@ -1420,8 +1425,8 @@
      "team": "chimpsfight",
      "user": "chimpsfight",
      "model": "",
-     "score": 15.64,
-     "date": "2026-10-10T08:11"
+     "score": 15.55,
+     "date": "2026-10-11T01:19"
     },
     {
      "team": "rlovecchio",
