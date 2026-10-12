@@ -44,7 +44,7 @@
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
 <link rel="stylesheet" href="assets/css/base.css?v=20260908ux" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260924oss" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20261012datasets" />
 
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
 
@@ -91,7 +91,7 @@
       </div>
       <aside class="tracks-warmup-notice" aria-labelledby="tracks-warmup-heading">
         <strong class="tracks-warmup-notice-label" id="tracks-warmup-heading"><i aria-hidden="true"></i>Dataset update</strong>
-        <p>The new <strong>PROTEUS BCI Bordeaux</strong> and <strong>Muse Sleep-Onset EEG</strong> datasets are now public. Codabench evaluation will switch to them soon. Until deployment, Track 02 still uses <strong>Dreyer 2023</strong> and Track 03 uses <strong>Sleep-EDF</strong>.</p>
+        <p>The new <a href="https://nemar.org/dataset/nm000290" target="_blank" rel="noreferrer noopener"><strong>PROTEUS BCI Bordeaux</strong></a> and <a href="https://nemar.org/dataset/nm000287" target="_blank" rel="noreferrer noopener"><strong>Muse Sleep-Onset EEG</strong></a> datasets are public and now power the Track 02 and Track 03 Codabench warm-up evaluations.</p>
       </aside>
     </div>
   </section>
@@ -223,7 +223,7 @@
               </div>
 
           </figure>
-        <p>Decode one of three cued mental commands from EEG: kinesthetic motor imagery, mental subtraction, or word generation. The 2026 cohort follows 20 participants across six sessions using the Graz and BrainHero interfaces. Public training data contain early sessions from ten participants. Sealed evaluation combines later sessions from those participants with recordings from entirely new participants. This tests robustness to session drift and inter-person variability without access to hidden labels.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Balanced accuracy averaged across participant, session, and recording-context cells, with higher scores indicating better performance.</span><span class="track-data-summary"><strong>Current warm-up:</strong> Dreyer 2023 two-class proxy <span aria-hidden="true">·</span> <strong>After the switch:</strong> public PROTEUS three-command task <span aria-hidden="true">·</span> <strong>Published baseline:</strong> Stieger 2021</span><span class="track-data-alert"><strong>Dataset update:</strong> <a href="https://nemar.org/dataset/nm000290" target="_blank" rel="noreferrer noopener">PROTEUS BCI Bordeaux is now public on NEMAR</a>. Codabench still uses Dreyer 2023 until the new pipeline and scorer are deployed.</span></span></p>
+        <p>Decode one of three cued mental commands from EEG: kinesthetic motor imagery, mental subtraction, or word generation. The 2026 cohort follows 20 participants across six sessions using the Graz and BrainHero interfaces. Public training data contain early sessions from ten participants. Sealed evaluation combines later sessions from those participants with recordings from entirely new participants. This tests robustness to session drift and inter-person variability without access to hidden labels.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Balanced accuracy averaged across participant, session, and recording-context cells, with higher scores indicating better performance.</span><span class="track-data-summary"><strong>Current warm-up and baseline:</strong> public PROTEUS three-command task <span aria-hidden="true">·</span> <strong>Sealed:</strong> later sessions and new participants</span><span class="track-data-alert"><strong>Dataset:</strong> <a href="https://nemar.org/dataset/nm000290" target="_blank" rel="noreferrer noopener">PROTEUS BCI Bordeaux is public on NEMAR</a> and used by the Codabench warm-up.</span></span></p>
         <div class="track-guide-buttons">
           <a class="track-guide-button" href="https://github.com/neural-interfaces26/2026-competition/tree/main/tracks/bci_decoding" target="_blank" rel="noreferrer noopener">Open competition starting kit ↗</a>
           <a class="track-guide-button" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track2_eeg_to_bci.html" target="_blank" rel="noreferrer noopener">Open Track 02 on NeuralBench ↗</a>
@@ -295,7 +295,7 @@
               </div>
 
           </figure>
-        <p>Predict from continuous four-channel home EEG how many seconds remain until the first N2 epoch. During Muse evaluation, five-second windows arrive one at a time in chronological order. Models may use past context within the current recording, and their state is reset before the next recording. Evaluation combines new nights from sleepers represented in training with recordings from entirely unseen sleepers, testing night-to-night and inter-person generalization under motion artifacts, impedance changes, and occasional channel dropout.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Weighted binned mean absolute error (W-bMAE) in seconds, with greater weight on errors closer to sleep onset. Seen-sleeper and unseen-sleeper W-bMAE are macro-averaged for the final ranking. Lower scores indicate better performance.</span><span class="track-data-summary"><strong>Current warm-up:</strong> Sleep-EDF batched proxy <span aria-hidden="true">·</span> <strong>After the switch:</strong> public Muse causal-stream task <span aria-hidden="true">·</span> <strong>Sealed:</strong> private Muse cohort</span><span class="track-data-alert"><strong>Dataset update:</strong> <a href="https://nemar.org/dataset/nm000287" target="_blank" rel="noreferrer noopener">Muse Sleep-Onset EEG is now public on NEMAR</a>. Codabench still uses Sleep-EDF until the Muse integration and scorer are deployed.</span></span></p>
+        <p>Predict from continuous four-channel home EEG how many seconds remain until the first N2 epoch. During Muse evaluation, five-second windows arrive one at a time in chronological order. Models may use past context within the current recording, and their state is reset before the next recording. Evaluation combines new nights from sleepers represented in training with recordings from entirely unseen sleepers, testing night-to-night and inter-person generalization under motion artifacts, impedance changes, and occasional channel dropout.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Weighted binned mean absolute error (W-bMAE) in seconds, with greater weight on errors closer to sleep onset. Seen-sleeper and unseen-sleeper W-bMAE are macro-averaged for the final ranking. Lower scores indicate better performance.</span><span class="track-data-summary"><strong>Current warm-up and baseline:</strong> public Muse causal-stream task <span aria-hidden="true">·</span> <strong>Warm-up score:</strong> per-recording W-bMAE mean <span aria-hidden="true">·</span> <strong>Sealed:</strong> private Muse cohort</span><span class="track-data-alert"><strong>Dataset:</strong> <a href="https://nemar.org/dataset/nm000287" target="_blank" rel="noreferrer noopener">Muse Sleep-Onset EEG is public on NEMAR</a> and used by the Codabench warm-up.</span></span></p>
         <div class="track-guide-buttons">
           <a class="track-guide-button" href="https://github.com/neural-interfaces26/2026-competition/tree/main/tracks/sleep_onset" target="_blank" rel="noreferrer noopener">Open competition starting kit ↗</a>
           <a class="track-guide-button" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track3_sleep_onset.html" target="_blank" rel="noreferrer noopener">Open Track 03 on NeuralBench ↗</a>
@@ -388,7 +388,7 @@
         <article class="dataset-role-card dataset-role-card--warmup">
           <span class="bs-kicker">02 · Warm-up evaluation data</span>
           <h3>Test submissions on public data.</h3>
-          <p>During warm-up, Codabench scores your model on public track-specific test partitions. Track 02 currently uses Dreyer 2023 and Track 03 uses Sleep-EDF. Both will switch to their new public 2026 datasets after deployment. The active split and metric are documented on each Codabench Track description and Scientific FAQ. Because warm-up data are public, leakage is possible and scores are indicative only.</p>
+          <p>During warm-up, Codabench scores your model on public track-specific test partitions. The active split and metric are documented on each Codabench Track description and Scientific FAQ. Because warm-up data are public, leakage is possible and scores are indicative only.</p>
         </article>
         <article class="dataset-role-card dataset-role-card--sealed">
           <span class="bs-kicker">03 · Sealed evaluation data</span>
@@ -399,7 +399,7 @@
 
       <aside class="dataset-update-banner" role="note" aria-label="Track 02 and Track 03 dataset updates">
         <span class="bs-kicker">Dataset update</span>
-        <p><strong>PROTEUS BCI Bordeaux and Muse Sleep-Onset EEG are now available for public training, with their Codabench warm-up switches coming soon.</strong> Until the corresponding deployments, warm-up evaluation remains on Dreyer 2023 for Track 02 and Sleep-EDF for Track 03.</p>
+        <p><strong><a href="https://nemar.org/dataset/nm000290" target="_blank" rel="noreferrer noopener">PROTEUS BCI Bordeaux</a> and <a href="https://nemar.org/dataset/nm000287" target="_blank" rel="noreferrer noopener">Muse Sleep-Onset EEG</a> are available for public training and active in their Codabench warm-up evaluations.</strong> Their public test partitions support end-to-end submission validation before the sealed phase.</p>
       </aside>
 
       <div class="ds-table-wrap">
@@ -474,7 +474,7 @@
           <div class="ds-row track-group-start" role="row">
             <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
             <span class="nm" role="cell"><strong>Stieger 2021</strong></span>
-            <span class="dataset-use" role="cell">Published baseline</span>
+            <span class="dataset-use" role="cell">Alternative public data · Historical reference</span>
             <span class="mod mod-eeg" role="cell">EEG</span>
             <span class="num" role="cell">62</span>
             <span class="num" role="cell">615h</span>
@@ -482,10 +482,10 @@
             <span class="num" role="cell">1000 Hz</span>
             <span class="num" role="cell">399 GB</span>
           </div>
-          <div class="ds-row ds-row--warmup" role="row">
+          <div class="ds-row" role="row">
             <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
             <span class="nm" role="cell"><strong>Dreyer 2023</strong></span>
-            <span class="dataset-use" role="cell">Start kit · Warm-up evaluation</span>
+            <span class="dataset-use" role="cell">Legacy warm-up · Alternative public data</span>
             <span class="mod mod-eeg" role="cell">EEG</span>
             <span class="num" role="cell">87</span>
             <span class="num" role="cell">127h</span>
@@ -518,7 +518,7 @@
           <div class="ds-row ds-row--new ds-row--warmup" role="row">
             <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
             <span class="nm" role="cell"><strong>PROTEUS BCI Bordeaux <span class="ds-new-tag">NEW 2026</span></strong></span>
-            <span class="dataset-use" role="cell">Public training · Warm-up evaluation (soon)</span>
+            <span class="dataset-use" role="cell">Public training · Warm-up evaluation</span>
             <span class="mod mod-eeg" role="cell">EEG</span>
             <span class="num" role="cell">10</span>
             <span class="num" role="cell">-</span>
@@ -526,10 +526,21 @@
             <span class="num" role="cell">500 Hz</span>
             <span class="num" role="cell">1.48 GB</span>
           </div>
-          <div class="ds-row track-group-start ds-row--warmup" role="row">
+          <div class="ds-row ds-row--new ds-row--sealed" role="row">
+            <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
+            <span class="nm" role="cell"><strong>PROTEUS BCI Bordeaux evaluation set <span class="ds-new-tag">NEW 2026</span></strong></span>
+            <span class="dataset-use" role="cell">Sealed evaluation · Same acquisition protocol</span>
+            <span class="mod mod-eeg" role="cell">EEG</span>
+            <span class="num" role="cell">Not disclosed</span>
+            <span class="num" role="cell">Not disclosed</span>
+            <span class="num" role="cell">Not disclosed</span>
+            <span class="num" role="cell">Not disclosed</span>
+            <span class="num" role="cell">Not disclosed</span>
+          </div>
+          <div class="ds-row track-group-start" role="row">
             <span class="track-tag" role="cell"><span class="sr-only">Track </span>03</span>
             <span class="nm" role="cell"><strong>Sleep-EDF</strong></span>
-            <span class="dataset-use" role="cell">Start kit · Baseline · Warm-up evaluation</span>
+            <span class="dataset-use" role="cell">Legacy warm-up · Historical reference</span>
             <span class="mod mod-eeg" role="cell">EEG</span>
             <span class="num" role="cell">78</span>
             <span class="num" role="cell">3,849h</span>
@@ -562,7 +573,7 @@
           <div class="ds-row ds-row--warmup" role="row">
             <span class="track-tag" role="cell"><span class="sr-only">Track </span>03</span>
             <span class="nm" role="cell"><strong>Muse Sleep-Onset EEG <span class="ds-new-tag">NEW 2026</span></strong></span>
-            <span class="dataset-use" role="cell">Public training · Warm-up evaluation (soon)</span>
+            <span class="dataset-use" role="cell">Public training · Warm-up evaluation</span>
             <span class="mod mod-eeg" role="cell">EEG</span>
             <span class="num" role="cell">203</span>
             <span class="num" role="cell">157.52h</span>
@@ -575,7 +586,7 @@
             <span class="nm" role="cell"><strong>Muse Sleep-Onset evaluation set <span class="ds-new-tag">NEW 2026</span></strong></span>
             <span class="dataset-use" role="cell">Sealed evaluation</span>
             <span class="mod mod-eeg" role="cell">EEG</span>
-            <span class="num" role="cell">TBC</span>
+            <span class="num" role="cell">Not disclosed</span>
             <span class="num" role="cell">-</span>
             <span class="num" role="cell">4</span>
             <span class="num" role="cell">128 Hz</span>
@@ -597,7 +608,7 @@
             <span class="nm" role="cell"><strong>EMG2Pose evaluation cohort <span class="ds-new-tag">NEW 2026</span></strong></span>
             <span class="dataset-use" role="cell">Sealed evaluation · Same acquisition protocol</span>
             <span class="mod mod-emg" role="cell">EMG</span>
-            <span class="num" role="cell">TBC</span>
+            <span class="num" role="cell">Not disclosed</span>
             <span class="num" role="cell">-</span>
             <span class="num" role="cell">16</span>
             <span class="num" role="cell">2000 Hz</span>
@@ -622,7 +633,7 @@
             <span class="bs-kicker">Track 02 · 2026 training + hidden evaluation dataset</span>
           </div>
           <h3 class="dataset-release-heading">PROTEUS BCI Bordeaux</h3>
-          <p class="dataset-release-copy">The full acquisition programme follows 20 participants across six sessions using the same three-command Graz and BrainHero protocol. The <a href="https://nemar.org/dataset/nm000290" target="_blank" rel="noreferrer noopener">public NEMAR release</a> provides 112 runs from 14 sessions of 10 participants: two with their first three sessions and eight with their first session. Recordings contain 41 EEG channels at 500 Hz. Sealed evaluation uses later sessions from represented participants and recordings from entirely new participants. Exact hidden identities and allocation remain private. Provided by Inria Bordeaux.</p>
+          <p class="dataset-release-copy">The full acquisition programme follows 20 participants across six sessions using the same three-command Graz and BrainHero protocol. The <a href="https://nemar.org/dataset/nm000290" target="_blank" rel="noreferrer noopener">public NEMAR release</a> provides 112 runs from 14 sessions of 10 participants: two with their first three sessions and eight with their first session. Recordings contain 41 EEG channels at 500 Hz and support public training and warm-up evaluation. A distinct private counterpart is reserved for sealed evaluation and combines later sessions from represented participants with recordings from entirely new participants. Its identities, composition, and acquisition metadata remain undisclosed. Provided by Inria Bordeaux.</p>
         </article>
 
         <article class="vb-track dataset-release-card" id="dataset-track-3">

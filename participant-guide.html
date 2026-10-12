@@ -110,14 +110,14 @@
         <span class="bs-kicker">01 · Tasks, data &amp; baselines</span>
         <h3>NeuralBench</h3>
         <strong class="prepare-role-purpose">Neurophysiology task and model environment.</strong>
-        <p>Defines the public tasks, datasets, preprocessing, splits, and reference baselines. Use it to explore a task and run a catalogue model — a task-specific network or a pretrained foundation model (probed or fine-tuned).</p>
+        <p>Defines the public tasks, datasets, preprocessing, splits, and reference baselines. Use it to explore a task and run a catalogue model, either a task-specific network or a pretrained foundation model (probed or fine-tuned).</p>
         <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/index.html" target="_blank" rel="noreferrer noopener">Open the NeuralBench guides ↗</a>
       </article>
       <article class="prepare-role-card prepare-role-card--featured">
         <span class="bs-kicker">02 · Develop and package</span>
         <h3>Benchopt</h3>
         <strong class="prepare-role-purpose">Reproducible experimentation and competition preparation.</strong>
-        <p>Use it to <strong>develop your own model</strong> and compare methods reproducibly. A new architecture lives in your <code>submission.py</code> as plain PyTorch; Benchopt reuses the NeuralBench task and data layer to train, validate, and package it into a submission.</p>
+        <p>Use it to <strong>develop your own model</strong> and compare methods reproducibly. A new architecture lives in your <code>submission.py</code> as plain PyTorch. Benchopt reuses the NeuralBench task and data layer to train, validate, and package it into a submission.</p>
         <a href="https://github.com/neural-interfaces26/2026-competition#develop--train-your-model-with-benchopt" target="_blank" rel="noreferrer noopener">Open the Benchopt competition kit ↗</a>
       </article>
       <article class="prepare-role-card">
@@ -212,7 +212,7 @@
           <details class="prepare-track-disclosure">
             <summary>
               <span class="prepare-disclosure-mark" aria-hidden="true">&gt;_</span>
-              <span class="prepare-disclosure-copy"><small>Benchopt competition kit</small><strong>Train and package a simple baseline with Benchopt</strong></span>
+              <span class="prepare-disclosure-copy"><small>Benchopt competition kit</small><strong>Train and package a PROTEUS baseline with Benchopt</strong></span>
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
@@ -220,21 +220,21 @@
                 <figcaption class="bs-code-head"><span class="bs-kicker">Terminal · Benchopt</span><button class="copy" type="button" data-copy aria-live="polite">copy</button></figcaption>
                 <pre tabindex="0" aria-label="Track 02 Benchopt setup and test commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install benchopt</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>git clone https://github.com/neural-interfaces26/2026-competition</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt install 2026-competition/tracks/bci_decoding</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt prepare 2026-competition/tracks/bci_decoding --config 2026-competition/tracks/bci_decoding/training.yml</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt run 2026-competition/tracks/bci_decoding --config 2026-competition/tracks/bci_decoding/training.yml</code></span></pre>
               </figure>
-              <p>This installs the track dependencies, prepares Dreyer 2023 through the NeuralBench data pipeline, trains the Torch linear solver, evaluates it on the public split, and writes a submission folder. Zip that folder before uploading it to Codabench.</p>
+              <p>This installs the track dependencies, selects the public PROTEUS release through <code>training.yml</code>, trains the Torch linear baseline, evaluates it on the current warm-up split, and writes a submission folder. Zip that folder before uploading it to Codabench.</p>
             </div>
           </details>
           <details class="prepare-track-disclosure prepare-track-disclosure--neuralbench">
             <summary>
               <span class="prepare-disclosure-mark" aria-hidden="true">NB</span>
-              <span class="prepare-disclosure-copy"><small>NeuralBench start kit</small><strong>Check EEGNet with NeuralBench</strong></span>
+              <span class="prepare-disclosure-copy"><small>NeuralBench start kit</small><strong>Check the PROTEUS task with NeuralBench</strong></span>
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
               <figure class="bs-code" aria-label="Track 02 NeuralBench quick start">
                 <figcaption class="bs-code-head"><span class="bs-kicker">Terminal · NeuralBench</span><button class="copy" type="button" data-copy aria-live="polite">copy</button></figcaption>
-                <pre tabindex="0" aria-label="Track 02 NeuralBench commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench 'moabb&gt;=1.7.1'</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg motor_imagery --dataset dreyer2023 --download</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg motor_imagery --dataset dreyer2023 --prepare</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg motor_imagery --dataset dreyer2023 -m eegnet --debug</code></span></pre>
+                <pre tabindex="0" aria-label="Track 02 NeuralBench commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg _motor_imagery_stream --download</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg _motor_imagery_stream --prepare</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg _motor_imagery_stream -m eegnet --debug</code></span></pre>
               </figure>
-              <p>The <code>--debug</code> command quickly checks the NeuralBench task and EEGNet pipeline on Dreyer 2023. Choose this start kit to explore the neuro-specific task, adaptation strategies, and evaluation of catalogue models.</p>
+              <p>PROTEUS is the default dataset of <code>_motor_imagery_stream</code>, so no dataset flag is needed. The <code>--debug</code> command quickly checks its session-stream task and EEGNet pipeline.</p>
             </div>
           </details>
           <details class="prepare-track-disclosure prepare-track-disclosure--results" id="baseline-track-2">
@@ -244,14 +244,14 @@
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
-              <p class="prepare-track-dataset"><strong>Baseline results obtained on Stieger 2021 (<code>Stieger2021Continuous</code>)</strong>, a four-class motor-imagery dataset, using the split documented in the <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track2_eeg_to_bci.html" target="_blank" rel="noreferrer noopener">Track 02 NeuralBench reference guide</a>. Codabench currently uses Dreyer 2023 for warm-up evaluation, so these are not Codabench warm-up scores.</p>
+              <p class="prepare-track-dataset"><strong>Baseline results obtained on PROTEUS BCI Bordeaux (<code>Dreyer2026Proteus</code>)</strong> with NeuralBench 0.4.0 and its public cross-subject split. The metric is balanced accuracy averaged over the streamed test sessions.</p>
               <div class="prepare-track-table" role="table" aria-label="Track 02 baseline results">
                 <div class="prepare-track-table-row head" role="row"><span role="columnheader">Baseline</span><span role="columnheader">Family</span><span role="columnheader">Params</span><span role="columnheader">Train</span><span role="columnheader">Reference score</span><span role="columnheader">Configuration</span></div>
-                <div class="prepare-track-table-row" role="row"><span role="cell"><strong>Chance</strong></span><span role="cell">reference</span><span role="cell">0</span><span role="cell">0 GPU-h</span><span role="cell">Bal. Acc 24.81 ± 1.03</span><span role="cell">Not applicable</span></div>
-                <div class="prepare-track-table-row" role="row"><span role="cell"><strong>EEGNet</strong></span><span role="cell">CNN</span><span role="cell">0.04 M</span><span role="cell">4 GPU-h</span><span role="cell">Bal. Acc 58.58 ± 0.34</span><span role="cell"><code>configs/bci/eegnet.yaml</code></span></div>
-                <div class="prepare-track-table-row" role="row"><span role="cell"><strong>REVE</strong></span><span role="cell">Foundation</span><span role="cell">14 M</span><span role="cell">1 GPU-h (probe)</span><span role="cell">Bal. Acc 68.04 ± 0.73</span><span role="cell"><code>configs/bci/reve.yaml</code></span></div>
+                <div class="prepare-track-table-row" role="row"><span role="cell"><strong>Constant</strong></span><span role="cell">reference</span><span role="cell">0</span><span role="cell">0 GPU-h</span><span role="cell">Bal. Acc 33.3%</span><span role="cell">Constant prediction</span></div>
+                <div class="prepare-track-table-row" role="row"><span role="cell"><strong>EEGNet</strong></span><span role="cell">CNN</span><span role="cell">0.04 M</span><span role="cell">Not reported</span><span role="cell">Bal. Acc 32.6%</span><span role="cell"><code>-m eegnet</code></span></div>
+                <div class="prepare-track-table-row" role="row"><span role="cell"><strong>REVE</strong></span><span role="cell">Foundation</span><span role="cell">14 M</span><span role="cell">Not reported</span><span role="cell">Bal. Acc 36.0%</span><span role="cell">Fine-tuned</span></div>
               </div>
-              <p class="prepare-track-reference"><strong>Reference values:</strong> Mean ± standard deviation from NeuralBench (Banville et al., 2026), Table 1.</p>
+              <p class="prepare-track-reference"><strong>Reference values:</strong> Means over seeds 33, 34, and 35. This public split is purely cross-subject and is harder than the mixed cross-session and cross-subject sealed protocol.</p>
             </div>
           </details>
         </div>
@@ -268,7 +268,7 @@
           <details class="prepare-track-disclosure">
             <summary>
               <span class="prepare-disclosure-mark" aria-hidden="true">&gt;_</span>
-              <span class="prepare-disclosure-copy"><small>Benchopt competition kit</small><strong>Train and package a simple baseline with Benchopt</strong></span>
+              <span class="prepare-disclosure-copy"><small>Benchopt competition kit</small><strong>Train and package a Muse baseline with Benchopt</strong></span>
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
@@ -276,21 +276,21 @@
                 <figcaption class="bs-code-head"><span class="bs-kicker">Terminal · Benchopt</span><button class="copy" type="button" data-copy aria-live="polite">copy</button></figcaption>
                 <pre tabindex="0" aria-label="Track 03 Benchopt setup and test commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install benchopt</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>git clone https://github.com/neural-interfaces26/2026-competition</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt install 2026-competition/tracks/sleep_onset</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt prepare 2026-competition/tracks/sleep_onset --config 2026-competition/tracks/sleep_onset/training.yml</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt run 2026-competition/tracks/sleep_onset --config 2026-competition/tracks/sleep_onset/training.yml</code></span></pre>
               </figure>
-              <p>This installs the track dependencies, prepares Sleep-EDF through the NeuralBench data pipeline, trains the Torch linear solver, evaluates it on the public split, and writes a submission folder. Zip that folder before uploading it to Codabench.</p>
+              <p>This installs the track dependencies, selects the public Muse release through <code>training.yml</code>, trains the Torch linear baseline, evaluates it on the current warm-up split, and writes a submission folder. Zip that folder before uploading it to Codabench.</p>
             </div>
           </details>
           <details class="prepare-track-disclosure prepare-track-disclosure--neuralbench">
             <summary>
               <span class="prepare-disclosure-mark" aria-hidden="true">NB</span>
-              <span class="prepare-disclosure-copy"><small>NeuralBench start kit</small><strong>Check EEGNet with NeuralBench</strong></span>
+              <span class="prepare-disclosure-copy"><small>NeuralBench start kit</small><strong>Check the Muse task with NeuralBench</strong></span>
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
               <figure class="bs-code" aria-label="Track 03 NeuralBench quick start">
                 <figcaption class="bs-code-head"><span class="bs-kicker">Terminal · NeuralBench</span><button class="copy" type="button" data-copy aria-live="polite">copy</button></figcaption>
-                <pre tabindex="0" aria-label="Track 03 NeuralBench commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg sleep_onset --download</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg sleep_onset --prepare</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg sleep_onset -m eegnet --debug</code></span></pre>
+                <pre tabindex="0" aria-label="Track 03 NeuralBench commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg _sleep_onset_stream --download</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg _sleep_onset_stream --prepare</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg _sleep_onset_stream -m eegnet --debug</code></span></pre>
               </figure>
-              <p>The <code>--debug</code> command quickly checks the NeuralBench task and EEGNet pipeline. Choose this start kit to explore the neuro-specific task, adaptation strategies, and evaluation of catalogue models.</p>
+              <p>Muse is the default dataset of <code>_sleep_onset_stream</code>, so no dataset flag is needed. The <code>--debug</code> command quickly checks its recording-stream task and EEGNet pipeline.</p>
             </div>
           </details>
           <details class="prepare-track-disclosure prepare-track-disclosure--results" id="baseline-track-3">
@@ -300,14 +300,14 @@
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
-              <p class="prepare-track-dataset"><strong>Baseline results obtained on Sleep-EDF (<code>Kemp2000Analysis</code>)</strong>, using the participant-level split documented in the <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track3_sleep_onset.html" target="_blank" rel="noreferrer noopener">Track 03 NeuralBench reference guide</a>.</p>
+              <p class="prepare-track-dataset"><strong>Baseline results obtained on Muse Sleep-Onset EEG (<code>Interaxon2026Muse</code>)</strong> with NeuralBench 0.4.0. The reported score is the warm-up W-bMAE averaged over recording streams, in seconds.</p>
               <div class="prepare-track-table" role="table" aria-label="Track 03 baseline results">
                 <div class="prepare-track-table-row head" role="row"><span role="columnheader">Baseline</span><span role="columnheader">Family</span><span role="columnheader">Params</span><span role="columnheader">Train</span><span role="columnheader">Reference score</span><span role="columnheader">Configuration</span></div>
-                <div class="prepare-track-table-row" role="row"><span role="cell"><strong>Chance</strong></span><span role="cell">reference</span><span role="cell">0</span><span role="cell">0 GPU-h</span><span role="cell">bMAE 205.42 ± 0.01 s</span><span role="cell">Not applicable</span></div>
-                <div class="prepare-track-table-row" role="row"><span role="cell"><strong>EEGNet-sleep</strong></span><span role="cell">CNN</span><span role="cell">0.04 M</span><span role="cell">4 GPU-h</span><span role="cell">bMAE 143.30 ± 0.40 s</span><span role="cell"><code>configs/sleep/eegnet.yaml</code></span></div>
-                <div class="prepare-track-table-row" role="row"><span role="cell"><strong>REVE-sleep</strong></span><span role="cell">Foundation</span><span role="cell">14 M</span><span role="cell">1 GPU-h (probe)</span><span role="cell">bMAE 134.89 ± 2.02 s</span><span role="cell"><code>configs/sleep/reve.yaml</code></span></div>
+                <div class="prepare-track-table-row" role="row"><span role="cell"><strong>Constant 35 s</strong></span><span role="cell">reference</span><span role="cell">0</span><span role="cell">0 GPU-h</span><span role="cell">W-bMAE 60.7 s</span><span role="cell">Selected on validation</span></div>
+                <div class="prepare-track-table-row" role="row"><span role="cell"><strong>EEGNet-sleep</strong></span><span role="cell">CNN</span><span role="cell">0.04 M</span><span role="cell">Not reported</span><span role="cell">W-bMAE 60.6 s</span><span role="cell"><code>-m eegnet</code></span></div>
+                <div class="prepare-track-table-row" role="row"><span role="cell"><strong>REVE-sleep</strong></span><span role="cell">Foundation</span><span role="cell">14 M</span><span role="cell">Not reported</span><span role="cell">W-bMAE 72.9 s</span><span role="cell">Fine-tuned</span></div>
               </div>
-              <p class="prepare-track-reference"><strong>Reference values:</strong> Mean ± standard deviation from NeuralBench (Banville et al., 2026), Table 1. Here, bMAE is the unweighted mean of the MAE computed within each non-empty time-to-onset bin.</p>
+              <p class="prepare-track-reference"><strong>Reference values:</strong> Means over seeds 33, 34, and 35 using NeuralBench's current default MSE training. Lower is better.</p>
             </div>
           </details>
         </div>
@@ -332,7 +332,7 @@
                 <figcaption class="bs-code-head"><span class="bs-kicker">Terminal · Benchopt</span><button class="copy" type="button" data-copy aria-live="polite">copy</button></figcaption>
                 <pre tabindex="0" aria-label="Track 04 Benchopt setup and test commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install benchopt</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>git clone https://github.com/neural-interfaces26/2026-competition</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt install 2026-competition/tracks/emg_pose</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt prepare 2026-competition/tracks/emg_pose --config 2026-competition/tracks/emg_pose/training.yml</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt run 2026-competition/tracks/emg_pose --config 2026-competition/tracks/emg_pose/training.yml</code></span></pre>
               </figure>
-              <p>This installs the track dependencies, prepares EMG2Pose through the NeuralBench data pipeline, trains the Torch linear solver, evaluates it on the public split, and writes a submission folder. Zip that folder before uploading it to Codabench. The dataset preparation is large and requires substantial local storage.</p>
+              <p>This installs the track dependencies, prepares EMG2Pose through the NeuralBench data pipeline, trains the Torch linear solver, evaluates it on the public split, and writes a submission folder. Zip that folder before uploading it to Codabench. Evaluation uses ordinary batches of independent windows, so submissions must not assume a fixed batch size or meaningful ordering. The dataset preparation is large and requires substantial local storage.</p>
             </div>
           </details>
           <details class="prepare-track-disclosure prepare-track-disclosure--neuralbench">
@@ -346,7 +346,7 @@
                 <figcaption class="bs-code-head"><span class="bs-kicker">Terminal · NeuralBench</span><button class="copy" type="button" data-copy aria-live="polite">copy</button></figcaption>
                 <pre tabindex="0" aria-label="Track 04 NeuralBench commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench 'eegdash&gt;=0.8.2'</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench emg pose -m vemg2pose --download</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench emg pose -m vemg2pose --prepare</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench emg pose -m vemg2pose --debug</code></span></pre>
               </figure>
-              <p>The <code>--debug</code> command quickly checks the NeuralBench task and VEMG2Pose pipeline. Choose this start kit to explore the neuro-specific task, adaptation strategies, and evaluation of catalogue models.</p>
+              <p>The <code>--debug</code> command quickly checks the NeuralBench task and VEMG2Pose pipeline. Choose this start kit to explore the neuro-specific task, batch-robust inference, and evaluation of catalogue models.</p>
             </div>
           </details>
           <details class="prepare-track-disclosure prepare-track-disclosure--results" id="baseline-track-4">
