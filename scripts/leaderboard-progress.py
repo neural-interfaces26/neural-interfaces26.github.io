@@ -30,18 +30,26 @@ def get(path):
 
 
 def fetch(comp, phase):
-    """Official Codabench leaderboard: competition title + primary-metric score per listed entry."""
-    title = get(f"competitions/{comp}/")["title"].replace("Neural Interfaces 2026 - ", "")
-    subs = get(f"phases/{phase}/get_leaderboard/")["submissions"]
+    """Official Codabench counts and primary score for each published leaderboard entry."""
+    competition = get(f"competitions/{comp}/")
+    title = competition["title"].replace("Neural Interfaces 2026 - ", "")
+    participants = competition["participants_count"]
+    payload = get(f"phases/{phase}/get_leaderboard/?page_size=all")
+    subs = payload["submissions"]
+    if len(subs) != payload["count"]:
+        raise RuntimeError(
+            f"Codabench returned {len(subs)} of {payload['count']} leaderboard entries "
+            f"for phase {phase}"
+        )
     rows, key, prec = [], None, 2
-    for s in subs:  # ponytail: leaderboard already lists one best submission per user
+    for s in subs:
         prim = next(sc for sc in s["scores"] if sc["is_primary"])
         key, prec = prim["column_key"], prim.get("precision", 2)
         rows.append({"team": (s.get("organization") or {}).get("name") or s["owner"],
                      "user": s["owner"], "model": (s.get("fact_sheet_answers") or {}).get("model") or "",
                      "score": float(prim["score"]),
                      "date": datetime.fromisoformat(s["created_when"].rstrip("Z"))})
-    return title, key, prec, rows
+    return title, key, prec, participants, rows
 
 
 def record_curve(rows, higher):
@@ -65,7 +73,7 @@ def plot(tracks, now):
     for ax, t in zip(axes.flat, tracks):
         rows, rec, higher, color = t["rows"], t["record"], t["higher"], t["color"]
         ax.scatter([r["date"] for r in rows], [r["score"] for r in rows], s=28, color="#9a9a9a",
-                   edgecolor="white", linewidth=0.8, zorder=2, label="participant best")
+                   edgecolor="white", linewidth=0.8, zorder=2, label="published entry")
         ax.step([r["date"] for r in rec] + [now], [r["score"] for r in rec] + [rec[-1]["score"]],
                 where="post", color=color, lw=2.2, zorder=3, label="best so far")
         lead = t["leader"]
@@ -75,7 +83,7 @@ def plot(tracks, now):
                     fontsize=9, fontweight="bold", color=color)
         ax.margins(y=0.15)
         ax.set_title(f'{t["title"]}\n{t["label"]}, {"higher" if higher else "lower"} is better · '
-                     f'{len(rows)} teams on the board', loc="left")
+                     f'{len(rows)} ranked entries on the board', loc="left")
         ax.set_ylabel(t["label"])
         ax.xaxis.set_major_locator(mdates.DayLocator(interval=2))
         ax.xaxis.set_major_formatter(mdates.DateFormatter("%b %d"))
@@ -95,16 +103,17 @@ def table_html(i, t):
     for rank, r in enumerate(ranked[:TABLE_ROWS], 1):
         delta = abs(r["score"] - lead)
         fmt = lambda v: f"{v:.{t['prec']}f}"
-        trs.append(f'<tr><th scope="row">{rank}</th><td>{e(r["team"])}</td><td>{e(r["model"]) or "—"}</td>'
-                   f'<td>{fmt(r["score"])}</td><td>{"—" if rank == 1 else fmt(delta)}</td>'
+        trs.append(f'<tr><th scope="row">{rank}</th><td>{e(r["team"])}</td><td>{e(r["model"]) or "Not provided"}</td>'
+                   f'<td>{fmt(r["score"])}</td><td>{"Leader" if rank == 1 else fmt(delta)}</td>'
                    f'<td>{r["date"]:%b %d}</td></tr>')
     return (f'<div class="lb-chart" id="lb-chart-{i}" role="img" aria-label="{e(t["title"])} record progression"></div>\n'
             f'      <div class="table-shell" role="region" aria-label="Track {i} leaderboard" tabindex="0">\n'
             f'        <table class="leaderboard-table">\n'
-            f'          <caption>Track {i} warm-up leaderboard. Top {min(TABLE_ROWS, len(ranked))} of {len(ranked)} teams, '
-            f'best submission per team. <a href="https://www.codabench.org/competitions/{t["comp"]}/#/results-tab" '
+            f'          <caption>Track {i} warm-up leaderboard. Top {min(TABLE_ROWS, len(ranked))} of {len(ranked)} ranked entries. '
+            f'Each row is a submission currently published on Codabench. Registered participants without a published scored entry are not ranked. '
+            f'<a href="https://www.codabench.org/competitions/{t["comp"]}/#/results-tab" '
             f'target="_blank" rel="noreferrer noopener">Full board on Codabench ↗</a></caption>\n'
-            f'          <thead><tr><th scope="col">Rank</th><th scope="col">Team</th><th scope="col">Model</th>'
+            f'          <thead><tr><th scope="col">Rank</th><th scope="col">Participant / organization</th><th scope="col">Model</th>'
             f'<th scope="col">{e(t["label"])}</th><th scope="col">Gap to leader</th><th scope="col">Submitted</th></tr></thead>\n'
             f'          <tbody>{"".join(trs)}</tbody>\n        </table>\n      </div>')
 
@@ -120,14 +129,18 @@ def update_page(tracks, now):
     page = PAGE.read_text()
     stamp = f"{now:%b %d, %Y %H:%M} UTC"
     n = sum(len(t["rows"]) for t in tracks)
-    page = splice(page, "hero", f"Warm-up phase, live. {n} teams across four tracks, best submission per team. "
-                  f"Refreshed daily from Codabench, last {stamp}. Final positions are gated by reproducibility audit.")
+    registrations = ", ".join(str(t["participants"]) for t in tracks)
+    page = splice(page, "hero", f"Warm-up phase, live. {n} published scored entries across four track leaderboards. "
+                  f"Codabench reports {registrations} registered participants for Tracks 1-4 respectively. "
+                  f"Registration totals are per track, so one person may appear in several totals. Refreshed daily, last {stamp}. Final positions are gated by "
+                  f"reproducibility audit.")
     for i, t in enumerate(tracks, 1):
         page = splice(page, f"t{i}", table_html(i, t))
-        page = splice(page, f"foot{i}", f"{len(t['rows'])} teams · leader {html.escape(t['leader']['team'])} "
+        page = splice(page, f"foot{i}", f"{len(t['rows'])} ranked entries · {t['participants']} registered participants · "
+                      f"leader {html.escape(t['leader']['team'])} "
                       f"at {t['leader']['score']:.{t['prec']}f} · updated {stamp}")
     data = {"updated": now.isoformat(timespec="minutes"), "tracks": [
-        {k: t[k] for k in ("id", "title", "label", "higher", "color")}
+        {k: t[k] for k in ("id", "title", "label", "higher", "color", "participants")}
         | {"leader": {**t["leader"], "date": t["leader"]["date"].isoformat(timespec="minutes")},
            "rows": [{**r, "date": r["date"].isoformat(timespec="minutes")} for r in t["rows"]],
            "record": [{**r, "date": r["date"].isoformat(timespec="minutes")} for r in t["record"]]}
@@ -142,8 +155,9 @@ def main():
     now = datetime.now(timezone.utc).replace(tzinfo=None)
     tracks = []
     for i, (comp, phase, label, higher, color) in enumerate(TRACKS, 1):
-        title, key, prec, rows = fetch(comp, phase)
-        tracks.append({"id": i, "comp": comp, "title": title, "metric": key, "prec": prec, "label": label, "higher": higher,
+        title, key, prec, participants, rows = fetch(comp, phase)
+        tracks.append({"id": i, "comp": comp, "title": title, "metric": key, "prec": prec,
+                       "participants": participants, "label": label, "higher": higher,
                        "color": color, "rows": rows, "record": record_curve(rows, higher)})
         tracks[-1]["leader"] = ranked_rows(tracks[-1])[0]
     plot(tracks, now)
