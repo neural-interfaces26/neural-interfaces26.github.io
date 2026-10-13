@@ -28,8 +28,8 @@ PAGES = sorted(ROOT.glob("*.html"))
 # inventory contains documentation-only metadata.
 ANCHORS: dict[str, list[str]] = {
     "baseline values (P1)": [
-        "84.75", "68.04", "143.30",
-        "28.13", "58.58", "134.89", "205.42",
+        "84.75", "33.3%", "32.6%", "36.0%",
+        "60.7 s", "60.6 s", "72.9 s", "17.5",
     ],
     "headline competition numbers (P1)": [
         "1,197", "8,622", "1,382", "247",
