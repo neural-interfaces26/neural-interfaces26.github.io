@@ -5735,3 +5735,18 @@ body.menu-open { overflow: hidden; }
 .oss-more:hover { text-decoration: underline; }
 
 .lb-chart { min-height: 420px; margin: 0 0 20px; border: 1px solid var(--bs-card-border); border-radius: var(--bs-radius-md); background: var(--bs-bg); }
+.leaderboard-phase-switch {
+  display: flex;
+  width: min(100% - 40px, 1344px);
+  margin: 18px auto 0;
+  padding: 0 0 18px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--bs-card-border);
+}
+.leaderboard-phase-switch strong { font-size: 14px; }
+
+@media (max-width: 640px) {
+  .leaderboard-phase-switch { align-items: flex-start; flex-direction: column; }
+}
