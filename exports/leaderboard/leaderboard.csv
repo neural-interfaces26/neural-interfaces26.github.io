@@ -1,4 +1,6 @@
 phase,track,metric,team,user,model,score,date
+Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,dshimizu,dshimizu,,1.0,2026-10-19 09:37:19.661347
+Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,kyalcin,kyalcin,,1.0,2026-10-18 23:52:53.682121
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,hairking,hairking,,1.0,2026-10-13 12:46:50.242799
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,cuong_trinh,cuong_trinh,,1.0,2026-10-14 07:28:25.595661
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,charvi_bayana,charvi_bayana,,1.0,2026-10-16 16:51:28.870492
@@ -6,7 +8,7 @@ Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,visualtransl
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,louisliu,louisliu,,1.0,2026-10-13 12:46:50.109441
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,evo-brain,evo-brain,,0.98,2026-10-14 15:43:32.521242
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,bpm,smehra,vivid_bpm1,0.97,2026-10-17 15:39:22.603849
-Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,Ethan,Ethan,,0.94,2026-10-16 17:15:10.217294
+Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,Ethan,Ethan,t1d18_LR_R6post (exploratory board probe: static linear recalibration on R6post),0.95,2026-10-18 22:49:09.048657
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,liuyin,liuyin,initial_baseline,0.94,2026-10-15 14:43:01.772438
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,abe_lincoln,abe_lincoln,,0.94,2026-10-13 12:46:50.439048
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,Shenzhen Campus of Sun Yat-sen University,easonyan123,,0.94,2026-10-14 06:38:51.857313
@@ -16,16 +18,18 @@ Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,cchen847,cch
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,cheesypasta,cheesypasta,Farfalle,0.92,2026-10-15 19:33:57.632256
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,_ares_,_ares_,,0.92,2026-10-13 12:46:50.387566
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,rajsinghbani,rajsinghbani,,0.92,2026-10-17 20:08:32.987294
+Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,24521046,24521046,,0.91,2026-10-19 06:16:42.885877
+Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,24521254,24521254,,0.91,2026-10-19 06:17:18.825566
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,fduwei,fduwei,,0.91,2026-10-15 08:17:18.217339
+Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,y10ab1,y10ab1,,0.91,2026-10-19 10:08:26.202239
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,_z10n_,_z10n_,,0.91,2026-10-15 15:51:12.003596
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,oncemore,oncemore,fudan_dhm_1,0.9,2026-10-14 06:54:13.703233
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,ricardosantana,ricardosantana,,0.9,2026-10-14 12:56:24.902395
-Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,24521046,24521046,,0.9,2026-10-13 12:46:50.771834
+Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,cat2005,cat2005,,0.89,2026-10-18 16:09:55.873901
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,DTU-org,holme,,0.89,2026-10-13 12:46:49.948731
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,rohit_kumar_varma,rohit_kumar_varma,,0.89,2026-10-13 12:46:49.134740
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,24521805,24521805,,0.89,2026-10-18 05:02:31.202546
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,NeuroAI,behboudi997,,0.88,2026-10-16 17:06:14.842788
-Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,y10ab1,y10ab1,,0.88,2026-10-16 07:37:11.723096
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,visualtranslators,kkmed1,,0.88,2026-10-13 12:46:52.604579
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,cedric_cannard,cedric_cannard,,0.88,2026-10-14 21:47:00.140600
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,IIT Vision Lab,Yenuli_Sooriyaarachchi,,0.87,2026-10-16 03:05:39.615996
@@ -34,12 +38,11 @@ Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,Coconut Lass
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,neuro168,neuro168,NAN,0.86,2026-10-13 12:46:51.197544
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,fmashrur,fmashrur,,0.86,2026-10-13 12:46:52.342459
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,zhuc0626,zhuc0626,,0.85,2026-10-13 12:46:51.712936
+Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,bochen,bochen,,0.85,2026-10-19 06:47:45.825945
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,JLShen,JLShen,4948fe94,0.83,2026-10-14 02:00:06.480195
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,gabin_bruniaux,gabin_bruniaux,,0.83,2026-10-13 12:46:50.175429
-Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,bochen,bochen,,0.83,2026-10-18 08:55:20.841245
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,temiro,temiro,,0.83,2026-10-13 12:46:50.595105
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,Fudan BCI,viojasong,,0.82,2026-10-13 12:46:50.714741
-Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,cat2005,cat2005,,0.82,2026-10-17 16:44:05.650680
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,shyamaldharia,shyamaldharia,REVE_B,0.82,2026-10-13 12:46:51.876249
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,montekkundan,montekkundan,,0.82,2026-10-13 12:46:52.285223
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,tom_ml,tom_ml,,0.81,2026-10-13 12:46:50.292283
@@ -64,20 +67,23 @@ Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,MindLab.,seo
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,adolfo_ramirez,adolfo_ramirez,,0.49,2026-10-13 21:33:58.198360
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,kilich,kilich,,0.43,2026-10-13 12:46:49.883980
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,DTU-org,osquera,test reve 3 epochs,0.37,2026-10-13 12:46:51.544176
+Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,fireflies,Margot,,0.3,2026-10-19 11:05:29.658798
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,diyuu,diyuu,BASE,0.29,2026-10-15 10:28:32.153466
+Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,Duolaimeng,lemonli,,0.29,2026-10-19 03:35:35.587471
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,rommel,rommel,S1 EEGNet-CLIP 40 epochs,0.27,2026-10-17 02:37:57.982124
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,jiahui,jiahui,,0.25,2026-10-13 14:28:26.851799
-Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,thesmasher4459,thesmasher4459,,0.17,2026-10-17 09:06:09.505807
+Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,geiera,geiera,,0.23,2026-10-18 12:08:12.974164
+Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,thesmasher4459,thesmasher4459,,0.17,2026-10-18 13:49:22.998971
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,JustusMzB,JustusMzB,,0.12,2026-10-13 12:46:51.044793
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,navattack,navattack,T1 warm-up check 3,0.12,2026-10-16 11:36:40.150830
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,ymxjtu,ymxjtu,,0.11,2026-10-15 08:16:38.453295
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,devansh0910,devansh0910,,0.1,2026-10-13 21:33:24.587166
-Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,geiera,geiera,,0.1,2026-10-13 12:46:50.822239
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,purusoni,purusoni,,0.09,2026-10-13 12:46:50.993694
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,timothewt,timothewt,,0.07,2026-10-14 06:55:59.130644
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,kwonhyojun,kwonhyojun,,0.06,2026-10-17 06:59:05.820842
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,sazeglio,sazeglio,,0.06,2026-10-13 12:46:51.657009
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,aimarsilvan,aimarsilvan,,0.05,2026-10-13 21:34:09.875798
+Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,rsantana,rsantana,Simple Linear,0.04,2026-10-18 21:30:03.716343
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,omar4a,omar4a,,0.03,2026-10-13 12:46:52.232927
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,obarskyi,obarskyi,,0.03,2026-10-13 12:46:51.602861
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,Team Zenith,keerthi_kumar_k_j,,0.03,2026-10-13 21:33:13.124313
@@ -91,7 +97,10 @@ Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,arnoperso,ar
 Warm-up Phase (update 1),Track 1: EEG-to-Image,top5_acc_subject_agg,winstonzane,winstonzane,,0.01,2026-10-13 12:46:52.403306
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,aoright,aoright,HybridBCI-Fast,1.0,2026-10-15 08:03:28.100029
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,sudharshan,sudharshan,,1.0,2026-10-16 05:31:01.074755
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,Arg-EEG,laouen,inpector_checker,1.0,2026-10-18 15:39:50.217158
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,nyanziba,nyanziba,,1.0,2026-10-18 08:49:42.659050
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,dshimizu,dshimizu,ni26 fast single ShallowConvNet+EA (all public data),1.0,2026-10-19 10:29:08.346130
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,xxnnnc,xxnnnc,,1.0,2026-10-18 12:11:55.104156
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,JHtest,JHtest,,1.0,2026-10-13 22:55:57.279165
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,Carol,Carol,,1.0,2026-10-17 03:04:15.007253
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,dunktra,dunktra,,1.0,2026-10-14 03:16:19.460773
@@ -99,11 +108,15 @@ Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,PurvK
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,gereon,gereon,,1.0,2026-10-17 14:11:22.603846
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,roei_yanku,roei_yanku,,1.0,2026-10-13 11:04:31.249907
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,shamadei,shamadei,,1.0,2026-10-14 09:11:52.542412
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,oliver_,oliver_,C-F2,1.0,2026-10-19 03:00:10.473708
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,cedric_cannard,cedric_cannard,,1.0,2026-10-13 18:21:32.952882
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,aimarsilvan,aimarsilvan,,1.0,2026-10-18 17:09:08.895130
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,w3joe,w3joe,,1.0,2026-10-15 17:13:21.685273
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,JLShen,JLShen,,1.0,2026-10-19 10:13:48.306225
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,navattack,navattack,"full public data incl. P04/P09 - container test, not a skill estimate",0.99,2026-10-13 17:44:56.165634
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,jmokim,jmokim,,0.99,2026-10-14 15:25:49.111547
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,Chang-Min Lee,Chang-Min Lee,,0.99,2026-10-16 04:06:31.774464
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,Nerv,axel_barbier,PSD+PhaseDiff+LDA,0.97,2026-10-19 09:31:38.922271
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,siu777,siu777,,0.97,2026-10-16 14:51:31.906284
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,xiaosa,xiaosa,,0.97,2026-10-16 02:18:13.367761
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,abe_lincoln,abe_lincoln,,0.96,2026-10-16 03:02:46.414767
@@ -115,93 +128,99 @@ Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,choos
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,yzeng,yzeng,,0.75,2026-10-15 08:18:19.154654
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,sheng-binduan,sheng-binduan,,0.75,2026-10-14 01:28:50.673674
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,period,period,,0.7,2026-10-13 15:36:38.696158
-Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,JLShen,JLShen,,0.61,2026-10-15 13:27:53.342697
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,willyodysseus,willyodysseus,,0.6,2026-10-13 13:33:52.263842
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,不知道装什么,ddddd,,0.6,2026-10-13 13:43:41.097738
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,xianglong_bao,xianglong_bao,,0.59,2026-10-17 12:31:10.675728
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,rsantana,rsantana,basic_ensemble,0.57,2026-10-16 21:59:02.591476
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,shixunz,shixunz,,0.57,2026-10-18 04:08:03.775413
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,boyuan,boyuan,RTS + REVE + CNN fusion,0.56,2026-10-16 19:48:17.600410
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,arkwle,arkwle,,0.56,2026-10-19 09:52:08.676542
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,aloncifer,aloncifer,,0.56,2026-10-17 16:49:00.463337
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,mahtaao,mahtaao,,0.56,2026-10-19 03:37:24.873104
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,akamlfc,akamlfc,咕咕嘎嘎,0.55,2026-10-16 15:47:26.495203
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,teddythebuilder,teddythebuilder,,0.55,2026-10-14 16:20:57.618724
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,y10ab1,y10ab1,,0.55,2026-10-18 23:07:14.604347
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,liuyin,liuyin,initial_baseline,0.55,2026-10-15 14:49:18.180685
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,panagiotis_levedogiannis,panagiotis_levedogiannis,,0.55,2026-10-19 10:07:27.831671
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,ETRI_EnSeption,seohee,,0.55,2026-10-16 06:34:29.322584
-Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,y10ab1,y10ab1,,0.54,2026-10-18 05:10:52.094125
-Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,susupro,susupro,t2-s11-w24sh5,0.54,2026-10-18 09:46:14.763227
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,susupro,susupro,cbregtime-hardened,0.55,2026-10-19 07:26:46.321709
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,bill_cn,bill_cn,,0.54,2026-10-17 08:09:54.612685
-Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,arkwle,arkwle,,0.54,2026-10-17 12:47:47.360380
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,gharib23,gharib23,V2,0.53,2026-10-14 22:28:57.496332
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,blueorange,blueorange,,0.53,2026-10-19 03:27:38.144927
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,上海念通智能科技有限公司,zakirullah,N-AI-2-3class,0.53,2026-10-19 10:12:38.693033
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,NeuroMath,neuromath_at,,0.53,2026-10-19 08:51:33.422259
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,momoboi,momoboi,lessgooo_online_activeForgetting,0.52,2026-10-19 12:22:38.489721
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,chris_vas,chris_vas,,0.52,2026-10-13 13:29:59.317390
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,saltytaro,saltytaro,NI26 BCI hybrid honest v1,0.52,2026-10-16 14:41:08.331850
-Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,agrachev,agrachev,,0.51,2026-10-15 08:44:13.143113
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,agrachev,agrachev,,0.51,2026-10-18 10:58:05.001224
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,kwonhyojun,kwonhyojun,,0.51,2026-10-14 11:07:41.623828
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,tuzhiyang,tuzhiyang,,0.51,2026-10-18 08:41:03.505236
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,whiteram,whiteram,,0.51,2026-10-14 09:37:24.217181
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,dasungi,dasungi,,0.5,2026-10-14 06:54:25.537727
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,kdhanda,kdhanda,,0.5,2026-10-19 10:33:56.522824
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,s_boehler,s_boehler,rmup2_v1_official,0.5,2026-10-18 06:23:20.534564
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,anarghya,anarghya,,0.49,2026-10-14 23:00:58.003235
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,rohit_kumar_varma,rohit_kumar_varma,,0.49,2026-10-13 12:17:39.730384
-Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,NeuroMath,neuromath_at,,0.49,2026-10-17 00:08:48.928528
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,SUSTech-NLP,zwruan,,0.48,2026-10-19 06:05:18.852709
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,judeswallis,judeswallis,,0.48,2026-10-18 04:01:47.979398
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,MaxwellEQ,MaxwellEQ,,0.47,2026-10-17 01:12:02.692168
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,404,flashingpig,,0.47,2026-10-15 07:56:35.451124
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,sanban,sanban,NI26-aligned-cf4c9dda,0.46,2026-10-14 08:48:15.897612
-Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,dshimizu,dshimizu,ni26 tangent_space FB4 causal-recenter (trained on warm-up train split),0.45,2026-10-18 05:22:33.746056
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,arvasu,arvasu,,0.45,2026-10-14 13:44:31.290204
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,Lachin,Lachin,D8A,0.45,2026-10-15 19:37:46.632595
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,joeuser,joeuser,,0.44,2026-10-17 13:02:54.826485
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,luhanzhang,luhanzhang,,0.43,2026-10-16 05:47:06.158657
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,NeuroWeb,Niraj_Bagh,N/A,0.43,2026-10-19 09:00:06.022671
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,cipherdoge,cipherdoge,Ensemble3,0.43,2026-10-18 18:20:08.018066
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,guosw,guosw,"EEGNet (denoise-exp) z-score 200ep, 8 subj",0.42,2026-10-14 20:19:39.767096
-Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,NeuroWeb,Niraj_Bagh,,0.42,2026-10-15 10:02:02.077247
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,hu_ziyan,hu_ziyan,,0.42,2026-10-18 04:51:00.795685
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,cbergeat,cbergeat,,0.42,2026-10-16 14:28:02.449937
-Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,Nerv,axel_barbier,HappyBrian PSD+PhaseDifference model with LDA,0.42,2026-10-13 13:32:31.776898
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,ksprime,kjh123,REVE-Channel-LOSO-a1000,0.42,2026-10-19 10:59:16.232028
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,babakop,babakop,Track02-Temporal-GDL-12-v2,0.41,2026-10-18 18:47:34.563028
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,mjleeeee,mjleeeee,test,0.41,2026-10-16 05:23:28.394209
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,18530799820,18530799820,TorchBandMean_PROTEUS_v1,0.41,2026-10-18 06:56:56.836393
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,HUST-BCI Niantong NeuroDecode,Huanyu Wu,,0.41,2026-10-14 03:00:02.472359
-Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,oliver_,oliver_,EEGNet5+REVE1-warmup-v2,0.4,2026-10-17 02:37:39.255108
-Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,Arg-EEG,laouen,MAtt,0.4,2026-10-16 14:53:38.362217
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,lidandan1,lidandan1,,0.4,2026-10-19 06:22:56.952613
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,123456789,123456789,,0.4,2026-10-16 10:06:54.922407
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,Signal Strata,wjason00,TorchLinear,0.4,2026-10-18 18:23:38.473663
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,morty1995,morty1995,,0.39,2026-10-14 13:07:44.577211
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,brianjohannes,brianjohannes,RiemannTSLR,0.38,2026-10-16 20:40:54.157576
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,torres_z314,torres_z314,FBCnet40-3Seed-42-123-2026,0.38,2026-10-16 00:09:03.648030
-Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,ksprime,kjh123,Torch-Linear-baseline,0.37,2026-10-16 07:11:50.980869
-Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,babakop,babakop,,0.37,2026-10-17 19:48:38.076901
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,theotherguy,theotherguy,,0.36,2026-10-13 10:12:41.372250
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,Team Zenith,keerthi_kumar_k_j,,0.36,2026-10-19 09:16:51.482917
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,soetsu_shida,soetsu_shida,,0.35,2026-10-13 10:12:40.304674
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,abehass,abehass,,0.35,2026-10-13 10:12:39.083873
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,choayeong,choayeong,,0.35,2026-10-15 08:18:44.850421
-Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,cipherdoge,cipherdoge,md_cwt_adbn,0.34,2026-10-16 13:25:57.567328
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,limitless,limitless,Proteus-EEGNet-v1,0.34,2026-10-13 18:04:08.081970
-Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,lidandan1,lidandan1,,0.34,2026-10-18 01:46:59.649019
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,obarskyi,obarskyi,,0.34,2026-10-13 10:12:41.765049
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,Slash,Slash,,0.33,2026-10-13 10:12:40.801767
-Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,Signal Strata,wjason00,test1,0.33,2026-10-16 09:28:15.608288
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,syehsyoh,syehsyoh,,0.33,2026-10-18 10:16:17.936588
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,Team Yuyu,kaneyxx,,0.33,2026-10-13 10:12:41.150133
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,sena_1ay,sena_1ay,,0.33,2026-10-14 18:21:48.885385
-Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,aimarsilvan,aimarsilvan,,0.33,2026-10-13 10:12:41.082008
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,1zikt,1zikt,,0.33,2026-10-14 11:50:06.242622
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,lxyxros,lxyxros,,0.33,2026-10-13 10:12:39.429547
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,arnaultcaillet,arnaultcaillet,,0.33,2026-10-15 07:51:43.465336
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,Ahmed Eloraby,Ahmed Eloraby,,0.33,2026-10-13 10:12:40.744055
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,adoroodchi,adoroodchi,,0.33,2026-10-13 10:12:41.926448
+Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,zhangls,zhangls,V3H_Seed35_Dreyer2023_Transfer,0.32,2026-10-19 07:11:23.004716
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,fmashrur,fmashrur,,0.3,2026-10-13 10:12:39.781033
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,ps_17,ps_17,,0.29,2026-10-14 23:09:44.917201
 Warm-up Phase (update 1),Track 2: BCI Decoding,balanced_accuracy_cell_mean,geiera,geiera,,0.29,2026-10-13 10:12:39.486370
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,aoright,aoright,HybridSleep-v2,0.0,2026-10-15 07:53:57.563665
+Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,haoyu6,haoyu6,CausaSleep,12.51,2026-10-18 15:10:06.236688
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,mohil,mohil,,24.66,2026-10-16 08:31:03.162526
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,roei_yanku,roei_yanku,,26.55,2026-10-17 19:31:21.217761
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,mehular,mehular,,34.68,2026-10-16 01:11:05.377884
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,yodharin,yodharin,,35.36,2026-10-14 00:07:54.668139
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,zchen959,zchen959,zc_scryer,35.41,2026-10-15 22:41:40.096732
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,navattack,navattack,T3 warm-up check,35.9,2026-10-15 07:53:50.960038
+Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,tuxinrui,tuxinrui,,36.49,2026-10-18 16:16:40.310277
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,JLShen,JLShen,ab047ad8,36.79,2026-10-16 00:12:16.428126
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,DeLeetcode,gourav_anirudh,,37.17,2026-10-15 17:05:53.211689
-Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,Ethan,Ethan,,37.62,2026-10-17 22:11:24.580149
+Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,Ethan,Ethan,,37.35,2026-10-18 22:03:17.293267
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,Carol,Carol,,37.64,2026-10-17 05:23:31.679469
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,MannasAI,Mahir,,37.78,2026-10-14 11:17:27.247330
+Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,csun8109,csun8109,,38.01,2026-10-18 18:16:55.964284
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,sudharshan,sudharshan,,38.11,2026-10-16 04:29:03.732750
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,shivaakb,shivaakb,,38.13,2026-10-15 23:22:47.560573
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,PurvKabaria,PurvKabaria,,38.45,2026-10-18 05:29:16.549763
@@ -211,7 +230,7 @@ Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,azzzeret,azzz
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,ahmadabdelaal,ahmadabdelaal,,39.67,2026-10-14 10:02:31.974408
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,rsantana,rsantana,,40.07,2026-10-17 10:49:43.066895
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,magnusgp,magnusgp,,40.23,2026-10-17 18:31:56.904175
-Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,bpm,viceroy,BPM-Resting M7_D1,40.86,2026-10-13 19:46:03.952364
+Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,viceroy,viceroy,,40.78,2026-10-19 01:10:35.463800
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,mingshuo,mingshuo,,41.16,2026-10-14 14:10:45.526050
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,x0d36qop,x0d36qop,,41.16,2026-10-13 09:33:35.710064
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,jjbb1234,jjbb1234,,41.55,2026-10-18 09:19:30.571084
@@ -220,46 +239,47 @@ Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,wooluck98,woo
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,ParsaYousefi,ParsaYousefi,,41.77,2026-10-13 13:39:33.890730
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,speedwagon,yosr ghanmi,stardust,42.1,2026-10-14 01:00:20.391534
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,dunktra,dunktra,,42.12,2026-10-14 22:10:45.602485
+Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,y10ab1,y10ab1,,42.25,2026-10-19 09:55:20.376947
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,HUST-BCI Niantong NeuroDecode,Huanyu Wu,,42.44,2026-10-15 12:19:34.351339
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,Team Yuyu,kaneyxx,,42.56,2026-10-13 11:01:58.179940
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,cedric_cannard,cedric_cannard,,42.79,2026-10-13 18:22:45.528971
+Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,lxy12345,lxy12345,Muse-Balanced-Contralateral-AttnSleep-v1,42.95,2026-10-19 00:19:48.387738
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,cheesypasta,cheesypasta,Tortellini,43.01,2026-10-15 21:37:15.826033
-Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,y10ab1,y10ab1,,43.03,2026-10-17 20:19:40.299064
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,judeswallis,judeswallis,,43.32,2026-10-18 03:11:15.564935
-Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,lxy12345,lxy12345,Muse-LearnedFeature-GRU64-CNN16-v1,43.75,2026-10-18 00:06:03.712612
+Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,shamadei,shamadei,REVE-Large + OSF causal ensemble (3 seeds each),43.48,2026-10-18 16:33:40.632516
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,gharib23,gharib23,Hybrid CNN-GRU v2,43.8,2026-10-14 20:32:38.141047
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,lambdadelta,lambdadelta,,44.01,2026-10-17 08:46:46.676136
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,abe_lincoln,abe_lincoln,,44.06,2026-10-16 02:59:54.332452
+Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,susupro,susupro,f45-tiltm15,44.16,2026-10-19 12:20:19.653997
+Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,yu000,yu000,,44.27,2026-10-19 12:30:15.562743
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,PR-EEG,thomashc,,44.31,2026-10-15 08:47:41.583339
-Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,haoyu6,haoyu6,CausaSleep,44.31,2026-10-16 12:09:46.488258
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,gigabyte,gigabyte,CNN-BiLSTM 120s ensemble - round05 primary,44.76,2026-10-18 02:36:46.840932
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,j-at-ch,j-at-ch,,44.87,2026-10-13 15:23:08.724235
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,princeramani,princeramani,Muse-REVE-AnySleep Temporal v8 — external pretraining declared,45.5,2026-10-15 12:14:22.907354
+Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,qw246,qw246,,45.57,2026-10-19 09:42:19.345690
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,teddythebuilder,teddythebuilder,,45.68,2026-10-14 17:10:21.472444
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,rohit_kumar_varma,rohit_kumar_varma,,45.81,2026-10-13 13:06:16.443226
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,yuty2009,yuty2009,GRU-Ensemble,45.9,2026-10-15 08:18:16.820867
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,efelez15,efelez15,,45.97,2026-10-14 09:50:05.556692
-Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,susupro,susupro,t3-s13-tg5b5ta5,46.36,2026-10-18 08:17:23.555953
+Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,anqi_chen,anqi_chen,,46.0,2026-10-18 21:54:25.776353
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,junhee,junhee,,46.42,2026-10-16 08:37:10.887190
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,yiguofan,yiguofan,TF3_v1,46.46,2026-10-13 19:29:49.661419
-Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,shamadei,shamadei,,46.68,2026-10-18 07:53:29.956942
+Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,aimc001,aimc001,,46.71,2026-10-19 11:34:38.303433
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,andrewjia,andrewjia,,47.25,2026-10-16 14:07:34.154167
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,followingthesun,followingthesun,,47.28,2026-10-18 01:47:30.355451
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,kwonhyojun,kwonhyojun,,47.3,2026-10-16 13:12:36.453216
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,chris_vas,chris_vas,,47.32,2026-10-15 13:46:42.734328
-Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,aimc001,aimc001,,47.55,2026-10-18 04:44:23.840847
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,saltytaro,saltytaro,sleep-px-v1,47.63,2026-10-16 20:56:23.843214
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,mkhoshchehreh,mkhoshchehreh,,47.68,2026-10-18 08:22:31.975783
-Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,aimarsilvan,aimarsilvan,,48.22,2026-10-13 09:33:28.178037
+Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,aimarsilvan,aimarsilvan,,47.94,2026-10-18 17:37:57.179898
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,Orpartok,ladorp,,48.57,2026-10-15 10:59:56.644042
-Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,qw246,qw246,,48.72,2026-10-17 01:10:18.943686
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,obarskyi,obarskyi,,49.1,2026-10-14 06:00:33.457911
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,montekkundan,montekkundan,M02-stream-dist-blend,49.86,2026-10-14 21:16:48.500546
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,ttimesai,ttimesai,,49.92,2026-10-15 23:51:37.574544
+Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,borisv,borisv,E04-derived full-development v1.0.0 exploratory,49.98,2026-10-19 12:02:08.688448
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,MaxwellEQ,MaxwellEQ,,50.06,2026-10-18 02:34:19.910576
-Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,Team Zenith,razeena_tasneem,,50.17,2026-10-15 17:25:34.761183
+Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,Team Zenith,razeena_tasneem,,50.17,2026-10-19 08:52:01.440410
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,MaxwellEQ,MaxwellEQ,,50.66,2026-10-18 01:22:26.598067
-Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,csun8109,csun8109,bag5-alldata-onsetcap-Muse,50.92,2026-10-18 05:35:21.254775
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,kristal,kristal,,51.35,2026-10-13 22:19:52.384608
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,ak155,ak155,,51.54,2026-10-16 10:47:59.838558
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,minh88,minh88,,52.66,2026-10-14 14:49:22.577507
@@ -272,6 +292,7 @@ Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,mjleeeee,mjle
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,Fudan University AI4Science Team,sac-0710,,55.59,2026-10-16 14:12:23.771879
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,ngcferreira,ngcferreira,,56.27,2026-10-13 12:13:18.734601
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,eason23,eason23,,57.12,2026-10-16 13:49:03.458710
+Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,alexou,alexou,,58.04,2026-10-19 07:29:34.005832
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,xiaosa,xiaosa,,60.13,2026-10-14 03:13:20.064531
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,guosw,guosw,NeuralBench EEGNet seed35,60.6,2026-10-14 17:59:07.953006
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,syehsyoh,syehsyoh,,60.74,2026-10-18 10:16:50.062046
@@ -290,6 +311,7 @@ Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,edgartejerina
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,Drowsy,gmasri,EEGNet_Sim_Data,87.4,2026-10-14 15:06:42.070941
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,Orpartok,yuval_p,MLP_v1_test,95.08,2026-10-17 08:58:26.993857
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,HYLGZ,liliayh,,139.13,2026-10-13 09:33:30.686054
+Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,zychen1243,zychen1243,,169.06,2026-10-18 20:01:05.338170
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,Rajat,Rajat,stateless,178.7,2026-10-13 09:33:30.473568
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,mahdi_ben_ameur,mahdi_ben_ameur,,189.17,2026-10-13 09:33:28.019403
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,gyliu,gyliu,,191.43,2026-10-13 09:33:30.030739
@@ -298,7 +320,6 @@ Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,agape,agape,n
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,udpan,udpan,,271.03,2026-10-13 09:33:29.703483
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,blade,blade,,276.08,2026-10-13 09:33:33.909021
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,guangqi,guangqi,lasla,277.29,2026-10-13 09:33:30.580128
-Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,tuxinrui,tuxinrui,,298.49,2026-10-17 12:56:19.190975
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,capella_t4,capella_t4,,307.04,2026-10-13 09:31:09.366997
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,sartoshirelli,sartoshirelli,,311.87,2026-10-13 09:33:33.149444
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,jlwang24,jlwang24,,383.08,2026-10-13 09:31:11.843813
@@ -307,47 +328,54 @@ Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,ehimennathan,
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,13owen,13owen,,470.57,2026-10-13 09:31:11.683720
 Warm-up Phase (update 1),Track 3: Sleep Onset,wbmae_recording_mean,clazyt,clazyt,,516.44,2026-10-13 09:33:28.818269
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,aoright,aoright,HybridEMG-v1,0.07,2026-10-15 07:51:06.359907
-Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,JLShen,JLShen,4df74028,6.03,2026-10-17 04:34:13.208214
+Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,nonconsensus,nonconsensus,nonconsensus,5.1,2026-10-19 07:25:47.125274
+Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,JLShen,JLShen,2a1dbcc3,6.03,2026-10-19 07:30:44.931346
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,CortixAI,suliwang,,6.12,2026-10-14 08:47:19.928802
-Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,y10ab1,y10ab1,,9.91,2026-10-18 04:41:42.839293
-Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,jhkang628,jhkang628,ExFinger,10.01,2026-10-17 09:51:03.594356
-Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,Ethan,Ethan,,10.59,2026-10-15 10:57:21.807066
+Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,jhkang628,jhkang628,ExFinger,9.84,2026-10-19 00:50:39.896157
+Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,y10ab1,y10ab1,,9.87,2026-10-18 16:41:39.929936
+Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,Ethan,Ethan,tds_d18_ue17enc_ph_uv (exploratory encoder-FiLM per-user),10.55,2026-10-18 22:11:37.028731
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,evo-brain,evo-brain,,10.95,2026-10-15 09:56:59.721856
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,makoshan,makoshan,,11.23,2026-10-15 13:38:14.535315
+Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,sudharshan,sudharshan,custom model,11.2,2026-10-18 10:58:25.932582
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,azzzeret,azzzeret,,11.24,2026-10-15 18:17:39.202268
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,fuscaldo,fuscaldo,dinamita,11.54,2026-10-16 10:26:28.180208
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,code1010,weijie,,11.53,2026-10-15 08:12:37.584798
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,Stouching Robotics,0xseven,,11.71,2026-10-14 08:47:15.892083
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,abe_lincoln,abe_lincoln,,11.75,2026-10-16 03:00:45.713371
+Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,aimarsilvan,aimarsilvan,track4_sealed_trio_all,12.16,2026-10-18 17:26:57.577803
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,Rajat,Rajat,,12.19,2026-10-14 08:47:23.873752
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,Team Yuyu,kaneyxx,,12.21,2026-10-14 08:47:19.867312
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,durgamabhilash,durgamabhilash,,12.25,2026-10-14 20:22:26.619367
-Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,susupro,susupro,t4-s9-final,12.43,2026-10-18 06:56:54.270527
+Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,susupro,susupro,final-hd,12.43,2026-10-19 12:16:43.093100
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,ESC Group | UB,braininahat,,12.5,2026-10-14 08:47:14.759021
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,bartemannekes,bartemannekes,eclectic2,12.68,2026-10-17 20:36:41.331188
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,BNEL,mohamed72,,12.76,2026-10-14 08:47:22.774070
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,LY,LY,,12.93,2026-10-16 08:33:44.378400
-Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,sudharshan,sudharshan,,12.98,2026-10-16 02:49:34.217571
+Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,Tekra labs,real_gagandeep,ver.6,13.15,2026-10-19 03:52:10.736262
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,kingkung,kingkung,,13.2,2026-10-14 08:47:24.129605
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,jiananli,jiananli,,13.32,2026-10-15 14:46:06.919114
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,Phaedrus,Phaedrus,,13.85,2026-10-14 08:47:15.002453
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,fmashrur,fmashrur,,13.89,2026-10-14 08:47:20.629396
+Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,Curr,ronwzr,ens5f1c,13.97,2026-10-19 03:03:26.244300
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,jeonghyeonjang,jeonghyeonjang,,14.07,2026-10-16 06:24:20.181971
-Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,corvitronics,corvitronics,,14.13,2026-10-16 04:58:46.967660
+Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,corvitronics,corvitronics,MyoDigits,14.08,2026-10-19 01:09:51.504363
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,kwonhyojun,kwonhyojun,,14.33,2026-10-14 11:00:38.831588
-Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,ronwzr,ronwzr,ens3-d3v6f1,14.44,2026-10-18 00:26:35.414224
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,navattack,navattack,T4 warm-up check 3,14.61,2026-10-16 12:25:33.024596
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,Lampwright,hoongyu0219,ens4 BiPose TTA (r3c+r4abc),14.64,2026-10-17 07:26:35.679289
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,Coconut Lassi,anne16,,14.64,2026-10-14 08:47:26.042043
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,applexxx,applexxx,2moe,14.7,2026-10-18 03:59:05.359821
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,bionic_human,bionic_human,,14.91,2026-10-14 08:47:23.270480
+Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,merc-s,merc-s,first test,14.88,2026-10-19 11:12:26.545728
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,theotherguy,theotherguy,,15.01,2026-10-14 08:47:15.123538
-Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,aimarsilvan,aimarsilvan,,15.22,2026-10-14 08:47:20.745895
+Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,syehsyoh,syehsyoh,EMGFormer-S-EMG2Pose-v1,15.2,2026-10-19 01:27:01.107266
+Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,chimpsfight,chimpsfight,3,15.17,2026-10-19 02:20:06.707554
+Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,deep07,deep07,RingFormer,15.18,2026-10-18 20:11:05.723759
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,Curr,yyhan,,15.39,2026-10-14 09:31:19.616803
+Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,yuyang_ge,yuyang_ge,p05,15.43,2026-10-18 14:57:12.325703
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,nadera,nadera,,15.65,2026-10-14 08:47:22.111802
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,rlovecchio,rlovecchio,,15.67,2026-10-14 08:47:22.273588
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,grvkhnl,grvkhnl,,15.8,2026-10-15 12:22:33.870203
-Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,syehsyoh,syehsyoh,VEMG2Pose-Meta-Regression-v1,15.79,2026-10-18 09:52:07.297859
+Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,blueorange,blueorange,n/a,15.79,2026-10-19 08:19:12.868504
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,sanban,sanban,NI26-vemg_pose-27cc98ac,15.91,2026-10-14 11:24:59.154252
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,MaxwellEQ,MaxwellEQ,,15.91,2026-10-15 08:58:55.134389
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,xiaoyuyuan,xiaoyuyuan,,15.91,2026-10-14 08:47:21.548284
@@ -355,7 +383,6 @@ Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,jinhan_liu,jinhan_liu,
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,tom_ml,tom_ml,,15.99,2026-10-14 08:47:19.536664
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,obarskyi,obarskyi,,16.07,2026-10-14 11:12:02.522247
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,ebkernel,ebkernel,,16.1,2026-10-16 03:28:15.849653
-Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,yuyang_ge,yuyang_ge,p02,16.29,2026-10-18 09:31:20.075885
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,Young,Young,,16.5,2026-10-14 08:47:14.490087
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,Hunbeom Park,Hunbeom Park,,16.4,2026-10-15 16:39:48.270092
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,dhruvdarda,dhruvdarda,,16.66,2026-10-14 08:47:18.904350
@@ -366,7 +393,6 @@ Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,msiip,bushu,,17.02,202
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,sjhan,sjhan,,16.89,2026-10-14 08:47:21.220508
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,adolfo_ramirez,adolfo_ramirez,,17.06,2026-10-14 08:47:18.742761
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,ettorem,ettorem,,17.16,2026-10-14 08:47:22.026662
-Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,chimpsfight,chimpsfight,,17.4,2026-10-14 09:06:48.405803
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,jbx56789,jbx56789,MIND,17.47,2026-10-14 08:47:23.333017
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,yimingzheng,yimingzheng,,17.55,2026-10-14 13:11:59.530232
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,yeejason,yeejason,,17.72,2026-10-16 01:21:27.057372
@@ -374,8 +400,10 @@ Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,parthsinha,parthsinha,
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,HUST-BCI Niantong NeuroDecode,Huanyu Wu,,18.39,2026-10-14 08:47:20.506762
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,arnaultcaillet,arnaultcaillet,,18.37,2026-10-14 08:47:24.069548
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,zhwa2003,zhwa2003,benchmark,18.58,2026-10-14 08:47:14.938591
+Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,jiawei_liao_west_chian_2024,jiawei_liao_west_chian_2024,ljw_test_001,18.82,2026-10-19 09:57:07.334362
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,mw,mw,n/a,18.95,2026-10-16 22:43:44.443305
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,Team Zenith,keerthi_kumar_k_j,,19.08,2026-10-14 08:47:19.707423
+Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,rsantana,rsantana,Normalized Simple,19.47,2026-10-19 02:32:32.797798
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,flashingcat,flashingcat,,20.23,2026-10-14 08:47:20.799343
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,saltytaro,saltytaro,organizer-EEGNet-debug,21.94,2026-10-16 13:12:15.354837
 Warm-up Phase (update 1),Track 4: EMG-to-Pose,angular_mae,1zikt,1zikt,,22.67,2026-10-14 11:48:59.287418
