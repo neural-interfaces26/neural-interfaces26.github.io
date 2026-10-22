@@ -31,6 +31,7 @@ class TimelineParser(HTMLParser):
         super().__init__()
         self.timeline = None
         self.banner = None
+        self.outage = None
         self.feed(source)
 
     def handle_starttag(self, tag, attrs):
@@ -39,6 +40,8 @@ class TimelineParser(HTMLParser):
             self.timeline = attrs
         if "launch-alert-warmup" in attrs.get("class", "").split():
             self.banner = attrs
+        if "launch-alert-outage" in attrs.get("class", "").split():
+            self.outage = attrs
 
 
 def phase_fields(source):
@@ -87,6 +90,16 @@ class CalendarChecks(unittest.TestCase):
         self.assertIn("Sunday, November 1 at 23:59", self.parsed.banner["aria-label"])
         self.assertIn("Thursday, November 5 at 00:01", self.parsed.banner["aria-label"])
         self.assertIn("CET (UTC+01:00)", self.parsed.banner["aria-label"])
+
+    def test_outage_card_does_not_claim_the_platform_is_open(self):
+        self.assertIsNotNone(self.parsed.outage)
+        self.assertNotIn("is-open", self.parsed.outage["class"].split())
+        self.assertEqual(self.parsed.outage["role"], "status")
+        self.assertIn("No reopening date has been confirmed", self.parsed.outage["aria-label"])
+        self.assertIn("We will announce when submissions can resume", self.home)
+        self.assertNotIn("New datasets live", self.home)
+        styles = (ROOT / "assets/css/landing.css").read_text()
+        self.assertIn(".launch-alert-outage .launch-alert-detail { max-width: 38ch; color: inherit; }", styles)
 
     def test_transition_includes_the_entire_outage_day(self):
         self.assertEqual(WARMUP_END.astimezone(UTC), datetime(2026, 11, 1, 22, 59, 59, tzinfo=UTC))
