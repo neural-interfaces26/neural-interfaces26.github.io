@@ -28,6 +28,15 @@ Then open [http://localhost:4000](http://localhost:4000).
 
 ## Check a commit before publishing
 
+For calendar edits, check the website and the sibling `2026-competition`
+phase templates together, without contacting Codabench:
+
+```bash
+python3 scripts/calendar-check.py
+```
+
+Use `--competition-repo /path/to/2026-competition` for another checkout.
+
 Pushing `main` to GitHub can publish the site, so preview the exact committed version before pushing:
 
 ```bash
