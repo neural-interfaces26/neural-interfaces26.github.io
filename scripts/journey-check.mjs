@@ -57,9 +57,9 @@ for (const width of widths) {
         assert.equal(sponsors.countdownRoots,2,`${label}: homepage needs hero and timeline countdowns`);
         assert.equal(sponsors.countdownParts,8,`${label}: competition countdowns are incomplete`);
         assert.ok(sponsors.countdown?.toLowerCase().includes('competition'),`${label}: launch status is not announced accessibly`);
-        assert.ok(sponsors.countdown?.includes('October 24'),`${label}: registration deadline is missing from the launch announcement`);
-        assert.ok(await page.eval(`document.querySelector('.timeline-panel li:nth-child(2) p')?.textContent.includes('Oct 24')`),`${label}: warm-up phase does not mention continued registration`);
-        assert.ok(await page.eval(`document.querySelector('.timeline-panel li:nth-child(3)')?.textContent.includes('Oct 28')`),`${label}: sealed phase start is incorrect`);
+        assert.ok(sponsors.countdown?.includes('November 1'),`${label}: registration deadline is missing from the launch announcement`);
+        assert.ok(await page.eval(`document.querySelector('.timeline-panel li:nth-child(2) p')?.textContent.includes('Nov 1')`),`${label}: warm-up phase does not mention continued registration`);
+        assert.ok(await page.eval(`document.querySelector('.timeline-panel li:nth-child(3)')?.textContent.includes('Nov 5')`),`${label}: sealed phase start is incorrect`);
         assert.ok(sponsors.timelineInside,`${label}: competition status is not aligned with Competition opens`);
         if(width>900){assert.ok(sponsors.alertWidth>=(width>=1200?780:600),`${label}: launch announcement is too small`);assert.ok(sponsors.alertHeight>=78&&sponsors.alertLeftAligned&&sponsors.alertRight<width*.8,`${label}: launch announcement is not aligned within the text side`);assert.ok(Math.max(...sponsors.tops)-Math.min(...sponsors.tops)<=1&&Math.max(...sponsors.bottoms)-Math.min(...sponsors.bottoms)<=1,`${label}: sponsor role groups are not aligned on one row`);assert.ok(sponsors.dividers.every(n=>n===0),`${label}: sponsor logo dividers remain`);assert.ok(sponsors.participatingRules.every(n=>n===1),`${label}: participating-institution row rule is missing`);}
         assert.ok(await page.eval("(()=>{const r=document.querySelector('.campaign-hero .primary').getBoundingClientRect();return r.top>=0&&r.bottom<=innerHeight})()"), `${label}: entry CTA below first screen`);
@@ -104,7 +104,7 @@ for (const width of widths) {
       }
       if (route === 'register.html') {
         assert.equal(await page.eval(`document.querySelectorAll('.register-hero .page-hero-copy > p').length`),1,`${label}: registration introduction is redundant`);
-        assert.ok(await page.eval(`document.querySelector('.register-hero .page-hero-copy > p')?.textContent.includes('through October 24')`),`${label}: registration page deadline missing`);
+        assert.ok(await page.eval(`document.querySelector('.register-hero .page-hero-copy > p')?.textContent.includes('through Sunday, November 1')`),`${label}: registration page deadline missing`);
         assert.deepEqual(await page.eval(`[...document.querySelectorAll('.register-hero .page-hero-copy > p a')].map(a=>a.textContent.trim())`),['compare the tracks','prizes and conditions','track teams'],`${label}: registration decision links are incomplete`);
         for (let i=1; i<=4; i++) {
           const links = await page.eval(`[...document.querySelectorAll('#enter-${i} a')].map(a=>a.getAttribute('href'))`);
@@ -159,7 +159,7 @@ for (const width of widths) {
       }
       if (route === 'rules.html') {
         assert.equal(await page.eval(`document.querySelectorAll('details.vb-rule').length`),8,`${label}: eight rule disclosures`);
-        assert.ok(await page.eval(`document.querySelector('#faq-submit .faq-answer')?.textContent.includes('October 24')`),`${label}: registration FAQ deadline missing`);
+        assert.ok(await page.eval(`document.querySelector('#faq-submit .faq-answer')?.textContent.includes('November 1')`),`${label}: registration FAQ deadline missing`);
         assert.equal(await page.eval(`document.querySelectorAll('details.vb-rule[open]').length`),0,`${label}: rules should start collapsed`);
         assert.equal(await page.eval(`document.querySelector('.local-nav a')?.getAttribute('href')`),'participant-guide.html',`${label}: prepare navigation target`);
         await click(page,'#rule-eligibility summary');

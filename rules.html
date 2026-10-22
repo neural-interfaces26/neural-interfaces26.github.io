@@ -131,35 +131,41 @@
         <details class="vb-rule" id="rule-tracks">
           <summary><h3>One team may enter all four tracks.</h3></summary>
           <div class="vb-rule-body">
-            <p>Each participant submits through their own Codabench account and has an individual submission quota. For team entries, those submissions are attributed to the participant's Codabench organization and ranked as team submissions.</p>
+            <p>Each participant submits through their own Codabench account and has an individual submission quota for each track. For team entries, submissions are attributed to the participant's Codabench organization. Solo participants count as one-person teams. See <a href="#faq-leaderboard">how the best team score is selected automatically</a>.</p>
           </div>
         </details>
 
         <details class="vb-rule" id="rule-caps">
-          <summary><h3>Five submissions a day in warm-up, one in the sealed final.</h3></summary>
+          <summary><h3>How many submissions can I make?</h3></summary>
           <div class="vb-rule-body">
-            <p>Warm-up (Sep 21 to Oct 25, 2026): 5 submissions per participant per day. Sealed final (Oct 28 to Nov 21, 2026, AoE): 1 per participant per day, so the prize roster reflects deliberate iteration rather than lottery search. The final NeurIPS ranking uses sealed submissions only.</p>
+            <p>Both phases have separate quotas <strong>per participant and per track</strong>:</p>
+            <ul>
+              <li><strong>Warm-up:</strong> 10 submissions per participant per day per track, with 100 submissions total per participant per track.</li>
+              <li><strong>Sealed:</strong> 1 submission per participant per day per track, with 5 submissions total per participant per track.</li>
+            </ul>
+            <p>The five-submission sealed cap limits repeated tuning against hidden test data. Sealed evaluation measures generalization, not blind trial-and-error optimization on the test set.</p>
+            <p>See <a href="#faq-quota">what counts toward your quota</a> and <a href="#faq-leaderboard">which score is retained</a>. Warm-up closes Sunday, Nov 1 at 23:59 CET (UTC+01:00). Sealed runs Thursday, Nov 5 at 00:01 through Saturday, Nov 21 at 23:59 CET (UTC+01:00).</p>
           </div>
         </details>
 
         <details class="vb-rule" id="rule-data">
           <summary><h3>Pre-train on any public dataset. Declare all of it.</h3></summary>
           <div class="vb-rule-body">
-            <p>Training data is <em>suggested</em> to stay within the track, but pre-training on any publicly available, redistributable dataset is allowed. The sealed test split is never allowed, and closed clinical datasets are not allowed. Original dataset and model licenses remain in force. Declare every external corpus, and a compute estimate, in the method description that ships with your final submission. The audit cross-checks it against a re-run of your submitted training pipeline and declared configuration.</p>
+            <p>Training data is <em>suggested</em> to stay within the track. Public datasets may be used when their original terms permit competition use. This includes NSRR datasets under an active licence, as clarified in the <a href="https://github.com/neural-interfaces26/2026-competition/blob/main/codabench/pages/scientific_faq_sleep.md" target="_blank" rel="noreferrer noopener">Track 03 Scientific FAQ</a>. The sealed test split and non-permitted closed clinical datasets are not allowed. Original dataset and model licences remain in force. Declare every external corpus, and a compute estimate, in the method description that ships with your final submission. The audit cross-checks it against a re-run of your submitted training pipeline and declared configuration.</p>
             <div class="vb-rule-facts">
               <div><span class="bs-kicker">OK</span><strong>OpenNeuro · MOABB · public BIDS</strong></div>
-              <div><span class="bs-kicker">Not OK</span><strong>Sealed test · private clinical</strong></div>
+              <div><span class="bs-kicker">Not OK</span><strong>Sealed test · non-permitted clinical data</strong></div>
             </div>
           </div>
         </details>
 
         <details class="vb-rule" id="rule-compute">
-          <summary><h3>Training compute is uncapped. Inference is 60 minutes on one GPU. Submission size is capped.</h3></summary>
+          <summary><h3>Training compute is uncapped. Evaluation is limited to 80 minutes on one GPU. Submission size is capped.</h3></summary>
           <div class="vb-rule-body">
-            <p>Train on whatever you have. The scoring container must complete a full test pass in under 60 minutes on one A100 GPU, so that audit cost stays bounded and per-team runtime stays comparable. AWS, the compute partner, provides complimentary instance hours to finalists.</p>
+            <p>Train on whatever you have. The evaluation container must complete its test pass within 80 minutes on one A100 GPU. Evaluations that exceed this execution limit time out.</p>
             <p>Codabench also limits each profile to 15 GB of submission storage shared across all tracks and uploads. This makes 15 GB the theoretical maximum for one submission, but your practical limit is the space remaining in your profile. If needed, delete unused archived submissions under <strong>Profile → Resources</strong>. A submission displayed on a leaderboard cannot be deleted.</p>
             <div class="vb-rule-facts">
-              <div><span class="bs-kicker">Inference budget</span><strong>60 min · one A100</strong></div>
+              <div><span class="bs-kicker">Evaluation limit</span><strong>80 min · one A100</strong></div>
               <div><span class="bs-kicker">Submission storage</span><strong>15 GB · per profile</strong></div>
               <div><span class="bs-kicker">Training</span><strong>No cap</strong></div>
               <div><span class="bs-kicker">Audit hardware</span><strong>Codabench container</strong></div>
@@ -170,7 +176,7 @@
         <details class="vb-rule" id="rule-conduct">
           <summary><h3>Any attempt to cheat means immediate disqualification.</h3></summary>
           <div class="vb-rule-body">
-            <p>Any attempt to cheat, including but not limited to using closed clinical data, accessing the sealed test split, or modifying the scoring harness, results in immediate disqualification from the competition. This decision is made by the organising committee and is final.</p>
+            <p>Any attempt to cheat, including but not limited to using non-permitted clinical data, accessing the sealed test split, or modifying the scoring harness, results in immediate disqualification from the competition. This decision is made by the organising committee and is final.</p>
           </div>
         </details>
 
@@ -182,7 +188,7 @@
             <div class="vb-rule-facts">
               <div><span class="bs-kicker">Tolerance</span><strong>±2σ on metric</strong></div>
               <div><span class="bs-kicker">Audit lead</span><strong>Organising committee</strong></div>
-              <div><span class="bs-kicker">Window</span><strong>After Nov 21, 2026</strong></div>
+              <div><span class="bs-kicker">Audit window</span><strong>Nov 22-30, 2026</strong></div>
             </div>
           </div>
         </details>
@@ -190,7 +196,7 @@
         <details class="vb-rule" id="rule-authorship">
           <summary><h3>Reproducible top teams are announced during the NeurIPS workshop.</h3></summary>
           <div class="vb-rule-body">
-            <p>Top-ranked teams that pass the audit and submit a method description, training and inference code, and pre-training disclosures are announced during the NeurIPS workshop. This opportunity is offered to teams with complete, reproducible artifacts.</p>
+            <p>Top-ranked teams that pass the audit and submit a method description, training and inference code, and pre-training disclosures are announced during the NeurIPS workshop. Winner notifications are targeted for Dec 1, ahead of the Dec 11-12 workshop. This opportunity is offered to teams with complete, reproducible artifacts.</p>
           </div>
         </details>
 
@@ -211,7 +217,7 @@
         <details class="faq-item" id="faq-submit" open>
           <summary><span class="faq-topic">Registration</span><span class="faq-question">Where do I register and submit?</span></summary>
           <div class="faq-answer">
-            <p>Registration stays open through October 24, including during warm-up. Use the <a href="register.html">track registration page</a> to choose the Codabench competitions you want to enter. Submissions open September 21, 2026.</p>
+            <p>Registration stays open through Sunday, November 1 at 23:59 CET (UTC+01:00, Europe/Paris), including during the extended warm-up. Use the <a href="register.html">track registration page</a> to choose the Codabench competitions you want to enter. Submissions opened September 21, 2026.</p>
             <ul>
               <li><a href="https://www.codabench.org/competitions/17974/" target="_blank" rel="noreferrer noopener">Track 1: EEG-to-Image →</a></li>
               <li><a href="https://www.codabench.org/competitions/17982/" target="_blank" rel="noreferrer noopener">Track 2: BCI decoding →</a></li>
@@ -230,17 +236,45 @@
           </div>
         </details>
 
-        <details class="faq-item" id="faq-underfill">
-          <summary><span class="faq-topic">Low participation</span><span class="faq-question">What happens if a track has too few participants?</span></summary>
+        <details class="faq-item" id="faq-sealed-feedback">
+          <summary><span class="faq-topic">Sealed feedback</span><span class="faq-question">Will I see my sealed scores and be able to debug a failed submission?</span></summary>
           <div class="faq-answer">
-            <p>Low-participation tracks fold into the closest active analysis group for the post-competition report, but prizes are still awarded on that track's own leaderboard. Each track is scored independently, so low participation on one track never shrinks the field on another.</p>
+            <p>Submission status and aggregate leaderboard scores remain visible. Execution logs, prediction files and scoring-step output are hidden during the sealed phase. Validate your ZIP locally and in warm-up before submitting. Sealed logs are not available for debugging.</p>
+          </div>
+        </details>
+
+        <details class="faq-item" id="faq-sealed-baselines">
+          <summary><span class="faq-topic">Reference scores</span><span class="faq-question">Where can I compare baseline performance between warm-up and sealed data?</span></summary>
+          <div class="faq-answer">
+            <p>Reference EEGNet and REVE scores for warm-up and sealed evaluation will be added in due time to the <a href="participant-guide.html#baselines">baseline performance sections of the participant guide</a>, alongside the corresponding training procedures.</p>
+          </div>
+        </details>
+
+        <details class="faq-item" id="faq-quota">
+          <summary><span class="faq-topic">Submission quota</span><span class="faq-question">What counts as a submission in my quota?</span></summary>
+          <div class="faq-answer">
+            <p>Each ZIP accepted for evaluation is a submission, even if you upload the same model again. Both the daily and total limits follow these rules:</p>
+            <ul>
+              <li><strong>Queued or running:</strong> reserves a quota slot. A submission with final status <code>Failed</code> does not count.</li>
+              <li><strong>Finished or cancelled by you:</strong> counts as one submission.</li>
+              <li><strong>Deleted:</strong> deleting a counted submission does not restore its quota slot.</li>
+              <li><strong>Organizer interventions:</strong> cancellations and reruns required to fix platform incidents do not reduce your allowance. Organizers handle any necessary quota correction.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="faq-item" id="faq-leaderboard">
+          <summary><span class="faq-topic">Leaderboard and ranking</span><span class="faq-question">Which submission appears on the leaderboard and counts for the final ranking?</span></summary>
+          <div class="faq-answer">
+            <p>For each phase and track, Codabench automatically displays the best eligible score from your team, including all members' submissions. Solo participants count as one-person teams. A better score replaces the displayed entry, with no manual publication needed. The submission currently displayed on the leaderboard cannot be deleted.</p>
+            <p>Only the best eligible sealed score from you or your team is retained for the final ranking, subject to the reproducibility audit. Warm-up scores are indicative and never count toward that ranking.</p>
           </div>
         </details>
 
         <details class="faq-item" id="faq-delay">
           <summary><span class="faq-topic">Delays</span><span class="faq-question">What if there's a delay?</span></summary>
           <div class="faq-answer">
-            <p>Technical, data, or infrastructure delays shift all downstream deadlines by the same amount on the website and Discord. The reproducibility audit gate is the only milestone that can extend independently if a top submission needs more re-run time.</p>
+            <p>The warm-up has been extended through Sunday, November 1 at 23:59 CET (UTC+01:00), and the sealed final opens Thursday, November 5 at 00:01 CET (UTC+01:00). No submissions are accepted November 2-4 during the phase transition. The final deadline is Saturday, November 21 at 23:59 CET (UTC+01:00, Europe/Paris). Any further schedule changes will be announced on this website, Codabench and Discord. Later milestones do not shift automatically.</p>
           </div>
         </details>
 

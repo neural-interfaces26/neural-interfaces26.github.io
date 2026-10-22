@@ -295,7 +295,7 @@
         status = 'Sealed final now';
       } else if (now >= dates.warmupEnd) {
         progress = positions[2];
-        status = 'Warm-up complete';
+        status = 'Phase transition';
       } else if (now >= dates.start) {
         progress = interpolate(now, dates.start, dates.warmupEnd, positions[1], positions[2]);
         status = 'Warm-up now';

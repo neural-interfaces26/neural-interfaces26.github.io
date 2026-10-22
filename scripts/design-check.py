@@ -534,8 +534,8 @@ def check_technical(errors: list[str]) -> None:
 
     faq = pages["rules.html"]
     details = faq.find("details", "faq-item")
-    if len(details) != 5:
-        errors.append("rules.html: optional questions require five native disclosures")
+    if len(details) != 8:
+        errors.append("rules.html: optional questions require eight native disclosures")
     for number, disclosure in enumerate(details, start=1):
         if not any(has_ancestor(summary, disclosure) for summary in faq.find("summary")):
             errors.append(f"rules.html: disclosure {number} missing summary")
