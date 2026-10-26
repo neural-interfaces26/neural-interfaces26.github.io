@@ -5311,10 +5311,10 @@ body.menu-open { overflow: hidden; }
 .launch-alert.is-open { border-color: rgba(39, 162, 105, .35); border-left-color: #23865a; background: rgba(238, 250, 245, .94); color: #176240; }
 .launch-alert.is-open .launch-alert-label i { background: #23865a; box-shadow: 0 0 0 4px rgba(35, 134, 90, .12); }
 .launch-alert-warmup { justify-content: flex-start; }
-.launch-alert-outage { justify-content: flex-start; }
-.launch-alert-outage .launch-alert-label { font-size: 15px; white-space: normal; }
-.launch-alert-outage .launch-alert-label i { animation: none; }
-.launch-alert-outage .launch-alert-detail { max-width: 38ch; color: inherit; }
+.launch-alert-platform { justify-content: flex-start; }
+.launch-alert-platform .launch-alert-label { font-size: 15px; white-space: normal; }
+.launch-alert-platform .launch-alert-label i { animation: none; }
+.launch-alert-platform .launch-alert-detail { max-width: 38ch; color: inherit; }
 
 @keyframes launch-pulse {
   0%, 100% { opacity: 1; box-shadow: 0 0 0 8px rgba(35, 134, 90, .11); transform: scale(1); }
