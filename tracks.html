@@ -44,7 +44,7 @@
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
 <link rel="stylesheet" href="assets/css/base.css?v=20260908ux" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20261012datasets" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20261102sealed" />
 
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
 
@@ -72,7 +72,7 @@
     <a href="organizers.html">Organizers</a>
     <a href="ecosystem.html">Ecosystem</a>
     <a href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Discord ↗</a>
-    <a class="bs-btn primary sm" href="register.html">Register</a>
+    <a class="bs-btn primary sm" href="register.html">Register →</a>
   </nav>
 </header>
 
@@ -83,15 +83,15 @@
       <div class="page-hero-copy">
         <span class="bs-eyebrow">Four tasks · four generalization shifts</span>
         <h1 id="tracks-page-heading">Tracks &amp; data.</h1>
-        <p>Four tracks are available: EEG-to-Image, BCI decoding, Sleep onset, and EMG-to-Pose. You may enter one, several, or all four. Explore them below before <a href="register.html#enter">registering</a>. Each track has its own data, scientific question, evaluation metric, leaderboard, and prize path. All tracks use the same reproducibility audit.</p>
+        <p>Four tracks are available: EEG-to-Image, BCI decoding, Sleep onset, and EMG-to-Pose. Review your track’s sealed protocol and public training resources below. Each track has its own data, scientific question, evaluation metric, leaderboard, and prize path. All tracks use the same reproducibility audit.</p>
         <nav class="tracks-page-index" aria-label="On this page">
           <a href="#track-details">Compare tracks <span aria-hidden="true">↓</span></a>
           <a class="data-link" href="#datasets">Jump to data <span aria-hidden="true">↓</span></a>
         </nav>
       </div>
       <aside class="tracks-warmup-notice" aria-labelledby="tracks-warmup-heading">
-        <strong class="tracks-warmup-notice-label" id="tracks-warmup-heading"><i aria-hidden="true"></i>Dataset update</strong>
-        <p>The new <a href="https://nemar.org/dataset/nm000290" target="_blank" rel="noreferrer noopener"><strong>PROTEUS BCI Bordeaux</strong></a> and <a href="https://nemar.org/dataset/nm000287" target="_blank" rel="noreferrer noopener"><strong>Muse Sleep-Onset EEG</strong></a> datasets are public and now power the Track 02 and Track 03 Codabench warm-up evaluations.</p>
+        <strong class="tracks-warmup-notice-label" id="tracks-warmup-heading"><i aria-hidden="true"></i>Sealed evaluation · November 5–21</strong>
+        <p>The sealed final runs November 5 at 00:01 to November 21 at 23:59 CET (UTC+01:00). Models are evaluated on private data using the track-specific protocols below. Public datasets remain available for training and local checks.</p>
       </aside>
     </div>
   </section>
@@ -155,7 +155,7 @@
               </div>
 
           </figure>
-        <p>Visual decoding is most useful when it recognizes novel content rather than a fixed catalogue learned during training. Given a single EEG epoch recorded during natural-image viewing, identify the viewed image by ranking held-out candidates in a frozen DINOv2 embedding space. The sealed final uses participants and images absent from the public development data, testing cross-subject and cross-stimulus transfer. Warm-up isolates the unseen-image shift on THINGS-EEG2. Research-grade and consumer-grade datasets add source and hardware variability while keeping the task anchored to time-locked visual responses.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Top-5 retrieval accuracy against the held-out candidate set, with higher scores indicating better performance.</span><span class="track-data-summary"><strong>Warm-up evaluation:</strong> THINGS-EEG2 test set <span aria-hidden="true">·</span> <strong>Sealed evaluation:</strong> private 2026 Alljoined cohort <span aria-hidden="true">·</span> <strong>Start kit and baseline:</strong> THINGS-EEG2</span></span></p>
+        <p>Visual decoding is most useful when it recognizes novel content rather than a fixed catalogue learned during training. Given a single EEG epoch recorded during natural-image viewing, identify the viewed image by ranking held-out candidates in a frozen DINOv2 embedding space. The sealed final uses participants and images absent from the public development data, testing cross-subject and cross-stimulus transfer. Research-grade and consumer-grade datasets add source and hardware variability while keeping the task anchored to time-locked visual responses.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Top-5 retrieval accuracy against the held-out candidate set, with higher scores indicating better performance.</span><span class="track-data-summary"><strong>Sealed evaluation:</strong> private 2026 Alljoined cohort</span></span></p>
         <div class="track-guide-buttons">
           <a class="track-guide-button" href="https://github.com/neural-interfaces26/2026-competition/tree/main/tracks/image_decoding" target="_blank" rel="noreferrer noopener">Open competition starting kit ↗</a>
           <a class="track-guide-button" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track1_eeg_to_image.html" target="_blank" rel="noreferrer noopener">Open Track 01 on NeuralBench ↗</a>
@@ -223,7 +223,7 @@
               </div>
 
           </figure>
-        <p>Decode one of three cued mental commands from EEG: kinesthetic motor imagery, mental subtraction, or word generation. The 2026 cohort follows 20 participants across six sessions using the Graz and BrainHero interfaces. Public training data contain early sessions from ten participants. Sealed evaluation combines later sessions from those participants with recordings from entirely new participants. This tests robustness to session drift and inter-person variability without access to hidden labels.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Balanced accuracy averaged across participant, session, and recording-context cells, with higher scores indicating better performance.</span><span class="track-data-summary"><strong>Current warm-up and baseline:</strong> public PROTEUS three-command task <span aria-hidden="true">·</span> <strong>Sealed:</strong> later sessions and new participants</span><span class="track-data-alert"><strong>Dataset:</strong> <a href="https://nemar.org/dataset/nm000290" target="_blank" rel="noreferrer noopener">PROTEUS BCI Bordeaux is public on NEMAR</a> and used by the Codabench warm-up.</span></span></p>
+        <p>Decode one of three cued mental commands from EEG: kinesthetic motor imagery, mental subtraction, or word generation. The 2026 cohort follows 20 participants across six sessions using the Graz and BrainHero interfaces. Public training data contain early sessions from ten participants. Sealed evaluation combines later sessions from those participants with recordings from entirely new participants. This tests robustness to session drift and inter-person variability without access to hidden labels.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Balanced accuracy averaged across participant, session, and recording-context cells, with higher scores indicating better performance.</span><span class="track-data-summary"><strong>Sealed evaluation:</strong> later sessions and new participants of the PROTEUS dataset</span></span></p>
         <div class="track-guide-buttons">
           <a class="track-guide-button" href="https://github.com/neural-interfaces26/2026-competition/tree/main/tracks/bci_decoding" target="_blank" rel="noreferrer noopener">Open competition starting kit ↗</a>
           <a class="track-guide-button" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track2_eeg_to_bci.html" target="_blank" rel="noreferrer noopener">Open Track 02 on NeuralBench ↗</a>
@@ -295,7 +295,7 @@
               </div>
 
           </figure>
-        <p>Predict from continuous four-channel home EEG how many seconds remain until the first N2 epoch. During Muse evaluation, five-second windows arrive one at a time in chronological order. Models may use past context within the current recording, and their state is reset before the next recording. Evaluation combines new nights from sleepers represented in training with recordings from entirely unseen sleepers, testing night-to-night and inter-person generalization under motion artifacts, impedance changes, and occasional channel dropout.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Weighted binned mean absolute error (W-bMAE) in seconds, with greater weight on errors closer to sleep onset. Seen-sleeper and unseen-sleeper W-bMAE are macro-averaged for the final ranking. Lower scores indicate better performance.</span><span class="track-data-summary"><strong>Current warm-up and baseline:</strong> public Muse causal-stream task <span aria-hidden="true">·</span> <strong>Warm-up score:</strong> per-recording W-bMAE mean <span aria-hidden="true">·</span> <strong>Sealed:</strong> private Muse cohort</span><span class="track-data-alert"><strong>Dataset:</strong> <a href="https://nemar.org/dataset/nm000287" target="_blank" rel="noreferrer noopener">Muse Sleep-Onset EEG is public on NEMAR</a> and used by the Codabench warm-up.</span></span></p>
+        <p>Predict from continuous four-channel home EEG how many seconds remain until the first N2 epoch. During Muse evaluation, five-second windows arrive one at a time in chronological order. Models may use past context within the current recording, and their state is reset before the next recording. Evaluation combines new nights from sleepers represented in training with recordings from entirely unseen sleepers, testing night-to-night and inter-person generalization under motion artifacts, impedance changes, and occasional channel dropout.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Weighted binned mean absolute error (W-bMAE) in seconds, with greater weight on errors closer to sleep onset. Seen-sleeper and unseen-sleeper W-bMAE are macro-averaged for the final ranking. Lower scores indicate better performance.</span><span class="track-data-summary"><strong>Sealed evaluation:</strong> private Muse cohort</span></span></p>
         <div class="track-guide-buttons">
           <a class="track-guide-button" href="https://github.com/neural-interfaces26/2026-competition/tree/main/tracks/sleep_onset" target="_blank" rel="noreferrer noopener">Open competition starting kit ↗</a>
           <a class="track-guide-button" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track3_sleep_onset.html" target="_blank" rel="noreferrer noopener">Open Track 03 on NeuralBench ↗</a>
@@ -363,7 +363,7 @@
               </div>
 
           </figure>
-        <p>Translating wrist muscle activity into hand motion is a core challenge for wearable control systems that must work beyond a calibrated laboratory setup. Predict trajectories of 20 hand-joint angles from 16-channel wrist sEMG recorded during everyday movement. Evaluation includes users and movement stages never seen during training, plus unseen combinations of known users and stages. This tests robustness to anatomy, wristband placement, and kinematic context, and asks whether a daily wearable interface can transfer to a new user without person-specific retraining.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Models return joint angles in radians. Codabench reports their mean absolute angular error in degrees, with lower scores indicating better performance.</span><span class="track-data-summary"><strong>Warm-up evaluation:</strong> EMG2Pose user-stage test set <span aria-hidden="true">·</span> <strong>Sealed evaluation:</strong> private 2026 Meta Reality Labs cohort <span aria-hidden="true">·</span> <strong>Start kit and baseline:</strong> EMG2Pose</span></span></p>
+        <p>Translating wrist muscle activity into hand motion is a core challenge for wearable control systems that must work beyond a calibrated laboratory setup. Predict trajectories of 20 hand-joint angles from 16-channel wrist sEMG recorded during everyday movement. Evaluation includes users and movement stages never seen during training, plus unseen combinations of known users and stages. This tests robustness to anatomy, wristband placement, and kinematic context, and asks whether a daily wearable interface can transfer to a new user without person-specific retraining.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Models return joint angles in radians. Codabench reports their mean absolute angular error in degrees, with lower scores indicating better performance.</span><span class="track-data-summary"><strong>Sealed evaluation:</strong> private 2026 Meta Reality Labs cohort</span></span></p>
         <div class="track-guide-buttons">
           <a class="track-guide-button" href="https://github.com/neural-interfaces26/2026-competition/tree/main/tracks/emg_pose" target="_blank" rel="noreferrer noopener">Open competition starting kit ↗</a>
           <a class="track-guide-button" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track4_emg_to_pose.html" target="_blank" rel="noreferrer noopener">Open Track 04 on NeuralBench ↗</a>
@@ -375,7 +375,7 @@
 
   <section class="dataset-directory campaign-section" id="datasets" aria-labelledby="datasets-heading">
     <div class="campaign-section-head reveal">
-      <p class="bs-eyebrow">Development data · warm-up evaluation · sealed evaluation</p>
+      <p class="bs-eyebrow">Sealed evaluation · public training data</p>
       <h2 id="datasets-heading">The data behind every track.</h2>
     </div>
 
@@ -386,21 +386,17 @@
           <p>Train in NeuralBench, with the Benchopt competition kit, or through your own permitted pipeline. Both tools support custom models, while the Benchopt kit reuses NeuralBench's public task and data APIs. For broader strategies, <a href="https://eegdash.org/dataset_summary.html" target="_blank" rel="noreferrer noopener">EEGDash</a> provides 700+ additional EEG corpora and NeuralBench provides a <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_pretrain_mae.html" target="_blank" rel="noreferrer noopener">foundation-model pretraining tutorial</a>. All competition datasets use BIDS.</p>
         </article>
         <article class="dataset-role-card dataset-role-card--warmup">
-          <span class="bs-kicker">02 · Warm-up evaluation data</span>
+          <span class="bs-kicker">02 · Completed warm-up</span>
           <h3>Test submissions on public data.</h3>
-          <p>During warm-up, Codabench scores your model on public track-specific test partitions. The active split and metric are documented on each Codabench Track description and Scientific FAQ. Because warm-up data are public, leakage is possible and scores are indicative only.</p>
+          <p>Warm-up ended November 1. Its public test partitions remain useful for local submission checks, and the archived leaderboards remain available. Those scores do not count toward the final ranking.</p>
         </article>
         <article class="dataset-role-card dataset-role-card--sealed">
           <span class="bs-kicker">03 · Sealed evaluation data</span>
           <h3>Compete on private 2026 data.</h3>
-          <p>The track leaders' private cohorts are uploaded to Codabench only for the sealed phase. Their examples and labels remain hidden, and only sealed scores determine the final ranking.</p>
+          <p>The private cohorts remain on the evaluation workers. Their examples and labels are not released, and only sealed scores determine the final ranking.</p>
         </article>
       </div>
 
-      <aside class="dataset-update-banner" role="note" aria-label="Track 02 and Track 03 dataset updates">
-        <span class="bs-kicker">Dataset update</span>
-        <p><strong><a href="https://nemar.org/dataset/nm000290" target="_blank" rel="noreferrer noopener">PROTEUS BCI Bordeaux</a> and <a href="https://nemar.org/dataset/nm000287" target="_blank" rel="noreferrer noopener">Muse Sleep-Onset EEG</a> are available for public training and active in their Codabench warm-up evaluations.</strong> Their public test partitions support end-to-end submission validation before the sealed phase.</p>
-      </aside>
 
       <div class="ds-table-wrap">
         <div class="ds-table" role="table" aria-label="Dataset directory">
@@ -430,7 +426,7 @@
           <div class="ds-row ds-row--warmup" role="row">
             <span class="track-tag" role="cell"><span class="sr-only">Track </span>01</span>
             <span class="nm" role="cell"><strong>THINGS-EEG2</strong></span>
-            <span class="dataset-use" role="cell">Start kit · Baseline · Warm-up evaluation</span>
+            <span class="dataset-use" role="cell">Start kit · Baseline · Local validation</span>
             <span class="mod mod-eeg" role="cell">EEG</span>
             <span class="num" role="cell">10</span>
             <span class="num" role="cell">87h</span>
@@ -518,7 +514,7 @@
           <div class="ds-row ds-row--new ds-row--warmup" role="row">
             <span class="track-tag" role="cell"><span class="sr-only">Track </span>02</span>
             <span class="nm" role="cell"><strong>PROTEUS BCI Bordeaux <span class="ds-new-tag">NEW 2026</span></strong></span>
-            <span class="dataset-use" role="cell">Public training · Warm-up evaluation</span>
+            <span class="dataset-use" role="cell">Public training · Local validation</span>
             <span class="mod mod-eeg" role="cell">EEG</span>
             <span class="num" role="cell">10</span>
             <span class="num" role="cell">-</span>
@@ -573,7 +569,7 @@
           <div class="ds-row ds-row--warmup" role="row">
             <span class="track-tag" role="cell"><span class="sr-only">Track </span>03</span>
             <span class="nm" role="cell"><strong>Muse Sleep-Onset EEG <span class="ds-new-tag">NEW 2026</span></strong></span>
-            <span class="dataset-use" role="cell">Public training · Warm-up evaluation</span>
+            <span class="dataset-use" role="cell">Public training · Local validation</span>
             <span class="mod mod-eeg" role="cell">EEG</span>
             <span class="num" role="cell">203</span>
             <span class="num" role="cell">157.52h</span>
@@ -595,7 +591,7 @@
           <div class="ds-row track-group-start ds-row--warmup" role="row">
             <span class="track-tag" role="cell"><span class="sr-only">Track </span>04</span>
             <span class="nm" role="cell"><strong>EMG2Pose</strong></span>
-            <span class="dataset-use" role="cell">Training counterpart · Start kit · Baseline · Warm-up</span>
+            <span class="dataset-use" role="cell">Training counterpart · Start kit · Baseline</span>
             <span class="mod mod-emg" role="cell">EMG</span>
             <span class="num" role="cell">193</span>
             <span class="num" role="cell">370h</span>
@@ -633,7 +629,7 @@
             <span class="bs-kicker">Track 02 · 2026 training + hidden evaluation dataset</span>
           </div>
           <h3 class="dataset-release-heading">PROTEUS BCI Bordeaux</h3>
-          <p class="dataset-release-copy">The full acquisition programme follows 20 participants across six sessions using the same three-command Graz and BrainHero protocol. The <a href="https://nemar.org/dataset/nm000290" target="_blank" rel="noreferrer noopener">public NEMAR release</a> provides 112 runs from 14 sessions of 10 participants: two with their first three sessions and eight with their first session. Recordings contain 41 EEG channels at 500 Hz and support public training and warm-up evaluation. A distinct private counterpart is reserved for sealed evaluation and combines later sessions from represented participants with recordings from entirely new participants. Its identities, composition, and acquisition metadata remain undisclosed. Provided by Inria Bordeaux.</p>
+          <p class="dataset-release-copy">The full acquisition programme follows 20 participants across six sessions using the same three-command Graz and BrainHero protocol. The <a href="https://nemar.org/dataset/nm000290" target="_blank" rel="noreferrer noopener">public NEMAR release</a> provides 112 runs from 14 sessions of 10 participants: two with their first three sessions and eight with their first session. Recordings contain 41 EEG channels at 500 Hz and support public training and local validation. A distinct private counterpart is reserved for sealed evaluation and combines later sessions from represented participants with recordings from entirely new participants. Its identities, composition, and acquisition metadata remain undisclosed. Provided by Inria Bordeaux.</p>
         </article>
 
         <article class="vb-track dataset-release-card" id="dataset-track-3">
@@ -657,7 +653,7 @@
   <section class="register-panel campaign-section" aria-labelledby="tracks-cta-heading">
     <div class="reveal">
       <h2 id="tracks-cta-heading">Ready to train and submit your model?</h2>
-      <p>Develop in NeuralBench for its neuro-specific model-evaluation environment, in Benchopt for direct integration with the competition <code>Solver</code>, or in your own permitted pipeline. Every route ends with the same Codabench submission contract. For active warm-up and sealed evaluation details, read the Track description on Codabench. For the submission contract and uploads, use Get Started → Submission Guide and My Submissions. Original dataset licenses and competition rules remain in force.</p>
+      <p>Develop in NeuralBench for its neuro-specific model-evaluation environment, in Benchopt for direct integration with the competition <code>Solver</code>, or in your own permitted pipeline. Every route ends with the same Codabench submission contract. For sealed evaluation details, read the Track description on Codabench. For the submission contract and uploads, use Get Started → Submission Guide and My Submissions. Original dataset licenses and competition rules remain in force.</p>
       <div class="bs-hero-cta">
         <a class="bs-btn primary" href="register.html#enter">Choose a track &amp; register →</a>
         <a class="bs-btn ghost" href="participant-guide.html">Open the participant guide</a>

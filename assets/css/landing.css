@@ -5751,3 +5751,13 @@ body.menu-open { overflow: hidden; }
 @media (max-width: 640px) {
   .leaderboard-phase-switch { align-items: flex-start; flex-direction: column; }
 }
+
+/* Completed-phase rules remain available as historical reference. */
+.phase-history, .phase-history strong, .phase-history a { color: #6b7280; }
+.launch-alert-sealed { grid-column: 1 / -1; justify-content: flex-start; }
+.startkit-page .tracks-warmup-notice { margin: 0; align-self: center; }
+.startkit-page .tracks-warmup-notice p { margin: 12px 0 0; line-height: 1.6; }
+
+@media (min-width: 768px) {
+  .startkit-page .page-hero-inner { grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); gap: clamp(24px, 3.5vw, 56px); align-items: center; }
+}

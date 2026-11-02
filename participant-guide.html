@@ -43,7 +43,7 @@
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
 <link rel="stylesheet" href="assets/css/base.css?v=20260908ux" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260924oss" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20261102sealed" />
 
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
 
@@ -70,7 +70,7 @@
     <a href="organizers.html">Organizers</a>
     <a href="ecosystem.html">Ecosystem</a>
     <a href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Discord ↗</a>
-    <a class="bs-btn primary sm" href="register.html">Register</a>
+    <a class="bs-btn primary sm" href="register.html">Register →</a>
   </nav>
 </header>
 
@@ -88,6 +88,10 @@
           <a class="bs-btn ghost" href="#track-guides">Open the worked examples ↓</a>
         </div>
       </div>
+      <aside class="tracks-warmup-notice" aria-labelledby="sealed-debug-heading">
+        <strong class="tracks-warmup-notice-label" id="sealed-debug-heading"><i aria-hidden="true"></i>Sealed phase · debug locally</strong>
+        <p>Sealed execution logs, predictions and scoring output are hidden. Use the <a href="https://github.com/neural-interfaces26/2026-competition/blob/main/tracks/README.md#optional-local-replay" target="_blank" rel="noreferrer noopener"><strong>Benchopt replay workflow</strong></a> to inspect local logs on public data, or use the <a href="https://github.com/neural-interfaces26/2026-competition/blob/main/tools/README.md#worker-image-replay" target="_blank" rel="noreferrer noopener">worker-image replay</a> for ingestion and scoring. Scores and statuses remain visible on Codabench.</p>
+      </aside>
     </div>
   </section>
 
@@ -221,7 +225,7 @@
                 <figcaption class="bs-code-head"><span class="bs-kicker">Terminal · Benchopt</span><button class="copy" type="button" data-copy aria-live="polite">copy</button></figcaption>
                 <pre tabindex="0" aria-label="Track 02 Benchopt setup and test commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install benchopt</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>git clone https://github.com/neural-interfaces26/2026-competition</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt install 2026-competition/tracks/bci_decoding</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt prepare 2026-competition/tracks/bci_decoding --config 2026-competition/tracks/bci_decoding/training.yml</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt run 2026-competition/tracks/bci_decoding --config 2026-competition/tracks/bci_decoding/training.yml</code></span></pre>
               </figure>
-              <p>This installs the track dependencies, selects the public PROTEUS release through <code>training.yml</code>, trains the Torch linear baseline, evaluates it on the current warm-up split, and writes a submission folder. Zip that folder before uploading it to Codabench.</p>
+              <p>This installs the track dependencies, selects the public PROTEUS release through <code>training.yml</code>, trains the Torch linear baseline, evaluates it on the public-data test split used during warm-up, and writes a submission folder. Zip that folder before uploading it to Codabench.</p>
             </div>
           </details>
           <details class="prepare-track-disclosure prepare-track-disclosure--neuralbench">
@@ -278,7 +282,7 @@
                 <figcaption class="bs-code-head"><span class="bs-kicker">Terminal · Benchopt</span><button class="copy" type="button" data-copy aria-live="polite">copy</button></figcaption>
                 <pre tabindex="0" aria-label="Track 03 Benchopt setup and test commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install benchopt</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>git clone https://github.com/neural-interfaces26/2026-competition</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt install 2026-competition/tracks/sleep_onset</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt prepare 2026-competition/tracks/sleep_onset --config 2026-competition/tracks/sleep_onset/training.yml</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>benchopt run 2026-competition/tracks/sleep_onset --config 2026-competition/tracks/sleep_onset/training.yml</code></span></pre>
               </figure>
-              <p>This installs the track dependencies, selects the public Muse release through <code>training.yml</code>, trains the Torch linear baseline, evaluates it on the current warm-up split, and writes a submission folder. Zip that folder before uploading it to Codabench.</p>
+              <p>This installs the track dependencies, selects the public Muse release through <code>training.yml</code>, trains the Torch linear baseline, evaluates it on the public-data test split used during warm-up, and writes a submission folder. Zip that folder before uploading it to Codabench.</p>
             </div>
           </details>
           <details class="prepare-track-disclosure prepare-track-disclosure--neuralbench">
@@ -303,7 +307,7 @@
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
-              <p class="prepare-track-dataset"><strong>Baseline results obtained on Muse Sleep-Onset EEG (<code>Interaxon2026Muse</code>)</strong> with NeuralBench 0.4.0. The reported score is the warm-up W-bMAE averaged over recording streams, in seconds.</p>
+              <p class="prepare-track-dataset"><strong>Baseline results obtained on Muse Sleep-Onset EEG (<code>Interaxon2026Muse</code>)</strong> with NeuralBench 0.4.0. These public-data W-bMAE results average over recording streams, in seconds. Sealed scoring additionally averages the seen and unseen group means equally.</p>
               <div class="prepare-track-table" role="table" aria-label="Track 03 baseline results">
                 <div class="prepare-track-table-row head" role="row"><span role="columnheader">Baseline</span><span role="columnheader">Family</span><span role="columnheader">Params</span><span role="columnheader">Train</span><span role="columnheader">Reference score</span><span role="columnheader">Configuration</span></div>
                 <div class="prepare-track-table-row" role="row"><span role="cell"><strong>Constant 35 s</strong></span><span role="cell">reference</span><span role="cell">0</span><span role="cell">0 GPU-h</span><span role="cell">W-bMAE 60.7 s</span><span role="cell">Selected on validation</span></div>
@@ -422,7 +426,7 @@
       <li><span>3</span><strong>Validate and ZIP</strong><small>Test inference locally with Benchopt, then zip the contents of the submission folder.</small></li>
       <li><span>4</span><strong>Upload and check</strong><small>Submit through My Submissions and confirm that evaluation succeeds.</small></li>
     </ol>
-    <p class="prepare-note"><strong>Before uploading:</strong> validate your ZIP locally. Read the <a href="rules.html#rule-caps">phase quotas</a>, <a href="rules.html#faq-leaderboard">automatic leaderboard selection</a> and <a href="rules.html#faq-sealed-feedback">sealed feedback rules</a>. Warm-up scores are indicative. Only sealed scores determine the final ranking.</p>
+    <p class="prepare-note"><strong>Before uploading:</strong> validate your ZIP locally. Read the <a href="rules.html#rule-caps">phase quotas</a>, <a href="rules.html#faq-leaderboard">automatic leaderboard selection</a> and <a href="rules.html#faq-sealed-feedback">sealed feedback rules</a>. Select <strong>Sealed Final Phase</strong> from November 5 at 00:01 CET (UTC+01:00). Only sealed scores determine the final ranking.</p>
     <div class="prepare-portal-grid" id="codabench-submission-guides" aria-label="Codabench Submission Guide pages by track">
       <article class="prepare-portal-card">
         <div class="prepare-portal-head"><span class="track-tag"><span class="sr-only">Track </span>01</span><div><span class="bs-kicker">Codabench Submission Guide</span><h3>EEG-to-Image</h3></div></div>
