@@ -1,6 +1,5 @@
-// Render both warm-up generations from the inline JSON written by
-// scripts/leaderboard-progress.py. The current phase is usable without
-// JavaScript; this file adds charts and one global current/legacy switch.
+// Render sealed and archived warm-up results from the daily snapshot.
+// Sealed tables remain usable without JavaScript; one selector controls all tracks.
 (function () {
   'use strict';
 
@@ -11,8 +10,8 @@
   var phases = data.phases || {
     current: { name: 'Warm-up phase', tracks: data.tracks || [] }
   };
-  var selected = data.default_phase || 'current';
-  var toggle = document.getElementById('lb-phase-toggle');
+  var selected = data.default_phase || 'sealed';
+  var select = document.getElementById('lb-phase-select');
   var status = document.getElementById('lb-phase-status');
   var font = { family: 'Helvetica, Arial, sans-serif', color: '#334155' };
 
@@ -48,10 +47,8 @@
     var leader = rows[0];
     var caption = table.querySelector('caption');
     caption.replaceChildren(document.createTextNode(
-      'Track ' + track.id + ' · ' + phaseName + '. Top ' +
-      Math.min(10, rows.length) + ' of ' + rows.length +
-      ' ranked entries. Each row is a submission currently published on Codabench. ' +
-      'Registered participants without a published scored entry are not ranked. '
+      'Track ' + track.id + ' · ' + phaseName + '. ' + (rows.length ? 'Top ' +
+      Math.min(10, rows.length) + ' of ' + rows.length + ' ranked entries. ' : 'No published results yet. ')
     ));
     var link = document.createElement('a');
     link.href = 'https://www.codabench.org/competitions/' + track.comp + '/#/results-tab';
@@ -64,6 +61,15 @@
     if (headers[3]) headers[3].textContent = track.label;
     var body = table.querySelector('tbody');
     body.replaceChildren();
+    if (!rows.length) {
+      var empty = document.createElement('tr');
+      var message = document.createElement('td');
+      message.colSpan = 6;
+      message.textContent = 'No published scores yet.' + (phaseName === 'Sealed Final Phase' ?
+        ' Sealed evaluation runs November 5 at 00:01 to November 21 at 23:59 CET (UTC+01:00).' : '');
+      empty.appendChild(message);
+      body.appendChild(empty);
+    }
     rows.slice(0, 10).forEach(function (entry, index) {
       var row = document.createElement('tr');
       appendCell(row, 'th', String(index + 1), 'row');
@@ -79,7 +85,12 @@
   function renderChart(track, phaseName) {
     if (!window.Plotly) return;
     var div = document.getElementById('lb-chart-' + track.id);
-    if (!div || !track.record.length) return;
+    if (!div) return;
+    if (!track.record.length) {
+      window.Plotly.purge(div);
+      div.replaceChildren();
+      return;
+    }
     var direction = track.higher ? 'higher is better ↑' : 'lower is better ↓';
     var last = track.record[track.record.length - 1];
     var leader = track.leader;
@@ -130,15 +141,15 @@
     var phase = phases[key];
     if (!phase) return;
     selected = key;
-    var total = phase.tracks.reduce(function (sum, track) { return sum + track.rows.length; }, 0);
-    var registrations = phase.tracks.map(function (track) { return track.participants; }).join(', ');
+    var counts = phase.tracks.map(function (track, index) {
+      return 'Track ' + track.id + ' has ' + Number(track.participants).toLocaleString('en-US') +
+        (index === 0 ? ' registered participants' : '');
+    });
+    var registrations = counts.slice(0, -1).join(', ') + ' and ' + counts[counts.length - 1];
     var hero = document.querySelector('.page-hero-copy > p');
     if (hero) {
-      hero.textContent = phase.name + ', live. ' + total +
-        ' published scored entries across four track leaderboards. Codabench reports ' +
-        registrations + ' registered participants for Tracks 1–4 respectively. ' +
-        'Registration totals are per track, so one person may appear in several totals. ' +
-        'Refreshed daily. Final positions are gated by reproducibility audit.';
+      hero.textContent = (key === 'sealed' ? 'The sealed final runs from November 5 to 21, 2026. ' :
+        phase.name + ' is complete. ') + registrations + '. Follow the results below, updated daily.';
     }
     phase.tracks.forEach(function (track) {
       renderTable(track, phase.name);
@@ -148,21 +159,17 @@
       var foot = document.querySelector('#track-' + track.id + ' .ds-foot .bs-kicker');
       if (foot) {
         foot.textContent = track.rows.length + ' ranked entries · ' + track.participants +
-          ' registered participants · leader ' + track.leader.team + ' at ' +
-          score(track.leader.score, track.prec) + ' · updated ' + data.updated.replace('T', ' ') + ' UTC';
+          ' registered participants · ' + (track.leader ? 'leader ' + track.leader.team + ' at ' +
+          score(track.leader.score, track.prec) : 'awaiting sealed results') + ' · updated ' + data.updated.replace('T', ' ') + ' UTC';
       }
     });
     if (status) status.textContent = 'Showing: ' + phase.name;
-    if (toggle) {
-      toggle.hidden = false;
-      toggle.setAttribute('aria-pressed', String(key === 'legacy'));
-      toggle.textContent = key === 'legacy' ? 'View current warm-up' : 'View legacy warm-up';
-    }
+    if (select) select.value = selected;
   }
 
-  if (toggle && phases.legacy) {
-    toggle.addEventListener('click', function () {
-      renderPhase(selected === 'current' ? 'legacy' : 'current');
+  if (select) {
+    select.addEventListener('change', function () {
+      renderPhase(select.value);
     });
   }
   renderPhase(selected);

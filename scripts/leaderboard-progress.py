@@ -1,4 +1,4 @@
-"""Pull the four Codabench warm-up leaderboards, then refresh the site + exports.
+"""Pull sealed and archived warm-up leaderboards, then refresh the site + exports.
 
 Usage: python3 scripts/leaderboard-progress.py
 Writes assets/data/leaderboard.json, splices ranked tables + chart data into
@@ -7,12 +7,22 @@ exports/leaderboard/{leaderboard.csv,progress.png,progress.svg}.
 Mirrors eeg2025.github.io (get_leaderboard.py + build_leaderboard_html.py), one file.
 """
 import csv, html, json, math, re, time, urllib.error, urllib.request
+from functools import cache
 from datetime import datetime, timezone
 from pathlib import Path
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 
 PHASES = {
+    "sealed": {
+        "name": "Sealed Final Phase",
+        "tracks": [
+            (17974, 30149, "top5_acc_subject_agg", "Top-5 subject-aggregated", True, "#0072B2"),
+            (17982, 30483, "balanced_accuracy_cell_mean", "Cell-mean balanced accuracy", True, "#009E73"),
+            (17983, 30147, "wbmae_macro", "Seen/unseen macro W-bMAE (s)", False, "#D55E00"),
+            (17984, 30151, "angular_mae", "Angular MAE (°)", False, "#CC79A7"),
+        ],
+    },
     "current": {
         "name": "Warm-up Phase (update 1)",
         "tracks": [
@@ -38,6 +48,7 @@ PAGE = Path("leaderboard.html")
 TABLE_ROWS = 10  # ponytail: top 10 on the site, the rest via the Codabench link
 
 
+@cache
 def get(path):
     request = urllib.request.Request(
         API + path,
@@ -108,6 +119,13 @@ def plot(tracks, now):
     fig, axes = plt.subplots(2, 2, figsize=(11, 7), constrained_layout=True)
     for ax, t in zip(axes.flat, tracks):
         rows, rec, higher, color = t["rows"], t["record"], t["higher"], t["color"]
+        if not rows:
+            ax.set_title(f'{t["title"]}\n{t["label"]}', loc="left")
+            ax.text(0.5, 0.5, "No published sealed scores yet", transform=ax.transAxes,
+                    ha="center", va="center", color="#64748b")
+            ax.set_xticks([])
+            ax.set_yticks([])
+            continue
         ax.scatter([r["date"] for r in rows], [r["score"] for r in rows], s=28, color="#9a9a9a",
                    edgecolor="white", linewidth=0.8, zorder=2, label="published entry")
         ax.step([r["date"] for r in rec] + [now], [r["score"] for r in rec] + [rec[-1]["score"]],
@@ -124,8 +142,9 @@ def plot(tracks, now):
         ax.xaxis.set_major_locator(mdates.DayLocator(interval=2))
         ax.xaxis.set_major_formatter(mdates.DateFormatter("%b %d"))
         ax.grid(axis="y", color="#e6e6e6", lw=0.6)
-    axes.flat[0].legend(frameon=False, loc="upper left")
-    fig.suptitle(f"Neural Interfaces 2026 warm-up leaderboards · record progression by day "
+    if tracks[0]["rows"]:
+        axes.flat[0].legend(frameon=False, loc="upper left")
+    fig.suptitle(f"Neural Interfaces 2026 sealed leaderboards · record progression by day "
                  f"(Codabench, {now:%b %d %Y})", x=0.01, ha="left", fontsize=12, fontweight="bold")
     fig.savefig(OUT / "progress.png", dpi=200)
     svg_path = OUT / "progress.svg"
@@ -139,7 +158,7 @@ def plot(tracks, now):
 
 def table_html(i, t, phase_name):
     e = html.escape
-    lead = t["leader"]["score"]
+    lead = t["leader"]["score"] if t["leader"] else None
     ranked = ranked_rows(t)
     trs = []
     for rank, r in enumerate(ranked[:TABLE_ROWS], 1):
@@ -148,11 +167,17 @@ def table_html(i, t, phase_name):
         trs.append(f'<tr><th scope="row">{rank}</th><td>{e(r["team"])}</td><td>{e(r["model"]) or "Not provided"}</td>'
                    f'<td>{fmt(r["score"])}</td><td>{"Leader" if rank == 1 else fmt(delta)}</td>'
                    f'<td>{r["date"]:%b %d}</td></tr>')
+    if not ranked:
+        message = "No published scores yet."
+        if phase_name == "Sealed Final Phase":
+            message += " Sealed evaluation runs November 5 at 00:01 to November 21 at 23:59 CET (UTC+01:00)."
+        trs.append(f'<tr><td colspan="6">{message}</td></tr>')
+    summary = (f"Top {min(TABLE_ROWS, len(ranked))} of {len(ranked)} ranked entries. "
+               if ranked else "No published results yet. ")
     return (f'<div class="lb-chart" id="lb-chart-{i}" role="img" aria-label="{e(t["title"])} record progression"></div>\n'
             f'      <div class="table-shell" id="lb-table-shell-{i}" role="region" aria-label="Track {i} leaderboard" tabindex="0">\n'
             f'        <table class="leaderboard-table">\n'
-            f'          <caption>Track {i} · {e(phase_name)}. Top {min(TABLE_ROWS, len(ranked))} of {len(ranked)} ranked entries. '
-            f'Each row is a submission currently published on Codabench. Registered participants without a published scored entry are not ranked. '
+            f'          <caption>Track {i} · {e(phase_name)}. {summary}'
             f'<a href="https://www.codabench.org/competitions/{t["comp"]}/#/results-tab" '
             f'target="_blank" rel="noreferrer noopener">Full board on Codabench ↗</a></caption>\n'
             f'          <thead><tr><th scope="col">Rank</th><th scope="col">Participant / organization</th><th scope="col">Model</th>'
@@ -172,7 +197,8 @@ def serialized_track(t):
         "id", "comp", "phase", "title", "metric", "label", "higher", "color",
         "participants", "prec",
     )} | {
-        "leader": {**t["leader"], "date": t["leader"]["date"].isoformat(timespec="minutes")},
+        "leader": ({**t["leader"], "date": t["leader"]["date"].isoformat(timespec="minutes")}
+                   if t["leader"] else None),
         "rows": [{**r, "date": r["date"].isoformat(timespec="minutes")} for r in t["rows"]],
         "record": [{**r, "date": r["date"].isoformat(timespec="minutes")} for r in t["record"]],
     }
@@ -181,28 +207,31 @@ def serialized_track(t):
 def update_page(phases, now):
     page = PAGE.read_text()
     stamp = f"{now:%b %d, %Y %H:%M} UTC"
-    tracks = phases["current"]["tracks"]
-    n = sum(len(t["rows"]) for t in tracks)
-    registrations = ", ".join(str(t["participants"]) for t in tracks)
-    page = splice(page, "hero", f"Warm-up Phase (update 1), live. {n} published scored entries across four track leaderboards. "
-                  f"Codabench reports {registrations} registered participants for Tracks 1-4 respectively. "
-                  f"Registration totals are per track, so one person may appear in several totals. Refreshed daily, last {stamp}. Final positions are gated by "
-                  f"reproducibility audit.")
+    tracks = phases["sealed"]["tracks"]
+    counts = [f"Track {t['id']} has {t['participants']:,}" +
+              (" registered participants" if i == 0 else "")
+              for i, t in enumerate(tracks)]
+    registrations = ", ".join(counts[:-1]) + " and " + counts[-1]
+    page = splice(page, "hero", "The sealed final runs from November 5 to 21, 2026. "
+                  f"{registrations}. Follow the results below, updated daily.")
     for i, t in enumerate(tracks, 1):
-        page = splice(page, f"t{i}", table_html(i, t, phases["current"]["name"]))
+        page = re.sub(rf'(<strong id="lb-metric-{i}">)[^<]*(</strong>)',
+                      lambda m: m[1] + html.escape(t["label"]) + m[2], page)
+        page = splice(page, f"t{i}", table_html(i, t, phases["sealed"]["name"]))
+        leader = (f"leader {html.escape(t['leader']['team'])} at {t['leader']['score']:.{t['prec']}f}"
+                  if t["leader"] else "awaiting sealed results")
         page = splice(page, f"foot{i}", f"{len(t['rows'])} ranked entries · {t['participants']} registered participants · "
-                      f"leader {html.escape(t['leader']['team'])} "
-                      f"at {t['leader']['score']:.{t['prec']}f} · updated {stamp}")
+                      f"{leader} · updated {stamp}")
     serialized_phases = {
         key: {"name": value["name"], "tracks": [serialized_track(t) for t in value["tracks"]]}
         for key, value in phases.items()
     }
     data = {
         "updated": now.isoformat(timespec="minutes"),
-        "default_phase": "current",
+        "default_phase": "sealed",
         "phases": serialized_phases,
         # Backward-compatible alias for consumers that only need the live board.
-        "tracks": serialized_phases["current"]["tracks"],
+        "tracks": serialized_phases["sealed"]["tracks"],
     }
     page = splice(page, "data", f'<script id="lb-data" type="application/json">{json.dumps(data)}</script>')
     PAGE.write_text(page)
@@ -217,15 +246,13 @@ def main():
         tracks = []
         for i, (comp, phase, metric_key, label, higher, color) in enumerate(definition["tracks"], 1):
             title, key, prec, participants, rows = fetch(comp, phase, metric_key)
-            if not rows:
-                raise RuntimeError(f"No numeric primary scores for phase {phase}")
             tracks.append({"id": i, "comp": comp, "phase": phase, "title": title,
                            "metric": key, "prec": prec, "participants": participants,
                            "label": label, "higher": higher, "color": color, "rows": rows,
                            "record": record_curve(rows, higher)})
-            tracks[-1]["leader"] = ranked_rows(tracks[-1])[0]
+            tracks[-1]["leader"] = ranked_rows(tracks[-1])[0] if rows else None
         phases[phase_key] = {"name": definition["name"], "tracks": tracks}
-    tracks = phases["current"]["tracks"]
+    tracks = phases["sealed"]["tracks"]
     plot(tracks, now)
     update_page(phases, now)
     with open(OUT / "leaderboard.csv", "w", newline="") as f:

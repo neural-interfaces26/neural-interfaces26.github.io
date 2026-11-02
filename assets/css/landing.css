@@ -5757,6 +5757,8 @@ body.menu-open { overflow: hidden; }
 .launch-alert-sealed { grid-column: 1 / -1; justify-content: flex-start; }
 .startkit-page .tracks-warmup-notice { margin: 0; align-self: center; }
 .startkit-page .tracks-warmup-notice p { margin: 12px 0 0; line-height: 1.6; }
+.leaderboard-phase-switch select { max-width: 100%; padding: 9px 12px; border: 1px solid #cbd5e1; border-radius: 6px; background: #fff; color: #334155; font: inherit; }
+.lb-chart:empty { display: none; }
 
 @media (min-width: 768px) {
   .startkit-page .page-hero-inner { grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); gap: clamp(24px, 3.5vw, 56px); align-items: center; }
