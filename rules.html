@@ -43,7 +43,7 @@
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
 <link rel="stylesheet" href="assets/css/base.css?v=20260908ux" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20260909refine7" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20261102sealed" />
 
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
 
@@ -70,7 +70,7 @@
     <a href="organizers.html">Organizers</a>
     <a href="ecosystem.html">Ecosystem</a>
     <a href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Discord ↗</a>
-    <a class="bs-btn primary sm" href="register.html">Register</a>
+    <a class="bs-btn primary sm" href="register.html">Register →</a>
   </nav>
 </header>
 
@@ -138,13 +138,13 @@
         <details class="vb-rule" id="rule-caps">
           <summary><h3>How many submissions can I make?</h3></summary>
           <div class="vb-rule-body">
-            <p>Both phases have separate quotas <strong>per participant and per track</strong>:</p>
+            <p>Quotas are <strong>per participant and per track</strong>:</p>
             <ul>
-              <li><strong>Warm-up:</strong> 10 submissions per participant per day per track, with 100 submissions total per participant per track.</li>
               <li><strong>Sealed:</strong> 1 submission per participant per day per track, with 5 submissions total per participant per track.</li>
+              <li class="phase-history"><strong>Completed warm-up:</strong> 5 submissions per participant per day per track, with 100 submissions total per participant per track.</li>
             </ul>
             <p>The five-submission sealed cap limits repeated tuning against hidden test data. Sealed evaluation measures generalization, not blind trial-and-error optimization on the test set.</p>
-            <p>See <a href="#faq-quota">what counts toward your quota</a> and <a href="#faq-leaderboard">which score is retained</a>. Warm-up closes Sunday, Nov 1 at 23:59 CET (UTC+01:00). Sealed runs Thursday, Nov 5 at 00:01 through Saturday, Nov 21 at 23:59 CET (UTC+01:00).</p>
+            <p>See <a href="#faq-quota">what counts toward your quota</a> and <a href="#faq-leaderboard">which score is retained</a>. Warm-up closed Sunday, Nov 1 at 23:59 CET (UTC+01:00). Sealed runs Thursday, Nov 5 at 00:01 through Saturday, Nov 21 at 23:59 CET (UTC+01:00).</p>
           </div>
         </details>
 
@@ -160,12 +160,12 @@
         </details>
 
         <details class="vb-rule" id="rule-compute">
-          <summary><h3>Training compute is uncapped. Evaluation is limited to 80 minutes on one GPU. Submission size is capped.</h3></summary>
+          <summary><h3>Training compute is uncapped. Evaluation is limited to 60 minutes on one GPU. Submission size is capped.</h3></summary>
           <div class="vb-rule-body">
-            <p>Train on whatever you have. The evaluation container must complete its test pass within 80 minutes on one A100 GPU. Evaluations that exceed this execution limit time out.</p>
+            <p>Train on whatever you have. The evaluation container must complete its test pass within 60 minutes on one A100 GPU. Evaluations that exceed this execution limit time out.</p>
             <p>Codabench also limits each profile to 15 GB of submission storage shared across all tracks and uploads. This makes 15 GB the theoretical maximum for one submission, but your practical limit is the space remaining in your profile. If needed, delete unused archived submissions under <strong>Profile → Resources</strong>. A submission displayed on a leaderboard cannot be deleted.</p>
             <div class="vb-rule-facts">
-              <div><span class="bs-kicker">Evaluation limit</span><strong>80 min · one A100</strong></div>
+              <div><span class="bs-kicker">Evaluation limit</span><strong>60 min · one A100</strong></div>
               <div><span class="bs-kicker">Submission storage</span><strong>15 GB · per profile</strong></div>
               <div><span class="bs-kicker">Training</span><strong>No cap</strong></div>
               <div><span class="bs-kicker">Audit hardware</span><strong>Codabench container</strong></div>
@@ -217,7 +217,7 @@
         <details class="faq-item" id="faq-submit" open>
           <summary><span class="faq-topic">Registration</span><span class="faq-question">Where do I register and submit?</span></summary>
           <div class="faq-answer">
-            <p>Registration stays open through Sunday, November 1 at 23:59 CET (UTC+01:00, Europe/Paris), including during the extended warm-up. Use the <a href="register.html">track registration page</a> to choose the Codabench competitions you want to enter. Submissions opened September 21, 2026.</p>
+            <p>Registration remains open until <strong>Thursday, November 5 at 23:59 CET (UTC+01:00)</strong>. Follow the <a href="register.html">registration requirements</a> for your chosen tracks. If you are still pending, check the email and track selections in your form.</p>
             <ul>
               <li><a href="https://www.codabench.org/competitions/17974/" target="_blank" rel="noreferrer noopener">Track 1: EEG-to-Image →</a></li>
               <li><a href="https://www.codabench.org/competitions/17982/" target="_blank" rel="noreferrer noopener">Track 2: BCI decoding →</a></li>
@@ -229,17 +229,17 @@
         </details>
 
         <details class="faq-item" id="faq-muse">
-          <summary><span class="faq-topic">Datasets</span><span class="faq-question">Where can I access the new Track 2 and Track 3 warm-up datasets?</span></summary>
+          <summary><span class="faq-topic">Datasets</span><span class="faq-question">Where can I access public data for training and local checks?</span></summary>
           <div class="faq-answer">
-            <p><strong>PROTEUS BCI Bordeaux</strong> for Track 02 is available as <a href="https://nemar.org/dataset/nm000290" target="_blank" rel="noreferrer noopener">NEMAR nm000290</a>. <strong>Muse Sleep-Onset EEG</strong> for Track 03 is available as <a href="https://nemar.org/dataset/nm000287" target="_blank" rel="noreferrer noopener">NEMAR nm000287</a>. They are used by the current start kits and Codabench warm-ups. See the <a href="tracks.html#datasets">dataset directory</a> for acquisition and split details.</p>
-            <p>The private 2026 evaluation cohorts remain reserved for the sealed phase and will not be released before it.</p>
+            <p><strong>PROTEUS BCI Bordeaux</strong> for Track 02 is available as <a href="https://nemar.org/dataset/nm000290" target="_blank" rel="noreferrer noopener">NEMAR nm000290</a>. <strong>Muse Sleep-Onset EEG</strong> for Track 03 is available as <a href="https://nemar.org/dataset/nm000287" target="_blank" rel="noreferrer noopener">NEMAR nm000287</a>. They remain the public data used by the start kits and reference baselines. See the <a href="tracks.html#datasets">dataset directory</a> for acquisition and split details.</p>
+            <p>The private evaluation examples and labels remain hidden throughout the sealed phase.</p>
           </div>
         </details>
 
         <details class="faq-item" id="faq-sealed-feedback">
           <summary><span class="faq-topic">Sealed feedback</span><span class="faq-question">Will I see my sealed scores and be able to debug a failed submission?</span></summary>
           <div class="faq-answer">
-            <p>Submission status and aggregate leaderboard scores remain visible. Execution logs, prediction files and scoring-step output are hidden during the sealed phase. Validate your ZIP locally and in warm-up before submitting. Sealed logs are not available for debugging.</p>
+            <p>Submission status and aggregate leaderboard scores remain visible. Execution logs, prediction files and scoring-step output are hidden during the sealed phase. Validate your ZIP locally before submitting. Use the <a href="participant-guide.html#sealed-debug-heading">local replay workflows</a> to inspect logs on public data.</p>
           </div>
         </details>
 
@@ -274,7 +274,7 @@
         <details class="faq-item" id="faq-delay">
           <summary><span class="faq-topic">Delays</span><span class="faq-question">What if there's a delay?</span></summary>
           <div class="faq-answer">
-            <p>The warm-up has been extended through Sunday, November 1 at 23:59 CET (UTC+01:00), and the sealed final opens Thursday, November 5 at 00:01 CET (UTC+01:00). No submissions are accepted November 2-4 during the phase transition. The final deadline is Saturday, November 21 at 23:59 CET (UTC+01:00, Europe/Paris). Any further schedule changes will be announced on this website, Codabench and Discord. Later milestones do not shift automatically.</p>
+            <p>Warm-up ended Sunday, November 1 at 23:59 CET (UTC+01:00). The sealed final opens Thursday, November 5 at 00:01 CET (UTC+01:00). No submissions are accepted November 2-4 during the phase transition. The final deadline is Saturday, November 21 at 23:59 CET (UTC+01:00, Europe/Paris). Any further schedule changes will be announced on this website, Codabench and Discord. Later milestones do not shift automatically.</p>
           </div>
         </details>
 

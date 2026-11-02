@@ -38,7 +38,7 @@ class TimelineParser(HTMLParser):
         attrs = dict(attrs)
         if "data-timeline-progress" in attrs:
             self.timeline = attrs
-        if "launch-alert-warmup" in attrs.get("class", "").split():
+        if "launch-alert-sealed" in attrs.get("class", "").split():
             self.banner = attrs
         if "launch-alert-platform" in attrs.get("class", "").split():
             self.platform = attrs
@@ -83,21 +83,19 @@ class CalendarChecks(unittest.TestCase):
             self.assertEqual(actual, expected, key)
             self.assertEqual(actual.utcoffset(), expected.utcoffset(), key)
 
-    def test_green_banner_announces_the_extension(self):
+    def test_green_banner_announces_sealed_after_warmup(self):
         self.assertIsNotNone(self.parsed.banner)
         self.assertIn("is-open", self.parsed.banner["class"].split())
-        self.assertIn("Warm-up extended · November 1", self.home)
-        self.assertIn("Sunday, November 1 at 23:59", self.parsed.banner["aria-label"])
+        self.assertIn("Warm-up complete", self.home)
+        self.assertIn("Warm-up has ended", self.parsed.banner["aria-label"])
         self.assertIn("Thursday, November 5 at 00:01", self.parsed.banner["aria-label"])
+        self.assertIn("Registration remains open until Thursday, November 5 at 23:59", self.parsed.banner["aria-label"])
         self.assertIn("CET (UTC+01:00)", self.parsed.banner["aria-label"])
 
-    def test_platform_card_announces_registration_and_submissions_are_open(self):
-        self.assertIsNotNone(self.parsed.platform)
-        self.assertIn("is-open", self.parsed.platform["class"].split())
-        self.assertEqual(self.parsed.platform["role"], "status")
-        self.assertIn("Codabench is back online", self.parsed.platform["aria-label"])
-        self.assertIn("Registration and submissions are open again across all four tracks.", self.home)
-        self.assertNotIn("Codabench temporarily unavailable", self.home)
+    def test_obsolete_platform_card_is_removed(self):
+        self.assertIsNone(self.parsed.platform)
+        self.assertNotIn("Codabench is back online", self.home)
+        self.assertNotIn("Registration and submissions are open again", self.home)
 
     def test_transition_includes_the_entire_outage_day(self):
         self.assertEqual(WARMUP_END.astimezone(UTC), datetime(2026, 11, 1, 22, 59, 59, tzinfo=UTC))
@@ -131,10 +129,17 @@ class CalendarChecks(unittest.TestCase):
         self.assertNotIn('class="timeline-schedule-note"', self.home)
 
     def test_registration_and_rules_are_consistent(self):
-        for filename in ("register.html", "rules.html"):
+        for filename in ("index.html", "register.html", "rules.html"):
             source = (ROOT / filename).read_text()
-            self.assertIn("November 1", source, filename)
+            self.assertIn("November 5", source, filename)
+            self.assertIn("23:59 CET (UTC+01:00)", source, filename)
+            self.assertNotRegex(source, r"(?i)registration (?:has )?closed", filename)
             self.assertNotIn("October 24", source, filename)
+        if COMPETITION.is_dir():
+            for filename in ("registration.md", "timeline.md", "terms.md"):
+                source = (COMPETITION / "codabench/pages" / filename).read_text()
+                self.assertRegex(source, r"Registration remains open", filename)
+                self.assertNotRegex(source, r"(?i)registration (?:has )?closed", filename)
         rules = (ROOT / "rules.html").read_text()
         self.assertIn("5 submissions total per participant per track", rules)
         self.assertIn("Nov 22-30", rules)
@@ -155,9 +160,9 @@ class CalendarChecks(unittest.TestCase):
         if not COMPETITION.is_dir():
             self.skipTest("Sibling competition checkout not found; pass --competition-repo")
         expected = {
-            "warmup_end": WARMUP_END.astimezone(UTC).strftime("%Y-%m-%d %H:%M:%S"),
+            "warmup_end": WARMUP_END.replace(second=0).astimezone(UTC).strftime("%Y-%m-%d %H:%M:%S"),
             "final_start": FINAL_START.astimezone(UTC).strftime("%Y-%m-%d %H:%M:%S"),
-            "final_end": FINAL_END.astimezone(UTC).strftime("%Y-%m-%d %H:%M:%S"),
+            "final_end": FINAL_END.replace(second=0).astimezone(UTC).strftime("%Y-%m-%d %H:%M:%S"),
         }
         for track in ("image", "bci", "sleep", "emg"):
             with self.subTest(track=track):
@@ -168,12 +173,12 @@ class CalendarChecks(unittest.TestCase):
                 self.assertEqual(warmup["end"], expected["warmup_end"])
                 self.assertEqual(final["start"], expected["final_start"])
                 self.assertEqual(final["end"], expected["final_end"])
-                self.assertEqual(warmup["max_submissions_per_day"], "10")
+                self.assertEqual(warmup["max_submissions_per_day"], "5")
                 self.assertEqual(warmup["max_submissions"], "100")
                 self.assertEqual(final["max_submissions_per_day"], "1")
                 self.assertEqual(final["max_submissions"], "5")
-                self.assertEqual(warmup["execution_time_limit"], "4800")
-                self.assertEqual(final["execution_time_limit"], "4800")
+                self.assertEqual(warmup["execution_time_limit"], "3600")
+                self.assertEqual(final["execution_time_limit"], "3600")
                 for name in ("hide_output", "hide_prediction_output", "hide_score_output"):
                     self.assertEqual(final[name], "True", name)
                 boards = source.split("\nleaderboards:", 1)[1]
@@ -186,7 +191,7 @@ class CalendarChecks(unittest.TestCase):
         pages = COMPETITION / "codabench" / "pages"
         timeline = (pages / "timeline.md").read_text()
         for phrase in (
-            "Sunday, November 1 at 23:59",
+            "Warm-up has ended",
             "Thursday, November 5 at 00:01",
             "Saturday, November 21 at 23:59",
             "Europe/Paris",
@@ -200,7 +205,6 @@ class CalendarChecks(unittest.TestCase):
             source = (pages / filename).read_text()
             self.assertNotRegex(source, r"Oct(?:ober)? (?:24|25|28|31)\b", filename)
             self.assertNotRegex(source, r"(?i)\bAoE\b|Anywhere on Earth|UTC[−-]12", filename)
-            self.assertIn("Europe/Paris", source, filename)
             self.assertIn("CET (UTC+01:00", source, filename)
             self.assertNotIn("Paris time", source, filename)
             self.assertNotIn("compute outage", source, filename)
@@ -237,7 +241,7 @@ class CalendarChecks(unittest.TestCase):
     def test_submission_policy_matches_across_the_public_guides(self):
         rules = (ROOT / "rules.html").read_text()
         for phrase in (
-            "10 submissions per participant per day per track",
+            "5 submissions per participant per day per track",
             "100 submissions total per participant per track",
             "1 submission per participant per day per track",
             "5 submissions total per participant per track",
@@ -249,7 +253,7 @@ class CalendarChecks(unittest.TestCase):
             self.assertIn("one-person teams", source, filename)
             self.assertIn("cannot be deleted", source, filename)
         board = (ROOT / "leaderboard.html").read_text()
-        self.assertIn("Warm-up: 10/day, 100 total", board)
+        self.assertNotIn("Warm-up: 10/day", board)
         self.assertIn("Sealed: 1/day, 5 total", board)
         if not COMPETITION.is_dir():
             self.skipTest("Sibling competition checkout not found; pass --competition-repo")
@@ -257,8 +261,6 @@ class CalendarChecks(unittest.TestCase):
         for filename in ("terms.md", "timeline.md"):
             source = (pages / filename).read_text()
             self.assertIn("5 submissions total per participant per track", source, filename)
-            self.assertIn("100 submissions total per participant per track", source, filename)
-            self.assertIn("10 submissions per participant per day per track", source, filename)
             self.assertIn("1 submission per participant per day per track", source, filename)
             self.assertIn("best eligible sealed score", source, filename)
 
@@ -284,7 +286,7 @@ class CalendarChecks(unittest.TestCase):
             "What counts as a submission in my quota?",
             "Which submission appears on the leaderboard and counts for the final ranking?",
             "blind trial-and-error optimization",
-            "within 80 minutes",
+            "within 60 minutes",
         ):
             self.assertIn(phrase, rules)
         self.assertNotIn("faq-underfill", rules)
@@ -295,7 +297,7 @@ class CalendarChecks(unittest.TestCase):
         self.assertIn('href="participant-guide.html#baselines"', rules)
         self.assertIn("will be added in due time", rules)
         guide = (ROOT / "participant-guide.html").read_text()
-        self.assertIn("Reference EEGNet and REVE results on warm-up and sealed data", guide)
+        self.assertIn("Reference EEGNet and REVE baseline results on hidden sealed data", guide)
         if COMPETITION.is_dir():
             pages = COMPETITION / "codabench" / "pages"
             terms = (pages / "terms.md").read_text()
@@ -324,7 +326,7 @@ class CalendarChecks(unittest.TestCase):
             sources.extend((COMPETITION / "codabench" / "pages").glob("*.md"))
         for filename in sources:
             source = re.sub(r"(?is)<script\b[^>]*>.*?</script>", "", filename.read_text())
-            self.assertNotRegex(source, r"(?i)(?:up to |warm.up.{0,20})five submissions per|5/day warm.up|60 minutes on one|60 min · one A100", str(filename))
+            self.assertNotRegex(source, r"(?i)80 minutes on one|80 min · one A100", str(filename))
             self.assertNotIn("http://localhost", source, str(filename))
 
     def test_obsolete_selection_rules_are_removed_from_public_content(self):
