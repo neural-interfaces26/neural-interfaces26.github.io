@@ -44,7 +44,7 @@
 
 <link rel="stylesheet" href="assets/css/tokens.css?v=20260828a" />
 <link rel="stylesheet" href="assets/css/base.css?v=20260908ux" />
-<link rel="stylesheet" href="assets/css/landing.css?v=20261102sealed" />
+<link rel="stylesheet" href="assets/css/landing.css?v=20261102montage" />
 
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
 
@@ -156,6 +156,10 @@
 
           </figure>
         <p>Visual decoding is most useful when it recognizes novel content rather than a fixed catalogue learned during training. Given a single EEG epoch recorded during natural-image viewing, identify the viewed image by ranking held-out candidates in a frozen DINOv2 embedding space. The sealed final uses participants and images absent from the public development data, testing cross-subject and cross-stimulus transfer. Research-grade and consumer-grade datasets add source and hardware variability while keeping the task anchored to time-locked visual responses.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Top-5 retrieval accuracy against the held-out candidate set, with higher scores indicating better performance.</span><span class="track-data-summary"><strong>Sealed evaluation:</strong> private 2026 Alljoined cohort</span></span></p>
+        <aside class="track-contract-alert" role="note" aria-labelledby="track-1-montage-heading">
+          <strong id="track-1-montage-heading">Sealed phase · prepare for 32-channel input</strong>
+          <p>THINGS-EEG2 has 63 channels. Sealed evaluation uses the 32-channel Emotiv montage of public <a href="https://nemar.org/dataset/nm000134" target="_blank" rel="noreferrer noopener">Alljoined-1.6M</a>. Validate your model on that montage before submitting. Fixed 63-channel checkpoints need training or adaptation for this input. See the <a href="https://github.com/neural-interfaces26/2026-competition/blob/main/codabench/pages/scientific_faq_image.md" target="_blank" rel="noreferrer noopener">Track 01 Scientific FAQ</a>.</p>
+        </aside>
         <div class="track-guide-buttons">
           <a class="track-guide-button" href="https://github.com/neural-interfaces26/2026-competition/tree/main/tracks/image_decoding" target="_blank" rel="noreferrer noopener">Open competition starting kit ↗</a>
           <a class="track-guide-button" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track1_eeg_to_image.html" target="_blank" rel="noreferrer noopener">Open Track 01 on NeuralBench ↗</a>
@@ -447,7 +451,7 @@
           </div>
           <div class="ds-row" role="row">
             <span class="track-tag" role="cell"><span class="sr-only">Track </span>01</span>
-            <span class="nm" role="cell"><strong>Alljoined-1.6M</strong></span>
+            <span class="nm" role="cell"><strong id="dataset-alljoined-16m">Alljoined-1.6M</strong></span>
             <span class="dataset-use" role="cell">Closest public match to sealed cohort</span>
             <span class="mod mod-eeg" role="cell">EEG</span>
             <span class="num" role="cell">20</span>
