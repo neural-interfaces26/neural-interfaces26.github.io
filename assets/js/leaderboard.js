@@ -100,7 +100,7 @@
         x: track.rows.map(function (row) { return row.date; }),
         y: track.rows.map(function (row) { return row.score; }),
         text: track.rows.map(function (row) { return row.team + (row.model ? ' · ' + row.model : ''); }),
-        mode: 'markers', name: 'Best submission per team',
+        mode: 'markers', name: 'Best submission per participant',
         marker: { color: 'rgba(120,120,130,0.45)', size: 8 },
         hovertemplate: '%{text}<br>%{x|%b %d, %H:%M} UTC<br>' + track.label + ': %{y}<extra></extra>'
       },
@@ -118,7 +118,7 @@
       title: {
         text: '<b>' + track.title + ' — the race to the top</b><br>' +
           '<span style="font-size:13px;color:#64748b">' + track.label + ', ' + direction +
-          ' · ' + track.rows.length + ' teams · ' + phaseName + '</span>',
+          ' · ' + track.rows.length + ' participants · ' + phaseName + '</span>',
         x: 0.02, xanchor: 'left', font: { size: 18, color: '#07101f' }
       },
       font: font, margin: { l: 64, r: 150, t: 84, b: 64 }, height: 420,
