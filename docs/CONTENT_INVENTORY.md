@@ -83,7 +83,7 @@ See [organizer profile sources](ORGANIZER_SOURCES.md) for the new biographies, p
 | IMG (Track 1) — public | THINGS-EEG2 | `gifford2022large` | BioSemi (research-grade) | Part of 88 total | Used in NeuralBench baseline table; THINGS stimuli |
 | IMG (Track 1) — public | Alljoined-1 | `xu2024alljoined` | Emotiv (consumer-grade) | Part of 88 total | THINGS + MS-COCO stimuli |
 | IMG (Track 1) — public | Alljoined-1.6M | `xu2025alljoined` | Emotiv (consumer-grade) | Part of 88 total | ~1.6M trials; MS-COCO stimuli; largest in public pool |
-| IMG (Track 1) — hidden eval | Alljoined hidden evaluation set | — | Emotiv (consumer-grade) | 11 subjects | Cross-subject generalization; Alljoined-provided; same paradigm as Alljoined-1.6M (line 308) |
+| IMG (Track 1) — hidden eval | Alljoined hidden evaluation set | — | Emotiv (consumer-grade) | Not disclosed | Cross-subject generalization; Alljoined-provided; same paradigm as Alljoined-1.6M (line 308) |
 | Sleep (Track 3) — public | SleepEDF-Extended | `kemp2000analysis` | — | Part of 1,223 total | Standard sleep-staging benchmark; IEEE TBME 2000 |
 | Sleep (Track 3) — public | Physionet Challenge 2018 | `ghassemi2018you` | — | Part of 1,223 total | 'You Snooze, You Win' challenge dataset |
 | Sleep (Track 3) — public | HMC-Sleep-staging | `alvarez2022haaglanden` | — | Part of 1,223 total | Haaglanden Medisch Centrum; PhysioNet |
