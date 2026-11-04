@@ -93,11 +93,11 @@ See [organizer profile sources](ORGANIZER_SOURCES.md) for the new biographies, p
 | BCI (Track 2) — public | Dreyer2023 | `dreyer2023large` | — | Part of 193 total | Large EEG DB for motor imagery BCI research |
 | BCI (Track 2) — public | Zyma2019 | `zyma2019electroencephalograms` | — | Part of 193 total | EEG during mental arithmetic task performance |
 | BCI (Track 2) — public | Scherer2015 | `scherer2015individually` | — | Part of 193 total | Individually adapted imagery BCI in end-users with disability |
-| BCI (Track 2) — new public | Competition BCI dataset | — | BrainAmp/actiCAP (research-grade) + auxiliary EOG | 20 subjects x 6 sessions each | 3 mental tasks (kinesthetic MI, mental calculation, word association); Graz + BrainHero paradigms; partial public / partial held-out (lines 326-328) |
-| BCI (Track 2) — hidden eval | BCI hidden test set | — | BrainAmp/actiCAP | Subset of 20 subjects | Sessions 4-6 held out; within-subject cross-session drift (line 328) |
+| BCI (Track 2) — new public | Competition BCI dataset | — | BrainAmp/actiCAP (research-grade) + auxiliary EOG | Public release statistics only; private cohort size undisclosed | 3 mental tasks (kinesthetic MI, mental calculation, word association); Graz + BrainHero paradigms; partial public / partial held-out (lines 326-328) |
+| BCI (Track 2) — hidden eval | BCI hidden test set | — | BrainAmp/actiCAP | Not disclosed | Later sessions and unseen participants; sealed allocation undisclosed |
 | EMG (Track 4) — public | emg2qwerty | `sivakumar2024emg2qwerty` | Dual wrist sEMG wristbands (dry-electrode differential) | 108 users | Touch-typing corpus; QWERTY keyboard; NeuralBench baseline |
 | EMG (Track 4) — new public | Competition EMG training set | — | Same wrist-sEMG hardware | — | Same typing paradigm; released for training (line 332) |
-| EMG (Track 4) — hidden eval | EMG hidden evaluation set | — | Same wrist-sEMG wristbands | 100 new users | Cross-user + cross-session generalization; same paradigm (line 335) |
+| EMG (Track 4) — hidden eval | EMG hidden evaluation set | — | Same wrist-sEMG wristbands | Not disclosed | Cross-user + cross-session generalization; same paradigm (line 335) |
 
 ---
 

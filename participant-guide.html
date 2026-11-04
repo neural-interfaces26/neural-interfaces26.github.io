@@ -141,14 +141,12 @@
     <div class="prepare-step-head">
       <span class="prepare-step-number" aria-hidden="true">02</span>
       <div>
-        <span class="bs-kicker">Optional but recommended · two complementary entry points</span>
-        <h2 id="guides-heading">Start with worked examples.</h2>
-        <p>Each track offers a <strong>NeuralBench start kit</strong> to explore the task and test a model, plus a <strong>Benchopt competition kit</strong> to exercise the competition workflow and submission contract. <strong>Try the entry point closest to your immediate goal.</strong> This does not lock in how you train your final model.</p>
+        <h2 id="guides-heading">Baselines.</h2>
+        <p>Sealed references below use Braindecode 2.0.0 models trained from scratch on the public training data specified for each track for <strong>50 epochs, with seed 42 and batch size 64</strong>, using Adam. The checkpoints were evaluated directly on the competition’s sealed sets, following the competition preprocessing contract. Track 03 sealed references will follow after its opening.</p>
       </div>
     </div>
 
     <span id="baselines" class="section-anchor" aria-hidden="true"></span>
-    <p class="prepare-note">Reference EEGNet and REVE baseline results on hidden sealed data will be added to the baseline performance sections below in due time, to illustrate transfer to the sealed cohorts.</p>
     <div class="prepare-guide-grid prepare-guide-grid--visible">
       <article class="prepare-guide-card" id="prepare-track-1">
         <span class="track-tag"><span class="sr-only">Track </span>01</span>
@@ -187,10 +185,26 @@
               <p>The <code>--debug</code> command quickly checks the NeuralBench task and EEGNet pipeline. Choose this start kit to explore the neuro-specific task, adaptation strategies, and evaluation of catalogue models.</p>
             </div>
           </details>
+          <details class="prepare-track-disclosure prepare-track-disclosure--results" id="sealed-baseline-track-1">
+            <summary>
+              <span class="prepare-disclosure-mark" aria-hidden="true">FINAL</span>
+              <span class="prepare-disclosure-copy"><small>Hidden Alljoined evaluation · single seed</small><strong>Sealed baseline results</strong></span>
+              <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
+            </summary>
+            <div class="prepare-track-disclosure-body">
+              <p class="prepare-track-dataset"><strong>Trained on public THINGS-EEG2, evaluated on the private Alljoined cohort.</strong> Training and inference use the 32 shared named electrodes at 120 Hz, with frozen DINOv2 image targets. The EEG decoder is trained from scratch. Ranking uses Top-5 retrieval after averaging repeated presentations within each participant and image.</p>
+              <div class="prepare-track-table prepare-track-table--sealed" role="table" aria-label="Track 01 sealed baseline results">
+                <div class="prepare-track-table-row head" role="row"><span role="columnheader">Model</span><span role="columnheader">Top-5 subject-aggregated ↑</span><span role="columnheader">Reference</span></div>
+                <div class="prepare-track-table-row" role="row"><span role="cell"><strong>EEGNet</strong></span><span role="cell"><strong>0.0269%</strong><small>Raw accuracy 0.000269</small></span><span role="cell">Compact CNN baseline</span></div>
+                <div class="prepare-track-table-row" role="row"><span role="cell"><strong>EEGITNet</strong></span><span role="cell"><strong>0.0328%</strong><small>Raw accuracy 0.000328</small></span><span role="cell">Strongest completed Track 01 run in the reference sweep</span></div>
+              </div>
+              <p class="prepare-track-reference"><strong>Reading these scores:</strong> higher is better. Codabench reports accuracy as a fraction. The cohort, montage and retrieval gallery differ from warm-up, so the public scores below are not a direct comparison. See the <a href="https://github.com/neural-interfaces26/2026-competition/blob/main/codabench/pages/scientific_faq_image.md" target="_blank" rel="noreferrer noopener">Scientific FAQ</a> for the sealed contract and metric.</p>
+            </div>
+          </details>
           <details class="prepare-track-disclosure prepare-track-disclosure--results" id="baseline-track-1">
             <summary>
               <span class="prepare-disclosure-mark" aria-hidden="true">REF</span>
-              <span class="prepare-disclosure-copy"><small>Public-data reference</small><strong>Baseline results</strong></span>
+              <span class="prepare-disclosure-copy"><small>Public THINGS-EEG2 evaluation</small><strong>Warm-up baseline references</strong></span>
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
@@ -244,10 +258,26 @@
               <p>PROTEUS is the default dataset of <code>_motor_imagery_stream</code>, so no dataset flag is needed. The <code>--debug</code> command quickly checks its session-stream task and EEGNet pipeline.</p>
             </div>
           </details>
+          <details class="prepare-track-disclosure prepare-track-disclosure--results" id="sealed-baseline-track-2">
+            <summary>
+              <span class="prepare-disclosure-mark" aria-hidden="true">FINAL</span>
+              <span class="prepare-disclosure-copy"><small>Hidden PROTEUS evaluation · single seed</small><strong>Sealed baseline results</strong></span>
+              <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
+            </summary>
+            <div class="prepare-track-disclosure-body">
+              <p class="prepare-track-dataset"><strong>Trained on the public PROTEUS training split, evaluated on sealed sessions and participants.</strong> Inputs contain 41 EEG channels at 120 Hz. Evaluation supplies four-second windows one at a time, chronologically, with state reset between sessions. Ranking averages balanced accuracy over participant × session × interface cells.</p>
+              <div class="prepare-track-table prepare-track-table--sealed" role="table" aria-label="Track 02 sealed baseline results">
+                <div class="prepare-track-table-row head" role="row"><span role="columnheader">Model</span><span role="columnheader">Balanced accuracy cell mean ↑</span><span role="columnheader">Reference</span></div>
+                <div class="prepare-track-table-row" role="row"><span role="cell"><strong>EEGNet</strong></span><span role="cell"><strong>49.27%</strong><small>Raw accuracy 0.492657</small></span><span role="cell">Compact CNN baseline</span></div>
+                <div class="prepare-track-table-row" role="row"><span role="cell"><strong>SincShallowNet</strong></span><span role="cell"><strong>58.76%</strong><small>Raw accuracy 0.587648</small></span><span role="cell">Strongest completed Track 02 run in the reference sweep</span></div>
+              </div>
+              <p class="prepare-track-reference"><strong>Reading these scores:</strong> higher is better. The sealed protocol mixes cross-session and cross-subject transfer, while the warm-up reference below uses a purely cross-subject split and session-mean scoring. See the <a href="https://github.com/neural-interfaces26/2026-competition/blob/main/codabench/pages/scientific_faq_bci.md" target="_blank" rel="noreferrer noopener">Scientific FAQ</a> for the sealed contract and metric.</p>
+            </div>
+          </details>
           <details class="prepare-track-disclosure prepare-track-disclosure--results" id="baseline-track-2">
             <summary>
               <span class="prepare-disclosure-mark" aria-hidden="true">REF</span>
-              <span class="prepare-disclosure-copy"><small>Public-data reference</small><strong>Baseline results</strong></span>
+              <span class="prepare-disclosure-copy"><small>Public PROTEUS evaluation</small><strong>Warm-up baseline references</strong></span>
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
@@ -271,6 +301,7 @@
           <a href="https://github.com/neural-interfaces26/2026-competition/tree/main/tracks/sleep_onset" target="_blank" rel="noreferrer noopener">Open the Track 03 competition kit ↗</a>
           <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track3_sleep_onset.html" target="_blank" rel="noreferrer noopener">Open Track 03 on NeuralBench ↗</a>
         </div>
+        <p class="prepare-track-reference"><strong>Sealed opening postponed.</strong> Track 03 remains closed during final readiness checks. We aim to open in the coming days. Follow the <a href="rules.html#faq-track3-opening">opening update</a>. Local development on public Muse data remains available.</p>
         <div class="prepare-guide-tools">
           <details class="prepare-track-disclosure">
             <summary>
@@ -304,7 +335,7 @@
           <details class="prepare-track-disclosure prepare-track-disclosure--results" id="baseline-track-3">
             <summary>
               <span class="prepare-disclosure-mark" aria-hidden="true">REF</span>
-              <span class="prepare-disclosure-copy"><small>Public-data reference</small><strong>Baseline results</strong></span>
+              <span class="prepare-disclosure-copy"><small>Public Muse evaluation</small><strong>Warm-up baseline references</strong></span>
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
@@ -357,10 +388,26 @@
               <p>The <code>--debug</code> command quickly checks the NeuralBench task and VEMG2Pose pipeline. Choose this start kit to explore the neuro-specific task, batch-robust inference, and evaluation of catalogue models.</p>
             </div>
           </details>
+          <details class="prepare-track-disclosure prepare-track-disclosure--results" id="sealed-baseline-track-4">
+            <summary>
+              <span class="prepare-disclosure-mark" aria-hidden="true">FINAL</span>
+              <span class="prepare-disclosure-copy"><small>Hidden EMG-to-Pose evaluation · single seed</small><strong>Sealed baseline results</strong></span>
+              <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
+            </summary>
+            <div class="prepare-track-disclosure-body">
+              <p class="prepare-track-dataset"><strong>Trained on public EMG2Pose, evaluated on the private sealed cohort.</strong> Inputs are independent five-second windows of 16-channel EMG at 2 kHz. The sealed ranking metric is Mean Angular MAE per subject, giving every participant equal weight.</p>
+              <div class="prepare-track-table prepare-track-table--sealed" role="table" aria-label="Track 04 sealed baseline results">
+                <div class="prepare-track-table-row head" role="row"><span role="columnheader">Model</span><span role="columnheader">Mean Angular MAE per subject ↓</span><span role="columnheader">Reference</span></div>
+                <div class="prepare-track-table-row" role="row"><span role="cell"><strong>VEMG2Pose</strong></span><span role="cell"><strong>18.61°</strong></span><span role="cell">Task-specific baseline architecture</span></div>
+                <div class="prepare-track-table-row" role="row"><span role="cell"><strong>EMG2QwertyNet</strong></span><span role="cell"><strong>17.61°</strong></span><span role="cell">Strongest completed EMG run in the reference sweep</span></div>
+              </div>
+              <p class="prepare-track-reference"><strong>Reading these scores:</strong> lower is better. These are subject-mean errors, rather than pooled Angular MAE. See the <a href="https://github.com/neural-interfaces26/2026-competition/blob/main/codabench/pages/scientific_faq_emg.md" target="_blank" rel="noreferrer noopener">Scientific FAQ</a> for the sealed contract and metric.</p>
+            </div>
+          </details>
           <details class="prepare-track-disclosure prepare-track-disclosure--results" id="baseline-track-4">
             <summary>
               <span class="prepare-disclosure-mark" aria-hidden="true">REF</span>
-              <span class="prepare-disclosure-copy"><small>Public-data reference</small><strong>Baseline result</strong></span>
+              <span class="prepare-disclosure-copy"><small>Public EMG2Pose evaluation</small><strong>Warm-up baseline reference</strong></span>
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
@@ -369,7 +416,7 @@
                 <div class="prepare-track-table-row head" role="row"><span role="columnheader">Baseline</span><span role="columnheader">Family</span><span role="columnheader">Params</span><span role="columnheader">Train</span><span role="columnheader">Reference score</span><span role="columnheader">Configuration</span></div>
                 <div class="prepare-track-table-row" role="row"><span role="cell"><strong>NeuroPose</strong><small>Liu et al., 2021</small></span><span role="cell">Pose CNN</span><span role="cell">-</span><span role="cell">paper</span><span role="cell">MAE 17.5 ± 1.5°</span><span role="cell"><code>tasks/emg/pose/config.yaml</code></span></div>
               </div>
-              <p class="prepare-track-reference"><strong>Reference values:</strong> Mean ± standard deviation from NeuralBench (Banville et al., 2026), Table 1.</p>
+              <p class="prepare-track-reference"><strong>Reference values:</strong> Mean ± standard deviation from NeuralBench (Banville et al., 2026), Table 1. These are public-data reference results. Sealed ranking uses <strong>Mean Angular MAE per subject (deg)</strong>, giving every subject equal weight. Pooled Angular MAE remains diagnostic.</p>
             </div>
           </details>
         </div>
@@ -427,7 +474,7 @@
       <li><span>3</span><strong>Validate and ZIP</strong><small>Test inference locally with Benchopt, then zip the contents of the submission folder.</small></li>
       <li><span>4</span><strong>Upload and check</strong><small>Submit through My Submissions and confirm that evaluation succeeds.</small></li>
     </ol>
-    <p class="prepare-note"><strong>Before uploading:</strong> validate your ZIP locally. Read the <a href="rules.html#rule-caps">phase quotas</a>, <a href="rules.html#faq-leaderboard">automatic leaderboard selection</a> and <a href="rules.html#faq-sealed-feedback">sealed feedback rules</a>. Select <strong>Sealed Final Phase</strong> from November 5 at 00:01 CET (UTC+01:00). Only sealed scores determine the final ranking.</p>
+    <p class="prepare-note"><strong>Before uploading:</strong> validate your ZIP locally. Read the <a href="rules.html#rule-caps">phase quotas</a>, <a href="rules.html#faq-leaderboard">automatic leaderboard selection</a> and <a href="rules.html#faq-sealed-feedback">sealed feedback rules</a>. For Tracks 01, 02 and 04, select <strong>Sealed Final Phase</strong> from November 5 at 00:01 CET (UTC+01:00). Wait for the <a href="rules.html#faq-track3-opening">Track 03 opening announcement</a> before submitting there. Only sealed scores determine the final ranking.</p>
     <div class="prepare-portal-grid" id="codabench-submission-guides" aria-label="Codabench Submission Guide pages by track">
       <article class="prepare-portal-card">
         <div class="prepare-portal-head"><span class="track-tag"><span class="sr-only">Track </span>01</span><div><span class="bs-kicker">Codabench Submission Guide</span><h3>EEG-to-Image</h3></div></div>

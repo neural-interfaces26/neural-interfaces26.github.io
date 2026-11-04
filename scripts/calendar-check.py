@@ -295,9 +295,9 @@ class CalendarChecks(unittest.TestCase):
     def test_baseline_comparison_belongs_in_the_participant_guide(self):
         rules = (ROOT / "rules.html").read_text()
         self.assertIn('href="participant-guide.html#baselines"', rules)
-        self.assertIn("will be added in due time", rules)
+        self.assertIn("separate public warm-up references from sealed results", rules)
         guide = (ROOT / "participant-guide.html").read_text()
-        self.assertIn("Reference EEGNet and REVE baseline results on hidden sealed data", guide)
+        self.assertIn("Sealed references below use Braindecode 2.0.0 models trained from scratch", guide)
         if COMPETITION.is_dir():
             pages = COMPETITION / "codabench" / "pages"
             terms = (pages / "terms.md").read_text()

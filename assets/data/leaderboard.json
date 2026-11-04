@@ -48,15 +48,16 @@
      "prec": 2,
      "leader": null,
      "rows": [],
-     "record": []
+     "record": [],
+     "opening_notice": "Track 03 sealed submissions are not yet open while final readiness checks are completed. We aim to open in the coming days. The opening will be announced on this website, Codabench and Discord."
     },
     {
      "id": 4,
      "comp": 17984,
      "phase": 30151,
      "title": "Track 4: EMG-to-Pose",
-     "metric": "angular_mae",
-     "label": "Angular MAE (\u00b0)",
+     "metric": "angular_mae_subject_mean",
+     "label": "Mean Angular MAE per subject (deg)",
      "higher": false,
      "color": "#CC79A7",
      "participants": 660,
@@ -7116,15 +7117,16 @@
    "prec": 2,
    "leader": null,
    "rows": [],
-   "record": []
+   "record": [],
+   "opening_notice": "Track 03 sealed submissions are not yet open while final readiness checks are completed. We aim to open in the coming days. The opening will be announced on this website, Codabench and Discord."
   },
   {
    "id": 4,
    "comp": 17984,
    "phase": 30151,
    "title": "Track 4: EMG-to-Pose",
-   "metric": "angular_mae",
-   "label": "Angular MAE (\u00b0)",
+   "metric": "angular_mae_subject_mean",
+   "label": "Mean Angular MAE per subject (deg)",
    "higher": false,
    "color": "#CC79A7",
    "participants": 660,

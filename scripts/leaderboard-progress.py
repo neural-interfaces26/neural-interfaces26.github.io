@@ -16,11 +16,17 @@ import matplotlib.pyplot as plt
 PHASES = {
     "sealed": {
         "name": "Sealed Final Phase",
+        # Remove the notice when the Track 03 opening is announced.
+        "opening_notices": {
+            3: "Track 03 sealed submissions are not yet open while final readiness checks are completed. "
+               "We aim to open in the coming days. "
+               "The opening will be announced on this website, Codabench and Discord."
+        },
         "tracks": [
             (17974, 30149, "top5_acc_subject_agg", "Top-5 subject-aggregated", True, "#0072B2"),
             (17982, 30483, "balanced_accuracy_cell_mean", "Cell-mean balanced accuracy", True, "#009E73"),
             (17983, 30147, "wbmae_macro", "Seen/unseen macro W-bMAE (s)", False, "#D55E00"),
-            (17984, 30151, "angular_mae", "Angular MAE (°)", False, "#CC79A7"),
+            (17984, 30151, "angular_mae_subject_mean", "Mean Angular MAE per subject (deg)", False, "#CC79A7"),
         ],
     },
     "current": {
@@ -121,7 +127,8 @@ def plot(tracks, now):
         rows, rec, higher, color = t["rows"], t["record"], t["higher"], t["color"]
         if not rows:
             ax.set_title(f'{t["title"]}\n{t["label"]}', loc="left")
-            ax.text(0.5, 0.5, "No published sealed scores yet", transform=ax.transAxes,
+            message = "Opening soon" if t.get("opening_notice") else "No published sealed scores yet"
+            ax.text(0.5, 0.5, message, transform=ax.transAxes,
                     ha="center", va="center", color="#64748b")
             ax.set_xticks([])
             ax.set_yticks([])
@@ -168,10 +175,10 @@ def table_html(i, t, phase_name):
                    f'<td>{fmt(r["score"])}</td><td>{"Leader" if rank == 1 else fmt(delta)}</td>'
                    f'<td>{r["date"]:%b %d}</td></tr>')
     if not ranked:
-        message = "No published scores yet."
-        if phase_name == "Sealed Final Phase":
+        message = t.get("opening_notice") or "No published scores yet."
+        if phase_name == "Sealed Final Phase" and not t.get("opening_notice"):
             message += " Sealed evaluation runs November 5 at 00:01 to November 21 at 23:59 CET (UTC+01:00)."
-        trs.append(f'<tr><td colspan="6">{message}</td></tr>')
+        trs.append(f'<tr><td colspan="6">{e(message)}</td></tr>')
     summary = (f"Top {min(TABLE_ROWS, len(ranked))} of {len(ranked)} ranked entries. "
                if ranked else "No published results yet. ")
     return (f'<div class="lb-chart" id="lb-chart-{i}" role="img" aria-label="{e(t["title"])} record progression"></div>\n'
@@ -201,25 +208,25 @@ def serialized_track(t):
                    if t["leader"] else None),
         "rows": [{**r, "date": r["date"].isoformat(timespec="minutes")} for r in t["rows"]],
         "record": [{**r, "date": r["date"].isoformat(timespec="minutes")} for r in t["record"]],
-    }
+    } | ({"opening_notice": t["opening_notice"]} if t.get("opening_notice") else {})
 
 
 def update_page(phases, now):
     page = PAGE.read_text()
     stamp = f"{now:%b %d, %Y %H:%M} UTC"
     tracks = phases["sealed"]["tracks"]
-    counts = [f"Track {t['id']} has {t['participants']:,}" +
-              (" registered participants" if i == 0 else "")
-              for i, t in enumerate(tracks)]
+    counts = [f"{t['participants']:,}" for t in tracks]
     registrations = ", ".join(counts[:-1]) + " and " + counts[-1]
-    page = splice(page, "hero", "The sealed final runs from November 5 to 21, 2026. "
-                  f"{registrations}. Follow the results below, updated daily.")
+    page = splice(page, "hero", "Tracks 01, 02 and 04 run sealed evaluation November 5–21, 2026. "
+                  f"Track 03 opens later. {registrations} participants are registered in Tracks 01–04 respectively. "
+                  "Follow the results below, updated daily.")
     for i, t in enumerate(tracks, 1):
         page = re.sub(rf'(<strong id="lb-metric-{i}">)[^<]*(</strong>)',
                       lambda m: m[1] + html.escape(t["label"]) + m[2], page)
         page = splice(page, f"t{i}", table_html(i, t, phases["sealed"]["name"]))
         leader = (f"leader {html.escape(t['leader']['team'])} at {t['leader']['score']:.{t['prec']}f}"
-                  if t["leader"] else "awaiting sealed results")
+                  if t["leader"] else "opening soon" if t.get("opening_notice")
+                  else "awaiting published results")
         page = splice(page, f"foot{i}", f"{len(t['rows'])} ranked entries · {t['participants']} registered participants · "
                       f"{leader} · updated {stamp}")
     serialized_phases = {
@@ -250,6 +257,8 @@ def main():
                            "metric": key, "prec": prec, "participants": participants,
                            "label": label, "higher": higher, "color": color, "rows": rows,
                            "record": record_curve(rows, higher)})
+            if i in definition.get("opening_notices", {}):
+                tracks[-1]["opening_notice"] = definition["opening_notices"][i]
             tracks[-1]["leader"] = ranked_rows(tracks[-1])[0] if rows else None
         phases[phase_key] = {"name": definition["name"], "tracks": tracks}
     tracks = phases["sealed"]["tracks"]

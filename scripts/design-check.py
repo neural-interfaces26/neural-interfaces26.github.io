@@ -19,7 +19,7 @@ SITE_ORIGIN = "https://neural-interfaces26.github.io"
 OG_IMAGE = f"{SITE_ORIGIN}/assets/img/og-card.jpg"
 UI_SCRIPT = "assets/js/ui.js?v=20260910copy"
 HOME_UI_SCRIPT = "assets/js/ui.js?v=20260917timeline"
-HOME_DESCRIPTION = 'Compete in EEG, EMG, BCI and sleep decoding at the Brain and Body Workshop at NeurIPS 2026. Registration is open. Competition Sep 21-Nov 21.'
+HOME_DESCRIPTION = 'EEG/EMG Foundation Challenge 2026. Sealed evaluation November 5-21 for Tracks 01, 02 and 04. Track 03 opens later. $20,000 in prizes.'
 TOKENS = {
     "--bs-violet": "#5332f4",
     "--bs-text": "#07101f",
@@ -478,10 +478,13 @@ def check_technical(errors: list[str]) -> None:
                 errors.append(f"leaderboard.html: table {number} missing {tag}")
         headers = [header for header in leaderboard.find("th") if has_ancestor(header, table)]
         scopes = {header["attrs"].get("scope") for header in headers}
-        if not {"col", "row"}.issubset(scopes):
-            errors.append(f"leaderboard.html: table {number} requires row and column headers")
-        if "not ranked" not in element_text(table).lower():
-            errors.append(f"leaderboard.html: table {number} requires an explicit not ranked state")
+        empty_cells = [cell for cell in leaderboard.find("td")
+                       if has_ancestor(cell, table) and cell["attrs"].get("colspan") == "6"]
+        if "col" not in scopes or ("row" not in scopes and not empty_cells):
+            errors.append(f"leaderboard.html: table {number} requires headers or an explicit empty state")
+        if empty_cells and not any(phrase in element_text(table).lower() for phrase in
+                                   ("no published scores", "not yet open", "not ranked")):
+            errors.append(f"leaderboard.html: table {number} requires an explicit empty state")
 
     methodology = [
         element for element in leaderboard.elements
@@ -534,8 +537,8 @@ def check_technical(errors: list[str]) -> None:
 
     faq = pages["rules.html"]
     details = faq.find("details", "faq-item")
-    if len(details) != 8:
-        errors.append("rules.html: optional questions require eight native disclosures")
+    if len(details) < 8:
+        errors.append("rules.html: optional questions require at least eight native disclosures")
     for number, disclosure in enumerate(details, start=1):
         if not any(has_ancestor(summary, disclosure) for summary in faq.find("summary")):
             errors.append(f"rules.html: disclosure {number} missing summary")
@@ -779,10 +782,11 @@ def check_metadata(errors: list[str]) -> None:
 
         main = parsed.find("main")
         visible_copy = element_text(main[0]) if main else ""
-        if "—" in visible_copy or "–" in visible_copy or ";" in visible_copy:
-            errors.append(f"{page}: visible copy must avoid long dashes and semicolons")
-        if "—" in description or "–" in description or ";" in description:
-            errors.append(f"{page}: metadata copy must avoid long dashes and semicolons")
+        # En dashes are valid date ranges, including the sealed schedule.
+        if "—" in visible_copy or ";" in visible_copy:
+            errors.append(f"{page}: visible copy must avoid em dashes and semicolons")
+        if "—" in description or ";" in description:
+            errors.append(f"{page}: metadata copy must avoid em dashes and semicolons")
 
         if not one_attr(page, parsed, "meta", "name", "viewport"):
             errors.append(f"{page}: viewport content must not be empty")

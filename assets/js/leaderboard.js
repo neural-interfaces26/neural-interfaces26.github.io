@@ -65,8 +65,9 @@
       var empty = document.createElement('tr');
       var message = document.createElement('td');
       message.colSpan = 6;
-      message.textContent = 'No published scores yet.' + (phaseName === 'Sealed Final Phase' ?
-        ' Sealed evaluation runs November 5 at 00:01 to November 21 at 23:59 CET (UTC+01:00).' : '');
+      message.textContent = track.opening_notice || ('No published scores yet.' +
+        (phaseName === 'Sealed Final Phase' ?
+          ' Sealed evaluation runs November 5 at 00:01 to November 21 at 23:59 CET (UTC+01:00).' : ''));
       empty.appendChild(message);
       body.appendChild(empty);
     }
@@ -141,14 +142,14 @@
     var phase = phases[key];
     if (!phase) return;
     selected = key;
-    var counts = phase.tracks.map(function (track, index) {
-      return 'Track ' + track.id + ' has ' + Number(track.participants).toLocaleString('en-US') +
-        (index === 0 ? ' registered participants' : '');
+    var counts = phase.tracks.map(function (track) {
+      return Number(track.participants).toLocaleString('en-US');
     });
-    var registrations = counts.slice(0, -1).join(', ') + ' and ' + counts[counts.length - 1];
+    var registrations = counts.slice(0, -1).join(', ') + ' and ' + counts[counts.length - 1] +
+      ' participants are registered in Tracks 01–04 respectively';
     var hero = document.querySelector('.page-hero-copy > p');
     if (hero) {
-      hero.textContent = (key === 'sealed' ? 'The sealed final runs from November 5 to 21, 2026. ' :
+      hero.textContent = (key === 'sealed' ? 'Tracks 01, 02 and 04 run sealed evaluation November 5–21, 2026. Track 03 opens later. ' :
         phase.name + ' is complete. ') + registrations + '. Follow the results below, updated daily.';
     }
     phase.tracks.forEach(function (track) {
@@ -160,7 +161,8 @@
       if (foot) {
         foot.textContent = track.rows.length + ' ranked entries · ' + track.participants +
           ' registered participants · ' + (track.leader ? 'leader ' + track.leader.team + ' at ' +
-          score(track.leader.score, track.prec) : 'awaiting sealed results') + ' · updated ' + data.updated.replace('T', ' ') + ' UTC';
+          score(track.leader.score, track.prec) : (track.opening_notice ?
+            'opening soon' : 'awaiting published results')) + ' · updated ' + data.updated.replace('T', ' ') + ' UTC';
       }
     });
     if (status) status.textContent = 'Showing: ' + phase.name;

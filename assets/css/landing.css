@@ -4835,6 +4835,8 @@ body.menu-open { overflow: hidden; }
 .prepare-track-table-row strong { color: var(--bs-text); font-size: 13px; }
 .prepare-track-table-row small { display: block; margin-top: 3px; font-size: 10px; }
 .prepare-track-table-row code { font-size: 10px; }
+.prepare-track-table--sealed { min-width: 0; }
+.prepare-track-table--sealed .prepare-track-table-row { grid-template-columns: 1fr 1.2fr 1.4fr; }
 
 .prepare-note { max-width: 86ch; margin: 22px 0 0; color: var(--bs-muted); font-size: 14px; line-height: 1.55; }
 .prepare-note strong { color: var(--bs-text); }
@@ -5770,3 +5772,11 @@ body.menu-open { overflow: hidden; }
 .track-contract-alert > strong { display: block; color: inherit; font-size: 14px; line-height: 1.4; }
 .track-contract-alert p { margin: 7px 0 0; color: inherit; font-size: 14px; line-height: 1.55; }
 .track-contract-alert a { color: inherit; font-weight: 700; text-underline-offset: 3px; }
+
+/* Sealed launch: distinguish the active schedule from Track 03's pending opening. */
+.hero-alerts .launch-alert-sealed { grid-column: auto; }
+.launch-alert-track3 { justify-content: flex-start; }
+.launch-alert-track3 .launch-alert-label { font-size: 15px; white-space: normal; }
+.launch-alert-track3 .launch-alert-label i { animation: none; }
+.launch-alert-track3 .launch-alert-detail,
+.launch-alert-track3 .launch-alert-detail a { color: inherit; }
