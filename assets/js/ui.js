@@ -279,7 +279,7 @@
     const update = () => {
       const now = Date.now();
       let progress = 0;
-      let status = 'Registration open';
+      let status = 'Competition preparation';
 
       if (now >= dates.ceremonyEnd) {
         progress = 100;

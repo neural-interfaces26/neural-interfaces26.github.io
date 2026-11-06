@@ -530,7 +530,7 @@ def check_technical(errors: list[str]) -> None:
         links = {link["attrs"].get("href") for link in register.find("a") if has_ancestor(link, entry)}
         expected = {f"https://www.codabench.org/competitions/{portal}/", f"https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/{guide}"}
         if links != expected or entry["attrs"].get("id") != f"enter-{number}" or not entry["attrs"].get("aria-labelledby"):
-            errors.append(f"register.html: track {number} must contain only its guide and Codabench registration")
+            errors.append(f"register.html: track {number} must contain only its guide and Codabench portal")
     register_main = register.find("main")[0]
     if any((link["attrs"].get("href") or "").startswith("leaderboard.html") for link in register.find("a") if has_ancestor(link, register_main)):
         errors.append("register.html: leaderboard links do not belong in registration content")

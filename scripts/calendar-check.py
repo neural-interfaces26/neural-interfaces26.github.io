@@ -89,7 +89,7 @@ class CalendarChecks(unittest.TestCase):
         self.assertIn("Warm-up complete", self.home)
         self.assertIn("Warm-up has ended", self.parsed.banner["aria-label"])
         self.assertIn("Thursday, November 5 at 00:01", self.parsed.banner["aria-label"])
-        self.assertIn("Registration remains open until Thursday, November 5 at 23:59", self.parsed.banner["aria-label"])
+        self.assertIn("Registration closed for all four tracks", self.parsed.banner["aria-label"])
         self.assertIn("CET (UTC+01:00)", self.parsed.banner["aria-label"])
 
     def test_obsolete_platform_card_is_removed(self):
@@ -131,15 +131,16 @@ class CalendarChecks(unittest.TestCase):
     def test_registration_and_rules_are_consistent(self):
         for filename in ("index.html", "register.html", "rules.html"):
             source = (ROOT / filename).read_text()
-            self.assertIn("November 5", source, filename)
-            self.assertIn("23:59 CET (UTC+01:00)", source, filename)
-            self.assertNotRegex(source, r"(?i)registration (?:has )?closed", filename)
+            self.assertRegex(source, r"(?i)registration closed", filename)
+            self.assertNotRegex(source, r"(?i)registration (?:remains|is) open", filename)
+            self.assertNotIn("forms.gle", source, filename)
             self.assertNotIn("October 24", source, filename)
         if COMPETITION.is_dir():
             for filename in ("registration.md", "timeline.md", "terms.md"):
                 source = (COMPETITION / "codabench/pages" / filename).read_text()
-                self.assertRegex(source, r"Registration remains open", filename)
-                self.assertNotRegex(source, r"(?i)registration (?:has )?closed", filename)
+                self.assertRegex(source, r"Registration closed", filename)
+                self.assertNotRegex(source, r"(?i)registration (?:remains|is) open", filename)
+                self.assertNotIn("forms.gle", source, filename)
         rules = (ROOT / "rules.html").read_text()
         self.assertIn("5 submissions total per participant per track", rules)
         self.assertIn("Nov 22-30", rules)
@@ -150,7 +151,8 @@ class CalendarChecks(unittest.TestCase):
         for filename in ("index.html", "register.html", "rules.html", "leaderboard.html"):
             source = (ROOT / filename).read_text()
             self.assertNotRegex(source, r"(?i)\bAoE\b|Anywhere on Earth|UTC[−-]12", filename)
-            self.assertIn("CET (UTC+01:00", source, filename)
+            if filename != "register.html":
+                self.assertIn("CET (UTC+01:00", source, filename)
             self.assertNotIn("Paris time", source, filename)
             self.assertNotIn("(Paris)", source, filename)
         self.assertNotIn("compute outage", self.home)
@@ -205,7 +207,8 @@ class CalendarChecks(unittest.TestCase):
             source = (pages / filename).read_text()
             self.assertNotRegex(source, r"Oct(?:ober)? (?:24|25|28|31)\b", filename)
             self.assertNotRegex(source, r"(?i)\bAoE\b|Anywhere on Earth|UTC[−-]12", filename)
-            self.assertIn("CET (UTC+01:00", source, filename)
+            if filename != "registration.md":
+                self.assertIn("CET (UTC+01:00", source, filename)
             self.assertNotIn("Paris time", source, filename)
             self.assertNotIn("compute outage", source, filename)
 
