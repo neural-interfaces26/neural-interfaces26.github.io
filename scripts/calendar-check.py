@@ -142,7 +142,7 @@ class CalendarChecks(unittest.TestCase):
                 self.assertNotRegex(source, r"(?i)registration (?:remains|is) open", filename)
                 self.assertNotIn("forms.gle", source, filename)
         rules = (ROOT / "rules.html").read_text()
-        self.assertIn("5 submissions total per participant per track", rules)
+        self.assertIn("5 submissions total per team per track", rules)
         self.assertIn("Nov 22-30", rules)
         self.assertIn("Dec 1", rules)
         self.assertNotIn("shift all downstream deadlines", rules)
@@ -198,7 +198,7 @@ class CalendarChecks(unittest.TestCase):
             "Saturday, November 21 at 23:59",
             "Europe/Paris",
             "17 calendar days",
-            "5 submissions total per participant per track",
+            "5 submissions total per team per track",
             "Nov 22–30",
             "December 1",
         ):
@@ -246,8 +246,8 @@ class CalendarChecks(unittest.TestCase):
         for phrase in (
             "5 submissions per participant per day per track",
             "100 submissions total per participant per track",
-            "1 submission per participant per day per track",
-            "5 submissions total per participant per track",
+            "1 submission per team per day per track",
+            "5 submissions total per team per track",
         ):
             self.assertIn(phrase, rules)
         for filename in ("rules.html", "leaderboard.html"):
@@ -263,8 +263,8 @@ class CalendarChecks(unittest.TestCase):
         pages = COMPETITION / "codabench" / "pages"
         for filename in ("terms.md", "timeline.md"):
             source = (pages / filename).read_text()
-            self.assertIn("5 submissions total per participant per track", source, filename)
-            self.assertIn("1 submission per participant per day per track", source, filename)
+            self.assertIn("5 submissions total per team per track", source, filename)
+            self.assertIn("1 submission per team per day per track", source, filename)
             self.assertIn("best eligible sealed score", source, filename)
 
     def test_sealed_feedback_is_explained_without_exposing_files(self):
