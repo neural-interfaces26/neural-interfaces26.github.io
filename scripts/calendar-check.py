@@ -178,7 +178,7 @@ class CalendarChecks(unittest.TestCase):
                 self.assertEqual(warmup["max_submissions_per_day"], "5")
                 self.assertEqual(warmup["max_submissions"], "100")
                 self.assertEqual(final["max_submissions_per_day"], "1")
-                self.assertEqual(final["max_submissions"], "5")
+                self.assertEqual(final["max_submissions"], "7" if track == "bci" else "5")
                 self.assertEqual(warmup["execution_time_limit"], "3600")
                 self.assertEqual(final["execution_time_limit"], "3600")
                 for name in ("hide_output", "hide_prediction_output", "hide_score_output"):
