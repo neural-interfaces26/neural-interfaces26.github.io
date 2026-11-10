@@ -149,7 +149,7 @@
       ' participants are registered in Tracks 01–04 respectively';
     var hero = document.querySelector('.page-hero-copy > p');
     if (hero) {
-      hero.textContent = (key === 'sealed' ? 'Tracks 01, 02 and 04 run sealed evaluation November 5–21, 2026. Track 03 opens later. ' :
+      hero.textContent = (key === 'sealed' ? 'Sealed final · Deadline November 21, 2026. ' :
         phase.name + ' is complete. ') + registrations + '. Follow the results below, updated daily.';
     }
     phase.tracks.forEach(function (track) {

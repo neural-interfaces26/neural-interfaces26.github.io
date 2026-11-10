@@ -16,12 +16,6 @@ import matplotlib.pyplot as plt
 PHASES = {
     "sealed": {
         "name": "Sealed Final Phase",
-        # Remove the notice when the Track 03 opening is announced.
-        "opening_notices": {
-            3: "Track 03 sealed submissions are not yet open while final readiness checks are completed. "
-               "We aim to open in the coming days. "
-               "The opening will be announced on this website, Codabench and Discord."
-        },
         "tracks": [
             (17974, 30149, "top5_acc_subject_agg", "Top-5 subject-aggregated", True, "#0072B2"),
             (17982, 30483, "balanced_accuracy_cell_mean", "Cell-mean balanced accuracy", True, "#009E73"),
@@ -217,8 +211,8 @@ def update_page(phases, now):
     tracks = phases["sealed"]["tracks"]
     counts = [f"{t['participants']:,}" for t in tracks]
     registrations = ", ".join(counts[:-1]) + " and " + counts[-1]
-    page = splice(page, "hero", "Tracks 01, 02 and 04 run sealed evaluation November 5–21, 2026. "
-                  f"Track 03 opens later. {registrations} participants are registered in Tracks 01–04 respectively. "
+    page = splice(page, "hero", "Sealed final · Deadline November 21, 2026. "
+                  f"{registrations} participants are registered in Tracks 01–04 respectively. "
                   "Follow the results below, updated daily.")
     for i, t in enumerate(tracks, 1):
         page = re.sub(rf'(<strong id="lb-metric-{i}">)[^<]*(</strong>)',

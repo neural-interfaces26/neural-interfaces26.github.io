@@ -142,7 +142,7 @@
       <span class="prepare-step-number" aria-hidden="true">02</span>
       <div>
         <h2 id="guides-heading">Baselines.</h2>
-        <p>Sealed references below use Braindecode 2.0.0 models trained from scratch on the public training data specified for each track for <strong>50 epochs, with seed 42 and batch size 64</strong>, using Adam. The checkpoints were evaluated directly on the competition’s sealed sets, following the competition preprocessing contract. Track 03 sealed references will follow after its opening.</p>
+        <p>Sealed references for Tracks 01, 02 and 04 use Braindecode 2.0.0 models trained from scratch on the public training data specified for each track for <strong>50 epochs, with seed 42 and batch size 64</strong>, using Adam. The checkpoints were evaluated directly on the competition’s sealed sets, following the competition preprocessing contract. Track 03 uses the validation-selected training recipe described in its results below.</p>
       </div>
     </div>
 
@@ -301,7 +301,6 @@
           <a href="https://github.com/neural-interfaces26/2026-competition/tree/main/tracks/sleep_onset" target="_blank" rel="noreferrer noopener">Open the Track 03 competition kit ↗</a>
           <a href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track3_sleep_onset.html" target="_blank" rel="noreferrer noopener">Open Track 03 on NeuralBench ↗</a>
         </div>
-        <p class="prepare-track-reference"><strong>Sealed opening postponed.</strong> Track 03 remains closed during final readiness checks. We aim to open in the coming days. Follow the <a href="rules.html#faq-track3-opening">opening update</a>. Local development on public Muse data remains available.</p>
         <div class="prepare-guide-tools">
           <details class="prepare-track-disclosure">
             <summary>
@@ -330,6 +329,22 @@
                 <pre tabindex="0" aria-label="Track 03 NeuralBench commands"><span class="line"><span class="ln" aria-hidden="true">$</span><code>pip install neuralbench</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg _sleep_onset_stream --download</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg _sleep_onset_stream --prepare</code></span><span class="line"><span class="ln" aria-hidden="true">$</span><code>neuralbench eeg _sleep_onset_stream -m eegnet --debug</code></span></pre>
               </figure>
               <p>Muse is the default dataset of <code>_sleep_onset_stream</code>, so no dataset flag is needed. The <code>--debug</code> command quickly checks its recording-stream task and EEGNet pipeline.</p>
+            </div>
+          </details>
+          <details class="prepare-track-disclosure prepare-track-disclosure--results" id="sealed-baseline-track-3">
+            <summary>
+              <span class="prepare-disclosure-mark" aria-hidden="true">FINAL</span>
+              <span class="prepare-disclosure-copy"><small>Hidden Muse evaluation · validation-selected models</small><strong>Sealed baseline results</strong></span>
+              <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
+            </summary>
+            <div class="prepare-track-disclosure-body">
+              <p class="prepare-track-dataset"><strong>Trained on public Muse Sleep-Onset EEG, evaluated on the private Muse cohort.</strong> These models use a training loss weighted toward sleep onset, per-window normalization and checkpoint selection on the public validation split. These are model-level training choices. The competition input preprocessing is unchanged.</p>
+              <div class="prepare-track-table prepare-track-table--sealed" role="table" aria-label="Track 03 sealed baseline results">
+                <div class="prepare-track-table-row head" role="row"><span role="columnheader">Model</span><span role="columnheader">Macro W-bMAE (s) ↓</span><span role="columnheader">Reference</span></div>
+                <div class="prepare-track-table-row" role="row"><span role="cell"><strong>EEGNet</strong></span><span role="cell"><strong>54.40 s</strong></span><span role="cell">Compact CNN baseline</span></div>
+                <div class="prepare-track-table-row" role="row"><span role="cell"><strong>SleepStagerChambon2018</strong></span><span role="cell"><strong>50.98 s</strong></span><span role="cell">Strongest completed Track 03 run in the reference sweep</span></div>
+              </div>
+              <p class="prepare-track-reference"><strong>Reading these scores:</strong> lower is better. W-bMAE is computed per recording, averaged within the seen and unseen groups, then averaged equally across the two groups. The training recipe differs from the historical warm-up references below. See the <a href="https://github.com/neural-interfaces26/2026-competition/blob/main/codabench/pages/scientific_faq_sleep.md#scoring" target="_blank" rel="noreferrer noopener">Scientific FAQ</a> for the sealed protocol and metric.</p>
             </div>
           </details>
           <details class="prepare-track-disclosure prepare-track-disclosure--results" id="baseline-track-3">
@@ -474,7 +489,7 @@
       <li><span>3</span><strong>Validate and ZIP</strong><small>Test inference locally with Benchopt, then zip the contents of the submission folder.</small></li>
       <li><span>4</span><strong>Upload and check</strong><small>Submit through My Submissions and confirm that evaluation succeeds.</small></li>
     </ol>
-    <p class="prepare-note"><strong>Before uploading:</strong> validate your ZIP locally. Read the <a href="rules.html#rule-caps">phase quotas</a>, <a href="rules.html#faq-leaderboard">automatic leaderboard selection</a> and <a href="rules.html#faq-sealed-feedback">sealed feedback rules</a>. For Tracks 01, 02 and 04, select <strong>Sealed Final Phase</strong> from November 5 at 00:01 CET (UTC+01:00). Wait for the <a href="rules.html#faq-track3-opening">Track 03 opening announcement</a> before submitting there. Only sealed scores determine the final ranking.</p>
+    <p class="prepare-note"><strong>Before uploading:</strong> validate your ZIP locally. Read the <a href="rules.html#rule-caps">phase quotas</a>, <a href="rules.html#faq-leaderboard">automatic leaderboard selection</a> and <a href="rules.html#faq-sealed-feedback">sealed feedback rules</a>. Select <strong>Sealed Final Phase</strong> and check your Codabench track’s Phases tab for its submission schedule. Only sealed scores determine the final ranking.</p>
     <div class="prepare-portal-grid" id="codabench-submission-guides" aria-label="Codabench Submission Guide pages by track">
       <article class="prepare-portal-card">
         <div class="prepare-portal-head"><span class="track-tag"><span class="sr-only">Track </span>01</span><div><span class="bs-kicker">Codabench Submission Guide</span><h3>EEG-to-Image</h3></div></div>

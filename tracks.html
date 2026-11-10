@@ -91,7 +91,7 @@
       </div>
       <aside class="tracks-warmup-notice" aria-labelledby="tracks-warmup-heading">
         <strong class="tracks-warmup-notice-label" id="tracks-warmup-heading"><i aria-hidden="true"></i>Sealed evaluation · November 5–21</strong>
-        <p>Tracks 01, 02 and 04 run November 5 at 00:01 to November 21 at 23:59 CET (UTC+01:00). <a href="#track-3-opening">Track 03 opens later</a>. Public datasets remain available for training and local checks.</p>
+        <p>Sealed evaluation uses hidden datasets, with a final deadline of November 21 at 23:59 CET (UTC+01:00). Public datasets remain available for training and local checks.</p>
       </aside>
     </div>
   </section>
@@ -300,10 +300,6 @@
 
           </figure>
         <p>Predict from continuous four-channel home EEG how many seconds remain until the first N2 epoch. During Muse evaluation, five-second windows arrive one at a time in chronological order. Models may use past context within the current recording, and their state is reset before the next recording. Evaluation combines new nights from sleepers represented in training with recordings from entirely unseen sleepers, testing night-to-night and inter-person generalization under motion artifacts, impedance changes, and occasional channel dropout.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Weighted binned mean absolute error (W-bMAE) in seconds, with greater weight on errors closer to sleep onset. Seen-sleeper and unseen-sleeper W-bMAE are macro-averaged for the final ranking. Lower scores indicate better performance.</span><span class="track-data-summary"><strong>Sealed evaluation:</strong> private Muse cohort</span></span></p>
-        <aside class="track-contract-alert" id="track-3-opening" aria-labelledby="track-3-opening-heading">
-          <strong id="track-3-opening-heading">Track 03 · Sealed opening postponed</strong>
-          <p>Final readiness checks are still in progress. We aim to open in the coming days. We will announce when submissions open here, on Codabench and on Discord. You can continue developing and testing locally on the public Muse data.</p>
-        </aside>
         <div class="track-guide-buttons">
           <a class="track-guide-button" href="https://github.com/neural-interfaces26/2026-competition/tree/main/tracks/sleep_onset" target="_blank" rel="noreferrer noopener">Open competition starting kit ↗</a>
           <a class="track-guide-button" href="https://facebookresearch.github.io/neuroai/neuralbench/auto_examples/biosignal_challenge_2026/plot_track3_sleep_onset.html" target="_blank" rel="noreferrer noopener">Open Track 03 on NeuralBench ↗</a>

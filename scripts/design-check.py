@@ -19,7 +19,7 @@ SITE_ORIGIN = "https://neural-interfaces26.github.io"
 OG_IMAGE = f"{SITE_ORIGIN}/assets/img/og-card.jpg"
 UI_SCRIPT = "assets/js/ui.js?v=20260910copy"
 HOME_UI_SCRIPT = "assets/js/ui.js?v=20260917timeline"
-HOME_DESCRIPTION = 'EEG/EMG Foundation Challenge 2026. Sealed evaluation November 5-21 for Tracks 01, 02 and 04. Track 03 opens later. $20,000 in prizes.'
+HOME_DESCRIPTION = 'EEG/EMG Foundation Challenge 2026. Hidden-data evaluation across four tracks. Final deadline November 21, 2026. $20,000 in prizes.'
 TOKENS = {
     "--bs-violet": "#5332f4",
     "--bs-text": "#07101f",

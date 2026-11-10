@@ -88,7 +88,7 @@ class CalendarChecks(unittest.TestCase):
         self.assertIn("is-open", self.parsed.banner["class"].split())
         self.assertIn("Warm-up complete", self.home)
         self.assertIn("Warm-up has ended", self.parsed.banner["aria-label"])
-        self.assertIn("Thursday, November 5 at 00:01", self.parsed.banner["aria-label"])
+        self.assertIn("Saturday, November 21 at 23:59", self.parsed.banner["aria-label"])
         self.assertIn("Registration closed for all four tracks", self.parsed.banner["aria-label"])
         self.assertIn("CET (UTC+01:00)", self.parsed.banner["aria-label"])
 
@@ -300,7 +300,7 @@ class CalendarChecks(unittest.TestCase):
         self.assertIn('href="participant-guide.html#baselines"', rules)
         self.assertIn("separate public warm-up references from sealed results", rules)
         guide = (ROOT / "participant-guide.html").read_text()
-        self.assertIn("Sealed references below use Braindecode 2.0.0 models trained from scratch", guide)
+        self.assertIn("Sealed references for Tracks 01, 02 and 04 use Braindecode 2.0.0 models trained from scratch", guide)
         if COMPETITION.is_dir():
             pages = COMPETITION / "codabench" / "pages"
             terms = (pages / "terms.md").read_text()
