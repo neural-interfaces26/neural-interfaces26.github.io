@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16T15:19",
+ "updated": "2026-11-17T15:44",
  "default_phase": "sealed",
  "phases": {
   "sealed": {
@@ -14,16 +14,23 @@
      "label": "Top-5 subject-aggregated",
      "higher": true,
      "color": "#0072B2",
-     "participants": 867,
+     "participants": 868,
      "prec": 6,
      "leader": {
-      "team": "sazeglio",
-      "user": "sazeglio",
+      "team": "jmokim",
+      "user": "jmokim",
       "model": "",
-      "score": 0.001362,
-      "date": "2026-11-14T15:11"
+      "score": 0.001368,
+      "date": "2026-11-17T05:57"
      },
      "rows": [
+      {
+       "team": "jmokim",
+       "user": "jmokim",
+       "model": "",
+       "score": 0.001368,
+       "date": "2026-11-17T05:57"
+      },
       {
        "team": "sazeglio",
        "user": "sazeglio",
@@ -172,6 +179,27 @@
        "date": "2026-11-07T13:44"
       },
       {
+       "team": "PNPL",
+       "user": "gereon",
+       "model": "",
+       "score": 0.001048,
+       "date": "2026-11-17T10:09"
+      },
+      {
+       "team": "sultan_frikha",
+       "user": "sultan_frikha",
+       "model": "",
+       "score": 0.001042,
+       "date": "2026-11-17T12:27"
+      },
+      {
+       "team": "quoc-emotiv",
+       "user": "quoc-emotiv",
+       "model": "",
+       "score": 0.001035,
+       "date": "2026-11-17T02:22"
+      },
+      {
        "team": "MannasAI",
        "user": "rajsinghbani",
        "model": "",
@@ -186,11 +214,18 @@
        "date": "2026-11-15T16:22"
       },
       {
-       "team": "quoc-emotiv",
-       "user": "quoc-emotiv",
+       "team": "huaning",
+       "user": "huaning",
        "model": "",
-       "score": 0.001009,
-       "date": "2026-11-11T06:12"
+       "score": 0.001007,
+       "date": "2026-11-16T15:40"
+      },
+      {
+       "team": "navid_fuman",
+       "user": "navid_fuman",
+       "model": "V",
+       "score": 0.001007,
+       "date": "2026-11-17T03:48"
       },
       {
        "team": "ponpopon",
@@ -205,13 +240,6 @@
        "model": "",
        "score": 0.000997,
        "date": "2026-11-14T06:56"
-      },
-      {
-       "team": "huaning",
-       "user": "huaning",
-       "model": "",
-       "score": 0.000993,
-       "date": "2026-11-12T03:09"
       },
       {
        "team": "24521254",
@@ -515,6 +543,13 @@
        "date": "2026-11-05T09:46"
       },
       {
+       "team": "mahtaao",
+       "user": "mahtaao",
+       "model": "",
+       "score": 0.000791,
+       "date": "2026-11-16T15:47"
+      },
+      {
        "team": "timothewt",
        "user": "timothewt",
        "model": "",
@@ -557,6 +592,13 @@
        "date": "2026-11-16T05:47"
       },
       {
+       "team": "zhrrrr",
+       "user": "zhrrrr",
+       "model": "",
+       "score": 0.000754,
+       "date": "2026-11-17T15:27"
+      },
+      {
        "team": "visualtranslators",
        "user": "Leafy._.Chan",
        "model": "",
@@ -592,8 +634,8 @@
        "date": "2026-11-05T03:42"
       },
       {
-       "team": "Ethan",
-       "user": "Ethan",
+       "team": "YX",
+       "user": "YX",
        "model": "",
        "score": 0.000691,
        "date": "2026-11-10T06:35"
@@ -732,6 +774,13 @@
        "date": "2026-11-07T01:45"
       },
       {
+       "team": "Thought-Police",
+       "user": "dbhaskar",
+       "model": "Mind Align v1",
+       "score": 0.000587,
+       "date": "2026-11-16T18:57"
+      },
+      {
        "team": "hongyi",
        "user": "hongyi",
        "model": "S1",
@@ -758,6 +807,13 @@
        "model": "NICE-baseline",
        "score": 0.000534,
        "date": "2026-11-13T14:25"
+      },
+      {
+       "team": "adolfo_ramirez",
+       "user": "adolfo_ramirez",
+       "model": "Reve_test",
+       "score": 0.000526,
+       "date": "2026-11-16T23:50"
       },
       {
        "team": "elaina",
@@ -809,13 +865,6 @@
        "date": "2026-11-12T08:54"
       },
       {
-       "team": "zhrrrr",
-       "user": "zhrrrr",
-       "model": "",
-       "score": 0.000469,
-       "date": "2026-11-16T04:25"
-      },
-      {
        "team": "UCLA BAIR",
        "user": "udpan",
        "model": "",
@@ -837,6 +886,13 @@
        "date": "2026-11-15T14:46"
       },
       {
+       "team": "LuchoComputor",
+       "user": "LuchoComputor",
+       "model": "EEGNet + CLIP asym",
+       "score": 0.000446,
+       "date": "2026-11-17T10:14"
+      },
+      {
        "team": "StudyPlus",
        "user": "StudyPlus",
        "model": "",
@@ -856,6 +912,13 @@
        "model": "",
        "score": 0.000393,
        "date": "2026-11-11T22:05"
+      },
+      {
+       "team": "devansh0910",
+       "user": "devansh0910",
+       "model": "",
+       "score": 0.000393,
+       "date": "2026-11-17T12:22"
       },
       {
        "team": "louisliu",
@@ -884,6 +947,13 @@
        "model": "",
        "score": 0.000349,
        "date": "2026-11-08T10:48"
+      },
+      {
+       "team": "baiye",
+       "user": "baiye",
+       "model": "",
+       "score": 0.000336,
+       "date": "2026-11-16T16:45"
       },
       {
        "team": "codeking1",
@@ -1034,6 +1104,11 @@
        "date": "2026-11-14T15:11",
        "score": 0.001362,
        "team": "sazeglio"
+      },
+      {
+       "date": "2026-11-17T05:57",
+       "score": 0.001368,
+       "team": "jmokim"
       }
      ]
     },
@@ -1052,16 +1127,16 @@
       "team": "shangeth",
       "user": "shangeth",
       "model": "",
-      "score": 0.851,
-      "date": "2026-11-14T13:44"
+      "score": 0.859,
+      "date": "2026-11-16T23:05"
      },
      "rows": [
       {
        "team": "shangeth",
        "user": "shangeth",
        "model": "",
-       "score": 0.851,
-       "date": "2026-11-14T13:44"
+       "score": 0.859,
+       "date": "2026-11-16T23:05"
       },
       {
        "team": "PNPL",
@@ -1088,8 +1163,8 @@
        "team": "panagiotis_levedogiannis",
        "user": "panagiotis_levedogiannis",
        "model": "",
-       "score": 0.839,
-       "date": "2026-11-15T12:40"
+       "score": 0.841,
+       "date": "2026-11-17T12:21"
       },
       {
        "team": "kyalcin",
@@ -1097,6 +1172,20 @@
        "model": "game_over_squids",
        "score": 0.837,
        "date": "2026-11-14T22:43"
+      },
+      {
+       "team": "liuyin",
+       "user": "liuyin",
+       "model": "T2V6",
+       "score": 0.835,
+       "date": "2026-11-17T08:08"
+      },
+      {
+       "team": "xmqxmq",
+       "user": "xmqxmq",
+       "model": "",
+       "score": 0.835,
+       "date": "2026-11-17T10:27"
       },
       {
        "team": "navattack",
@@ -1113,6 +1202,13 @@
        "date": "2026-11-16T11:32"
       },
       {
+       "team": "KU_MAILAB",
+       "user": "Chang-Min Lee",
+       "model": "GenkiDama",
+       "score": 0.832,
+       "date": "2026-11-17T06:31"
+      },
+      {
        "team": "sungjunwang",
        "user": "sungjunwang",
        "model": "ANCHOR13-v2",
@@ -1120,25 +1216,32 @@
        "date": "2026-11-16T08:45"
       },
       {
-       "team": "xmqxmq",
-       "user": "xmqxmq",
-       "model": "",
-       "score": 0.829,
-       "date": "2026-11-13T15:07"
-      },
-      {
-       "team": "liuyin",
-       "user": "liuyin",
-       "model": "T2p_M7",
-       "score": 0.827,
-       "date": "2026-11-15T10:27"
-      },
-      {
        "team": "bryanyahir03",
        "user": "bryanyahir03",
        "model": "Morganite",
        "score": 0.825,
        "date": "2026-11-12T14:39"
+      },
+      {
+       "team": "kang5554",
+       "user": "kang5554",
+       "model": "",
+       "score": 0.824,
+       "date": "2026-11-17T11:42"
+      },
+      {
+       "team": "tom_ml",
+       "user": "tom_ml",
+       "model": "",
+       "score": 0.823,
+       "date": "2026-11-17T12:04"
+      },
+      {
+       "team": "cool_eeg_winner",
+       "user": "xianglong_bao",
+       "model": "",
+       "score": 0.822,
+       "date": "2026-11-17T02:11"
       },
       {
        "team": "zhuc0626",
@@ -1169,6 +1272,13 @@
        "date": "2026-11-13T14:58"
       },
       {
+       "team": "phlas",
+       "user": "phlas",
+       "model": "",
+       "score": 0.817,
+       "date": "2026-11-17T00:35"
+      },
+      {
        "team": "Phaedrus",
        "user": "Phaedrus",
        "model": "baseline",
@@ -1176,11 +1286,11 @@
        "date": "2026-11-15T06:05"
       },
       {
-       "team": "kang5554",
-       "user": "kang5554",
-       "model": "",
+       "team": "euntack_im",
+       "user": "euntack_im",
+       "model": "iet_541_model",
        "score": 0.815,
-       "date": "2026-11-11T17:05"
+       "date": "2026-11-17T08:07"
       },
       {
        "team": "aimarsilvan",
@@ -1197,20 +1307,6 @@
        "date": "2026-11-11T02:14"
       },
       {
-       "team": "euntack_im",
-       "user": "euntack_im",
-       "model": "iet_476_model",
-       "score": 0.814,
-       "date": "2026-11-10T04:57"
-      },
-      {
-       "team": "cool_eeg_winner",
-       "user": "xianglong_bao",
-       "model": "",
-       "score": 0.814,
-       "date": "2026-11-14T07:09"
-      },
-      {
        "team": "anarghya",
        "user": "anarghya",
        "model": "",
@@ -1225,11 +1321,11 @@
        "date": "2026-11-09T02:11"
       },
       {
-       "team": "KU_MAILAB",
-       "user": "Chang-Min Lee",
+       "team": "fernandosakabe",
+       "user": "fernandosakabe",
        "model": "",
-       "score": 0.81,
-       "date": "2026-11-10T10:24"
+       "score": 0.809,
+       "date": "2026-11-17T06:55"
       },
       {
        "team": "JLShen",
@@ -1239,11 +1335,25 @@
        "date": "2026-11-14T06:10"
       },
       {
+       "team": "speedwagon",
+       "user": "mahdi_ben_ameur",
+       "model": "",
+       "score": 0.809,
+       "date": "2026-11-17T13:29"
+      },
+      {
        "team": "dunktra",
        "user": "dunktra",
        "model": "",
        "score": 0.809,
        "date": "2026-11-15T22:15"
+      },
+      {
+       "team": "momoboi",
+       "user": "momoboi",
+       "model": "new ting",
+       "score": 0.808,
+       "date": "2026-11-17T06:40"
       },
       {
        "team": "jordang1",
@@ -1260,11 +1370,11 @@
        "date": "2026-11-14T19:50"
       },
       {
-       "team": "momoboi",
-       "user": "momoboi",
-       "model": "JSR",
-       "score": 0.806,
-       "date": "2026-11-13T04:04"
+       "team": "Minami",
+       "user": "sekyun",
+       "model": "",
+       "score": 0.807,
+       "date": "2026-11-17T08:17"
       },
       {
        "team": "hocpoc",
@@ -1288,18 +1398,18 @@
        "date": "2026-11-14T18:00"
       },
       {
-       "team": "fernandosakabe",
-       "user": "fernandosakabe",
+       "team": "robs98b",
+       "user": "robs98b",
        "model": "",
-       "score": 0.804,
-       "date": "2026-11-16T10:29"
+       "score": 0.803,
+       "date": "2026-11-16T22:58"
       },
       {
-       "team": "speedwagon",
-       "user": "mahdi_ben_ameur",
-       "model": "jj-pose",
-       "score": 0.802,
-       "date": "2026-11-07T14:23"
+       "team": "Dhiadbh",
+       "user": "Dhiadbh",
+       "model": "Ankara-EEG",
+       "score": 0.801,
+       "date": "2026-11-17T12:06"
       },
       {
        "team": "yiyiyiee",
@@ -1407,6 +1517,13 @@
        "date": "2026-11-14T06:32"
       },
       {
+       "team": "Adrian. T",
+       "user": "Adrian. T",
+       "model": "day2",
+       "score": 0.796,
+       "date": "2026-11-17T08:45"
+      },
+      {
        "team": "rutile",
        "user": "rutile",
        "model": "t2-mix8-real3",
@@ -1442,6 +1559,13 @@
        "date": "2026-11-15T09:09"
       },
       {
+       "team": "Institute for Advanced Consciousness Studies (IACS)",
+       "user": "cedric_cannard",
+       "model": "",
+       "score": 0.793,
+       "date": "2026-11-16T22:50"
+      },
+      {
        "team": "VIBRAINT team",
        "user": "likan_blk",
        "model": "",
@@ -1449,11 +1573,11 @@
        "date": "2026-11-15T16:46"
       },
       {
-       "team": "Institute for Advanced Consciousness Studies (IACS)",
-       "user": "cedric_cannard",
+       "team": "aidpol",
+       "user": "aidpol",
        "model": "",
        "score": 0.793,
-       "date": "2026-11-10T23:06"
+       "date": "2026-11-16T17:27"
       },
       {
        "team": "yongqi",
@@ -1463,18 +1587,25 @@
        "date": "2026-11-08T14:22"
       },
       {
-       "team": "susupro",
-       "user": "susupro",
-       "model": "PROTEUS-DualPhase-Green",
-       "score": 0.789,
-       "date": "2026-11-15T23:44"
-      },
-      {
        "team": "mainguyenanhvu",
        "user": "mainguyenanhvu",
-       "model": "c11152010222f5e",
+       "model": "c1117113504718b",
+       "score": 0.792,
+       "date": "2026-11-17T12:12"
+      },
+      {
+       "team": "susupro",
+       "user": "susupro",
+       "model": "PROTEUS-CAUSAL-LOGEUCLIDEAN-ENSEMBLE",
+       "score": 0.791,
+       "date": "2026-11-17T07:08"
+      },
+      {
+       "team": "Mah",
+       "user": "Mah",
+       "model": "MM5",
        "score": 0.789,
-       "date": "2026-11-16T03:29"
+       "date": "2026-11-17T07:15"
       },
       {
        "team": "limons",
@@ -1498,13 +1629,6 @@
        "date": "2026-11-16T10:31"
       },
       {
-       "team": "Adrian. T",
-       "user": "Adrian. T",
-       "model": "baseline",
-       "score": 0.787,
-       "date": "2026-11-16T06:11"
-      },
-      {
        "team": "xxnnnc",
        "user": "xxnnnc",
        "model": "",
@@ -1512,8 +1636,8 @@
        "date": "2026-11-16T04:13"
       },
       {
-       "team": "Ethan",
-       "user": "Ethan",
+       "team": "YX",
+       "user": "YX",
        "model": "m1107b",
        "score": 0.787,
        "date": "2026-11-07T00:15"
@@ -1540,13 +1664,6 @@
        "date": "2026-11-16T04:50"
       },
       {
-       "team": "Mah",
-       "user": "Mah",
-       "model": "MM4",
-       "score": 0.785,
-       "date": "2026-11-16T11:33"
-      },
-      {
        "team": "lukaskoebis",
        "user": "lukaskoebis",
        "model": "",
@@ -1561,11 +1678,11 @@
        "date": "2026-11-16T03:04"
       },
       {
-       "team": "aidpol",
-       "user": "aidpol",
-       "model": "",
-       "score": 0.782,
-       "date": "2026-11-15T00:19"
+       "team": "NILA",
+       "user": "Lachin",
+       "model": "29SL-R",
+       "score": 0.784,
+       "date": "2026-11-16T18:53"
       },
       {
        "team": "Prime",
@@ -1589,13 +1706,6 @@
        "date": "2026-11-16T11:25"
       },
       {
-       "team": "NILA",
-       "user": "Lachin",
-       "model": "29SL",
-       "score": 0.78,
-       "date": "2026-11-11T18:01"
-      },
-      {
        "team": "noiroao",
        "user": "noiroao",
        "model": "",
@@ -1610,11 +1720,11 @@
        "date": "2026-11-08T15:23"
       },
       {
-       "team": "phlas",
-       "user": "phlas",
-       "model": "",
+       "team": "sisfuse",
+       "user": "sisfuse",
+       "model": "artifacts/full-motor-hierarchy-v104",
        "score": 0.778,
-       "date": "2026-11-10T02:16"
+       "date": "2026-11-17T05:07"
       },
       {
        "team": "Fudan_BME",
@@ -1643,6 +1753,13 @@
        "model": "Tern Atlas III",
        "score": 0.776,
        "date": "2026-11-13T00:55"
+      },
+      {
+       "team": "glioi",
+       "user": "glioi",
+       "model": "",
+       "score": 0.775,
+       "date": "2026-11-16T14:47"
       },
       {
        "team": "vcruz",
@@ -1694,11 +1811,11 @@
        "date": "2026-11-12T02:18"
       },
       {
-       "team": "glioi",
-       "user": "glioi",
-       "model": "",
+       "team": "UBC_neurosci_sbme",
+       "user": "yanzheng",
+       "model": "v8a",
        "score": 0.769,
-       "date": "2026-11-13T10:33"
+       "date": "2026-11-17T06:54"
       },
       {
        "team": "prml",
@@ -1750,6 +1867,13 @@
        "date": "2026-11-06T07:23"
       },
       {
+       "team": "tcs2012",
+       "user": "tcs2012",
+       "model": "s6",
+       "score": 0.765,
+       "date": "2026-11-17T08:34"
+      },
+      {
        "team": "yuchanee",
        "user": "yuchanee",
        "model": "",
@@ -1778,6 +1902,20 @@
        "date": "2026-11-14T18:59"
       },
       {
+       "team": "Mindlab_kyu",
+       "user": "kjh123",
+       "model": "",
+       "score": 0.762,
+       "date": "2026-11-17T12:06"
+      },
+      {
+       "team": "bcilab_dpx",
+       "user": "bcilab_dpx",
+       "model": "",
+       "score": 0.762,
+       "date": "2026-11-16T20:04"
+      },
+      {
        "team": "ritam_26",
        "user": "ritam_26",
        "model": "Tern-7",
@@ -1797,6 +1935,20 @@
        "model": "",
        "score": 0.761,
        "date": "2026-11-14T22:12"
+      },
+      {
+       "team": "isemenkov",
+       "user": "isemenkov",
+       "model": "",
+       "score": 0.761,
+       "date": "2026-11-16T21:52"
+      },
+      {
+       "team": "mohhakami",
+       "user": "mohhakami",
+       "model": "shallow-ea-cropexperts-sessadapt-v4",
+       "score": 0.76,
+       "date": "2026-11-17T00:06"
       },
       {
        "team": "PlynkData",
@@ -1827,6 +1979,13 @@
        "date": "2026-11-14T08:15"
       },
       {
+       "team": "choosec",
+       "user": "choosec",
+       "model": "",
+       "score": 0.757,
+       "date": "2026-11-17T05:05"
+      },
+      {
        "team": "adoroodchi",
        "user": "adoroodchi",
        "model": "",
@@ -1841,11 +2000,11 @@
        "date": "2026-11-10T11:24"
       },
       {
-       "team": "tom_ml",
-       "user": "tom_ml",
+       "team": "lxyxros",
+       "user": "lxyxros",
        "model": "",
        "score": 0.753,
-       "date": "2026-11-05T13:27"
+       "date": "2026-11-17T08:22"
       },
       {
        "team": "period",
@@ -1862,11 +2021,11 @@
        "date": "2026-11-15T12:34"
       },
       {
-       "team": "mohhakami",
-       "user": "mohhakami",
-       "model": "shallow-ea-subject-experts-v3",
-       "score": 0.752,
-       "date": "2026-11-16T00:02"
+       "team": "Francisco_Angulo",
+       "user": "Francisco_Angulo",
+       "model": "Riemann memory + aligned CNN ensemble - L5_BNA causal BN",
+       "score": 0.753,
+       "date": "2026-11-16T20:29"
       },
       {
        "team": "alexgteo",
@@ -1876,20 +2035,6 @@
        "date": "2026-11-14T14:44"
       },
       {
-       "team": "robs98b",
-       "user": "robs98b",
-       "model": "entry-03",
-       "score": 0.752,
-       "date": "2026-11-14T14:33"
-      },
-      {
-       "team": "lxyxros",
-       "user": "lxyxros",
-       "model": "",
-       "score": 0.749,
-       "date": "2026-11-11T11:16"
-      },
-      {
        "team": "varshavarma",
        "user": "varshavarma",
        "model": "",
@@ -1897,11 +2042,25 @@
        "date": "2026-11-08T03:49"
       },
       {
+       "team": "willyjson",
+       "user": "willyjson",
+       "model": "",
+       "score": 0.749,
+       "date": "2026-11-17T00:50"
+      },
+      {
        "team": "yanlinfu",
        "user": "yanlinfu",
        "model": "",
        "score": 0.748,
        "date": "2026-11-12T05:42"
+      },
+      {
+       "team": "whiteram",
+       "user": "whiteram",
+       "model": "",
+       "score": 0.746,
+       "date": "2026-11-16T23:13"
       },
       {
        "team": "teddythebuilder",
@@ -1923,13 +2082,6 @@
        "model": "v3",
        "score": 0.745,
        "date": "2026-11-16T05:23"
-      },
-      {
-       "team": "choosec",
-       "user": "choosec",
-       "model": "",
-       "score": 0.744,
-       "date": "2026-11-07T05:58"
       },
       {
        "team": "LilBrains",
@@ -1960,32 +2112,11 @@
        "date": "2026-11-11T22:04"
       },
       {
-       "team": "UBC_neurosci_sbme",
-       "user": "yanzheng",
-       "model": "v3c-beta=6",
-       "score": 0.742,
-       "date": "2026-11-16T04:48"
-      },
-      {
-       "team": "Francisco_Angulo",
-       "user": "Francisco_Angulo",
-       "model": "Riemann memory + aligned CNN ensemble - LONG",
-       "score": 0.742,
-       "date": "2026-11-15T12:07"
-      },
-      {
        "team": "syehsyoh",
        "user": "syehsyoh",
        "model": "",
        "score": 0.741,
        "date": "2026-11-15T10:46"
-      },
-      {
-       "team": "whiteram",
-       "user": "whiteram",
-       "model": "",
-       "score": 0.741,
-       "date": "2026-11-05T00:59"
       },
       {
        "team": "Synapthor",
@@ -2009,13 +2140,6 @@
        "date": "2026-11-10T13:59"
       },
       {
-       "team": "tcs2012",
-       "user": "tcs2012",
-       "model": "s4",
-       "score": 0.738,
-       "date": "2026-11-15T07:04"
-      },
-      {
        "team": "zhihao_chen",
        "user": "zhihao_chen",
        "model": "",
@@ -2037,13 +2161,6 @@
        "date": "2026-11-10T05:49"
       },
       {
-       "team": "sisfuse",
-       "user": "sisfuse",
-       "model": "full-public-temporal-v10",
-       "score": 0.735,
-       "date": "2026-11-16T02:43"
-      },
-      {
        "team": "chiara",
        "user": "chiara",
        "model": "",
@@ -2058,18 +2175,11 @@
        "date": "2026-11-06T09:25"
       },
       {
-       "team": "dhiadbh",
-       "user": "dhiadbh",
-       "model": "yowaymo",
-       "score": 0.73,
-       "date": "2026-11-15T17:36"
-      },
-      {
        "team": "shamadei",
        "user": "shamadei",
        "model": "",
-       "score": 0.729,
-       "date": "2026-11-08T01:15"
+       "score": 0.732,
+       "date": "2026-11-17T14:43"
       },
       {
        "team": "WholeWave",
@@ -2098,13 +2208,6 @@
        "model": "",
        "score": 0.72,
        "date": "2026-11-16T09:28"
-      },
-      {
-       "team": "isemenkov",
-       "user": "isemenkov",
-       "model": "",
-       "score": 0.72,
-       "date": "2026-11-14T00:42"
       },
       {
        "team": "triniborrell",
@@ -2198,6 +2301,13 @@
        "date": "2026-11-12T11:49"
       },
       {
+       "team": "bill_cn",
+       "user": "bill_cn",
+       "model": "",
+       "score": 0.706,
+       "date": "2026-11-17T14:07"
+      },
+      {
        "team": "judachape",
        "user": "judachape",
        "model": "",
@@ -2247,6 +2357,13 @@
        "date": "2026-11-07T10:51"
       },
       {
+       "team": "luojingwei-hust",
+       "user": "luojingwei-hust",
+       "model": "ensemble",
+       "score": 0.689,
+       "date": "2026-11-17T01:36"
+      },
+      {
        "team": "zzggaa",
        "user": "zzggaa",
        "model": "",
@@ -2259,6 +2376,13 @@
        "model": "",
        "score": 0.687,
        "date": "2026-11-07T11:40"
+      },
+      {
+       "team": "pk3725069",
+       "user": "pk3725069",
+       "model": "",
+       "score": 0.684,
+       "date": "2026-11-16T15:28"
       },
       {
        "team": "hu_ziyan",
@@ -2303,6 +2427,13 @@
        "date": "2026-11-13T13:12"
       },
       {
+       "team": "xcs0406",
+       "user": "xcs0406",
+       "model": "Track2-v16-CBraMod-Covariance",
+       "score": 0.67,
+       "date": "2026-11-17T12:45"
+      },
+      {
        "team": "shky24",
        "user": "shky24",
        "model": "",
@@ -2310,25 +2441,11 @@
        "date": "2026-11-07T18:45"
       },
       {
-       "team": "xcs0406",
-       "user": "xcs0406",
-       "model": "Track2-v14-CBraMod-Covariance",
-       "score": 0.668,
-       "date": "2026-11-16T02:18"
-      },
-      {
        "team": "tuzhiyang",
        "user": "tuzhiyang",
        "model": "",
        "score": 0.667,
        "date": "2026-11-12T15:46"
-      },
-      {
-       "team": "pk3725069",
-       "user": "pk3725069",
-       "model": "",
-       "score": 0.667,
-       "date": "2026-11-15T02:41"
       },
       {
        "team": "harshalsshende",
@@ -2343,6 +2460,13 @@
        "model": "",
        "score": 0.661,
        "date": "2026-11-07T10:37"
+      },
+      {
+       "team": "hajimi101",
+       "user": "hajimi101",
+       "model": "",
+       "score": 0.656,
+       "date": "2026-11-17T15:08"
       },
       {
        "team": "foo10ncoo1",
@@ -2373,11 +2497,11 @@
        "date": "2026-11-14T21:33"
       },
       {
-       "team": "pk3725069",
-       "user": "pk3725069",
+       "team": "594102",
+       "user": "594102",
        "model": "",
-       "score": 0.644,
-       "date": "2026-11-10T11:39"
+       "score": 0.647,
+       "date": "2026-11-17T15:04"
       },
       {
        "team": "shijia",
@@ -2399,6 +2523,13 @@
        "model": "",
        "score": 0.641,
        "date": "2026-11-05T04:52"
+      },
+      {
+       "team": "princeramani",
+       "user": "princeramani",
+       "model": "useful",
+       "score": 0.638,
+       "date": "2026-11-17T03:13"
       },
       {
        "team": "diulei",
@@ -2429,6 +2560,13 @@
        "date": "2026-11-12T10:47"
       },
       {
+       "team": "gbrlmhs",
+       "user": "gbrlmhs",
+       "model": "V0.1",
+       "score": 0.621,
+       "date": "2026-11-16T22:16"
+      },
+      {
        "team": "meghanlendhe",
        "user": "meghanlendhe",
        "model": "adaptive ensemble",
@@ -2443,25 +2581,11 @@
        "date": "2026-11-12T08:52"
       },
       {
-       "team": "gbrlmhs",
-       "user": "gbrlmhs",
-       "model": "v0",
-       "score": 0.617,
-       "date": "2026-11-12T10:08"
-      },
-      {
        "team": "jilijili",
        "user": "jilijili",
        "model": "",
        "score": 0.614,
        "date": "2026-11-13T06:53"
-      },
-      {
-       "team": "princeramani",
-       "user": "princeramani",
-       "model": "useful",
-       "score": 0.614,
-       "date": "2026-11-16T10:51"
       },
       {
        "team": "siu777",
@@ -2597,18 +2721,18 @@
        "date": "2026-11-08T01:00"
       },
       {
-       "team": "bill_cn",
-       "user": "bill_cn",
-       "model": "",
-       "score": 0.57,
-       "date": "2026-11-13T08:48"
-      },
-      {
        "team": "renanserrano",
        "user": "renanserrano",
        "model": "117-s1",
        "score": 0.569,
        "date": "2026-11-12T17:48"
+      },
+      {
+       "team": "daria0428",
+       "user": "daria0428",
+       "model": "",
+       "score": 0.569,
+       "date": "2026-11-17T08:47"
       },
       {
        "team": "sarahman",
@@ -2623,6 +2747,13 @@
        "model": "",
        "score": 0.561,
        "date": "2026-11-12T16:38"
+      },
+      {
+       "team": "ioannachourdaki",
+       "user": "ioannachourdaki",
+       "model": "af_desa",
+       "score": 0.559,
+       "date": "2026-11-17T03:31"
       },
       {
        "team": "axel_barbier",
@@ -2644,6 +2775,13 @@
        "model": "sub1",
        "score": 0.549,
        "date": "2026-11-06T17:09"
+      },
+      {
+       "team": "cbergeat",
+       "user": "cbergeat",
+       "model": "mt dsz nb all",
+       "score": 0.548,
+       "date": "2026-11-17T10:54"
       },
       {
        "team": "ssundha",
@@ -2765,6 +2903,13 @@
        "date": "2026-11-15T04:53"
       },
       {
+       "team": "papayalore",
+       "user": "papayalore",
+       "model": "",
+       "score": 0.498,
+       "date": "2026-11-17T01:05"
+      },
+      {
        "team": "123456789",
        "user": "123456789",
        "model": "",
@@ -2779,25 +2924,11 @@
        "date": "2026-11-12T22:33"
       },
       {
-       "team": "papayalore",
-       "user": "papayalore",
-       "model": "",
-       "score": 0.486,
-       "date": "2026-11-16T09:43"
-      },
-      {
        "team": "arnaultcaillet",
        "user": "arnaultcaillet",
        "model": "",
        "score": 0.477,
        "date": "2026-11-06T07:34"
-      },
-      {
-       "team": "willyjson",
-       "user": "willyjson",
-       "model": "",
-       "score": 0.466,
-       "date": "2026-11-05T09:17"
       },
       {
        "team": "oolongbao",
@@ -2831,8 +2962,8 @@
        "team": "shadowraze",
        "user": "shadowraze",
        "model": "",
-       "score": 0.333,
-       "date": "2026-11-15T17:47"
+       "score": 0.334,
+       "date": "2026-11-16T18:03"
       },
       {
        "team": "pwisz",
@@ -2859,19 +2990,14 @@
        "team": "sunsun"
       },
       {
-       "date": "2026-11-07T14:23",
-       "score": 0.802,
-       "team": "speedwagon"
+       "date": "2026-11-08T05:18",
+       "score": 0.8,
+       "team": "jackietanyen"
       },
       {
        "date": "2026-11-09T02:11",
        "score": 0.81,
        "team": "dshimizu"
-      },
-      {
-       "date": "2026-11-10T04:57",
-       "score": 0.814,
-       "team": "euntack_im"
       },
       {
        "date": "2026-11-11T00:50",
@@ -2889,8 +3015,8 @@
        "team": "PNPL"
       },
       {
-       "date": "2026-11-14T13:44",
-       "score": 0.851,
+       "date": "2026-11-16T23:05",
+       "score": 0.859,
        "team": "shangeth"
       }
      ]
@@ -2904,7 +3030,7 @@
      "label": "Seen/unseen macro W-bMAE (s)",
      "higher": false,
      "color": "#D55E00",
-     "participants": 895,
+     "participants": 897,
      "prec": 2,
      "leader": {
       "team": "PurvKabaria",
@@ -2922,18 +3048,67 @@
        "date": "2026-11-16T04:57"
       },
       {
+       "team": "tcs2012",
+       "user": "tcs2012",
+       "model": "s7",
+       "score": 32.38,
+       "date": "2026-11-17T06:21"
+      },
+      {
+       "team": "YX",
+       "user": "YX",
+       "model": "JCAESTB",
+       "score": 32.43,
+       "date": "2026-11-17T01:28"
+      },
+      {
        "team": "ParsaYousefi",
        "user": "ParsaYousefi",
        "model": "",
-       "score": 32.75,
-       "date": "2026-11-14T21:29"
+       "score": 32.53,
+       "date": "2026-11-17T11:08"
       },
       {
-       "team": "Ethan",
-       "user": "Ethan",
-       "model": "JFLTB",
-       "score": 32.78,
-       "date": "2026-11-16T07:42"
+       "team": "wetiqe",
+       "user": "wetiqe",
+       "model": "",
+       "score": 32.59,
+       "date": "2026-11-17T00:11"
+      },
+      {
+       "team": "Mahir",
+       "user": "Mahir",
+       "model": "",
+       "score": 32.63,
+       "date": "2026-11-15T17:42"
+      },
+      {
+       "team": "Adrian. T",
+       "user": "Adrian. T",
+       "model": "gru_v25b",
+       "score": 32.75,
+       "date": "2026-11-17T06:35"
+      },
+      {
+       "team": "minjaekim",
+       "user": "minjaekim",
+       "model": "",
+       "score": 32.77,
+       "date": "2026-11-17T06:35"
+      },
+      {
+       "team": "capella_t4",
+       "user": "capella_t4",
+       "model": "",
+       "score": 32.87,
+       "date": "2026-11-17T06:30"
+      },
+      {
+       "team": "Phaedrus",
+       "user": "Phaedrus",
+       "model": "Baseline",
+       "score": 33.11,
+       "date": "2026-11-16T11:43"
       },
       {
        "team": "Vitalie Cervinschi",
@@ -2943,18 +3118,81 @@
        "date": "2026-11-14T06:50"
       },
       {
-       "team": "wetiqe",
-       "user": "wetiqe",
-       "model": "Omni-Intellegence Simple Baseline",
-       "score": 33.56,
-       "date": "2026-11-14T14:42"
-      },
-      {
        "team": "ulackconviction",
        "user": "ulackconviction",
-       "model": "r10_cand",
-       "score": 33.81,
-       "date": "2026-11-14T17:41"
+       "model": "r16c_cand",
+       "score": 33.13,
+       "date": "2026-11-17T11:22"
+      },
+      {
+       "team": "PNPL",
+       "user": "gereon",
+       "model": "",
+       "score": 33.26,
+       "date": "2026-11-17T12:19"
+      },
+      {
+       "team": "harish123455",
+       "user": "harish123455",
+       "model": "",
+       "score": 33.31,
+       "date": "2026-11-15T00:54"
+      },
+      {
+       "team": "LIN-BTU-AI",
+       "user": "dulce",
+       "model": "",
+       "score": 33.54,
+       "date": "2026-11-17T09:41"
+      },
+      {
+       "team": "tom_ml",
+       "user": "tom_ml",
+       "model": "",
+       "score": 33.65,
+       "date": "2026-11-17T10:04"
+      },
+      {
+       "team": "Nguyen Duc Thanh",
+       "user": "Nguyen Duc Thanh",
+       "model": "bi_cs_nop3_g55",
+       "score": 33.69,
+       "date": "2026-11-17T13:27"
+      },
+      {
+       "team": "jjbb1234",
+       "user": "jjbb1234",
+       "model": "",
+       "score": 33.74,
+       "date": "2026-11-17T06:59"
+      },
+      {
+       "team": "UTH_NeuralAI",
+       "user": "yiguofan",
+       "model": "",
+       "score": 33.9,
+       "date": "2026-11-17T04:17"
+      },
+      {
+       "team": "bpm",
+       "user": "viceroy",
+       "model": "V1_tf30cmb",
+       "score": 33.99,
+       "date": "2026-11-13T18:46"
+      },
+      {
+       "team": "JLShen",
+       "user": "JLShen",
+       "model": "4a15e116",
+       "score": 34.14,
+       "date": "2026-11-17T02:17"
+      },
+      {
+       "team": "liuyin",
+       "user": "liuyin",
+       "model": "",
+       "score": 34.19,
+       "date": "2026-11-17T08:24"
       },
       {
        "team": "KULMIT",
@@ -2964,11 +3202,116 @@
        "date": "2026-11-15T17:38"
       },
       {
+       "team": "jlwang24",
+       "user": "jlwang24",
+       "model": "stream_v5b",
+       "score": 34.27,
+       "date": "2026-11-17T03:06"
+      },
+      {
        "team": "bayramgurbuz",
        "user": "bayramgurbuz",
        "model": "",
        "score": 34.41,
        "date": "2026-11-16T14:03"
+      },
+      {
+       "team": "susupro",
+       "user": "susupro",
+       "model": "CLEAN8-CU-BASE-SEEN-NARROW",
+       "score": 34.53,
+       "date": "2026-11-17T14:46"
+      },
+      {
+       "team": "x0d36qop",
+       "user": "x0d36qop",
+       "model": "",
+       "score": 34.53,
+       "date": "2026-11-17T14:26"
+      },
+      {
+       "team": "aimarsilvan",
+       "user": "aimarsilvan",
+       "model": "",
+       "score": 34.53,
+       "date": "2026-11-17T12:57"
+      },
+      {
+       "team": "deep07",
+       "user": "deep07",
+       "model": "Ensemble",
+       "score": 34.75,
+       "date": "2026-11-10T20:27"
+      },
+      {
+       "team": "pambadi",
+       "user": "pambadi",
+       "model": "nocturne_sealed3",
+       "score": 34.75,
+       "date": "2026-11-16T23:25"
+      },
+      {
+       "team": "joss-diz",
+       "user": "joss-diz",
+       "model": "sealed-04",
+       "score": 34.96,
+       "date": "2026-11-16T17:29"
+      },
+      {
+       "team": "roei_yanku",
+       "user": "roei_yanku",
+       "model": "",
+       "score": 35.02,
+       "date": "2026-11-14T16:19"
+      },
+      {
+       "team": "lixinyin",
+       "user": "lixinyin",
+       "model": "v14b",
+       "score": 35.08,
+       "date": "2026-11-17T11:55"
+      },
+      {
+       "team": "rod_ferro",
+       "user": "rod_ferro",
+       "model": "",
+       "score": 35.3,
+       "date": "2026-11-16T00:16"
+      },
+      {
+       "team": "yanlinfu",
+       "user": "yanlinfu",
+       "model": "",
+       "score": 35.31,
+       "date": "2026-11-11T02:00"
+      },
+      {
+       "team": "dunktra",
+       "user": "dunktra",
+       "model": "",
+       "score": 35.39,
+       "date": "2026-11-15T22:04"
+      },
+      {
+       "team": "Team Yuyu",
+       "user": "kaneyxx",
+       "model": "",
+       "score": 35.41,
+       "date": "2026-11-15T13:30"
+      },
+      {
+       "team": "j-at-ch",
+       "user": "j-at-ch",
+       "model": "v0",
+       "score": 35.45,
+       "date": "2026-11-10T12:55"
+      },
+      {
+       "team": "USTBAI3D",
+       "user": "gigabyte",
+       "model": "USTBAI3D - Model 05",
+       "score": 35.45,
+       "date": "2026-11-17T08:00"
       },
       {
        "team": "KU_MAILAB",
@@ -2978,18 +3321,116 @@
        "date": "2026-11-14T06:01"
       },
       {
-       "team": "JLShen",
-       "user": "JLShen",
-       "model": "af919223",
-       "score": 36.79,
-       "date": "2026-11-14T06:02"
+       "team": "Institute for Advanced Consciousness Studies (IACS)",
+       "user": "cedric_cannard",
+       "model": "",
+       "score": 35.64,
+       "date": "2026-11-10T23:18"
       },
       {
-       "team": "roei_yanku",
-       "user": "roei_yanku",
+       "team": "yongqi",
+       "user": "yongqi",
        "model": "",
-       "score": 36.81,
-       "date": "2026-11-15T22:46"
+       "score": 35.8,
+       "date": "2026-11-13T20:09"
+      },
+      {
+       "team": "andbri",
+       "user": "andbri",
+       "model": "",
+       "score": 35.94,
+       "date": "2026-11-17T11:27"
+      },
+      {
+       "team": "evaaa",
+       "user": "evaaa",
+       "model": "",
+       "score": 35.95,
+       "date": "2026-11-17T05:58"
+      },
+      {
+       "team": "SITBCI",
+       "user": "liuyangming",
+       "model": "v1",
+       "score": 35.98,
+       "date": "2026-11-15T17:22"
+      },
+      {
+       "team": "timothewt",
+       "user": "timothewt",
+       "model": "",
+       "score": 36.08,
+       "date": "2026-11-10T13:07"
+      },
+      {
+       "team": "leleren",
+       "user": "leleren",
+       "model": "model4",
+       "score": 36.24,
+       "date": "2026-11-17T13:21"
+      },
+      {
+       "team": "francescoilsazio",
+       "user": "francescoilsazio",
+       "model": "robiola",
+       "score": 36.24,
+       "date": "2026-11-17T14:43"
+      },
+      {
+       "team": "obarskyi",
+       "user": "obarskyi",
+       "model": "",
+       "score": 36.26,
+       "date": "2026-11-17T08:09"
+      },
+      {
+       "team": "princeramani",
+       "user": "princeramani",
+       "model": "useful",
+       "score": 36.27,
+       "date": "2026-11-17T04:27"
+      },
+      {
+       "team": "foreist",
+       "user": "foreist",
+       "model": "",
+       "score": 36.5,
+       "date": "2026-11-15T07:11"
+      },
+      {
+       "team": "waaaq",
+       "user": "waaaq",
+       "model": "",
+       "score": 36.61,
+       "date": "2026-11-17T05:45"
+      },
+      {
+       "team": "rsantana",
+       "user": "rsantana",
+       "model": "",
+       "score": 36.66,
+       "date": "2026-11-16T22:51"
+      },
+      {
+       "team": "ugotanielian",
+       "user": "ugotanielian",
+       "model": "3",
+       "score": 36.69,
+       "date": "2026-11-17T00:07"
+      },
+      {
+       "team": "hongyi",
+       "user": "hongyi",
+       "model": "S2a",
+       "score": 36.75,
+       "date": "2026-11-15T19:24"
+      },
+      {
+       "team": "abelho",
+       "user": "abelho",
+       "model": "exp08",
+       "score": 36.76,
+       "date": "2026-11-16T17:40"
       },
       {
        "team": "navattack",
@@ -2999,347 +3440,200 @@
        "date": "2026-11-15T14:12"
       },
       {
-       "team": "lixinyin",
-       "user": "lixinyin",
+       "team": "qw246",
+       "user": "qw246",
        "model": "",
-       "score": 36.91,
-       "date": "2026-11-14T06:14"
+       "score": 36.97,
+       "date": "2026-11-15T14:37"
       },
       {
-       "team": "sudharshan",
-       "user": "sudharshan",
+       "team": "n2-collective",
+       "user": "zychen1243",
        "model": "",
-       "score": 36.96,
-       "date": "2026-11-16T03:51"
+       "score": 37.0,
+       "date": "2026-11-17T13:37"
       },
       {
-       "team": "tom_ml",
-       "user": "tom_ml",
-       "model": "",
-       "score": 37.06,
-       "date": "2026-11-16T12:25"
-      },
-      {
-       "team": "foreist",
-       "user": "foreist",
-       "model": "",
-       "score": 37.06,
-       "date": "2026-11-16T06:55"
-      },
-      {
-       "team": "yanlinfu",
-       "user": "yanlinfu",
-       "model": "",
-       "score": 37.08,
-       "date": "2026-11-11T02:00"
-      },
-      {
-       "team": "pambadi",
-       "user": "pambadi",
-       "model": "nocturne",
-       "score": 37.16,
-       "date": "2026-11-14T04:00"
-      },
-      {
-       "team": "audric",
-       "user": "audric",
-       "model": "",
-       "score": 37.46,
-       "date": "2026-11-14T16:40"
-      },
-      {
-       "team": "deep07",
-       "user": "deep07",
-       "model": "Ensemble",
-       "score": 37.51,
-       "date": "2026-11-10T20:27"
-      },
-      {
-       "team": "fmashrur",
-       "user": "fmashrur",
-       "model": "",
-       "score": 37.6,
-       "date": "2026-11-11T17:41"
-      },
-      {
-       "team": "rod_ferro",
-       "user": "rod_ferro",
-       "model": "",
-       "score": 37.66,
-       "date": "2026-11-15T00:15"
-      },
-      {
-       "team": "Nimrod Ryder",
-       "user": "Nimrod Ryder",
-       "model": "v10L_r3_dft_method",
-       "score": 37.8,
-       "date": "2026-11-11T15:47"
-      },
-      {
-       "team": "princeramani",
-       "user": "princeramani",
-       "model": "useful",
-       "score": 37.89,
-       "date": "2026-11-15T17:21"
+       "team": "speedwagon",
+       "user": "yosr ghanmi",
+       "model": "best",
+       "score": 37.02,
+       "date": "2026-11-11T15:56"
       },
       {
        "team": "ihsan47",
        "user": "ihsan47",
        "model": "m",
-       "score": 37.91,
+       "score": 37.12,
        "date": "2026-11-14T15:05"
       },
       {
-       "team": "LIN-BTU-AI",
-       "user": "mkuhn99",
+       "team": "sudharshan",
+       "user": "sudharshan",
        "model": "",
-       "score": 37.96,
-       "date": "2026-11-13T16:07"
+       "score": 37.29,
+       "date": "2026-11-11T08:20"
       },
       {
-       "team": "susupro",
-       "user": "susupro",
-       "model": "clean8-personal-wake-bayes",
-       "score": 37.99,
-       "date": "2026-11-16T00:02"
-      },
-      {
-       "team": "x0d36qop",
-       "user": "x0d36qop",
+       "team": "magnusgp",
+       "user": "magnusgp",
        "model": "",
-       "score": 38.06,
-       "date": "2026-11-12T21:06"
+       "score": 37.45,
+       "date": "2026-11-10T12:46"
       },
       {
-       "team": "bryanyahir03",
-       "user": "bryanyahir03",
+       "team": "xmqxmq",
+       "user": "xmqxmq",
        "model": "",
-       "score": 38.13,
-       "date": "2026-11-10T11:57"
-      },
-      {
-       "team": "Orpartok",
-       "user": "yuval_p",
-       "model": "",
-       "score": 38.14,
-       "date": "2026-11-13T15:58"
-      },
-      {
-       "team": "timothewt",
-       "user": "timothewt",
-       "model": "",
-       "score": 38.24,
-       "date": "2026-11-10T13:07"
-      },
-      {
-       "team": "dunktra",
-       "user": "dunktra",
-       "model": "",
-       "score": 38.25,
-       "date": "2026-11-15T22:04"
-      },
-      {
-       "team": "harish123455",
-       "user": "harish123455",
-       "model": "JEET",
-       "score": 38.32,
-       "date": "2026-11-16T08:49"
-      },
-      {
-       "team": "aimarsilvan",
-       "user": "aimarsilvan",
-       "model": "t3-d",
-       "score": 38.36,
-       "date": "2026-11-15T03:11"
-      },
-      {
-       "team": "jjlei",
-       "user": "jjlei",
-       "model": "jj_ensv10",
-       "score": 38.37,
-       "date": "2026-11-16T06:05"
-      },
-      {
-       "team": "Team Yuyu",
-       "user": "kaneyxx",
-       "model": "",
-       "score": 38.4,
-       "date": "2026-11-11T14:04"
-      },
-      {
-       "team": "jlwang24",
-       "user": "jlwang24",
-       "model": "",
-       "score": 38.45,
-       "date": "2026-11-15T20:34"
-      },
-      {
-       "team": "joss-diz",
-       "user": "joss-diz",
-       "model": "Sealed-02",
-       "score": 38.46,
-       "date": "2026-11-12T14:12"
-      },
-      {
-       "team": "j-at-ch",
-       "user": "j-at-ch",
-       "model": "v0",
-       "score": 38.56,
-       "date": "2026-11-10T12:55"
-      },
-      {
-       "team": "Halcyon",
-       "user": "northwind",
-       "model": "hx-t3-s5",
-       "score": 38.58,
-       "date": "2026-11-15T03:35"
-      },
-      {
-       "team": "Institute for Advanced Consciousness Studies (IACS)",
-       "user": "cedric_cannard",
-       "model": "",
-       "score": 38.71,
-       "date": "2026-11-10T23:18"
-      },
-      {
-       "team": "yongqi",
-       "user": "yongqi",
-       "model": "",
-       "score": 38.76,
-       "date": "2026-11-13T17:40"
-      },
-      {
-       "team": "mehular",
-       "user": "mehular",
-       "model": "",
-       "score": 38.79,
-       "date": "2026-11-14T06:48"
-      },
-      {
-       "team": "teddythebuilder",
-       "user": "teddythebuilder",
-       "model": "",
-       "score": 38.79,
-       "date": "2026-11-11T18:40"
-      },
-      {
-       "team": "Nguyen Duc Thanh",
-       "user": "Nguyen Duc Thanh",
-       "model": "",
-       "score": 38.81,
-       "date": "2026-11-15T10:52"
-      },
-      {
-       "team": "obarskyi",
-       "user": "obarskyi",
-       "model": "",
-       "score": 38.88,
-       "date": "2026-11-15T07:45"
-      },
-      {
-       "team": "francescoilsazio",
-       "user": "francescoilsazio",
-       "model": "scamorza",
-       "score": 38.99,
-       "date": "2026-11-16T12:56"
-      },
-      {
-       "team": "syehsyoh",
-       "user": "syehsyoh",
-       "model": "",
-       "score": 39.04,
-       "date": "2026-11-14T00:42"
+       "score": 37.54,
+       "date": "2026-11-13T15:15"
       },
       {
        "team": "noiroao",
        "user": "noiroao",
        "model": "",
-       "score": 39.13,
-       "date": "2026-11-15T00:13"
+       "score": 37.62,
+       "date": "2026-11-17T11:32"
       },
       {
-       "team": "loveisp",
-       "user": "loveisp",
-       "model": "test",
-       "score": 39.13,
-       "date": "2026-11-13T09:08"
+       "team": "cool_eeg_winner",
+       "user": "jesseryx",
+       "model": "gru_v3TXm_q50",
+       "score": 37.68,
+       "date": "2026-11-17T02:39"
       },
       {
        "team": "Duolaimeng",
        "user": "ytgao",
        "model": "",
-       "score": 39.21,
+       "score": 37.69,
        "date": "2026-11-15T11:55"
       },
       {
-       "team": "phlas",
-       "user": "phlas",
-       "model": "",
-       "score": 39.23,
-       "date": "2026-11-11T02:56"
+       "team": "pavlos",
+       "user": "pavlos",
+       "model": "TCN-GBM-Blend + causal stack (cf540, fast)",
+       "score": 37.75,
+       "date": "2026-11-10T14:53"
       },
       {
-       "team": "hsing",
-       "user": "hsing",
+       "team": "mohhakami",
+       "user": "mohhakami",
+       "model": "gru-feat2-ens12-v2",
+       "score": 37.76,
+       "date": "2026-11-15T04:06"
+      },
+      {
+       "team": "artaobuilds",
+       "user": "artaobuilds",
        "model": "",
-       "score": 39.35,
-       "date": "2026-11-16T05:49"
+       "score": 37.8,
+       "date": "2026-11-16T02:49"
       },
       {
        "team": "zhangguochang",
        "user": "zhangguochang",
        "model": "",
-       "score": 39.43,
-       "date": "2026-11-11T06:04"
+       "score": 37.81,
+       "date": "2026-11-14T16:14"
       },
       {
-       "team": "SITBCI",
-       "user": "liuyangming",
-       "model": "v1",
-       "score": 39.45,
-       "date": "2026-11-15T17:22"
+       "team": "Hardik",
+       "user": "Hardik",
+       "model": "Muse and NSRR",
+       "score": 37.81,
+       "date": "2026-11-17T10:47"
       },
       {
-       "team": "saltytaro",
-       "user": "saltytaro",
-       "model": "20261111-sleep-mixglog9-f4e",
-       "score": 39.46,
-       "date": "2026-11-11T11:18"
-      },
-      {
-       "team": "USTBAI3D",
-       "user": "gigabyte",
-       "model": "USTBAI3D - Model 03",
-       "score": 39.48,
-       "date": "2026-11-16T05:23"
-      },
-      {
-       "team": "csun8109",
-       "user": "csun8109",
+       "team": "CAUET_DJ",
+       "user": "edwin0617",
        "model": "",
-       "score": 39.58,
-       "date": "2026-11-14T20:39"
+       "score": 37.82,
+       "date": "2026-11-14T10:07"
       },
       {
-       "team": "ahmadabdelaal",
-       "user": "ahmadabdelaal",
+       "team": "Orpartok",
+       "user": "yuval_p",
        "model": "",
-       "score": 39.63,
-       "date": "2026-11-12T10:23"
+       "score": 38.32,
+       "date": "2026-11-13T15:58"
+      },
+      {
+       "team": "raiso",
+       "user": "raiso",
+       "model": "",
+       "score": 38.35,
+       "date": "2026-11-17T00:17"
+      },
+      {
+       "team": "Leopadra",
+       "user": "jehb4ik",
+       "model": "ys2",
+       "score": 38.36,
+       "date": "2026-11-11T10:48"
+      },
+      {
+       "team": "lizasheina",
+       "user": "lizasheina",
+       "model": "submission_sleep_multiview_v3",
+       "score": 38.39,
+       "date": "2026-11-13T14:49"
+      },
+      {
+       "team": "eason23",
+       "user": "eason23",
+       "model": "",
+       "score": 38.44,
+       "date": "2026-11-10T23:25"
+      },
+      {
+       "team": "hsing",
+       "user": "hsing",
+       "model": "",
+       "score": 38.5,
+       "date": "2026-11-17T06:56"
+      },
+      {
+       "team": "kristal",
+       "user": "kristal",
+       "model": "",
+       "score": 38.67,
+       "date": "2026-11-17T04:07"
+      },
+      {
+       "team": "Lucid",
+       "user": "callumdenyer",
+       "model": "",
+       "score": 38.72,
+       "date": "2026-11-16T17:25"
       },
       {
        "team": "sisfuse",
        "user": "sisfuse",
-       "model": "sleep-r9-refit-ready.zip",
-       "score": 39.63,
-       "date": "2026-11-16T06:39"
+       "model": "sleep-r21-refit-ready.zip",
+       "score": 38.95,
+       "date": "2026-11-17T01:18"
       },
       {
-       "team": "leleren",
-       "user": "leleren",
-       "model": "track 03\u2014model1",
-       "score": 39.64,
-       "date": "2026-11-10T13:04"
+       "team": "edgartejerina",
+       "user": "edgartejerina",
+       "model": "",
+       "score": 39.28,
+       "date": "2026-11-17T02:46"
+      },
+      {
+       "team": "quoc-emotiv",
+       "user": "quoc-emotiv",
+       "model": "",
+       "score": 39.61,
+       "date": "2026-11-15T02:33"
+      },
+      {
+       "team": "fmashrur",
+       "user": "fmashrur",
+       "model": "",
+       "score": 39.71,
+       "date": "2026-11-11T17:41"
       },
       {
        "team": "Invincible Dark Supreme Overlords",
@@ -3349,708 +3643,645 @@
        "date": "2026-11-11T04:41"
       },
       {
-       "team": "hongyi",
-       "user": "hongyi",
-       "model": "S2a",
-       "score": 39.84,
-       "date": "2026-11-15T19:24"
+       "team": "Rajat",
+       "user": "Rajat",
+       "model": "",
+       "score": 39.91,
+       "date": "2026-11-15T17:51"
       },
       {
-       "team": "evaaa",
-       "user": "evaaa",
+       "team": "Coconut Lassi",
+       "user": "harizz076",
        "model": "",
-       "score": 39.84,
-       "date": "2026-11-16T02:36"
+       "score": 40.03,
+       "date": "2026-11-11T12:08"
       },
       {
-       "team": "haixiangding",
-       "user": "haixiangding",
+       "team": "mhd88",
+       "user": "mhd88",
+       "model": "sleep-onset-v5-loss",
+       "score": 40.05,
+       "date": "2026-11-16T00:10"
+      },
+      {
+       "team": "tobiasharritz",
+       "user": "tobiasharritz",
        "model": "",
-       "score": 39.84,
-       "date": "2026-11-14T22:46"
+       "score": 40.09,
+       "date": "2026-11-11T16:54"
+      },
+      {
+       "team": "sudharsan-22",
+       "user": "sudharsan-22",
+       "model": "v2",
+       "score": 40.14,
+       "date": "2026-11-15T01:26"
       },
       {
        "team": "ttt5600",
        "user": "ttt5600",
        "model": "E19 0.75*(0.25 E11+0.75 GRU3)+0.25 REVE (CV 43.54)",
-       "score": 39.96,
+       "score": 40.21,
        "date": "2026-11-13T04:57"
       },
       {
-       "team": "rsantana",
-       "user": "rsantana",
-       "model": "",
-       "score": 39.98,
-       "date": "2026-11-15T23:09"
+       "team": "sanaataneja",
+       "user": "sanaataneja",
+       "model": "v3-lean-seq",
+       "score": 40.28,
+       "date": "2026-11-17T09:46"
       },
       {
-       "team": "judeswallis",
-       "user": "judeswallis",
-       "model": "t3B2mmr3",
-       "score": 40.01,
-       "date": "2026-11-12T00:08"
-      },
-      {
-       "team": "kwonhyojun",
-       "user": "kwonhyojun",
-       "model": "M3R StreamNet + REVE output average (C + S' + R1), 3 seeds (s012)",
-       "score": 40.02,
-       "date": "2026-11-15T01:58"
-      },
-      {
-       "team": "pavlos",
-       "user": "pavlos",
-       "model": "TCN-GBM-Blend + causal stack (cf540, fast)",
-       "score": 40.16,
-       "date": "2026-11-10T14:53"
-      },
-      {
-       "team": "CAUET_DJ",
-       "user": "edwin0617",
-       "model": "",
-       "score": 40.17,
-       "date": "2026-11-14T10:07"
-      },
-      {
-       "team": "qw246",
-       "user": "qw246",
-       "model": "",
-       "score": 40.18,
-       "date": "2026-11-15T14:37"
-      },
-      {
-       "team": "waaaq",
-       "user": "waaaq",
-       "model": "base1",
-       "score": 40.22,
-       "date": "2026-11-16T02:37"
-      },
-      {
-       "team": "mohhakami",
-       "user": "mohhakami",
-       "model": "gru-feat2-ens12-v2",
-       "score": 40.32,
-       "date": "2026-11-15T04:06"
-      },
-      {
-       "team": "chris_vas",
-       "user": "chris_vas",
-       "model": "",
-       "score": 40.43,
-       "date": "2026-11-10T13:24"
-      },
-      {
-       "team": "hollyakt",
-       "user": "hollyakt",
-       "model": "",
-       "score": 40.49,
-       "date": "2026-11-14T17:21"
-      },
-      {
-       "team": "wangpj",
-       "user": "wangpj",
-       "model": "",
-       "score": 40.53,
-       "date": "2026-11-11T06:59"
+       "team": "peuvrierm",
+       "user": "peuvrierm",
+       "model": "ttt",
+       "score": 40.63,
+       "date": "2026-11-11T16:45"
       },
       {
        "team": "aimc001",
        "user": "aimc001",
        "model": "",
-       "score": 40.54,
-       "date": "2026-11-16T08:50"
+       "score": 40.64,
+       "date": "2026-11-17T11:02"
       },
       {
        "team": "synthlegend",
        "user": "synthlegend",
-       "model": "track3_sleep_multigru_v5",
-       "score": 40.56,
-       "date": "2026-11-16T08:43"
+       "model": "track3_variantE_rawcnn_v6",
+       "score": 40.7,
+       "date": "2026-11-17T08:01"
+      },
+      {
+       "team": "dragonborn",
+       "user": "dragonborn",
+       "model": "Causal feature GRU",
+       "score": 40.71,
+       "date": "2026-11-16T05:03"
+      },
+      {
+       "team": "csun8109",
+       "user": "csun8109",
+       "model": "q35",
+       "score": 40.83,
+       "date": "2026-11-15T20:35"
+      },
+      {
+       "team": "efelez15",
+       "user": "efelez15",
+       "model": "",
+       "score": 40.84,
+       "date": "2026-11-10T11:45"
+      },
+      {
+       "team": "lukaskoebis",
+       "user": "lukaskoebis",
+       "model": "",
+       "score": 41.08,
+       "date": "2026-11-10T20:21"
+      },
+      {
+       "team": "yyhan",
+       "user": "yyhan",
+       "model": "",
+       "score": 41.15,
+       "date": "2026-11-16T16:09"
+      },
+      {
+       "team": "feeling",
+       "user": "feeling",
+       "model": "",
+       "score": 41.22,
+       "date": "2026-11-17T04:17"
+      },
+      {
+       "team": "phlas",
+       "user": "phlas",
+       "model": "",
+       "score": 41.79,
+       "date": "2026-11-11T02:56"
+      },
+      {
+       "team": "audric",
+       "user": "audric",
+       "model": "",
+       "score": 41.93,
+       "date": "2026-11-14T16:40"
+      },
+      {
+       "team": "xiaosa",
+       "user": "xiaosa",
+       "model": "",
+       "score": 42.09,
+       "date": "2026-11-16T09:19"
+      },
+      {
+       "team": "syehsyoh",
+       "user": "syehsyoh",
+       "model": "",
+       "score": 42.14,
+       "date": "2026-11-14T00:42"
+      },
+      {
+       "team": "LIN-BTU-AI",
+       "user": "mkuhn99",
+       "model": "",
+       "score": 42.17,
+       "date": "2026-11-13T16:07"
+      },
+      {
+       "team": "dparry",
+       "user": "dparry",
+       "model": "Muse feature v1",
+       "score": 42.31,
+       "date": "2026-11-16T16:34"
+      },
+      {
+       "team": "cbyun",
+       "user": "cbyun",
+       "model": "",
+       "score": 42.33,
+       "date": "2026-11-17T13:52"
+      },
+      {
+       "team": "teddythebuilder",
+       "user": "teddythebuilder",
+       "model": "",
+       "score": 42.4,
+       "date": "2026-11-11T18:40"
+      },
+      {
+       "team": "wangpj",
+       "user": "wangpj",
+       "model": "",
+       "score": 42.57,
+       "date": "2026-11-11T06:59"
+      },
+      {
+       "team": "loveisp",
+       "user": "loveisp",
+       "model": "test",
+       "score": 42.69,
+       "date": "2026-11-13T09:08"
+      },
+      {
+       "team": "shrutz",
+       "user": "shrutz",
+       "model": "gru_ensemble_12",
+       "score": 42.92,
+       "date": "2026-11-17T07:04"
+      },
+      {
+       "team": "saltytaro",
+       "user": "saltytaro",
+       "model": "20261111-sleep-mixglog9-f4e",
+       "score": 43.07,
+       "date": "2026-11-11T11:18"
+      },
+      {
+       "team": "isemenkov",
+       "user": "isemenkov",
+       "model": "",
+       "score": 43.21,
+       "date": "2026-11-16T22:16"
+      },
+      {
+       "team": "SnoozeControl",
+       "user": "promitmoitra",
+       "model": "T30c_540",
+       "score": 43.28,
+       "date": "2026-11-11T06:33"
+      },
+      {
+       "team": "UBC_neurosci_sbme",
+       "user": "gladianll",
+       "model": "",
+       "score": 43.33,
+       "date": "2026-11-16T23:04"
+      },
+      {
+       "team": "agape",
+       "user": "agape",
+       "model": "K53S",
+       "score": 43.48,
+       "date": "2026-11-14T13:22"
+      },
+      {
+       "team": "chris_vas",
+       "user": "chris_vas",
+       "model": "",
+       "score": 43.59,
+       "date": "2026-11-10T13:24"
+      },
+      {
+       "team": "haoyu6",
+       "user": "haoyu6",
+       "model": "",
+       "score": 43.64,
+       "date": "2026-11-17T11:22"
+      },
+      {
+       "team": "JHtest",
+       "user": "JHtest",
+       "model": "",
+       "score": 43.86,
+       "date": "2026-11-17T06:11"
+      },
+      {
+       "team": "Hello World",
+       "user": "harveybi2333",
+       "model": "",
+       "score": 43.9,
+       "date": "2026-11-12T14:20"
+      },
+      {
+       "team": "Halcyon",
+       "user": "northwind",
+       "model": "hx-t3-s5",
+       "score": 44.28,
+       "date": "2026-11-15T03:35"
+      },
+      {
+       "team": "BrainUp",
+       "user": "Carol",
+       "model": "",
+       "score": 44.32,
+       "date": "2026-11-11T02:57"
+      },
+      {
+       "team": "ffylaktis",
+       "user": "ffylaktis",
+       "model": "",
+       "score": 44.4,
+       "date": "2026-11-11T20:08"
+      },
+      {
+       "team": "ismail_sutdonduran",
+       "user": "ismail_sutdonduran",
+       "model": "eegnet_wl1_timeaug_v1",
+       "score": 44.46,
+       "date": "2026-11-17T14:40"
+      },
+      {
+       "team": "whiteram",
+       "user": "whiteram",
+       "model": "",
+       "score": 44.5,
+       "date": "2026-11-15T23:15"
+      },
+      {
+       "team": "gdnsk",
+       "user": "gdnsk",
+       "model": "sleep-onset-hgb-w778",
+       "score": 45.03,
+       "date": "2026-11-17T07:02"
+      },
+      {
+       "team": "prml",
+       "user": "prml",
+       "model": "",
+       "score": 45.03,
+       "date": "2026-11-15T09:02"
+      },
+      {
+       "team": "sarahman",
+       "user": "sarahman",
+       "model": "SpecCore-TCN-Hybrid-v1",
+       "score": 45.19,
+       "date": "2026-11-15T10:38"
+      },
+      {
+       "team": "HYLGZ",
+       "user": "ivanliu",
+       "model": "",
+       "score": 45.21,
+       "date": "2026-11-12T04:05"
+      },
+      {
+       "team": "alexgteo",
+       "user": "alexgteo",
+       "model": "",
+       "score": 45.69,
+       "date": "2026-11-13T10:41"
+      },
+      {
+       "team": "kwonhyojun",
+       "user": "kwonhyojun",
+       "model": "SleepOnset-NN3+Tree-GridDecision (A)",
+       "score": 46.64,
+       "date": "2026-11-11T13:59"
+      },
+      {
+       "team": "UBC_neurosci_sbme",
+       "user": "yanzheng",
+       "model": "",
+       "score": 47.25,
+       "date": "2026-11-15T23:07"
+      },
+      {
+       "team": "ahmadabdelaal",
+       "user": "ahmadabdelaal",
+       "model": "",
+       "score": 47.28,
+       "date": "2026-11-10T13:00"
+      },
+      {
+       "team": "Omni\u2011Intelligence",
+       "user": "jason_hou",
+       "model": "baseline",
+       "score": 47.39,
+       "date": "2026-11-14T15:00"
+      },
+      {
+       "team": "NILA",
+       "user": "nikoo-m",
+       "model": "6_n2_ens",
+       "score": 48.79,
+       "date": "2026-11-17T11:08"
+      },
+      {
+       "team": "ngcferreira",
+       "user": "ngcferreira",
+       "model": "",
+       "score": 49.08,
+       "date": "2026-11-10T19:31"
+      },
+      {
+       "team": "divisible",
+       "user": "divisible",
+       "model": "",
+       "score": 49.28,
+       "date": "2026-11-11T21:28"
+      },
+      {
+       "team": "mehular",
+       "user": "mehular",
+       "model": "",
+       "score": 49.65,
+       "date": "2026-11-14T06:48"
+      },
+      {
+       "team": "Nimrod Ryder",
+       "user": "Nimrod Ryder",
+       "model": "v10L_r3_dft_method",
+       "score": 50.19,
+       "date": "2026-11-11T15:47"
+      },
+      {
+       "team": "sjhanintheroom",
+       "user": "sjhanintheroom",
+       "model": "",
+       "score": 50.21,
+       "date": "2026-11-16T08:30"
+      },
+      {
+       "team": "NeuroAI",
+       "user": "behboudi997",
+       "model": "",
+       "score": 50.24,
+       "date": "2026-11-12T23:31"
+      },
+      {
+       "team": "harshalsshende",
+       "user": "harshalsshende",
+       "model": "",
+       "score": 50.64,
+       "date": "2026-11-15T07:41"
+      },
+      {
+       "team": "adolfo_ramirez",
+       "user": "adolfo_ramirez",
+       "model": "Gru",
+       "score": 50.74,
+       "date": "2026-11-12T19:15"
+      },
+      {
+       "team": "arnaultcaillet",
+       "user": "arnaultcaillet",
+       "model": "",
+       "score": 50.82,
+       "date": "2026-11-10T11:37"
+      },
+      {
+       "team": "zli2255",
+       "user": "zli2255",
+       "model": "",
+       "score": 51.18,
+       "date": "2026-11-14T16:15"
+      },
+      {
+       "team": "Drowsy",
+       "user": "gmasri",
+       "model": "",
+       "score": 52.03,
+       "date": "2026-11-16T20:04"
+      },
+      {
+       "team": "Fudan University AI4Science Team",
+       "user": "sac-0710",
+       "model": "",
+       "score": 52.75,
+       "date": "2026-11-10T14:33"
+      },
+      {
+       "team": "murakami-shoya",
+       "user": "murakami-shoya",
+       "model": "",
+       "score": 52.95,
+       "date": "2026-11-16T02:00"
+      },
+      {
+       "team": "tuxinrui",
+       "user": "tuxinrui",
+       "model": "",
+       "score": 53.63,
+       "date": "2026-11-13T08:57"
+      },
+      {
+       "team": "hollyakt",
+       "user": "hollyakt",
+       "model": "",
+       "score": 54.11,
+       "date": "2026-11-17T03:02"
+      },
+      {
+       "team": "bryanyahir03",
+       "user": "bryanyahir03",
+       "model": "",
+       "score": 56.33,
+       "date": "2026-11-10T11:57"
+      },
+      {
+       "team": "ekaplan7",
+       "user": "ekaplan7",
+       "model": "",
+       "score": 58.14,
+       "date": "2026-11-10T16:31"
+      },
+      {
+       "team": "azzzeret",
+       "user": "azzzeret",
+       "model": "",
+       "score": 58.36,
+       "date": "2026-11-16T16:20"
+      },
+      {
+       "team": "haixiangding",
+       "user": "haixiangding",
+       "model": "",
+       "score": 58.43,
+       "date": "2026-11-14T22:46"
+      },
+      {
+       "team": "white_yi",
+       "user": "white_yi",
+       "model": "",
+       "score": 60.5,
+       "date": "2026-11-12T15:54"
+      },
+      {
+       "team": "Francisco_Angulo",
+       "user": "Francisco_Angulo",
+       "model": "Explicit Memory + GRU residual - GL",
+       "score": 60.83,
+       "date": "2026-11-13T20:40"
+      },
+      {
+       "team": "jjlei",
+       "user": "jjlei",
+       "model": "jj_ensv10",
+       "score": 63.83,
+       "date": "2026-11-16T06:05"
+      },
+      {
+       "team": "sanban",
+       "user": "sanban",
+       "model": "NI26-elapsed-a2975f11",
+       "score": 64.37,
+       "date": "2026-11-16T09:56"
+      },
+      {
+       "team": "saheed",
+       "user": "saheed",
+       "model": "SleepOnset-HGB-v2",
+       "score": 67.47,
+       "date": "2026-11-10T14:01"
+      },
+      {
+       "team": "Rui Codex",
+       "user": "Rui Codex",
+       "model": "c1",
+       "score": 67.55,
+       "date": "2026-11-10T12:37"
+      },
+      {
+       "team": "jwlly",
+       "user": "jwlly",
+       "model": "sealed_1",
+       "score": 78.92,
+       "date": "2026-11-10T15:45"
+      },
+      {
+       "team": "root447",
+       "user": "root447",
+       "model": "",
+       "score": 79.5,
+       "date": "2026-11-13T13:12"
+      },
+      {
+       "team": "aoright",
+       "user": "aoright",
+       "model": "",
+       "score": 81.68,
+       "date": "2026-11-11T02:04"
+      },
+      {
+       "team": "pengqiaoni",
+       "user": "pengqiaoni",
+       "model": "",
+       "score": 87.88,
+       "date": "2026-11-12T09:59"
+      },
+      {
+       "team": "judeswallis",
+       "user": "judeswallis",
+       "model": "t3B2mmr3",
+       "score": 92.78,
+       "date": "2026-11-12T00:08"
+      },
+      {
+       "team": "DeLeetcode",
+       "user": "gourav_anirudh",
+       "model": "",
+       "score": 95.47,
+       "date": "2026-11-16T10:20"
+      },
+      {
+       "team": "jiangyunpeng1",
+       "user": "jiangyunpeng1",
+       "model": "TRACK03",
+       "score": 97.58,
+       "date": "2026-11-15T11:20"
       },
       {
        "team": "hongchaoshu",
        "user": "hongchaoshu",
        "model": "",
-       "score": 40.56,
+       "score": 141.58,
        "date": "2026-11-14T15:21"
       },
       {
        "team": "lukefinigan",
        "user": "lukefinigan",
        "model": "",
-       "score": 40.6,
+       "score": 144.39,
        "date": "2026-11-11T00:54"
-      },
-      {
-       "team": "prml",
-       "user": "prml",
-       "model": "",
-       "score": 40.62,
-       "date": "2026-11-15T09:02"
-      },
-      {
-       "team": "BrainUp",
-       "user": "Carol",
-       "model": "",
-       "score": 40.63,
-       "date": "2026-11-11T02:57"
-      },
-      {
-       "team": "ugotanielian",
-       "user": "ugotanielian",
-       "model": "first_try",
-       "score": 40.66,
-       "date": "2026-11-12T11:42"
-      },
-      {
-       "team": "Adrian. T",
-       "user": "Adrian. T",
-       "model": "gru_v20b",
-       "score": 40.72,
-       "date": "2026-11-16T06:29"
-      },
-      {
-       "team": "magnusgp",
-       "user": "magnusgp",
-       "model": "",
-       "score": 40.76,
-       "date": "2026-11-10T12:46"
-      },
-      {
-       "team": "artaobuilds",
-       "user": "artaobuilds",
-       "model": "",
-       "score": 40.83,
-       "date": "2026-11-16T02:49"
-      },
-      {
-       "team": "jiangyunpeng1",
-       "user": "jiangyunpeng1",
-       "model": "TRACK03",
-       "score": 40.88,
-       "date": "2026-11-15T11:20"
-      },
-      {
-       "team": "speedwagon",
-       "user": "yosr ghanmi",
-       "model": "best",
-       "score": 40.94,
-       "date": "2026-11-11T15:56"
-      },
-      {
-       "team": "zli2255",
-       "user": "zli2255",
-       "model": "",
-       "score": 40.96,
-       "date": "2026-11-14T16:15"
-      },
-      {
-       "team": "quoc-emotiv",
-       "user": "quoc-emotiv",
-       "model": "",
-       "score": 40.96,
-       "date": "2026-11-15T02:33"
-      },
-      {
-       "team": "Leopadra",
-       "user": "jehb4ik",
-       "model": "ys2",
-       "score": 41.0,
-       "date": "2026-11-11T10:48"
-      },
-      {
-       "team": "UTH_NeuralAI",
-       "user": "yiguofan",
-       "model": "",
-       "score": 41.03,
-       "date": "2026-11-12T15:48"
-      },
-      {
-       "team": "xmqxmq",
-       "user": "xmqxmq",
-       "model": "",
-       "score": 41.08,
-       "date": "2026-11-13T15:15"
-      },
-      {
-       "team": "peuvrierm",
-       "user": "peuvrierm",
-       "model": "ttt",
-       "score": 41.1,
-       "date": "2026-11-11T16:45"
-      },
-      {
-       "team": "aimarsilvan",
-       "user": "aimarsilvan",
-       "model": "t3-c",
-       "score": 41.16,
-       "date": "2026-11-13T18:26"
-      },
-      {
-       "team": "NeuroAI",
-       "user": "behboudi997",
-       "model": "",
-       "score": 41.45,
-       "date": "2026-11-12T23:31"
-      },
-      {
-       "team": "mohhakami",
-       "user": "mohhakami",
-       "model": "gru-feat-v1",
-       "score": 41.52,
-       "date": "2026-11-14T15:31"
-      },
-      {
-       "team": "sudharsan-22",
-       "user": "sudharsan-22",
-       "model": "v2",
-       "score": 41.73,
-       "date": "2026-11-15T01:26"
-      },
-      {
-       "team": "lukaskoebis",
-       "user": "lukaskoebis",
-       "model": "",
-       "score": 41.8,
-       "date": "2026-11-11T08:55"
-      },
-      {
-       "team": "lizasheina",
-       "user": "lizasheina",
-       "model": "submission_sleep_multiview_v3",
-       "score": 42.0,
-       "date": "2026-11-13T14:49"
-      },
-      {
-       "team": "andbri",
-       "user": "andbri",
-       "model": "",
-       "score": 42.1,
-       "date": "2026-11-14T18:02"
-      },
-      {
-       "team": "divisible",
-       "user": "divisible",
-       "model": "",
-       "score": 42.12,
-       "date": "2026-11-11T21:28"
-      },
-      {
-       "team": "Rui Codex",
-       "user": "Rui Codex",
-       "model": "c2",
-       "score": 42.28,
-       "date": "2026-11-11T09:46"
-      },
-      {
-       "team": "tobiasharritz",
-       "user": "tobiasharritz",
-       "model": "",
-       "score": 42.54,
-       "date": "2026-11-11T16:54"
-      },
-      {
-       "team": "eason23",
-       "user": "eason23",
-       "model": "",
-       "score": 42.7,
-       "date": "2026-11-10T23:25"
-      },
-      {
-       "team": "DeLeetcode",
-       "user": "gourav_anirudh",
-       "model": "",
-       "score": 42.72,
-       "date": "2026-11-16T10:20"
-      },
-      {
-       "team": "white_yi",
-       "user": "white_yi",
-       "model": "",
-       "score": 42.78,
-       "date": "2026-11-13T13:11"
-      },
-      {
-       "team": "edgartejerina",
-       "user": "edgartejerina",
-       "model": "",
-       "score": 42.91,
-       "date": "2026-11-16T01:17"
-      },
-      {
-       "team": "alexgteo",
-       "user": "alexgteo",
-       "model": "",
-       "score": 43.06,
-       "date": "2026-11-13T10:41"
-      },
-      {
-       "team": "mhd88",
-       "user": "mhd88",
-       "model": "sleep-onset-v5-loss",
-       "score": 43.35,
-       "date": "2026-11-16T00:10"
-      },
-      {
-       "team": "feeling",
-       "user": "feeling",
-       "model": "model_2",
-       "score": 43.4,
-       "date": "2026-11-15T02:43"
-      },
-      {
-       "team": "Rajat",
-       "user": "Rajat",
-       "model": "",
-       "score": 43.58,
-       "date": "2026-11-15T17:51"
-      },
-      {
-       "team": "kristal",
-       "user": "kristal",
-       "model": "",
-       "score": 43.61,
-       "date": "2026-11-15T21:37"
-      },
-      {
-       "team": "HYLGZ",
-       "user": "ivanliu",
-       "model": "",
-       "score": 43.73,
-       "date": "2026-11-12T04:05"
-      },
-      {
-       "team": "agape",
-       "user": "agape",
-       "model": "K53S",
-       "score": 43.77,
-       "date": "2026-11-14T13:22"
-      },
-      {
-       "team": "root447",
-       "user": "root447",
-       "model": "",
-       "score": 43.78,
-       "date": "2026-11-13T13:12"
-      },
-      {
-       "team": "UBC_neurosci_sbme",
-       "user": "yanzheng",
-       "model": "",
-       "score": 43.79,
-       "date": "2026-11-15T23:07"
-      },
-      {
-       "team": "Coconut Lassi",
-       "user": "harizz076",
-       "model": "",
-       "score": 43.82,
-       "date": "2026-11-11T12:08"
-      },
-      {
-       "team": "Fudan University AI4Science Team",
-       "user": "sac-0710",
-       "model": "",
-       "score": 43.96,
-       "date": "2026-11-10T14:33"
-      },
-      {
-       "team": "aoright",
-       "user": "aoright",
-       "model": "",
-       "score": 43.98,
-       "date": "2026-11-11T02:04"
-      },
-      {
-       "team": "sjhanintheroom",
-       "user": "sjhanintheroom",
-       "model": "",
-       "score": 44.2,
-       "date": "2026-11-16T08:30"
-      },
-      {
-       "team": "feeling",
-       "user": "feeling",
-       "model": "",
-       "score": 44.81,
-       "date": "2026-11-14T08:07"
-      },
-      {
-       "team": "dragonborn",
-       "user": "dragonborn",
-       "model": "Causal feature GRU",
-       "score": 44.89,
-       "date": "2026-11-16T05:03"
-      },
-      {
-       "team": "raiso",
-       "user": "raiso",
-       "model": "",
-       "score": 44.97,
-       "date": "2026-11-16T14:39"
-      },
-      {
-       "team": "cbyun",
-       "user": "cbyun",
-       "model": "",
-       "score": 45.05,
-       "date": "2026-11-14T14:28"
-      },
-      {
-       "team": "efelez15",
-       "user": "efelez15",
-       "model": "",
-       "score": 45.21,
-       "date": "2026-11-10T11:45"
-      },
-      {
-       "team": "murakami-shoya",
-       "user": "murakami-shoya",
-       "model": "",
-       "score": 45.26,
-       "date": "2026-11-16T02:00"
-      },
-      {
-       "team": "yyhan",
-       "user": "yyhan",
-       "model": "",
-       "score": 45.27,
-       "date": "2026-11-15T13:59"
-      },
-      {
-       "team": "zychen1243",
-       "user": "zychen1243",
-       "model": "",
-       "score": 45.76,
-       "date": "2026-11-14T06:04"
-      },
-      {
-       "team": "sarahman",
-       "user": "sarahman",
-       "model": "SpecCore-TCN-Hybrid-v1",
-       "score": 45.77,
-       "date": "2026-11-15T10:38"
-      },
-      {
-       "team": "adolfo_ramirez",
-       "user": "adolfo_ramirez",
-       "model": "Gru",
-       "score": 45.83,
-       "date": "2026-11-12T19:15"
-      },
-      {
-       "team": "xiaosa",
-       "user": "xiaosa",
-       "model": "",
-       "score": 46.0,
-       "date": "2026-11-16T09:19"
-      },
-      {
-       "team": "shrutz",
-       "user": "shrutz",
-       "model": "brain_signal_v2",
-       "score": 46.0,
-       "date": "2026-11-15T22:53"
-      },
-      {
-       "team": "NILA",
-       "user": "nikoo-m",
-       "model": "s1_e2",
-       "score": 46.35,
-       "date": "2026-11-16T11:15"
-      },
-      {
-       "team": "pengqiaoni",
-       "user": "pengqiaoni",
-       "model": "",
-       "score": 47.19,
-       "date": "2026-11-12T09:59"
-      },
-      {
-       "team": "whiteram",
-       "user": "whiteram",
-       "model": "",
-       "score": 47.23,
-       "date": "2026-11-15T23:15"
-      },
-      {
-       "team": "jwlly",
-       "user": "jwlly",
-       "model": "sealed_1",
-       "score": 47.71,
-       "date": "2026-11-10T15:45"
-      },
-      {
-       "team": "SnoozeControl",
-       "user": "promitmoitra",
-       "model": "T30c_540",
-       "score": 47.96,
-       "date": "2026-11-11T06:33"
-      },
-      {
-       "team": "Francisco_Angulo",
-       "user": "Francisco_Angulo",
-       "model": "Explicit Memory + GRU residual - GL540",
-       "score": 48.07,
-       "date": "2026-11-14T00:23"
-      },
-      {
-       "team": "Hello World",
-       "user": "harveybi2333",
-       "model": "",
-       "score": 48.16,
-       "date": "2026-11-12T14:20"
-      },
-      {
-       "team": "isemenkov",
-       "user": "isemenkov",
-       "model": "",
-       "score": 48.61,
-       "date": "2026-11-14T02:38"
-      },
-      {
-       "team": "tcs2012",
-       "user": "tcs2012",
-       "model": "s3",
-       "score": 48.82,
-       "date": "2026-11-14T09:37"
-      },
-      {
-       "team": "haoyu6",
-       "user": "haoyu6",
-       "model": "",
-       "score": 49.26,
-       "date": "2026-11-14T14:55"
-      },
-      {
-       "team": "ffylaktis",
-       "user": "ffylaktis",
-       "model": "",
-       "score": 49.43,
-       "date": "2026-11-11T20:08"
-      },
-      {
-       "team": "sanban",
-       "user": "sanban",
-       "model": "NI26-elapsed-13688e94",
-       "score": 49.81,
-       "date": "2026-11-14T04:20"
-      },
-      {
-       "team": "saheed",
-       "user": "saheed",
-       "model": "SleepOnset-HGB-v2",
-       "score": 50.34,
-       "date": "2026-11-10T14:01"
-      },
-      {
-       "team": "ekaplan7",
-       "user": "ekaplan7",
-       "model": "",
-       "score": 50.58,
-       "date": "2026-11-10T16:31"
-      },
-      {
-       "team": "jjbb1234",
-       "user": "jjbb1234",
-       "model": "",
-       "score": 51.1,
-       "date": "2026-11-10T12:18"
-      },
-      {
-       "team": "JHtest",
-       "user": "JHtest",
-       "model": "",
-       "score": 51.97,
-       "date": "2026-11-16T09:52"
-      },
-      {
-       "team": "ngcferreira",
-       "user": "ngcferreira",
-       "model": "",
-       "score": 53.47,
-       "date": "2026-11-10T19:31"
-      },
-      {
-       "team": "ismail_sutdonduran",
-       "user": "ismail_sutdonduran",
-       "model": "EEGNet-WL1-v1",
-       "score": 53.98,
-       "date": "2026-11-11T13:58"
-      },
-      {
-       "team": "tuxinrui",
-       "user": "tuxinrui",
-       "model": "",
-       "score": 57.01,
-       "date": "2026-11-13T08:57"
-      },
-      {
-       "team": "harshalsshende",
-       "user": "harshalsshende",
-       "model": "",
-       "score": 57.6,
-       "date": "2026-11-15T07:41"
-      },
-      {
-       "team": "azzzeret",
-       "user": "azzzeret",
-       "model": "",
-       "score": 58.74,
-       "date": "2026-11-15T16:10"
-      },
-      {
-       "team": "arnaultcaillet",
-       "user": "arnaultcaillet",
-       "model": "",
-       "score": 58.76,
-       "date": "2026-11-10T11:37"
-      },
-      {
-       "team": "cheesypasta",
-       "user": "cheesypasta",
-       "model": "Farfalle",
-       "score": 74.07,
-       "date": "2026-11-12T10:41"
       },
       {
        "team": "sherdim",
        "user": "sherdim",
        "model": "Green1",
-       "score": 200.34,
+       "score": 201.25,
        "date": "2026-11-11T16:20"
+      },
+      {
+       "team": "cheesypasta",
+       "user": "cheesypasta",
+       "model": "Farfalle",
+       "score": 266.71,
+       "date": "2026-11-12T10:41"
       }
      ],
      "record": [
       {
        "date": "2026-11-10T11:37",
-       "score": 58.76,
+       "score": 50.82,
        "team": "arnaultcaillet"
       },
       {
        "date": "2026-11-10T11:45",
-       "score": 45.21,
+       "score": 40.84,
        "team": "efelez15"
       },
       {
-       "date": "2026-11-10T11:57",
-       "score": 38.13,
-       "team": "bryanyahir03"
+       "date": "2026-11-10T12:46",
+       "score": 37.45,
+       "team": "magnusgp"
+      },
+      {
+       "date": "2026-11-10T12:55",
+       "score": 35.45,
+       "team": "j-at-ch"
       },
       {
        "date": "2026-11-10T20:27",
-       "score": 37.51,
+       "score": 34.75,
        "team": "deep07"
       },
       {
-       "date": "2026-11-11T02:00",
-       "score": 37.08,
-       "team": "yanlinfu"
-      },
-      {
-       "date": "2026-11-14T06:01",
-       "score": 35.61,
-       "team": "KU_MAILAB"
+       "date": "2026-11-13T18:46",
+       "score": 33.99,
+       "team": "bpm"
       },
       {
        "date": "2026-11-14T06:50",
@@ -4058,9 +4289,9 @@
        "team": "Vitalie Cervinschi"
       },
       {
-       "date": "2026-11-14T21:29",
-       "score": 32.75,
-       "team": "ParsaYousefi"
+       "date": "2026-11-15T17:42",
+       "score": 32.63,
+       "team": "Mahir"
       },
       {
        "date": "2026-11-16T04:57",
@@ -4110,6 +4341,20 @@
        "date": "2026-11-16T00:09"
       },
       {
+       "team": "CortixAI",
+       "user": "suliwang",
+       "model": "",
+       "score": 13.93,
+       "date": "2026-11-16T19:49"
+      },
+      {
+       "team": "PretrainMAXxing",
+       "user": "durgamabhilash",
+       "model": "not_diffusion_flow",
+       "score": 13.97,
+       "date": "2026-11-17T06:45"
+      },
+      {
        "team": "Kimo",
        "user": "Kimo",
        "model": "",
@@ -4120,8 +4365,15 @@
        "team": "vittoriaoberto",
        "user": "vittoriaoberto",
        "model": "",
-       "score": 14.12,
-       "date": "2026-11-14T08:25"
+       "score": 14.1,
+       "date": "2026-11-16T23:20"
+      },
+      {
+       "team": "nonconsensus",
+       "user": "nonconsensus",
+       "model": "openemg",
+       "score": 14.11,
+       "date": "2026-11-17T04:26"
       },
       {
        "team": "yufeizhang96",
@@ -4138,13 +4390,6 @@
        "date": "2026-11-15T08:06"
       },
       {
-       "team": "nonconsensus",
-       "user": "nonconsensus",
-       "model": "openemg",
-       "score": 14.17,
-       "date": "2026-11-16T03:09"
-      },
-      {
        "team": "Tekra labs",
        "user": "real_gagandeep",
        "model": "bodhi-sattva",
@@ -4154,23 +4399,23 @@
       {
        "team": "sunsun",
        "user": "sunsun",
-       "model": "myo32",
-       "score": 14.29,
-       "date": "2026-11-15T01:44"
-      },
-      {
-       "team": "CortixAI",
-       "user": "suliwang",
-       "model": "",
-       "score": 14.35,
-       "date": "2026-11-05T16:07"
+       "model": "myo32v2",
+       "score": 14.28,
+       "date": "2026-11-17T10:25"
       },
       {
        "team": "kyalcin",
        "user": "kyalcin",
        "model": "",
+       "score": 14.29,
+       "date": "2026-11-17T00:58"
+      },
+      {
+       "team": "iso_simon",
+       "user": "iso_simon",
+       "model": "iso01",
        "score": 14.37,
-       "date": "2026-11-14T15:28"
+       "date": "2026-11-17T05:52"
       },
       {
        "team": "fuscaldo",
@@ -4185,13 +4430,6 @@
        "model": "emgt-v2-final-ens4",
        "score": 14.41,
        "date": "2026-11-13T22:06"
-      },
-      {
-       "team": "PretrainMAXxing",
-       "user": "durgamabhilash",
-       "model": "",
-       "score": 14.5,
-       "date": "2026-11-12T02:44"
       },
       {
        "team": "jiananli",
@@ -4229,18 +4467,18 @@
        "date": "2026-11-06T12:44"
       },
       {
-       "team": "iso_simon",
-       "user": "iso_simon",
-       "model": "final_jit_top3_1114",
-       "score": 14.62,
-       "date": "2026-11-15T02:05"
-      },
-      {
        "team": "tengjiaoyu",
        "user": "tengjiaoyu",
        "model": "submission1",
        "score": 14.69,
        "date": "2026-11-04T23:16"
+      },
+      {
+       "team": "catzzy",
+       "user": "catzzy",
+       "model": "",
+       "score": 14.77,
+       "date": "2026-11-17T04:17"
       },
       {
        "team": "Rajat",
@@ -4250,18 +4488,18 @@
        "date": "2026-11-15T17:59"
       },
       {
+       "team": "quoc-emotiv",
+       "user": "quoc-emotiv",
+       "model": "",
+       "score": 14.8,
+       "date": "2026-11-17T02:25"
+      },
+      {
        "team": "sudharshan",
        "user": "sudharshan",
        "model": "",
        "score": 14.84,
        "date": "2026-11-15T17:26"
-      },
-      {
-       "team": "quoc-emotiv",
-       "user": "quoc-emotiv",
-       "model": "",
-       "score": 14.85,
-       "date": "2026-11-12T07:33"
       },
       {
        "team": "makoshan",
@@ -4341,6 +4579,13 @@
        "date": "2026-11-14T20:40"
       },
       {
+       "team": "audric",
+       "user": "audric",
+       "model": "",
+       "score": 15.04,
+       "date": "2026-11-17T01:55"
+      },
+      {
        "team": "azzzeret",
        "user": "azzzeret",
        "model": "Mixed ensemble v1",
@@ -4369,6 +4614,13 @@
        "date": "2026-11-14T16:11"
       },
       {
+       "team": "PNPL",
+       "user": "gereon",
+       "model": "",
+       "score": 15.14,
+       "date": "2026-11-17T10:30"
+      },
+      {
        "team": "chenyefei",
        "user": "chenyefei",
        "model": "",
@@ -4381,6 +4633,13 @@
        "model": "",
        "score": 15.18,
        "date": "2026-11-09T09:09"
+      },
+      {
+       "team": "Young",
+       "user": "Young",
+       "model": "",
+       "score": 15.19,
+       "date": "2026-11-17T09:41"
       },
       {
        "team": "jordang1",
@@ -4404,13 +4663,6 @@
        "date": "2026-11-12T20:56"
       },
       {
-       "team": "Young",
-       "user": "Young",
-       "model": "",
-       "score": 15.31,
-       "date": "2026-11-05T13:12"
-      },
-      {
        "team": "ECoGX",
        "user": "deep07",
        "model": "RingF-VEMG",
@@ -4423,13 +4675,6 @@
        "model": "",
        "score": 15.33,
        "date": "2026-11-05T02:38"
-      },
-      {
-       "team": "iso_simon",
-       "user": "iso_simon",
-       "model": "",
-       "score": 15.34,
-       "date": "2026-11-12T04:54"
       },
       {
        "team": "CAUET_DJ1",
@@ -4446,11 +4691,11 @@
        "date": "2026-11-13T09:48"
       },
       {
-       "team": "audric",
-       "user": "audric",
+       "team": "ray666",
+       "user": "ray666",
        "model": "",
-       "score": 15.4,
-       "date": "2026-11-16T09:48"
+       "score": 15.36,
+       "date": "2026-11-17T03:27"
       },
       {
        "team": "perenn1s",
@@ -4502,6 +4747,13 @@
        "date": "2026-11-12T22:12"
       },
       {
+       "team": "liubailiushiliu",
+       "user": "liubailiushiliu",
+       "model": "aixr",
+       "score": 15.5,
+       "date": "2026-11-17T03:16"
+      },
+      {
        "team": "hancan",
        "user": "hancan",
        "model": "",
@@ -4523,8 +4775,8 @@
        "date": "2026-11-09T09:18"
       },
       {
-       "team": "Ethan",
-       "user": "Ethan",
+       "team": "YX",
+       "user": "YX",
        "model": "",
        "score": 15.56,
        "date": "2026-11-08T11:51"
@@ -4558,6 +4810,13 @@
        "date": "2026-11-05T01:05"
       },
       {
+       "team": "merc-s",
+       "user": "merc-s",
+       "model": "",
+       "score": 15.69,
+       "date": "2026-11-17T12:26"
+      },
+      {
        "team": "kwonhyojun",
        "user": "kwonhyojun",
        "model": "EMG2Pose-Ensemble-alldata (amplitude TTA)",
@@ -4577,13 +4836,6 @@
        "model": "",
        "score": 15.72,
        "date": "2026-11-06T19:00"
-      },
-      {
-       "team": "ray666",
-       "user": "ray666",
-       "model": "",
-       "score": 15.73,
-       "date": "2026-11-16T04:10"
       },
       {
        "team": "corvitronics",
@@ -4670,6 +4922,13 @@
        "date": "2026-11-16T08:43"
       },
       {
+       "team": "jiawei_liao_west_chian_2024",
+       "user": "jiawei_liao_west_chian_2024",
+       "model": "",
+       "score": 15.94,
+       "date": "2026-11-17T05:26"
+      },
+      {
        "team": "Infocusp Innovations",
        "user": "dhruvdarda",
        "model": "test",
@@ -4698,6 +4957,13 @@
        "date": "2026-11-11T03:06"
       },
       {
+       "team": "susupro",
+       "user": "susupro",
+       "model": "",
+       "score": 16.03,
+       "date": "2026-11-16T23:26"
+      },
+      {
        "team": "syehsyoh",
        "user": "syehsyoh",
        "model": "final_rw",
@@ -4719,13 +4985,6 @@
        "date": "2026-11-12T15:37"
       },
       {
-       "team": "jiawei_liao_west_chian_2024",
-       "user": "jiawei_liao_west_chian_2024",
-       "model": "",
-       "score": 16.07,
-       "date": "2026-11-10T17:05"
-      },
-      {
        "team": "fthecatrock",
        "user": "fthecatrock",
        "model": "Bi2_VEMG",
@@ -4733,18 +4992,18 @@
        "date": "2026-11-05T21:40"
       },
       {
-       "team": "susupro",
-       "user": "susupro",
-       "model": "EMG-Manifold-Kinematics",
-       "score": 16.17,
-       "date": "2026-11-07T08:29"
-      },
-      {
        "team": "thecapybara",
        "user": "thecapybara",
        "model": "",
        "score": 16.18,
        "date": "2026-11-10T08:33"
+      },
+      {
+       "team": "sisfuse",
+       "user": "sisfuse",
+       "model": "track4-diverse-opt-20261116.zip",
+       "score": 16.21,
+       "date": "2026-11-16T16:23"
       },
       {
        "team": "xu_007",
@@ -4796,6 +5055,13 @@
        "date": "2026-11-06T06:58"
       },
       {
+       "team": "vincentkoc",
+       "user": "vincentkoc",
+       "model": "ema9-fingervision",
+       "score": 16.43,
+       "date": "2026-11-17T13:41"
+      },
+      {
        "team": "braininahat",
        "user": "braininahat",
        "model": "",
@@ -4836,13 +5102,6 @@
        "model": "",
        "score": 16.52,
        "date": "2026-11-11T13:24"
-      },
-      {
-       "team": "vincentkoc",
-       "user": "vincentkoc",
-       "model": "fit64-fingervision",
-       "score": 16.57,
-       "date": "2026-11-16T04:26"
       },
       {
        "team": "ttt5600",
@@ -4908,13 +5167,6 @@
        "date": "2026-11-12T00:09"
       },
       {
-       "team": "sisfuse",
-       "user": "sisfuse",
-       "model": "/F:/\u9879\u76ee/11.15/\u808c\u7535\u56fe\u59ff\u52bf\uff1a4/artifacts/track4-20261115.zip",
-       "score": 16.82,
-       "date": "2026-11-15T15:30"
-      },
-      {
        "team": "zju-xgx",
        "user": "zju-xgx",
        "model": "",
@@ -4934,13 +5186,6 @@
        "model": "",
        "score": 17.02,
        "date": "2026-11-13T13:13"
-      },
-      {
-       "team": "liubailiushiliu",
-       "user": "liubailiushiliu",
-       "model": "aiwb",
-       "score": 17.04,
-       "date": "2026-11-05T13:38"
       },
       {
        "team": "saheed",
@@ -5046,6 +5291,13 @@
        "model": "NI26-custom-b01fe070",
        "score": 22.02,
        "date": "2026-11-06T09:39"
+      },
+      {
+       "team": "shadowraze",
+       "user": "shadowraze",
+       "model": "",
+       "score": 22.37,
+       "date": "2026-11-16T19:00"
       }
      ],
      "record": [
@@ -5080,7 +5332,7 @@
      "label": "Top-5 subject-aggregated",
      "higher": true,
      "color": "#0072B2",
-     "participants": 867,
+     "participants": 868,
      "prec": 6,
      "leader": {
       "team": "kyalcin",
@@ -5182,8 +5434,8 @@
        "date": "2026-11-01T12:46"
       },
       {
-       "team": "Ethan",
-       "user": "Ethan",
+       "team": "YX",
+       "user": "YX",
        "model": "t1d18_LR_R6post (exploratory board probe: static linear recalibration on R6post)",
        "score": 0.9495,
        "date": "2026-10-18T22:49"
@@ -6709,8 +6961,8 @@
        "date": "2026-10-26T23:32"
       },
       {
-       "team": "Ethan",
-       "user": "Ethan",
+       "team": "YX",
+       "user": "YX",
        "model": "",
        "score": 0.875,
        "date": "2026-10-14T23:54"
@@ -7708,7 +7960,7 @@
      "label": "Recording-mean W-bMAE (s)",
      "higher": false,
      "color": "#D55E00",
-     "participants": 895,
+     "participants": 897,
      "prec": 2,
      "leader": {
       "team": "susupro",
@@ -7999,8 +8251,8 @@
        "date": "2026-10-19T16:30"
       },
       {
-       "team": "Ethan",
-       "user": "Ethan",
+       "team": "YX",
+       "user": "YX",
        "model": "m1031a",
        "score": 37.07,
        "date": "2026-10-31T22:52"
@@ -9219,8 +9471,8 @@
        "date": "2026-10-28T17:18"
       },
       {
-       "team": "Ethan",
-       "user": "Ethan",
+       "team": "YX",
+       "user": "YX",
        "model": "m1019a",
        "score": 10.47,
        "date": "2026-10-19T13:48"
@@ -9982,7 +10234,7 @@
      "label": "Top-5 accuracy",
      "higher": true,
      "color": "#0072B2",
-     "participants": 867,
+     "participants": 868,
      "prec": 6,
      "leader": {
       "team": "hairking",
@@ -10049,8 +10301,8 @@
        "date": "2026-10-04T13:04"
       },
       {
-       "team": "Ethan",
-       "user": "Ethan",
+       "team": "YX",
+       "user": "YX",
        "model": "",
        "score": 0.484769,
        "date": "2026-10-11T23:00"
@@ -10557,8 +10809,8 @@
        "date": "2026-10-10T00:55"
       },
       {
-       "team": "Ethan",
-       "user": "Ethan",
+       "team": "YX",
+       "user": "YX",
        "model": "",
        "score": 0.938,
        "date": "2026-10-11T22:48"
@@ -11142,7 +11394,7 @@
      "label": "bMAE (s)",
      "higher": false,
      "color": "#D55E00",
-     "participants": 895,
+     "participants": 897,
      "prec": 2,
      "leader": {
       "team": "cedric_cannard",
@@ -11167,8 +11419,8 @@
        "date": "2026-10-08T23:34"
       },
       {
-       "team": "Ethan",
-       "user": "Ethan",
+       "team": "YX",
+       "user": "YX",
        "model": "",
        "score": 45.48,
        "date": "2026-10-10T00:01"
@@ -11716,8 +11968,8 @@
        "date": "2026-10-10T12:51"
       },
       {
-       "team": "Ethan",
-       "user": "Ethan",
+       "team": "YX",
+       "user": "YX",
        "model": "",
        "score": 10.59,
        "date": "2026-10-10T00:07"
@@ -12096,7 +12348,7 @@
       {
        "date": "2026-10-10T00:07",
        "score": 10.59,
-       "team": "Ethan"
+       "team": "YX"
       },
       {
        "date": "2026-10-10T12:51",
@@ -12118,16 +12370,23 @@
    "label": "Top-5 subject-aggregated",
    "higher": true,
    "color": "#0072B2",
-   "participants": 867,
+   "participants": 868,
    "prec": 6,
    "leader": {
-    "team": "sazeglio",
-    "user": "sazeglio",
+    "team": "jmokim",
+    "user": "jmokim",
     "model": "",
-    "score": 0.001362,
-    "date": "2026-11-14T15:11"
+    "score": 0.001368,
+    "date": "2026-11-17T05:57"
    },
    "rows": [
+    {
+     "team": "jmokim",
+     "user": "jmokim",
+     "model": "",
+     "score": 0.001368,
+     "date": "2026-11-17T05:57"
+    },
     {
      "team": "sazeglio",
      "user": "sazeglio",
@@ -12276,6 +12535,27 @@
      "date": "2026-11-07T13:44"
     },
     {
+     "team": "PNPL",
+     "user": "gereon",
+     "model": "",
+     "score": 0.001048,
+     "date": "2026-11-17T10:09"
+    },
+    {
+     "team": "sultan_frikha",
+     "user": "sultan_frikha",
+     "model": "",
+     "score": 0.001042,
+     "date": "2026-11-17T12:27"
+    },
+    {
+     "team": "quoc-emotiv",
+     "user": "quoc-emotiv",
+     "model": "",
+     "score": 0.001035,
+     "date": "2026-11-17T02:22"
+    },
+    {
      "team": "MannasAI",
      "user": "rajsinghbani",
      "model": "",
@@ -12290,11 +12570,18 @@
      "date": "2026-11-15T16:22"
     },
     {
-     "team": "quoc-emotiv",
-     "user": "quoc-emotiv",
+     "team": "huaning",
+     "user": "huaning",
      "model": "",
-     "score": 0.001009,
-     "date": "2026-11-11T06:12"
+     "score": 0.001007,
+     "date": "2026-11-16T15:40"
+    },
+    {
+     "team": "navid_fuman",
+     "user": "navid_fuman",
+     "model": "V",
+     "score": 0.001007,
+     "date": "2026-11-17T03:48"
     },
     {
      "team": "ponpopon",
@@ -12309,13 +12596,6 @@
      "model": "",
      "score": 0.000997,
      "date": "2026-11-14T06:56"
-    },
-    {
-     "team": "huaning",
-     "user": "huaning",
-     "model": "",
-     "score": 0.000993,
-     "date": "2026-11-12T03:09"
     },
     {
      "team": "24521254",
@@ -12619,6 +12899,13 @@
      "date": "2026-11-05T09:46"
     },
     {
+     "team": "mahtaao",
+     "user": "mahtaao",
+     "model": "",
+     "score": 0.000791,
+     "date": "2026-11-16T15:47"
+    },
+    {
      "team": "timothewt",
      "user": "timothewt",
      "model": "",
@@ -12661,6 +12948,13 @@
      "date": "2026-11-16T05:47"
     },
     {
+     "team": "zhrrrr",
+     "user": "zhrrrr",
+     "model": "",
+     "score": 0.000754,
+     "date": "2026-11-17T15:27"
+    },
+    {
      "team": "visualtranslators",
      "user": "Leafy._.Chan",
      "model": "",
@@ -12696,8 +12990,8 @@
      "date": "2026-11-05T03:42"
     },
     {
-     "team": "Ethan",
-     "user": "Ethan",
+     "team": "YX",
+     "user": "YX",
      "model": "",
      "score": 0.000691,
      "date": "2026-11-10T06:35"
@@ -12836,6 +13130,13 @@
      "date": "2026-11-07T01:45"
     },
     {
+     "team": "Thought-Police",
+     "user": "dbhaskar",
+     "model": "Mind Align v1",
+     "score": 0.000587,
+     "date": "2026-11-16T18:57"
+    },
+    {
      "team": "hongyi",
      "user": "hongyi",
      "model": "S1",
@@ -12862,6 +13163,13 @@
      "model": "NICE-baseline",
      "score": 0.000534,
      "date": "2026-11-13T14:25"
+    },
+    {
+     "team": "adolfo_ramirez",
+     "user": "adolfo_ramirez",
+     "model": "Reve_test",
+     "score": 0.000526,
+     "date": "2026-11-16T23:50"
     },
     {
      "team": "elaina",
@@ -12913,13 +13221,6 @@
      "date": "2026-11-12T08:54"
     },
     {
-     "team": "zhrrrr",
-     "user": "zhrrrr",
-     "model": "",
-     "score": 0.000469,
-     "date": "2026-11-16T04:25"
-    },
-    {
      "team": "UCLA BAIR",
      "user": "udpan",
      "model": "",
@@ -12941,6 +13242,13 @@
      "date": "2026-11-15T14:46"
     },
     {
+     "team": "LuchoComputor",
+     "user": "LuchoComputor",
+     "model": "EEGNet + CLIP asym",
+     "score": 0.000446,
+     "date": "2026-11-17T10:14"
+    },
+    {
      "team": "StudyPlus",
      "user": "StudyPlus",
      "model": "",
@@ -12960,6 +13268,13 @@
      "model": "",
      "score": 0.000393,
      "date": "2026-11-11T22:05"
+    },
+    {
+     "team": "devansh0910",
+     "user": "devansh0910",
+     "model": "",
+     "score": 0.000393,
+     "date": "2026-11-17T12:22"
     },
     {
      "team": "louisliu",
@@ -12988,6 +13303,13 @@
      "model": "",
      "score": 0.000349,
      "date": "2026-11-08T10:48"
+    },
+    {
+     "team": "baiye",
+     "user": "baiye",
+     "model": "",
+     "score": 0.000336,
+     "date": "2026-11-16T16:45"
     },
     {
      "team": "codeking1",
@@ -13138,6 +13460,11 @@
      "date": "2026-11-14T15:11",
      "score": 0.001362,
      "team": "sazeglio"
+    },
+    {
+     "date": "2026-11-17T05:57",
+     "score": 0.001368,
+     "team": "jmokim"
     }
    ]
   },
@@ -13156,16 +13483,16 @@
     "team": "shangeth",
     "user": "shangeth",
     "model": "",
-    "score": 0.851,
-    "date": "2026-11-14T13:44"
+    "score": 0.859,
+    "date": "2026-11-16T23:05"
    },
    "rows": [
     {
      "team": "shangeth",
      "user": "shangeth",
      "model": "",
-     "score": 0.851,
-     "date": "2026-11-14T13:44"
+     "score": 0.859,
+     "date": "2026-11-16T23:05"
     },
     {
      "team": "PNPL",
@@ -13192,8 +13519,8 @@
      "team": "panagiotis_levedogiannis",
      "user": "panagiotis_levedogiannis",
      "model": "",
-     "score": 0.839,
-     "date": "2026-11-15T12:40"
+     "score": 0.841,
+     "date": "2026-11-17T12:21"
     },
     {
      "team": "kyalcin",
@@ -13201,6 +13528,20 @@
      "model": "game_over_squids",
      "score": 0.837,
      "date": "2026-11-14T22:43"
+    },
+    {
+     "team": "liuyin",
+     "user": "liuyin",
+     "model": "T2V6",
+     "score": 0.835,
+     "date": "2026-11-17T08:08"
+    },
+    {
+     "team": "xmqxmq",
+     "user": "xmqxmq",
+     "model": "",
+     "score": 0.835,
+     "date": "2026-11-17T10:27"
     },
     {
      "team": "navattack",
@@ -13217,6 +13558,13 @@
      "date": "2026-11-16T11:32"
     },
     {
+     "team": "KU_MAILAB",
+     "user": "Chang-Min Lee",
+     "model": "GenkiDama",
+     "score": 0.832,
+     "date": "2026-11-17T06:31"
+    },
+    {
      "team": "sungjunwang",
      "user": "sungjunwang",
      "model": "ANCHOR13-v2",
@@ -13224,25 +13572,32 @@
      "date": "2026-11-16T08:45"
     },
     {
-     "team": "xmqxmq",
-     "user": "xmqxmq",
-     "model": "",
-     "score": 0.829,
-     "date": "2026-11-13T15:07"
-    },
-    {
-     "team": "liuyin",
-     "user": "liuyin",
-     "model": "T2p_M7",
-     "score": 0.827,
-     "date": "2026-11-15T10:27"
-    },
-    {
      "team": "bryanyahir03",
      "user": "bryanyahir03",
      "model": "Morganite",
      "score": 0.825,
      "date": "2026-11-12T14:39"
+    },
+    {
+     "team": "kang5554",
+     "user": "kang5554",
+     "model": "",
+     "score": 0.824,
+     "date": "2026-11-17T11:42"
+    },
+    {
+     "team": "tom_ml",
+     "user": "tom_ml",
+     "model": "",
+     "score": 0.823,
+     "date": "2026-11-17T12:04"
+    },
+    {
+     "team": "cool_eeg_winner",
+     "user": "xianglong_bao",
+     "model": "",
+     "score": 0.822,
+     "date": "2026-11-17T02:11"
     },
     {
      "team": "zhuc0626",
@@ -13273,6 +13628,13 @@
      "date": "2026-11-13T14:58"
     },
     {
+     "team": "phlas",
+     "user": "phlas",
+     "model": "",
+     "score": 0.817,
+     "date": "2026-11-17T00:35"
+    },
+    {
      "team": "Phaedrus",
      "user": "Phaedrus",
      "model": "baseline",
@@ -13280,11 +13642,11 @@
      "date": "2026-11-15T06:05"
     },
     {
-     "team": "kang5554",
-     "user": "kang5554",
-     "model": "",
+     "team": "euntack_im",
+     "user": "euntack_im",
+     "model": "iet_541_model",
      "score": 0.815,
-     "date": "2026-11-11T17:05"
+     "date": "2026-11-17T08:07"
     },
     {
      "team": "aimarsilvan",
@@ -13301,20 +13663,6 @@
      "date": "2026-11-11T02:14"
     },
     {
-     "team": "euntack_im",
-     "user": "euntack_im",
-     "model": "iet_476_model",
-     "score": 0.814,
-     "date": "2026-11-10T04:57"
-    },
-    {
-     "team": "cool_eeg_winner",
-     "user": "xianglong_bao",
-     "model": "",
-     "score": 0.814,
-     "date": "2026-11-14T07:09"
-    },
-    {
      "team": "anarghya",
      "user": "anarghya",
      "model": "",
@@ -13329,11 +13677,11 @@
      "date": "2026-11-09T02:11"
     },
     {
-     "team": "KU_MAILAB",
-     "user": "Chang-Min Lee",
+     "team": "fernandosakabe",
+     "user": "fernandosakabe",
      "model": "",
-     "score": 0.81,
-     "date": "2026-11-10T10:24"
+     "score": 0.809,
+     "date": "2026-11-17T06:55"
     },
     {
      "team": "JLShen",
@@ -13343,11 +13691,25 @@
      "date": "2026-11-14T06:10"
     },
     {
+     "team": "speedwagon",
+     "user": "mahdi_ben_ameur",
+     "model": "",
+     "score": 0.809,
+     "date": "2026-11-17T13:29"
+    },
+    {
      "team": "dunktra",
      "user": "dunktra",
      "model": "",
      "score": 0.809,
      "date": "2026-11-15T22:15"
+    },
+    {
+     "team": "momoboi",
+     "user": "momoboi",
+     "model": "new ting",
+     "score": 0.808,
+     "date": "2026-11-17T06:40"
     },
     {
      "team": "jordang1",
@@ -13364,11 +13726,11 @@
      "date": "2026-11-14T19:50"
     },
     {
-     "team": "momoboi",
-     "user": "momoboi",
-     "model": "JSR",
-     "score": 0.806,
-     "date": "2026-11-13T04:04"
+     "team": "Minami",
+     "user": "sekyun",
+     "model": "",
+     "score": 0.807,
+     "date": "2026-11-17T08:17"
     },
     {
      "team": "hocpoc",
@@ -13392,18 +13754,18 @@
      "date": "2026-11-14T18:00"
     },
     {
-     "team": "fernandosakabe",
-     "user": "fernandosakabe",
+     "team": "robs98b",
+     "user": "robs98b",
      "model": "",
-     "score": 0.804,
-     "date": "2026-11-16T10:29"
+     "score": 0.803,
+     "date": "2026-11-16T22:58"
     },
     {
-     "team": "speedwagon",
-     "user": "mahdi_ben_ameur",
-     "model": "jj-pose",
-     "score": 0.802,
-     "date": "2026-11-07T14:23"
+     "team": "Dhiadbh",
+     "user": "Dhiadbh",
+     "model": "Ankara-EEG",
+     "score": 0.801,
+     "date": "2026-11-17T12:06"
     },
     {
      "team": "yiyiyiee",
@@ -13511,6 +13873,13 @@
      "date": "2026-11-14T06:32"
     },
     {
+     "team": "Adrian. T",
+     "user": "Adrian. T",
+     "model": "day2",
+     "score": 0.796,
+     "date": "2026-11-17T08:45"
+    },
+    {
      "team": "rutile",
      "user": "rutile",
      "model": "t2-mix8-real3",
@@ -13546,6 +13915,13 @@
      "date": "2026-11-15T09:09"
     },
     {
+     "team": "Institute for Advanced Consciousness Studies (IACS)",
+     "user": "cedric_cannard",
+     "model": "",
+     "score": 0.793,
+     "date": "2026-11-16T22:50"
+    },
+    {
      "team": "VIBRAINT team",
      "user": "likan_blk",
      "model": "",
@@ -13553,11 +13929,11 @@
      "date": "2026-11-15T16:46"
     },
     {
-     "team": "Institute for Advanced Consciousness Studies (IACS)",
-     "user": "cedric_cannard",
+     "team": "aidpol",
+     "user": "aidpol",
      "model": "",
      "score": 0.793,
-     "date": "2026-11-10T23:06"
+     "date": "2026-11-16T17:27"
     },
     {
      "team": "yongqi",
@@ -13567,18 +13943,25 @@
      "date": "2026-11-08T14:22"
     },
     {
-     "team": "susupro",
-     "user": "susupro",
-     "model": "PROTEUS-DualPhase-Green",
-     "score": 0.789,
-     "date": "2026-11-15T23:44"
-    },
-    {
      "team": "mainguyenanhvu",
      "user": "mainguyenanhvu",
-     "model": "c11152010222f5e",
+     "model": "c1117113504718b",
+     "score": 0.792,
+     "date": "2026-11-17T12:12"
+    },
+    {
+     "team": "susupro",
+     "user": "susupro",
+     "model": "PROTEUS-CAUSAL-LOGEUCLIDEAN-ENSEMBLE",
+     "score": 0.791,
+     "date": "2026-11-17T07:08"
+    },
+    {
+     "team": "Mah",
+     "user": "Mah",
+     "model": "MM5",
      "score": 0.789,
-     "date": "2026-11-16T03:29"
+     "date": "2026-11-17T07:15"
     },
     {
      "team": "limons",
@@ -13602,13 +13985,6 @@
      "date": "2026-11-16T10:31"
     },
     {
-     "team": "Adrian. T",
-     "user": "Adrian. T",
-     "model": "baseline",
-     "score": 0.787,
-     "date": "2026-11-16T06:11"
-    },
-    {
      "team": "xxnnnc",
      "user": "xxnnnc",
      "model": "",
@@ -13616,8 +13992,8 @@
      "date": "2026-11-16T04:13"
     },
     {
-     "team": "Ethan",
-     "user": "Ethan",
+     "team": "YX",
+     "user": "YX",
      "model": "m1107b",
      "score": 0.787,
      "date": "2026-11-07T00:15"
@@ -13644,13 +14020,6 @@
      "date": "2026-11-16T04:50"
     },
     {
-     "team": "Mah",
-     "user": "Mah",
-     "model": "MM4",
-     "score": 0.785,
-     "date": "2026-11-16T11:33"
-    },
-    {
      "team": "lukaskoebis",
      "user": "lukaskoebis",
      "model": "",
@@ -13665,11 +14034,11 @@
      "date": "2026-11-16T03:04"
     },
     {
-     "team": "aidpol",
-     "user": "aidpol",
-     "model": "",
-     "score": 0.782,
-     "date": "2026-11-15T00:19"
+     "team": "NILA",
+     "user": "Lachin",
+     "model": "29SL-R",
+     "score": 0.784,
+     "date": "2026-11-16T18:53"
     },
     {
      "team": "Prime",
@@ -13693,13 +14062,6 @@
      "date": "2026-11-16T11:25"
     },
     {
-     "team": "NILA",
-     "user": "Lachin",
-     "model": "29SL",
-     "score": 0.78,
-     "date": "2026-11-11T18:01"
-    },
-    {
      "team": "noiroao",
      "user": "noiroao",
      "model": "",
@@ -13714,11 +14076,11 @@
      "date": "2026-11-08T15:23"
     },
     {
-     "team": "phlas",
-     "user": "phlas",
-     "model": "",
+     "team": "sisfuse",
+     "user": "sisfuse",
+     "model": "artifacts/full-motor-hierarchy-v104",
      "score": 0.778,
-     "date": "2026-11-10T02:16"
+     "date": "2026-11-17T05:07"
     },
     {
      "team": "Fudan_BME",
@@ -13747,6 +14109,13 @@
      "model": "Tern Atlas III",
      "score": 0.776,
      "date": "2026-11-13T00:55"
+    },
+    {
+     "team": "glioi",
+     "user": "glioi",
+     "model": "",
+     "score": 0.775,
+     "date": "2026-11-16T14:47"
     },
     {
      "team": "vcruz",
@@ -13798,11 +14167,11 @@
      "date": "2026-11-12T02:18"
     },
     {
-     "team": "glioi",
-     "user": "glioi",
-     "model": "",
+     "team": "UBC_neurosci_sbme",
+     "user": "yanzheng",
+     "model": "v8a",
      "score": 0.769,
-     "date": "2026-11-13T10:33"
+     "date": "2026-11-17T06:54"
     },
     {
      "team": "prml",
@@ -13854,6 +14223,13 @@
      "date": "2026-11-06T07:23"
     },
     {
+     "team": "tcs2012",
+     "user": "tcs2012",
+     "model": "s6",
+     "score": 0.765,
+     "date": "2026-11-17T08:34"
+    },
+    {
      "team": "yuchanee",
      "user": "yuchanee",
      "model": "",
@@ -13882,6 +14258,20 @@
      "date": "2026-11-14T18:59"
     },
     {
+     "team": "Mindlab_kyu",
+     "user": "kjh123",
+     "model": "",
+     "score": 0.762,
+     "date": "2026-11-17T12:06"
+    },
+    {
+     "team": "bcilab_dpx",
+     "user": "bcilab_dpx",
+     "model": "",
+     "score": 0.762,
+     "date": "2026-11-16T20:04"
+    },
+    {
      "team": "ritam_26",
      "user": "ritam_26",
      "model": "Tern-7",
@@ -13901,6 +14291,20 @@
      "model": "",
      "score": 0.761,
      "date": "2026-11-14T22:12"
+    },
+    {
+     "team": "isemenkov",
+     "user": "isemenkov",
+     "model": "",
+     "score": 0.761,
+     "date": "2026-11-16T21:52"
+    },
+    {
+     "team": "mohhakami",
+     "user": "mohhakami",
+     "model": "shallow-ea-cropexperts-sessadapt-v4",
+     "score": 0.76,
+     "date": "2026-11-17T00:06"
     },
     {
      "team": "PlynkData",
@@ -13931,6 +14335,13 @@
      "date": "2026-11-14T08:15"
     },
     {
+     "team": "choosec",
+     "user": "choosec",
+     "model": "",
+     "score": 0.757,
+     "date": "2026-11-17T05:05"
+    },
+    {
      "team": "adoroodchi",
      "user": "adoroodchi",
      "model": "",
@@ -13945,11 +14356,11 @@
      "date": "2026-11-10T11:24"
     },
     {
-     "team": "tom_ml",
-     "user": "tom_ml",
+     "team": "lxyxros",
+     "user": "lxyxros",
      "model": "",
      "score": 0.753,
-     "date": "2026-11-05T13:27"
+     "date": "2026-11-17T08:22"
     },
     {
      "team": "period",
@@ -13966,11 +14377,11 @@
      "date": "2026-11-15T12:34"
     },
     {
-     "team": "mohhakami",
-     "user": "mohhakami",
-     "model": "shallow-ea-subject-experts-v3",
-     "score": 0.752,
-     "date": "2026-11-16T00:02"
+     "team": "Francisco_Angulo",
+     "user": "Francisco_Angulo",
+     "model": "Riemann memory + aligned CNN ensemble - L5_BNA causal BN",
+     "score": 0.753,
+     "date": "2026-11-16T20:29"
     },
     {
      "team": "alexgteo",
@@ -13980,20 +14391,6 @@
      "date": "2026-11-14T14:44"
     },
     {
-     "team": "robs98b",
-     "user": "robs98b",
-     "model": "entry-03",
-     "score": 0.752,
-     "date": "2026-11-14T14:33"
-    },
-    {
-     "team": "lxyxros",
-     "user": "lxyxros",
-     "model": "",
-     "score": 0.749,
-     "date": "2026-11-11T11:16"
-    },
-    {
      "team": "varshavarma",
      "user": "varshavarma",
      "model": "",
@@ -14001,11 +14398,25 @@
      "date": "2026-11-08T03:49"
     },
     {
+     "team": "willyjson",
+     "user": "willyjson",
+     "model": "",
+     "score": 0.749,
+     "date": "2026-11-17T00:50"
+    },
+    {
      "team": "yanlinfu",
      "user": "yanlinfu",
      "model": "",
      "score": 0.748,
      "date": "2026-11-12T05:42"
+    },
+    {
+     "team": "whiteram",
+     "user": "whiteram",
+     "model": "",
+     "score": 0.746,
+     "date": "2026-11-16T23:13"
     },
     {
      "team": "teddythebuilder",
@@ -14027,13 +14438,6 @@
      "model": "v3",
      "score": 0.745,
      "date": "2026-11-16T05:23"
-    },
-    {
-     "team": "choosec",
-     "user": "choosec",
-     "model": "",
-     "score": 0.744,
-     "date": "2026-11-07T05:58"
     },
     {
      "team": "LilBrains",
@@ -14064,32 +14468,11 @@
      "date": "2026-11-11T22:04"
     },
     {
-     "team": "UBC_neurosci_sbme",
-     "user": "yanzheng",
-     "model": "v3c-beta=6",
-     "score": 0.742,
-     "date": "2026-11-16T04:48"
-    },
-    {
-     "team": "Francisco_Angulo",
-     "user": "Francisco_Angulo",
-     "model": "Riemann memory + aligned CNN ensemble - LONG",
-     "score": 0.742,
-     "date": "2026-11-15T12:07"
-    },
-    {
      "team": "syehsyoh",
      "user": "syehsyoh",
      "model": "",
      "score": 0.741,
      "date": "2026-11-15T10:46"
-    },
-    {
-     "team": "whiteram",
-     "user": "whiteram",
-     "model": "",
-     "score": 0.741,
-     "date": "2026-11-05T00:59"
     },
     {
      "team": "Synapthor",
@@ -14113,13 +14496,6 @@
      "date": "2026-11-10T13:59"
     },
     {
-     "team": "tcs2012",
-     "user": "tcs2012",
-     "model": "s4",
-     "score": 0.738,
-     "date": "2026-11-15T07:04"
-    },
-    {
      "team": "zhihao_chen",
      "user": "zhihao_chen",
      "model": "",
@@ -14141,13 +14517,6 @@
      "date": "2026-11-10T05:49"
     },
     {
-     "team": "sisfuse",
-     "user": "sisfuse",
-     "model": "full-public-temporal-v10",
-     "score": 0.735,
-     "date": "2026-11-16T02:43"
-    },
-    {
      "team": "chiara",
      "user": "chiara",
      "model": "",
@@ -14162,18 +14531,11 @@
      "date": "2026-11-06T09:25"
     },
     {
-     "team": "dhiadbh",
-     "user": "dhiadbh",
-     "model": "yowaymo",
-     "score": 0.73,
-     "date": "2026-11-15T17:36"
-    },
-    {
      "team": "shamadei",
      "user": "shamadei",
      "model": "",
-     "score": 0.729,
-     "date": "2026-11-08T01:15"
+     "score": 0.732,
+     "date": "2026-11-17T14:43"
     },
     {
      "team": "WholeWave",
@@ -14202,13 +14564,6 @@
      "model": "",
      "score": 0.72,
      "date": "2026-11-16T09:28"
-    },
-    {
-     "team": "isemenkov",
-     "user": "isemenkov",
-     "model": "",
-     "score": 0.72,
-     "date": "2026-11-14T00:42"
     },
     {
      "team": "triniborrell",
@@ -14302,6 +14657,13 @@
      "date": "2026-11-12T11:49"
     },
     {
+     "team": "bill_cn",
+     "user": "bill_cn",
+     "model": "",
+     "score": 0.706,
+     "date": "2026-11-17T14:07"
+    },
+    {
      "team": "judachape",
      "user": "judachape",
      "model": "",
@@ -14351,6 +14713,13 @@
      "date": "2026-11-07T10:51"
     },
     {
+     "team": "luojingwei-hust",
+     "user": "luojingwei-hust",
+     "model": "ensemble",
+     "score": 0.689,
+     "date": "2026-11-17T01:36"
+    },
+    {
      "team": "zzggaa",
      "user": "zzggaa",
      "model": "",
@@ -14363,6 +14732,13 @@
      "model": "",
      "score": 0.687,
      "date": "2026-11-07T11:40"
+    },
+    {
+     "team": "pk3725069",
+     "user": "pk3725069",
+     "model": "",
+     "score": 0.684,
+     "date": "2026-11-16T15:28"
     },
     {
      "team": "hu_ziyan",
@@ -14407,6 +14783,13 @@
      "date": "2026-11-13T13:12"
     },
     {
+     "team": "xcs0406",
+     "user": "xcs0406",
+     "model": "Track2-v16-CBraMod-Covariance",
+     "score": 0.67,
+     "date": "2026-11-17T12:45"
+    },
+    {
      "team": "shky24",
      "user": "shky24",
      "model": "",
@@ -14414,25 +14797,11 @@
      "date": "2026-11-07T18:45"
     },
     {
-     "team": "xcs0406",
-     "user": "xcs0406",
-     "model": "Track2-v14-CBraMod-Covariance",
-     "score": 0.668,
-     "date": "2026-11-16T02:18"
-    },
-    {
      "team": "tuzhiyang",
      "user": "tuzhiyang",
      "model": "",
      "score": 0.667,
      "date": "2026-11-12T15:46"
-    },
-    {
-     "team": "pk3725069",
-     "user": "pk3725069",
-     "model": "",
-     "score": 0.667,
-     "date": "2026-11-15T02:41"
     },
     {
      "team": "harshalsshende",
@@ -14447,6 +14816,13 @@
      "model": "",
      "score": 0.661,
      "date": "2026-11-07T10:37"
+    },
+    {
+     "team": "hajimi101",
+     "user": "hajimi101",
+     "model": "",
+     "score": 0.656,
+     "date": "2026-11-17T15:08"
     },
     {
      "team": "foo10ncoo1",
@@ -14477,11 +14853,11 @@
      "date": "2026-11-14T21:33"
     },
     {
-     "team": "pk3725069",
-     "user": "pk3725069",
+     "team": "594102",
+     "user": "594102",
      "model": "",
-     "score": 0.644,
-     "date": "2026-11-10T11:39"
+     "score": 0.647,
+     "date": "2026-11-17T15:04"
     },
     {
      "team": "shijia",
@@ -14503,6 +14879,13 @@
      "model": "",
      "score": 0.641,
      "date": "2026-11-05T04:52"
+    },
+    {
+     "team": "princeramani",
+     "user": "princeramani",
+     "model": "useful",
+     "score": 0.638,
+     "date": "2026-11-17T03:13"
     },
     {
      "team": "diulei",
@@ -14533,6 +14916,13 @@
      "date": "2026-11-12T10:47"
     },
     {
+     "team": "gbrlmhs",
+     "user": "gbrlmhs",
+     "model": "V0.1",
+     "score": 0.621,
+     "date": "2026-11-16T22:16"
+    },
+    {
      "team": "meghanlendhe",
      "user": "meghanlendhe",
      "model": "adaptive ensemble",
@@ -14547,25 +14937,11 @@
      "date": "2026-11-12T08:52"
     },
     {
-     "team": "gbrlmhs",
-     "user": "gbrlmhs",
-     "model": "v0",
-     "score": 0.617,
-     "date": "2026-11-12T10:08"
-    },
-    {
      "team": "jilijili",
      "user": "jilijili",
      "model": "",
      "score": 0.614,
      "date": "2026-11-13T06:53"
-    },
-    {
-     "team": "princeramani",
-     "user": "princeramani",
-     "model": "useful",
-     "score": 0.614,
-     "date": "2026-11-16T10:51"
     },
     {
      "team": "siu777",
@@ -14701,18 +15077,18 @@
      "date": "2026-11-08T01:00"
     },
     {
-     "team": "bill_cn",
-     "user": "bill_cn",
-     "model": "",
-     "score": 0.57,
-     "date": "2026-11-13T08:48"
-    },
-    {
      "team": "renanserrano",
      "user": "renanserrano",
      "model": "117-s1",
      "score": 0.569,
      "date": "2026-11-12T17:48"
+    },
+    {
+     "team": "daria0428",
+     "user": "daria0428",
+     "model": "",
+     "score": 0.569,
+     "date": "2026-11-17T08:47"
     },
     {
      "team": "sarahman",
@@ -14727,6 +15103,13 @@
      "model": "",
      "score": 0.561,
      "date": "2026-11-12T16:38"
+    },
+    {
+     "team": "ioannachourdaki",
+     "user": "ioannachourdaki",
+     "model": "af_desa",
+     "score": 0.559,
+     "date": "2026-11-17T03:31"
     },
     {
      "team": "axel_barbier",
@@ -14748,6 +15131,13 @@
      "model": "sub1",
      "score": 0.549,
      "date": "2026-11-06T17:09"
+    },
+    {
+     "team": "cbergeat",
+     "user": "cbergeat",
+     "model": "mt dsz nb all",
+     "score": 0.548,
+     "date": "2026-11-17T10:54"
     },
     {
      "team": "ssundha",
@@ -14869,6 +15259,13 @@
      "date": "2026-11-15T04:53"
     },
     {
+     "team": "papayalore",
+     "user": "papayalore",
+     "model": "",
+     "score": 0.498,
+     "date": "2026-11-17T01:05"
+    },
+    {
      "team": "123456789",
      "user": "123456789",
      "model": "",
@@ -14883,25 +15280,11 @@
      "date": "2026-11-12T22:33"
     },
     {
-     "team": "papayalore",
-     "user": "papayalore",
-     "model": "",
-     "score": 0.486,
-     "date": "2026-11-16T09:43"
-    },
-    {
      "team": "arnaultcaillet",
      "user": "arnaultcaillet",
      "model": "",
      "score": 0.477,
      "date": "2026-11-06T07:34"
-    },
-    {
-     "team": "willyjson",
-     "user": "willyjson",
-     "model": "",
-     "score": 0.466,
-     "date": "2026-11-05T09:17"
     },
     {
      "team": "oolongbao",
@@ -14935,8 +15318,8 @@
      "team": "shadowraze",
      "user": "shadowraze",
      "model": "",
-     "score": 0.333,
-     "date": "2026-11-15T17:47"
+     "score": 0.334,
+     "date": "2026-11-16T18:03"
     },
     {
      "team": "pwisz",
@@ -14963,19 +15346,14 @@
      "team": "sunsun"
     },
     {
-     "date": "2026-11-07T14:23",
-     "score": 0.802,
-     "team": "speedwagon"
+     "date": "2026-11-08T05:18",
+     "score": 0.8,
+     "team": "jackietanyen"
     },
     {
      "date": "2026-11-09T02:11",
      "score": 0.81,
      "team": "dshimizu"
-    },
-    {
-     "date": "2026-11-10T04:57",
-     "score": 0.814,
-     "team": "euntack_im"
     },
     {
      "date": "2026-11-11T00:50",
@@ -14993,8 +15371,8 @@
      "team": "PNPL"
     },
     {
-     "date": "2026-11-14T13:44",
-     "score": 0.851,
+     "date": "2026-11-16T23:05",
+     "score": 0.859,
      "team": "shangeth"
     }
    ]
@@ -15008,7 +15386,7 @@
    "label": "Seen/unseen macro W-bMAE (s)",
    "higher": false,
    "color": "#D55E00",
-   "participants": 895,
+   "participants": 897,
    "prec": 2,
    "leader": {
     "team": "PurvKabaria",
@@ -15026,18 +15404,67 @@
      "date": "2026-11-16T04:57"
     },
     {
+     "team": "tcs2012",
+     "user": "tcs2012",
+     "model": "s7",
+     "score": 32.38,
+     "date": "2026-11-17T06:21"
+    },
+    {
+     "team": "YX",
+     "user": "YX",
+     "model": "JCAESTB",
+     "score": 32.43,
+     "date": "2026-11-17T01:28"
+    },
+    {
      "team": "ParsaYousefi",
      "user": "ParsaYousefi",
      "model": "",
-     "score": 32.75,
-     "date": "2026-11-14T21:29"
+     "score": 32.53,
+     "date": "2026-11-17T11:08"
     },
     {
-     "team": "Ethan",
-     "user": "Ethan",
-     "model": "JFLTB",
-     "score": 32.78,
-     "date": "2026-11-16T07:42"
+     "team": "wetiqe",
+     "user": "wetiqe",
+     "model": "",
+     "score": 32.59,
+     "date": "2026-11-17T00:11"
+    },
+    {
+     "team": "Mahir",
+     "user": "Mahir",
+     "model": "",
+     "score": 32.63,
+     "date": "2026-11-15T17:42"
+    },
+    {
+     "team": "Adrian. T",
+     "user": "Adrian. T",
+     "model": "gru_v25b",
+     "score": 32.75,
+     "date": "2026-11-17T06:35"
+    },
+    {
+     "team": "minjaekim",
+     "user": "minjaekim",
+     "model": "",
+     "score": 32.77,
+     "date": "2026-11-17T06:35"
+    },
+    {
+     "team": "capella_t4",
+     "user": "capella_t4",
+     "model": "",
+     "score": 32.87,
+     "date": "2026-11-17T06:30"
+    },
+    {
+     "team": "Phaedrus",
+     "user": "Phaedrus",
+     "model": "Baseline",
+     "score": 33.11,
+     "date": "2026-11-16T11:43"
     },
     {
      "team": "Vitalie Cervinschi",
@@ -15047,18 +15474,81 @@
      "date": "2026-11-14T06:50"
     },
     {
-     "team": "wetiqe",
-     "user": "wetiqe",
-     "model": "Omni-Intellegence Simple Baseline",
-     "score": 33.56,
-     "date": "2026-11-14T14:42"
-    },
-    {
      "team": "ulackconviction",
      "user": "ulackconviction",
-     "model": "r10_cand",
-     "score": 33.81,
-     "date": "2026-11-14T17:41"
+     "model": "r16c_cand",
+     "score": 33.13,
+     "date": "2026-11-17T11:22"
+    },
+    {
+     "team": "PNPL",
+     "user": "gereon",
+     "model": "",
+     "score": 33.26,
+     "date": "2026-11-17T12:19"
+    },
+    {
+     "team": "harish123455",
+     "user": "harish123455",
+     "model": "",
+     "score": 33.31,
+     "date": "2026-11-15T00:54"
+    },
+    {
+     "team": "LIN-BTU-AI",
+     "user": "dulce",
+     "model": "",
+     "score": 33.54,
+     "date": "2026-11-17T09:41"
+    },
+    {
+     "team": "tom_ml",
+     "user": "tom_ml",
+     "model": "",
+     "score": 33.65,
+     "date": "2026-11-17T10:04"
+    },
+    {
+     "team": "Nguyen Duc Thanh",
+     "user": "Nguyen Duc Thanh",
+     "model": "bi_cs_nop3_g55",
+     "score": 33.69,
+     "date": "2026-11-17T13:27"
+    },
+    {
+     "team": "jjbb1234",
+     "user": "jjbb1234",
+     "model": "",
+     "score": 33.74,
+     "date": "2026-11-17T06:59"
+    },
+    {
+     "team": "UTH_NeuralAI",
+     "user": "yiguofan",
+     "model": "",
+     "score": 33.9,
+     "date": "2026-11-17T04:17"
+    },
+    {
+     "team": "bpm",
+     "user": "viceroy",
+     "model": "V1_tf30cmb",
+     "score": 33.99,
+     "date": "2026-11-13T18:46"
+    },
+    {
+     "team": "JLShen",
+     "user": "JLShen",
+     "model": "4a15e116",
+     "score": 34.14,
+     "date": "2026-11-17T02:17"
+    },
+    {
+     "team": "liuyin",
+     "user": "liuyin",
+     "model": "",
+     "score": 34.19,
+     "date": "2026-11-17T08:24"
     },
     {
      "team": "KULMIT",
@@ -15068,11 +15558,116 @@
      "date": "2026-11-15T17:38"
     },
     {
+     "team": "jlwang24",
+     "user": "jlwang24",
+     "model": "stream_v5b",
+     "score": 34.27,
+     "date": "2026-11-17T03:06"
+    },
+    {
      "team": "bayramgurbuz",
      "user": "bayramgurbuz",
      "model": "",
      "score": 34.41,
      "date": "2026-11-16T14:03"
+    },
+    {
+     "team": "susupro",
+     "user": "susupro",
+     "model": "CLEAN8-CU-BASE-SEEN-NARROW",
+     "score": 34.53,
+     "date": "2026-11-17T14:46"
+    },
+    {
+     "team": "x0d36qop",
+     "user": "x0d36qop",
+     "model": "",
+     "score": 34.53,
+     "date": "2026-11-17T14:26"
+    },
+    {
+     "team": "aimarsilvan",
+     "user": "aimarsilvan",
+     "model": "",
+     "score": 34.53,
+     "date": "2026-11-17T12:57"
+    },
+    {
+     "team": "deep07",
+     "user": "deep07",
+     "model": "Ensemble",
+     "score": 34.75,
+     "date": "2026-11-10T20:27"
+    },
+    {
+     "team": "pambadi",
+     "user": "pambadi",
+     "model": "nocturne_sealed3",
+     "score": 34.75,
+     "date": "2026-11-16T23:25"
+    },
+    {
+     "team": "joss-diz",
+     "user": "joss-diz",
+     "model": "sealed-04",
+     "score": 34.96,
+     "date": "2026-11-16T17:29"
+    },
+    {
+     "team": "roei_yanku",
+     "user": "roei_yanku",
+     "model": "",
+     "score": 35.02,
+     "date": "2026-11-14T16:19"
+    },
+    {
+     "team": "lixinyin",
+     "user": "lixinyin",
+     "model": "v14b",
+     "score": 35.08,
+     "date": "2026-11-17T11:55"
+    },
+    {
+     "team": "rod_ferro",
+     "user": "rod_ferro",
+     "model": "",
+     "score": 35.3,
+     "date": "2026-11-16T00:16"
+    },
+    {
+     "team": "yanlinfu",
+     "user": "yanlinfu",
+     "model": "",
+     "score": 35.31,
+     "date": "2026-11-11T02:00"
+    },
+    {
+     "team": "dunktra",
+     "user": "dunktra",
+     "model": "",
+     "score": 35.39,
+     "date": "2026-11-15T22:04"
+    },
+    {
+     "team": "Team Yuyu",
+     "user": "kaneyxx",
+     "model": "",
+     "score": 35.41,
+     "date": "2026-11-15T13:30"
+    },
+    {
+     "team": "j-at-ch",
+     "user": "j-at-ch",
+     "model": "v0",
+     "score": 35.45,
+     "date": "2026-11-10T12:55"
+    },
+    {
+     "team": "USTBAI3D",
+     "user": "gigabyte",
+     "model": "USTBAI3D - Model 05",
+     "score": 35.45,
+     "date": "2026-11-17T08:00"
     },
     {
      "team": "KU_MAILAB",
@@ -15082,18 +15677,116 @@
      "date": "2026-11-14T06:01"
     },
     {
-     "team": "JLShen",
-     "user": "JLShen",
-     "model": "af919223",
-     "score": 36.79,
-     "date": "2026-11-14T06:02"
+     "team": "Institute for Advanced Consciousness Studies (IACS)",
+     "user": "cedric_cannard",
+     "model": "",
+     "score": 35.64,
+     "date": "2026-11-10T23:18"
     },
     {
-     "team": "roei_yanku",
-     "user": "roei_yanku",
+     "team": "yongqi",
+     "user": "yongqi",
      "model": "",
-     "score": 36.81,
-     "date": "2026-11-15T22:46"
+     "score": 35.8,
+     "date": "2026-11-13T20:09"
+    },
+    {
+     "team": "andbri",
+     "user": "andbri",
+     "model": "",
+     "score": 35.94,
+     "date": "2026-11-17T11:27"
+    },
+    {
+     "team": "evaaa",
+     "user": "evaaa",
+     "model": "",
+     "score": 35.95,
+     "date": "2026-11-17T05:58"
+    },
+    {
+     "team": "SITBCI",
+     "user": "liuyangming",
+     "model": "v1",
+     "score": 35.98,
+     "date": "2026-11-15T17:22"
+    },
+    {
+     "team": "timothewt",
+     "user": "timothewt",
+     "model": "",
+     "score": 36.08,
+     "date": "2026-11-10T13:07"
+    },
+    {
+     "team": "leleren",
+     "user": "leleren",
+     "model": "model4",
+     "score": 36.24,
+     "date": "2026-11-17T13:21"
+    },
+    {
+     "team": "francescoilsazio",
+     "user": "francescoilsazio",
+     "model": "robiola",
+     "score": 36.24,
+     "date": "2026-11-17T14:43"
+    },
+    {
+     "team": "obarskyi",
+     "user": "obarskyi",
+     "model": "",
+     "score": 36.26,
+     "date": "2026-11-17T08:09"
+    },
+    {
+     "team": "princeramani",
+     "user": "princeramani",
+     "model": "useful",
+     "score": 36.27,
+     "date": "2026-11-17T04:27"
+    },
+    {
+     "team": "foreist",
+     "user": "foreist",
+     "model": "",
+     "score": 36.5,
+     "date": "2026-11-15T07:11"
+    },
+    {
+     "team": "waaaq",
+     "user": "waaaq",
+     "model": "",
+     "score": 36.61,
+     "date": "2026-11-17T05:45"
+    },
+    {
+     "team": "rsantana",
+     "user": "rsantana",
+     "model": "",
+     "score": 36.66,
+     "date": "2026-11-16T22:51"
+    },
+    {
+     "team": "ugotanielian",
+     "user": "ugotanielian",
+     "model": "3",
+     "score": 36.69,
+     "date": "2026-11-17T00:07"
+    },
+    {
+     "team": "hongyi",
+     "user": "hongyi",
+     "model": "S2a",
+     "score": 36.75,
+     "date": "2026-11-15T19:24"
+    },
+    {
+     "team": "abelho",
+     "user": "abelho",
+     "model": "exp08",
+     "score": 36.76,
+     "date": "2026-11-16T17:40"
     },
     {
      "team": "navattack",
@@ -15103,347 +15796,200 @@
      "date": "2026-11-15T14:12"
     },
     {
-     "team": "lixinyin",
-     "user": "lixinyin",
+     "team": "qw246",
+     "user": "qw246",
      "model": "",
-     "score": 36.91,
-     "date": "2026-11-14T06:14"
+     "score": 36.97,
+     "date": "2026-11-15T14:37"
     },
     {
-     "team": "sudharshan",
-     "user": "sudharshan",
+     "team": "n2-collective",
+     "user": "zychen1243",
      "model": "",
-     "score": 36.96,
-     "date": "2026-11-16T03:51"
+     "score": 37.0,
+     "date": "2026-11-17T13:37"
     },
     {
-     "team": "tom_ml",
-     "user": "tom_ml",
-     "model": "",
-     "score": 37.06,
-     "date": "2026-11-16T12:25"
-    },
-    {
-     "team": "foreist",
-     "user": "foreist",
-     "model": "",
-     "score": 37.06,
-     "date": "2026-11-16T06:55"
-    },
-    {
-     "team": "yanlinfu",
-     "user": "yanlinfu",
-     "model": "",
-     "score": 37.08,
-     "date": "2026-11-11T02:00"
-    },
-    {
-     "team": "pambadi",
-     "user": "pambadi",
-     "model": "nocturne",
-     "score": 37.16,
-     "date": "2026-11-14T04:00"
-    },
-    {
-     "team": "audric",
-     "user": "audric",
-     "model": "",
-     "score": 37.46,
-     "date": "2026-11-14T16:40"
-    },
-    {
-     "team": "deep07",
-     "user": "deep07",
-     "model": "Ensemble",
-     "score": 37.51,
-     "date": "2026-11-10T20:27"
-    },
-    {
-     "team": "fmashrur",
-     "user": "fmashrur",
-     "model": "",
-     "score": 37.6,
-     "date": "2026-11-11T17:41"
-    },
-    {
-     "team": "rod_ferro",
-     "user": "rod_ferro",
-     "model": "",
-     "score": 37.66,
-     "date": "2026-11-15T00:15"
-    },
-    {
-     "team": "Nimrod Ryder",
-     "user": "Nimrod Ryder",
-     "model": "v10L_r3_dft_method",
-     "score": 37.8,
-     "date": "2026-11-11T15:47"
-    },
-    {
-     "team": "princeramani",
-     "user": "princeramani",
-     "model": "useful",
-     "score": 37.89,
-     "date": "2026-11-15T17:21"
+     "team": "speedwagon",
+     "user": "yosr ghanmi",
+     "model": "best",
+     "score": 37.02,
+     "date": "2026-11-11T15:56"
     },
     {
      "team": "ihsan47",
      "user": "ihsan47",
      "model": "m",
-     "score": 37.91,
+     "score": 37.12,
      "date": "2026-11-14T15:05"
     },
     {
-     "team": "LIN-BTU-AI",
-     "user": "mkuhn99",
+     "team": "sudharshan",
+     "user": "sudharshan",
      "model": "",
-     "score": 37.96,
-     "date": "2026-11-13T16:07"
+     "score": 37.29,
+     "date": "2026-11-11T08:20"
     },
     {
-     "team": "susupro",
-     "user": "susupro",
-     "model": "clean8-personal-wake-bayes",
-     "score": 37.99,
-     "date": "2026-11-16T00:02"
-    },
-    {
-     "team": "x0d36qop",
-     "user": "x0d36qop",
+     "team": "magnusgp",
+     "user": "magnusgp",
      "model": "",
-     "score": 38.06,
-     "date": "2026-11-12T21:06"
+     "score": 37.45,
+     "date": "2026-11-10T12:46"
     },
     {
-     "team": "bryanyahir03",
-     "user": "bryanyahir03",
+     "team": "xmqxmq",
+     "user": "xmqxmq",
      "model": "",
-     "score": 38.13,
-     "date": "2026-11-10T11:57"
-    },
-    {
-     "team": "Orpartok",
-     "user": "yuval_p",
-     "model": "",
-     "score": 38.14,
-     "date": "2026-11-13T15:58"
-    },
-    {
-     "team": "timothewt",
-     "user": "timothewt",
-     "model": "",
-     "score": 38.24,
-     "date": "2026-11-10T13:07"
-    },
-    {
-     "team": "dunktra",
-     "user": "dunktra",
-     "model": "",
-     "score": 38.25,
-     "date": "2026-11-15T22:04"
-    },
-    {
-     "team": "harish123455",
-     "user": "harish123455",
-     "model": "JEET",
-     "score": 38.32,
-     "date": "2026-11-16T08:49"
-    },
-    {
-     "team": "aimarsilvan",
-     "user": "aimarsilvan",
-     "model": "t3-d",
-     "score": 38.36,
-     "date": "2026-11-15T03:11"
-    },
-    {
-     "team": "jjlei",
-     "user": "jjlei",
-     "model": "jj_ensv10",
-     "score": 38.37,
-     "date": "2026-11-16T06:05"
-    },
-    {
-     "team": "Team Yuyu",
-     "user": "kaneyxx",
-     "model": "",
-     "score": 38.4,
-     "date": "2026-11-11T14:04"
-    },
-    {
-     "team": "jlwang24",
-     "user": "jlwang24",
-     "model": "",
-     "score": 38.45,
-     "date": "2026-11-15T20:34"
-    },
-    {
-     "team": "joss-diz",
-     "user": "joss-diz",
-     "model": "Sealed-02",
-     "score": 38.46,
-     "date": "2026-11-12T14:12"
-    },
-    {
-     "team": "j-at-ch",
-     "user": "j-at-ch",
-     "model": "v0",
-     "score": 38.56,
-     "date": "2026-11-10T12:55"
-    },
-    {
-     "team": "Halcyon",
-     "user": "northwind",
-     "model": "hx-t3-s5",
-     "score": 38.58,
-     "date": "2026-11-15T03:35"
-    },
-    {
-     "team": "Institute for Advanced Consciousness Studies (IACS)",
-     "user": "cedric_cannard",
-     "model": "",
-     "score": 38.71,
-     "date": "2026-11-10T23:18"
-    },
-    {
-     "team": "yongqi",
-     "user": "yongqi",
-     "model": "",
-     "score": 38.76,
-     "date": "2026-11-13T17:40"
-    },
-    {
-     "team": "mehular",
-     "user": "mehular",
-     "model": "",
-     "score": 38.79,
-     "date": "2026-11-14T06:48"
-    },
-    {
-     "team": "teddythebuilder",
-     "user": "teddythebuilder",
-     "model": "",
-     "score": 38.79,
-     "date": "2026-11-11T18:40"
-    },
-    {
-     "team": "Nguyen Duc Thanh",
-     "user": "Nguyen Duc Thanh",
-     "model": "",
-     "score": 38.81,
-     "date": "2026-11-15T10:52"
-    },
-    {
-     "team": "obarskyi",
-     "user": "obarskyi",
-     "model": "",
-     "score": 38.88,
-     "date": "2026-11-15T07:45"
-    },
-    {
-     "team": "francescoilsazio",
-     "user": "francescoilsazio",
-     "model": "scamorza",
-     "score": 38.99,
-     "date": "2026-11-16T12:56"
-    },
-    {
-     "team": "syehsyoh",
-     "user": "syehsyoh",
-     "model": "",
-     "score": 39.04,
-     "date": "2026-11-14T00:42"
+     "score": 37.54,
+     "date": "2026-11-13T15:15"
     },
     {
      "team": "noiroao",
      "user": "noiroao",
      "model": "",
-     "score": 39.13,
-     "date": "2026-11-15T00:13"
+     "score": 37.62,
+     "date": "2026-11-17T11:32"
     },
     {
-     "team": "loveisp",
-     "user": "loveisp",
-     "model": "test",
-     "score": 39.13,
-     "date": "2026-11-13T09:08"
+     "team": "cool_eeg_winner",
+     "user": "jesseryx",
+     "model": "gru_v3TXm_q50",
+     "score": 37.68,
+     "date": "2026-11-17T02:39"
     },
     {
      "team": "Duolaimeng",
      "user": "ytgao",
      "model": "",
-     "score": 39.21,
+     "score": 37.69,
      "date": "2026-11-15T11:55"
     },
     {
-     "team": "phlas",
-     "user": "phlas",
-     "model": "",
-     "score": 39.23,
-     "date": "2026-11-11T02:56"
+     "team": "pavlos",
+     "user": "pavlos",
+     "model": "TCN-GBM-Blend + causal stack (cf540, fast)",
+     "score": 37.75,
+     "date": "2026-11-10T14:53"
     },
     {
-     "team": "hsing",
-     "user": "hsing",
+     "team": "mohhakami",
+     "user": "mohhakami",
+     "model": "gru-feat2-ens12-v2",
+     "score": 37.76,
+     "date": "2026-11-15T04:06"
+    },
+    {
+     "team": "artaobuilds",
+     "user": "artaobuilds",
      "model": "",
-     "score": 39.35,
-     "date": "2026-11-16T05:49"
+     "score": 37.8,
+     "date": "2026-11-16T02:49"
     },
     {
      "team": "zhangguochang",
      "user": "zhangguochang",
      "model": "",
-     "score": 39.43,
-     "date": "2026-11-11T06:04"
+     "score": 37.81,
+     "date": "2026-11-14T16:14"
     },
     {
-     "team": "SITBCI",
-     "user": "liuyangming",
-     "model": "v1",
-     "score": 39.45,
-     "date": "2026-11-15T17:22"
+     "team": "Hardik",
+     "user": "Hardik",
+     "model": "Muse and NSRR",
+     "score": 37.81,
+     "date": "2026-11-17T10:47"
     },
     {
-     "team": "saltytaro",
-     "user": "saltytaro",
-     "model": "20261111-sleep-mixglog9-f4e",
-     "score": 39.46,
-     "date": "2026-11-11T11:18"
-    },
-    {
-     "team": "USTBAI3D",
-     "user": "gigabyte",
-     "model": "USTBAI3D - Model 03",
-     "score": 39.48,
-     "date": "2026-11-16T05:23"
-    },
-    {
-     "team": "csun8109",
-     "user": "csun8109",
+     "team": "CAUET_DJ",
+     "user": "edwin0617",
      "model": "",
-     "score": 39.58,
-     "date": "2026-11-14T20:39"
+     "score": 37.82,
+     "date": "2026-11-14T10:07"
     },
     {
-     "team": "ahmadabdelaal",
-     "user": "ahmadabdelaal",
+     "team": "Orpartok",
+     "user": "yuval_p",
      "model": "",
-     "score": 39.63,
-     "date": "2026-11-12T10:23"
+     "score": 38.32,
+     "date": "2026-11-13T15:58"
+    },
+    {
+     "team": "raiso",
+     "user": "raiso",
+     "model": "",
+     "score": 38.35,
+     "date": "2026-11-17T00:17"
+    },
+    {
+     "team": "Leopadra",
+     "user": "jehb4ik",
+     "model": "ys2",
+     "score": 38.36,
+     "date": "2026-11-11T10:48"
+    },
+    {
+     "team": "lizasheina",
+     "user": "lizasheina",
+     "model": "submission_sleep_multiview_v3",
+     "score": 38.39,
+     "date": "2026-11-13T14:49"
+    },
+    {
+     "team": "eason23",
+     "user": "eason23",
+     "model": "",
+     "score": 38.44,
+     "date": "2026-11-10T23:25"
+    },
+    {
+     "team": "hsing",
+     "user": "hsing",
+     "model": "",
+     "score": 38.5,
+     "date": "2026-11-17T06:56"
+    },
+    {
+     "team": "kristal",
+     "user": "kristal",
+     "model": "",
+     "score": 38.67,
+     "date": "2026-11-17T04:07"
+    },
+    {
+     "team": "Lucid",
+     "user": "callumdenyer",
+     "model": "",
+     "score": 38.72,
+     "date": "2026-11-16T17:25"
     },
     {
      "team": "sisfuse",
      "user": "sisfuse",
-     "model": "sleep-r9-refit-ready.zip",
-     "score": 39.63,
-     "date": "2026-11-16T06:39"
+     "model": "sleep-r21-refit-ready.zip",
+     "score": 38.95,
+     "date": "2026-11-17T01:18"
     },
     {
-     "team": "leleren",
-     "user": "leleren",
-     "model": "track 03\u2014model1",
-     "score": 39.64,
-     "date": "2026-11-10T13:04"
+     "team": "edgartejerina",
+     "user": "edgartejerina",
+     "model": "",
+     "score": 39.28,
+     "date": "2026-11-17T02:46"
+    },
+    {
+     "team": "quoc-emotiv",
+     "user": "quoc-emotiv",
+     "model": "",
+     "score": 39.61,
+     "date": "2026-11-15T02:33"
+    },
+    {
+     "team": "fmashrur",
+     "user": "fmashrur",
+     "model": "",
+     "score": 39.71,
+     "date": "2026-11-11T17:41"
     },
     {
      "team": "Invincible Dark Supreme Overlords",
@@ -15453,708 +15999,645 @@
      "date": "2026-11-11T04:41"
     },
     {
-     "team": "hongyi",
-     "user": "hongyi",
-     "model": "S2a",
-     "score": 39.84,
-     "date": "2026-11-15T19:24"
+     "team": "Rajat",
+     "user": "Rajat",
+     "model": "",
+     "score": 39.91,
+     "date": "2026-11-15T17:51"
     },
     {
-     "team": "evaaa",
-     "user": "evaaa",
+     "team": "Coconut Lassi",
+     "user": "harizz076",
      "model": "",
-     "score": 39.84,
-     "date": "2026-11-16T02:36"
+     "score": 40.03,
+     "date": "2026-11-11T12:08"
     },
     {
-     "team": "haixiangding",
-     "user": "haixiangding",
+     "team": "mhd88",
+     "user": "mhd88",
+     "model": "sleep-onset-v5-loss",
+     "score": 40.05,
+     "date": "2026-11-16T00:10"
+    },
+    {
+     "team": "tobiasharritz",
+     "user": "tobiasharritz",
      "model": "",
-     "score": 39.84,
-     "date": "2026-11-14T22:46"
+     "score": 40.09,
+     "date": "2026-11-11T16:54"
+    },
+    {
+     "team": "sudharsan-22",
+     "user": "sudharsan-22",
+     "model": "v2",
+     "score": 40.14,
+     "date": "2026-11-15T01:26"
     },
     {
      "team": "ttt5600",
      "user": "ttt5600",
      "model": "E19 0.75*(0.25 E11+0.75 GRU3)+0.25 REVE (CV 43.54)",
-     "score": 39.96,
+     "score": 40.21,
      "date": "2026-11-13T04:57"
     },
     {
-     "team": "rsantana",
-     "user": "rsantana",
-     "model": "",
-     "score": 39.98,
-     "date": "2026-11-15T23:09"
+     "team": "sanaataneja",
+     "user": "sanaataneja",
+     "model": "v3-lean-seq",
+     "score": 40.28,
+     "date": "2026-11-17T09:46"
     },
     {
-     "team": "judeswallis",
-     "user": "judeswallis",
-     "model": "t3B2mmr3",
-     "score": 40.01,
-     "date": "2026-11-12T00:08"
-    },
-    {
-     "team": "kwonhyojun",
-     "user": "kwonhyojun",
-     "model": "M3R StreamNet + REVE output average (C + S' + R1), 3 seeds (s012)",
-     "score": 40.02,
-     "date": "2026-11-15T01:58"
-    },
-    {
-     "team": "pavlos",
-     "user": "pavlos",
-     "model": "TCN-GBM-Blend + causal stack (cf540, fast)",
-     "score": 40.16,
-     "date": "2026-11-10T14:53"
-    },
-    {
-     "team": "CAUET_DJ",
-     "user": "edwin0617",
-     "model": "",
-     "score": 40.17,
-     "date": "2026-11-14T10:07"
-    },
-    {
-     "team": "qw246",
-     "user": "qw246",
-     "model": "",
-     "score": 40.18,
-     "date": "2026-11-15T14:37"
-    },
-    {
-     "team": "waaaq",
-     "user": "waaaq",
-     "model": "base1",
-     "score": 40.22,
-     "date": "2026-11-16T02:37"
-    },
-    {
-     "team": "mohhakami",
-     "user": "mohhakami",
-     "model": "gru-feat2-ens12-v2",
-     "score": 40.32,
-     "date": "2026-11-15T04:06"
-    },
-    {
-     "team": "chris_vas",
-     "user": "chris_vas",
-     "model": "",
-     "score": 40.43,
-     "date": "2026-11-10T13:24"
-    },
-    {
-     "team": "hollyakt",
-     "user": "hollyakt",
-     "model": "",
-     "score": 40.49,
-     "date": "2026-11-14T17:21"
-    },
-    {
-     "team": "wangpj",
-     "user": "wangpj",
-     "model": "",
-     "score": 40.53,
-     "date": "2026-11-11T06:59"
+     "team": "peuvrierm",
+     "user": "peuvrierm",
+     "model": "ttt",
+     "score": 40.63,
+     "date": "2026-11-11T16:45"
     },
     {
      "team": "aimc001",
      "user": "aimc001",
      "model": "",
-     "score": 40.54,
-     "date": "2026-11-16T08:50"
+     "score": 40.64,
+     "date": "2026-11-17T11:02"
     },
     {
      "team": "synthlegend",
      "user": "synthlegend",
-     "model": "track3_sleep_multigru_v5",
-     "score": 40.56,
-     "date": "2026-11-16T08:43"
+     "model": "track3_variantE_rawcnn_v6",
+     "score": 40.7,
+     "date": "2026-11-17T08:01"
+    },
+    {
+     "team": "dragonborn",
+     "user": "dragonborn",
+     "model": "Causal feature GRU",
+     "score": 40.71,
+     "date": "2026-11-16T05:03"
+    },
+    {
+     "team": "csun8109",
+     "user": "csun8109",
+     "model": "q35",
+     "score": 40.83,
+     "date": "2026-11-15T20:35"
+    },
+    {
+     "team": "efelez15",
+     "user": "efelez15",
+     "model": "",
+     "score": 40.84,
+     "date": "2026-11-10T11:45"
+    },
+    {
+     "team": "lukaskoebis",
+     "user": "lukaskoebis",
+     "model": "",
+     "score": 41.08,
+     "date": "2026-11-10T20:21"
+    },
+    {
+     "team": "yyhan",
+     "user": "yyhan",
+     "model": "",
+     "score": 41.15,
+     "date": "2026-11-16T16:09"
+    },
+    {
+     "team": "feeling",
+     "user": "feeling",
+     "model": "",
+     "score": 41.22,
+     "date": "2026-11-17T04:17"
+    },
+    {
+     "team": "phlas",
+     "user": "phlas",
+     "model": "",
+     "score": 41.79,
+     "date": "2026-11-11T02:56"
+    },
+    {
+     "team": "audric",
+     "user": "audric",
+     "model": "",
+     "score": 41.93,
+     "date": "2026-11-14T16:40"
+    },
+    {
+     "team": "xiaosa",
+     "user": "xiaosa",
+     "model": "",
+     "score": 42.09,
+     "date": "2026-11-16T09:19"
+    },
+    {
+     "team": "syehsyoh",
+     "user": "syehsyoh",
+     "model": "",
+     "score": 42.14,
+     "date": "2026-11-14T00:42"
+    },
+    {
+     "team": "LIN-BTU-AI",
+     "user": "mkuhn99",
+     "model": "",
+     "score": 42.17,
+     "date": "2026-11-13T16:07"
+    },
+    {
+     "team": "dparry",
+     "user": "dparry",
+     "model": "Muse feature v1",
+     "score": 42.31,
+     "date": "2026-11-16T16:34"
+    },
+    {
+     "team": "cbyun",
+     "user": "cbyun",
+     "model": "",
+     "score": 42.33,
+     "date": "2026-11-17T13:52"
+    },
+    {
+     "team": "teddythebuilder",
+     "user": "teddythebuilder",
+     "model": "",
+     "score": 42.4,
+     "date": "2026-11-11T18:40"
+    },
+    {
+     "team": "wangpj",
+     "user": "wangpj",
+     "model": "",
+     "score": 42.57,
+     "date": "2026-11-11T06:59"
+    },
+    {
+     "team": "loveisp",
+     "user": "loveisp",
+     "model": "test",
+     "score": 42.69,
+     "date": "2026-11-13T09:08"
+    },
+    {
+     "team": "shrutz",
+     "user": "shrutz",
+     "model": "gru_ensemble_12",
+     "score": 42.92,
+     "date": "2026-11-17T07:04"
+    },
+    {
+     "team": "saltytaro",
+     "user": "saltytaro",
+     "model": "20261111-sleep-mixglog9-f4e",
+     "score": 43.07,
+     "date": "2026-11-11T11:18"
+    },
+    {
+     "team": "isemenkov",
+     "user": "isemenkov",
+     "model": "",
+     "score": 43.21,
+     "date": "2026-11-16T22:16"
+    },
+    {
+     "team": "SnoozeControl",
+     "user": "promitmoitra",
+     "model": "T30c_540",
+     "score": 43.28,
+     "date": "2026-11-11T06:33"
+    },
+    {
+     "team": "UBC_neurosci_sbme",
+     "user": "gladianll",
+     "model": "",
+     "score": 43.33,
+     "date": "2026-11-16T23:04"
+    },
+    {
+     "team": "agape",
+     "user": "agape",
+     "model": "K53S",
+     "score": 43.48,
+     "date": "2026-11-14T13:22"
+    },
+    {
+     "team": "chris_vas",
+     "user": "chris_vas",
+     "model": "",
+     "score": 43.59,
+     "date": "2026-11-10T13:24"
+    },
+    {
+     "team": "haoyu6",
+     "user": "haoyu6",
+     "model": "",
+     "score": 43.64,
+     "date": "2026-11-17T11:22"
+    },
+    {
+     "team": "JHtest",
+     "user": "JHtest",
+     "model": "",
+     "score": 43.86,
+     "date": "2026-11-17T06:11"
+    },
+    {
+     "team": "Hello World",
+     "user": "harveybi2333",
+     "model": "",
+     "score": 43.9,
+     "date": "2026-11-12T14:20"
+    },
+    {
+     "team": "Halcyon",
+     "user": "northwind",
+     "model": "hx-t3-s5",
+     "score": 44.28,
+     "date": "2026-11-15T03:35"
+    },
+    {
+     "team": "BrainUp",
+     "user": "Carol",
+     "model": "",
+     "score": 44.32,
+     "date": "2026-11-11T02:57"
+    },
+    {
+     "team": "ffylaktis",
+     "user": "ffylaktis",
+     "model": "",
+     "score": 44.4,
+     "date": "2026-11-11T20:08"
+    },
+    {
+     "team": "ismail_sutdonduran",
+     "user": "ismail_sutdonduran",
+     "model": "eegnet_wl1_timeaug_v1",
+     "score": 44.46,
+     "date": "2026-11-17T14:40"
+    },
+    {
+     "team": "whiteram",
+     "user": "whiteram",
+     "model": "",
+     "score": 44.5,
+     "date": "2026-11-15T23:15"
+    },
+    {
+     "team": "gdnsk",
+     "user": "gdnsk",
+     "model": "sleep-onset-hgb-w778",
+     "score": 45.03,
+     "date": "2026-11-17T07:02"
+    },
+    {
+     "team": "prml",
+     "user": "prml",
+     "model": "",
+     "score": 45.03,
+     "date": "2026-11-15T09:02"
+    },
+    {
+     "team": "sarahman",
+     "user": "sarahman",
+     "model": "SpecCore-TCN-Hybrid-v1",
+     "score": 45.19,
+     "date": "2026-11-15T10:38"
+    },
+    {
+     "team": "HYLGZ",
+     "user": "ivanliu",
+     "model": "",
+     "score": 45.21,
+     "date": "2026-11-12T04:05"
+    },
+    {
+     "team": "alexgteo",
+     "user": "alexgteo",
+     "model": "",
+     "score": 45.69,
+     "date": "2026-11-13T10:41"
+    },
+    {
+     "team": "kwonhyojun",
+     "user": "kwonhyojun",
+     "model": "SleepOnset-NN3+Tree-GridDecision (A)",
+     "score": 46.64,
+     "date": "2026-11-11T13:59"
+    },
+    {
+     "team": "UBC_neurosci_sbme",
+     "user": "yanzheng",
+     "model": "",
+     "score": 47.25,
+     "date": "2026-11-15T23:07"
+    },
+    {
+     "team": "ahmadabdelaal",
+     "user": "ahmadabdelaal",
+     "model": "",
+     "score": 47.28,
+     "date": "2026-11-10T13:00"
+    },
+    {
+     "team": "Omni\u2011Intelligence",
+     "user": "jason_hou",
+     "model": "baseline",
+     "score": 47.39,
+     "date": "2026-11-14T15:00"
+    },
+    {
+     "team": "NILA",
+     "user": "nikoo-m",
+     "model": "6_n2_ens",
+     "score": 48.79,
+     "date": "2026-11-17T11:08"
+    },
+    {
+     "team": "ngcferreira",
+     "user": "ngcferreira",
+     "model": "",
+     "score": 49.08,
+     "date": "2026-11-10T19:31"
+    },
+    {
+     "team": "divisible",
+     "user": "divisible",
+     "model": "",
+     "score": 49.28,
+     "date": "2026-11-11T21:28"
+    },
+    {
+     "team": "mehular",
+     "user": "mehular",
+     "model": "",
+     "score": 49.65,
+     "date": "2026-11-14T06:48"
+    },
+    {
+     "team": "Nimrod Ryder",
+     "user": "Nimrod Ryder",
+     "model": "v10L_r3_dft_method",
+     "score": 50.19,
+     "date": "2026-11-11T15:47"
+    },
+    {
+     "team": "sjhanintheroom",
+     "user": "sjhanintheroom",
+     "model": "",
+     "score": 50.21,
+     "date": "2026-11-16T08:30"
+    },
+    {
+     "team": "NeuroAI",
+     "user": "behboudi997",
+     "model": "",
+     "score": 50.24,
+     "date": "2026-11-12T23:31"
+    },
+    {
+     "team": "harshalsshende",
+     "user": "harshalsshende",
+     "model": "",
+     "score": 50.64,
+     "date": "2026-11-15T07:41"
+    },
+    {
+     "team": "adolfo_ramirez",
+     "user": "adolfo_ramirez",
+     "model": "Gru",
+     "score": 50.74,
+     "date": "2026-11-12T19:15"
+    },
+    {
+     "team": "arnaultcaillet",
+     "user": "arnaultcaillet",
+     "model": "",
+     "score": 50.82,
+     "date": "2026-11-10T11:37"
+    },
+    {
+     "team": "zli2255",
+     "user": "zli2255",
+     "model": "",
+     "score": 51.18,
+     "date": "2026-11-14T16:15"
+    },
+    {
+     "team": "Drowsy",
+     "user": "gmasri",
+     "model": "",
+     "score": 52.03,
+     "date": "2026-11-16T20:04"
+    },
+    {
+     "team": "Fudan University AI4Science Team",
+     "user": "sac-0710",
+     "model": "",
+     "score": 52.75,
+     "date": "2026-11-10T14:33"
+    },
+    {
+     "team": "murakami-shoya",
+     "user": "murakami-shoya",
+     "model": "",
+     "score": 52.95,
+     "date": "2026-11-16T02:00"
+    },
+    {
+     "team": "tuxinrui",
+     "user": "tuxinrui",
+     "model": "",
+     "score": 53.63,
+     "date": "2026-11-13T08:57"
+    },
+    {
+     "team": "hollyakt",
+     "user": "hollyakt",
+     "model": "",
+     "score": 54.11,
+     "date": "2026-11-17T03:02"
+    },
+    {
+     "team": "bryanyahir03",
+     "user": "bryanyahir03",
+     "model": "",
+     "score": 56.33,
+     "date": "2026-11-10T11:57"
+    },
+    {
+     "team": "ekaplan7",
+     "user": "ekaplan7",
+     "model": "",
+     "score": 58.14,
+     "date": "2026-11-10T16:31"
+    },
+    {
+     "team": "azzzeret",
+     "user": "azzzeret",
+     "model": "",
+     "score": 58.36,
+     "date": "2026-11-16T16:20"
+    },
+    {
+     "team": "haixiangding",
+     "user": "haixiangding",
+     "model": "",
+     "score": 58.43,
+     "date": "2026-11-14T22:46"
+    },
+    {
+     "team": "white_yi",
+     "user": "white_yi",
+     "model": "",
+     "score": 60.5,
+     "date": "2026-11-12T15:54"
+    },
+    {
+     "team": "Francisco_Angulo",
+     "user": "Francisco_Angulo",
+     "model": "Explicit Memory + GRU residual - GL",
+     "score": 60.83,
+     "date": "2026-11-13T20:40"
+    },
+    {
+     "team": "jjlei",
+     "user": "jjlei",
+     "model": "jj_ensv10",
+     "score": 63.83,
+     "date": "2026-11-16T06:05"
+    },
+    {
+     "team": "sanban",
+     "user": "sanban",
+     "model": "NI26-elapsed-a2975f11",
+     "score": 64.37,
+     "date": "2026-11-16T09:56"
+    },
+    {
+     "team": "saheed",
+     "user": "saheed",
+     "model": "SleepOnset-HGB-v2",
+     "score": 67.47,
+     "date": "2026-11-10T14:01"
+    },
+    {
+     "team": "Rui Codex",
+     "user": "Rui Codex",
+     "model": "c1",
+     "score": 67.55,
+     "date": "2026-11-10T12:37"
+    },
+    {
+     "team": "jwlly",
+     "user": "jwlly",
+     "model": "sealed_1",
+     "score": 78.92,
+     "date": "2026-11-10T15:45"
+    },
+    {
+     "team": "root447",
+     "user": "root447",
+     "model": "",
+     "score": 79.5,
+     "date": "2026-11-13T13:12"
+    },
+    {
+     "team": "aoright",
+     "user": "aoright",
+     "model": "",
+     "score": 81.68,
+     "date": "2026-11-11T02:04"
+    },
+    {
+     "team": "pengqiaoni",
+     "user": "pengqiaoni",
+     "model": "",
+     "score": 87.88,
+     "date": "2026-11-12T09:59"
+    },
+    {
+     "team": "judeswallis",
+     "user": "judeswallis",
+     "model": "t3B2mmr3",
+     "score": 92.78,
+     "date": "2026-11-12T00:08"
+    },
+    {
+     "team": "DeLeetcode",
+     "user": "gourav_anirudh",
+     "model": "",
+     "score": 95.47,
+     "date": "2026-11-16T10:20"
+    },
+    {
+     "team": "jiangyunpeng1",
+     "user": "jiangyunpeng1",
+     "model": "TRACK03",
+     "score": 97.58,
+     "date": "2026-11-15T11:20"
     },
     {
      "team": "hongchaoshu",
      "user": "hongchaoshu",
      "model": "",
-     "score": 40.56,
+     "score": 141.58,
      "date": "2026-11-14T15:21"
     },
     {
      "team": "lukefinigan",
      "user": "lukefinigan",
      "model": "",
-     "score": 40.6,
+     "score": 144.39,
      "date": "2026-11-11T00:54"
-    },
-    {
-     "team": "prml",
-     "user": "prml",
-     "model": "",
-     "score": 40.62,
-     "date": "2026-11-15T09:02"
-    },
-    {
-     "team": "BrainUp",
-     "user": "Carol",
-     "model": "",
-     "score": 40.63,
-     "date": "2026-11-11T02:57"
-    },
-    {
-     "team": "ugotanielian",
-     "user": "ugotanielian",
-     "model": "first_try",
-     "score": 40.66,
-     "date": "2026-11-12T11:42"
-    },
-    {
-     "team": "Adrian. T",
-     "user": "Adrian. T",
-     "model": "gru_v20b",
-     "score": 40.72,
-     "date": "2026-11-16T06:29"
-    },
-    {
-     "team": "magnusgp",
-     "user": "magnusgp",
-     "model": "",
-     "score": 40.76,
-     "date": "2026-11-10T12:46"
-    },
-    {
-     "team": "artaobuilds",
-     "user": "artaobuilds",
-     "model": "",
-     "score": 40.83,
-     "date": "2026-11-16T02:49"
-    },
-    {
-     "team": "jiangyunpeng1",
-     "user": "jiangyunpeng1",
-     "model": "TRACK03",
-     "score": 40.88,
-     "date": "2026-11-15T11:20"
-    },
-    {
-     "team": "speedwagon",
-     "user": "yosr ghanmi",
-     "model": "best",
-     "score": 40.94,
-     "date": "2026-11-11T15:56"
-    },
-    {
-     "team": "zli2255",
-     "user": "zli2255",
-     "model": "",
-     "score": 40.96,
-     "date": "2026-11-14T16:15"
-    },
-    {
-     "team": "quoc-emotiv",
-     "user": "quoc-emotiv",
-     "model": "",
-     "score": 40.96,
-     "date": "2026-11-15T02:33"
-    },
-    {
-     "team": "Leopadra",
-     "user": "jehb4ik",
-     "model": "ys2",
-     "score": 41.0,
-     "date": "2026-11-11T10:48"
-    },
-    {
-     "team": "UTH_NeuralAI",
-     "user": "yiguofan",
-     "model": "",
-     "score": 41.03,
-     "date": "2026-11-12T15:48"
-    },
-    {
-     "team": "xmqxmq",
-     "user": "xmqxmq",
-     "model": "",
-     "score": 41.08,
-     "date": "2026-11-13T15:15"
-    },
-    {
-     "team": "peuvrierm",
-     "user": "peuvrierm",
-     "model": "ttt",
-     "score": 41.1,
-     "date": "2026-11-11T16:45"
-    },
-    {
-     "team": "aimarsilvan",
-     "user": "aimarsilvan",
-     "model": "t3-c",
-     "score": 41.16,
-     "date": "2026-11-13T18:26"
-    },
-    {
-     "team": "NeuroAI",
-     "user": "behboudi997",
-     "model": "",
-     "score": 41.45,
-     "date": "2026-11-12T23:31"
-    },
-    {
-     "team": "mohhakami",
-     "user": "mohhakami",
-     "model": "gru-feat-v1",
-     "score": 41.52,
-     "date": "2026-11-14T15:31"
-    },
-    {
-     "team": "sudharsan-22",
-     "user": "sudharsan-22",
-     "model": "v2",
-     "score": 41.73,
-     "date": "2026-11-15T01:26"
-    },
-    {
-     "team": "lukaskoebis",
-     "user": "lukaskoebis",
-     "model": "",
-     "score": 41.8,
-     "date": "2026-11-11T08:55"
-    },
-    {
-     "team": "lizasheina",
-     "user": "lizasheina",
-     "model": "submission_sleep_multiview_v3",
-     "score": 42.0,
-     "date": "2026-11-13T14:49"
-    },
-    {
-     "team": "andbri",
-     "user": "andbri",
-     "model": "",
-     "score": 42.1,
-     "date": "2026-11-14T18:02"
-    },
-    {
-     "team": "divisible",
-     "user": "divisible",
-     "model": "",
-     "score": 42.12,
-     "date": "2026-11-11T21:28"
-    },
-    {
-     "team": "Rui Codex",
-     "user": "Rui Codex",
-     "model": "c2",
-     "score": 42.28,
-     "date": "2026-11-11T09:46"
-    },
-    {
-     "team": "tobiasharritz",
-     "user": "tobiasharritz",
-     "model": "",
-     "score": 42.54,
-     "date": "2026-11-11T16:54"
-    },
-    {
-     "team": "eason23",
-     "user": "eason23",
-     "model": "",
-     "score": 42.7,
-     "date": "2026-11-10T23:25"
-    },
-    {
-     "team": "DeLeetcode",
-     "user": "gourav_anirudh",
-     "model": "",
-     "score": 42.72,
-     "date": "2026-11-16T10:20"
-    },
-    {
-     "team": "white_yi",
-     "user": "white_yi",
-     "model": "",
-     "score": 42.78,
-     "date": "2026-11-13T13:11"
-    },
-    {
-     "team": "edgartejerina",
-     "user": "edgartejerina",
-     "model": "",
-     "score": 42.91,
-     "date": "2026-11-16T01:17"
-    },
-    {
-     "team": "alexgteo",
-     "user": "alexgteo",
-     "model": "",
-     "score": 43.06,
-     "date": "2026-11-13T10:41"
-    },
-    {
-     "team": "mhd88",
-     "user": "mhd88",
-     "model": "sleep-onset-v5-loss",
-     "score": 43.35,
-     "date": "2026-11-16T00:10"
-    },
-    {
-     "team": "feeling",
-     "user": "feeling",
-     "model": "model_2",
-     "score": 43.4,
-     "date": "2026-11-15T02:43"
-    },
-    {
-     "team": "Rajat",
-     "user": "Rajat",
-     "model": "",
-     "score": 43.58,
-     "date": "2026-11-15T17:51"
-    },
-    {
-     "team": "kristal",
-     "user": "kristal",
-     "model": "",
-     "score": 43.61,
-     "date": "2026-11-15T21:37"
-    },
-    {
-     "team": "HYLGZ",
-     "user": "ivanliu",
-     "model": "",
-     "score": 43.73,
-     "date": "2026-11-12T04:05"
-    },
-    {
-     "team": "agape",
-     "user": "agape",
-     "model": "K53S",
-     "score": 43.77,
-     "date": "2026-11-14T13:22"
-    },
-    {
-     "team": "root447",
-     "user": "root447",
-     "model": "",
-     "score": 43.78,
-     "date": "2026-11-13T13:12"
-    },
-    {
-     "team": "UBC_neurosci_sbme",
-     "user": "yanzheng",
-     "model": "",
-     "score": 43.79,
-     "date": "2026-11-15T23:07"
-    },
-    {
-     "team": "Coconut Lassi",
-     "user": "harizz076",
-     "model": "",
-     "score": 43.82,
-     "date": "2026-11-11T12:08"
-    },
-    {
-     "team": "Fudan University AI4Science Team",
-     "user": "sac-0710",
-     "model": "",
-     "score": 43.96,
-     "date": "2026-11-10T14:33"
-    },
-    {
-     "team": "aoright",
-     "user": "aoright",
-     "model": "",
-     "score": 43.98,
-     "date": "2026-11-11T02:04"
-    },
-    {
-     "team": "sjhanintheroom",
-     "user": "sjhanintheroom",
-     "model": "",
-     "score": 44.2,
-     "date": "2026-11-16T08:30"
-    },
-    {
-     "team": "feeling",
-     "user": "feeling",
-     "model": "",
-     "score": 44.81,
-     "date": "2026-11-14T08:07"
-    },
-    {
-     "team": "dragonborn",
-     "user": "dragonborn",
-     "model": "Causal feature GRU",
-     "score": 44.89,
-     "date": "2026-11-16T05:03"
-    },
-    {
-     "team": "raiso",
-     "user": "raiso",
-     "model": "",
-     "score": 44.97,
-     "date": "2026-11-16T14:39"
-    },
-    {
-     "team": "cbyun",
-     "user": "cbyun",
-     "model": "",
-     "score": 45.05,
-     "date": "2026-11-14T14:28"
-    },
-    {
-     "team": "efelez15",
-     "user": "efelez15",
-     "model": "",
-     "score": 45.21,
-     "date": "2026-11-10T11:45"
-    },
-    {
-     "team": "murakami-shoya",
-     "user": "murakami-shoya",
-     "model": "",
-     "score": 45.26,
-     "date": "2026-11-16T02:00"
-    },
-    {
-     "team": "yyhan",
-     "user": "yyhan",
-     "model": "",
-     "score": 45.27,
-     "date": "2026-11-15T13:59"
-    },
-    {
-     "team": "zychen1243",
-     "user": "zychen1243",
-     "model": "",
-     "score": 45.76,
-     "date": "2026-11-14T06:04"
-    },
-    {
-     "team": "sarahman",
-     "user": "sarahman",
-     "model": "SpecCore-TCN-Hybrid-v1",
-     "score": 45.77,
-     "date": "2026-11-15T10:38"
-    },
-    {
-     "team": "adolfo_ramirez",
-     "user": "adolfo_ramirez",
-     "model": "Gru",
-     "score": 45.83,
-     "date": "2026-11-12T19:15"
-    },
-    {
-     "team": "xiaosa",
-     "user": "xiaosa",
-     "model": "",
-     "score": 46.0,
-     "date": "2026-11-16T09:19"
-    },
-    {
-     "team": "shrutz",
-     "user": "shrutz",
-     "model": "brain_signal_v2",
-     "score": 46.0,
-     "date": "2026-11-15T22:53"
-    },
-    {
-     "team": "NILA",
-     "user": "nikoo-m",
-     "model": "s1_e2",
-     "score": 46.35,
-     "date": "2026-11-16T11:15"
-    },
-    {
-     "team": "pengqiaoni",
-     "user": "pengqiaoni",
-     "model": "",
-     "score": 47.19,
-     "date": "2026-11-12T09:59"
-    },
-    {
-     "team": "whiteram",
-     "user": "whiteram",
-     "model": "",
-     "score": 47.23,
-     "date": "2026-11-15T23:15"
-    },
-    {
-     "team": "jwlly",
-     "user": "jwlly",
-     "model": "sealed_1",
-     "score": 47.71,
-     "date": "2026-11-10T15:45"
-    },
-    {
-     "team": "SnoozeControl",
-     "user": "promitmoitra",
-     "model": "T30c_540",
-     "score": 47.96,
-     "date": "2026-11-11T06:33"
-    },
-    {
-     "team": "Francisco_Angulo",
-     "user": "Francisco_Angulo",
-     "model": "Explicit Memory + GRU residual - GL540",
-     "score": 48.07,
-     "date": "2026-11-14T00:23"
-    },
-    {
-     "team": "Hello World",
-     "user": "harveybi2333",
-     "model": "",
-     "score": 48.16,
-     "date": "2026-11-12T14:20"
-    },
-    {
-     "team": "isemenkov",
-     "user": "isemenkov",
-     "model": "",
-     "score": 48.61,
-     "date": "2026-11-14T02:38"
-    },
-    {
-     "team": "tcs2012",
-     "user": "tcs2012",
-     "model": "s3",
-     "score": 48.82,
-     "date": "2026-11-14T09:37"
-    },
-    {
-     "team": "haoyu6",
-     "user": "haoyu6",
-     "model": "",
-     "score": 49.26,
-     "date": "2026-11-14T14:55"
-    },
-    {
-     "team": "ffylaktis",
-     "user": "ffylaktis",
-     "model": "",
-     "score": 49.43,
-     "date": "2026-11-11T20:08"
-    },
-    {
-     "team": "sanban",
-     "user": "sanban",
-     "model": "NI26-elapsed-13688e94",
-     "score": 49.81,
-     "date": "2026-11-14T04:20"
-    },
-    {
-     "team": "saheed",
-     "user": "saheed",
-     "model": "SleepOnset-HGB-v2",
-     "score": 50.34,
-     "date": "2026-11-10T14:01"
-    },
-    {
-     "team": "ekaplan7",
-     "user": "ekaplan7",
-     "model": "",
-     "score": 50.58,
-     "date": "2026-11-10T16:31"
-    },
-    {
-     "team": "jjbb1234",
-     "user": "jjbb1234",
-     "model": "",
-     "score": 51.1,
-     "date": "2026-11-10T12:18"
-    },
-    {
-     "team": "JHtest",
-     "user": "JHtest",
-     "model": "",
-     "score": 51.97,
-     "date": "2026-11-16T09:52"
-    },
-    {
-     "team": "ngcferreira",
-     "user": "ngcferreira",
-     "model": "",
-     "score": 53.47,
-     "date": "2026-11-10T19:31"
-    },
-    {
-     "team": "ismail_sutdonduran",
-     "user": "ismail_sutdonduran",
-     "model": "EEGNet-WL1-v1",
-     "score": 53.98,
-     "date": "2026-11-11T13:58"
-    },
-    {
-     "team": "tuxinrui",
-     "user": "tuxinrui",
-     "model": "",
-     "score": 57.01,
-     "date": "2026-11-13T08:57"
-    },
-    {
-     "team": "harshalsshende",
-     "user": "harshalsshende",
-     "model": "",
-     "score": 57.6,
-     "date": "2026-11-15T07:41"
-    },
-    {
-     "team": "azzzeret",
-     "user": "azzzeret",
-     "model": "",
-     "score": 58.74,
-     "date": "2026-11-15T16:10"
-    },
-    {
-     "team": "arnaultcaillet",
-     "user": "arnaultcaillet",
-     "model": "",
-     "score": 58.76,
-     "date": "2026-11-10T11:37"
-    },
-    {
-     "team": "cheesypasta",
-     "user": "cheesypasta",
-     "model": "Farfalle",
-     "score": 74.07,
-     "date": "2026-11-12T10:41"
     },
     {
      "team": "sherdim",
      "user": "sherdim",
      "model": "Green1",
-     "score": 200.34,
+     "score": 201.25,
      "date": "2026-11-11T16:20"
+    },
+    {
+     "team": "cheesypasta",
+     "user": "cheesypasta",
+     "model": "Farfalle",
+     "score": 266.71,
+     "date": "2026-11-12T10:41"
     }
    ],
    "record": [
     {
      "date": "2026-11-10T11:37",
-     "score": 58.76,
+     "score": 50.82,
      "team": "arnaultcaillet"
     },
     {
      "date": "2026-11-10T11:45",
-     "score": 45.21,
+     "score": 40.84,
      "team": "efelez15"
     },
     {
-     "date": "2026-11-10T11:57",
-     "score": 38.13,
-     "team": "bryanyahir03"
+     "date": "2026-11-10T12:46",
+     "score": 37.45,
+     "team": "magnusgp"
+    },
+    {
+     "date": "2026-11-10T12:55",
+     "score": 35.45,
+     "team": "j-at-ch"
     },
     {
      "date": "2026-11-10T20:27",
-     "score": 37.51,
+     "score": 34.75,
      "team": "deep07"
     },
     {
-     "date": "2026-11-11T02:00",
-     "score": 37.08,
-     "team": "yanlinfu"
-    },
-    {
-     "date": "2026-11-14T06:01",
-     "score": 35.61,
-     "team": "KU_MAILAB"
+     "date": "2026-11-13T18:46",
+     "score": 33.99,
+     "team": "bpm"
     },
     {
      "date": "2026-11-14T06:50",
@@ -16162,9 +16645,9 @@
      "team": "Vitalie Cervinschi"
     },
     {
-     "date": "2026-11-14T21:29",
-     "score": 32.75,
-     "team": "ParsaYousefi"
+     "date": "2026-11-15T17:42",
+     "score": 32.63,
+     "team": "Mahir"
     },
     {
      "date": "2026-11-16T04:57",
@@ -16214,6 +16697,20 @@
      "date": "2026-11-16T00:09"
     },
     {
+     "team": "CortixAI",
+     "user": "suliwang",
+     "model": "",
+     "score": 13.93,
+     "date": "2026-11-16T19:49"
+    },
+    {
+     "team": "PretrainMAXxing",
+     "user": "durgamabhilash",
+     "model": "not_diffusion_flow",
+     "score": 13.97,
+     "date": "2026-11-17T06:45"
+    },
+    {
      "team": "Kimo",
      "user": "Kimo",
      "model": "",
@@ -16224,8 +16721,15 @@
      "team": "vittoriaoberto",
      "user": "vittoriaoberto",
      "model": "",
-     "score": 14.12,
-     "date": "2026-11-14T08:25"
+     "score": 14.1,
+     "date": "2026-11-16T23:20"
+    },
+    {
+     "team": "nonconsensus",
+     "user": "nonconsensus",
+     "model": "openemg",
+     "score": 14.11,
+     "date": "2026-11-17T04:26"
     },
     {
      "team": "yufeizhang96",
@@ -16242,13 +16746,6 @@
      "date": "2026-11-15T08:06"
     },
     {
-     "team": "nonconsensus",
-     "user": "nonconsensus",
-     "model": "openemg",
-     "score": 14.17,
-     "date": "2026-11-16T03:09"
-    },
-    {
      "team": "Tekra labs",
      "user": "real_gagandeep",
      "model": "bodhi-sattva",
@@ -16258,23 +16755,23 @@
     {
      "team": "sunsun",
      "user": "sunsun",
-     "model": "myo32",
-     "score": 14.29,
-     "date": "2026-11-15T01:44"
-    },
-    {
-     "team": "CortixAI",
-     "user": "suliwang",
-     "model": "",
-     "score": 14.35,
-     "date": "2026-11-05T16:07"
+     "model": "myo32v2",
+     "score": 14.28,
+     "date": "2026-11-17T10:25"
     },
     {
      "team": "kyalcin",
      "user": "kyalcin",
      "model": "",
+     "score": 14.29,
+     "date": "2026-11-17T00:58"
+    },
+    {
+     "team": "iso_simon",
+     "user": "iso_simon",
+     "model": "iso01",
      "score": 14.37,
-     "date": "2026-11-14T15:28"
+     "date": "2026-11-17T05:52"
     },
     {
      "team": "fuscaldo",
@@ -16289,13 +16786,6 @@
      "model": "emgt-v2-final-ens4",
      "score": 14.41,
      "date": "2026-11-13T22:06"
-    },
-    {
-     "team": "PretrainMAXxing",
-     "user": "durgamabhilash",
-     "model": "",
-     "score": 14.5,
-     "date": "2026-11-12T02:44"
     },
     {
      "team": "jiananli",
@@ -16333,18 +16823,18 @@
      "date": "2026-11-06T12:44"
     },
     {
-     "team": "iso_simon",
-     "user": "iso_simon",
-     "model": "final_jit_top3_1114",
-     "score": 14.62,
-     "date": "2026-11-15T02:05"
-    },
-    {
      "team": "tengjiaoyu",
      "user": "tengjiaoyu",
      "model": "submission1",
      "score": 14.69,
      "date": "2026-11-04T23:16"
+    },
+    {
+     "team": "catzzy",
+     "user": "catzzy",
+     "model": "",
+     "score": 14.77,
+     "date": "2026-11-17T04:17"
     },
     {
      "team": "Rajat",
@@ -16354,18 +16844,18 @@
      "date": "2026-11-15T17:59"
     },
     {
+     "team": "quoc-emotiv",
+     "user": "quoc-emotiv",
+     "model": "",
+     "score": 14.8,
+     "date": "2026-11-17T02:25"
+    },
+    {
      "team": "sudharshan",
      "user": "sudharshan",
      "model": "",
      "score": 14.84,
      "date": "2026-11-15T17:26"
-    },
-    {
-     "team": "quoc-emotiv",
-     "user": "quoc-emotiv",
-     "model": "",
-     "score": 14.85,
-     "date": "2026-11-12T07:33"
     },
     {
      "team": "makoshan",
@@ -16445,6 +16935,13 @@
      "date": "2026-11-14T20:40"
     },
     {
+     "team": "audric",
+     "user": "audric",
+     "model": "",
+     "score": 15.04,
+     "date": "2026-11-17T01:55"
+    },
+    {
      "team": "azzzeret",
      "user": "azzzeret",
      "model": "Mixed ensemble v1",
@@ -16473,6 +16970,13 @@
      "date": "2026-11-14T16:11"
     },
     {
+     "team": "PNPL",
+     "user": "gereon",
+     "model": "",
+     "score": 15.14,
+     "date": "2026-11-17T10:30"
+    },
+    {
      "team": "chenyefei",
      "user": "chenyefei",
      "model": "",
@@ -16485,6 +16989,13 @@
      "model": "",
      "score": 15.18,
      "date": "2026-11-09T09:09"
+    },
+    {
+     "team": "Young",
+     "user": "Young",
+     "model": "",
+     "score": 15.19,
+     "date": "2026-11-17T09:41"
     },
     {
      "team": "jordang1",
@@ -16508,13 +17019,6 @@
      "date": "2026-11-12T20:56"
     },
     {
-     "team": "Young",
-     "user": "Young",
-     "model": "",
-     "score": 15.31,
-     "date": "2026-11-05T13:12"
-    },
-    {
      "team": "ECoGX",
      "user": "deep07",
      "model": "RingF-VEMG",
@@ -16527,13 +17031,6 @@
      "model": "",
      "score": 15.33,
      "date": "2026-11-05T02:38"
-    },
-    {
-     "team": "iso_simon",
-     "user": "iso_simon",
-     "model": "",
-     "score": 15.34,
-     "date": "2026-11-12T04:54"
     },
     {
      "team": "CAUET_DJ1",
@@ -16550,11 +17047,11 @@
      "date": "2026-11-13T09:48"
     },
     {
-     "team": "audric",
-     "user": "audric",
+     "team": "ray666",
+     "user": "ray666",
      "model": "",
-     "score": 15.4,
-     "date": "2026-11-16T09:48"
+     "score": 15.36,
+     "date": "2026-11-17T03:27"
     },
     {
      "team": "perenn1s",
@@ -16606,6 +17103,13 @@
      "date": "2026-11-12T22:12"
     },
     {
+     "team": "liubailiushiliu",
+     "user": "liubailiushiliu",
+     "model": "aixr",
+     "score": 15.5,
+     "date": "2026-11-17T03:16"
+    },
+    {
      "team": "hancan",
      "user": "hancan",
      "model": "",
@@ -16627,8 +17131,8 @@
      "date": "2026-11-09T09:18"
     },
     {
-     "team": "Ethan",
-     "user": "Ethan",
+     "team": "YX",
+     "user": "YX",
      "model": "",
      "score": 15.56,
      "date": "2026-11-08T11:51"
@@ -16662,6 +17166,13 @@
      "date": "2026-11-05T01:05"
     },
     {
+     "team": "merc-s",
+     "user": "merc-s",
+     "model": "",
+     "score": 15.69,
+     "date": "2026-11-17T12:26"
+    },
+    {
      "team": "kwonhyojun",
      "user": "kwonhyojun",
      "model": "EMG2Pose-Ensemble-alldata (amplitude TTA)",
@@ -16681,13 +17192,6 @@
      "model": "",
      "score": 15.72,
      "date": "2026-11-06T19:00"
-    },
-    {
-     "team": "ray666",
-     "user": "ray666",
-     "model": "",
-     "score": 15.73,
-     "date": "2026-11-16T04:10"
     },
     {
      "team": "corvitronics",
@@ -16774,6 +17278,13 @@
      "date": "2026-11-16T08:43"
     },
     {
+     "team": "jiawei_liao_west_chian_2024",
+     "user": "jiawei_liao_west_chian_2024",
+     "model": "",
+     "score": 15.94,
+     "date": "2026-11-17T05:26"
+    },
+    {
      "team": "Infocusp Innovations",
      "user": "dhruvdarda",
      "model": "test",
@@ -16802,6 +17313,13 @@
      "date": "2026-11-11T03:06"
     },
     {
+     "team": "susupro",
+     "user": "susupro",
+     "model": "",
+     "score": 16.03,
+     "date": "2026-11-16T23:26"
+    },
+    {
      "team": "syehsyoh",
      "user": "syehsyoh",
      "model": "final_rw",
@@ -16823,13 +17341,6 @@
      "date": "2026-11-12T15:37"
     },
     {
-     "team": "jiawei_liao_west_chian_2024",
-     "user": "jiawei_liao_west_chian_2024",
-     "model": "",
-     "score": 16.07,
-     "date": "2026-11-10T17:05"
-    },
-    {
      "team": "fthecatrock",
      "user": "fthecatrock",
      "model": "Bi2_VEMG",
@@ -16837,18 +17348,18 @@
      "date": "2026-11-05T21:40"
     },
     {
-     "team": "susupro",
-     "user": "susupro",
-     "model": "EMG-Manifold-Kinematics",
-     "score": 16.17,
-     "date": "2026-11-07T08:29"
-    },
-    {
      "team": "thecapybara",
      "user": "thecapybara",
      "model": "",
      "score": 16.18,
      "date": "2026-11-10T08:33"
+    },
+    {
+     "team": "sisfuse",
+     "user": "sisfuse",
+     "model": "track4-diverse-opt-20261116.zip",
+     "score": 16.21,
+     "date": "2026-11-16T16:23"
     },
     {
      "team": "xu_007",
@@ -16900,6 +17411,13 @@
      "date": "2026-11-06T06:58"
     },
     {
+     "team": "vincentkoc",
+     "user": "vincentkoc",
+     "model": "ema9-fingervision",
+     "score": 16.43,
+     "date": "2026-11-17T13:41"
+    },
+    {
      "team": "braininahat",
      "user": "braininahat",
      "model": "",
@@ -16940,13 +17458,6 @@
      "model": "",
      "score": 16.52,
      "date": "2026-11-11T13:24"
-    },
-    {
-     "team": "vincentkoc",
-     "user": "vincentkoc",
-     "model": "fit64-fingervision",
-     "score": 16.57,
-     "date": "2026-11-16T04:26"
     },
     {
      "team": "ttt5600",
@@ -17012,13 +17523,6 @@
      "date": "2026-11-12T00:09"
     },
     {
-     "team": "sisfuse",
-     "user": "sisfuse",
-     "model": "/F:/\u9879\u76ee/11.15/\u808c\u7535\u56fe\u59ff\u52bf\uff1a4/artifacts/track4-20261115.zip",
-     "score": 16.82,
-     "date": "2026-11-15T15:30"
-    },
-    {
      "team": "zju-xgx",
      "user": "zju-xgx",
      "model": "",
@@ -17038,13 +17542,6 @@
      "model": "",
      "score": 17.02,
      "date": "2026-11-13T13:13"
-    },
-    {
-     "team": "liubailiushiliu",
-     "user": "liubailiushiliu",
-     "model": "aiwb",
-     "score": 17.04,
-     "date": "2026-11-05T13:38"
     },
     {
      "team": "saheed",
@@ -17150,6 +17647,13 @@
      "model": "NI26-custom-b01fe070",
      "score": 22.02,
      "date": "2026-11-06T09:39"
+    },
+    {
+     "team": "shadowraze",
+     "user": "shadowraze",
+     "model": "",
+     "score": 22.37,
+     "date": "2026-11-16T19:00"
     }
    ],
    "record": [
