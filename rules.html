@@ -160,12 +160,13 @@
         </details>
 
         <details class="vb-rule" id="rule-compute">
-          <summary><h3>Training compute is uncapped. Evaluation is limited to 60 minutes on one GPU. Submission size is capped.</h3></summary>
+          <summary><h3>Training compute is uncapped. Evaluation uses track-specific GPU limits. Submission size is capped.</h3></summary>
           <div class="vb-rule-body">
-            <p>Train on whatever you have. The evaluation container must complete its test pass within 60 minutes on one A100 GPU. Evaluations that exceed this execution limit time out. Track 01 sealed evaluations run on RTX PRO 4500 GPUs, which are slower than an A100, so their limit is 2 hours.</p>
+            <p>Train on whatever you have. Sealed evaluations run on one NVIDIA RTX PRO 4500 GPU. The configured execution budget is <strong>120 minutes for Track 01</strong> and <strong>60 minutes for Tracks 02–04</strong>. Evaluations that exceed their execution limit time out.</p>
+            <p>The overall worker-task timeout is 20 minutes longer, so a timed-out attempt may remain <code>Running</code> until 140 minutes in Track 01 or 80 minutes in Tracks 02–04. This does not increase the configured execution budget. Queueing time is separate. Please leave queued or running submissions intact for automatic monitoring and recovery.</p>
             <p>Codabench also limits each profile to 15 GB of submission storage shared across all tracks and uploads. This makes 15 GB the theoretical maximum for one submission, but your practical limit is the space remaining in your profile. If needed, delete unused archived submissions under <strong>Profile → Resources</strong>. A submission displayed on a leaderboard cannot be deleted.</p>
             <div class="vb-rule-facts">
-              <div><span class="bs-kicker">Evaluation limit</span><strong>60 min · one A100</strong></div>
+              <div><span class="bs-kicker">Configured evaluation limit</span><strong>Track 01: 120 min · Tracks 02–04: 60 min</strong></div>
               <div><span class="bs-kicker">Submission storage</span><strong>15 GB · per profile</strong></div>
               <div><span class="bs-kicker">Training</span><strong>No cap</strong></div>
               <div><span class="bs-kicker">Audit hardware</span><strong>Codabench container</strong></div>

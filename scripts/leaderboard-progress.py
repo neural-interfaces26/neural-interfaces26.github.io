@@ -6,7 +6,7 @@ leaderboard.html (between <!-- lb:auto --> markers), and exports
 exports/leaderboard/{leaderboard.csv,progress.png,progress.svg}.
 Mirrors eeg2025.github.io (get_leaderboard.py + build_leaderboard_html.py), one file.
 """
-import csv, html, json, math, re, time, urllib.error, urllib.request
+import csv, html, json, math, os, re, time, urllib.error, urllib.request
 from functools import cache
 from datetime import datetime, timezone
 from pathlib import Path
@@ -48,21 +48,47 @@ PAGE = Path("leaderboard.html")
 TABLE_ROWS = 10  # ponytail: top 10 on the site, the rest via the Codabench link
 
 
+class NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, *args, **kwargs):
+        # An authentication token must never follow a redirect to another host.
+        return None
+
+
+OPENER = urllib.request.build_opener(NoRedirect())
+
+
 @cache
 def get(path):
+    headers = {"User-Agent": "NeuralInterfaces2026Leaderboard/1.0", "Accept": "application/json"}
+    token = os.environ.get("CODABENCH_TOKEN", "").strip()
+    if token:
+        headers["Authorization"] = "Token " + token
     request = urllib.request.Request(
         API + path,
-        headers={"User-Agent": "NeuralInterfaces2026Leaderboard/1.0"},
+        headers=headers,
     )
     for attempt, delay in enumerate((0, 1, 2, 4)):
         if delay:
             time.sleep(delay)
         try:
-            with urllib.request.urlopen(request, timeout=30) as response:
-                return json.load(response)
+            with OPENER.open(request, timeout=30) as response:
+                if "json" not in response.headers.get("Content-Type", "").lower():
+                    raise ValueError("Codabench returned a non-JSON response, possibly an Anubis challenge")
+                payload = json.load(response)
+                if not isinstance(payload, dict):
+                    raise ValueError("Codabench returned an unexpected JSON response")
+                return payload
         except urllib.error.HTTPError as error:
-            if attempt == 3 or error.code not in {500, 502, 503, 504}:
-                raise
+            if error.code not in {429, 500, 502, 503, 504}:
+                raise RuntimeError(f"Codabench request failed with HTTP {error.code}") from error
+        except (urllib.error.URLError, TimeoutError, ValueError):
+            pass
+        if attempt == 3:
+            raise RuntimeError(
+                "Codabench JSON API is unavailable after four attempts. "
+                "Existing leaderboard files have not been refreshed. "
+                "Check CODABENCH_TOKEN if requests receive an Anubis challenge."
+            )
 
 
 def fetch(comp, phase, metric_key):

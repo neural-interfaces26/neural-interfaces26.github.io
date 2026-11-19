@@ -16,14 +16,15 @@ from zoneinfo import ZoneInfo
 
 
 ROOT = Path(__file__).resolve().parents[1]
-COMPETITION = ROOT.parent / "2026-competition"
+PUBLIC_COMPETITION = ROOT.parent / "2026-competition-public"
+COMPETITION = PUBLIC_COMPETITION if PUBLIC_COMPETITION.is_dir() else ROOT.parent / "2026-competition"
 UTC = timezone.utc
 PARIS = ZoneInfo("Europe/Paris")
 WARMUP_END = datetime(2026, 11, 1, 23, 59, 59, tzinfo=PARIS)
 TRANSITION_START = datetime(2026, 11, 2, 0, 1, tzinfo=PARIS)
 TRANSITION_END = datetime(2026, 11, 4, 23, 59, 59, tzinfo=PARIS)
 FINAL_START = datetime(2026, 11, 5, 0, 1, tzinfo=PARIS)
-FINAL_END = datetime(2026, 11, 21, 23, 59, 59, tzinfo=PARIS)
+FINAL_END = datetime(2026, 11, 21, 23, 59, 0, tzinfo=PARIS)
 
 
 class TimelineParser(HTMLParser):
@@ -56,7 +57,8 @@ def phase_fields(source):
         raise AssertionError("Missing phases/leaderboards section")
     phases = []
     for block in re.split(r"(?m)^  - index:", section[1])[1:]:
-        fields = dict(re.findall(r"(?m)^    ([a-z_]+): ([^\n]+)$", block))
+        fields = {key: value.split(" #", 1)[0].strip()
+                  for key, value in re.findall(r"(?m)^    ([a-z_]+): ([^\n]+)$", block)}
         if not {"name", "start", "end"}.issubset(fields):
             raise AssertionError("Unexpected phase field layout")
         phases.append(fields)
@@ -114,11 +116,12 @@ class CalendarChecks(unittest.TestCase):
 
     def test_final_keeps_the_published_deadline_and_seventeen_calendar_days(self):
         final_end_utc = FINAL_END.astimezone(UTC)
-        self.assertEqual(final_end_utc.isoformat(), "2026-11-21T22:59:59+00:00")
+        self.assertEqual(final_end_utc.isoformat(), "2026-11-21T22:59:00+00:00")
         self.assertEqual(
-            FINAL_END + timedelta(seconds=1) - FINAL_START,
-            timedelta(days=17, minutes=-1),
+            FINAL_END - FINAL_START,
+            timedelta(days=17, minutes=-2),
         )
+        self.assertEqual((FINAL_END.date() - FINAL_START.date()).days + 1, 17)
 
     def test_weekdays_and_pause_labels_match_the_requested_dates(self):
         self.assertEqual(WARMUP_END.weekday(), 6)  # Sunday
@@ -177,10 +180,10 @@ class CalendarChecks(unittest.TestCase):
                 self.assertEqual(final["end"], expected["final_end"])
                 self.assertEqual(warmup["max_submissions_per_day"], "5")
                 self.assertEqual(warmup["max_submissions"], "100")
-                self.assertEqual(final["max_submissions_per_day"], "1")
-                self.assertEqual(final["max_submissions"], "7" if track == "bci" else "5")
+                self.assertEqual(final["max_submissions_per_day"], "3" if track == "sleep" else "1")
+                self.assertEqual(final["max_submissions"], {"bci": "7", "sleep": "12"}.get(track, "5"))
                 self.assertEqual(warmup["execution_time_limit"], "3600")
-                self.assertEqual(final["execution_time_limit"], "3600")
+                self.assertEqual(final["execution_time_limit"], "7200" if track == "image" else "3600")
                 for name in ("hide_output", "hide_prediction_output", "hide_score_output"):
                     self.assertEqual(final[name], "True", name)
                 boards = source.split("\nleaderboards:", 1)[1]
@@ -289,7 +292,7 @@ class CalendarChecks(unittest.TestCase):
             "What counts as a submission in my quota?",
             "Which submission appears on the leaderboard and counts for the final ranking?",
             "blind trial-and-error optimization",
-            "within 60 minutes",
+            "configured execution budget",
         ):
             self.assertIn(phrase, rules)
         self.assertNotIn("faq-underfill", rules)
@@ -322,6 +325,26 @@ class CalendarChecks(unittest.TestCase):
             guide = (pages / "participate.md").read_text()
             self.assertNotIn("During `load_model` and `predict`, do not train", guide)
             self.assertIn("Label-free test-time adaptation is allowed only as specified", guide)
+
+    def test_track3_updated_quotas_match_in_shared_policy_pages(self):
+        sources = [(ROOT / "rules.html").read_text()]
+        if COMPETITION.is_dir():
+            sources.extend((COMPETITION / "codabench/pages" / name).read_text()
+                           for name in ("terms.md", "timeline.md"))
+        for source in sources:
+            self.assertIn("12 in Track 03", source)
+            self.assertIn("3 per day in Track 03", source)
+            self.assertNotIn("7 submissions total in Tracks 02 and 03", source)
+
+    def test_runtime_copy_distinguishes_execution_and_worker_timeouts(self):
+        sources = [(ROOT / "rules.html").read_text()]
+        if COMPETITION.is_dir():
+            sources.append((COMPETITION / "codabench/pages/terms.md").read_text())
+        for source in sources:
+            for phrase in ("RTX PRO 4500", "120 minutes for Track 01", "60 minutes for Tracks 02–04",
+                           "140 minutes in Track 01", "80 minutes in Tracks 02–04", "Queueing time is separate"):
+                self.assertIn(phrase, source)
+            self.assertNotIn("within 60 minutes on one A100", source)
 
     def test_no_stale_operational_limits_or_preview_links_in_public_copy(self):
         sources = list(ROOT.glob("*.html"))

@@ -3,3 +3,10 @@
 *.part
 *.psb
 *.psd
+
+# Local credentials must never be included in this public website repository.
+.env
+.env.*
+!.env.example
+!.env.sample
+__pycache__/

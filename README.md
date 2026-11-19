@@ -37,6 +37,21 @@ python3 scripts/calendar-check.py
 
 Use `--competition-repo /path/to/2026-competition` for another checkout.
 
+## Refresh the website leaderboard
+
+Run `python3 scripts/leaderboard-progress.py` from the repository root. The
+updater retries transient HTTP and non-JSON responses and fetches every phase
+before replacing the saved results. An unsuccessful fetch leaves the previous
+leaderboard snapshot in place. Run the offline fetch regression checks with
+`python3 scripts/leaderboard-check.py`.
+
+If authentication is needed, supply `CODABENCH_TOKEN` through the environment
+or the repository Actions secret of the same name. Use a dedicated ordinary
+Codabench account without organizer privileges. Do not reuse the production
+organizer or watchdog token. The workflow contains only a secret reference.
+Never put the value in a tracked file or browser-side JavaScript. The secret
+is available only to the server-side updater step.
+
 Pushing `main` to GitHub can publish the site, so preview the exact committed version before pushing:
 
 ```bash

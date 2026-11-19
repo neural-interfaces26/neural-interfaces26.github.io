@@ -142,7 +142,7 @@
       <span class="prepare-step-number" aria-hidden="true">02</span>
       <div>
         <h2 id="guides-heading">Baselines.</h2>
-        <p>Sealed references for Tracks 01, 02 and 04 use Braindecode 2.0.0 models trained from scratch on the public training data specified for each track for <strong>50 epochs, with seed 42 and batch size 64</strong>, using Adam. The checkpoints were evaluated directly on the competition’s sealed sets, following the competition preprocessing contract. Track 03 uses the validation-selected training recipe described in its results below.</p>
+        <p>Sealed references for Tracks 01, 02 and 04 use Braindecode 2.0.0 models trained from scratch on the public training data specified for each track for <strong>50 epochs, with seed 42 and batch size 64</strong>, using Adam. The checkpoints were evaluated directly on the competition’s sealed sets, following the competition preprocessing contract. Track 03 uses the validation-selected training recipe described below. Its scores are historical references from before the November 16 evaluation update.</p>
       </div>
     </div>
 
@@ -334,12 +334,13 @@
           <details class="prepare-track-disclosure prepare-track-disclosure--results" id="sealed-baseline-track-3">
             <summary>
               <span class="prepare-disclosure-mark" aria-hidden="true">FINAL</span>
-              <span class="prepare-disclosure-copy"><small>Hidden Muse evaluation · validation-selected models</small><strong>Sealed baseline results</strong></span>
+              <span class="prepare-disclosure-copy"><small>Muse evaluation before November 16 · validation-selected models</small><strong>Historical sealed baseline results</strong></span>
               <span class="prepare-disclosure-action" aria-hidden="true"><span class="prepare-disclosure-open">Open</span><span class="prepare-disclosure-close">Close</span><i></i></span>
             </summary>
             <div class="prepare-track-disclosure-body">
-              <p class="prepare-track-dataset"><strong>Trained on public Muse Sleep-Onset EEG, evaluated on the private Muse cohort.</strong> These models use a training loss weighted toward sleep onset, per-window normalization and checkpoint selection on the public validation split. These are model-level training choices. The competition input preprocessing is unchanged.</p>
-              <div class="prepare-track-table prepare-track-table--sealed" role="table" aria-label="Track 03 sealed baseline results">
+              <p class="prepare-track-dataset"><strong>Trained on public Muse Sleep-Onset EEG, evaluated on the private Muse cohort before the November 16 update.</strong> These models use a training loss weighted toward sleep onset, per-window normalization and checkpoint selection on the public validation split. These are model-level training choices.</p>
+              <p class="prepare-track-reference"><strong>Historical reference:</strong> the scores below have not been revalidated on the current sealed set following the <a href="https://github.com/neural-interfaces26/2026-competition/blob/main/codabench/pages/scientific_faq_sleep.md#what-changed-on-november-16" target="_blank" rel="noreferrer noopener">November 16 evaluation update</a>.</p>
+              <div class="prepare-track-table prepare-track-table--sealed" role="table" aria-label="Track 03 historical sealed baseline results">
                 <div class="prepare-track-table-row head" role="row"><span role="columnheader">Model</span><span role="columnheader">Macro W-bMAE (s) ↓</span><span role="columnheader">Reference</span></div>
                 <div class="prepare-track-table-row" role="row"><span role="cell"><strong>EEGNet</strong></span><span role="cell"><strong>54.40 s</strong></span><span role="cell">Compact CNN baseline</span></div>
                 <div class="prepare-track-table-row" role="row"><span role="cell"><strong>SleepStagerChambon2018</strong></span><span role="cell"><strong>50.98 s</strong></span><span role="cell">Strongest completed Track 03 run in the reference sweep</span></div>

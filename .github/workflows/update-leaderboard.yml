@@ -17,10 +17,14 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install matplotlib
+      - name: Check leaderboard fetch safeguards
+        run: python3 scripts/leaderboard-check.py
       - run: python3 scripts/leaderboard-progress.py
+        env:
+          CODABENCH_TOKEN: ${{ secrets.CODABENCH_TOKEN }}
       - name: Commit if changed
         run: |
-          git add leaderboard.html assets/data/leaderboard.json exports/leaderboard/leaderboard.csv exports/leaderboard/progress.svg
+          git add leaderboard.html assets/data/leaderboard.json exports/leaderboard/leaderboard.csv exports/leaderboard/progress.svg exports/leaderboard/progress.png
           if git diff --cached --quiet; then echo "No changes."; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
