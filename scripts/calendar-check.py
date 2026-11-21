@@ -85,11 +85,13 @@ class CalendarChecks(unittest.TestCase):
             self.assertEqual(actual, expected, key)
             self.assertEqual(actual.utcoffset(), expected.utcoffset(), key)
 
-    def test_green_banner_announces_sealed_after_warmup(self):
+    def test_green_banner_announces_closure_and_the_audit(self):
         self.assertIsNotNone(self.parsed.banner)
         self.assertIn("is-open", self.parsed.banner["class"].split())
         self.assertIn("Warm-up complete", self.home)
-        self.assertIn("Warm-up has ended", self.parsed.banner["aria-label"])
+        self.assertIn("Sealed submissions closed", self.parsed.banner["aria-label"])
+        self.assertEqual(self.parsed.timeline["data-phase"], "closed")
+        self.assertIn("Results and audit", self.home)
         self.assertIn("Saturday, November 21 at 23:59", self.parsed.banner["aria-label"])
         self.assertIn("Registration closed for all four tracks", self.parsed.banner["aria-label"])
         self.assertIn("CET (UTC+01:00)", self.parsed.banner["aria-label"])
@@ -196,7 +198,7 @@ class CalendarChecks(unittest.TestCase):
         pages = COMPETITION / "codabench" / "pages"
         timeline = (pages / "timeline.md").read_text()
         for phrase in (
-            "Warm-up has ended",
+            "sealed submissions closed",
             "Thursday, November 5 at 00:01",
             "Saturday, November 21 at 23:59",
             "Europe/Paris",
@@ -249,7 +251,7 @@ class CalendarChecks(unittest.TestCase):
         for phrase in (
             "5 submissions per participant per day per track",
             "100 submissions total per participant per track",
-            "1 submission per team per day per track",
+            "Daily limits were raised to match these totals",
             "5 submissions total per team per track",
         ):
             self.assertIn(phrase, rules)
@@ -260,35 +262,33 @@ class CalendarChecks(unittest.TestCase):
             self.assertIn("cannot be deleted", source, filename)
         board = (ROOT / "leaderboard.html").read_text()
         self.assertNotIn("Warm-up: 10/day", board)
-        self.assertIn("Sealed: 1/day, 5 total", board)
+        self.assertIn("Closed · all four tracks", board)
         if not COMPETITION.is_dir():
             self.skipTest("Sibling competition checkout not found; pass --competition-repo")
         pages = COMPETITION / "codabench" / "pages"
         for filename in ("terms.md", "timeline.md"):
             source = (pages / filename).read_text()
             self.assertIn("5 submissions total per team per track", source, filename)
-            self.assertIn("1 submission per team per day per track", source, filename)
+            self.assertIn("Daily limits were raised to match these totals", source, filename)
             self.assertIn("best eligible sealed score", source, filename)
 
     def test_sealed_feedback_is_explained_without_exposing_files(self):
         rules = (ROOT / "rules.html").read_text()
         self.assertIn("scores remain visible", rules)
         self.assertIn("hidden", rules)
-        guide = (ROOT / "participant-guide.html").read_text()
-        self.assertIn('href="rules.html#faq-sealed-feedback"', guide)
         if not COMPETITION.is_dir():
             self.skipTest("Sibling competition checkout not found; pass --competition-repo")
         pages = COMPETITION / "codabench" / "pages"
         for filename in ("terms.md", "timeline.md"):
             source = (pages / filename).read_text()
-            self.assertIn("scores remain visible", source, filename)
+            self.assertRegex(source, r"scores(?: and statuses)? remain visible", filename)
             self.assertIn("scoring-step output", source, filename)
             self.assertIn("hidden", source, filename)
 
     def test_rules_are_split_and_obsolete_home_note_is_removed(self):
         rules = (ROOT / "rules.html").read_text()
         for phrase in (
-            "How many submissions can I make?",
+            "Submissions closed. What were the phase limits?",
             "What counts as a submission in my quota?",
             "Which submission appears on the leaderboard and counts for the final ranking?",
             "blind trial-and-error optimization",
@@ -333,7 +333,7 @@ class CalendarChecks(unittest.TestCase):
                            for name in ("terms.md", "timeline.md"))
         for source in sources:
             self.assertIn("12 in Track 03", source)
-            self.assertIn("3 per day in Track 03", source)
+            self.assertIn("Daily limits were raised to match these totals", source)
             self.assertNotIn("7 submissions total in Tracks 02 and 03", source)
 
     def test_runtime_copy_distinguishes_execution_and_worker_timeouts(self):

@@ -287,9 +287,9 @@
       } else if (now >= dates.ceremonyStart) {
         progress = interpolate(now, dates.ceremonyStart, dates.ceremonyEnd, positions[3], positions[4]);
         status = 'Winners’ ceremony';
-      } else if (now >= dates.finalEnd) {
+      } else if (root.dataset.phase === 'closed' || now >= dates.finalEnd) {
         progress = positions[3];
-        status = 'Final evaluation';
+        status = 'Results and audit';
       } else if (now >= dates.finalStart) {
         progress = interpolate(now, dates.finalStart, dates.finalEnd, positions[2], positions[3]);
         status = 'Sealed final now';

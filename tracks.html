@@ -64,15 +64,15 @@
   </button>
   <nav class="site-menu" id="site-menu" aria-label="Primary navigation">
     <a href="index.html">Home</a>
+    <a href="leaderboard.html">Leaderboard</a>
     <a href="tracks.html" aria-current="page">Tracks &amp; Data</a>
     <a href="participant-guide.html">Participant guide</a>
     <a href="prizes.html">Prizes</a>
-    <a href="leaderboard.html">Leaderboard</a>
     <a href="rules.html">Rules</a>
     <a href="organizers.html">Organizers</a>
     <a href="ecosystem.html">Ecosystem</a>
     <a href="https://discord.gg/yZv8KqKMpH" target="_blank" rel="noreferrer noopener">Discord ↗</a>
-    <a class="bs-btn primary sm" href="register.html">Registration closed</a>
+    <a class="bs-btn primary sm" href="register.html" aria-label="Registration and submissions closed" title="Registration and submissions closed">Closed</a>
   </nav>
 </header>
 
@@ -91,7 +91,7 @@
       </div>
       <aside class="tracks-warmup-notice" aria-labelledby="tracks-warmup-heading">
         <strong class="tracks-warmup-notice-label" id="tracks-warmup-heading"><i aria-hidden="true"></i>Sealed evaluation · November 5–21</strong>
-        <p>Sealed evaluation uses hidden datasets, with a final deadline of November 21 at 23:59 CET (UTC+01:00). Public datasets remain available for training and local checks.</p>
+        <p>Sealed submissions are closed. Thank you to everyone who took part! The scientific tasks, public datasets and evaluation protocols remain available below for reference and reproducibility.</p>
       </aside>
     </div>
   </section>
@@ -158,7 +158,7 @@
         <p>Visual decoding is most useful when it recognizes novel content rather than a fixed catalogue learned during training. Given a single EEG epoch recorded during natural-image viewing, identify the viewed image by ranking held-out candidates in a frozen DINOv2 embedding space. The sealed final uses participants and images absent from the public development data, testing cross-subject and cross-stimulus transfer. Research-grade and consumer-grade datasets add source and hardware variability while keeping the task anchored to time-locked visual responses.<span class="track-data-meta"><span class="track-metric"><strong>Metric:</strong> Top-5 retrieval accuracy against the held-out candidate set, with higher scores indicating better performance.</span><span class="track-data-summary"><strong>Sealed evaluation:</strong> private 2026 Alljoined cohort</span></span></p>
         <aside class="track-contract-alert" role="note" aria-labelledby="track-1-montage-heading">
           <strong id="track-1-montage-heading">Sealed phase · prepare for 32-channel input</strong>
-          <p>THINGS-EEG2 has 63 channels. Sealed evaluation uses the 32-channel Emotiv montage of public <a href="https://nemar.org/dataset/nm000134" target="_blank" rel="noreferrer noopener">Alljoined-1.6M</a>. Validate your model on that montage before submitting. Fixed 63-channel checkpoints need training or adaptation for this input. See the <a href="https://github.com/neural-interfaces26/2026-competition/blob/main/codabench/pages/scientific_faq_image.md" target="_blank" rel="noreferrer noopener">Track 01 Scientific FAQ</a>.</p>
+          <p>THINGS-EEG2 has 63 channels. Sealed evaluation uses the 32-channel Emotiv montage of public <a href="https://nemar.org/dataset/nm000134" target="_blank" rel="noreferrer noopener">Alljoined-1.6M</a>. Use that montage when reproducing or auditing a submitted model. Fixed 63-channel checkpoints need training or adaptation for this input. See the <a href="https://github.com/neural-interfaces26/2026-competition/blob/main/codabench/pages/scientific_faq_image.md" target="_blank" rel="noreferrer noopener">Track 01 Scientific FAQ</a>.</p>
         </aside>
         <div class="track-guide-buttons">
           <a class="track-guide-button" href="https://github.com/neural-interfaces26/2026-competition/tree/main/tracks/image_decoding" target="_blank" rel="noreferrer noopener">Open competition starting kit ↗</a>
@@ -656,10 +656,10 @@
 
   <section class="register-panel campaign-section" aria-labelledby="tracks-cta-heading">
     <div class="reveal">
-      <h2 id="tracks-cta-heading">Ready to train and submit your model?</h2>
-      <p>Develop in NeuralBench for its neuro-specific model-evaluation environment, in Benchopt for direct integration with the competition <code>Solver</code>, or in your own permitted pipeline. Every route ends with the same Codabench submission contract. For sealed evaluation details, read the Track description on Codabench. For the submission contract and uploads, use Get Started → Submission Guide and My Submissions. Original dataset licenses and competition rules remain in force.</p>
+      <h2 id="tracks-cta-heading">Thank you for taking on the challenge.</h2>
+      <p>Submissions are closed. Public datasets, NeuralBench start kits and Benchopt replay workflows remain available for research and local reproduction. Winners will be celebrated at the Brain and Body Workshop at NeurIPS 2026 in Sydney on December 11–12.</p>
       <div class="bs-hero-cta">
-        <a class="bs-btn primary" href="register.html#enter">Registration closed</a>
+        <a class="bs-btn primary" href="leaderboard.html">View results</a>
         <a class="bs-btn ghost" href="participant-guide.html">Open the participant guide</a>
         <a class="bs-btn ghost" href="rules.html">Read the rules</a>
       </div>
@@ -687,7 +687,7 @@
   </div>
 </footer>
 
-<script src="assets/js/ui.js?v=20260910copy" defer></script>
+<script src="assets/js/ui.js?v=20261121closed" defer></script>
 
 <script src="assets/js/track-figures.js?v=20260910" defer></script>
 </body>
