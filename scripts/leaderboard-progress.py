@@ -309,7 +309,7 @@ def table_html(i, t, phase_name):
         delta = abs(r["score"] - lead)
         fmt = lambda v: f"{v:.{t['prec']}f}"
         trs.append(
-            f'<tr><th scope="row">{rank}</th><td>{e(r["team"])}</td><td>{e(r["model"]) or "Not provided"}</td>'
+            f'<tr><th scope="row">{rank}</th><td>{e(r["team"])}</td>'
             f'<td>{fmt(r["score"])}</td><td>{"Leader" if rank == 1 else fmt(delta)}</td>'
             f'<td>{r["date"]:%b %d}</td></tr>'
         )
@@ -319,7 +319,7 @@ def table_html(i, t, phase_name):
             if phase_name == "Sealed Final Phase"
             else "No archived scores available."
         )
-        trs.append(f'<tr><td colspan="6">{e(message)}</td></tr>')
+        trs.append(f'<tr><td colspan="5">{e(message)}</td></tr>')
     summary = (
         f"Top {min(TABLE_ROWS, len(ranked))} of {len(ranked)} ranked entries. "
         if ranked
@@ -332,7 +332,7 @@ def table_html(i, t, phase_name):
         f"          <caption>Track {i} · {e(phase_name)}. {summary}"
         f'<a href="https://www.codabench.org/competitions/{t["comp"]}/#/results-tab" '
         f'target="_blank" rel="noreferrer noopener">Full board on Codabench ↗</a></caption>\n'
-        f'          <thead><tr><th scope="col">Rank</th><th scope="col">Participant / organization</th><th scope="col">Model</th>'
+        f'          <thead><tr><th scope="col">Rank</th><th scope="col">Participant / organization</th>'
         f'<th scope="col">{e(t["label"])}</th><th scope="col">Gap to leader</th><th scope="col">Submitted</th></tr></thead>\n'
         f'          <tbody>{"".join(trs)}</tbody>\n        </table>\n      </div>'
     )

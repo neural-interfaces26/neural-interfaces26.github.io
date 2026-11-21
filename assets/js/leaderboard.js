@@ -73,13 +73,13 @@
     caption.appendChild(link);
 
     var headers = table.querySelectorAll("thead th");
-    if (headers[3]) headers[3].textContent = track.label;
+    if (headers[2]) headers[2].textContent = track.label;
     var body = table.querySelector("tbody");
     body.replaceChildren();
     if (!rows.length) {
       var empty = document.createElement("tr");
       var message = document.createElement("td");
-      message.colSpan = 6;
+      message.colSpan = 5;
       message.textContent =
         phaseName === "Sealed Final Phase"
           ? "Sealed submissions are closed. On-time evaluations may still be processing. No published scores yet."
@@ -91,7 +91,6 @@
       var row = document.createElement("tr");
       appendCell(row, "th", String(index + 1), "row");
       appendCell(row, "td", entry.team);
-      appendCell(row, "td", entry.model || "Not provided");
       appendCell(row, "td", score(entry.score, track.prec));
       appendCell(
         row,
